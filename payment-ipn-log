@@ -1,0 +1,155 @@
+DateTime:2021-10-18 09:54:23 Responce-Data:mc_gross=0.23&protection_eligibility=Eligible&address_status=confirmed&payer_id=W8SG9JMERNDDC&address_street=9166+Rue+Lajeunesse&payment_date=21%3A24%3A12+Oct+17%2C+2021+PDT&payment_status=Completed&charset=windows-1252&address_zip=H2M+1S2&first_name=Mehdi&mc_fee=0.23&address_country_code=CA&address_name=Mehdi+Afzali&notify_version=3.9&custom=&payer_status=unverified&business=zaarcan%40gmail.com&address_country=Canada&address_city=Montr%E9al&quantity=1&verify_sign=AJ9Z-.g5ORfAwOOggsKlTt58e4oeA4bqGEQIl86qOdBTyT9UB4VstA2Q&payer_email=mastekuh%40gmail.com&txn_id=7X458636MX867982X&payment_type=instant&last_name=Afzali&address_state=QC&receiver_email=zaarcan%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=HQF5PN6GT2KWL&txn_type=web_accept&item_name=&discount=0.00&mc_currency=CAD&item_number=386&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f146139efdf94 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:386
+DateTime:2021-10-21 08:26:31 Responce-Data:mc_gross=133.72&protection_eligibility=Eligible&address_status=confirmed&payer_id=W4CNUQNPR3X9Y&address_street=9+Place+du+commerce+%23T&payment_date=19%3A56%3A22+Oct+20%2C+2021+PDT&payment_status=Completed&charset=windows-1252&address_zip=J4W2V6&first_name=Fabien&mc_fee=4.18&address_country_code=CA&address_name=XiTrade+inc&notify_version=3.9&custom=&payer_status=verified&business=zaarcan%40gmail.com&address_country=Canada&address_city=Brossard&quantity=1&verify_sign=AoHFC-9zjdPh36HLvoHhi5X3ybNkADAgaOzv.P3Gi6S57FRVv1IG3CK5&payer_email=billing%40xitrade.com&txn_id=8DU93571EF830241T&payment_type=instant&payer_business_name=XiTrade+inc&last_name=Dormoy&address_state=QC&receiver_email=zaarcan%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=HQF5PN6GT2KWL&txn_type=web_accept&item_name=Pictorem+PostCard+5x7&discount=0.00&mc_currency=CAD&item_number=388&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=a63b4d174981e The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:388
+ store_id:3
+ DateTime:2021-10-25 07:37:49 Responce-Data:mc_gross=50.35&protection_eligibility=Eligible&address_status=confirmed&payer_id=ZKRK8PQQYNQJE&address_street=2311+Rue+Trudeau%2C+appartement+11&payment_date=19%3A07%3A39+Oct+24%2C+2021+PDT&payment_status=Completed&charset=windows-1252&address_zip=G1P+3J9&first_name=Florane&mc_fee=1.76&address_country_code=CA&address_name=Florane+Lampron&notify_version=3.9&custom=&payer_status=unverified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Qu%E9bec&quantity=1&verify_sign=A77V7WdPtuVw5wNNq8T-EcSdi1rtAYKMeflwpdXAoZ5BJs7JaAo8tzJD&payer_email=floranelampron86%40live.ca&txn_id=9EF84593RJ372502R&payment_type=instant&last_name=Lampron&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=&discount=0.00&mc_currency=CAD&item_number=391&residence_country=CA&receipt_id=2068-2405-3047-1710&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f722936870f5e The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:391
+ store_id:1
+ DateTime:2021-10-26 00:06:32 Responce-Data:mc_gross=54.53&protection_eligibility=Eligible&address_status=confirmed&payer_id=DWQQMCJC2GE54&address_street=115+Bergen+Road+Northwest%0D%0AUnit+10&payment_date=11%3A36%3A23+Oct+25%2C+2021+PDT&payment_status=Completed&charset=windows-1252&address_zip=T3K+1P2&first_name=Heather&mc_fee=1.88&address_country_code=CA&address_name=Heather+Kipp&notify_version=3.9&custom=&payer_status=verified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Calgary&quantity=1&verify_sign=ALXOWkcpFO5-3nUMbCFthgOoG03iAYBE-Lxqz8Ap4Xe-isY3.yccBb2A&payer_email=sweet-pea1975%40live.com&txn_id=7CD214925C695725N&payment_type=instant&last_name=Kipp&address_state=AB&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=&discount=0.00&mc_currency=CAD&item_number=392&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f638861261ac2 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:392
+ store_id:1
+ DateTime:2021-10-26 06:12:57 Responce-Data:mc_gross=11.50&protection_eligibility=Eligible&address_status=confirmed&payer_id=NADQ8Z7ZE2388&address_street=5129+Marquette&payment_date=17%3A42%3A48+Oct+25%2C+2021+PDT&payment_status=Completed&charset=windows-1252&address_zip=H2J3Z4&first_name=Claudine&mc_fee=0.63&address_country_code=CA&address_name=MissyClo+Retro&notify_version=3.9&custom=&payer_status=verified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Montreal&quantity=1&verify_sign=AvVK0mMw7KqgG8-7HY4QJ3rAkJ2zAu5-XMA3JVNjq-Pa5FbtfOMvMvo6&payer_email=misscc73%40live.ca&txn_id=5SC33192DL494890A&payment_type=instant&payer_business_name=MissyClo+Retro&last_name=Jamois&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=Cartes+d%27affaires+MissyClo+Retro&discount=0.00&mc_currency=CAD&item_number=393&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f30244246af5d The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:393
+ store_id:1
+ DateTime:2021-10-27 07:45:13 Responce-Data:mc_gross=82.48&protection_eligibility=Eligible&address_status=confirmed&payer_id=N4H7EJEU9AVPY&address_street=101+Place+Charles-Lemoyne%0D%0A1020&payment_date=19%3A15%3A04+Oct+26%2C+2021+PDT&payment_status=Completed&charset=windows-1252&address_zip=J4K+2T3&first_name=Amira&mc_fee=2.69&address_country_code=CA&address_name=Amira+Bensahli&notify_version=3.9&custom=&payer_status=unverified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Longueuil&quantity=1&verify_sign=A0IX0tCe00Y8nungnNEWhpYdOfIvAkud1PSk6J.E5Yjj5o.g2BaeF1t-&payer_email=amirabensahli2015%40gmail.com&txn_id=2VJ31463EX162871H&payment_type=instant&last_name=Bensahli&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=Impression&discount=0.00&mc_currency=CAD&item_number=406&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f4763029265f1 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:406
+ store_id:1
+ DateTime:2021-10-27 22:37:07 Responce-Data:mc_gross=32.00&protection_eligibility=Eligible&address_status=confirmed&payer_id=HFTJHRWVQFJQG&address_street=3942+rue+de+Mentana&payment_date=10%3A06%3A59+Oct+27%2C+2021+PDT&payment_status=Completed&charset=windows-1252&address_zip=H2L+3R8&first_name=Julien&mc_fee=1.23&address_country_code=CA&address_name=Julien+Bastide&notify_version=3.9&custom=&payer_status=verified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Montreal&quantity=1&verify_sign=Ap-wc6a0JEZpGN8HWgStdw8Vf-Q2AIkI9R2Lri7Ebp2SPfbTfDYGV22Q&payer_email=bastide.julien%40gmail.com&txn_id=2Y7324276S600702U&payment_type=instant&last_name=Bastide&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=&discount=0.00&mc_currency=CAD&item_number=407&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f6884056470b9 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:407
+ store_id:1
+ DateTime:2021-11-05 02:18:20 Responce-Data:mc_gross=110.89&protection_eligibility=Eligible&address_status=confirmed&payer_id=W4CNUQNPR3X9Y&address_street=9+Place+du+commerce+%23T&payment_date=13%3A48%3A10+Nov+04%2C+2021+PDT&payment_status=Completed&charset=windows-1252&address_zip=J4W2V6&first_name=Fabien&mc_fee=3.52&address_country_code=CA&address_name=XiTrade+inc&notify_version=3.9&custom=&payer_status=verified&business=zaarcan%40gmail.com&address_country=Canada&address_city=Brossard&quantity=1&verify_sign=AwhNVoZmUwITIqttbgxMzQrUgDo9A04UayU-F9wQVdFPPmjKqY9dQ4td&payer_email=billing%40xitrade.com&txn_id=33R99316CW174094Y&payment_type=instant&payer_business_name=XiTrade+inc&last_name=Dormoy&address_state=QC&receiver_email=zaarcan%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=HQF5PN6GT2KWL&txn_type=web_accept&item_name=PostCard+Pictorem+Order&discount=0.00&mc_currency=CAD&item_number=410&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=a46bc1ee1b58d The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:410
+ store_id:3
+ DateTime:2021-11-09 22:33:58 Responce-Data:mc_gross=57.49&protection_eligibility=Eligible&address_status=confirmed&payer_id=X48ER2H26FN4C&address_street=1201+Elie-Auclair&payment_date=09%3A03%3A50+Nov+09%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=J0P+1X0&first_name=Myriam&mc_fee=1.97&address_country_code=CA&address_name=Myriam+Desrochers&notify_version=3.9&custom=&payer_status=verified&business=zaarcan%40gmail.com&address_country=Canada&address_city=Saint-Polycarpe&quantity=1&verify_sign=Ay8Yowmpe99X7S3aGkO0trB9viliAuCD2R-DFrOnNnK-B6oPr62iZHwg&payer_email=myriam.desrochers%40live.ca&txn_id=0A791286BF464461V&payment_type=instant&last_name=Desrochers&address_state=QC&receiver_email=zaarcan%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=HQF5PN6GT2KWL&txn_type=web_accept&item_name=&discount=0.00&mc_currency=CAD&item_number=418&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f6988790490c8 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:418
+ store_id:4
+ DateTime:2021-11-10 22:21:14 Responce-Data:mc_gross=23.00&protection_eligibility=Eligible&address_status=confirmed&payer_id=X48ER2H26FN4C&address_street=1201+Elie-Auclair&payment_date=08%3A51%3A06+Nov+10%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=J0P+1X0&first_name=Myriam&mc_fee=0.97&address_country_code=CA&address_name=Myriam+Desrochers&notify_version=3.9&custom=&payer_status=verified&business=zaarcan%40gmail.com&address_country=Canada&address_city=Saint-Polycarpe&quantity=1&verify_sign=AUxsTTd2e9ey1.Leevjb1YLxi-RSArSX8YA06XubUPPd1jLe83dxYlTF&payer_email=myriam.desrochers%40live.ca&txn_id=7NS25824YG581205P&payment_type=instant&last_name=Desrochers&address_state=QC&receiver_email=zaarcan%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=HQF5PN6GT2KWL&txn_type=web_accept&item_name=&discount=0.00&mc_currency=CAD&item_number=425&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f27137172dcba The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:425
+ store_id:4
+ DateTime:2021-11-11 21:49:28 Responce-Data:mc_gross=63.24&protection_eligibility=Eligible&address_status=confirmed&payer_id=6PTN8VQ9H8AZN&address_street=6286+rue+Alma&payment_date=08%3A19%3A19+Nov+11%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=H2S+2W3&first_name=Paul&mc_fee=2.13&address_country_code=CA&address_name=Musique+Rayonnante&notify_version=3.9&custom=&payer_status=verified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Montr%E9al&quantity=1&verify_sign=AVVud-EtIEFbb2Vdd5rXd6m25DBAAVxoYuziZl54dDbfejO8l5nylx6E&payer_email=ncaloia%40gmail.com&txn_id=20W87279G0569502G&payment_type=instant&payer_business_name=Musique+Rayonnante&last_name=Caloia&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=&discount=0.00&mc_currency=CAD&item_number=427&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=a9313fdb83dd7 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:427
+ store_id:1
+ DateTime:2021-11-12 21:33:11 Responce-Data: The 
+ response from IPN was:INVALID
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:422
+ store_id:2
+ DateTime:2021-11-12 21:34:11 Responce-Data: The 
+ response from IPN was:INVALID
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:426
+ store_id:2
+ DateTime:2021-11-14 09:29:51 Responce-Data: The 
+ response from IPN was:INVALID
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:422
+ store_id:2
+ DateTime:2021-11-16 06:41:01 Responce-Data:mc_gross=38.98&protection_eligibility=Eligible&address_status=confirmed&payer_id=97XVS2PAZCYE4&address_street=511-1701+rue+william&payment_date=17%3A10%3A37+Nov+15%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=h3j1r3&first_name=Ana&mc_fee=1.43&address_country_code=CA&address_name=Ana+Kusmic&notify_version=3.9&custom=&payer_status=verified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Montr%E9al&quantity=1&verify_sign=A2DHUUJFfLoDqJhvAeCSzJ84PombAV.5B-IDjcZJZPyhEYTew26skzfG&payer_email=anasbananas%40gmail.com&txn_id=1SB19490J8512013E&payment_type=instant&last_name=Kusmic&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=&discount=0.00&mc_currency=CAD&item_number=430&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f236761ccba58 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:430
+ store_id:1
+ DateTime:2021-11-18 00:49:07 Responce-Data:mc_gross=89.04&protection_eligibility=Eligible&address_status=confirmed&payer_id=G7FSSVPRGG9T8&address_street=5545+Ch+De+La+Cote+St.+Luc%0D%0AApt.+15&payment_date=11%3A18%3A44+Nov+17%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=H3X+2E1&first_name=Stephanie&mc_fee=2.88&address_country_code=CA&address_name=Stephanie+Cabral&notify_version=3.9&custom=&payer_status=verified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Montr%E9al&quantity=1&verify_sign=ATETkWjIPkYaf5acVxFYRZHtl-jwAfpQYzAdA70a3IKBF8zd4ThZ6mS-&payer_email=s_cabral%40icloud.com&txn_id=203684164N0920023&payment_type=instant&last_name=Cabral&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=&discount=0.00&mc_currency=CAD&item_number=433&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f3690543bb789 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:433
+ store_id:1
+ DateTime:2021-11-18 03:00:02 Responce-Data:mc_gross=11.50&protection_eligibility=Eligible&address_status=confirmed&payer_id=Y5YYR8RQE4M6G&address_street=4436+Rue+Papineau%0D%0APapineau+Av&payment_date=13%3A29%3A39+Nov+17%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=H2H+1T8&first_name=Louise&mc_fee=0.63&address_country_code=CA&address_name=Louise+Bonnet&notify_version=3.9&custom=&payer_status=verified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Montr%E9al&quantity=1&verify_sign=AFCkfeewADx85-Z.8OP2bxPX.ZCsAW5evJmdx7J.eBsiQSdi7ECjcZxn&payer_email=louiselouisebonnet%40msn.com&txn_id=07G155490N8875716&payment_type=instant&payer_business_name=Louise+B&last_name=Bonnet&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=Order+1+cards+LB&discount=0.00&mc_currency=CAD&item_number=434&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f972456524ad3 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:434
+ store_id:1
+ DateTime:2021-11-18 07:03:41 Responce-Data:mc_gross=23.24&protection_eligibility=Eligible&address_status=confirmed&payer_id=B4Z9B7UD7BL5U&address_street=1765%0D%0ADe+Cambrai+App+101&payment_date=17%3A33%3A34+Nov+17%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=J3V3H9&first_name=Jenny&mc_fee=0.97&address_country_code=CA&address_name=Jenny+Ardila&notify_version=3.9&custom=&payer_status=verified&business=zaarcan%40gmail.com&address_country=Canada&address_city=Saint+Bruno+De+Montarville&quantity=1&verify_sign=A15r9T.lynhQSwfyUfoiGwmdhN44Ah3dCmsPZlqaCGFikno8t4IsTSrl&payer_email=jmardila%40msn.com&txn_id=4E980434ST7648141&payment_type=instant&last_name=Ardila&address_state=QC&receiver_email=zaarcan%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=HQF5PN6GT2KWL&txn_type=web_accept&item_name=Maque-pages&discount=0.00&mc_currency=CAD&item_number=435&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f8508087638ab The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:435
+ store_id:4
+ DateTime:2021-11-20 21:03:11 Responce-Data: The 
+ response from IPN was:INVALID
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:419
+ store_id:2
+ DateTime:2021-11-20 21:40:33 Responce-Data: The 
+ response from IPN was:INVALID
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:436
+ store_id:2
+ DateTime:2021-11-22 11:16:32 Responce-Data: The 
+ response from IPN was:INVALID
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:436
+ store_id:2
+ DateTime:2021-11-22 11:16:33 Responce-Data: The 
+ response from IPN was:INVALID
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:437
+ store_id:2
+ DateTime:2021-11-23 10:33:43 Responce-Data: The 
+ response from IPN was:INVALID
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:419
+ store_id:2
+ DateTime:2021-11-23 22:57:26 Responce-Data:mc_gross=11.50&protection_eligibility=Eligible&address_status=confirmed&payer_id=Y5YYR8RQE4M6G&address_street=4436+Rue+Papineau%0D%0APapineau+Av&payment_date=09%3A25%3A14+Nov+23%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=H2H+1T8&first_name=Louise&mc_fee=0.63&address_country_code=CA&address_name=Louise+Bonnet&notify_version=3.9&custom=&payer_status=verified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Montr%E9al&quantity=1&verify_sign=AsY0jbQrzx9GPUbGa4ld.gkmyjJ-AVu7pvsF.fa-xhk.VbwWMGGpIkvP&payer_email=louiselouisebonnet%40msn.com&txn_id=7A340346AH5781642&payment_type=instant&payer_business_name=Louise+B&last_name=Bonnet&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=&discount=0.00&mc_currency=CAD&item_number=443&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=a9d892f7ede3c The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:443
+ store_id:1
+ DateTime:2021-11-23 23:00:38 Responce-Data:mc_gross=11.50&protection_eligibility=Eligible&address_status=confirmed&payer_id=Y5YYR8RQE4M6G&address_street=4436+Rue+Papineau%0D%0APapineau+Av&payment_date=09%3A28%3A26+Nov+23%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=H2H+1T8&first_name=Louise&mc_fee=0.63&address_country_code=CA&address_name=Louise+Bonnet&notify_version=3.9&custom=&payer_status=verified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Montr%E9al&quantity=1&verify_sign=AJ5elIYM5D9HHOkI9idy6dxdP9I3AII1fs4T9MHgMD6UWUUTlweK8rt4&payer_email=louiselouisebonnet%40msn.com&txn_id=0J047977UH1431105&payment_type=instant&payer_business_name=Louise+B&last_name=Bonnet&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=&discount=0.00&mc_currency=CAD&item_number=444&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f6664990e3af9 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:444
+ store_id:1
+ DateTime:2021-11-24 01:10:09 Responce-Data:mc_gross=299.34&protection_eligibility=Eligible&address_status=confirmed&payer_id=SPYQAWXKRBJPG&address_street=7042A+Rue+De+La+Roche&payment_date=11%3A37%3A55+Nov+23%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=H2S+2E7&first_name=An-Laurence&mc_fee=8.98&address_country_code=CA&address_name=An-Laurence+Higgins&notify_version=3.9&custom=&payer_status=verified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Montr%E9al&quantity=1&verify_sign=A5E7w4rp2NJfUHb5cvISpNevJ2GMAjZUt-14OSF4Dnd0SiWY1ciTtsYi&payer_email=anlaurence.higgins%40gmail.com&txn_id=2J066620S9971122V&payment_type=instant&last_name=Higgins&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=Zine+UPCLOSE+An+Laurence+x+Annie+TZ+Lafrance&discount=0.00&mc_currency=CAD&item_number=445&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f1349243b69aa The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:445
+ store_id:1
+ DateTime:2021-11-24 01:48:27 Responce-Data:mc_gross=155.17&protection_eligibility=Eligible&address_status=confirmed&payer_id=SAK29DCMCGPN4&address_street=1093+rue+St-Louis&payment_date=12%3A18%3A19+Nov+23%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=J8T+2R9&first_name=Jacynthe&mc_fee=4.80&address_country_code=CA&address_name=Jacynthe+Auger&notify_version=3.9&custom=&payer_status=unverified&business=zaarcan%40gmail.com&address_country=Canada&address_city=Gatineau&quantity=1&verify_sign=ATDrmkMdjrW8WKQWZKdOLx5i1Ku1AUAZeoSkn5JU.vRMs4xOj35qie5Y&payer_email=galeriedartauger%40videotron.ca&txn_id=5J4906184T916322F&payment_type=instant&last_name=Auger&address_state=QC&receiver_email=zaarcan%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=HQF5PN6GT2KWL&txn_type=web_accept&item_name=Factures&discount=0.00&mc_currency=CAD&item_number=446&residence_country=CA&receipt_id=2154-7355-3768-2362&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f152660418e17 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:446
+ store_id:4
+ DateTime:2021-11-26 04:03:44 Responce-Data:mc_gross=450.94&protection_eligibility=Eligible&address_status=confirmed&payer_id=W4CNUQNPR3X9Y&address_street=9+Place+du+commerce+%23T&payment_date=14%3A33%3A36+Nov+25%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=J4W2V6&first_name=Fabien&mc_fee=13.38&address_country_code=CA&address_name=XiTrade+inc&notify_version=3.9&custom=&payer_status=verified&business=zaarcan%40gmail.com&address_country=Canada&address_city=Brossard&quantity=1&verify_sign=A4tARkjTxQYyLVlfjirzWNQctD0gAaEkVakg9G29leQmC-s1c98pSjD-&payer_email=billing%40xitrade.com&txn_id=5YE48436H4458845R&payment_type=instant&payer_business_name=XiTrade+inc&last_name=Dormoy&address_state=QC&receiver_email=zaarcan%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=HQF5PN6GT2KWL&txn_type=web_accept&item_name=Pictorem+-+Xitrade+Inc+Order&discount=0.00&mc_currency=CAD&item_number=449&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f1125348ec991 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:449
+ store_id:3
+ DateTime:2021-12-05 02:28:55 Responce-Data:mc_gross=35.51&protection_eligibility=Eligible&address_status=confirmed&payer_id=CQNKBWFCXYQWC&address_street=2345+Rue+Mantha&payment_date=12%3A58%3A47+Dec+04%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=H4M+1R4&first_name=Joel&mc_fee=1.33&address_country_code=CA&address_name=Joel+Toledano&notify_version=3.9&custom=&payer_status=unverified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Montreal&quantity=1&verify_sign=ADlnZi.yksZgSl-R7UWZl1LIv4zHABsy7TwXRBXEA-CtLPlAYVLUKMNY&payer_email=toledanojoel2000%40gmail.com&txn_id=19523252WK651962J&payment_type=instant&last_name=Toledano&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=mounted+poster+for+christmas+gift&discount=0.00&mc_currency=CAD&item_number=458&residence_country=CA&receipt_id=3399-9851-5605-1976&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f4034042ebaf1 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:458
+ store_id:1
+ DateTime:2021-12-05 03:37:24 Responce-Data:mc_gross=15.84&protection_eligibility=Eligible&address_status=confirmed&payer_id=M3RCEUKS6YKE6&address_street=4589+Rue+Pontiac&payment_date=14%3A07%3A15+Dec+04%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=H2J2T2&first_name=Katherine&mc_fee=0.76&address_country_code=CA&address_name=Kate+Kolberg&notify_version=3.9&custom=&payer_status=unverified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Montreal&quantity=1&verify_sign=A0Giq0h1H8mQAmqg5ZVnbpaig48aA4wwC5PVsYflksJx.0hDqJBp3FU8&payer_email=katiekolberg%40gmail.com&txn_id=62F96619US436891X&payment_type=instant&last_name=Kolberg&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=&discount=0.00&mc_currency=CAD&item_number=459&residence_country=CA&receipt_id=5385-9976-7143-6534&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f5351104702c4 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:459
+ store_id:1
+ DateTime:2021-12-05 06:00:56 Responce-Data:mc_gross=31.43&protection_eligibility=Eligible&address_status=confirmed&payer_id=AH7MZ398M2CNE&address_street=4567+Avenue+des+Erables&payment_date=16%3A30%3A45+Dec+04%2C+2021+PST&payment_status=Completed&charset=windows-1252&address_zip=H2H+2E1&first_name=Isabelle&mc_fee=1.21&address_country_code=CA&address_name=Venus+Tantra&notify_version=3.9&custom=&payer_status=verified&business=imprimeur.coop%40gmail.com&address_country=Canada&address_city=Montreal&quantity=1&verify_sign=AtDGy7UVtpiDJRyzJrFzhjml28UNARXzqBXo0VDh9HRuMQg0jUxzKjCN&payer_email=iblais1804%40gmail.com&txn_id=91936608ND919994W&payment_type=instant&payer_business_name=Venus+Tantra&last_name=Blais&address_state=QC&receiver_email=imprimeur.coop%40gmail.com&payment_fee=&shipping_discount=0.00&insurance_amount=0.00&receiver_id=VK2L7NKXSXH5A&txn_type=web_accept&item_name=Etiquettes&discount=0.00&mc_currency=CAD&item_number=462&residence_country=CA&shipping_method=Default&transaction_subject=&payment_gross=&ipn_track_id=f4485406a1dd9 The 
+ response from IPN was:VERIFIED
+ url:https://www.paypal.com/cgi-bin/webscr
+ order_id:462
+ store_id:1
+ 
