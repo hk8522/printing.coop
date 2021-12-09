@@ -181,6 +181,15 @@
         </div>
     </div></div></div></div>
 
+
+    <div class="form-role-area"><hr><div class="control-group info"><div class="row"><div class="col-md-12 col-lg-12 col-xl-12">
+        <div class="controls small-controls">
+            <div class="single-for-verify">
+                <button type="button" onclick="generateAttributes()">Generate Multiple Attributes <i class="fa fa-arrow-right"></i></button>
+            </div>
+        </div>
+    </div></div></div></div>
+
                                 </div>
                             </div>
                         </div>
@@ -333,6 +342,23 @@ function deleteAttributeItem(attribute_id, item_id) {
         function(data) {
             if (data == 1)
                 $('#attribute-item-container-' + attribute_id + '-' + item_id).remove();
+            $("#loder-img").hide();
+        }
+    );
+}
+
+function generateAttributes() {
+    if (!confirm("Have you prepared all your settings?"))
+        return;
+
+    $("#loder-img").show();
+    $.post('<?=$BASE_URL?>admin/Products/autoGenerateAttributes/<?=$product_id?>',
+        function(data) {
+            if (data == 1) {
+                $("#ItemModal .modal-title").html('Multiple Attributes Generated');
+                $("#ItemModal .modal-body").html('<div class="inner-content-area"><div class="row justify-content-center"><div class="col-md-12"><button class="btn btn-success" id="submitBtn" onclick="$(\'#ItemModal\').modal(\'hide\');">Ok</button></div></div>');
+                $("#ItemModal").modal('show');
+            }
             $("#loder-img").hide();
         }
     );

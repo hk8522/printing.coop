@@ -2458,4 +2458,8 @@ Coating";
         else
             echo "0";
     }
+
+    FUNCTION autoGenerateAttributes($product_id) {
+        echo "1";
+    }
 }
