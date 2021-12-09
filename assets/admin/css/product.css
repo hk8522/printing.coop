@@ -91,3 +91,10 @@
 .control-group .controls.small-controls .attribute-single-title .span2 {
 	margin-bottom: 0px !important;
 }
+.cus-inner-btn {
+	margin-bottom: 0px;
+}
+.attribute-single-items {
+    padding: 10px 10px 10px 25px;
+    background: #f5f5f5;
+}

@@ -9,7 +9,7 @@
                 echo $this->session->flashdata('message_success'); 
                 ?>
             </div>
-            <?php echo form_open_multipart('', array('class'=>'form-horizontal', 'id'=>'auto_size_add_form'));?>
+            <?php echo form_open_multipart('', array('class'=>'form-horizontal', 'id'=>'auto_attribute_add_form'));?>
             <input class="form-control" name="id" type="hidden"  value="<?php echo $id?>" id="id">
             <input class="form-control" type="hidden"  
             value="<?php echo $product_id?>" id="product_id" name="product_id">
@@ -17,36 +17,23 @@
                 <div class="control-group info">
                     <div class="row align-items-center">
                         <div class="col-md-4">
-                            <label class="span2 " for="inputMame">Sizes</label>
+                            <label class="span2 " for="inputMame">Attributes</label>
                         </div>
                         <div class="col-md-8">
                             <div class="controls">
-                                <select name="size_id" class="form-control" required>
-                                    <option value="">Select Size</option>
+                                <select name="attribute_id" class="form-control" required>
+                                    <option value="">Select Attribute</option>
                                     <?php
-                                    foreach ($sizes as $size) {
+                                    foreach ($attributes as $attribute) {
                                         $selected = '';
-                                        if ($size['id'] == $size_id) {
+                                        if ($attribute['id'] == $attribute_id) {
                                             $selected = 'selected="selected"';
                                         }
                                     ?>
-                                        <option value="<?=$size['id']?>" <?=$selected?>><?=$size['size_name']?></option>  
+                                        <option value="<?=$attribute['id']?>" <?=$selected?>><?=$attribute['name']?></option>  
                                     <?php 
                                     }?>
                                 </select>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="control-group info">
-                    <div class="row align-items-center">
-                        <div class="col-md-4">
-                            <label class="span2" for="inputMame">Extra Price</label>
-                        </div>
-                        <div class="col-md-8">
-                            <div class="controls">
-                                <input type="text" value='<?php echo showValue($extra_price);?>' name="extra_price" onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control">
-                            <?php echo form_error('extra_price');?>
                             </div>
                         </div>
                     </div>
@@ -62,22 +49,22 @@
 <script src="<?php echo $BASE_URL?>/assets/js/validation.js"></script>
 <script>
 success='<?php echo $success?>';
-$('#auto_size_add_form').validate({
+$('#auto_attribute_add_form').validate({
         rules: {
-            size_id: {
+            attribute_id: {
             required: true,
             },
         },
         messages: {
-            size_id: {
-            required: 'Please select size',
+            attribute_id: {
+            required: 'Please select attribute',
             },
         },
         submitHandler: function(form) {
             $("#loder-img").show();  
             $.ajax({
             type: "POST",
-            url: '<?=$BASE_URL?>admin/Products/AutoSizeAdd',
+            url: '<?=$BASE_URL?>admin/Products/AutoAttributeAdd',
             data: $(form).serialize(),
             beforeSend: function() {
                 $('button[type=submit]').attr('disabled', true);

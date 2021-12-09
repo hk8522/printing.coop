@@ -90,7 +90,7 @@ $('#AddEditProductQuantity').validate({
 				  
 				$('button[type=submit]').attr('disabled', false);
 				$("#loder-img").hide();
-				$("#QualityModal .modal-body").html(data); 
+				$("#ItemModal .modal-body").html(data); 
 				    if(success==1){
 					  location.reload(); 
 				    }

@@ -2037,46 +2037,6 @@ Class Product_Model extends MY_Model {
 		}
 		return $qdataNew;
     }
-
-    public function quantities() {
-        $this->db->select(array('id', 'name', 'name_french'));
-        $this->db->from('quantity');
-		$this->db->where('status', 1);
-		$this->db->order_by('name', 'asc');
-        $result = $this->db->get()->result_array();
-        return $result;
-    }
-
-    public function sizes() {
-        $this->db->select(array('id', 'size_name', 'size_name_french'));
-        $this->db->from('size');
-		$this->db->where('status', 1);
-		$this->db->order_by('size_name', 'asc');
-        $result = $this->db->get()->result_array();
-        return $result;
-    }
-
-    public function productQuantities($product_id) {
-        $this->db->select(array('quantity.id', 'quantity.name', 'quantity.name_french', 'product_quantity.price'));
-        $this->db->from('product_quantity');
-		$this->db->join('quantity', 'quantity.id=product_quantity.qty', 'inner');
-		$this->db->where('product_quantity.product_id', $product_id);
-		$this->db->where('quantity.status', 1);
-		$this->db->order_by('quantity.name', 'asc');
-        $result = $this->db->get()->result_array();
-        return $result;
-    }
-
-    public function productSizes($product_id) {
-        $this->db->select(array('size.id', 'size.size_name', 'size.size_name_french', 'product_a_size.extra_price'));
-        $this->db->from('product_a_size');
-		$this->db->join('size', 'size.id=product_a_size.size_id', 'inner');
-		$this->db->where('product_a_size.product_id', $product_id);
-		$this->db->where('size.status', 1);
-		$this->db->order_by('size.size_name', 'asc');
-        $result = $this->db->get()->result_array();
-        return $result;
-    }
 	
 	public function ProductOnlyQuantityDropDwon($product_id) {
 		
@@ -2593,6 +2553,79 @@ Class Product_Model extends MY_Model {
             }	
     }
 
+    public function quantities() {
+        $this->db->select(array('id', 'name', 'name_french'));
+        $this->db->from('quantity');
+        $this->db->where('status', 1);
+        $this->db->order_by('name', 'asc');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
+    public function sizes() {
+        $this->db->select(array('id', 'size_name', 'size_name_french'));
+        $this->db->from('size');
+        $this->db->where('status', 1);
+        $this->db->order_by('size_name', 'asc');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
+    public function attributes() {
+        $this->db->select(array('id', 'name', 'name_french'));
+        $this->db->from('product_multiple_attributes');
+        $this->db->where('status', 1);
+        $this->db->order_by('name', 'asc');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
+    public function attributeItems($attribute_id) {
+        $this->db->select(array('id', 'item_name', 'item_name_french'));
+        $this->db->from('product_multiple_attribute_items');
+        $this->db->where('product_attribute_id', $attribute_id);
+        $this->db->order_by('item_name', 'asc');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
+    // public function attributeItems() {
+    //     $this->db->select(array('id', 'item_name', 'item_name_french', 'product_attribute_id'));
+    //     $this->db->from('product_multiple_attribute_items');
+    //     $this->db->order_by('item_name', 'asc');
+    //     $items = $this->db->get()->result_array();
+    //     $result = [];
+    //     foreach ($items as $item) {
+    //         $attribute_id = $item['product_attribute_id'];
+    //         if (!array_key_exists($attribute_id, $result))
+    //             $result[$attribute_id] = [];
+    //         $result[$attribute_id][] = $item;
+    //     }
+    //     return $result;
+    // }
+
+    public function productQuantities($product_id) {
+        $this->db->select(array('quantity.id', 'quantity.name', 'quantity.name_french', 'product_quantity.price'));
+        $this->db->from('product_quantity');
+        $this->db->join('quantity', 'quantity.id=product_quantity.qty', 'inner');
+        $this->db->where('product_quantity.product_id', $product_id);
+        $this->db->where('quantity.status', 1);
+        $this->db->order_by('quantity.name', 'asc');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
+    public function productAutoSizes($product_id) {
+        $this->db->select(array('size.id', 'size.size_name', 'size.size_name_french', 'product_a_sizes.extra_price'));
+        $this->db->from('product_a_sizes');
+        $this->db->join('size', 'size.id=product_a_sizes.size_id', 'inner');
+        $this->db->where('product_a_sizes.product_id', $product_id);
+        $this->db->where('size.status', 1);
+        $this->db->order_by('size.size_name', 'asc');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
     public function autoSizeAdd($data)
     {
         $id = isset($data['id']) ? $data['id'] : '';
@@ -2603,7 +2636,7 @@ Class Product_Model extends MY_Model {
             $data['updated_at'] = date('Y-m-d H:i:s');
             $this->db->where('product_id',  $product_id);
             $this->db->where('size_id',     $id);
-            $query = $this->db->update('product_a_size', $data);
+            $query = $this->db->update('product_a_sizes', $data);
             
             if ($query) {
                 return $id;
@@ -2613,7 +2646,7 @@ Class Product_Model extends MY_Model {
         } else {
             $data['created_at'] = date('Y-m-d H:i:s');
             $data['updated_at'] = date('Y-m-d H:i:s');
-            $query = $this->db->insert('product_a_size', $data);
+            $query = $this->db->insert('product_a_sizes', $data);
             if ($query) {
                 return $insert_id = $this->db->insert_id();
             } else {
@@ -2625,7 +2658,132 @@ Class Product_Model extends MY_Model {
     function autoSizeDelete($product_id, $size_id) {
         $this->db->where('product_id',  $product_id);
         $this->db->where('size_id',     $size_id);
-        $query = $this->db->delete('product_a_size');
+        $query = $this->db->delete('product_a_sizes');
+        if ($query)
+            return true;
+        else
+            return false;
+    }
+
+    public function productAutoAttributes($product_id) {
+        $this->db->select(array('product_multiple_attributes.id', 'product_multiple_attributes.name', 'product_multiple_attributes.name_french'));
+        $this->db->from('product_a_attributes');
+        $this->db->join('product_multiple_attributes', 'product_multiple_attributes.id=product_a_attributes.attribute_id', 'inner');
+        $this->db->where('product_a_attributes.product_id', $product_id);
+        $this->db->where('product_multiple_attributes.status', 1);
+        //$this->db->order_by('product_multiple_attributes.name', 'asc');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
+    public function productAutoAttributeDetails($product_id) {
+        $this->db->select(array('product_a_attribute_items.attribute_id', 'product_multiple_attribute_items.id', 'product_multiple_attribute_items.item_name', 'product_multiple_attribute_items.item_name_french', 'product_a_attribute_items.extra_price'));
+        $this->db->from('product_a_attribute_items');
+        $this->db->join('product_multiple_attribute_items', 'product_multiple_attribute_items.id=product_a_attribute_items.item_id', 'inner');
+        $this->db->where('product_a_attribute_items.product_id', $product_id);
+        $this->db->order_by('product_multiple_attribute_items.item_name', 'asc');
+        $items = $this->db->get()->result_array();
+        $result = [];
+        foreach ($items as $item) {
+            $attribute_id = $item['attribute_id'];
+            if (!array_key_exists($attribute_id, $result))
+                $result[$attribute_id] = [];
+            $result[$attribute_id][] = $item;
+        }
+        return $result;
+    }
+
+    public function autoAttributeAdd($data)
+    {
+        $id = isset($data['id']) ? $data['id'] : '';
+        $product_id = $data['product_id'];
+
+        if (!empty($id)) {
+            unset($data['id']);
+            $data['updated_at'] = date('Y-m-d H:i:s');
+            $this->db->where('product_id',      $product_id);
+            $this->db->where('attribute_id',    $id);
+            $query = $this->db->update('product_a_attributes', $data);
+            
+            if ($query) {
+                return $id;
+            } else {
+                return 0;
+            }
+        } else {
+            $data['created_at'] = date('Y-m-d H:i:s');
+            $data['updated_at'] = date('Y-m-d H:i:s');
+            $query = $this->db->insert('product_a_attributes', $data);
+            if ($query) {
+                return $insert_id = $this->db->insert_id();
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    function autoAttributeDelete($product_id, $attribute_id) {
+        $this->db->where('product_id',      $product_id);
+        $this->db->where('attribute_id',    $attribute_id);
+        $query = $this->db->delete('product_a_attribute_items');
+
+        $this->db->where('product_id',      $product_id);
+        $this->db->where('attribute_id',    $attribute_id);
+        $query = $this->db->delete('product_a_attributes');
+
+        if ($query)
+            return true;
+        else
+            return false;
+    }
+
+    public function productAutoAttributeItems($product_id, $attribute_id) {
+        $this->db->select(array('product_multiple_attribute_items.id', 'product_multiple_attribute_items.item_name', 'product_multiple_attribute_items.item_name_french', 'product_a_attribute_items.extra_price'));
+        $this->db->from('product_a_attribute_items');
+        $this->db->join('product_multiple_attribute_items', 'product_multiple_attribute_items.id=product_a_attribute_items.item_id', 'inner');
+        $this->db->where('product_a_attribute_items.product_id',    $product_id);
+        $this->db->where('product_a_attribute_items.attribute_id',  $attribute_id);
+        $this->db->order_by('product_multiple_attribute_items.item_name', 'asc');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
+    public function autoAttributeItemAdd($data)
+    {
+        $id = isset($data['id']) ? $data['id'] : '';
+        $product_id     = $data['product_id'];
+        $attribute_id   = $data['attribute_id'];
+
+        if (!empty($id)) {
+            unset($data['id']);
+            $data['updated_at'] = date('Y-m-d H:i:s');
+            $this->db->where('product_id',      $product_id);
+            $this->db->where('attribute_id',    $attribute_id);
+            $this->db->where('item_id',         $id);
+            $query = $this->db->update('product_a_attribute_items', $data);
+            
+            if ($query) {
+                return $id;
+            } else {
+                return 0;
+            }
+        } else {
+            $data['created_at'] = date('Y-m-d H:i:s');
+            $data['updated_at'] = date('Y-m-d H:i:s');
+            $query = $this->db->insert('product_a_attribute_items', $data);
+            if ($query) {
+                return $insert_id = $this->db->insert_id();
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    function autoAttributeItemDelete($product_id, $attribute_id, $item_id) {
+        $this->db->where('product_id',      $product_id);
+        $this->db->where('attribute_id',    $attribute_id);
+        $this->db->where('item_id',         $item_id);
+        $query = $this->db->delete('product_a_attribute_items');
         if ($query)
             return true;
         else

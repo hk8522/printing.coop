@@ -2,15 +2,18 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 class Products extends Admin_Controller
 {
-		public $class_name='';
+    public $class_name='';
 
-		function __construct()
-		{
-				parent::__construct();
-				$this->class_name='admin/'.ucfirst(strtolower($this->router->fetch_class())).'/';
-				$this->data['class_name']= $this->class_name;
-		}
-		
+    function __construct()
+    {
+        parent::__construct();
+        $this->class_name='admin/'.ucfirst(strtolower($this->router->fetch_class())).'/';
+        $this->data['class_name']= $this->class_name;
+
+        $this->session->set_flashdata('message_success', '');
+        $this->session->set_flashdata('message_error', '');
+    }
+
     #Start Product List add/Edit Delete Inactive/Inactive
     public function index($product_id=0,$order='desc')
     {       
@@ -733,7 +736,7 @@ class Products extends Admin_Controller
 			}
 			if($id != $quantity_id && in_array($quantity_id,$QuantityIds)){
 				
-				$this->session->set_flashdata('message_error','This quantity already added this product.');
+				$this->session->set_flashdata('message_error','This quantity already added to this product.');
 				$saveQuantity=false;
 			}
 			
@@ -817,7 +820,7 @@ class Products extends Admin_Controller
 			}
 			if($id != $size_id && in_array($size_id,$SizesIds)){
 				
-				$this->session->set_flashdata('message_error','This size already added this product & Quantity');
+				$this->session->set_flashdata('message_error','This size already added to this product & Quantity');
 				$saveQuantity=false;
 				
 			}
@@ -1052,26 +1055,7 @@ class Products extends Admin_Controller
 	            $this->render($this->class_name.'product_multiple_attributes');
 		
     }
-	
-	public function SetMultipleAttributesAuto($id = null)
-    {
-        $this->load->helper('form');
-        $this->data['page_title'] = $page_title = 'Set Multiple Attributes (Automatic)';
-        if (empty($id)) {
-            redirect('admin/Products');
-        }
-        $this->data['main_page_url'] = '';
-        $this->load->model('Product_Model');
 
-        $this->data['product']              = $this->Product_Model->getProductDataById($id);
-        // $this->data['quantities']           = $this->Product_Model->quantities();
-        // $this->data['sizes']                = $this->Product_Model->sizes();
-        $this->data['productQuantities']    = $this->Product_Model->productQuantities($id);
-        $this->data['productSizes']         = $this->Product_Model->productSizes($id);
-
-        $this->render($this->class_name.'product_multiple_attributes_auto');
-    }
-	
 	public function AddEditProductQuantity($product_id=null,$id=null){
 		
 		$this->load->helper('form');
@@ -1102,7 +1086,7 @@ class Products extends Admin_Controller
 			}
 			if($id != $quantity_id && in_array($quantity_id,$QuantityIds)){
 				
-				$this->session->set_flashdata('message_error','This quantity already added this product.');
+				$this->session->set_flashdata('message_error','This quantity already added to this product.');
 				$saveQuantity=false;
 			}
 			
@@ -1186,7 +1170,7 @@ class Products extends Admin_Controller
 			}
 			if($id != $size_id && in_array($size_id,$SizesIds)){
 				
-				$this->session->set_flashdata('message_error','This size already added this product & Quantity');
+				$this->session->set_flashdata('message_error','This size already added to this product & Quantity');
 				$saveQuantity=false;
 				
 			}
@@ -1249,7 +1233,7 @@ class Products extends Admin_Controller
 			$attributeItemsIds=array_keys($ProductSizes);
 			
 			
-			$extra_price=!empty($extra_price) ? $extra_price:0;
+			$extra_price=!empty($extra_price) ? $extra_price : 0;
 			$SavedData['product_id']      = $product_id;
 			$SavedData['qty']             = $quantity_id;
 			$SavedData['size_id']         = $size_id;
@@ -1267,7 +1251,7 @@ class Products extends Admin_Controller
 			
 			if($multiple_attribute_item_id_old !=$multiple_attribute_item_id && in_array($multiple_attribute_item_id,$attributeItemsIds)){
 				
-				$this->session->set_flashdata('message_error','This attribute item already added this product & Quantity & size');
+				$this->session->set_flashdata('message_error','This attribute item already added to this product & Quantity & size');
 				$saveQuantity=false;
 			}
 			
@@ -2234,13 +2218,36 @@ Coating";
 			
         }
 	}
+	
+	public function SetMultipleAttributesAuto($id = null)
+    {
+        $this->load->helper('form');
+        $this->data['page_title'] = $page_title = 'Set Multiple Attributes (Automatic)';
+        if (empty($id)) {
+            redirect('admin/Products');
+        }
+        $this->data['main_page_url'] = '';
+        $this->load->model('Product_Model');
+
+        $this->data['product']                  = $this->Product_Model->getProductDataById($id);
+        // $this->data['quantities']           = $this->Product_Model->quantities();
+        // $this->data['sizes']                = $this->Product_Model->sizes();
+        $this->data['productQuantities']        = $this->Product_Model->productQuantities($id);
+        $this->data['productSizes']             = $this->Product_Model->productAutoSizes($id);
+        $this->data['productAttributes']        = $this->Product_Model->productAutoAttributes($id);
+        $this->data['productAttributeDetails']  = $this->Product_Model->productAutoAttributeDetails($id);
+
+        $this->render($this->class_name.'product_multiple_attributes_auto');
+    }
 
     public function AutoSizeAdd($product_id = null, $id = null) {
         $this->load->helper('form');
         $this->load->model('Product_Model');
+
+        $data['BASE_URL'] = base_url();
+
         $sizes = $this->Product_Model->sizes();
         $data['sizes'] = $sizes;
-        $data['BASE_URL'] = base_url();
         
         $extra_price = $size_id = '';
         if ($this->input->post()) {
@@ -2250,26 +2257,26 @@ Coating";
             $size_id        = $this->input->post('size_id');
             $extra_price    = $this->input->post('extra_price');
 
-            $productSizes   = $this->Product_Model->productSizes($product_id);
+            $productSizes   = $this->Product_Model->productAutoSizes($product_id);
             $sizeIds = array();
             foreach ($productSizes as $size)
                 $sizeIds[] = $size['id'];
 
-            $extra_price = !empty($extra_price) ? $extra_price:0;
+            $extra_price = !empty($extra_price) ? $extra_price : 0;
             $SavedData['product_id']    = $product_id;
             $SavedData['size_id']       = $size_id;
             $SavedData['extra_price']   = $extra_price;
-            $saveQuantity = true;
+            $saved = true;
 
             if ($id) {
                 $SavedData['id'] = $id;
             }
             if ($id != $size_id && in_array($size_id, $sizeIds)) {
-                $this->session->set_flashdata('message_error', 'This size already added this product & Quantity');
-                $saveQuantity = false;
+                $this->session->set_flashdata('message_error', 'This size already added to this product');
+                $saved = false;
             }
 
-            if( $saveQuantity) {
+            if ($saved) {
                 $insert_id = $this->Product_Model->autoSizeAdd($SavedData);
                 if ($insert_id > 0) {
                     $success = 1;
@@ -2283,7 +2290,7 @@ Coating";
             }
         } else {
             $success        = '0';
-            $productSizes   = $this->Product_Model->productSizes($product_id);
+            $productSizes   = $this->Product_Model->productAutoSizes($product_id);
             $size_id        = $id;
             $extra_price    = 0;
             foreach ($productSizes as $size) {
@@ -2292,7 +2299,7 @@ Coating";
             }
         }
 
-        $data['id']=$id;
+        $data['id']             = $id;
         $data['product_id']     = $product_id;
         $data['size_id']        = $size_id;
         $data['extra_price']    = $extra_price;
@@ -2304,6 +2311,149 @@ Coating";
     function autoSizeDelete($product_id, $size_id) {
         $this->load->model('Product_Model');
         if ($this->Product_Model->autoSizeDelete($product_id, $size_id))
+            echo "1";
+        else
+            echo "0";
+    }
+
+    public function AutoAttributeAdd($product_id = null, $id = null) {
+        $this->load->helper('form');
+        $this->load->model('Product_Model');
+
+        $data['BASE_URL'] = base_url();
+
+        $attributes = $this->Product_Model->attributes();
+        $data['attributes'] = $attributes;
+        
+        if ($this->input->post()) {
+            $id             = $this->input->post('id');
+            $product_id     = $this->input->post('product_id');
+            $attribute_id   = $this->input->post('attribute_id');
+
+            $productAttributes = $this->Product_Model->productAutoAttributes($product_id);
+            $attributeIds = array();
+            foreach ($productAttributes as $attribute)
+                $attributeIds[] = $attribute['id'];
+
+            $SavedData['product_id']    = $product_id;
+            $SavedData['attribute_id']  = $attribute_id;
+            $saved = true;
+
+            if ($id) {
+                $SavedData['id'] = $id;
+            }
+            if ($id != $attribute_id && in_array($attribute_id, $attributeIds)) {
+                $this->session->set_flashdata('message_error', 'This attribute already added to this product');
+                $saved = false;
+            }
+
+            if ($saved) {
+                $insert_id = $this->Product_Model->autoAttributeAdd($SavedData);
+                if ($insert_id > 0) {
+                    $success = 1;
+                    if ($id)
+                        $this->session->set_flashdata('message_success', 'Updated Attribute Successfully.');
+                    else
+                        $this->session->set_flashdata('message_success', 'Added Attribute Successfully.');
+                } else {
+                    $this->session->set_flashdata('message_error', 'Saved Attribute Unsuccessfully.');
+                }
+            }
+        } else {
+            $success            = '0';
+            $productAttributes  = $this->Product_Model->productAutoAttributes($product_id);
+            $attribute_id       = $id;
+        }
+
+        $data['id']             = $id;
+        $data['product_id']     = $product_id;
+        $data['attribute_id']   = $attribute_id;
+        $data['success']        = $success;
+        echo $this->load->view($this->class_name.'auto_attribute_add', $data, true);
+        exit(0);
+    }
+
+    function autoAttributeDelete($product_id, $attribute_id) {
+        $this->load->model('Product_Model');
+        if ($this->Product_Model->autoAttributeDelete($product_id, $attribute_id))
+            echo "1";
+        else
+            echo "0";
+    }
+
+    public function AutoAttributeItemAdd($product_id = null, $attribute_id = null, $id = null) {
+        $this->load->helper('form');
+        $this->load->model('Product_Model');
+
+        $data['BASE_URL'] = base_url();
+
+        $attributeItems = $this->Product_Model->attributeItems($attribute_id);
+        $data['attributeItems'] = $attributeItems;
+        
+        $extra_price = $item_id = '';
+        if ($this->input->post()) {
+            $id             = $this->input->post('id');
+            $product_id     = $this->input->post('product_id');
+            $attribute_id   = $this->input->post('attribute_id');
+            $item_id        = $this->input->post('item_id');
+            $extra_price    = $this->input->post('extra_price');
+
+            $productAttributeItems = $this->Product_Model->productAutoAttributeItems($product_id, $attribute_id);
+            $itemIds = array();
+            foreach ($productAttributeItems as $item)
+                $itemIds[] = $item['id'];
+    
+            $extra_price = !empty($extra_price) ? $extra_price : 0;
+            $SavedData['product_id']    = $product_id;
+            $SavedData['attribute_id']  = $attribute_id;
+            $SavedData['item_id']       = $item_id;
+            $SavedData['extra_price']   = $extra_price;
+            $saved = true;
+
+            if ($id) {
+                $SavedData['id'] = $id;
+            }
+            if ($id != $item_id && in_array($item_id, $itemIds)) {
+                $this->session->set_flashdata('message_error', 'This attribute item already added to this product');
+                $saved = false;
+            }
+
+            if ($saved) {
+                $insert_id = $this->Product_Model->autoAttributeItemAdd($SavedData);
+                if ($insert_id > 0) {
+                    $success = 1;
+                    if ($id)
+                        $this->session->set_flashdata('message_success', 'Updated Attribute Item Successfully.');
+                    else
+                        $this->session->set_flashdata('message_success', 'Added Attribute Item Successfully.');
+                } else {
+                    $this->session->set_flashdata('message_error', 'Saved Attribute Item Unsuccessfully.');
+                }
+            }
+        } else {
+            $success                = '0';
+            $productAttributeItems  = $this->Product_Model->productAutoAttributeItems($product_id, $attribute_id);
+            $item_id                = $id;
+            $extra_price            = 0;
+            foreach ($productAttributeItems as $item) {
+                if ($item['id'] == $item_id)
+                    $extra_price = $item['extra_price'];
+            }
+        }
+
+        $data['id']             = $id;
+        $data['product_id']     = $product_id;
+        $data['attribute_id']   = $attribute_id;
+        $data['item_id']        = $item_id;
+        $data['extra_price']    = $extra_price;
+        $data['success']        = $success;
+        echo $this->load->view($this->class_name.'auto_attribute_item_add', $data, true);
+        exit(0);
+    }
+
+    function autoAttributeItemDelete($product_id, $attribute_id, $item_id) {
+        $this->load->model('Product_Model');
+        if ($this->Product_Model->autoAttributeItemDelete($product_id, $attribute_id, $item_id))
             echo "1";
         else
             echo "0";
