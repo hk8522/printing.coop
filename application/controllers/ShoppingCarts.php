@@ -33,7 +33,7 @@ class ShoppingCarts extends Public_Controller
 		   $json=array('status'=>0,'msg'=>'');
 		   $this->load->model('Product_Model');
            $product_id=$this->input->post('product_id');
-           $quantity=$this->input->post('quenty');
+           $quantity=$this->input->post('quantity');
 		   $price=$this->input->post('price');
 		 
 		    $product_quantity_id=$this->input->post('product_quantity_id');
@@ -79,7 +79,7 @@ class ShoppingCarts extends Public_Controller
 			
 			$product_size=array();
 			
-			$ProductSizes=$this->Product_Model->ProductQuentySizeAttributeDropDwon($product_id);
+			$ProductSizes=$this->Product_Model->ProductQuantySizeAttributeDropDwon($product_id);
 			
 			if(!empty($product_quantity_id)){
 				

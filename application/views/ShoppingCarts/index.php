@@ -459,14 +459,14 @@
 							  
                               <!--<select onchange="updateCardItem('<?php echo $items['id'];?>', '<?php echo $rowid;?>',$(this).val())" class="<?php echo $rowid?>-cradquantity">
                                 <?php
-                                  $quenty = $items['qty'];
+                                  $quantity = $items['qty'];
                                   $total_stock = $items['options']['stock'];
                                   $options_array = range(1,$total_stock);
                                 ?>
                                 <?php
                                     foreach($options_array as $v){
                                     $selected='';
-                                    if ($v == $quenty){
+                                    if ($v == $quantity){
                                       $selected='selected="selected"';
                                     }
                                     ?>

@@ -331,8 +331,8 @@ class Products extends Public_Controller
 	   
 	   $product_id=$this->input->post('product_id');
 	   $price=$this->input->post('price');
-	   $quenty=$this->input->post('quenty');
-	   $quenty=!empty($quenty) ? $quenty:1;
+	   $quantity=$this->input->post('quantity');
+	   $quantity=!empty($quantity) ? $quantity:1;
 	   $ProductAttributes=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
 	   //pr($_POST);
 	   foreach($ProductAttributes as $key=>$val){
@@ -350,7 +350,7 @@ class Products extends Public_Controller
 	   
 	   $response=array();
 	   $response['success'] = 1;
-	   $price=$price*$quenty;
+	   $price=$price*$quantity;
 	   $response['price']=number_format($price,2);
        echo json_encode($response);
 	   exit(0);

@@ -837,15 +837,15 @@ function openCard(product_id_key){
 	 
  }
  
-   function setQuenty(product_id_key){
+   function setQuantity(product_id_key){
 	   
 		if(product_id_key ==''){
 	 
 		return false;
 		}
-		quenty=$("#quenty"+product_id_key).val();
-		if(quenty=='' || quenty==0){
-			$("#quenty").val('1');
+		quantity=$("#quantity"+product_id_key).val();
+		if(quantity=='' || quantity==0){
+			$("#quantity").val('1');
 		}
 		var myForm = document.getElementById('cardFrom-'+product_id_key);
 		var formData = new FormData(myForm);
@@ -901,14 +901,14 @@ function openCard(product_id_key){
           });
     }
 	
-	function showQuenty(product_id_key){
+	function showQuantity(product_id_key){
 		
 			var myForm = document.getElementById('cardFrom-'+product_id_key);
 			var formData = new FormData(myForm);
 			$.ajax({
 				type: 'POST',
 				dataType: 'html',
-				url: '<?php echo $BASE_URL?>admin/Orders/GetQuenty',
+				url: '<?php echo $BASE_URL?>admin/Orders/GetQuantity',
 				data: formData,
 				cache: false,
 				contentType: false,
@@ -928,7 +928,7 @@ function openCard(product_id_key){
             });
     }
 	
-	function getQuentyPrice(nid,product_id_key){
+	function getQuantityPrice(nid,product_id_key){
 		
 	        $("#loder-img").show();
             $(".new-price-img").hide();

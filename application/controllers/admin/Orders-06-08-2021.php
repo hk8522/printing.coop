@@ -1028,7 +1028,7 @@ class Orders extends Admin_Controller
 	   $response=array();
 	   $product_id=$this->input->post('product_id');
 	   $price=$this->input->post('price');
-	   $quenty=$this->input->post('quenty');
+	   $quantity=$this->input->post('quantity');
 	   
 	   $product_size_id=$this->input->post('product_size_id');
 	   
@@ -1040,7 +1040,7 @@ class Orders extends Admin_Controller
 	   
 	   $product_size_paper_size=$this->input->post('product_size_paper_size');
 	   
-	   $quenty=!empty($quenty) ? $quenty:1;
+	   $quantity=!empty($quantity) ? $quantity:1;
 	   
 	   $ProductAttributes=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
 	   
@@ -1181,7 +1181,7 @@ class Orders extends Admin_Controller
 		}
 	   
 	   $response['success'] = 1;
-	   $price=$price*$quenty;
+	   $price=$price*$quantity;
 	   $response['price']=number_format($price,2);
 	   echo json_encode($response);
 	   exit(0);
@@ -1537,16 +1537,16 @@ class Orders extends Admin_Controller
 		
 	}
 	
-	function GetQuenty()
+	function GetQuantity()
     {
 		
 		$this->load->model('Product_Model');
 	    $product_id=$this->input->post('product_id');
 	    $price=$this->input->post('price');
-	    $quenty=$this->input->post('quenty');
+	    $quantity=$this->input->post('quantity');
 		$product_size_id=$this->input->post('product_size_id');
 		$add_length_width=$this->input->post('add_length_width');
-	    $quenty=!empty($quenty) ? $quenty:1;
+	    $quantity=!empty($quantity) ? $quantity:1;
 		$ProductSizes=$this->Product_Model->ProductSizeListDropDwon($product_id);
 		
 		$options_qty='<option value="">Choose an option...</option>';
@@ -1647,7 +1647,7 @@ class Orders extends Admin_Controller
 		}
 	    $response=array();
 	    $response['success'] = 1;
-	    $price=$price*$quenty;
+	    $price=$price*$quantity;
 	    $response['price']=number_format($price,2);
 		$response['options_qty']=$options_qty;
 		$response['options_ncr_number_parts']=$options_ncr_number_parts;
@@ -1661,7 +1661,7 @@ class Orders extends Admin_Controller
 		
 		$json=array('status'=>0,'msg'=>'');
 		$product_id=$this->input->post('product_id');
-        $quantity=$this->input->post('quenty');
+        $quantity=$this->input->post('quantity');
 		$price=$this->input->post('price');
 		
 		   $product_size_id=$this->input->post('product_size_id');

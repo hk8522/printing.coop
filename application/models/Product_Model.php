@@ -1,4 +1,3 @@
-
 <?php
 
 Class Product_Model extends MY_Model {
@@ -940,7 +939,7 @@ Class Product_Model extends MY_Model {
         $query = $this->db->delete('quantity');
 		
 		$this->db->where('qty',$id);
-		$query = $this->db->delete('product_quenty');
+		$query = $this->db->delete('product_quantity');
 		$this->db->where('qty',$id);
 		$query = $this->db->delete('product_size_new');
 		$this->db->where('qty',$id);
@@ -1839,14 +1838,14 @@ Class Product_Model extends MY_Model {
 		}
 		return $dataNew;
     }
-	public function ProductQuentyDropDwon($product_id){
+	public function ProductQuantityDropDwon($product_id){
 		
-        $this->db->select(array('product_quenty.price','product_quenty.qty','quantity.name as qty_name','quantity.name_french as qty_name_french'));
-        $this->db->from('product_quenty');
-		$this->db->join('quantity', 'product_quenty.qty=quantity.id', 'inner');
-		$this->db->where('product_quenty.product_id',$product_id);
+        $this->db->select(array('product_quantity.price','product_quantity.qty','quantity.name as qty_name','quantity.name_french as qty_name_french'));
+        $this->db->from('product_quantity');
+		$this->db->join('quantity', 'product_quantity.qty=quantity.id', 'inner');
+		$this->db->where('product_quantity.product_id',$product_id);
 		$this->db->where('quantity.status',1);
-		$this->db->group_by('product_quenty.qty'); 
+		$this->db->group_by('product_quantity.qty'); 
 		$this->db->order_by('quantity.name','asc');
         $query = $this->db->get();
 		$data=$query->result_array();
@@ -1858,14 +1857,14 @@ Class Product_Model extends MY_Model {
 		return $qdataNew;
     }
 	
-	public function ProductQuentySizeDropDwon($product_id){
+	public function ProductQuantitySizeDropDwon($product_id){
 		
-        $this->db->select(array('product_quenty.price','product_quenty.qty','quantity.name as qty_name','quantity.name_french as qty_name_french'));
-        $this->db->from('product_quenty');
-		$this->db->join('quantity', 'product_quenty.qty=quantity.id', 'inner');
-		$this->db->where('product_quenty.product_id',$product_id);
+        $this->db->select(array('product_quantity.price','product_quantity.qty','quantity.name as qty_name','quantity.name_french as qty_name_french'));
+        $this->db->from('product_quantity');
+		$this->db->join('quantity', 'product_quantity.qty=quantity.id', 'inner');
+		$this->db->where('product_quantity.product_id',$product_id);
 		$this->db->where('quantity.status',1);
-		$this->db->group_by('product_quenty.qty');
+		$this->db->group_by('product_quantity.qty');
 		$this->db->order_by('quantity.set_order','asc');
         $query = $this->db->get();
 		$data=$query->result_array();
@@ -1901,14 +1900,14 @@ Class Product_Model extends MY_Model {
 		return $qdataNew;
     }
 	
-	/*public function ProductQuentySizeAttributeDropDwon($product_id){
+	/*public function ProductQuantySizeAttributeDropDwon($product_id){
 		
-        $this->db->select(array('product_quenty.price','product_quenty.qty','quantity.name','quantity.name_french'));
-        $this->db->from('product_quenty');
-		$this->db->join('quantity', 'product_quenty.qty=quantity.id', 'inner');
-		$this->db->where('product_quenty.product_id',$product_id);
+        $this->db->select(array('product_quantity.price','product_quantity.qty','quantity.name','quantity.name_french'));
+        $this->db->from('product_quantity');
+		$this->db->join('quantity', 'product_quantity.qty=quantity.id', 'inner');
+		$this->db->where('product_quantity.product_id',$product_id);
 		$this->db->where('quantity.status',1);
-		$this->db->group_by('product_quenty.qty'); 
+		$this->db->group_by('product_quantity.qty'); 
 		$this->db->order_by('quantity.set_order','asc');
         $query = $this->db->get();
 		$data=$query->result_array();
@@ -1951,14 +1950,14 @@ Class Product_Model extends MY_Model {
 		return $qdataNew;
     }*/
 	
-	public function ProductQuentySizeAttributeDropDwon($product_id){
+	public function ProductQuantySizeAttributeDropDwon($product_id){
 		
-        $this->db->select(array('product_quenty.price','product_quenty.qty','quantity.name','quantity.name_french'));
-        $this->db->from('product_quenty');
-		$this->db->join('quantity', 'product_quenty.qty=quantity.id', 'inner');
-		$this->db->where('product_quenty.product_id',$product_id);
+        $this->db->select(array('product_quantity.price','product_quantity.qty','quantity.name','quantity.name_french'));
+        $this->db->from('product_quantity');
+		$this->db->join('quantity', 'product_quantity.qty=quantity.id', 'inner');
+		$this->db->where('product_quantity.product_id',$product_id);
 		$this->db->where('quantity.status',1);
-		$this->db->group_by('product_quenty.qty'); 
+		$this->db->group_by('product_quantity.qty'); 
 		$this->db->order_by('quantity.name','asc');
         $query = $this->db->get();
 		$data=$query->result_array();
@@ -2038,12 +2037,51 @@ Class Product_Model extends MY_Model {
 		}
 		return $qdataNew;
     }
+
+    public function quantities() {
+        $this->db->select(array('id', 'name', 'name_french'));
+        $this->db->from('quantity');
+		$this->db->where('status', 1);
+		$this->db->order_by('name', 'asc');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
+    public function sizes() {
+        $this->db->select(array('id', 'size_name', 'size_name_french'));
+        $this->db->from('size');
+		$this->db->where('status', 1);
+		$this->db->order_by('size_name', 'asc');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
+    public function productQuantities($product_id) {
+        $this->db->select(array('quantity.id', 'quantity.name', 'quantity.name_french', 'product_quantity.price'));
+        $this->db->from('product_quantity');
+		$this->db->join('quantity', 'quantity.id=product_quantity.qty', 'inner');
+		$this->db->where('product_quantity.product_id', $product_id);
+		$this->db->where('quantity.status', 1);
+		$this->db->order_by('quantity.name', 'asc');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
+    public function productSizes($product_id) {
+        $this->db->select(array('size.id', 'size.size_name', 'size.size_name_french', 'product_a_size.extra_price'));
+        $this->db->from('product_a_size');
+		$this->db->join('size', 'size.id=product_a_size.size_id', 'inner');
+		$this->db->where('product_a_size.product_id', $product_id);
+		$this->db->where('size.status', 1);
+		$this->db->order_by('size.size_name', 'asc');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
 	
-	
-	public function ProductOnlyQuentyDropDwon($product_id) {
+	public function ProductOnlyQuantityDropDwon($product_id) {
 		
         $this->db->select(array('price','qty'));
-        $this->db->from('product_quenty');
+        $this->db->from('product_quantity');
 		$this->db->where('product_id',$product_id);
 		$this->db->group_by('qty'); 
 		$this->db->order_by('id','asc');
@@ -2134,7 +2172,7 @@ Class Product_Model extends MY_Model {
 			
 			$this->db->where('qty',$id);
 			$this->db->where('product_id',$product_id);
-			$query = $this->db->update('product_quenty', $data);
+			$query = $this->db->update('product_quantity', $data);
 			
 			unset($data['price']);
 			$this->db->where('qty',$id);
@@ -2153,7 +2191,7 @@ Class Product_Model extends MY_Model {
 			
 			$data['created_at']=date('Y-m-d H:i:s');
 			$data['updated_at']=date('Y-m-d H:i:s');
-			$query = $this->db->insert('product_quenty', $data);
+			$query = $this->db->insert('product_quantity', $data);
 			if($query){
                return $insert_id = $this->db->insert_id();
 			} else {
@@ -2232,7 +2270,7 @@ Class Product_Model extends MY_Model {
 	{
 		$this->db->where('qty',$qty);
 		$this->db->where('product_id',$product_id);
-        $query = $this->db->delete('product_quenty');
+        $query = $this->db->delete('product_quantity');
 		
 		$this->db->where('qty',$qty);
 		$this->db->where('product_id',$product_id);
@@ -2483,78 +2521,114 @@ Class Product_Model extends MY_Model {
 			
 		}
     }
-	
-	
-	
-	    public function getProductMultipalCategoriesAndSubCategories($id)
-		{       
-		        $categoryQueryData=array();
-				
-				$categoryQuery = $this->db->select('*')->from('product_category')->where(['product_id'=>$id]);
-				$ProductCategories =$categoryQuery->get()->result_array();
-				foreach($ProductCategories as $key => $category) {
-					
-					$category_id=$category['category_id'];
-					
-					$subCategoryQuery = $this->db->select('*')->from('product_subcategory')->where([ 'category_id' => $category_id,'product_id'=>$id]);
-					$subCategoryQuery=$subCategoryQuery->get()->result_array();
-					//pr($subCategoryQuery);
-					
-					$subCategoryQueryData=array();
-					foreach($subCategoryQuery as $val){
-						
-						$subCategoryQueryData[]=$val['sub_category_id'];
-					}
-					$categoryQueryData[$category_id] = $subCategoryQueryData;
-					
-				}
-				#pr($categoryQueryData);
-				return $categoryQueryData;
-		}
-		
-		public function saveProductSubCategory($data)
-		{
-			
-				if(empty($data)){
-					return true;
-				}
-				$query=$this->db->insert_batch('product_subcategory', $data);
-				if ($query) {
-					return true;
-				} else {
-					return false;
-				}
-		}
-		
-		public function saveProductSingleSubCategory($data)
-		{
-				if(empty($data)){
-					return true;
-				}
-				$query = $this->db->insert('product_subcategory', $data);
-				if ($query) {
-				   return $insert_id = $this->db->insert_id();
-				} else {
-					return 0;
-				}
-		}
-		
-		public function saveProductCategory($data){
-			
-				if(empty($data)){
-					return true;
-				}
-				$query = $this->db->insert('product_category', $data);
-				
-				if ($query) {
-					
-				    return $insert_id = $this->db->insert_id();
-					
-				} else {
-					return 0;
-				}	
-		}
-	
-}
 
-?>
+
+
+    public function getProductMultipalCategoriesAndSubCategories($id)
+    {       
+            $categoryQueryData=array();
+            
+            $categoryQuery = $this->db->select('*')->from('product_category')->where(['product_id'=>$id]);
+            $ProductCategories =$categoryQuery->get()->result_array();
+            foreach($ProductCategories as $key => $category) {
+                
+                $category_id=$category['category_id'];
+                
+                $subCategoryQuery = $this->db->select('*')->from('product_subcategory')->where([ 'category_id' => $category_id,'product_id'=>$id]);
+                $subCategoryQuery=$subCategoryQuery->get()->result_array();
+                //pr($subCategoryQuery);
+                
+                $subCategoryQueryData=array();
+                foreach($subCategoryQuery as $val){
+                    
+                    $subCategoryQueryData[]=$val['sub_category_id'];
+                }
+                $categoryQueryData[$category_id] = $subCategoryQueryData;
+                
+            }
+            #pr($categoryQueryData);
+            return $categoryQueryData;
+    }
+    
+    public function saveProductSubCategory($data)
+    {
+        
+            if(empty($data)){
+                return true;
+            }
+            $query=$this->db->insert_batch('product_subcategory', $data);
+            if ($query) {
+                return true;
+            } else {
+                return false;
+            }
+    }
+    
+    public function saveProductSingleSubCategory($data)
+    {
+            if(empty($data)){
+                return true;
+            }
+            $query = $this->db->insert('product_subcategory', $data);
+            if ($query) {
+                return $insert_id = $this->db->insert_id();
+            } else {
+                return 0;
+            }
+    }
+    
+    public function saveProductCategory($data){
+        
+            if(empty($data)){
+                return true;
+            }
+            $query = $this->db->insert('product_category', $data);
+            
+            if ($query) {
+                
+                return $insert_id = $this->db->insert_id();
+                
+            } else {
+                return 0;
+            }	
+    }
+
+    public function autoSizeAdd($data)
+    {
+        $id = isset($data['id']) ? $data['id'] : '';
+        $product_id = $data['product_id'];
+
+        if (!empty($id)) {
+            unset($data['id']);
+            $data['updated_at'] = date('Y-m-d H:i:s');
+            $this->db->where('product_id',  $product_id);
+            $this->db->where('size_id',     $id);
+            $query = $this->db->update('product_a_size', $data);
+            
+            if ($query) {
+                return $id;
+            } else {
+                return 0;
+            }
+        } else {
+            $data['created_at'] = date('Y-m-d H:i:s');
+            $data['updated_at'] = date('Y-m-d H:i:s');
+            $query = $this->db->insert('product_a_size', $data);
+            if ($query) {
+                return $insert_id = $this->db->insert_id();
+            } else {
+                return 0;
+            }
+        }
+    }
+
+    function autoSizeDelete($product_id, $size_id) {
+        $this->db->where('product_id',  $product_id);
+        $this->db->where('size_id',     $size_id);
+        $query = $this->db->delete('product_a_size');
+        if ($query)
+            return true;
+        else
+            return false;
+    }
+}

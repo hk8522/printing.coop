@@ -598,7 +598,7 @@ overflow: hidden;
 							                  Quantity
 							                <?php 
 							                }?><span class="required">*</span></label>
-												<select name="product_quantity_id" required id="product_quantity_id" onchange="showQuenty()">
+												<select name="product_quantity_id" required id="product_quantity_id" onchange="showQuantity()">
 										        <option value=""><?php echo $language_name=='French'?'Choisis une option...':'Choose an option...';?></option>
 												
 			        <?php 
@@ -756,7 +756,7 @@ overflow: hidden;
 							                  How many sets
 							                <?php 
 							                }?> </label>
-                                            <input type="text" value="1" id="quenty" name="quenty"  onkeypress="javascript:return isNumber(event)" onchange="setQuenty()">
+                                            <input type="text" value="1" id="quantity" name="quantity"  onkeypress="javascript:return isNumber(event)" onchange="setQuantity()">
                                         </div>
                                     </div>
                                 </div>
@@ -1066,7 +1066,7 @@ overflow: hidden;
 	
     }
 	
-	function showQuenty(){
+	function showQuantity(){
 		
 	        $("#loder-img").show();
             $(".new-price-img").hide();
@@ -1076,7 +1076,7 @@ overflow: hidden;
 			$.ajax({
 				type: 'POST',
 				dataType: 'html',
-				url: '<?php echo $BASE_URL?>Products/GetQuenty',
+				url: '<?php echo $BASE_URL?>Products/GetQuantity',
 				data: formData,
 				cache: false,
 				contentType: false,
@@ -1104,7 +1104,7 @@ overflow: hidden;
             });
     }
 	
-	function showSizeQuenty(){
+	function showSizeQuantity(){
 		
 	        $("#loder-img").show();
             $(".new-price-img").hide();
@@ -1114,7 +1114,7 @@ overflow: hidden;
 			$.ajax({
 				type: 'POST',
 				dataType: 'html',
-				url: '<?php echo $BASE_URL?>Products/GetQuenty',
+				url: '<?php echo $BASE_URL?>Products/GetQuantity',
 				data: formData,
 				cache: false,
 				contentType: false,
@@ -1155,7 +1155,7 @@ overflow: hidden;
 				}
             });
     }
-	function getQuentyPrice(nid){
+	function getQuantityPrice(nid){
 		
 	        $("#loder-img").show();
             $(".new-price-img").hide();
@@ -1213,11 +1213,11 @@ overflow: hidden;
             });
     }
 	 
-    function setQuenty(){
+    function setQuantity(){
 		 
-			quenty=$("#quenty").val();
-			if(quenty=='' || quenty==0){
-				$("#quenty").val('1');
+			quantity=$("#quantity").val();
+			if(quantity=='' || quantity==0){
+				$("#quantity").val('1');
 			}
 			var myForm = document.getElementById('cardFrom');
 			var formData = new FormData(myForm);

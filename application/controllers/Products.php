@@ -252,7 +252,7 @@ class Products extends Public_Controller
 		$this->data['ProductTemplates']    = $ProductTemplates;
 		$ProductAttributes=$this->Product_Model->getProductAttributesByItemIdFrontEnd($id);
 		$this->data['ProductAttributes']=$ProductAttributes;  
-		$ProductSizes=$this->Product_Model->ProductQuentyDropDwon($id);
+		$ProductSizes=$this->Product_Model->ProductQuantityDropDwon($id);
 		//pr($ProductSizes,1);
 		$this->data['ProductSizes'] = $ProductSizes;
 		$ProductPages=$this->Product_Model->getProductPages();
@@ -444,7 +444,7 @@ class Products extends Public_Controller
 	   $response=array();
 	   $product_id=$this->input->post('product_id');
 	   $price=$this->input->post('price');
-	   $quenty=$this->input->post('quenty');
+	   $quantity=$this->input->post('quantity');
 	   
 	    $product_quantity_id=$this->input->post('product_quantity_id');
 	    $product_size_id=$this->input->post('product_size_id');
@@ -454,7 +454,7 @@ class Products extends Public_Controller
 		$depth_add_length_width=$this->input->post('depth_add_length_width');
 		$recto_verso=$this->input->post('recto_verso');
 		$recto_verso_price=$this->input->post('recto_verso_price');
-	    $quenty=!empty($quenty) ? $quenty:1;
+	    $quantity=!empty($quantity) ? $quantity:1;
 		
 		
 	    $ProductAttributes=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
@@ -473,7 +473,7 @@ class Products extends Public_Controller
 	   
 	  
 	    #Product Size Price Cal.
-		$ProductSizes=$this->Product_Model->ProductQuentySizeAttributeDropDwon($product_id);
+		$ProductSizes=$this->Product_Model->ProductQuantySizeAttributeDropDwon($product_id);
 		
 		if(!empty($product_quantity_id)){
 			
@@ -1126,18 +1126,18 @@ class Products extends Public_Controller
 		}
 	   
 	   $response['success'] = 1;
-	   $price=$price*$quenty;
+	   $price=$price*$quantity;
 	   $response['price']=number_format($price,2);
 	   echo json_encode($response);
 	   exit(0);
 	   
 	}
 	
-	function GetQuenty(){
+	function GetQuantity(){
 	
 	    $product_id=$this->input->post('product_id');
 	    $price=$this->input->post('price');
-	    $quenty=$this->input->post('quenty');
+	    $quantity=$this->input->post('quantity');
 		$product_quantity_id=$this->input->post('product_quantity_id');
 		
 		$product_size_id=$this->input->post('product_size_id');
@@ -1151,9 +1151,9 @@ class Products extends Public_Controller
 		$recto_verso=$this->input->post('recto_verso');
 		$recto_verso_price=$this->input->post('recto_verso_price');
 		
-	    $quenty=!empty($quenty) ? $quenty:1;
+	    $quantity=!empty($quantity) ? $quantity:1;
 		
-		$ProductSizes=$this->Product_Model->ProductQuentySizeDropDwon($product_id);
+		$ProductSizes=$this->Product_Model->ProductQuantitySizeDropDwon($product_id);
 		$quantityData=isset($ProductSizes[$product_quantity_id]) ? $ProductSizes[$product_quantity_id]:array();
 		
 		$qty_ext_price=isset($quantityData['price']) ? $quantityData['price']:0;
@@ -1401,7 +1401,7 @@ class Products extends Public_Controller
 		
 	    $response=array();
 	    $response['success'] = 1;
-	    $price=$price*$quenty;
+	    $price=$price*$quantity;
 	    $response['price']=number_format($price,2);
 		$response['sizeoprions'] = $this->getSizeOptions($product_id,$product_quantity_id,$product_size_id,1);
 		//pr($response,1);
@@ -1416,7 +1416,7 @@ class Products extends Public_Controller
 			redirect(base_url());
 		}
 		$this->load->model('Product_Model');
-		$ProductSizes=$this->Product_Model->ProductQuentySizeAttributeDropDwon($product_id);
+		$ProductSizes=$this->Product_Model->ProductQuantySizeAttributeDropDwon($product_id);
 		$MultipleAttributes=$this->Product_Model->getMultipleAttributesListDropDwon();
 		$response=array();
 		

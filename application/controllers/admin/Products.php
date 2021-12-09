@@ -696,7 +696,7 @@ class Products extends Admin_Controller
 				$postData = [];
 				$postData = $this->Product_Model->getProductDataById($id);
 				$ProductSizes=array();
-				$this->data['ProductSizes']=$this->Product_Model->ProductQuentySizeAttributeDropDwon($id);
+				$this->data['ProductSizes']=$this->Product_Model->ProductQuantySizeAttributeDropDwon($id);
 				
 		        $this->data['postData'] = $postData;
 	            $this->render($this->class_name.'product_multiple_attribute');
@@ -719,7 +719,7 @@ class Products extends Admin_Controller
 			$product_id=$this->input->post('product_id');
 			$id=$this->input->post('id');
 			
-			$ProductSizes=$this->Product_Model->ProductOnlyQuentyDropDwon($product_id);
+			$ProductSizes=$this->Product_Model->ProductOnlyQuantityDropDwon($product_id);
 			
 			$QuantityIds=array_keys($ProductSizes);
 			$quantity_price=!empty($quantity_price) ? $quantity_price:0;
@@ -758,7 +758,7 @@ class Products extends Admin_Controller
 		}else{
 			
 			$success='0';
-			$ProductSizes=$this->Product_Model->ProductOnlyQuentyDropDwon($product_id);
+			$ProductSizes=$this->Product_Model->ProductOnlyQuantityDropDwon($product_id);
 			//pr($ProductSizes,1);
 			$quantity_id=$id;
 			$quantity_price=isset($ProductSizes[$quantity_id]['price']) ? $ProductSizes[$quantity_id]['price']:'';
@@ -1042,15 +1042,34 @@ class Products extends Admin_Controller
 				$postData = [];
 				$postData = $this->Product_Model->getProductDataById($id);
 				$ProductSizes=array();
-				$this->data['ProductSizes']=$this->Product_Model->ProductQuentySizeAttributeDropDwon($id);
+				$this->data['ProductSizes']=$this->Product_Model->ProductQuantySizeAttributeDropDwon($id);
 				
 				$this->data['MultipleAttributes']=$this->Product_Model->getMultipleAttributesListDropDwon();
 				
 				//pr($this->data['ProductSizes'],1);
 				
 		        $this->data['postData'] = $postData;
-	            $this->render($this->class_name.'product_multiple_attribute');
+	            $this->render($this->class_name.'product_multiple_attributes');
 		
+    }
+	
+	public function SetMultipleAttributesAuto($id = null)
+    {
+        $this->load->helper('form');
+        $this->data['page_title'] = $page_title = 'Set Multiple Attributes (Automatic)';
+        if (empty($id)) {
+            redirect('admin/Products');
+        }
+        $this->data['main_page_url'] = '';
+        $this->load->model('Product_Model');
+
+        $this->data['product']              = $this->Product_Model->getProductDataById($id);
+        // $this->data['quantities']           = $this->Product_Model->quantities();
+        // $this->data['sizes']                = $this->Product_Model->sizes();
+        $this->data['productQuantities']    = $this->Product_Model->productQuantities($id);
+        $this->data['productSizes']         = $this->Product_Model->productSizes($id);
+
+        $this->render($this->class_name.'product_multiple_attributes_auto');
     }
 	
 	public function AddEditProductQuantity($product_id=null,$id=null){
@@ -1069,7 +1088,7 @@ class Products extends Admin_Controller
 			$product_id=$this->input->post('product_id');
 			$id=$this->input->post('id');
 			
-			$ProductSizes=$this->Product_Model->ProductOnlyQuentyDropDwon($product_id);
+			$ProductSizes=$this->Product_Model->ProductOnlyQuantityDropDwon($product_id);
 			
 			$QuantityIds=array_keys($ProductSizes);
 			$quantity_price=!empty($quantity_price) ? $quantity_price:0;
@@ -1108,7 +1127,7 @@ class Products extends Admin_Controller
 		}else{
 			
 			$success='0';
-			$ProductSizes=$this->Product_Model->ProductOnlyQuentyDropDwon($product_id);
+			$ProductSizes=$this->Product_Model->ProductOnlyQuantityDropDwon($product_id);
 			//pr($ProductSizes,1);
 			$quantity_id=$id;
 			$quantity_price=isset($ProductSizes[$quantity_id]['price']) ? $ProductSizes[$quantity_id]['price']:'';
@@ -2099,15 +2118,15 @@ Coating";
 		$i=0;
 		foreach($ProductList as $product){
 			
-			$quantitydata=$this->Product_Model->ProductQuentyDropDwon($product['product_id']);
+			$quantitydata=$this->Product_Model->ProductQuantityDropDwon($product['product_id']);
 			foreach($quantitydata as $key=>$val){
 				
-				$saveProductQuentyData=array();
-				$saveProductQuentyData['qty']=$key;
-				$saveProductQuentyData['price']=$val['price'];
-				$saveProductQuentyData['product_id']=$product['product_id'];
-				$saveProductQuentyData['updated_at']=$saveProductQuentyData['created_at']=date('Y-m-d H:i:s');
-				//$this->db->insert('product_quenty', $saveProductQuentyData);
+				$saveProductQuantityData=array();
+				$saveProductQuantityData['qty']=$key;
+				$saveProductQuantityData['price']=$val['price'];
+				$saveProductQuantityData['product_id']=$product['product_id'];
+				$saveProductQuantityData['updated_at']=$saveProductQuantityData['created_at']=date('Y-m-d H:i:s');
+				//$this->db->insert('product_Quantity', $saveProductQuantityData);
 				$sizeData=$val['sizeData'];
 				
 				foreach($sizeData as $skey=>$sval){
@@ -2168,7 +2187,7 @@ Coating";
 			/*
 			$saveProductData['qty']=$id;
 			$saveProductData['product_id']=$product['id'];
-			$updated = $this->db->insert('product_quenty', $saveProductData);
+			$updated = $this->db->insert('product_quantity', $saveProductData);
 			if($updated > 0){
 				$i++;
 			}*/
@@ -2205,14 +2224,88 @@ Coating";
 				#pr($column);
 				$id=$column['0'];
 				$name=$column['1'];
-				$saveProductQuentyData=array();
-				$saveProductQuentyData['id']=$id;
-				$saveProductQuentyData['name']=$name;
+				$saveProductQuantityData=array();
+				$saveProductQuantityData['id']=$id;
+				$saveProductQuantityData['name']=$name;
 				$this->db->where('id', $id);
-			    #$query = $this->db->update('cities', $saveProductQuentyData);
+			    #$query = $this->db->update('cities', $saveProductQuantityData);
 			}
 			$i++;
 			
         }
 	}
+
+    public function AutoSizeAdd($product_id = null, $id = null) {
+        $this->load->helper('form');
+        $this->load->model('Product_Model');
+        $sizes = $this->Product_Model->sizes();
+        $data['sizes'] = $sizes;
+        $data['BASE_URL'] = base_url();
+        
+        $extra_price = $size_id = '';
+        if ($this->input->post()) {
+            //pr($_POST);
+            $id             = $this->input->post('id');
+            $product_id     = $this->input->post('product_id');
+            $size_id        = $this->input->post('size_id');
+            $extra_price    = $this->input->post('extra_price');
+
+            $productSizes   = $this->Product_Model->productSizes($product_id);
+            $sizeIds = array();
+            foreach ($productSizes as $size)
+                $sizeIds[] = $size['id'];
+
+            $extra_price = !empty($extra_price) ? $extra_price:0;
+            $SavedData['product_id']    = $product_id;
+            $SavedData['size_id']       = $size_id;
+            $SavedData['extra_price']   = $extra_price;
+            $saveQuantity = true;
+
+            if ($id) {
+                $SavedData['id'] = $id;
+            }
+            if ($id != $size_id && in_array($size_id, $sizeIds)) {
+                $this->session->set_flashdata('message_error', 'This size already added this product & Quantity');
+                $saveQuantity = false;
+            }
+
+            if( $saveQuantity) {
+                $insert_id = $this->Product_Model->autoSizeAdd($SavedData);
+                if ($insert_id > 0) {
+                    $success = 1;
+                    if ($id)
+                        $this->session->set_flashdata('message_success', 'Updated Size Successfully.');
+                    else
+                        $this->session->set_flashdata('message_success', 'Added Size Successfully.');
+                } else {
+                    $this->session->set_flashdata('message_error', 'Saved Size Unsuccessfully.');
+                }
+            }
+        } else {
+            $success        = '0';
+            $productSizes   = $this->Product_Model->productSizes($product_id);
+            $size_id        = $id;
+            $extra_price    = 0;
+            foreach ($productSizes as $size) {
+                if ($size['id'] == $size_id)
+                    $extra_price = $size['extra_price'];
+            }
+        }
+
+        $data['id']=$id;
+        $data['product_id']     = $product_id;
+        $data['size_id']        = $size_id;
+        $data['extra_price']    = $extra_price;
+        $data['success']        = $success;
+        echo $this->load->view($this->class_name.'auto_size_add', $data, true);
+        exit(0);
+    }
+
+    function autoSizeDelete($product_id, $size_id) {
+        $this->load->model('Product_Model');
+        if ($this->Product_Model->autoSizeDelete($product_id, $size_id))
+            echo "1";
+        else
+            echo "0";
+    }
 }

@@ -169,15 +169,16 @@
 												
 											   	<a href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $list['id'];?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this product?');">
 										         	<i class="fa fa-trash fa-lg"></i>
-	
-	</a>
-	<a href="<?php echo $BASE_URL.$class_name?>SetMultipleAttributes/<?php echo $list['id'];?>" style="color:geen;padding: 5px;" title="Set Single Attribute">
-									         <button type="button" class="custon-active">Multiple Attribute</button>	
-	</a>
-	<a href="<?php echo $BASE_URL.$class_name?>SetSingleAttributes/<?php echo $list['id'];?>" style="color:#geen;padding: 5px;" title="Set Single Attribute">
-									         <button type="button" class="custon-active">Single Attribute</button>	
-	</a>
-	
+												</a>
+												<a href="<?php echo $BASE_URL.$class_name?>SetMultipleAttributes/<?php echo $list['id'];?>" style="color:geen;padding: 5px;" title="Set Single Attribute">
+												    <button type="button" class="custon-active">Multiple Attribute</button>
+												</a>
+												<a href="<?php echo $BASE_URL.$class_name?>SetMultipleAttributesAuto/<?php echo $list['id'];?>" style="color:geen;padding: 5px;" title="Set Single Attribute">
+												    <button type="button" class="custon-active">Multiple Attribute (Automatic)</button>
+												</a>
+												<a href="<?php echo $BASE_URL.$class_name?>SetSingleAttributes/<?php echo $list['id'];?>" style="color:#geen;padding: 5px;" title="Set Single Attribute">
+													<button type="button" class="custon-active">Single Attribute</button>
+												</a>
 										   </div>
 										</td>
 									</tr>

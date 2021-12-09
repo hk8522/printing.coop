@@ -77,7 +77,7 @@
 								<div class="col-md-3">
 										   <div class="table-filter-fields">
 												<label>Quantity<span class="required">*</span></label>
-	<select name="product_quantity_id" required id="product_quantity_id<?php echo $product_id_key?>" onchange="showQuenty('<?php echo $product_id_key?>')" class="form-control">
+	<select name="product_quantity_id" required id="product_quantity_id<?php echo $product_id_key?>" onchange="showQuantity('<?php echo $product_id_key?>')" class="form-control">
 										        <option value="">Choose an option...</option>
 												
 			        <?php 
@@ -224,7 +224,7 @@
 										<div class="col-md-6">
 											<div class="quant-cart">
 												<label>Sets</label>
-												<input type="text" value="<?php echo isset($product_val['qty']) ? $product_val['qty']:1 ?>" id="quenty<?php echo $product_id_key?>" name="quenty"  onkeypress="javascript:return isNumber(event)" onchange="setQuenty('<?php echo $product_id_key?>')">
+												<input type="text" value="<?php echo isset($product_val['qty']) ? $product_val['qty']:1 ?>" id="quantity<?php echo $product_id_key?>" name="quantity"  onkeypress="javascript:return isNumber(event)" onchange="setQuantity('<?php echo $product_id_key?>')">
 											</div>
 										</div>
 									</div>
