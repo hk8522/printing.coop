@@ -31,13 +31,13 @@
 						</div>
 						<div class="col-md-8">
 							<div class="controls">
-								<select name="multiple_attribute_item_id" class="form-control" required>
+								<select name="attribute_item_id" class="form-control" required>
 								    <option value="">Select <?php echo $MultipleAttribute['name'];?></option>
 									<?php 
 									foreach($MultipleAttribute['items'] as $key=>$val){
 										
 									    $selected='';
-                                        if($multiple_attribute_item_id==$key){
+                                        if($attribute_item_id==$key){
 											
 											$selected='selected="selected"';
 										}		
@@ -77,12 +77,12 @@
  success='<?php echo $success?>';
 $('#AddEditProductAttribute').validate({
 	    rules: {
-			multiple_attribute_item_id: {
+			attribute_item_id: {
 			  required: true,
 			},
 		},
         messages: {
-            multiple_attribute_item_id: {
+            attribute_item_id: {
               required: 'Please select attribute item',
             },
         },

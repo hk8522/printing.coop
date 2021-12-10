@@ -1282,7 +1282,7 @@ Class Product_Model extends MY_Model {
 			
 			$this->db->where('product_attribute_id', $id);
 			$this->db->delete('product_multiple_attribute_items');
-			$this->db->where('multiple_attribute_id',$id);
+			$this->db->where('attribute_id',$id);
 		    $query = $this->db->delete('size_multiple_attributes');
 			
             return 1;
@@ -1875,7 +1875,7 @@ Class Product_Model extends MY_Model {
 			$qty=$val['qty'];
 			$val['qty_name']=$val['name'];
 			$val['qty_name_french']=$val['name_french'];
-			$this->db->select(array('product_size_new.size_id','product_size_new.size_extra_prce','size.size_name','size.size_name_french'));
+			$this->db->select(array('product_size_new.size_id','product_size_new.extra_price','size.size_name','size.size_name_french'));
             $this->db->from('product_size_new');
 			$this->db->join('size', 'product_size_new.size_id=size.id', 'inner');
 		    $this->db->where(array('product_size_new.product_id'=>$product_id,'product_size_new.qty'=>$qty,'size.status'=>1));
@@ -1918,7 +1918,7 @@ Class Product_Model extends MY_Model {
 			$qty=$val['qty'];
 			$val['qty_name']=$val['name'];
 			$val['qty_name_french']=$val['name_french'];
-			$this->db->select(array('product_size_new.size_id','product_size_new.size_extra_prce','size.size_name','size.size_name_french'));
+			$this->db->select(array('product_size_new.size_id','product_size_new.extra_price','size.size_name','size.size_name_french'));
             $this->db->from('product_size_new');
 			$this->db->join('size', 'product_size_new.size_id=size.id', 'inner');
 		    $this->db->where(array('product_size_new.product_id'=>$product_id,'product_size_new.qty'=>$qty,'size.status'=>1));
@@ -1968,7 +1968,7 @@ Class Product_Model extends MY_Model {
 			$qty=$val['qty'];
 			$val['qty_name']=$val['name'];
 			$val['qty_name_french']=$val['name_french'];
-			$this->db->select(array('product_size_new.size_id','product_size_new.size_extra_prce','size.size_name','size.size_name_french'));
+			$this->db->select(array('product_size_new.size_id','product_size_new.extra_price','size.size_name','size.size_name_french'));
             $this->db->from('product_size_new');
 			$this->db->join('size', 'product_size_new.size_id=size.id', 'inner');
 		    $this->db->where(array('product_size_new.product_id'=>$product_id,'product_size_new.qty'=>$qty,'size.status'=>1));
@@ -1990,9 +1990,9 @@ Class Product_Model extends MY_Model {
 					$this->db->select(array('size_multiple_attributes.*','product_multiple_attributes.name as attributes_name','product_multiple_attributes.name_french as attributes_name_french','product_multiple_attribute_items.item_name as attributes_item_name','product_multiple_attribute_items.item_name_french as attributes_item_name_french'));
 					
 					$this->db->from('size_multiple_attributes');
-					$this->db->join('product_multiple_attributes', 'size_multiple_attributes.multiple_attribute_id=product_multiple_attributes.id', 'inner');
+					$this->db->join('product_multiple_attributes', 'size_multiple_attributes.attribute_id=product_multiple_attributes.id', 'inner');
 					
-					$this->db->join('product_multiple_attribute_items', 'size_multiple_attributes.multiple_attribute_item_id=product_multiple_attribute_items.id', 'inner');
+					$this->db->join('product_multiple_attribute_items', 'size_multiple_attributes.attribute_item_id=product_multiple_attribute_items.id', 'inner');
 					
 					$this->db->where(array('size_multiple_attributes.product_id'=>$product_id,'size_multiple_attributes.qty'=>$qty,'size_multiple_attributes.size_id'=>$size_id,'product_multiple_attributes.status'=>1));
 					
@@ -2005,14 +2005,14 @@ Class Product_Model extends MY_Model {
 					$attributeNewData=array();
 					foreach($attribute as $akey=>$aval){
 						
-						$multiple_attribute_id=$aval['multiple_attribute_id'];
-						$multiple_attribute_item_id=$aval['multiple_attribute_item_id'];
+						$attribute_id=$aval['attribute_id'];
+						$attribute_item_id=$aval['attribute_item_id'];
 						$attribute_items=array();
 
-						if(!empty($multiple_attribute_id) && !empty($multiple_attribute_item_id)){
+						if(!empty($attribute_id) && !empty($attribute_item_id)){
 							
 							
-							$attributeNew[$multiple_attribute_id][$multiple_attribute_item_id]=$aval;
+							$attributeNew[$attribute_id][$attribute_item_id]=$aval;
 						}
 
 					}
@@ -2057,7 +2057,7 @@ Class Product_Model extends MY_Model {
     }
 	public function ProductOnlySizeDropDwon($product_id,$qty) {
 		
-		$this->db->select(array('size_id','size_extra_prce'));
+		$this->db->select(array('size_id','extra_price'));
 		$this->db->from('product_size_new');
 		$this->db->where(array('product_id'=>$product_id,'qty'=>$qty));
 		$this->db->group_by('size_id');
@@ -2075,11 +2075,11 @@ Class Product_Model extends MY_Model {
 		return $dataNew;
     }
 	
-	public function ProductOnlySizeMultipleAttributesDropDwon($product_id,$qty,$size_id,$multiple_attribute_id) {
+	public function ProductOnlySizeMultipleAttributesDropDwon($product_id,$qty,$size_id,$attribute_id) {
 		
-		$this->db->select(array('multiple_attribute_item_id'));
+		$this->db->select(array('attribute_item_id'));
 		$this->db->from('size_multiple_attributes');
-		$this->db->where(array('product_id'=>$product_id,'qty'=>$qty,'size_id'=>$size_id,'multiple_attribute_id'=>$multiple_attribute_id));
+		$this->db->where(array('product_id'=>$product_id,'qty'=>$qty,'size_id'=>$size_id,'attribute_id'=>$attribute_id));
 		
 		$this->db->order_by('id','asc');
 		$query = $this->db->get();
@@ -2087,10 +2087,10 @@ Class Product_Model extends MY_Model {
 		$dataNew=array();
 		foreach($datasize as $skey=>$sval){
 			
-			$multiple_attribute_item_id=$sval['multiple_attribute_item_id'];
-			if(!empty($multiple_attribute_item_id)){
+			$attribute_item_id=$sval['attribute_item_id'];
+			if(!empty($attribute_item_id)){
 				
-				$dataNew[$multiple_attribute_item_id]=$sval;
+				$dataNew[$attribute_item_id]=$sval;
 				
 			}
 		}
@@ -2174,7 +2174,7 @@ Class Product_Model extends MY_Model {
 			$this->db->where('product_id',$product_id);
 			$query = $this->db->update('product_size_new', $data);
 			
-			unset($data['size_extra_prce']);
+			unset($data['extra_price']);
 			$this->db->where('size_id',$id);
 			$this->db->where('qty',$qty);
 			$this->db->where('product_id',$product_id);
@@ -2679,7 +2679,7 @@ Class Product_Model extends MY_Model {
     public function productAutoAttributeDetails($product_id) {
         $this->db->select(array('product_a_attribute_items.attribute_id', 'product_multiple_attribute_items.id', 'product_multiple_attribute_items.item_name', 'product_multiple_attribute_items.item_name_french', 'product_a_attribute_items.extra_price'));
         $this->db->from('product_a_attribute_items');
-        $this->db->join('product_multiple_attribute_items', 'product_multiple_attribute_items.id=product_a_attribute_items.item_id', 'inner');
+        $this->db->join('product_multiple_attribute_items', 'product_multiple_attribute_items.id=product_a_attribute_items.attribute_item_id', 'inner');
         $this->db->where('product_a_attribute_items.product_id', $product_id);
         $this->db->order_by('product_multiple_attribute_items.item_name', 'asc');
         $items = $this->db->get()->result_array();
@@ -2740,7 +2740,7 @@ Class Product_Model extends MY_Model {
     public function productAutoAttributeItems($product_id, $attribute_id) {
         $this->db->select(array('product_multiple_attribute_items.id', 'product_multiple_attribute_items.item_name', 'product_multiple_attribute_items.item_name_french', 'product_a_attribute_items.extra_price'));
         $this->db->from('product_a_attribute_items');
-        $this->db->join('product_multiple_attribute_items', 'product_multiple_attribute_items.id=product_a_attribute_items.item_id', 'inner');
+        $this->db->join('product_multiple_attribute_items', 'product_multiple_attribute_items.id=product_a_attribute_items.attribute_item_id', 'inner');
         $this->db->where('product_a_attribute_items.product_id',    $product_id);
         $this->db->where('product_a_attribute_items.attribute_id',  $attribute_id);
         $this->db->order_by('product_multiple_attribute_items.item_name', 'asc');
@@ -2757,9 +2757,9 @@ Class Product_Model extends MY_Model {
         if (!empty($id)) {
             unset($data['id']);
             $data['updated_at'] = date('Y-m-d H:i:s');
-            $this->db->where('product_id',      $product_id);
-            $this->db->where('attribute_id',    $attribute_id);
-            $this->db->where('item_id',         $id);
+            $this->db->where('product_id',          $product_id);
+            $this->db->where('attribute_id',        $attribute_id);
+            $this->db->where('attribute_item_id',   $id);
             $query = $this->db->update('product_a_attribute_items', $data);
             
             if ($query) {
@@ -2779,14 +2779,38 @@ Class Product_Model extends MY_Model {
         }
     }
 
-    function autoAttributeItemDelete($product_id, $attribute_id, $item_id) {
-        $this->db->where('product_id',      $product_id);
-        $this->db->where('attribute_id',    $attribute_id);
-        $this->db->where('item_id',         $item_id);
+    function autoAttributeItemDelete($product_id, $attribute_id, $attribute_item_id) {
+        $this->db->where('product_id',          $product_id);
+        $this->db->where('attribute_id',        $attribute_id);
+        $this->db->where('attribute_item_id',   $attribute_item_id);
         $query = $this->db->delete('product_a_attribute_items');
         if ($query)
             return true;
         else
             return false;
+    }
+
+    function autoGenerateAttributes($product_id) {
+        $result = $this->db->query("INSERT INTO `product_size_new` (`product_id`, `qty`, `size_id`, `extra_price`, `created_at`, `updated_at`)
+            SELECT q.`product_id`, q.`qty`, s.`size_id`, s.`extra_price`, NOW() AS created_at, NOW() AS updated_at
+            FROM `product_quantity` AS q 
+                INNER JOIN `product_a_sizes` AS s ON q.`product_id`=$product_id AND s.`product_id`=$product_id
+                LEFT JOIN `product_size_new` AS d ON d.`product_id`=$product_id AND d.`qty`=q.`qty` AND d.`size_id`=s.`size_id`
+            WHERE d.`id` IS NULL
+            ORDER BY q.`qty`, s.`size_id`, s.`extra_price`");
+        if (!$result)
+            return false;
+        $result = $this->db->query("INSERT INTO `size_multiple_attributes` (`product_id`, `qty`, `size_id`, `attribute_id`, `attribute_item_id`, `extra_price`, `created_at`, `updated_at`)
+            SELECT q.`product_id`, q.`qty`, s.`size_id`, i.`attribute_id`, i.`attribute_item_id`, i.`extra_price`, NOW() AS created_at, NOW() AS updated_at
+            FROM `product_quantity` AS q 
+                INNER JOIN `product_a_sizes` AS s ON q.`product_id`=20 AND s.`product_id`=20
+                INNER JOIN `product_a_attributes` AS a ON a.`product_id`=20
+                INNER JOIN `product_a_attribute_items` AS i ON i.`product_id`=20 AND i.`attribute_id`=a.`attribute_id`
+                LEFT JOIN `size_multiple_attributes` AS d ON d.`product_id`=20 AND d.`qty`=q.`qty` AND d.`size_id`=s.`size_id` AND d.`attribute_id`=i.`attribute_id` AND d.`attribute_item_id`=i.`attribute_item_id`
+            WHERE d.`id` IS NULL
+            ORDER BY q.`qty`, s.`size_id`, i.`attribute_id`, i.`attribute_item_id`, s.`extra_price`");
+        if (!$result)
+            return false;
+        return true;
     }
 }

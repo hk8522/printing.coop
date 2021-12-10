@@ -812,7 +812,7 @@ class Products extends Admin_Controller
 			$SavedData['product_id']      = $product_id;
 			$SavedData['qty']             = $quantity_id;
 			$SavedData['size_id']         = $size_id;
-			$SavedData['size_extra_prce'] = $size_price;
+			$SavedData['extra_price']     = $size_price;
 			$saveQuantity=true;
 			
 			if($id){
@@ -848,7 +848,7 @@ class Products extends Admin_Controller
 			$ProductSizes=$this->Product_Model->ProductOnlySizeDropDwon($product_id,$quantity_id);
 			
 			$size_id=$id;
-			$size_price=isset($ProductSizes[$size_id]['size_extra_prce']) ? $ProductSizes[$size_id]['size_extra_prce']:'';
+			$size_price=isset($ProductSizes[$size_id]['extra_price']) ? $ProductSizes[$size_id]['extra_price']:'';
 			
 		}
 		$data['product_id']=$product_id;
@@ -1162,7 +1162,7 @@ class Products extends Admin_Controller
 			$SavedData['product_id']      = $product_id;
 			$SavedData['qty']             = $quantity_id;
 			$SavedData['size_id']         = $size_id;
-			$SavedData['size_extra_prce'] = $size_price;
+			$SavedData['extra_price']     = $size_price;
 			$saveQuantity=true;
 			
 			if($id){
@@ -1198,7 +1198,7 @@ class Products extends Admin_Controller
 			$ProductSizes=$this->Product_Model->ProductOnlySizeDropDwon($product_id,$quantity_id);
 			
 			$size_id=$id;
-			$size_price=isset($ProductSizes[$size_id]['size_extra_prce']) ? $ProductSizes[$size_id]['size_extra_prce']:'';
+			$size_price=isset($ProductSizes[$size_id]['extra_price']) ? $ProductSizes[$size_id]['extra_price']:'';
 			
 		}
 		$data['product_id']=$product_id;
@@ -1218,14 +1218,14 @@ class Products extends Admin_Controller
 		$MultipleAttributes=$this->Product_Model->getMultipleAttributesListDropDwon();
 		$data['BASE_URL']=base_url();
 		$attributeData=array();
-		$multiple_attribute_item_id=$extra_price='';
+		$attribute_item_id=$extra_price='';
 		if($this->input->post()) {
 			
 			$product_id=$this->input->post('product_id');
 			$quantity_id=$this->input->post('quantity_id');
 			$size_id=$this->input->post('size_id');
 			$attribute_id=$this->input->post('attribute_id');
-			$multiple_attribute_item_id=$this->input->post('multiple_attribute_item_id');
+			$attribute_item_id=$this->input->post('attribute_item_id');
 			$id=$this->input->post('id');
 			$extra_price=$this->input->post('extra_price');
 			
@@ -1237,19 +1237,19 @@ class Products extends Admin_Controller
 			$SavedData['product_id']      = $product_id;
 			$SavedData['qty']             = $quantity_id;
 			$SavedData['size_id']         = $size_id;
-			$SavedData['multiple_attribute_id']         = $attribute_id;
-			$SavedData['multiple_attribute_item_id']         = $multiple_attribute_item_id;
+			$SavedData['attribute_id']         = $attribute_id;
+			$SavedData['attribute_item_id']         = $attribute_item_id;
 			$SavedData['extra_price'] = $extra_price;
 			$saveQuantity=true;
-			$multiple_attribute_item_id_old='';
+			$attribute_item_id_old='';
 			if($id){
 				
 				$SavedData['id'] = $id;
 				$attributData=$this->Product_Model->ProductSizeMultipleAttributeBYId($id);
-				$multiple_attribute_item_id_old=$attributData['multiple_attribute_item_id'];
+				$attribute_item_id_old=$attributData['attribute_item_id'];
 			}
 			
-			if($multiple_attribute_item_id_old !=$multiple_attribute_item_id && in_array($multiple_attribute_item_id,$attributeItemsIds)){
+			if($attribute_item_id_old !=$attribute_item_id && in_array($attribute_item_id,$attributeItemsIds)){
 				
 				$this->session->set_flashdata('message_error','This attribute item already added to this product & Quantity & size');
 				$saveQuantity=false;
@@ -1281,7 +1281,7 @@ class Products extends Admin_Controller
 				$attributData=$this->Product_Model->ProductSizeMultipleAttributeBYId($id);
 			}
 			
-			$multiple_attribute_item_id=isset($attributData['multiple_attribute_item_id']) ? $attributData['multiple_attribute_item_id']:'';
+			$attribute_item_id=isset($attributData['attribute_item_id']) ? $attributData['attribute_item_id']:'';
 			
 			$extra_price=isset($attributData['extra_price']) ? $attributData['extra_price']:0;
 			
@@ -1291,7 +1291,7 @@ class Products extends Admin_Controller
 		$data['quantity_id']=$quantity_id;
 		$data['size_id']=$size_id;
 		$data['attribute_id']=$attribute_id;
-		$data['multiple_attribute_item_id']=$multiple_attribute_item_id;
+		$data['attribute_item_id']=$attribute_item_id;
 		$data['extra_price']=$extra_price;
 		$data['id']=$id;
 		$data['MultipleAttributes']=$MultipleAttributes;
@@ -2118,7 +2118,7 @@ Coating";
 					$saveProductSizeData=array();
 					$saveProductSizeData['qty']=$key;
 					$saveProductSizeData['size_id']=$skey;
-					$saveProductSizeData['size_extra_prce']=$sval['size_extra_prce'];
+					$saveProductSizeData['extra_price']=$sval['extra_price'];
 					$saveProductSizeData['product_id']=$product['product_id'];
 					$saveProductSizeData['updated_at']=$saveProductSizeData['created_at']=date('Y-m-d H:i:s');
 					$attributeNew=array();
@@ -2390,13 +2390,13 @@ Coating";
         $attributeItems = $this->Product_Model->attributeItems($attribute_id);
         $data['attributeItems'] = $attributeItems;
         
-        $extra_price = $item_id = '';
+        $extra_price = $attribute_item_id = '';
         if ($this->input->post()) {
-            $id             = $this->input->post('id');
-            $product_id     = $this->input->post('product_id');
-            $attribute_id   = $this->input->post('attribute_id');
-            $item_id        = $this->input->post('item_id');
-            $extra_price    = $this->input->post('extra_price');
+            $id                 = $this->input->post('id');
+            $product_id         = $this->input->post('product_id');
+            $attribute_id       = $this->input->post('attribute_id');
+            $attribute_item_id  = $this->input->post('attribute_item_id');
+            $extra_price        = $this->input->post('extra_price');
 
             $productAttributeItems = $this->Product_Model->productAutoAttributeItems($product_id, $attribute_id);
             $itemIds = array();
@@ -2404,16 +2404,16 @@ Coating";
                 $itemIds[] = $item['id'];
     
             $extra_price = !empty($extra_price) ? $extra_price : 0;
-            $SavedData['product_id']    = $product_id;
-            $SavedData['attribute_id']  = $attribute_id;
-            $SavedData['item_id']       = $item_id;
-            $SavedData['extra_price']   = $extra_price;
+            $SavedData['product_id']        = $product_id;
+            $SavedData['attribute_id']      = $attribute_id;
+            $SavedData['attribute_item_id'] = $attribute_item_id;
+            $SavedData['extra_price']       = $extra_price;
             $saved = true;
 
             if ($id) {
                 $SavedData['id'] = $id;
             }
-            if ($id != $item_id && in_array($item_id, $itemIds)) {
+            if ($id != $attribute_item_id && in_array($attribute_item_id, $itemIds)) {
                 $this->session->set_flashdata('message_error', 'This attribute item already added to this product');
                 $saved = false;
             }
@@ -2433,33 +2433,53 @@ Coating";
         } else {
             $success                = '0';
             $productAttributeItems  = $this->Product_Model->productAutoAttributeItems($product_id, $attribute_id);
-            $item_id                = $id;
+            $attribute_item_id      = $id;
             $extra_price            = 0;
             foreach ($productAttributeItems as $item) {
-                if ($item['id'] == $item_id)
+                if ($item['id'] == $attribute_item_id)
                     $extra_price = $item['extra_price'];
             }
         }
 
-        $data['id']             = $id;
-        $data['product_id']     = $product_id;
-        $data['attribute_id']   = $attribute_id;
-        $data['item_id']        = $item_id;
-        $data['extra_price']    = $extra_price;
-        $data['success']        = $success;
+        $data['id']                 = $id;
+        $data['product_id']         = $product_id;
+        $data['attribute_id']       = $attribute_id;
+        $data['attribute_item_id']  = $attribute_item_id;
+        $data['extra_price']        = $extra_price;
+        $data['success']            = $success;
         echo $this->load->view($this->class_name.'auto_attribute_item_add', $data, true);
         exit(0);
     }
 
-    function autoAttributeItemDelete($product_id, $attribute_id, $item_id) {
+    function autoAttributeItemDelete($product_id, $attribute_id, $attribute_item_id) {
         $this->load->model('Product_Model');
-        if ($this->Product_Model->autoAttributeItemDelete($product_id, $attribute_id, $item_id))
+        if ($this->Product_Model->autoAttributeItemDelete($product_id, $attribute_id, $attribute_item_id))
             echo "1";
         else
             echo "0";
     }
 
-    FUNCTION autoGenerateAttributes($product_id) {
-        echo "1";
+    function autoGenerateAttributes($product_id) {
+
+        $this->load->model('Product_Model');
+        if ($this->Product_Model->autoGenerateAttributes($product_id))
+            echo "1";
+        else
+            echo "0";
+
+        // $productQuantities          = $this->Product_Model->productQuantities($product_id);
+        // $productSizes               = $this->Product_Model->productAutoSizes($product_id);
+        // $productAttributes          = $this->Product_Model->productAutoAttributes($product_id);
+        // $productAttributeDetails    = $this->Product_Model->productAutoAttributeDetails($product_id);
+
+        // foreach ($productQuantities as $quantity) {
+        //     foreach ($productSizes as $size) {
+
+        //         foreach ($productAttributes as $attribute) {
+        //             $items = $productAttributeDetails;
+        //         }
+        //     }
+        // }
+        // echo "1";
     }
 }

@@ -146,7 +146,7 @@
                         ?> 
                         <div class="row" id="attribute-item-container<?="$product_id-$attribute_id"?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">
                         <?php foreach($attributeItems as $item) {
-                            $item_id = $item['id'];
+                            $attribute_item_id = $item['id'];
                             ?>
                             <div class="col-md-6">
                                 <div class="attribute-single-info">
@@ -156,13 +156,13 @@
                                         </div>
                                         <div class="col-2 col-md-2">
                                             <div class="attribute-single-info-inner">
-                                                <input type="text" name="extra_price_<?=$product_id?>_<?=$attribute_id?>_<?=$item_id?>[]" onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control" value='<?=showValue($item['extra_price'])?>' readonly>
+                                                <input type="text" name="extra_price_<?=$product_id?>_<?=$attribute_id?>_<?=$attribute_item_id?>[]" onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control" value='<?=showValue($item['extra_price'])?>' readonly>
                                             </div>
                                         </div>
                                         <div class="col-2 col-md-2">
                                             <div class="attribute-single-inner action-btns">
-                                            <button class="btn btn-success" type="button" onclick="addAttributeItem('<?=$attribute_id?>', '<?=$item_id?>')"><i class="far fa-edit fa-lg"></i></button>&nbsp;
-                                            <button class="btn btn-danger" type="button" onclick="deleteAttributeItem('<?=$attribute_id?>', '<?=$item_id?>')"><i class="fa fa-trash fa-lg"></i></button>
+                                            <button class="btn btn-success" type="button" onclick="addAttributeItem('<?=$attribute_id?>', '<?=$attribute_item_id?>')"><i class="far fa-edit fa-lg"></i></button>&nbsp;
+                                            <button class="btn btn-danger" type="button" onclick="deleteAttributeItem('<?=$attribute_id?>', '<?=$attribute_item_id?>')"><i class="fa fa-trash fa-lg"></i></button>
                                             </div>
                                         </div>
                                     </div>
@@ -182,13 +182,22 @@
     </div></div></div></div>
 
 
-    <div class="form-role-area"><hr><div class="control-group info"><div class="row"><div class="col-md-12 col-lg-12 col-xl-12">
-        <div class="controls small-controls">
-            <div class="single-for-verify">
-                <button type="button" onclick="generateAttributes()">Generate Multiple Attributes <i class="fa fa-arrow-right"></i></button>
+    <div class="form-role-area"><hr><div class="control-group info"><div class="row">
+        <div class="col-md-6">
+            <div class="controls small-controls">
+                <div class="single-for-verify">
+                    <button type="button" onclick="generateAttributes()">Generate Multiple Attributes <i class="fa fa-arrow-right"></i></button>
+                </div>
             </div>
         </div>
-    </div></div></div></div>
+        <div class="col-6 col-md-6">
+            <div class="controls small-controls">
+                <div class="single-for-verify">
+                    <a href="<?=$BASE_URL.$class_name?>SetMultipleAttributes/<?=$product_id?>"><button type="button">Show attributes <i class="fa fa-arrow-right"></i></button></a>
+                </div>
+            </div>
+        </div>
+    </div></div></div>
 
                                 </div>
                             </div>
@@ -319,29 +328,29 @@ function deleteAttribute(attribute_id) {
     );
 }
 
-function addAttributeItem(attribute_id, item_id) {
+function addAttributeItem(attribute_id, attribute_item_id) {
     $("#ItemModal .modal-title").html('Add Attribute Item');
-    if (item_id !='') {
+    if (attribute_item_id !='') {
         $("#ItemModal .modal-title").html('Edit Attribute Item');
     }
     $("#ItemModal").modal('show');
 
-    $.get('<?=$BASE_URL?>admin/Products/AutoAttributeItemAdd/<?=$product_id?>/' + attribute_id + '/' + item_id,
+    $.get('<?=$BASE_URL?>admin/Products/AutoAttributeItemAdd/<?=$product_id?>/' + attribute_id + '/' + attribute_item_id,
         function(data) {
             $("#ItemModal .modal-body").html(data);
         }
     );
 }
 
-function deleteAttributeItem(attribute_id, item_id) {
+function deleteAttributeItem(attribute_id, attribute_item_id) {
     if (!confirm("Are you sure you want to remove Attribute Item from this product?"))
         return;
 
     $("#loder-img").show();
-    $.post('<?=$BASE_URL?>admin/Products/autoAttributeItemDelete/<?=$product_id?>/' + attribute_id + '/' + item_id,
+    $.post('<?=$BASE_URL?>admin/Products/autoAttributeItemDelete/<?=$product_id?>/' + attribute_id + '/' + attribute_item_id,
         function(data) {
             if (data == 1)
-                $('#attribute-item-container-' + attribute_id + '-' + item_id).remove();
+                $('#attribute-item-container-' + attribute_id + '-' + attribute_item_id).remove();
             $("#loder-img").hide();
         }
     );
@@ -356,7 +365,7 @@ function generateAttributes() {
         function(data) {
             if (data == 1) {
                 $("#ItemModal .modal-title").html('Multiple Attributes Generated');
-                $("#ItemModal .modal-body").html('<div class="inner-content-area"><div class="row justify-content-center"><div class="col-md-12"><button class="btn btn-success" id="submitBtn" onclick="$(\'#ItemModal\').modal(\'hide\');">Ok</button></div></div>');
+                $("#ItemModal .modal-body").html('<div class="inner-content-area"><div class="row justify-content-center"><div class="col-md-12 center"><button class="btn btn-success" id="submitBtn" onclick="$(\'#ItemModal\').modal(\'hide\');">Ok</button></div></div>');
                 $("#ItemModal").modal('show');
             }
             $("#loder-img").hide();

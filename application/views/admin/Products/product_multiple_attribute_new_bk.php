@@ -150,7 +150,7 @@ foreach($quantity as $qkey=>$qval){
         <?php foreach($sizes as $key=>$val){  										
             $items=isset($ProductSizes[$key]) ? $ProductSizes[$key]:array();		
             $size_extra_price='';
-            $size_extra_price=isset($items['size_extra_prce']) ? $items['size_extra_prce']:'';		
+            $size_extra_price=isset($items['extra_prce']) ? $items['extra_prce']:'';		
           ?>
         												   
         <div class="attribute-single <?php if(array_key_exists($key,$ProductSizesByQTY)) echo "active"?>" id="size_attribute_id_div_<?php echo $qkey?>_<?php echo $key?>"> 

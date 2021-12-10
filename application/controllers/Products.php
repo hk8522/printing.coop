@@ -485,8 +485,8 @@ class Products extends Public_Controller
 		if(!empty($product_quantity_id) && !empty($product_size_id)){
 			
 			$sizeData=isset($ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]) ? $ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]:array();
-		    $size_extra_prce=isset($sizeData['size_extra_prce']) ? $sizeData['size_extra_prce']:0;
-		    $price=$price+$size_extra_prce;
+		    $extra_prce=isset($sizeData['extra_prce']) ? $sizeData['extra_prce']:0;
+		    $price=$price+$extra_prce;
 		}
 		
 		$attribute=isset($ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]['attribute']) ? $ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]['attribute']:array();
@@ -1162,9 +1162,9 @@ class Products extends Public_Controller
 		
 		$sizeData=isset($ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]) ? $ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]:array();
 		
-		$size_extra_prce=isset($sizeData['size_extra_prce']) ? $sizeData['size_extra_prce']:0;
+		$extra_prce=isset($sizeData['extra_prce']) ? $sizeData['extra_prce']:0;
 		
-		$price=$price+$size_extra_prce;
+		$price=$price+$extra_prce;
 		
 	    $ProductAttributes=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
 	    foreach($ProductAttributes as $key=>$val){

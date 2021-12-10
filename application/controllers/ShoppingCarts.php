@@ -93,8 +93,8 @@ class ShoppingCarts extends Public_Controller
 			if(!empty($product_quantity_id) && !empty($product_size_id)){
 				
 				$sizeData=isset($ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]) ? $ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]:array();
-		        $size_extra_prce=isset($sizeData['size_extra_prce']) ? $sizeData['size_extra_prce']:0;
-		        $price=$price+$size_extra_prce;
+		        $extra_prce=isset($sizeData['extra_prce']) ? $sizeData['extra_prce']:0;
+		        $price=$price+$extra_prce;
 				$product_size['product_size']=$sizeData['size_name'];
 				$product_size['product_size_french']=$sizeData['size_name_french'];
 				

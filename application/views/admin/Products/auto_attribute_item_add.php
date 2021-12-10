@@ -21,12 +21,12 @@
                         </div>
                         <div class="col-md-8">
                             <div class="controls">
-                                <select name="item_id" class="form-control" required>
+                                <select name="attribute_item_id" class="form-control" required>
                                     <option value="">Select Item</option>
                                     <?php
                                     foreach ($attributeItems as $item) {
                                         $selected = '';
-                                        if ($item['id'] == $item_id) {
+                                        if ($item['id'] == $attribute_item_id) {
                                             $selected = 'selected="selected"';
                                         }
                                     ?>
@@ -64,12 +64,12 @@
 success='<?php echo $success?>';
 $('#auto_attribute_item_add_form').validate({
         rules: {
-            item_id: {
+            attribute_item_id: {
             required: true,
             },
         },
         messages: {
-            item_id: {
+            attribute_item_id: {
             required: 'Please select item',
             },
         },

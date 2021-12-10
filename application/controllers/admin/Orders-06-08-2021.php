@@ -1220,7 +1220,7 @@ class Orders extends Admin_Controller
 						foreach($val1 as $size_data){
 							
 							//pr($size_data,1);
-							$size_extra_price=$size_data['size_extra_prce'];
+							$size_extra_price=$size_data['extra_prce'];
 							$label=$size_data['size_name'];
 							break;
 						}
@@ -1350,7 +1350,7 @@ class Orders extends Admin_Controller
 						foreach($val1 as $size_data){
 							
 							//pr($size_data,1);
-							$size_extra_price=$size_data['size_extra_prce'];
+							$size_extra_price=$size_data['extra_prce'];
 							$label=$size_data['size_name'];
 							break;
 						}
