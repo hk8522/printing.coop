@@ -2671,7 +2671,7 @@ Class Product_Model extends MY_Model {
         $this->db->join('product_multiple_attributes', 'product_multiple_attributes.id=product_a_attributes.attribute_id', 'inner');
         $this->db->where('product_a_attributes.product_id', $product_id);
         $this->db->where('product_multiple_attributes.status', 1);
-        //$this->db->order_by('product_multiple_attributes.name', 'asc');
+        $this->db->order_by('product_a_attributes.id', 'asc');
         $result = $this->db->get()->result_array();
         return $result;
     }
@@ -2743,7 +2743,7 @@ Class Product_Model extends MY_Model {
         $this->db->join('product_multiple_attribute_items', 'product_multiple_attribute_items.id=product_a_attribute_items.attribute_item_id', 'inner');
         $this->db->where('product_a_attribute_items.product_id',    $product_id);
         $this->db->where('product_a_attribute_items.attribute_id',  $attribute_id);
-        $this->db->order_by('product_multiple_attribute_items.item_name', 'asc');
+        $this->db->order_by('product_a_attribute_items.id', 'asc');
         $result = $this->db->get()->result_array();
         return $result;
     }
@@ -2803,10 +2803,10 @@ Class Product_Model extends MY_Model {
         $result = $this->db->query("INSERT INTO `size_multiple_attributes` (`product_id`, `qty`, `size_id`, `attribute_id`, `attribute_item_id`, `extra_price`, `created_at`, `updated_at`)
             SELECT q.`product_id`, q.`qty`, s.`size_id`, i.`attribute_id`, i.`attribute_item_id`, i.`extra_price`, NOW() AS created_at, NOW() AS updated_at
             FROM `product_quantity` AS q 
-                INNER JOIN `product_a_sizes` AS s ON q.`product_id`=20 AND s.`product_id`=20
-                INNER JOIN `product_a_attributes` AS a ON a.`product_id`=20
-                INNER JOIN `product_a_attribute_items` AS i ON i.`product_id`=20 AND i.`attribute_id`=a.`attribute_id`
-                LEFT JOIN `size_multiple_attributes` AS d ON d.`product_id`=20 AND d.`qty`=q.`qty` AND d.`size_id`=s.`size_id` AND d.`attribute_id`=i.`attribute_id` AND d.`attribute_item_id`=i.`attribute_item_id`
+                INNER JOIN `product_a_sizes` AS s ON q.`product_id`=$product_id AND s.`product_id`=$product_id
+                INNER JOIN `product_a_attributes` AS a ON a.`product_id`=$product_id
+                INNER JOIN `product_a_attribute_items` AS i ON i.`product_id`=$product_id AND i.`attribute_id`=a.`attribute_id`
+                LEFT JOIN `size_multiple_attributes` AS d ON d.`product_id`=$product_id AND d.`qty`=q.`qty` AND d.`size_id`=s.`size_id` AND d.`attribute_id`=i.`attribute_id` AND d.`attribute_item_id`=i.`attribute_item_id`
             WHERE d.`id` IS NULL
             ORDER BY q.`qty`, s.`size_id`, i.`attribute_id`, i.`attribute_item_id`, s.`extra_price`");
         if (!$result)

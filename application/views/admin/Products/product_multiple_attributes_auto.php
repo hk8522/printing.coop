@@ -181,7 +181,6 @@
         </div>
     </div></div></div></div>
 
-
     <div class="form-role-area"><hr><div class="control-group info"><div class="row">
         <div class="col-md-6">
             <div class="controls small-controls">
@@ -194,6 +193,23 @@
             <div class="controls small-controls">
                 <div class="single-for-verify">
                     <a href="<?=$BASE_URL.$class_name?>SetMultipleAttributes/<?=$product_id?>"><button type="button">Show attributes <i class="fa fa-arrow-right"></i></button></a>
+                </div>
+            </div>
+        </div>
+    </div></div></div>
+
+    <div class="form-role-area"><hr><div class="control-group info"><div class="row">
+        <div class="col-md-6">
+            <div class="controls small-controls">
+                <div class="single-for-verify">
+                    <a href="<?=$BASE_URL.$class_name?>AutoExcelGen/<?=$product_id?>">
+                    <button type="button">Generate Excel File <i class="fa fa-download"></i></button>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 col-md-6">
+            <div class="controls small-controls">
+                <div class="single-for-verify">
                 </div>
             </div>
         </div>
