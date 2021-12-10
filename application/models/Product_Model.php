@@ -2813,4 +2813,30 @@ Class Product_Model extends MY_Model {
             return false;
         return true;
     }
+
+    function autoAttributesReportGenerate($product_id) {
+        $query = $this->db->query("SELECT `quantity`.`name` AS quantity, `size`.`size_name` AS size, `product_multiple_attributes`.`name` AS attribute, `product_multiple_attribute_items`.`item_name` AS item, IF(d.`id` IS NULL, i.`extra_price`, d.`extra_price`) AS `extra_price`
+                FROM `product_quantity` AS q 
+                INNER JOIN `product_a_sizes` AS s ON q.`product_id`=$product_id AND s.`product_id`=$product_id
+                INNER JOIN `product_a_attributes` AS a ON a.`product_id`=$product_id
+                INNER JOIN `product_a_attribute_items` AS i ON i.`product_id`=$product_id AND i.`attribute_id`=a.`attribute_id`
+                INNER JOIN `quantity` ON `quantity`.`id`=q.`qty`
+                INNER JOIN `size` ON `size`.`id`=s.`size_id`
+                INNER JOIN `product_multiple_attributes` ON `product_multiple_attributes`.`id`=a.`attribute_id`
+                INNER JOIN `product_multiple_attribute_items` ON `product_multiple_attribute_items`.`id`=i.`attribute_item_id`
+                LEFT JOIN `size_multiple_attributes` AS d ON d.`product_id`=$product_id AND d.`qty`=q.`qty` AND d.`size_id`=s.`size_id` AND d.`attribute_id`=i.`attribute_id` AND d.`attribute_item_id`=i.`attribute_item_id`
+            UNION ALL
+            SELECT `quantity`.`name` AS quantity, NULL AS size, NULL AS attribute, NULL AS item, q.`price` AS extra_price
+                FROM `product_quantity` AS q 
+                INNER JOIN `quantity` ON `quantity`.`id`=q.`qty`
+                WHERE q.`product_id`=$product_id
+            UNION ALL
+            SELECT `quantity`.`name` AS quantity, `size`.`size_name` AS size, NULL AS attribute, NULL AS item, s.`extra_price`
+                FROM `product_quantity` AS q 
+                INNER JOIN `product_a_sizes` AS s ON q.`product_id`=$product_id AND s.`product_id`=$product_id
+                INNER JOIN `quantity` ON `quantity`.`id`=q.`qty`
+                INNER JOIN `size` ON `size`.`id`=s.`size_id`
+            ORDER BY `quantity`, `size`, `attribute`, `item`, `extra_price`");
+        return $query->result_array();
+    }
 }
