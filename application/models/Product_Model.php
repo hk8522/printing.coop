@@ -2840,6 +2840,18 @@ Class Product_Model extends MY_Model {
         return $query->result_array();
     }
 
+    function autoAttributesReportGenerateCurrent($product_id) {
+        $query = $this->db->query("SELECT `quantity`.`name` AS quantity, `size`.`size_name` AS size, `product_multiple_attributes`.`name` AS attribute, `product_multiple_attribute_items`.`item_name` AS item, d.`extra_price`
+            FROM `size_multiple_attributes` AS d
+            INNER JOIN `quantity` ON `quantity`.`id`=d.`qty`
+            INNER JOIN `size` ON `size`.`id`=d.`size_id`
+            INNER JOIN `product_multiple_attributes` ON `product_multiple_attributes`.`id`=d.`attribute_id`
+            INNER JOIN `product_multiple_attribute_items` ON `product_multiple_attribute_items`.`id`=d.`attribute_item_id`
+            WHERE d.`product_id`=$product_id
+            ORDER BY `quantity`.`name`, `size`.`size_name`, `product_multiple_attributes`.`name`, `product_multiple_attribute_items`.`item_name`, d.`extra_price`");
+        return $query->result_array();
+    }
+
     function autoAttributeDeleteAll($product_id) {
         $this->db->where('product_id', $product_id);
         $query = $this->db->delete('size_multiple_attributes');

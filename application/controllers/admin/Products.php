@@ -2516,6 +2516,30 @@ Coating";
         $writer->writeToStdOut();
     }
 
+    function AutoExcelGenCurrent($product_id) {
+        $this->load->model('Product_Model');
+        $product = $this->Product_Model->getProductDataById($product_id);
+        $data = $this->Product_Model->autoAttributesReportGenerateCurrent($product_id);
+
+        $header = array(
+            'Quantity'      => 'integer',
+            'Size'          => 'string',
+            'Attribute'     => 'string',
+            'Item'          => 'string',
+            'Extra Price'   => 'price',
+        );
+        $writer = new XLSXWriter();
+        
+        $writer->writeSheetHeader('Sheet1', $header);
+        foreach($data as $row)
+            $writer->writeSheetRow('Sheet1', $row);
+        
+        header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+        header('Content-Disposition: attachment;filename="' . $product['name'] . '.xlsx"');
+        header('Cache-Control: max-age=0');
+        $writer->writeToStdOut();
+    }
+
     function uploadAttributes($product_id) {
         $this->load->model('Product_Model');
 

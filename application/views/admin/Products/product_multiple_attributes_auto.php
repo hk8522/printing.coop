@@ -210,7 +210,7 @@
         <div class="col-md-3">
             <div class="controls small-controls">
                 <div class="single-for-verify">
-                    <a href="<?=$BASE_URL.$class_name?>AttributesExcelGen/<?=$product_id?>">
+                    <a href="<?=$BASE_URL.$class_name?>AutoExcelGenCurrent/<?=$product_id?>">
                     <button type="button">Current <i class="fa fa-download"></i></button>
                 </div>
             </div>
