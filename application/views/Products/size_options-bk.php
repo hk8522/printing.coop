@@ -15,7 +15,7 @@
 				
 		    }else{
 				
-			    $onchange="showSizeQuenty()"; 
+			    $onchange="showSizeQuantity()"; 
 		    }	
 	?>
 	

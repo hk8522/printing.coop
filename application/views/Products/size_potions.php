@@ -16,7 +16,7 @@
                 $onchange="getPaperPrice('$i')";
 				
 		    }else{
-			    $onchange="showSizeQuenty()"; 
+			    $onchange="showSizeQuantity()"; 
 		    }
 			
 	        ?>
