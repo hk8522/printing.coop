@@ -3,6 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 require_once(APPPATH.'libraries/xlsxwriter.class.php');
 
+require_once(APPPATH.'../vendor/autoload.php');
+//require_once(APPPATH.'../vendor/phpoffice/phpspreadsheet/src/Bootstrap.php');
+
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+
 class Products extends Admin_Controller
 {
     public $class_name='';
@@ -2507,5 +2514,21 @@ Coating";
         header('Content-Disposition: attachment;filename="' . $product['name'] . '.xlsx"');
         header('Cache-Control: max-age=0');
         $writer->writeToStdOut();
+    }
+
+    function uploadAttributes($product_id) {
+        $this->load->model('Product_Model');
+
+        $file = $_FILES['file'];
+        //$spreadsheet = IOFactory::load("c:\\Users\\Administrator\\Downloads\\notepads.xlsx");//$file['tmp_name']);
+        $spreadsheet = IOFactory::load($file['tmp_name']);
+        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+        $result = $this->Product_Model->autoBatchAttribute($product_id, $sheetData);
+        if ($result >= 0)
+            echo json_encode(array('result' => 1, 'failed' => $result));
+        else
+            echo json_encode(array('result' => 0));
+
+        exit();
     }
 }

@@ -189,7 +189,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-6 col-md-6">
+        <div class="col-md-6">
             <div class="controls small-controls">
                 <div class="single-for-verify">
                     <a href="<?=$BASE_URL.$class_name?>SetMultipleAttributes/<?=$product_id?>"><button type="button">Show attributes <i class="fa fa-arrow-right"></i></button></a>
@@ -199,19 +199,34 @@
     </div></div></div>
 
     <div class="form-role-area"><hr><div class="control-group info"><div class="row">
-        <div class="col-md-6">
+        <div class="col-md-3">
             <div class="controls small-controls">
                 <div class="single-for-verify">
                     <a href="<?=$BASE_URL.$class_name?>AutoExcelGen/<?=$product_id?>">
-                    <button type="button">Generate Excel File <i class="fa fa-download"></i></button>
+                    <button type="button">Total <i class="fa fa-download"></i></button>
                 </div>
             </div>
         </div>
-        <div class="col-6 col-md-6">
+        <div class="col-md-3">
             <div class="controls small-controls">
                 <div class="single-for-verify">
+                    <a href="<?=$BASE_URL.$class_name?>AttributesExcelGen/<?=$product_id?>">
+                    <button type="button">Current <i class="fa fa-download"></i></button>
                 </div>
             </div>
+        </div>
+        <div class="col-md-6">
+            <form id="file-upload-form" class="uploader">
+                <input id="file-upload" type="file" class="hidden" name="fileUpload" onchange="uploadExcel(this.files[0])"/>
+                <label for="file-upload" id="file-drag">
+                    <div id="start">
+                        <span id="file-upload-btn" class="btn btn-primary">Select a file <i class="fa fa-upload" aria-hidden="true"></i></span>
+                    </div>
+                    <div id="upload_response" class="hidden">
+                        <div id="upload_messages"></div>
+                    </div>
+                </label>
+            </form>
         </div>
     </div></div></div>
 
@@ -381,11 +396,47 @@ function generateAttributes() {
         function(data) {
             if (data == 1) {
                 $("#ItemModal .modal-title").html('Multiple Attributes Generated');
-                $("#ItemModal .modal-body").html('<div class="inner-content-area"><div class="row justify-content-center"><div class="col-md-12 center"><button class="btn btn-success" id="submitBtn" onclick="$(\'#ItemModal\').modal(\'hide\');">Ok</button></div></div>');
+                $("#ItemModal .modal-body").html('<div class="inner-content-area"><div class="row justify-content-center"><div class="col-md-12 center"><button type="button" class="btn btn-success" onclick="$(\'#ItemModal\').modal(\'hide\');return false;">Ok</button></div></div>');
                 $("#ItemModal").modal('show');
             }
             $("#loder-img").hide();
         }
     );
+}
+
+function uploadExcel(file) {
+    if (file == null)
+        return;
+
+    var formData = new FormData();
+    formData.append('file', file);
+
+    $("#loder-img").show();
+    $.ajax({
+        url : '<?=$BASE_URL?>admin/Products/uploadAttributes/<?=$product_id?>',
+        type : 'POST',
+        data : formData,
+        processData: false,  // tell jQuery not to process the data
+        contentType: false,  // tell jQuery not to set contentType
+        success : function(data) {
+            $("#loder-img").hide();
+            $('#upload_response').removeClass('hidden');
+            var msg = '';
+            var obj = JSON.parse(data);
+            if (obj.result == 1) {
+                if (obj.failed == 0)
+                    msg = 'All attributes are updated.';
+                else
+                    msg = obj.failed + ' attributes are failed.';
+            }
+            else
+                msg = 'Error occurred.';
+            $('#file-upload').files = [null];
+
+            $("#ItemModal .modal-title").html(msg);
+            $("#ItemModal .modal-body").html('<div class="inner-content-area"><div class="row justify-content-center"><div class="col-md-12 center"><button type="button" class="btn btn-success" onclick="$(\'#ItemModal\').modal(\'hide\');return false;">Ok</button></div></div>');
+            $("#ItemModal").modal('show');
+        }
+    });
 }
 </script>

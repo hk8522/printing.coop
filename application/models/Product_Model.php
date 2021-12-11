@@ -2839,4 +2839,120 @@ Class Product_Model extends MY_Model {
             ORDER BY `quantity`, `size`, `attribute`, `item`, `extra_price`");
         return $query->result_array();
     }
+
+    function autoAttributeDeleteAll($product_id) {
+        $this->db->where('product_id', $product_id);
+        $query = $this->db->delete('size_multiple_attributes');
+
+        $this->db->where('product_id', $product_id);
+        $query = $this->db->delete('product_size_new');
+
+        $this->db->where('product_id', $product_id);
+        $query = $this->db->delete('product_quantity');
+
+        if ($query)
+            return true;
+        else
+            return false;
+    }
+
+    function quantityId($quantity) {
+        $this->db->select('id');
+        $this->db->from('quantity');
+        $this->db->where('name', $quantity);
+        $result = $this->db->get()->result_array();
+        if (count($result) == 0)
+            return 0;
+        return $result[0]['id'];
+    }
+
+    function sizeId($size) {
+        $this->db->select('id');
+        $this->db->from('size');
+        $this->db->where('size_name', $size);
+        $result = $this->db->get()->result_array();
+        if (count($result) == 0)
+            return 0;
+        return $result[0]['id'];
+    }
+
+    function attributeId($attribute) {
+        $this->db->select('id');
+        $this->db->from('product_multiple_attributes');
+        $this->db->where('name', $attribute);
+        $result = $this->db->get()->result_array();
+        if (count($result) == 0)
+            return 0;
+        return $result[0]['id'];
+    }
+
+    function attributeItemId($attribute_id, $attribute_item) {
+        $this->db->select('id');
+        $this->db->from('product_multiple_attribute_items');
+        $this->db->where('product_attribute_id', $attribute_id);
+        $this->db->where('item_name', $attribute_item);
+        $result = $this->db->get()->result_array();
+        if (count($result) == 0)
+            return 0;
+        return $result[0]['id'];
+    }
+
+    function autoBatchAttribute($product_id, $attributes) {
+        if (!$this->autoAttributeDeleteAll($product_id))
+            return -1;
+
+        $checked = 0;
+        $processed = 0;
+        for ($i = 2; array_key_exists($i, $attributes); $i++) {
+            $checked++;
+
+            $row            = $attributes[$i];
+            $quantity       = trim($row['A']);
+            $size           = trim($row['B']);
+            $attribute      = trim($row['C']);
+            $attribute_item = trim($row['D']);
+            $extra_price    = trim($row['E']);
+
+            $data = [];
+            $data['product_id'] = $product_id;
+            $data['created_at'] = date('Y-m-d H:i:s');
+            $data['updated_at'] = date('Y-m-d H:i:s');
+
+            $quantity_id = $this->quantityId($quantity);
+            if ($quantity_id == 0)
+                continue;
+            if ($attribute_item == null || $attribute_item == '') {
+                if ($size == null || $size == '') {
+                    // Add to product_quantity
+                    $data['qty']    = $quantity_id;
+                    $data['price']  = $extra_price;
+                    $this->db->insert('product_quantity', $data);
+                } else {
+                    // Add to product_size_new
+                    $size_id = $this->sizeId($size);
+                    if ($size_id == 0)
+                        continue;
+                    $data['qty']            = $quantity_id;
+                    $data['size_id']        = $size_id;
+                    $data['extra_price']    = $extra_price;
+                    $this->db->insert('product_size_new', $data);
+                }
+            } else {
+                // Add to size_multiple_attributes
+                $attribute_id           = $this->attributeId($attribute);
+                $attribute_item_id      = $this->attributeItemId($attribute_id, $attribute_item);
+                if ($attribute_id == 0 || $attribute_item_id == 0)
+                    continue;
+                $data['qty']                = $quantity_id;
+                $data['size_id']            = $size_id;
+                $data['extra_price']        = $extra_price;
+                $data['attribute_id']       = $attribute_id;
+                $data['attribute_item_id']  = $attribute_item_id;
+                $this->db->insert('size_multiple_attributes', $data);
+            }
+            //print("$row, $quantity, $size, $attribute, $item, $extra_price");
+            $processed++;
+        }
+        return $checked - $processed;
+    }
 }
