@@ -220,7 +220,7 @@
                 <input id="file-upload" type="file" class="hidden" name="fileUpload" onchange="uploadExcel(this.files[0])"/>
                 <label for="file-upload" id="file-drag">
                     <div id="start">
-                        <span id="file-upload-btn" class="btn btn-primary">Select a file <i class="fa fa-upload" aria-hidden="true"></i></span>
+                        <span id="file-upload-btn" class="btn btn-primary">Select an Excel File <i class="fa fa-upload" aria-hidden="true"></i></span>
                     </div>
                     <div id="upload_response" class="hidden">
                         <div id="upload_messages"></div>
