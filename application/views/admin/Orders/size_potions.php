@@ -11,7 +11,7 @@
 				
                 $onchange="getPaperPrice('$i')"; 
 		    }else{
-			     $onchange="getQuentyPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
 		    }	
 	?>
 	<div class="single-review">
@@ -30,7 +30,7 @@
 				
                 $onchange="getPaperPrice('$i')"; 
 		    }else{
-			     $onchange="getQuentyPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
 		    }	
 	?>
 	<div class="single-review">
@@ -51,7 +51,7 @@
                 $onchange="getPaperPrice('$i')";
 				
 		    }else{
-			     $onchange="getQuentyPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
 		    }
 	?>
 	<div class="single-review">
@@ -72,7 +72,7 @@
                 $onchange="getPaperPrice('$i')";
 				
 		    }else{
-			     $onchange="getQuentyPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
 		    }
 	?>
 	<div class="single-review">
@@ -93,7 +93,7 @@
                 $onchange="getPaperPrice('$i')";
 				
 		    }else{
-			     $onchange="getQuentyPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
 		    }
 	?>
 	<div class="single-review">
@@ -114,7 +114,7 @@
                 $onchange="getPaperPrice('$i')";
 				
 		    }else{
-			     $onchange="getQuentyPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
 		    }
 	?>
 	<div class="single-review">
@@ -135,7 +135,7 @@
                 $onchange="getPaperPrice('$i')";
 				
 		    }else{
-			     $onchange="getQuentyPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
 		    }
 	?>
 	<div class="single-review">
@@ -156,7 +156,7 @@
                 $onchange="getPaperPrice('$i')";
 				
 		    }else{
-			     $onchange="getQuentyPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
 		    }
 	?>
 	<div class="single-review">
@@ -177,7 +177,7 @@
                 $onchange="getPaperPrice('$i')";
 				
 		    }else{
-			     $onchange="getQuentyPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
 		    }
 	?>
 	<div class="single-review">
@@ -198,7 +198,7 @@
                 $onchange="getPaperPrice('$i')";
 				
 		    }else{
-			     $onchange="getQuentyPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
 		    }
 	?>
 	<div class="single-review">

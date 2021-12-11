@@ -1987,7 +1987,7 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 	
 	function AddRow(cr,id){
 		    
-		    var controlForm = $('.'+id+'SizeQuenty:first'),
+		    var controlForm = $('.'+id+'SizeQuantity:first'),
 			currentEntry = cr.parents('.'+id+'sqddata:first'),
 			newEntry = $(currentEntry.clone()).appendTo(controlForm);
 			
@@ -2011,9 +2011,9 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 		    
 		    cr.parents('.'+id+'sqddata:first').remove();
 			
-			var numItems = $('.'+id+'SizeQuenty .'+id+'sqddata').length;
+			var numItems = $('.'+id+'SizeQuantity .'+id+'sqddata').length;
 			
-			var controlForm = $('.'+id+'SizeQuenty .'+id+'sqddata').last();
+			var controlForm = $('.'+id+'SizeQuantity .'+id+'sqddata').last();
 			
 			if(numItems==1){
 				

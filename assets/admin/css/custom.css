@@ -3567,19 +3567,19 @@ ul.dropdown .open-dropdown {
 	margin-right: 45px;
 	margin-bottom: 10px;
 }
-.modal-body .for-att-multi.attribute-info.SizeQuenty {
+.modal-body .for-att-multi.attribute-info.SizeQuantity {
 	position: relative;
 	padding-right: 50px !important;
 }
-.modal-body .for-att-multi.attribute-info.SizeQuenty .add-new-btn {
+.modal-body .for-att-multi.attribute-info.SizeQuantity .add-new-btn {
 	right: -30px;
 }
-.for-att-multi.attribute-info.SizeQuenty .row.sqddata {
+.for-att-multi.attribute-info.SizeQuantity .row.sqddata {
 	margin-bottom: 15px;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 	padding-bottom: 5px;
 }
-.for-att-multi.attribute-info.SizeQuenty .row.sqddata:last-child {
+.for-att-multi.attribute-info.SizeQuantity .row.sqddata:last-child {
 	margin-bottom: 0px;
 	border-bottom: none;
 	padding-bottom: 0px;

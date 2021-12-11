@@ -120,7 +120,7 @@
 			
 			<div class="attribute-single active"> 
 		   
-		    <div class="for-att-multi attribute-info SizeQuenty">
+		    <div class="for-att-multi attribute-info SizeQuantity">
                 <?php
 				//pr($NCRNumberPartsList,1);
     			if(!empty($attribute)){		
@@ -618,7 +618,7 @@
 <script>
     function AddRow(cr){
 		    
-		    var controlForm = $('.SizeQuenty:first'),
+		    var controlForm = $('.SizeQuantity:first'),
 			currentEntry = cr.parents('.sqddata:first'),
 			newEntry = $(currentEntry.clone()).appendTo(controlForm);
 			
@@ -638,8 +638,8 @@
 	function RemoveRow(cr,id){
 		
 		    cr.parents('.sqddata:first').remove();
-			var numItems = $('.SizeQuenty .'+id+'sqddata').length;
-			var controlForm = $('.SizeQuenty .'+id+'sqddata').last();
+			var numItems = $('.SizeQuantity .'+id+'sqddata').length;
+			var controlForm = $('.SizeQuantity .'+id+'sqddata').last();
 			if(numItems==1){
 			controlForm.find('.sqbtn-remove').hide();
 			controlForm.find('.sqbtn-add').show();

@@ -538,7 +538,7 @@
         													            </div>
         													   	   </div>
         													    </div>
-        													    <div class="attribute-info <?php echo $key?>SizeQuenty">
+        													    <div class="attribute-info <?php echo $key?>SizeQuantity">
         													       <?php 
 																$items=isset($ProductSizes[$key]) ? $ProductSizes[$key]:array(); 
 	//pr($ProductSizes);															
@@ -1038,7 +1038,7 @@
 	
 	function AddRow(cr,id){
 		    
-		    var controlForm = $('.'+id+'SizeQuenty:first'),
+		    var controlForm = $('.'+id+'SizeQuantity:first'),
 			currentEntry = cr.parents('.'+id+'sqddata:first'),
 			newEntry = $(currentEntry.clone()).appendTo(controlForm);
 			
@@ -1062,9 +1062,9 @@
 		    
 		    cr.parents('.'+id+'sqddata:first').remove();
 			
-			var numItems = $('.'+id+'SizeQuenty .'+id+'sqddata').length;
+			var numItems = $('.'+id+'SizeQuantity .'+id+'sqddata').length;
 			
-			var controlForm = $('.'+id+'SizeQuenty .'+id+'sqddata').last();
+			var controlForm = $('.'+id+'SizeQuantity .'+id+'sqddata').last();
 			
 			if(numItems==1){
 				
@@ -1082,7 +1082,7 @@
 	/*$(document).on('click', '.sqbtn-add', function(e){
 			//alert('OK');
 			e.preventDefault();
-			var controlForm = $('.SizeQuenty:first'),
+			var controlForm = $('.SizeQuantity:first'),
 			currentEntry = $(this).parents('.sqddata:first'),
 			newEntry = $(currentEntry.clone()).appendTo(controlForm);
 			
@@ -1108,9 +1108,9 @@
 			$(this).parents('.sqddata:first').remove();
 			e.preventDefault();
 			
-			var numItems = $('.SizeQuenty .sqddata').length;
+			var numItems = $('.SizeQuantity .sqddata').length;
 			
-			var controlForm = $('.SizeQuenty .sqddata').last();
+			var controlForm = $('.SizeQuantity .sqddata').last();
 			
 			if(numItems==1){
 				

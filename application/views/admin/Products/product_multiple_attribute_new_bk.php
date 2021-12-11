@@ -171,7 +171,7 @@ foreach($quantity as $qkey=>$qval){
                     </div>
                 </div>
             </div>
-		    <div class="for-att-multi attribute-info <?php echo $qkey.'_'.$key?>SizeQuenty">
+		    <div class="for-att-multi attribute-info <?php echo $qkey.'_'.$key?>SizeQuantity">
                 <?php 
 				/*$items=isset($ProductSizesByQTY[$key]) ? $ProductSizesByQTY[$key]:array();*/
 				
@@ -694,7 +694,7 @@ foreach($quantity as $qkey=>$qval){
 
 	function AddRow(cr,id){
 		    
-		    var controlForm = $('.'+id+'SizeQuenty:first'),
+		    var controlForm = $('.'+id+'SizeQuantity:first'),
 			currentEntry = cr.parents('.'+id+'sqddata:first'),
 			newEntry = $(currentEntry.clone()).appendTo(controlForm);
 			
@@ -714,8 +714,8 @@ foreach($quantity as $qkey=>$qval){
 	function RemoveRow(cr,id){
 		
 		    cr.parents('.'+id+'sqddata:first').remove();
-			var numItems = $('.'+id+'SizeQuenty .'+id+'sqddata').length;
-			var controlForm = $('.'+id+'SizeQuenty .'+id+'sqddata').last();
+			var numItems = $('.'+id+'SizeQuantity .'+id+'sqddata').length;
+			var controlForm = $('.'+id+'SizeQuantity .'+id+'sqddata').last();
 			if(numItems==1){
 			controlForm.find('.'+id+'sqbtn-remove').hide();
 			controlForm.find('.'+id+'sqbtn-add').show();

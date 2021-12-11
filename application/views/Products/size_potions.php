@@ -61,7 +61,7 @@
 				
 		    }else{
 				
-			    $onchange="getQuentyPrice('product_size_option_$k')"; 
+			    $onchange="getQuantityPrice('product_size_option_$k')"; 
 		    }
 			
 			$disabled='disabled';
