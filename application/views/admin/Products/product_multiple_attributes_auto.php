@@ -203,7 +203,8 @@
             <div class="controls small-controls">
                 <div class="single-for-verify">
                     <a href="<?=$BASE_URL.$class_name?>AutoExcelGen/<?=$product_id?>">
-                    <button type="button">Total <i class="fa fa-download"></i></button>
+                    <button type="button">Attributes(Total) <i class="fa fa-download"></i></button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -211,22 +212,30 @@
             <div class="controls small-controls">
                 <div class="single-for-verify">
                     <a href="<?=$BASE_URL.$class_name?>AutoExcelGenCurrent/<?=$product_id?>">
-                    <button type="button">Current <i class="fa fa-download"></i></button>
+                    <button type="button">Attributes(Current) <i class="fa fa-download"></i></button>
+                    </a>
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
-            <form id="file-upload-form" class="uploader">
-                <input id="file-upload" type="file" class="hidden" name="fileUpload" onchange="uploadExcel(this.files[0])"/>
-                <label for="file-upload" id="file-drag">
-                    <div id="start">
-                        <span id="file-upload-btn" class="btn btn-primary">Select an Excel File <i class="fa fa-upload" aria-hidden="true"></i></span>
-                    </div>
-                    <div id="upload_response" class="hidden">
-                        <div id="upload_messages"></div>
-                    </div>
-                </label>
-            </form>
+        <div class="col-md-3">
+            <div class="controls small-controls">
+                <div class="single-for-verify">
+                    <input id="upload-attributes" type="file" class="hidden" name="fileUpload" onchange="uploadAttributes(this.files[0])"/>
+                    <label for="upload-attributes" id="file-drag" style="width: 100%;background-color: #367fa9;">
+                        <button id="upload-attributes-btn" class="btn btn-primary">Attributes Excel <i class="fa fa-upload" aria-hidden="true"></i></button>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="controls small-controls">
+                <div class="single-for-verify">
+                    <input id="upload-full-pricelist" type="file" class="hidden" name="fileUpload" onchange="uploadFullPriceList(this.files[0])"/>
+                    <label for="upload-full-pricelist" id="file-drag" style="width: 100%;background-color: #367fa9;">
+                        <button id="upload-full-pricelist-btn" class="btn btn-primary">Full Price List Excel <i class="fa fa-upload" aria-hidden="true"></i></button>
+                    </label>
+                </div>
+            </div>
         </div>
     </div></div></div>
 
@@ -404,7 +413,7 @@ function generateAttributes() {
     );
 }
 
-function uploadExcel(file) {
+function uploadAttributes(file) {
     if (file == null)
         return;
 
@@ -420,7 +429,6 @@ function uploadExcel(file) {
         contentType: false,  // tell jQuery not to set contentType
         success : function(data) {
             $("#loder-img").hide();
-            $('#upload_response').removeClass('hidden');
             var msg = '';
             var obj = JSON.parse(data);
             if (obj.result == 1) {
@@ -431,7 +439,42 @@ function uploadExcel(file) {
             }
             else
                 msg = 'Error occurred.';
-            $('#file-upload').files = [null];
+            $('#upload-attributes').files = [null];
+
+            $("#ItemModal .modal-title").html(msg);
+            $("#ItemModal .modal-body").html('<div class="inner-content-area"><div class="row justify-content-center"><div class="col-md-12 center"><button type="button" class="btn btn-success" onclick="$(\'#ItemModal\').modal(\'hide\');return false;">Ok</button></div></div>');
+            $("#ItemModal").modal('show');
+        }
+    });
+}
+
+function uploadFullPriceList(file) {
+    if (file == null)
+        return;
+
+    var formData = new FormData();
+    formData.append('file', file);
+
+    $("#loder-img").show();
+    $.ajax({
+        url : '<?=$BASE_URL?>admin/Products/uploadFullPriceList/<?=$product_id?>',
+        type : 'POST',
+        data : formData,
+        processData: false,  // tell jQuery not to process the data
+        contentType: false,  // tell jQuery not to set contentType
+        success : function(data) {
+            $("#loder-img").hide();
+            var msg = '';
+            var obj = JSON.parse(data);
+            if (obj.result == 1) {
+                if (obj.failed == 0)
+                    msg = 'All prices are updated.';
+                else
+                    msg = obj.failed + ' prices are failed.';
+            }
+            else
+                msg = 'Error occurred.';
+            $('#upload-full-pricelist').files = [null];
 
             $("#ItemModal .modal-title").html(msg);
             $("#ItemModal .modal-body").html('<div class="inner-content-area"><div class="row justify-content-center"><div class="col-md-12 center"><button type="button" class="btn btn-success" onclick="$(\'#ItemModal\').modal(\'hide\');return false;">Ok</button></div></div>');

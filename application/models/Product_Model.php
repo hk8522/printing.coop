@@ -2967,4 +2967,155 @@ Class Product_Model extends MY_Model {
         }
         return $checked - $processed;
     }
+
+    function convert_printnew_option($option) {
+        $cdata = [
+            '50 lb. Uncoated Text'                => '50 lb. Uncoated Text',
+            '60 lb. Uncoated Text'                => '60 lb. Uncoated Text',
+            '70 lb. Uncoated Text'                => '70 lb. Uncoated Text',
+            '3.5 x 8.5 Portrait'                  => '3.5" x 8.5"',
+            '4.25 x 5.5 Portrait'                 => '4.25" x 5.5"',
+            '5.5 x 4.25 Landscape'                => '4.25" x 5.5"',
+            '5.5 x 8.5 Portrait'                  => '5.5" x 8.5"',
+            '8.5 x 5.5 Landscape'                 => '5.5" x 8.5"',
+            '8.5 x 11 Portrait'                   => '8.5" x 11"',
+            '11 x 8.5 Landscape'                  => '8.5" x 11"',
+            '4 x 4 Square'                        => '4" x 4"',
+            'Colour Both Sides'                   => 'Full Color (CMYK)',
+            'Colour Front Side Only'              => 'Full Color (CMYK)',
+            'Colour Both Sides'                   => 'Full Color (CMYK)',
+            'Colour Front Side Only'              => 'Full Color (CMYK)',
+            '25 Sheets Per Pad Printed One Side'  => '25 sheets per pads',
+            '50 Sheets Per Pad Printed One Side'  => '50 sheets per pads',
+            '25 Sheets Per Pad Printed Two Sides' => '25 sheets per pads',
+            '50 Sheets Per Pad Printed Two Sides' => '50 sheets per pads',
+            'Top Glued Edge'                      => 'Glued on top  Each pad includes 14pt backing',
+            'Left Glued Edge'                     => 'Glued on left side  Each pad includes 14pt backing',
+            'none'                                => 'Non',
+            'Magnetic Strip on the Back'          => 'Magnetic strip on back',
+            '3 Hole Drill on Left Edge'           => '3 Hole Drill on Left Edge',
+        ];
+        if (array_key_exists($option, $cdata))
+            return $cdata[$option];
+        else
+            false;
+    }
+
+    function autoBatchFullPriceList($product_id, $data) {
+		$this->db->where('product_id', $product_id);
+        $this->db->delete('product_full_prices');
+
+        // Prepare keys
+        $col_paper      = 'B';
+        $col_size       = 'C';
+        $col_ink        = 'D';
+        $col_pages      = 'E';
+        $col_binding    = 'F';
+        $col_finishing  = 'G';
+
+        $quantities_1 = [];
+        $col_quantities = [];
+        foreach ($data[1] as $key => $val) {
+            if (strcasecmp($val, 'Paper') == 0)
+                $col_paper      = $key;
+            else if (strcasecmp($val, 'Size') == 0)
+                $col_size       = $key;
+            else if (strcasecmp($val, 'Ink') == 0)
+                $col_ink        = $key;
+            else if (strcasecmp($val, 'Pages') == 0)
+                $col_pages      = $key;
+            else if (strcasecmp($val, 'Binding') == 0)
+                $col_binding    = $key;
+            else if (strcasecmp($val, 'Finishing') == 0)
+                $col_finishing  = $key;
+            else if (preg_match('/^[0-9]+$/i', $val) || $val > 0) {
+                $quantities_1[$key] = [$val, 0];
+                if (!array_key_exists($val, $col_quantities))
+                    $col_quantities[$val] = [];
+                $col_quantities[$val][0] = $key;
+            } else if (preg_match('/^unit \\* ([0-9]+)$/i', $val, $m)) {
+                $quantities_1[$key] = [$m[1], 1];
+                if (!array_key_exists($m[1], $col_quantities))
+                    $col_quantities[$m[1]] = [];
+                $col_quantities[$m[1]][1] = $key;
+            }
+        }
+
+        $stock_id       = $this->attributeId('Stock');
+        $ink_color_id   = $this->attributeId('Ink Color');
+        $side_id        = $this->attributeId('Printed Sides');
+        $numpages_id    = $this->attributeId('Number of Pages');
+        $glue_id        = $this->attributeId('Notepads Glue');
+        $finishing_id   = $this->attributeId('Finishing');
+        //print("$stock_id, $ink_color_id, $side_id, $numpages_id, $glue_id");
+
+        $checked = 0;
+        $processed = 0;
+
+        $side_one_id    = $this->attributeItemId($side_id, 'One Side');
+        $side_double_id = $this->attributeItemId($side_id, 'Double Sided (4/4) Different Image');
+
+        $fmt = numfmt_create( 'en_US', NumberFormatter::CURRENCY );
+
+        $quantity_ids       = [];
+        $size_ids           = [];
+        $stock_item_ids     = [];
+        $ink_color_item_ids = [];
+        $numpages_item_ids  = [];
+        $glue_item_ids      = [];
+        $finishing_item_ids = [];
+        for ($i = 2; array_key_exists($i, $data); $i++) {
+            $checked++;
+
+            $row            = $data[$i];
+
+            if (!array_key_exists($row[$col_size])) {
+                $size               = $this->convert_printnew_option($row[$col_size]);
+                $size_ids[$row[$col_size]] = $this->sizeId($size);
+            }
+
+            if (!array_key_exists($row[$col_paper], $stock_item_ids))
+                $stock_item_ids[$row[$col_paper]] = $this->attributeItemId($stock_id, $this->convert_printnew_option($row[$col_paper]));
+            if (!array_key_exists($row[$col_ink], $ink_color_ids))
+                $ink_color_item_ids[$row[$col_ink]]  = $this->attributeItemId($ink_color_id, $this->convert_printnew_option($row[$col_ink]));
+            $side_item_id = $row[$col_ink] == 'Front Side Only' ? $side_one_id : $side_double_id;
+            if (!array_key_exists($row[$col_pages], $numpages_item_ids))
+                $numpages_item_ids[$row[$col_pages]] = $this->attributeItemId($numpages_id, $this->convert_printnew_option($row[$col_pages]));
+            if (!array_key_exists($row[$col_binding], $glue_item_ids))
+                $glue_item_ids[$row[$col_binding]] = $this->attributeItemId($glue_id, $this->convert_printnew_option($row[$col_binding]));
+            if (!array_key_exists($row[$col_finishing], $finishing_item_ids))
+                $finishing_item_ids[$row[col_finishing]] = $this->attributeItemId($finishing_id, $this->convert_printnew_option($row[$col_finishing]));
+
+            $size_id            = $size_ids[$row[$col_size]];
+            $stock_item_id      = $stock_item_ids[$row[$col_paper]];
+            $ink_color_item_id  = $ink_color_item_ids[$row[$col_ink]];
+            $numpages_item_id   = $numpages_item_ids[$row[$col_pages]];
+            $glue_item_id       = $glue_item_ids[$row[$col_binding]];
+            $finishing_item_id  = $finishing_item_ids[$row[col_finishing]];
+
+            foreach ($col_quantities as $quantity => $qcols) {
+                if (!array_key_exists($quantity, $quantity_ids))
+                    $quantity_ids[$quantity] = $this->quantityId($quantity);
+                $quantity_id = $quantity_ids[$quantity];
+                $price = $fmt->parseCurrency($row[$qcols[1]], $curr);
+
+                $rec = [
+                    'product_id' => $product_id, 'quantity_id' => $quantity_id, 'size_id' => $size_id,
+                    'attributes' =>
+                        "$stock_id-$stock_item_id," .
+                        "$ink_color_id-$ink_color_item_id," .
+                        "$side_id-$side_item_id," .
+                        "$numpages_id-$numpages_item_id," .
+                        "$glue_id-$glue_item_id," .
+                        "$finishing_id-$finishing_item_id",
+                    'price' => $price
+                ];
+                $this->db->insert('product_full_prices', $rec);
+            }
+            //print("$processed<br>");
+            //exit(0);
+            $processed++;
+        }
+        return $checked - $processed;
+    }
 }

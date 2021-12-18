@@ -2555,4 +2555,20 @@ Coating";
 
         exit();
     }
+
+    function uploadFullPriceList($product_id) {
+        $this->load->model('Product_Model');
+
+        $file = $_FILES['file'];
+        $spreadsheet = IOFactory::load("d:\\work\\2021.12.04-Scrap-mefa(Ca)\\PP_pp_notepads_np-all.xlsx");//$file['tmp_name']);
+        //$spreadsheet = IOFactory::load($file['tmp_name']);
+        $sheetData = $spreadsheet->getActiveSheet()->toArray(null, true, true, true);
+        $result = $this->Product_Model->autoBatchFullPriceList($product_id, $sheetData);
+        if ($result >= 0)
+            echo json_encode(array('result' => 1, 'failed' => $result));
+        else
+            echo json_encode(array('result' => 0));
+
+        exit();
+    }
 }

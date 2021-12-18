@@ -1068,8 +1068,12 @@
 	color: #fff;
 	font-size: 18px;
 	font-weight: 600;
-	text-transform: uppercase;
+	/* text-transform: uppercase; */
     cursor: pointer;
+}
+.single-for-verify button.btn-primary {
+	background-color: #3c8dbc;
+    border-color: #367fa9;
 }
 .single-for-verify span {
 	font-size: 20px;
