@@ -222,7 +222,7 @@
                 <div class="single-for-verify">
                     <input id="upload-attributes" type="file" class="hidden" name="fileUpload" onchange="uploadAttributes(this.files[0])"/>
                     <label for="upload-attributes" id="file-drag" style="width: 100%;background-color: #367fa9;">
-                        <button id="upload-attributes-btn" class="btn btn-primary">Attributes Excel <i class="fa fa-upload" aria-hidden="true"></i></button>
+                        <span id="upload-attributes-btn" class="btn btn-primary">Attributes Excel <i class="fa fa-upload" aria-hidden="true"></i></span>
                     </label>
                 </div>
             </div>
@@ -232,7 +232,7 @@
                 <div class="single-for-verify">
                     <input id="upload-full-pricelist" type="file" class="hidden" name="fileUpload" onchange="uploadFullPriceList(this.files[0])"/>
                     <label for="upload-full-pricelist" id="file-drag" style="width: 100%;background-color: #367fa9;">
-                        <button id="upload-full-pricelist-btn" class="btn btn-primary">Full Price List Excel <i class="fa fa-upload" aria-hidden="true"></i></button>
+                        <span id="upload-full-pricelist-btn" class="btn btn-primary">Full Price List Excel <i class="fa fa-upload" aria-hidden="true"></i></span>
                     </label>
                 </div>
             </div>

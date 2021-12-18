@@ -1075,6 +1075,10 @@
 	background-color: #3c8dbc;
     border-color: #367fa9;
 }
+.single-for-verify span.btn-primary {
+    background: transparent;
+    border: none;
+}
 .single-for-verify span {
 	font-size: 20px;
 }

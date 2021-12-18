@@ -3064,6 +3064,8 @@ Class Product_Model extends MY_Model {
         $numpages_item_ids  = [];
         $glue_item_ids      = [];
         $finishing_item_ids = [];
+
+        $recs = [];
         for ($i = 2; array_key_exists($i, $data); $i++) {
             $checked++;
 
@@ -3110,7 +3112,11 @@ Class Product_Model extends MY_Model {
                         "$finishing_id-$finishing_item_id",
                     'price' => $price
                 ];
-                $this->db->insert('product_full_prices', $rec);
+                $recs[] = $rec;
+            }
+            if (count($recs) > 100) {
+                $this->db->insert_batch('product_full_prices', $recs);
+                $recs = [];
             }
             //print("$processed<br>");
             //exit(0);
