@@ -1218,8 +1218,6 @@ Class Product_Model extends MY_Model {
     }
 	
 	public function getMultipleAttributesListDropDwon() {
-
-
         $this->db->select('*');
         $this->db->from('product_multiple_attributes');
 		$this->db->where('status','1');
@@ -1228,7 +1226,6 @@ Class Product_Model extends MY_Model {
 		$data=$query->result_array();
 		$dataNew=array();
 		foreach($data as $key=>$val){
-			
 			$id=$val['id'];
 			$this->db->select('*');
             $this->db->from('product_multiple_attribute_items');
@@ -1239,15 +1236,11 @@ Class Product_Model extends MY_Model {
 			$attribute_items_new=array();
 			
 			foreach($attribute_items as $key1=>$val1){
-				
 				 $attribute_items_new[$val1['id']]=$val1['item_name'];
-				 
 			}	
 			$dataNew[$val['id']]=array('name'=>$val['name'],'items'=>$attribute_items_new);
-			
 		}
 		return $dataNew;
-
     }
 	
 	public function getMultipleAttributesDataById($id) {
@@ -3087,7 +3080,7 @@ Class Product_Model extends MY_Model {
                 $stock_item_ids[$row[$col_paper]] = $this->attributeItemId($stock_id, $this->convert_printnew_option($row[$col_paper]));
             if (!array_key_exists($row[$col_ink], $ink_color_ids))
                 $ink_color_item_ids[$row[$col_ink]]  = $this->attributeItemId($ink_color_id, $this->convert_printnew_option($row[$col_ink]));
-            $side_item_id = $row[$col_ink] == 'Front Side Only' ? $side_one_id : $side_double_id;
+            $side_item_id = $row[$col_ink] == 'Colour Front Side Only' ? $side_one_id : $side_double_id;
             if (!array_key_exists($row[$col_pages], $numpages_item_ids))
                 $numpages_item_ids[$row[$col_pages]] = $this->attributeItemId($numpages_id, $this->convert_printnew_option($row[$col_pages]));
             if (!array_key_exists($row[$col_binding], $glue_item_ids))

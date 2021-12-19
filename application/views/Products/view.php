@@ -531,7 +531,7 @@ overflow: hidden;
 										<span>        
 									</div>
 									<?php 
-									}?>	
+									}?>
 							<?php if($Product['depth_width_length_quantity_show']==1){?>		
 									<div class="single-review">
 										<label><?php 
@@ -645,16 +645,16 @@ overflow: hidden;
 									<?php echo $language_name=='French' ? $val['data']['attribute_name_french']:$val['data']['attribute_name'];
 												?><span class="required">*</span></label>
 												<?php $items=$val['items'];?>
-												<?php 
-												   if(!empty($items)){ 
+												<?php
+												   if(!empty($items)){
 												   ?>
 													<select name="attribute_id_<?php echo $key;?>" required <?php if($i > 1){echo 'disabled';}?> onchange="showAttribute(<?php echo $i?>,'<?php echo $i+1;?>')" id="attribute_id_<?php echo $i;?>">
 														<option value=""><?php echo $language_name=='French' ? 'Choisis une option...':'Choose an option...'?> </option>
 														<?php foreach($items as $subkey=>$subval){
-	$extra_price='';														
+	$extra_price='';
     if(!empty($subval['extra_price']) && $subval['extra_price'] !='0.00'){
 		//$extra_price=" (+ ".$product_price_currency_symbol.$subval['extra_price'].")";
-	}														
+	}
 ?>
 														      <option value="<?php echo $subval['attribute_item_id']?>">
 															  <?php echo $language_name=='French' ? $subval['item_name_french'].$extra_price:$subval['item_name'].$extra_price;?>

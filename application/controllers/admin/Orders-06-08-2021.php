@@ -1528,10 +1528,10 @@ class Orders extends Admin_Controller
 		
 		if($fl){
 			
-	      return $this->load->view('Products/size_potions',$response,true);
+	      return $this->load->view('Products/size_options',$response,true);
 		  
 		}else{
-			echo $this->load->view('Products/size_potions',$response,true);
+			echo $this->load->view('Products/size_options',$response,true);
 		}
 		exit();
 		

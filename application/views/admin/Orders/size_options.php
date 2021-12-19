@@ -1,110 +1,215 @@
-<div class="content-wrapper" style="min-height: 687px;">
-<section class="content">
-	<div class="row">
-		<div class="col-xs-12 col-md-12">
-			<div class="box">
-				<div class="box-body">
-				<div class="text-center" style="color:red">
-                    <?php echo $this->session->flashdata('message_error');?>
-				</div>
-				<div class="text-center" style="color:green">
-                    <?php echo $this->session->flashdata('message_success');?>
-				</div>
-				<div class="inner-head-section">
-					<div class="row">
-						<div class="col-md-6 col-xs-12 text-left">
-							<div class="inner-title">
-							    <span><?php echo ucfirst($page_title).' List'; ?></span>
-							</div>
-						</div>
-						<div class="col-md-6 col-xs-12 text-right">
-							<div class="all-vol-btn">
-							<a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/0/<?php echo $type?>"><button>
-							<i class="fas fa-plus-circle"></i><?php echo $sub_page_title ?></button>
-							</a>
-							</div>
-						</div>
-					</div>
-				</div>
-                
-				<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-					<div class="custom-mini-table">
-						<table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
-							<thead>
-								<tr role="row">
-									<th width="30%">Quantity</th>
-								
-									<th width="10%">Status</th>
-									<th width="20%">Action</th>
-								</tr>
-							</thead>
-							
-							<tbody>
-							    <?php 
-								if(count($lists) > 0){
-									
-									foreach($lists as $key=>$list){
-									?>
-										<tr>
-											<td><?php echo ucfirst($list['name']);?></td>
-											<td>
-											<?php if($list['status']==1){?>
-											<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0/<?php echo $type?>">
-											 <button type="submit" class="custon-active">Active
-											 </button>
-											</a> 
-											<?php 
-											}else{?>
-											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1/<?php echo $type?>">
-											     <button type="submit" class="custon-delete">Inactive
-											      </button>
-											   </a>
-											<?php 
-											}?>
-											</td>
-											<td>
-											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>/<?php echo $type?>" style="color:green;padding: 5px;" title="edit">
-											        <i class="far fa-edit fa-lg"></i>
-											   </a>
-											   
-											   
-											 
-											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $list['id'];?>/<?php echo $type?>" style="color:#d71b23;padding: 5px;" title="delete"  onclick="return confirm('Are you sure you want to delete this item?');">
-											         <i class="fa fa-trash fa-lg"></i>
-											   </a>
-											   
-											</td>
-										</tr>
-								<?php
-                                   								
-								    }
-								}else{?>
-								    <tr>
-									<td colspan="4" class="text-center">List Empty.</td>
-								    </tr>
-								<?php 
-								}?>
-							</tbody>
-						</table>
-					</div>
-				</div>
+    <?php 
+	$i=1;
+	?>
+	<?php 
+	$j=1;
+	$k=2;
+	?>
+	<?php if(!empty($options_qty)){
+		
+		    if($j==$last){
+				
+                $onchange="getPaperPrice('$i')"; 
+		    }else{
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+		    }	
+	?>
+	<div class="single-review">
+		<label>Quantity <span class="required">*</span></label>
+		<select name="product_size_quantity"  id="product_size_option_<?php echo $j?>" required onchange="<?php echo $onchange;?>">
+		<?php echo $options_qty;?>
+		</select>
+	</div>
+	<?php 
+	   $j++;
+	   $k++;
+	}?>
+	<?php if(!empty($options_ncr_number_parts)){ 
 
-
-
-				</div><!-- /.box-body -->
-			</div><!-- /.box -->
-		</div><!-- /.col -->
-	</div><!-- /.row -->
-</section><!-- /.content -->
-</div>
- <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
- </script>
-<script>
-$(document).ready(function(){
+            if($j==$last){
+				
+                $onchange="getPaperPrice('$i')"; 
+		    }else{
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+		    }	
+	?>
+	<div class="single-review">
+		<label>NCR Number Of Parts <span class="required">*</span></label>
+		<select name="product_size_ncr_number_parts" required id="product_size_option_<?php echo $j?>" required <?php if($j > 1){ echo 'disabled';}?> onchange="<?php echo $onchange;?>">
+		<?php echo $options_ncr_number_parts;?>
+		</select>
+	</div>
+	<?php 
+	   $j++;
+	   $k++;
+	}?>
 	
-    $('#example1').DataTable({
-		"order": [[ 0, "asc" ]]
-	});
-
-});
-</script>
+	<?php if(!empty($options_paper_size)){
+		
+	        if($j==$last){
+				
+                $onchange="getPaperPrice('$i')";
+				
+		    }else{
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+		    }
+	?>
+	<div class="single-review">
+		<label>Paper <span class="required">*</span></label>
+		<select name="product_size_paper_size" required id="product_size_option_<?php echo $j?>" required <?php if($j > 1){ echo 'disabled';}?> onchange="<?php echo $onchange?>">
+			<?php echo $options_paper_size;?>
+		</select>
+	</div>
+	<?php 
+	   $j++;
+	   $k++;
+	}?>
+	
+	<?php if(!empty($paper_quality)){
+		
+	        if($j==$last){
+				
+                $onchange="getPaperPrice('$i')";
+				
+		    }else{
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+		    }
+	?>
+	<div class="single-review">
+		<label>Paper Quality <span class="required">*</span></label>
+		<select name="paper_quality" required id="product_size_option_<?php echo $j?>" required <?php if($j > 1){ echo 'disabled';}?> onchange="<?php echo $onchange?>">
+			<?php echo $paper_quality;?>
+		</select>
+	</div>
+	<?php 
+	   $j++;
+	   $k++;
+	}?>
+	
+	<?php if(!empty($stock)){
+		
+	        if($j==$last){
+				
+                $onchange="getPaperPrice('$i')";
+				
+		    }else{
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+		    }
+	?>
+	<div class="single-review">
+		<label>Stock <span class="required">*</span></label>
+		<select name="stock" required id="product_size_option_<?php echo $j?>" required <?php if($j > 1){ echo 'disabled';}?> onchange="<?php echo $onchange?>">
+			<?php echo $stock;?>
+		</select>
+	</div>
+	<?php 
+	   $j++;
+	   $k++;
+	}?>
+	
+	<?php if(!empty($color)){
+		
+	        if($j==$last){
+				
+                $onchange="getPaperPrice('$i')";
+				
+		    }else{
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+		    }
+	?>
+	<div class="single-review">
+		<label>Color <span class="required">*</span></label>
+		<select name="color" required id="product_size_option_<?php echo $j?>" required <?php if($j > 1){ echo 'disabled';}?> onchange="<?php echo $onchange?>">
+			<?php echo $color;?>
+		</select>
+	</div>
+	<?php 
+	   $j++;
+	   $k++;
+	}?>
+	
+	<?php if(!empty($coating)){
+		
+	        if($j==$last){
+				
+                $onchange="getPaperPrice('$i')";
+				
+		    }else{
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+		    }
+	?>
+	<div class="single-review">
+		<label>Coating <span class="required">*</span></label>
+		<select name="coating" required id="product_size_option_<?php echo $j?>" required <?php if($j > 1){ echo 'disabled';}?> onchange="<?php echo $onchange?>">
+			<?php echo $coating;?>
+		</select>
+	</div>
+	<?php 
+	   $j++;
+	   $k++;
+	}?>
+	
+	<?php if(!empty($diameter)){
+		
+	        if($j==$last){
+				
+                $onchange="getPaperPrice('$i')";
+				
+		    }else{
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+		    }
+	?>
+	<div class="single-review">
+		<label>Diameter <span class="required">*</span></label>
+		<select name="diameter" required id="product_size_option_<?php echo $j?>" required <?php if($j > 1){ echo 'disabled';}?> onchange="<?php echo $onchange?>">
+			<?php echo $diameter;?>
+		</select>
+	</div>
+	<?php 
+	   $j++;
+	   $k++;
+	}?>
+	
+	<?php if(!empty($envelope)){
+		
+	        if($j==$last){
+				
+                $onchange="getPaperPrice('$i')";
+				
+		    }else{
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+		    }
+	?>
+	<div class="single-review">
+		<label>Envelope <span class="required">*</span></label>
+		<select name="envelope" required id="product_size_option_<?php echo $j?>" required <?php if($j > 1){ echo 'disabled';}?> onchange="<?php echo $onchange?>">
+			<?php echo $envelope;?>
+		</select>
+	</div>
+	<?php 
+	   $j++;
+	   $k++;
+	}?>
+	
+	<?php if(!empty($bundling)){
+		
+	        if($j==$last){
+				
+                $onchange="getPaperPrice('$i')";
+				
+		    }else{
+			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+		    }
+	?>
+	<div class="single-review">
+		<label>Bundling <span class="required">*</span></label>
+		<select name="bundling" required id="product_size_option_<?php echo $j?>" required <?php if($j > 1){ echo 'disabled';}?> onchange="<?php echo $onchange?>">
+			<?php echo $bundling;?>
+		</select>
+	</div>
+	<?php 
+	   $j++;
+	   $k++;
+	}?>
+	
+	
