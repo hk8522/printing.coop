@@ -1306,7 +1306,7 @@ class Products extends Admin_Controller
 		$data['id']=$id;
 		$data['MultipleAttributes']=$MultipleAttributes;
 		$data['success']=$success;
-		echo $this->load->view($this->class_name.'add_edit_product_multipal_attribute',$data,true);
+		echo $this->load->view($this->class_name.'add_edit_product_multiple_attribute',$data,true);
 		exit(0);
 		
 	}

@@ -76,7 +76,7 @@
 					?>
 	                <span class="required">*</span>
 		</label>
-					<select name="multipal_atirbute_<?php echo $mkey;?>" required id="product_size_option_<?php echo $j?>" required <?php echo $disabled?> onchange="<?php echo $onchange?>" class="multipal_size multipal_size_item">
+					<select name="multiple_attribute_<?php echo $mkey;?>" required id="product_size_option_<?php echo $j?>" required <?php echo $disabled?> onchange="<?php echo $onchange?>" class="multipal_size multipal_size_item">
 						<?php echo $options;?>
 						<?php   foreach($attribute_items as $akey=>$aval){ ?>
 						            <option value="<?php echo $akey;?>"><?php 

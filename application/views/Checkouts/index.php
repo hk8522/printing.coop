@@ -1190,13 +1190,13 @@
 								
 								    foreach($attribute as $akey=>$aval){
 										
-										$multipal_attribute_name=$aval['attributes_name'];
-									    $multipal_attribute_item_name=$aval['attributes_item_name'];
+										$multiple_attribute_name=$aval['attributes_name'];
+									    $multiple_attribute_item_name=$aval['attributes_item_name'];
 										
 										if($language_name=='French'){
 											
-											$multipal_attribute_name=$aval['attributes_name_french'];
-									        $multipal_attribute_item_name=$aval['attributes_item_name_french'];
+											$multiple_attribute_name=$aval['attributes_name_french'];
+									        $multiple_attribute_item_name=$aval['attributes_item_name_french'];
 										
 										}
 								?>
@@ -1205,8 +1205,8 @@
 											<span>
 											<strong>
 											   <?php 
-								                echo $multipal_attribute_name
-								                 .':'. $multipal_attribute_item_name;
+								                echo $multiple_attribute_name
+								                 .':'. $multiple_attribute_item_name;
 												?>
 												 </strong> 
 											</span>

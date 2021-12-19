@@ -209,11 +209,11 @@
 								
 								    foreach($attribute as $akey=>$aval){
 										
-										$multipal_attribute_name=$aval['attributes_name'];
-									    $multipal_attribute_item_name=$aval['attributes_item_name'];
+										$multiple_attribute_name=$aval['attributes_name'];
+									    $multiple_attribute_item_name=$aval['attributes_item_name'];
 								?>
 								
-                                   <span><strong><?php echo $multipal_attribute_name;?>:<?php echo $multipal_attribute_item_name;?></strong> </span>		
+                                   <span><strong><?php echo $multiple_attribute_name;?>:<?php echo $multiple_attribute_item_name;?></strong> </span>		
 								<?php 
 									}	
 								}?>	

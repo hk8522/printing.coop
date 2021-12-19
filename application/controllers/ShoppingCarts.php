@@ -106,15 +106,15 @@ class ShoppingCarts extends Public_Controller
 			
 			foreach($attribute as $akey=>$aval){
 				
-				$multipal_attribute_name='multipal_atirbute_'.$akey;
-				$multipal_attribute_item_id=isset($_POST[$multipal_attribute_name]) ? $this->input->post($multipal_attribute_name):'';
+				$multiple_attribute_name='multiple_attribute_'.$akey;
+				$multiple_attribute_item_id=isset($_POST[$multiple_attribute_name]) ? $this->input->post($multiple_attribute_name):'';
 				$attribute_items=isset($aval['attribute_items']) ? $aval['attribute_items']:array();
 				
-				if(!empty($multipal_attribute_item_id) && array_key_exists($multipal_attribute_item_id,$attribute_items)){
+				if(!empty($multiple_attribute_item_id) && array_key_exists($multiple_attribute_item_id,$attribute_items)){
 					
-					$extra_price=$attribute_items[$multipal_attribute_item_id]['extra_price'];
+					$extra_price=$attribute_items[$multiple_attribute_item_id]['extra_price'];
 					$price +=$extra_price;
-					$product_size['attribute'][]=$attribute_items[$multipal_attribute_item_id];
+					$product_size['attribute'][]=$attribute_items[$multiple_attribute_item_id];
 					
 				}
 		    }

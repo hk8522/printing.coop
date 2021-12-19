@@ -111,44 +111,41 @@ Class Product_Model extends MY_Model {
 		];
 
     public function getProductList($id = null, $product_id = null,$limit=null,$start=null,$order='desc')
-		{
-			$this->db->select(array('Product.*','Category.name as category_name','Category.name_french as category_name_french','SubCategory.name as sub_category_name','SubCategory.name_french as sub_category_name_french'));
-			$this->db->from($this->table.' as Product');
-			$where = [];
-			if ($id) {
-				
-				 $where['Product.id']=$id;
-			}
-			if ($product_id){
-				 $where['Product.id']=$product_id;
-			}
-			$this->db->where($where);
-			$this->db->join('categories as Category', 'Category.id=Product.category_id', 'left');
-			$this->db->join('sub_categories as SubCategory', 'SubCategory.id=Product.sub_category_id', 'left');
-			
-			//$this->db->join('brands as Brand', 'Brand.id=Product.brand', 'left');
-			//$this->db->join('discounts as Discount', 'Discount.id=Product.discount_id', 'left');
-			//$this->db->order_by('Category.category_order','asc');
-			//$this->db->order_by('SubCategory.sub_category_order','asc');
-			$this->db->order_by('Product.updated',$order);
-			if(!empty($limit)){
-				
-              $this->db->limit($limit, $start);
-			  
-			}
-			
-			$query = $this->db->get();
-            //echo $this->db->last_query(); die();
-			if ($id){
-				$data = (array)$query->row();
-			} else {
-			    $data = $query->result_array();
-			}
+    {
+        $this->db->select(array('Product.*','Category.name as category_name','Category.name_french as category_name_french','SubCategory.name as sub_category_name','SubCategory.name_french as sub_category_name_french'));
+        $this->db->from($this->table.' as Product');
+        $where = [];
+        if ($id) {
+                $where['Product.id']=$id;
+        }
+        if ($product_id){
+                $where['Product.id']=$product_id;
+        }
+        $this->db->where($where);
+        $this->db->join('categories as Category', 'Category.id=Product.category_id', 'left');
+        $this->db->join('sub_categories as SubCategory', 'SubCategory.id=Product.sub_category_id', 'left');
 
-			return $data;
-			
+        //$this->db->join('brands as Brand', 'Brand.id=Product.brand', 'left');
+        //$this->db->join('discounts as Discount', 'Discount.id=Product.discount_id', 'left');
+        //$this->db->order_by('Category.category_order','asc');
+        //$this->db->order_by('SubCategory.sub_category_order','asc');
+        $this->db->order_by('Product.updated', $order);
+        if(!empty($limit)){
+            $this->db->limit($limit, $start);
+        }
+        
+        $query = $this->db->get();
+        //echo $this->db->last_query(); die();
+        if ($id){
+            $data = (array)$query->row();
+        } else {
+            $data = $query->result_array();
+        }
+
+        return $data;
     }
-	public function getProductTotal($product_id = null){
+
+    public function getProductTotal($product_id = null){
 		
 			$this->db->select(array('Product.*','Category.name as category_name','SubCategory.name as sub_category_name'));
 			$this->db->from($this->table.' as Product');
@@ -2915,6 +2912,7 @@ Class Product_Model extends MY_Model {
 
         $checked = 0;
         $processed = 0;
+        $recs = [];
         for ($i = 2; array_key_exists($i, $attributes); $i++) {
             $checked++;
 
@@ -2925,10 +2923,10 @@ Class Product_Model extends MY_Model {
             $attribute_item = trim($row['D']);
             $extra_price    = trim($row['E']);
 
-            $data = [];
-            $data['product_id'] = $product_id;
-            $data['created_at'] = date('Y-m-d H:i:s');
-            $data['updated_at'] = date('Y-m-d H:i:s');
+            $rec = [];
+            $rec['product_id']  = $product_id;
+            $rec['created_at']  = date('Y-m-d H:i:s');
+            $rec['updated_at']  = date('Y-m-d H:i:s');
 
             $quantity_id = $this->quantityId($quantity);
             if ($quantity_id == 0)
@@ -2936,18 +2934,18 @@ Class Product_Model extends MY_Model {
             if ($attribute_item == null || $attribute_item == '') {
                 if ($size == null || $size == '') {
                     // Add to product_quantity
-                    $data['qty']    = $quantity_id;
-                    $data['price']  = $extra_price;
-                    $this->db->insert('product_quantity', $data);
+                    $rec['qty']     = $quantity_id;
+                    $rec['price']   = $extra_price;
+                    $this->db->insert('product_quantity', $rec);
                 } else {
                     // Add to product_size_new
                     $size_id = $this->sizeId($size);
                     if ($size_id == 0)
                         continue;
-                    $data['qty']            = $quantity_id;
-                    $data['size_id']        = $size_id;
-                    $data['extra_price']    = $extra_price;
-                    $this->db->insert('product_size_new', $data);
+                    $rec['qty']         = $quantity_id;
+                    $rec['size_id']     = $size_id;
+                    $rec['extra_price'] = $extra_price;
+                    $this->db->insert('product_size_new', $rec);
                 }
             } else {
                 // Add to size_multiple_attributes
@@ -2955,15 +2953,24 @@ Class Product_Model extends MY_Model {
                 $attribute_item_id      = $this->attributeItemId($attribute_id, $attribute_item);
                 if ($attribute_id == 0 || $attribute_item_id == 0)
                     continue;
-                $data['qty']                = $quantity_id;
-                $data['size_id']            = $size_id;
-                $data['extra_price']        = $extra_price;
-                $data['attribute_id']       = $attribute_id;
-                $data['attribute_item_id']  = $attribute_item_id;
-                $this->db->insert('size_multiple_attributes', $data);
+                $rec['qty']                 = $quantity_id;
+                $rec['size_id']             = $size_id;
+                $rec['extra_price']         = $extra_price;
+                $rec['attribute_id']        = $attribute_id;
+                $rec['attribute_item_id']   = $attribute_item_id;
+                $recs[] = $rec;
+                if (count($recs) > 100) {
+                    $this->db->insert_batch('size_multiple_attributes', $recs);
+                    $recs = [];
+                }
+                // $this->db->insert('size_multiple_attributes', $rec);
             }
             //print("$row, $quantity, $size, $attribute, $item, $extra_price");
             $processed++;
+        }
+        if (count($recs) > 0) {
+            $this->db->insert_batch('size_multiple_attributes', $recs);
+            $recs = [];
         }
         return $checked - $processed;
     }
@@ -3099,17 +3106,29 @@ Class Product_Model extends MY_Model {
                 if (!array_key_exists($quantity, $quantity_ids))
                     $quantity_ids[$quantity] = $this->quantityId($quantity);
                 $quantity_id = $quantity_ids[$quantity];
-                $price = $fmt->parseCurrency($row[$qcols[1]], $curr);
+                $price = $fmt->parseCurrency($row[$qcols[1]], $curr) * 0.85;
 
+                $attributes = array(
+                    [$stock_id, $stock_item_id],
+                    [$ink_color_id, $ink_color_item_id],
+                    [$side_id, $side_item_id],
+                    [$numpages_id, $numpages_item_id],
+                    [$glue_id, $glue_item_id],
+                    [$finishing_id, $finishing_item_id],
+                );
+                usort($attributes, function($a, $b) {
+                    if ($a[0] < $b[0])
+                        return -1;
+                    else if ($a[0] > $b[0])
+                        return 1;
+                    return 0;
+                });
+                $s_attributes = [];
+                foreach ($attributes as $attribute)
+                    $s_attributes[] = "$attribute[0]-$attribute[1]";
                 $rec = [
                     'product_id' => $product_id, 'quantity_id' => $quantity_id, 'size_id' => $size_id,
-                    'attributes' =>
-                        "$stock_id-$stock_item_id," .
-                        "$ink_color_id-$ink_color_item_id," .
-                        "$side_id-$side_item_id," .
-                        "$numpages_id-$numpages_item_id," .
-                        "$glue_id-$glue_item_id," .
-                        "$finishing_id-$finishing_item_id",
+                    'attributes' => join(',', $s_attributes),
                     'price' => $price
                 ];
                 $recs[] = $rec;
@@ -3121,7 +3140,25 @@ Class Product_Model extends MY_Model {
             //print("$processed<br>");
             //exit(0);
             $processed++;
+            //break;
+        }
+        if (count($recs) > 0) {
+            $this->db->insert_batch('product_full_prices', $recs);
+            $recs = [];
         }
         return $checked - $processed;
+    }
+
+    function getFullPrice($product_id, $quantity_id, $size_id, $attributes) {
+        $this->db->select('price');
+        $this->db->from('product_full_prices');
+        $this->db->where('product_id', $product_id);
+        $this->db->where('quantity_id', $quantity_id);
+        $this->db->where('size_id', $size_id);
+        $this->db->where('attributes', $attributes);
+        $result = $this->db->get()->result_array();
+        if (count($result) == 0)
+            return 0;
+        return $result[0]['price'];
     }
 }

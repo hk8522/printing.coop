@@ -133,11 +133,11 @@
 								
 								    foreach($attribute as $akey=>$aval){
 										
-										$multipal_attribute_name=$aval['attributes_name'];
-									    $multipal_attribute_item_name=$aval['attributes_item_name'];
+										$multiple_attribute_name=$aval['attributes_name'];
+									    $multiple_attribute_item_name=$aval['attributes_item_name'];
 								?>
 								
-                                 <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222"><?php echo $multipal_attribute_name;?>:</font><?php echo $multipal_attribute_item_name;?></div>		
+                                 <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222"><?php echo $multiple_attribute_name;?>:</font><?php echo $multiple_attribute_item_name;?></div>		
 								<?php 
 									}	
 								}?>	
