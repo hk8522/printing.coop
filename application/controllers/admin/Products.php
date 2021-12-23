@@ -193,8 +193,8 @@ class Products extends Admin_Controller
 						
 						
 						
-						$postData['min_lenght_min_width_price'] = isset($_POST['min_lenght_min_width_price']) ?
-						$this->input->post('min_lenght_min_width_price'):0;
+						$postData['min_length_min_width_price'] = isset($_POST['min_length_min_width_price']) ?
+						$this->input->post('min_length_min_width_price'):0;
 						
 						$postData['length_width_unit_price_black'] = isset($_POST['length_width_unit_price_black']) ?
 						$this->input->post('length_width_unit_price_black'):0;
@@ -237,8 +237,8 @@ class Products extends Admin_Controller
 						$postData['page_max_width'] = isset($_POST['page_max_width']) ?
 						$this->input->post('page_max_width'):0;
 						
-						$postData['page_min_lenght_min_width_price'] = isset($_POST['page_min_lenght_min_width_price']) ?
-						$this->input->post('page_min_lenght_min_width_price'):0;
+						$postData['page_min_length_min_width_price'] = isset($_POST['page_min_length_min_width_price']) ?
+						$this->input->post('page_min_length_min_width_price'):0;
 						
 						$postData['page_length_width_price_color'] = isset($_POST['page_length_width_price_color']) ?
 						$this->input->post('page_length_width_price_color'):0;

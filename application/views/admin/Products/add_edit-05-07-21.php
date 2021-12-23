@@ -719,7 +719,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="attribute-single-info-inner">
-                                                    <input type="text" value="<?php echo showValue($postData['min_lenght_min_width_price'])?>" name="min_lenght_min_width_price" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control LengthWidth">
+                                                    <input type="text" value="<?php echo showValue($postData['min_length_min_width_price'])?>" name="min_length_min_width_price" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
                                         </div>
@@ -955,7 +955,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="attribute-single-info-inner">
-                                                    <input type="text" value="<?php echo showValue($postData['page_min_lenght_min_width_price'])?>" name="page_min_lenght_min_width_price" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control PageLengthWidth">
+                                                    <input type="text" value="<?php echo showValue($postData['page_min_length_min_width_price'])?>" name="page_min_length_min_width_price" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control PageLengthWidth">
                                                 </div>
                                             </div>
                                         </div>

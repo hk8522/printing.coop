@@ -259,7 +259,7 @@ overflow: hidden;
 									</div>
 									<?php
 									}?>
-				                    <!--<label> <?php echo $Product['min_length']?> X <?php echo $Product['min_width']?> Inch Price :<span class="required"><?php echo $product_price_currency_symbol.number_format($Product['min_lenght_min_width_price'],2)?></span></label>-->
+				                    <!--<label> <?php echo $Product['min_length']?> X <?php echo $Product['min_width']?> Inch Price :<span class="required"><?php echo $product_price_currency_symbol.number_format($Product['min_length_min_width_price'],2)?></span></label>-->
 									            
 									
 									
@@ -378,7 +378,7 @@ overflow: hidden;
 									</div>
 									<?php
 									}?>
-				                    <!--<label> <?php echo $Product['page_min_length']?> X <?php echo $Product['page_min_width']?> Inch Price :<span class="required"><?php echo $product_price_currency_symbol.number_format($Product['page_min_lenght_min_width_price'],2)?></span></label>-->
+				                    <!--<label> <?php echo $Product['page_min_length']?> X <?php echo $Product['page_min_width']?> Inch Price :<span class="required"><?php echo $product_price_currency_symbol.number_format($Product['page_min_length_min_width_price'],2)?></span></label>-->
 									            
 									
 									<?php 

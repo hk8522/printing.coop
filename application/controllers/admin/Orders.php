@@ -1175,7 +1175,7 @@ class Orders extends Admin_Controller
 			$max_length=$Product['max_length'];
 			$min_width=$Product['min_width'];
 			$max_width=$Product['max_width'];
-			$min_lenght_min_width_price=$Product['min_lenght_min_width_price'];
+			$min_length_min_width_price=$Product['min_length_min_width_price'];
 			
 			$response['product_length']=$product_length;
 			$response['product_length_error']='';
@@ -1218,7 +1218,7 @@ class Orders extends Admin_Controller
 				
 				$rq_area=$product_length*$product_width;
 				$min_area=$min_length*$min_width;
-				$par_squre_price=($min_lenght_min_width_price/$min_area);
+				$par_squre_price=($min_length_min_width_price/$min_area);
 				$extra_price=$par_squre_price*$rq_area;
 				$price += $extra_price;
 				
@@ -1684,10 +1684,10 @@ class Orders extends Admin_Controller
 			    $max_length=$Product['max_length'];
 			    $min_width=$Product['min_width'];
 			    $max_width=$Product['max_width'];
-			    $min_lenght_min_width_price=$Product['min_lenght_min_width_price'];
+			    $min_length_min_width_price=$Product['min_length_min_width_price'];
 				$rq_area=$product_length*$product_width;
 				$min_area=$min_length*$min_width;
-				$par_squre_price=($min_lenght_min_width_price/$min_area);
+				$par_squre_price=($min_length_min_width_price/$min_area);
 				$extra_price=$par_squre_price*$rq_area;
 				$price += $extra_price;
 				
@@ -1822,7 +1822,7 @@ class Orders extends Admin_Controller
 			$max_length=$Product['max_length'];
 			$min_width=$Product['min_width'];
 			$max_width=$Product['max_width'];
-			$min_lenght_min_width_price=$Product['min_lenght_min_width_price'];
+			$min_length_min_width_price=$Product['min_length_min_width_price'];
 			
 			$response['product_length']=$product_length;
 			$response['product_length_error']='';
@@ -1864,7 +1864,7 @@ class Orders extends Admin_Controller
 				
 				$rq_area=$product_length*$product_width;
 				$min_area=$min_length*$min_width;
-				$par_squre_price=($min_lenght_min_width_price/$min_area);
+				$par_squre_price=($min_length_min_width_price/$min_area);
 				$extra_price=$par_squre_price*$rq_area;
 				$price += $extra_price;
 				

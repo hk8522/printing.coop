@@ -143,7 +143,7 @@ class ShoppingCarts extends Public_Controller
 			
 			$length_width_max_quantity=$Product['length_width_max_quantity'];
 			
-			$min_lenght_min_width_price=$Product['min_lenght_min_width_price'];
+			$min_length_min_width_price=$Product['min_length_min_width_price'];
 			
 			$length_width_unit_price_black=$Product['length_width_unit_price_black'];
 			
@@ -279,11 +279,11 @@ class ShoppingCarts extends Public_Controller
 							$extra_price=$length_width_price_color*$rq_area;
 						}
 				    }else{
-						$extra_price=$min_lenght_min_width_price*$rq_area;
+						$extra_price=$min_length_min_width_price*$rq_area;
 					}
 				}else{
 					
-				   $extra_price=$min_lenght_min_width_price*$rq_area;
+				   $extra_price=$min_length_min_width_price*$rq_area;
 				   
 				}
 				
@@ -565,7 +565,7 @@ class ShoppingCarts extends Public_Controller
 			$page_max_length=$Product['page_max_length'];
 			$page_min_width=$Product['page_min_width'];
 			$page_max_width=$Product['page_max_width'];
-			$page_min_lenght_min_width_price=$Product['page_min_lenght_min_width_price'];
+			$page_min_length_min_width_price=$Product['page_min_length_min_width_price'];
 			$page_length_width_price_color=$Product['page_length_width_price_color'];
 			$page_length_width_price_black=$Product['page_length_width_price_black'];
 			
@@ -723,7 +723,7 @@ class ShoppingCarts extends Public_Controller
 				    }
 				}else{
 					
-					$extra_price=$page_min_lenght_min_width_price*$rq_area;
+					$extra_price=$page_min_length_min_width_price*$rq_area;
 				}
 				
 				

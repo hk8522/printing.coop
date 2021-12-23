@@ -447,7 +447,9 @@ class Products extends Public_Controller
         $recto_verso_price      = $this->input->post('recto_verso_price');
         $quantity               = !empty($quantity) ? $quantity : 1;
 
-        /////////////////////////////////////////////////////////////////
+        /**
+         * Find Price from full price list of outside source(like newprint, sina)
+         */
         $multiple_attributes = [];
         foreach ($_POST as $key => $val) {
             if (preg_match('/^multiple_attribute_([0-9]+)$/i', $key, $m)) {
@@ -467,10 +469,12 @@ class Products extends Public_Controller
         foreach ($multiple_attributes as $attribute)
             $s_multiple_attributes[] = "$attribute[0]-$attribute[1]";
         $price_newprint = $this->Product_Model->getFullPrice($product_id, $quantity_id, $size_id, join(',', $s_multiple_attributes));
-        /////////////////////////////////////////////////////////////////
         if ($price_newprint > 0) {
             $price = $price_newprint;
         } else {
+            /**
+             * Original price logic
+             */
             $attributes = [];
             foreach ($_POST as $key => $val) {
                 if (preg_match('/^attribute_id_([0-9]+)$/i', $key, $m)) {
@@ -500,7 +504,7 @@ class Products extends Public_Controller
 
                 $length_width_min_quantity      = $Product['length_width_min_quantity'];
                 $length_width_max_quantity      = $Product['length_width_max_quantity'];
-                $min_lenght_min_width_price     = $Product['min_lenght_min_width_price'];
+                $min_length_min_width_price     = $Product['min_length_min_width_price'];
                 $length_width_unit_price_black  = $Product['length_width_unit_price_black'];
                 $length_width_price_color       = $Product['length_width_price_color'];
                 $length_width_color_show        = $Product['length_width_color_show'];
@@ -521,7 +525,7 @@ class Products extends Public_Controller
                     if ($this->language_name == 'French') {
                         $response['product_length_error'] = 'Veuillez saisir la longueur';
                     }
-                } else if (!empty($product_length) && ($product_length < $min_length || $product_length > $max_length)) {
+                } else if ($product_length < $min_length || $product_length > $max_length) {
                     $response['product_length'] = 0;
                     $response['product_length_error'] = 'Please enter length between ' . showValue($min_length) . ' and ' . showValue($max_length);
                     if ($this->language_name == 'French') {
@@ -533,7 +537,7 @@ class Products extends Public_Controller
                     if ($this->language_name == 'French') {
                         $response['product_width_error'] = 'Veuillez saisir la largeur';
                     }
-                } else if (!empty($product_width) && ($product_width < $min_width || $product_width > $max_width)) {
+                } else if ($product_width < $min_width || $product_width > $max_width) {
                     $response['product_width'] = 0;
                     $response['product_width_error'] = 'Please enter width between ' . showValue($min_width) . ' and ' . showValue($max_width);
                     if ($this->language_name == 'French') {
@@ -552,21 +556,19 @@ class Products extends Public_Controller
                     if ($this->language_name == 'French') {
                         $response['product_total_page_error'] = 'Veuillez saisir la quantité entre ' . showValue($length_width_min_quantity) . ' et ' . showValue($length_width_max_quantity);
                     }
-                } else if (!empty($product_length) && !empty($product_width)) {
+                } else {
                     $rq_area = $product_length * $product_width;
                     $extra_price = 0;
                     if ($length_width_color_show == 1) {
-                        if (!empty($length_width_color)) {
-                            if ($length_width_color == 'black') {
-                                $extra_price = $length_width_unit_price_black * $rq_area;
-                            } else if ($length_width_color == 'color') {
-                                $extra_price = $length_width_price_color * $rq_area;
-                            }
+                        if ($length_width_color == 'black') {
+                            $extra_price = $length_width_unit_price_black * $rq_area;
+                        } else if ($length_width_color == 'color') {
+                            $extra_price = $length_width_price_color * $rq_area;
                         } else {
-                            $extra_price = $min_lenght_min_width_price * $rq_area;
+                            $extra_price = $min_length_min_width_price * $rq_area;
                         }
                     } else {
-                        $extra_price = $min_lenght_min_width_price * $rq_area;
+                        $extra_price = $min_length_min_width_price * $rq_area;
                     }
 
                     if ($length_width_quantity_show == 1 && !empty($product_total_page)) {
@@ -627,7 +629,7 @@ class Products extends Public_Controller
                     if ($this->language_name == 'French') {
                         $response['product_depth_length_error'] = 'Veuillez saisir la longueur';
                     }
-                } else if (!empty($product_depth_length) && ($product_depth_length < $depth_min_length || $product_depth_length > $depth_max_length)) {
+                } else if ($product_depth_length < $depth_min_length || $product_depth_length > $depth_max_length) {
                     $response['product_depth_length'] = 0;
                     $response['product_depth_length_error'] = 'Please enter length between ' . showValue($depth_min_length) . ' and ' . showValue($depth_max_length);
                     if ($this->language_name == 'French') {
@@ -639,7 +641,7 @@ class Products extends Public_Controller
                     if ($this->language_name == 'French') {
                         $response['product_depth_width_error'] = 'Veuillez saisir la largeur';
                     }
-                } else if (!empty($product_depth_width) && ($product_depth_width < $depth_min_width || $product_depth_width > $depth_max_width)) {
+                } else if ($product_depth_width < $depth_min_width || $product_depth_width > $depth_max_width) {
                     $response['product_depth_width'] = 0;
                     $response['product_depth_width_error'] = 'Please enter width between ' . showValue($depth_min_width) . ' and ' . showValue($depth_max_width);
                     if ($this->language_name == 'French') {
@@ -651,7 +653,7 @@ class Products extends Public_Controller
                     if ($this->language_name == 'French') {
                         $response['product_depth_error'] = 'Please enter depth';
                     }
-                } else if (!empty($product_depth) && ($product_depth < $min_depth || $product_depth > $max_depth)) {
+                } else if ($product_depth < $min_depth || $product_depth > $max_depth) {
                     $response['product_depth'] = 0;
                     $response['product_depth_error'] = 'Please enter depth between ' . showValue($min_depth) . ' and ' . showValue($max_depth);
                     if ($this->language_name == 'French') {
@@ -669,16 +671,14 @@ class Products extends Public_Controller
                     if ($this->language_name == 'French') {
                         $response['product_depth_total_page_error'] = 'Veuillez saisir la quantité entre ' . showValue($depth_min_quantity) . ' et ' . showValue($depth_max_quantity);
                     }
-                } else if (!empty($product_depth_length) && !empty($product_depth_width) && !empty($product_depth)) {
+                } else {
                     $rq_area = $product_depth_length * $product_depth_width * $product_depth;
                     $extra_price = 0;
                     if ($depth_color_show == 1) {
-                        if (!empty($depth_color)) {
-                            if ($depth_color == 'black') {
-                                $extra_price = $depth_unit_price_black * $rq_area;
-                            } else if ($depth_color == 'color') {
-                                $extra_price = $depth_price_color * $rq_area;
-                            }
+                        if ($depth_color == 'black') {
+                            $extra_price = $depth_unit_price_black * $rq_area;
+                        } else if ($depth_color == 'color') {
+                            $extra_price = $depth_price_color * $rq_area;
                         } else {
                             $extra_price = $depth_width_length_price * $rq_area;
                         }
@@ -724,7 +724,7 @@ class Products extends Public_Controller
                 $page_max_length                    = $Product['page_max_length'];
                 $page_min_width                     = $Product['page_min_width'];
                 $page_max_width                     = $Product['page_max_width'];
-                $page_min_lenght_min_width_price    = $Product['page_min_lenght_min_width_price'];
+                $page_min_length_min_width_price    = $Product['page_min_length_min_width_price'];
                 $page_length_width_price_color      = $Product['page_length_width_price_color'];
 
                 $page_length_width_price_black      = $Product['page_length_width_price_black'];
@@ -753,7 +753,7 @@ class Products extends Public_Controller
                     if ($this->language_name == 'French') {
                         $response['page_product_length_error'] = 'Veuillez saisir la longueur de la page';
                     }
-                } else if (!empty($page_product_length) && ($page_product_length < $page_min_length || $page_product_length > $page_max_length)) {
+                } else if ($page_product_length < $page_min_length || $page_product_length > $page_max_length) {
                     $response['page_product_length'] = 0;
                     $response['page_product_length_error'] = 'Please enter page length between ' . showValue($page_min_length) . ' and ' . showValue($page_max_length);
                     if ($this->language_name == 'French') {
@@ -765,7 +765,7 @@ class Products extends Public_Controller
                     if ($this->language_name == 'French') {
                         $response['page_product_width_error'] = 'Veuillez saisir la largeur de la page';
                     }
-                } else if (!empty($page_product_width) && ($page_product_width < $page_min_width || $page_product_width > $page_max_width)) {
+                } else if ($page_product_width < $page_min_width || $page_product_width > $page_max_width) {
                     $response['page_product_width'] = 0;
                     $response['page_product_width_error'] = 'Please enter page width between ' . showValue($page_min_width) . ' and ' . showValue($page_max_width);
                     if ($this->language_name == 'French') {
@@ -795,37 +795,33 @@ class Products extends Public_Controller
                     if ($this->language_name == 'French') {
                         $response['page_product_total_quantity_error'] = 'Veuillez saisir la quantité entre ' . showValue($page_length_width_min_quantity) . ' et ' . showValue($page_length_width_max_quantity);
                     }
-                } else if (!empty($page_product_length) && !empty($page_product_width)) {
+                } else {
                     $rq_area = $page_product_length * $page_product_width;
                     $extra_price = 0;
                     if ($page_length_width_color_show == 1) {
-                        if (!empty($page_length_width_color)) {
-                            if ($page_length_width_color == 'black') {
-                                $extra_price = $page_length_width_price_black * $rq_area;
-                            } else if ($page_length_width_color == 'color') {
-                                $extra_price = $page_length_width_price_color * $rq_area;
-                            }
+                        if ($page_length_width_color == 'black') {
+                            $extra_price = $page_length_width_price_black * $rq_area;
+                        } else if ($page_length_width_color == 'color') {
+                            $extra_price = $page_length_width_price_color * $rq_area;
                         } else {
-                            $extra_price = $page_min_lenght_min_width_price * $rq_area;
+                            $extra_price = $page_min_length_min_width_price * $rq_area;
                         }
                     } else {
-                        $extra_price = $page_min_lenght_min_width_price * $rq_area;
+                        $extra_price = $page_min_length_min_width_price * $rq_area;
                     }
 
-                    $page_extra_price = 0;
-                    $sheets_extra_price = 0;
                     if (!empty($page_product_total_page) && $page_length_width_pages_show == 1) {
                         $page_product_total_page_error = explode('-', $page_product_total_page);
                         $page_extra_price = $page_product_total_page_error[0] * $extra_price;
                         $page_product_total_page = $page_product_total_page_error[0];
+                        if (!empty($page_product_total_sheets) && $page_length_width_sheets_show == 1) {
+                            $sheets_extra_price = $page_product_total_sheets * $extra_price;
+                            if ($page_extra_price > 0 || $sheets_extra_price > 0) {
+                                $extra_price = $page_extra_price + $sheets_extra_price;
+                            }
+                        }
                     }
 
-                    if (!empty($page_product_total_sheets) && $page_length_width_sheets_show == 1) {
-                        $sheets_extra_price = $page_product_total_sheets * $extra_price;
-                    }
-                    if (!empty($page_extra_price) || !empty($sheets_extra_price)) {
-                        $extra_price = $page_extra_price + $sheets_extra_price;
-                    }
                     if (!empty($page_product_total_quantity) && $page_length_width_quantity_show == 1) {
                         $extra_price = $page_product_total_quantity * $extra_price;
                     }
@@ -925,7 +921,7 @@ class Products extends Public_Controller
 			    $max_length=$Product['max_length'];
 			    $min_width=$Product['min_width'];
 			    $max_width=$Product['max_width'];
-			    $min_lenght_min_width_price=$Product['min_lenght_min_width_price'];
+			    $min_length_min_width_price=$Product['min_length_min_width_price'];
 				
 				$length_width_color_show=$Product['length_width_color_show'];
 				
@@ -948,11 +944,11 @@ class Products extends Public_Controller
 							$extra_price=$length_width_price_color*$rq_area;
 						}
 				    }else{
-						$extra_price=$min_lenght_min_width_price*$rq_area;
+						$extra_price=$min_length_min_width_price*$rq_area;
 					}
 				}else{
 					
-				   $extra_price=$min_lenght_min_width_price*$rq_area;
+				   $extra_price=$min_length_min_width_price*$rq_area;
 				}
 				
 				if($length_width_quantity_show==1 && !empty($product_total_page)){
@@ -1057,7 +1053,7 @@ class Products extends Public_Controller
 			    $page_max_length=$Product['page_max_length'];
 			    $page_min_width=$Product['page_min_width'];
 			    $page_max_width=$Product['page_max_width'];
-			    $page_min_lenght_min_width_price=$Product['page_min_lenght_min_width_price'];
+			    $page_min_length_min_width_price=$Product['page_min_length_min_width_price'];
 				
 				$page_length_width_price_color=$Product['page_length_width_price_color'];
 			    $page_length_width_price_black=$Product['page_length_width_price_black'];
@@ -1082,11 +1078,11 @@ class Products extends Public_Controller
 						}
 				    }else{
 						
-						$extra_price=$page_min_lenght_min_width_price*$rq_area;
+						$extra_price=$page_min_length_min_width_price*$rq_area;
 					}
 				}else{
 					
-					$extra_price=$page_min_lenght_min_width_price*$rq_area;
+					$extra_price=$page_min_length_min_width_price*$rq_area;
 				}
 				$page_extra_price=0;
 				$sheets_extra_price=0;

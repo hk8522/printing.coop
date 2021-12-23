@@ -207,7 +207,7 @@
 									</div>
 									</div>
 									
-				                    <label> <?php echo $Product['min_length']?> X <?php echo $Product['min_width']?> Inch Price :<span class="required"><?php echo CURREBCY_SYMBOL.number_format($Product['min_lenght_min_width_price'],2)?></span>
+				                    <label> <?php echo $Product['min_length']?> X <?php echo $Product['min_width']?> Inch Price :<span class="required"><?php echo CURREBCY_SYMBOL.number_format($Product['min_length_min_width_price'],2)?></span>
 									</label>
 									<?php 
 									}?> 
