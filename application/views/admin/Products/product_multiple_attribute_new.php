@@ -175,7 +175,7 @@
     		foreach($sizeData as $skey=>$sval){
     			
                 $size_extra_price='';
-                $size_extra_price=isset($sval['extra_prce']) ? $sval['extra_prce']:'';		
+                $size_extra_price=isset($sval['extra_price']) ? $sval['extra_price']:'';		
               ?>
             												   
             <div class="attribute-single active" id="size_attribute_id_div_<?php echo $key?>_<?php echo $skey?>">		    

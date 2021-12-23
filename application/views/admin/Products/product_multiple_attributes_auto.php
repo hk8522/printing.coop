@@ -375,7 +375,7 @@ function addAttributeItem(attribute_id, attribute_item_id) {
     }
     $("#ItemModal").modal('show');
 
-    $.get('<?=$BASE_URL?>admin/Products/AutoAttributeItemAdd/<?=$product_id?>/' + attribute_id + '/' + attribute_item_id,
+    $.get('<?=$BASE_URL?>admin/Products/autoAttributeItemAdd/<?=$product_id?>/' + attribute_id + '/' + attribute_item_id,
         function(data) {
             $("#ItemModal .modal-body").html(data);
         }

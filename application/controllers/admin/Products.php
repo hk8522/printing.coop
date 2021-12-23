@@ -2391,7 +2391,7 @@ Coating";
             echo "0";
     }
 
-    public function AutoAttributeItemAdd($product_id = null, $attribute_id = null, $id = null) {
+    public function autoAttributeItemAdd($product_id = null, $attribute_id = null, $id = null) {
         $this->load->helper('form');
         $this->load->model('Product_Model');
 

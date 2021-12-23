@@ -1165,10 +1165,10 @@ class Orders extends Admin_Controller
 			} else if(!empty($product_length) && !empty($product_width)){
 				
 				
-				$rq_aria=$product_length*$product_width;
-				$min_aria=$min_length*$min_width;
-				$par_squre_price=($min_lenght_min_width_price/$min_aria);
-				$extra_price=$par_squre_price*$rq_aria;
+				$rq_area=$product_length*$product_width;
+				$min_area=$min_length*$min_width;
+				$par_squre_price=($min_lenght_min_width_price/$min_area);
+				$extra_price=$par_squre_price*$rq_area;
 				$price += $extra_price;
 				
                 $response['product_width']=$product_width;
@@ -1220,7 +1220,7 @@ class Orders extends Admin_Controller
 						foreach($val1 as $size_data){
 							
 							//pr($size_data,1);
-							$size_extra_price=$size_data['extra_prce'];
+							$size_extra_price=$size_data['extra_price'];
 							$label=$size_data['size_name'];
 							break;
 						}
@@ -1350,7 +1350,7 @@ class Orders extends Admin_Controller
 						foreach($val1 as $size_data){
 							
 							//pr($size_data,1);
-							$size_extra_price=$size_data['extra_prce'];
+							$size_extra_price=$size_data['extra_price'];
 							$label=$size_data['size_name'];
 							break;
 						}
@@ -1634,10 +1634,10 @@ class Orders extends Admin_Controller
 			    $min_width=$Product['min_width'];
 			    $max_width=$Product['max_width'];
 			    $min_lenght_min_width_price=$Product['min_lenght_min_width_price'];
-				$rq_aria=$product_length*$product_width;
-				$min_aria=$min_length*$min_width;
-				$par_squre_price=($min_lenght_min_width_price/$min_aria);
-				$extra_price=$par_squre_price*$rq_aria;
+				$rq_area=$product_length*$product_width;
+				$min_area=$min_length*$min_width;
+				$par_squre_price=($min_lenght_min_width_price/$min_area);
+				$extra_price=$par_squre_price*$rq_area;
 				$price += $extra_price;
 				
 			}
@@ -1811,10 +1811,10 @@ class Orders extends Admin_Controller
 			} else if(!empty($product_length) && !empty($product_width)){
 				
 				
-				$rq_aria=$product_length*$product_width;
-				$min_aria=$min_length*$min_width;
-				$par_squre_price=($min_lenght_min_width_price/$min_aria);
-				$extra_price=$par_squre_price*$rq_aria;
+				$rq_area=$product_length*$product_width;
+				$min_area=$min_length*$min_width;
+				$par_squre_price=($min_lenght_min_width_price/$min_area);
+				$extra_price=$par_squre_price*$rq_area;
 				$price += $extra_price;
 				
                 $product_width_length['product_width']=$product_width;

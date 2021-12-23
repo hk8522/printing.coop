@@ -93,8 +93,8 @@ class ShoppingCarts extends Public_Controller
 			if(!empty($product_quantity_id) && !empty($product_size_id)){
 				
 				$sizeData=isset($ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]) ? $ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]:array();
-		        $extra_prce=isset($sizeData['extra_prce']) ? $sizeData['extra_prce']:0;
-		        $price=$price+$extra_prce;
+		        $extra_price=isset($sizeData['extra_price']) ? $sizeData['extra_price']:0;
+		        $price=$price+$extra_price;
 				$product_size['product_size']=$sizeData['size_name'];
 				$product_size['product_size_french']=$sizeData['size_name_french'];
 				
@@ -263,7 +263,7 @@ class ShoppingCarts extends Public_Controller
 				
 			}else if(!empty($product_length) && !empty($product_width)){
 				
-				$rq_aria=$product_length*$product_width;
+				$rq_area=$product_length*$product_width;
 				$extra_price=0;
 				
 				if($length_width_color_show==1){
@@ -272,18 +272,18 @@ class ShoppingCarts extends Public_Controller
 					
 						if($length_width_color=='black'){
 							
-							$extra_price =$length_width_unit_price_black*$rq_aria;
+							$extra_price =$length_width_unit_price_black*$rq_area;
 							
 						}else if($length_width_color=='color'){
 							
-							$extra_price=$length_width_price_color*$rq_aria;
+							$extra_price=$length_width_price_color*$rq_area;
 						}
 				    }else{
-						$extra_price=$min_lenght_min_width_price*$rq_aria;
+						$extra_price=$min_lenght_min_width_price*$rq_area;
 					}
 				}else{
 					
-				   $extra_price=$min_lenght_min_width_price*$rq_aria;
+				   $extra_price=$min_lenght_min_width_price*$rq_area;
 				   
 				}
 				
@@ -492,26 +492,26 @@ class ShoppingCarts extends Public_Controller
 				
 			}else if(!empty($product_depth_length) && !empty($product_depth_width) && !empty($product_depth)){
 				
-				$rq_aria=$product_depth_length*$product_depth_width*$product_depth;
+				$rq_area=$product_depth_length*$product_depth_width*$product_depth;
 				$extra_price=0;
 				if($depth_color_show==1){
 					
 					if(!empty($depth_color)){
 						
 						if($depth_color=='black'){
-							$extra_price =$depth_unit_price_black*$rq_aria;
+							$extra_price =$depth_unit_price_black*$rq_area;
 							
 						}else if($depth_color=='color'){
 							
-							$extra_price =$depth_price_color*$rq_aria;
+							$extra_price =$depth_price_color*$rq_area;
 						}
 				    }else{
 						
-						$extra_price=$depth_width_length_price*$rq_aria;
+						$extra_price=$depth_width_length_price*$rq_area;
 					}
 				}else{
 					
-				  $extra_price=$depth_width_length_price*$rq_aria;
+				  $extra_price=$depth_width_length_price*$rq_area;
 				   
 				}
 				
@@ -707,23 +707,23 @@ class ShoppingCarts extends Public_Controller
 			
 			}else if(!empty($page_product_length) && !empty($page_product_width)){
 				
-				$rq_aria=$page_product_length*$page_product_width;
+				$rq_area=$page_product_length*$page_product_width;
 				$extra_price=0;
 				if($page_length_width_color_show==1){
 					
 					if(!empty($page_length_width_color)){
 					
 						if($page_length_width_color=='black'){
-							$extra_price =$page_length_width_price_black*$rq_aria;
+							$extra_price =$page_length_width_price_black*$rq_area;
 							
 						}else if($page_length_width_color=='color'){
 							
-							$extra_price =$page_length_width_price_color*$rq_aria;
+							$extra_price =$page_length_width_price_color*$rq_area;
 						}
 				    }
 				}else{
 					
-					$extra_price=$page_min_lenght_min_width_price*$rq_aria;
+					$extra_price=$page_min_lenght_min_width_price*$rq_area;
 				}
 				
 				

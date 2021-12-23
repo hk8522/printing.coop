@@ -1994,28 +1994,20 @@ Class Product_Model extends MY_Model {
 					$attributeNew=array();
 					$attributeNewData=array();
 					foreach($attribute as $akey=>$aval){
-						
 						$attribute_id=$aval['attribute_id'];
 						$attribute_item_id=$aval['attribute_item_id'];
 						$attribute_items=array();
 
 						if(!empty($attribute_id) && !empty($attribute_item_id)){
-							
-							
 							$attributeNew[$attribute_id][$attribute_item_id]=$aval;
 						}
-
 					}
 					
 					foreach($attributeNew as $atkey=>$atval){
-						
-						
-						
 					    $keysarray=array_keys($atval);
 						$attributeNewData[$atkey]['attribute_name']=$atval[$keysarray[0]]['attributes_name'];
 						$attributeNewData[$atkey]['attributes_name_french']=$atval[$keysarray[0]]['attributes_name_french'];
 						$attributeNewData[$atkey]['attribute_items']=$atval;
-						
 					}
 					//pr($attributeNew);
 					$sval['attribute']=$attributeNewData;
@@ -3153,5 +3145,71 @@ Class Product_Model extends MY_Model {
         if (count($result) == 0)
             return 0;
         return $result[0]['price'];
+    }
+
+    /**
+     * Get extra prices with attribute_id & attribute_item_id from product_attribute_item_datas
+     */
+    public function getSumExtraPriceOfSingleAttributes($product_id, $attributes) {
+        $this->db->select('SUM(extra_price)');
+        $this->db->from('product_attribute_item_datas');
+        $this->db->where('product_id', $product_id);
+        if (count($attributes) > 0) {
+            $this->db->group_start();
+            foreach ($attributes as $attribute) {
+                $attribute_id       = $attribute[0];
+                $attribute_item_id  = $attribute[1];
+                $this->db->or_where("(`attribute_id` = $attribute_id AND `attribute_item_id` = $attribute_item_id)");
+            }
+            $this->db->group_end();
+        }
+        $result = $this->db->get()->result_array();
+        if (!result)
+            return 0;
+        return $result[0]['SUM(extra_price)'];
+    }
+
+    public function getSumExtraPriceOfQuantity($product_id, $quantity_id) {
+        $this->db->select('price');
+        $this->db->from('product_quantity');
+        $this->db->where('product_id', $product_id);
+        $this->db->where('qty', $quantity_id);
+        $result = $this->db->get()->result_array();
+        if (!result)
+            return 0;
+        return $result[0]['price'];
+    }
+
+    public function getSumExtraPriceOfQuantitySize($product_id, $quantity_id, $size_id) {
+        $this->db->select('extra_price');
+        $this->db->from('product_size_new');
+        $this->db->where('product_id', $product_id);
+        $this->db->where('qty', $quantity_id);
+        $this->db->where('size_id', $size_id);
+        $result = $this->db->get()->result_array();
+        if (!result)
+            return 0;
+        return $result[0]['extra_price'];
+    }
+
+    public function getSumExtraPriceOfMultipleAttributes($product_id, $quantity_id, $size_id, $multiple_attributes) {
+        $this->db->select('SUM(extra_price)');
+        $this->db->from('size_multiple_attributes');
+        $this->db->where('product_id', $product_id);
+        $this->db->where('qty', $quantity_id);
+        $this->db->where('size_id', $size_id);
+        if (count($multiple_attributes) > 0) {
+            $this->db->group_start();
+            foreach ($multiple_attributes as $attribute) {
+                $attribute_id       = $attribute[0];
+                $attribute_item_id  = $attribute[1];
+                $this->db->or_where("(`attribute_id` = $attribute_id AND `attribute_item_id` = $attribute_item_id)");
+            }
+            $this->db->group_end();
+        }
+        $result = $this->db->get()->result_array();
+        if (!result)
+            return 0;
+        return $result[0]['SUM(extra_price)'];
     }
 }
