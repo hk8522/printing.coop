@@ -114,7 +114,7 @@
 									$sub_module_class=$module['sub_module_class'];
 									$url_prem=explode("/",$url);
 									$url_prem=isset($url_prem['2']) ? $url_prem['2']:'';
-								    if($show_menu && in_array($skey,$AdminSubModule)){
+								    if($show_menu /*&& in_array($skey,$AdminSubModule)*/){
 								    ?>
 								
 								 
