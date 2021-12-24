@@ -106,7 +106,7 @@
 								<?php 
 								foreach($sub_module as $skey=>$sval){
 									
-								    $action=strtolower($sval['acction']);
+								    $action=strtolower($sval['action']);
 									$class=strtolower($sval['class']);
 									$show_menu=$sval['show_menu'];
 									$url=$sval['url'];

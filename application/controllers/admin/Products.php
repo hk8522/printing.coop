@@ -25,15 +25,14 @@ class Products extends Admin_Controller
     }
 
     #Start Product List add/Edit Delete Inactive/Inactive
-    public function index($product_id=0,$order='desc')
-    {       
-        if($this->input->post()) {
-            
-              $order=$_POST['order'];
-              redirect('admin/Products/index/'.$product_id.'/'.$order);
-              
+    public function index($product_id = 0, $order = 'desc')
+    {
+        if ($this->input->post()) {
+            $order=$_POST['order'];
+            redirect('admin/Products/index/'.$product_id.'/'.$order);
         }
-		$this->load->model('Personalise_Model');
+
+        $this->load->model('Personalise_Model');
 		$this->load->model('Product_Model');
 		$this->data['page_title'] = 'Products';
 		$this->data['sub_page_title'] = 'Add New Product';
@@ -41,7 +40,7 @@ class Products extends Admin_Controller
 		$this->data['sub_page_view_url'] = 'viewProduct';
 		$this->data['sub_page_delete_url'] = 'deleteProduct';
 		$this->data['sub_page_url_active_inactive'] = 'activeInactive';
-		
+
 		$this->load->library('pagination');
         $this->load->config('pagination');	
 		$config = $this->config->item('pagination_config');
@@ -57,15 +56,11 @@ class Products extends Admin_Controller
 		$this->data['lists'] = $lists;
 		$this->data['order'] = $order;
 		$this->render($this->class_name.'index');
-		
-		
-				
     }
 
     public function viewProduct($id=null)
     {
-		if(empty($id)){
-
+		if (empty($id)){
 			redirect('admin/Products');
 		}
 		$this->load->model('Product_Model');
@@ -80,7 +75,6 @@ class Products extends Admin_Controller
 		$this->data['Product']=$Product;
 		$this->data['tagList']=$this->Category_Model->getTasgList(1);
 		$this->render($this->class_name.'view');
-
     }
 	
     public function addEdit($id = null)
