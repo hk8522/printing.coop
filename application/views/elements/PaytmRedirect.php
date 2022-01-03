@@ -29,7 +29,7 @@
 					src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
 					alt="PayPal - The safer, easier way to pay online">
 				</form>
-				
+
 			</tbody>
 		</table>
 		<script type="text/javascript">

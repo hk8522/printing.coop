@@ -2,9 +2,9 @@
 include_once (__DIR__ . "../../includes.php");
 include_once (__DIR__ . "../../DataSource\Customer.php");
 include_once (__DIR__ . "../../DataSource\CustomerRepository.php");
- 
+
 use Socketlabs\Message\BulkRecipient;
-use Socketlabs\Message\EmailAddress;  
+use Socketlabs\Message\EmailAddress;
 use Socketlabs\Message\BulkMessage;
 use Socketlabs\SocketLabsClient;
 
@@ -26,7 +26,7 @@ $message->htmlBody = "<html>" .
                         "</body>" .
                      "</html>";
 
-$message->plainTextBody = "Sending A Test Message With Merge Data From Datasource" . 
+$message->plainTextBody = "Sending A Test Message With Merge Data From Datasource" .
                           "       Hello %%FirstName%% %%LastName%%. Is your favorite color still %%FavoriteColor%%?";
 
 // Retrieve data from the datasource
@@ -37,7 +37,7 @@ $customers = $repo->GetData();
 foreach($customers as $customer){
 
     $recipient = new BulkRecipient($customer->email);
-    
+
     $recipient->addMergeData("FirstName", $customer->firstName);
     $recipient->addMergeData("LastName", $customer->lastName);
     $recipient->addMergeData("FavoriteColor", $customer->favoriteColor);

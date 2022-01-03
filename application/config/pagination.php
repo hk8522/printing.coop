@@ -1,5 +1,5 @@
-    <?php 
-	  
+<?php
+
 	    $config['pagination_config'] = array(
             'per_page' => '1',
             'full_tag_open' => '<ul class="pagination">',
@@ -19,5 +19,3 @@
             'first_tag_open' => '<li class="page-item"><span class="page-link">',
             'first_tag_close' => '</span></li>',
             );
-			
-	?>		

@@ -143,7 +143,7 @@
                         <?php
                         if (!empty($productAttributeDetails[$attribute_id])){
                             $attributeItems = $productAttributeDetails[$attribute_id];
-                        ?> 
+                        ?>
                         <div class="row" id="attribute-item-container<?="$product_id-$attribute_id"?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">
                         <?php foreach($attributeItems as $item) {
                             $attribute_item_id = $item['id'];
@@ -168,12 +168,12 @@
                                     </div>
                                 </div>
                             </div>
-                        <?php 
+                        <?php
                         }?>
                         </div>
                         <?php
                         }?>
-                        
+
                     </div>
                 </div>
             <?php } ?>
@@ -270,7 +270,7 @@
 </div>
 
 <script>
-var product_id='<?=$product_id?>'; 
+var product_id='<?=$product_id?>';
 
 function isNumber(evt) {
     var iKeyCode = (evt.which) ? evt.which : evt.keyCode

@@ -159,7 +159,7 @@
 	border-right: none;
 }
 </style>
-<?php 
+<?php
 $currency_id=$orderData['currency_id'];
 if(empty($currency_id)){
 	$currency_id=1;
@@ -178,7 +178,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
         					    <span><?php echo ucfirst($page_title); ?></span>
         					</div>
         				</div>
-						
+
         				<div class="my-account-main-section universal-spacing universal-bg-white">
                             <div class="my-account-section">
                                 <div class="account-area">
@@ -209,15 +209,15 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             			            			        </div>
                             			            			        <div class="col-md-6">
                             			            			            <strong><?php if(!empty($orderData['user_id'])){
-																				
+
 																			        echo CUSTOMER_ID_PREFIX.$orderData['user_id'];
 																			}else{
-																			    echo "-";	
+																			    echo "-";
 																			}
 	?>																		</strong>
                             			            			        </div>
                             			            			    </div>
-                            			            			</li> 
+                            			            			</li>
 																<li>
                             			            			    <div class="row">
                             			            			        <div class="col-md-6">
@@ -228,7 +228,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 																	</strong>
                             			            			        </div>
                             			            			    </div>
-                            			            			</li>																
+                            			            			</li>
                             			            			<li>
                             			            			    <div class="row">
                             			            			        <div class="col-md-6">
@@ -289,7 +289,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             			            			        </div>
                             			            			    </div>
                             			            			</li>
-																
+
 													<li>
             			            			    <div class="row">
             			            			        <div class="col-md-6">
@@ -297,31 +297,31 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
             			            			        </div>
             			            			        <div class="col-md-6">
             			            			            <strong>
-														
-											   <?php 				
+
+											   <?php
 													  $Method = getShipingName($orderData);
-														
+
 											            if(!empty($Method)){
-															
+
 													        echo $Method;
-															
+
 														}else{
-															
+
 			                $shipping_method_formate=explode('-',$orderData['shipping_method_formate']);
 							if($shipping_method_formate[0]=="pickupinstore"){
-																
+
 																$pickupStore=$this->Store_Model->getPickupStoreDataById($shipping_method_formate[2]);
 																echo 'Pickup In Store<br>'.$pickupStore['name']."<br>".$pickupStore['address']."<br>".$pickupStore['phone'];
 															}
 														}
-														
-												       
+
+
 												        ?>
 															</strong>
             			            			        </div>
             			            			    </div>
             			            			</li>
-												<?php 
+												<?php
 							$shipping_method_formate=explode('-',$orderData['shipping_method_formate']);
 							$flag_shiping_cost=$orderData['flag_shiping_cost'];
 							if($shipping_method_formate[0]=="flagship" && $flag_shiping_cost !=0.00 && !empty($flag_shiping_cost)){
@@ -333,11 +333,11 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
             			            			        </div>
             			            			        <div class="col-md-6">
             			            			            <strong>
-														
-											           <?php 
-														
+
+											           <?php
+
 													    echo $order_currency_currency_symbol."".number_format($flag_shiping_cost,2)
-												       
+
 												        ?>
 															</strong>
             			            			        </div>
@@ -418,17 +418,17 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             			            			              <?php echo ucfirst($orderData['billing_name']);?>
                                                                                 <br>
                                                                                 Mobile: <?php echo ucfirst($orderData['billing_mobile']);?><?php echo !empty($orderData['billing_alternate_phone']) ? ','.$orderData['billing_alternate_phone']:'';?>
-																				
+
                                                                                 <br>	<?php if(!empty($orderData['billing_company'])){?>
-	
-    Company:<?php echo $orderData['billing_company'];?>	
-	<br>																			
-																				<?php }?>																			
-																				
+
+    Company:<?php echo $orderData['billing_company'];?>
+	<br>
+																				<?php }?>
+
                                                                                 <?php echo $orderData['billing_address'];?>
-                                                                                
+
                                         	<br>
-          <?php echo $cityData['name'];?>,<?php echo $stateData['name'];?>,<?php echo $countryData['iso2'];?>,<?php echo $orderData['billing_pin_code'];?>  
+          <?php echo $cityData['name'];?>,<?php echo $stateData['name'];?>,<?php echo $countryData['iso2'];?>,<?php echo $orderData['billing_pin_code'];?>
                                     										</strong>
                             			            			        </div>
                             			            			    </div>
@@ -454,18 +454,18 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 																			<?php echo ucfirst($orderData['shipping_name']);?>
                                                                                 <br>
                                                                                 Mobile: <?php echo ucfirst($orderData['shipping_mobile']);?><?php echo !empty($orderData['shipping_alternate_phone']) ? ','.$orderData['shipping_alternate_phone']:'';?>
-																				
+
 	<?php if(!empty($orderData['shipping_company'])){?>
 	<br>
-    Company:<?php echo $orderData['shipping_company'];?>	
-																				
-																				<?php }?>																			
+    Company:<?php echo $orderData['shipping_company'];?>
+
+																				<?php }?>
                                                                                 <br>
                                       <?php echo $orderData['shipping_address'];?>
-                                                                                
+
                                         										<br>
       <?php echo $cityData['name'];?>,<?php echo $stateData['name'];?> ,<?php echo $cityData['name'];?> <?php echo $countryData['iso2'];?>,<?php echo $orderData['shipping_pin_code'];?>
-                            			            			                
+
                                     										</strong>
                             			            			        </div>
                             			            			    </div>
@@ -488,12 +488,12 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <strong>
-        <?php 
+        <?php
 	       $file_name=$orderData['order_id']."-invoice.pdf";
 		   $file_name=strtolower($file_name);
 		   $location=FILE_BASE_PATH.'pdf/'.$file_name;
 		   $linkInvoice=$BASE_URL."admin/Orders/downloadOrderPdf/".urlencode($location)."/".urlencode($file_name).'/'.urlencode($orderData['id']);
-		   
+
 	    ?>                                                                           <a href="<?php echo $linkInvoice?>">
                                                                                     <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-file-download"></i> Download</button>
                                                                                 </a>
@@ -508,7 +508,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <strong>
-       <?php 
+       <?php
 	       $file_name=$orderData['order_id']."-order.pdf";
 		   $file_name=strtolower($file_name);
 		   $location=FILE_BASE_PATH.'pdf/'.$file_name;
@@ -542,41 +542,41 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        <?php 
+                                                        <?php
                                                         foreach ($OrderItemData as $rowid=>$items){
-															
-															$cart_images=$items['cart_images'];	
-												
+
+															$cart_images=$items['cart_images'];
+
 												           $cart_images=!empty($cart_images) ? json_decode($cart_images,true) : array();
 												           $cart_images=(array) $cart_images;
-												
-									                      
+
+
 									$attribute_ids=json_decode($items['attribute_ids'],true);
 
 $product_size=json_decode($items['product_size'],true);
 $product_width_length=$items['product_width_length'];
-							
+
 
 $product_width_length=json_decode($items['product_width_length'],true);
 $page_product_width_length=json_decode($items['page_product_width_length'],true);
-	
-							
+
+
 $product_depth_length_width=json_decode($items['product_depth_length_width'],true);
-	
-$votre_text=$items['votre_text'];						  
-$recto_verso=$items['recto_verso'];								
-$product_id=$items['product_id'];													  
+
+$votre_text=$items['votre_text'];
+$recto_verso=$items['recto_verso'];
+$product_id=$items['product_id'];
 //$AttributesData=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
 
-															
-													   ?>    
+
+													   ?>
                                                         <tr>
                                                             <td class="product-thumbnail">
                                                                 <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($items['id']);?>">
                                             						<?php $imageurl=getProductImage($items['product_image']);
-                                            		                 
+
                                             						 ?>
-                                                                   
+
                                                                     <img src="<?php echo $imageurl?>">
                 										        </a>
                                                             </td>
@@ -584,7 +584,7 @@ $product_id=$items['product_id'];
                                                                 <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($items['id']);?>"><?php echo ucfirst($items['name'])?></a>
                                                                 <div class="product-name-detail">
                                                                     <div class="row">
-																	                     <?php if(!empty($product_width_length)){?>	
+																	                     <?php if(!empty($product_width_length)){?>
                                    <div class="col-md-6">
 											<span><strong>Length(Inch): <?php echo $product_width_length['product_length'];?></strong> </span>
 									</div>
@@ -595,17 +595,17 @@ $product_id=$items['product_id'];
 									<div class="col-md-6">
 											<span><strong> Colors: <?php echo $product_width_length['length_width_color'];?></strong> </span>
 									</div>
-							<?php 
-							}?>	
+							<?php
+							}?>
 									<?php if(!empty($product_width_length['product_total_page'])){?>
 									<div class="col-md-6">
 											<span><strong> Quantity: <?php echo $product_width_length['product_total_page'];?></strong> </span>
 									</div>
-							<?php 
-							}?>	
-								<?php 
-								}?>	
-								<?php if(!empty($product_depth_length_width)){?>	
+							<?php
+							}?>
+								<?php
+								}?>
+								<?php if(!empty($product_depth_length_width)){?>
                                    <div class="col-md-6">
 											<span><strong>Length(Inch): <?php echo $product_depth_length_width['product_depth_length'];?></strong> </span>
 									</div>
@@ -619,19 +619,19 @@ $product_id=$items['product_id'];
 									<div class="col-md-6">
 											<span><strong> Colors: <?php echo $product_depth_length_width['depth_color'];?></strong> </span>
 									</div>
-							<?php 
-							}?>	
+							<?php
+							}?>
 							<?php if(!empty($product_depth_length_width['product_depth_total_page'])){?>
 									<div class="col-md-6">
 											<span><strong> Quantity: <?php echo $product_depth_length_width['product_depth_total_page'];?></strong> </span>
 									</div>
-							<?php 
-							}?>	
-					   <?php 
+							<?php
+							}?>
+					   <?php
 						}?>
-						
-								<?php 
-		if(!empty($page_product_width_length)){?>	
+
+								<?php
+		if(!empty($page_product_width_length)){?>
                                    <div class="col-md-6">
 											<span><strong>Page Length(Inch): <?php echo $page_product_width_length['page_product_length'];?></strong> </span>
 									</div>
@@ -642,175 +642,175 @@ $product_id=$items['product_id'];
 									<div class="col-md-6">
 											<span><strong> Colors: <?php echo $page_product_width_length['page_length_width_color'];?></strong> </span>
 									</div>
-							<?php 
-							}?>	
-									<?php if(!empty($page_product_width_length['page_product_total_page'])){?>	
+							<?php
+							}?>
+									<?php if(!empty($page_product_width_length['page_product_total_page'])){?>
 									<div class="col-md-6">
 											<span><strong>Pages: <?php echo $page_product_width_length['page_product_total_page'];?></strong> </span>
 									</div>
-								<?php 
+								<?php
 								}?>
-                                <?php if(!empty($page_product_width_length['page_product_total_sheets'])){?>	
+                                <?php if(!empty($page_product_width_length['page_product_total_sheets'])){?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
-											<span><strong><?php 
-								                
+											<span><strong><?php
+
 								       echo 'Sheet Per Pad:'.$page_product_width_length['page_product_total_sheets'];
-								                
-								                
+
+
 												?></strong> </span>
 									</div>
-								<?php 
+								<?php
 								}?>
-                                <?php 
-								if(!empty($page_product_width_length['page_product_total_quantity'])){ ?>	
+                                <?php
+								if(!empty($page_product_width_length['page_product_total_quantity'])){ ?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
-											<span><strong><?php 
-								              
-								       echo 'Quantity:'.$page_product_width_length['page_product_total_quantity'];       
+											<span><strong><?php
+
+								       echo 'Quantity:'.$page_product_width_length['page_product_total_quantity'];
 										?></strong> </span>
 									</div>
-								<?php 
-								}?>									
-								<?php 
+								<?php
 								}?>
-																	                                                           <?php 
+								<?php
+								}?>
+																	                                                           <?php
 							if(!empty($product_size)){
-								
-								$size_name = $product_size['product_size'];	
+
+								$size_name = $product_size['product_size'];
 								$label_qty=$product_size['product_quantity'];
 								$attribute=isset($product_size['attribute']) ? $product_size['attribute']:'';
-										
 
-										 
-								?>   
-							    <?php 
+
+
+								?>
+							    <?php
 								if($label_qty){ ?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
 											<span><strong>
-								              
+
 								               Quantity :<?php echo $label_qty;?></strong> </span>
 									</div>
 								<?php
 								}?>
-										
-							    <?php 
+
+							    <?php
 								if($size_name){ ?>
 									<div class="col-md-12 col-lg-6 col-xl-6">
 										<span><strong>
 											  Size: <?php echo $size_name;?></strong> </span>
 									</div>
-								<?php 
+								<?php
 								}?>
-										
-										
-										
-								<?php 
-								if($attribute){ 
-								
+
+
+
+								<?php
+								if($attribute){
+
 								    foreach($attribute as $akey=>$aval){
-										
+
 									    $multiple_attribute_name=$aval['attributes_name'];
 									    $multiple_attribute_item_name=$aval['attributes_item_name'];
-										
+
 								?>
-								
+
                                         <div class="col-md-12 col-lg-6 col-xl-6">
 											<span>
 											<strong>
-											   <?php 
+											   <?php
 								                echo $multiple_attribute_name
 								                 .':'. $multiple_attribute_item_name;
 												?>
-												 </strong> 
+												 </strong>
 											</span>
 										</div>
-										<?php 
-									}	
+										<?php
+									}
 								}?>
-							<?php    
+							<?php
 							}
-							?>										
-						   <?php 	   
-							#pr($attribute_ids);		   
+							?>
+						   <?php
+							#pr($attribute_ids);
 							foreach($attribute_ids as $key=>$val){
 								$attribute_name=$val['attribute_name'];
-								$item_name=$val['item_name'];	
+								$item_name=$val['item_name'];
 						    ?>
 								<div class="col-md-12 col-lg-6 col-xl-6">
 								<span><strong><?php echo $attribute_name;?>: <?php echo $item_name;?></strong> </span>
 								</div>
-										
-							<?php 
-								  
-						    }?> 
-						    <?php if(!empty($recto_verso)){?>	
+
+							<?php
+
+						    }?>
+						    <?php if(!empty($recto_verso)){?>
                                    <div class="col-md-6">
 											<span><strong>Recto/Verso: <?php echo $recto_verso?></strong> </span>
 									</div>
-                                    
-								<?php 
-								}?>							   
-						
-								
-								<?php if(!empty($votre_text)){?>	
+
+								<?php
+								}?>
+
+
+								<?php if(!empty($votre_text)){?>
                                    <div class="col-md-6">
 											<span><strong>Your TEXT - Votre TEXT: <?php echo $votre_text?></strong> </span>
 									</div>
-                                    
-								<?php 
+
+								<?php
 								}?>											                  </div>
                                                                 </div>
                                                                 <div class="uploaded-file-detail" id="upload-file-data">
 													<?php if(!empty($cart_images)){
-														
-															   
+
+
 													foreach($cart_images as $key=>$return_arr){
 															//pr($return_arr);
-															
+
 													 ?>
-																
+
 													   <div class="uploaded-file-single" id="teb-<?php echo $return_arr['skey']?>">
 															<div class="uploaded-file-single-inner">
 																<div class="uploaded-file-img" style="background-image: url(<?php echo $return_arr['src']?>)">
-																
+
 																</div>
-																
+
 																<img src="<?php echo $return_arr['src']?>" width="150">
-																<?php 
+																<?php
 																$link=$BASE_URL."admin/Orders/download/".urlencode($return_arr['location'])."/".urlencode($return_arr['name']);
 																?><br>
-																
-																
+
+
 																<div class="uploaded-file-info">
 																  <div class="uploaded-file-name">
 																	  <span><?php echo $return_arr['name']?></span>
 																  </div>
-                            										
-                                                                    <?php 
-                            										if(!empty($return_arr['cumment'])){?>										
+
+                                                                    <?php
+                            										if(!empty($return_arr['cumment'])){?>
                             										    <div class="upload-field">
                             												Comment : <?php echo $return_arr['cumment']?>
                             										    </div>
-                            										<?php 
+                            										<?php
                             										}?>
-																	
+
                                                                     <a href="<?php echo $link?>">
                                                                         <i class="fas fa-file-download"></i> Download
-                                                                    </a>  
+                                                                    </a>
 																 </div>
-																
+
 															</div>
 														</div>
-													<?php 
-															
-															   }	   
-															   
+													<?php
+
+															   }
+
 														 }
-														 
+
 													?>
-													
+
 												</div>
-												
+
                                                             </td>
                                                             <td class="product-price1">
                                                                 <span>
@@ -829,65 +829,65 @@ $product_id=$items['product_id'];
                 												    $subtotal=($items['price']*
                 											        $items['quantity']);
                 													echo $order_currency_currency_symbol.number_format($subtotal,2);
-                													
+
                 												   ?>
                                                                 </span>
                                                             </td>
                                                         </tr>
                     									<?php }?>
                     									<tr>
-                    									    <td colspan="5" class="text-right"> 
+                    									    <td colspan="5" class="text-right">
                     								<div class="cart-total">
                                                     <span>Subtotal Amount : <font class="cart-sub-total"><?php echo $order_currency_currency_symbol."".number_format($orderData['sub_total_amount'],2);?></font>
 													</div>
-										<?php 
-										if(!empty($orderData['preffered_customer_discount']) && $orderData['preffered_customer_discount'] !="0.00"){?>		
+										<?php
+										if(!empty($orderData['preffered_customer_discount']) && $orderData['preffered_customer_discount'] !="0.00"){?>
 												<div class="cart-total">
-                                                    <span>       
+                                                    <span>
                                                     Preffered Customer Discount:
                                                     <font class="cart-sub-total">
                                                     <?php echo '-'.$order_currency_currency_symbol.number_format($orderData['preffered_customer_discount'],2);?></font>
 													</span>
                                                 </div>
-										<?php 
-										}?>	
-										<?php if(!empty($orderData['coupon_discount_amount']) && $orderData['coupon_discount_amount'] !="0.00"){?>		
+										<?php
+										}?>
+										<?php if(!empty($orderData['coupon_discount_amount']) && $orderData['coupon_discount_amount'] !="0.00"){?>
 												<div class="cart-total">
                                                     <span>
                                                               Coupon Discount
-                                                            
+
                                                            : <font class="cart-sub-total">
 <?php echo '-'.$order_currency_currency_symbol.number_format($orderData['coupon_discount_amount'],2);?></font>
 													</span>
                                                 </div>
-										<?php 
-										}?>	
+										<?php
+										}?>
 									<div class="cart-total">
                                             <span>
-                                                            
-                                        Shipping Fee: 
+
+                                        Shipping Fee:
 								        <font class="cart-sub-total">
-									        <?php 
+									        <?php
 	echo $order_currency_currency_symbol.number_format($orderData['delivery_charge'],2);?>
 											</font>
 													</span>
-                                    </div>	
-									
-									<?php 
+                                    </div>
+
+									<?php
 									if(!empty($orderData['total_sales_tax']) &&  $orderData['total_sales_tax'] !='0.00'){
 									?>
 									   <div class="cart-total">
-											<span>Total <?php echo $salesTaxRatesProvinces_Data['type']?> <?php echo number_format($salesTaxRatesProvinces_Data['total_tax_rate'],2);?>%: <font class="cart-sub-total"><?php 
+											<span>Total <?php echo $salesTaxRatesProvinces_Data['type']?> <?php echo number_format($salesTaxRatesProvinces_Data['total_tax_rate'],2);?>%: <font class="cart-sub-total"><?php
 	echo $order_currency_currency_symbol.number_format($orderData['total_sales_tax'],2);?></font>
 											</span>
 										</div>
-									<?php 
+									<?php
 									}?>
 									<div class="cart-total">
-                                        <span>                 
+                                        <span>
                                             Order Total Amount
                                              : <font class="cart-sub-total">
-										    <?php 
+										    <?php
 	                                        echo $order_currency_currency_symbol."".number_format($orderData['total_amount'],2);
 	                                        ?>
 	                                           </font>
@@ -905,4 +905,3 @@ $product_id=$items['product_id'];
         </div>
     </div>
 </div>
-		

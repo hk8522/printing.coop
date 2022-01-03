@@ -9,22 +9,22 @@
                         <div class="shipping-area-title universal-dark-title">
                             <?php if ($loginId) { ?>
                                 <span>
-                                <?php 
+                                <?php
                                 if($language_name=='French'){ ?>
                                   Changez votre mot de passe
                                 <?php }else{ ?>
                                   Change Your Password
-                                <?php 
+                                <?php
                                 }?></span>
                               <?php
                             } else { ?>
                                 <span>
-                                    <?php 
+                                    <?php
                                     if($language_name=='French'){ ?>
                                       Mot de passe oublié
                                     <?php }else{ ?>
                                       Forget Password
-                                    <?php 
+                                    <?php
                                     }?>
                               <?php
                             }
@@ -37,12 +37,12 @@
                             <div class="shipping-form">
                                 <div class="single-review">
                                     <label>
-                                    <?php 
+                                    <?php
                                     if($language_name=='French'){ ?>
                                       Adresse électronique:
                                     <?php }else{ ?>
                                       Email Address:
-                                    <?php 
+                                    <?php
                                     }?></label>
                                     <input type="email" name="account_email" id="account-email" value="<?php echo $loginEmail ?? '' ?>" <?php echo $loginEmail  ? 'readonly' : '' ?>>
                                     <label id="account-email-error" style="color:red"></label>
@@ -51,52 +51,52 @@
 								 <div class="single-review">
 								     <div class="g-recaptcha" data-sitekey="6LcXjt4UAAAAAMf-gtro8dDUsHGFBOtpfePKAifa"></div>
 									 <label id="g-recaptcha-error" style="color:red"></label>
-									 
+
 								 </div>
                                 <div class="order-btn login-btn">
                                     <button type="button" class="login" id="account-change-pswd" onclick="sendOptToEmail()">
-                                    <?php 
+                                    <?php
                                     if($language_name=='French'){ ?>
                                       Continuer
                                     <?php }else{ ?>
                                       Continue
-                                    <?php 
+                                    <?php
                                     }?></button>
                                 </div>
-								
+
                                 <div class="change-pswd-field-show"  style="display:none;" id="otp-container">
                                     <div class="single-review">
                                         <label>
-                                            <?php 
+                                            <?php
                                             if($language_name=='French'){ ?>
                                               Entrez OTP
                                             <?php }else{ ?>
                                               Enter OTP
-                                            <?php 
+                                            <?php
                                             }?> <span class="text-danger">  *</span></label>
                                         <input type="text" name="input_otp" id="input-otp" placeholder="Enter Otp" maxlength="6">
                                         <label id="input-otp-error" style="color:red"></label>
                                     </div>
                                     <div class="single-review">
                                         <label>
-                                            <?php 
+                                            <?php
                                             if($language_name=='French'){ ?>
                                               Definir un nouveau mot de passe
                                             <?php }else{ ?>
                                               Set New Password
-                                            <?php 
+                                            <?php
                                             }?> <span class="text-danger">  *</span> </label>
                                         <input type="password" placeholder="Set Password" name="new_password" id="new-password" maxlength="20"  minlength="8">
                                         <label id="new-password-error" style="color:red"></label>
                                     </div>
                                     <div class="order-btn">
                                         <button type="submit" id="Fsubmit">
-                                        <?php 
+                                        <?php
                                         if($language_name=='French'){ ?>
                                           Soumettre
                                         <?php }else{ ?>
                                           Submit
-                                        <?php 
+                                        <?php
                                         }?></button>
                                     </div>
                                 </div>

@@ -1106,7 +1106,7 @@
 				<span>Prints offset</span>
 			</div>
 			<div class="universal-light-info">
-				<span>Transform your project into a finished piece. We can print and design just about anything 
+				<span>Transform your project into a finished piece. We can print and design just about anything
 					<br>from signs and banners to brochures, promotional products</span>
 			</div>
 			<div class="product-tabs">
@@ -1902,7 +1902,7 @@
 					</div>
 				</div>
 				<div class="col-md-4">
-					<div class="mainservice-single">						
+					<div class="mainservice-single">
 						<div class="mainservice-single-inner">
 							<div class="mainservice-icon">
 								<i class="la la-cube"></i>

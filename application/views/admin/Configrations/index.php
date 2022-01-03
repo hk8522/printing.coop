@@ -34,18 +34,18 @@
 								<tr role="row">
 								    <th style="display:none;"></th>
 									<th>Website Name</th>
-									
+
 									<th>Action</th>
 								</tr>
 							</thead>
 
 							<tbody>
 							    <?php
-								
+
 								if(count($lists) > 0){
 
 									foreach($lists as $key=>$list){
-										
+
 										$websiteName=$MainStoreList[$list['main_store_id']];
 									?>
 										<tr>
@@ -53,13 +53,13 @@
 											<td style="text-align: left;">
 												<?php echo $websiteName?>
 											</td>
-									
+
 											<td>
 												<div class="action-btns">
 												   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>" style="color:green;padding: 5px;" title="edit">
 												        <i class="far fa-edit fa-lg"></i>
 												   </a>
-											   
+
 											   </div>
 											</td>
 										</tr>
@@ -89,7 +89,7 @@
  </script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 0, "asc" ]]
 	});

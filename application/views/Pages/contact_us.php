@@ -3,18 +3,18 @@
             <div class="contact-section-inner">
                 <div class="contact-row">
 				   <?php  if($language_name=='French'){
-					   
+
 				       echo $pageData['description_france'];
-					   
+
 				   }else{
-					   
+
 				       echo $pageData['description'];
 				   }
-				   ?> 
+				   ?>
                 </div>
             </div>
             <div class="contact-form">
-                <?php 
+                <?php
                 if($language_name=='French'){ ?>
                 <form method="post" id="contact-us">
                   <div id="contact-us-message">
@@ -46,7 +46,7 @@
                         </div>
                         <script src='https://www.google.com/recaptcha/api.js'></script>
                         <div class="form-group captcha-container">
-                      
+
                             <div class="g-recaptcha" id="rcaptcha" data-callback="contactus_recaptcha"  data-sitekey="6LepWXUdAAAAAPD3k1KAu0Hko9bCGHoKN9YKVT1Y" ></div>
                             <span id="recaptcha-error"  style="display:none; color:red" >Captcha is required. </span>
                         </div>
@@ -88,11 +88,11 @@
                         </div>
                         <script src='https://www.google.com/recaptcha/api.js'></script>
                         <div class="form-group captcha-container">
-                      
+
                             <div class="g-recaptcha" id="rcaptcha" data-callback="contactus_recaptcha"  data-sitekey="6LepWXUdAAAAAPD3k1KAu0Hko9bCGHoKN9YKVT1Y" ></div>
                             <span id="recaptcha-error"  style="display:none; color:red" >Captcha is required. </span>
                         </div>
-                      
+
                         <div class="col-md-12">
                             <div class="order-btn">
                                 <button type="submit" disabled="disabled" id="submit-contact-us-btn"> Submit</button>
@@ -100,8 +100,8 @@
                         </div>
                     </div>
                 </form>
-                <?php 
-                }?> 
+                <?php
+                }?>
             </div>
         </div>
     </div>

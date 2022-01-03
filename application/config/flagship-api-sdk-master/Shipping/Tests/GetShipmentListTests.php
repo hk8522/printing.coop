@@ -1041,7 +1041,7 @@ class GetShipmentListTests extends TestCase{
                 "brokerage_details": null
             }
         ]';
-       
+
         $this->getShipmentListRequest = $this->getMockBuilder(GetShipmentListRequest::class)
             ->setConstructorArgs(['testToken','localhost','test','1.0.11'])
             ->setMethods(['execute'])

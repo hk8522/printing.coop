@@ -1,8 +1,8 @@
 <?php $this->view('elements/slider.php');?>
-<?php 
-    if($website_store_id !=5){		
-		$this->view('elements/HomeSections/our_printed_products.php');		
-	}else{		
+<?php
+    if($website_store_id !=5){
+		$this->view('elements/HomeSections/our_printed_products.php');
+	}else{
 		$this->view('elements/HomeSections/our_ink_printed_products.php');
 		$this->view('elements/HomeSections/ecoink_search.php');
 	}
@@ -10,7 +10,7 @@
 <?php $this->view('elements/HomeSections/section_1.php');   #ABOUT US Section?>
 <?php $this->view('elements/HomeSections/section_2.php');   #Proudly Display Your Brand  Section?>
 <?php $this->view('elements/HomeSections/section_3.php'); #OUR SERVICES Section ?>
-<?php 
+<?php
 	if($website_store_id !=5){
 		$this->view('elements/HomeSections/section_4.php'); #Montreal book printing Section
 	}

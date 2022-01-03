@@ -14,7 +14,7 @@ class AvailableServicesTests extends TestCase{
         $this->assertNotNull($this->availableServices->getServicesByCourier('fedex'));
         $this->assertInstanceOf(AvailableServicesCollection::class, $this->availableServices->getServicesByCourier('purolator'));
     }
-    
+
     public function testGetStandardServices(){
         $this->assertNotEmpty($this->availableServices->getStandardServices());
         $this->assertNotNull($this->availableServices->getStandardServices());

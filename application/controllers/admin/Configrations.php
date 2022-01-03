@@ -11,7 +11,7 @@ class Configrations extends Admin_Controller
     		$this->class_name = 'admin/'.ucfirst(strtolower($this->router->fetch_class())).'/';
     		$this->data['class_name'] = $this->class_name;
   	}
-	
+
     public function index()
     {
 		$this->load->model('Configration_Model');
@@ -28,9 +28,9 @@ class Configrations extends Admin_Controller
 		$MainStoreList=$this->Store_Model->MainStoreList();
 		$this->data['MainStoreList']=$MainStoreList;
 		$this->render($this->class_name.'index');
-		
+
     }
-	
+
 	public function addEdit($id=null)
     {
 				$this->load->model('Configration_Model');
@@ -43,7 +43,7 @@ class Configrations extends Admin_Controller
 		        $this->data['MainStoreList']=$MainStoreList;
                 $this->render($this->class_name.'add_edit');
     }
-	
+
     public function saveConfigrations()
 	{
 				$this->load->model('Configration_Model');
@@ -53,25 +53,25 @@ class Configrations extends Admin_Controller
 				$postData['contact_no'] = $this->input->post('contact_no');
 				$postData['office_timing'] = $this->input->post('office_timing');
 				$postData['announcement'] = $this->input->post('announcement');
-				
+
 				$postData['copy_right'] = $this->input->post('copy_right');
 				$postData['address_one'] = $this->input->post('address_one');
-				
+
 				$postData['contact_no_french'] = $this->input->post('contact_no_french');
 				$postData['office_timing_french'] = $this->input->post('office_timing_french');
 				$postData['announcement_french'] = $this->input->post('announcement_french');
-				
+
 				$postData['copy_right_french'] = $this->input->post('copy_right_french');
 				$postData['address_one_french'] = $this->input->post('address_one_french');
-				
+
 				$postData['log_alt_teg']        = $this->input->post('log_alt_teg');
 				$postData['log_alt_teg_french'] = $this->input->post('log_alt_teg_french');
-				
+
                 if(isset($_FILES['logo_image'])) {
-					
+
 						$Filename = $_FILES['logo_image']['name'];
 						if (!empty($Filename)) {
-							
+
 							$config['upload_path'] = LOGO_IMAGE_BASE_PATH;
 							$config['allowed_types'] = FILE_ALLOWED_TYPES;
 							$config['max_size'] = FILE_MAX_SIZE;
@@ -93,12 +93,12 @@ class Configrations extends Admin_Controller
 							}
 						}
 				}
-				
+
 				if (isset($_FILES['logo_image_french'])) {
-					
+
 						$Filename = $_FILES['logo_image_french']['name'];
 						if (!empty($Filename)) {
-							
+
 							$config['upload_path'] = LOGO_IMAGE_BASE_PATH;
 							$config['allowed_types'] = FILE_ALLOWED_TYPES;
 							$config['max_size'] = FILE_MAX_SIZE;
@@ -115,15 +115,15 @@ class Configrations extends Admin_Controller
 								}
 								 $uploadData = $this->upload->data();
 								 $postData['logo_image_french'] = $uploadData['file_name'];
-								 
+
 							}
 						}
 				}
 				if (isset($_FILES['favicon'])) {
-					
+
 						$Filename = $_FILES['favicon']['name'];
 						if (!empty($Filename)) {
-							
+
 							$config['upload_path'] = LOGO_IMAGE_BASE_PATH;
 							$config['allowed_types'] = FILE_ALLOWED_TYPES;
 							$config['max_size'] = FILE_MAX_SIZE;
@@ -140,15 +140,15 @@ class Configrations extends Admin_Controller
 								}
 								 $uploadData = $this->upload->data();
 								 $postData['favicon'] = $uploadData['file_name'];
-								 
+
 							}
 						}
 				}
 				if (isset($_FILES['french_favicon'])) {
-					
+
 						$Filename = $_FILES['french_favicon']['name'];
 						if (!empty($Filename)) {
-							
+
 							$config['upload_path'] = LOGO_IMAGE_BASE_PATH;
 							$config['allowed_types'] = FILE_ALLOWED_TYPES;
 							$config['max_size'] = FILE_MAX_SIZE;
@@ -165,21 +165,21 @@ class Configrations extends Admin_Controller
 								}
 								 $uploadData = $this->upload->data();
 								 $postData['french_favicon'] = $uploadData['file_name'];
-								 
+
 							}
 						}
 				}
 				$insert =  $this->Configration_Model->saveData($postData);
 				if ($insert) {
-					
+
 						$this->session->set_flashdata('message_success',' Configrations Updated Successfully.');
 						redirect('admin/Configrations');
 				}else{
-					
+
 					$this->session->set_flashdata('message_success',' Configrations Updated Unsuccessfully.');
 					redirect('admin/Configrations/addEdit/'.$id);
 				}
 
-				
+
 		}
     }

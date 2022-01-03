@@ -7,7 +7,7 @@
     <!--        <div class="today-deal-title">-->
     <!--            <span><?php echo $page_title; ?></span>-->
     <!--        </div>-->
-            
+
     <!--    </div>-->
     <!--</div>-->
 </div>
@@ -23,7 +23,7 @@
         				<div class="ticket-top-section">
         				    <div class="row align-items-center">
 							    <div class="col-md-12 text-center" style="color:green" >
-								    
+
 						           <?php echo $this->session->flashdata('message_success');?>
 							    </div>
         				        <div class="col-md-6">
@@ -36,7 +36,7 @@
 										<a href="javascript:void(0)" id="newTicketFromOpen"><button><i class="fas fa-plus-circle"></i> Create New Ticket</button>
 										</a>
         				            </div>
-									
+
 									<div class="new-ticket-btn">
 										<?php if($status_ticket==0){
 											$url=$BASE_URL.'Tickets/index/'.base64_encode(1);
@@ -47,7 +47,7 @@
 										}?>
 										<a href="<?php echo $url;?>">
 										<button>
-										
+
 										 <?php echo $text;?>
 										</button>
 										</a>
@@ -57,10 +57,10 @@
         				</div>
         				<div class="ticket-listing-section">
         				    <div class="ticket-listing-inner shopping-product-display" id="TicketData">
-							
+
 							<h6 class="text-center">Please wait loading...</h6>
-        				        
-								
+
+
         				    </div>
         				</div>
                     </div>
@@ -88,7 +88,7 @@
 			      			</div>
 			      			<div class="message-chat-box" id="TicketChatData">
 							     			      					                    <h6 class="text-center">Please wait loading...</h6>
-			      				
+
 			          		</div>
 			          	</div>
 			      	</div>
@@ -110,10 +110,10 @@
                             <div></div>
                         </div>
                     </div>
-					
+
                     <div class="new-ticket-section-fields" id="createTicketFromData">
 					   <h6 class="text-center">Please wait loading...<h6>
-					   
+
                     </div>
                 </div>
             </div>

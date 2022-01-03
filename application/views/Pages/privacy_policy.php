@@ -7,7 +7,7 @@
     <!--        <div class="today-deal-title">-->
     <!--            <span><?php echo $page_title; ?></span>-->
     <!--        </div>-->
-            
+
     <!--    </div>-->
     <!--</div>-->
 </div>
@@ -22,9 +22,9 @@
                     <div class="main-single-section">
                         <div class="main-single">
                             <div class="main-single-info">
-                                <span>http://uniquely.pickseoexpert.com  recognizes the importance of maintaining your privacy. We value your privacy and appreciate your trust in us. 
-                                This Policy describes how we treat user information we collect on http://uniquely.pickseoexpert.com and other offline sources. 
-                                This Privacy Policy applies to current and former visitors to our website and to our online customers. 
+                                <span>http://uniquely.pickseoexpert.com  recognizes the importance of maintaining your privacy. We value your privacy and appreciate your trust in us.
+                                This Policy describes how we treat user information we collect on http://uniquely.pickseoexpert.com and other offline sources.
+                                This Privacy Policy applies to current and former visitors to our website and to our online customers.
                                 By visiting and/or using our website, you agree to this Privacy Policy.</span>
                             </div>
                         </div>
@@ -77,7 +77,7 @@
                         	    	<b>We collect information directly from you.</b> We collect information directly from you when you register for an event or buy tickets. We also collect information if you post a comment on our websites or ask us a question through phone or email.
                         	    	<br>
                         	    	<b>We collect information from you passively</b> We use tracking tools like Google Analytics, Google Webmaster, browser cookies and web beacons for collecting information about your usage of our website.<br>
-                        
+
                         	    	<b>We get information about you from third parties.</b> For example, if you use an integrated social media feature on our websites. The third party social media site will give us certain information about you. This could include your name and email address.
                         	    </span>
 	                        </div>

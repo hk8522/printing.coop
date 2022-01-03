@@ -4,8 +4,8 @@
     <div class="container">
         <div class="page-title-section-inner universal-half-spacing">
             <div class="inner-breadcrum">
-                <a href="index.php">Home</a> 
-                / 
+                <a href="index.php">Home</a>
+                /
                 <span class="current">Cart</span>
             </div>
         </div>
@@ -34,7 +34,7 @@
                         <td class="product-thumbnail">
                             <a href="product-single.php">
                                 <img src="images/product2.jpg">
-                            </a>                     
+                            </a>
                         </td>
                         <td class="product-name">
                             <a href="product-single.php">Printing Card Gray</a>
@@ -61,7 +61,7 @@
                                         <div class="uploaded-file-info">
                                             <div class="uploaded-file-name">
                                                 <span>File name goes here</span>
-                                            </div>                                           
+                                            </div>
                                             <div class="upload-field">
                                                 <textarea type="text"></textarea>
                                             </div>

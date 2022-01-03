@@ -1,11 +1,11 @@
 <div class="contact-section-detail universal-bg-white">
     <div class="container ">
-<?php  
+<?php
 if($language_name=='French'){
 
 echo $pageData['description_france'];
 }else{
-	
+
 echo $pageData['description'];
 }
 //pr($countries);
@@ -13,19 +13,19 @@ echo $pageData['description'];
         <div class="customer-detail-blog universal-spacing universal-bg-white">
             <div class="universal-dark-title">
                 <span>
-				<?php 
+				<?php
 				if($language_name=='French'){ ?>
 				    Devenez un membre Privilège:
 				<?php }else{ ?>
                     Become a Preferred Customer:
-                <?php 
-				}?>				
+                <?php
+				}?>
 				</span>
             </div>
 			<div class="universal-dark-info" id="signup-msg">
             </div>
             <div class="contact-form">
-			   <?php 
+			   <?php
 				if($language_name=='French'){ ?>
                 <form action="" method="post" id="Preferred-Customer">
                     <div class="row">
@@ -65,7 +65,7 @@ echo $pageData['description'];
                                 <input type="password" name="confirm_password" id="confirm-password" required="">
                             </div>
                         </div>-->
-						
+
                        <div class="col-md-4">
                             <div class="single-review">
                                 <label>Nom du responsable*</label>
@@ -105,7 +105,7 @@ echo $pageData['description'];
 										  $selected = '';
 										  $post_country = isset($postData['country']) ? $postData['country']:'';
 										  if ($country['id'] == $post_country){
-											  
+
 											  $selected='selected="selected"';
 										  }
 										  ?>
@@ -120,21 +120,21 @@ echo $pageData['description'];
                                 <label>Etat*</label>
 								<select name="region" id="stateiD" required="">
                                       <option value="">-- Sélectionnez l'état --</option>
-                                      <?php foreach($states as $state){ 
-								   
+                                      <?php foreach($states as $state){
+
 								      $selected='';
 									  $post_state= isset($postData['state']) ? $postData['state']:'';
-									  
+
 									  if($state['StateID'] == $post_state){
-										  
-										    $selected='selected="selected"'; 
-									  }	  
+
+										    $selected='selected="selected"';
+									  }
 								    ?>
 								       <option value="<?php echo $state['StateID']?>" <?php echo $selected;?>><?php echo $state['StateName'];?>
 									  </option>
 								<?php }?>
 								     </select>
-								
+
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -201,7 +201,7 @@ echo $pageData['description'];
                                 <input type="password" name="confirm_password" id="confirm-password" required="">
                             </div>
                         </div>-->
-						
+
                        <div class="col-md-4">
                             <div class="single-review">
                                 <label>Name of the Responsible*</label>
@@ -254,21 +254,21 @@ echo $pageData['description'];
                                 <label>State*</label>
 								<select name="region" id="stateiD" required="">
                                       <option value="">-- Select State --</option>
-                                      <?php foreach($states as $state){ 
-								   
+                                      <?php foreach($states as $state){
+
 								      $selected='';
 									  $post_state= isset($postData['state']) ? $postData['state']:'';
-									  
+
 									  if($state['StateID'] == $post_state){
-										  
-										    $selected='selected="selected"'; 
-									  }	  
+
+										    $selected='selected="selected"';
+									  }
 								    ?>
 								       <option value="<?php echo $state['StateID']?>" <?php echo $selected;?>><?php echo $state['StateName'];?>
 									  </option>
 								<?php }?>
 								     </select>
-								
+
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -296,9 +296,9 @@ echo $pageData['description'];
                         </div>
                     </div>
                 </form>
-                <?php 
-				}?>	
-				
+                <?php
+				}?>
+
             </div>
         </div>
     </div>

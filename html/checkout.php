@@ -4,8 +4,8 @@
     <div class="container">
         <div class="page-title-section-inner universal-half-spacing">
             <div class="inner-breadcrum">
-                <a href="index.php">Home</a> 
-                / 
+                <a href="index.php">Home</a>
+                /
                 <span class="current">Checkout</span>
             </div>
         </div>
@@ -63,7 +63,7 @@
                                     <div class="account-address-area">
                                         <div class="checkout-addresss">
                                             <label id="exsiting-address">
-                                                <input name="delivery" value="exsiting-address" for="exsiting-address" type="radio" checked=""> 
+                                                <input name="delivery" value="exsiting-address" for="exsiting-address" type="radio" checked="">
                                                 <div class="email-field-t">
                                                     <div class="email-text-t">
                                                         <span class="address-type-name">Work</span>
@@ -76,7 +76,7 @@
                                         </div>
                                         <div class="checkout-addresss">
                                             <label id="new-address">
-                                                <input name="delivery" value="new-address" for="new-address" type="radio"> 
+                                                <input name="delivery" value="new-address" for="new-address" type="radio">
                                                 <span class="new-c-addr"><i class="las la-plus"></i> New Address</span>
                                             </label>
                                             <div class="delivery-fileds" id="checkout-new-address" style="display: none;">
@@ -297,7 +297,7 @@
                                                                 <input type="text" placeholder="CVV">
                                                             </div>
                                                             <div class="col-md-3">
-                                                                
+
                                                             </div>
                                                         </div>
                                                     </div>
@@ -305,7 +305,7 @@
                                                         <span>Your card details would be securely saved for faster payments. Your CVV will not be stored. </span>
                                                     </div>
                                                 </div>
-                                            </div>    
+                                            </div>
                                         </div>
                                         <div class="card">
                                             <div class="card-header collapsed" id="headingPayTwo" data-toggle="collapse" data-target="#collapsePayTwo" aria-expanded="false" aria-controls="collapsePayTwo">
@@ -320,7 +320,7 @@
                                                         <button class="register">Continue</button>
                                                     </div>
                                                 </div>
-                                            </div>    
+                                            </div>
                                         </div>
                                         <div class="card">
                                             <div class="card-header collapsed" id="headingPay3" data-toggle="collapse" data-target="#collapsePay3" aria-expanded="false" aria-controls="collapsePay3">
@@ -335,13 +335,13 @@
                                                         <button class="register">Continue</button>
                                                     </div>
                                                 </div>
-                                            </div>    
+                                            </div>
                                         </div>
                                         <div class="card">
                                             <div class="card-header collapsed" id="headingPayFour" data-toggle="collapse" data-target="#collapsePayFour" aria-expanded="false" aria-controls="collapsePayFour">
                                                 <label class="main-input" for="Fourpayment"><input name="payment" value="cash" type="radio" id="Fourpayment">Cash On Delivery</label>
                                             </div>
-                                            <div id="collapsePayFour" class="collapse" aria-labelledby="headingPayFour" data-parent="#accordion1" style=""></div>   
+                                            <div id="collapsePayFour" class="collapse" aria-labelledby="headingPayFour" data-parent="#accordion1" style=""></div>
                                         </div>
                                         </div>
                                     </div>
@@ -364,7 +364,7 @@
                                     <td class="product-thumbnail">
                                         <a href="product-single.php">
                                             <img src="images/product2.jpg">
-                                        </a>                     
+                                        </a>
                                     </td>
                                     <td class="product-name">
                                         <a href="product-single.php">Printing Card Gray</a>
@@ -379,7 +379,7 @@
                                                     <span></span>£738.00</span>
                                                 </div>
                                             </div>
-                                        </div>                                              
+                                        </div>
                                         <div class="product-name-detail">
                                             <div class="row">
                                                 <div class="col-md-6">
@@ -403,7 +403,7 @@
                                                     <div class="uploaded-file-info">
                                                         <div class="uploaded-file-name">
                                                             <span>File name goes here</span>
-                                                        </div>                                           
+                                                        </div>
                                                         <div class="upload-field">
                                                             <textarea type="text"></textarea>
                                                         </div>

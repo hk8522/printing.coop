@@ -43,7 +43,7 @@
                                         <tr>
 										<td>
 										   <?php echo $StoreList[$list['store_id']]['name']?>
-										</td>  
+										</td>
                                             <td class="text-left"><?php echo $list['contact_name'];?></td>
                                             <td class="text-left"><?php echo $list['company_name'];?></td>
                                             <td class="text-left"><?php echo $list['email'];?></td>
@@ -64,7 +64,7 @@
 										         	<i class="fa fa-trash fa-lg"></i>
 											   	</a>
 										       </div>
-										   
+
 											</td>
                                         </tr>
                                         <?php

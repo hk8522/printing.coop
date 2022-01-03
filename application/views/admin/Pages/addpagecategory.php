@@ -12,13 +12,13 @@
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-7">
-                                	<div class="form-role-area">			
+                                	<div class="form-role-area">
 										<div class="control-group info">
 											<div class="row align-items-center">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame"> Category Name</label>
 												</div>
-                                                <div class="col-md-8">	
+                                                <div class="col-md-8">
 													<div class="controls">
 														<input class="form-control" type="text">
 													</div>
@@ -33,7 +33,7 @@
 							</div>
 						</div>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->

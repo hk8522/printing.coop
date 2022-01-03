@@ -151,7 +151,7 @@ class ConfirmShipmentTests extends TestCase{
 
             $this->confirmShipment = $this->getMockBuilder(Shipment::class)
                               ->setConstructorArgs([json_decode($response)])
-                              ->setMethods(['__construct']) 
+                              ->setMethods(['__construct'])
                               ->getMock();
 
         }

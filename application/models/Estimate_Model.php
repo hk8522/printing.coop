@@ -133,7 +133,7 @@ Class Estimate_Model extends MY_Model {
 	{
 		return $this->db->select('*')->from($this->table)->get()->result_array();
 	}
-	
+
     public function getEstimateDataById($id) {
 
         $this->db->select('*');
@@ -143,7 +143,7 @@ Class Estimate_Model extends MY_Model {
 		$data=(array)$query->row();
 		return $data;
     }
-	
+
 	public function deleteProductEstimates($id) {
 
 		$this->db->where('id',$id);
@@ -155,6 +155,6 @@ Class Estimate_Model extends MY_Model {
 		}
 
     }
-	
+
 }
 ?>

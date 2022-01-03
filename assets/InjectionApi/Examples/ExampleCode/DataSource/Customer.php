@@ -1,7 +1,7 @@
 <?php
 
 class Customer{
-    
+
     public $firstName;
 
     public $lastName;

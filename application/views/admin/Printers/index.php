@@ -27,7 +27,7 @@
 						</div>
 					</div>
 				</div>
-                
+
 				<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="custom-mini-table">
 						<table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
@@ -36,53 +36,53 @@
 									<th>Name</th>
 									<?php if($type !='printers'){?>
 									<th>Brand Name</th>
-									<?php 
+									<?php
 									}?>
 									<th>Status</th>
 									<th>Action</th>
 								</tr>
 							</thead>
-							
+
 							<tbody>
-							    <?php 
+							    <?php
 								if(count($lists) > 0){
-									
+
 									foreach($lists as $key=>$list){
-										
-										
+
+
 									?>
 										<tr>
 											<td><?php echo $list['name'];?></td>
-										
-											
-											<?php 
+
+
+											<?php
 											 if($type !='printers'){ ?>
 											 <td>
-											 <?php    
+											 <?php
 											 echo $list['brand_name'];
 											 ?>
 											 </td>
-											<?php 
+											<?php
 											}?>
 											<td>
 											<?php if($list['status']==1){ ?>
 											<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0/<?php echo $type?>">
 											 <button type="submit" class="custon-active">Active
 											 </button>
-											</a> 
-											<?php 
+											</a>
+											<?php
 											}else{?>
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1/<?php echo $type?>">
 											     <button type="submit" class="custon-delete">Inactive
 											      </button>
 											   </a>
-											<?php 
+											<?php
 											}?>
 											</td>
 											<td>
 											<div class="action-btns">
-											 
-											
+
+
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>/<?php echo $type?>" style="color:green" title="edit">
 											        <i class="far fa-edit fa-lg"></i>
 											   </a>
@@ -91,17 +91,17 @@
 											      <i class="fa fa-trash fa-lg"></i>
 											   </a>
 											   </div>
-											   
+
 											</td>
 										</tr>
-										
-									<?php 
+
+									<?php
 									}
 								}else{?>
 								    <tr>
 									<td colspan="7" class="text-center">List Empty.</td>
 								    </tr>
-								<?php 
+								<?php
 								}?>
 							</tbody>
 						</table>
@@ -120,7 +120,7 @@
  </script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 0, "asc" ]]
 	});

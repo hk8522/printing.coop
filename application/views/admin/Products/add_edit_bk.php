@@ -35,19 +35,19 @@
                                                                 <select class="form-control" name="menu_id" id="menu_id">
 																	<option value="">Select Menu</option>
 																	<?php
-																	$menu_id=isset($postData['menu_id']) ? $postData['menu_id']:'';										
+																	$menu_id=isset($postData['menu_id']) ? $postData['menu_id']:'';
 																	foreach($menuList as $key=>$val){
 																		$selected='';
-																		
+
 																		if($key==$menu_id){
 																			$selected='selected="selected"';
 																		}
 																	?>
 																	<option value="<?php echo $key?>" <?php echo $selected ?>><?php echo $val;?></option>
-																	<?php    
+																	<?php
 																	}
 																	?>
-																</select>																	
+																</select>
                                                                 <label class="form-inner-label">Menu </label>
                                                                 <?php echo form_error('menu_id');?>
                                                             </div>
@@ -55,16 +55,16 @@
                                                                 <select class="form-control" name="category_id" id="category_id">
 																	<option value="">Select Category</option>
 																	<?php
-																	$category_id=isset($postData['category_id']) ? $postData['category_id']:'';										
+																	$category_id=isset($postData['category_id']) ? $postData['category_id']:'';
 																	foreach($categoryList as $key=>$val){
-																		
+
 																		$selected='';
-																		if($key==$category_id){	
+																		if($key==$category_id){
 																			$selected='selected="selected"';
 																		}
 																	?>
 																	 <option value="<?php echo $key?>" <?php echo $selected ?>><?php echo $val;?></option>
-																	<?php    
+																	<?php
 																	}
 																	?>
 																</select>
@@ -76,18 +76,18 @@
 																	<option value="">Select Sub Category</option>
 																	<?php
 																	$sub_category_id=isset($postData['sub_category_id']) ? $postData['sub_category_id']:'';
-																	
+
 																	foreach($subCategoryList as $key=>$val){
-																		
+
 																		$selected='';
 																		if($key==$sub_category_id){
-																			
+
 																			$selected='selected="selected"';
 																		}
 																	?>
-																	 
+
 																	   <option value="<?php echo $key?>" <?php echo $selected ?>><?php echo $val;?></option>
-																	<?php    
+																	<?php
 																	}
 																	?>
 																</select>
@@ -99,17 +99,17 @@
 																	<option value="">Select Product Brand</option>
 																	<?php
 																	$brand=isset($postData['brand']) ? $postData['brand']:'';
-																	
+
 																	foreach($brandList as $key=>$val){
-																		
+
 																		$selected='';
 																		if($key==$brand){
-																			
+
 																			$selected='selected="selected"';
 																		}
 																	?>
 																	<option value="<?php echo $key?>" <?php echo $selected ?>><?php echo $val;?></option>
-																	<?php    
+																	<?php
 																	}
 																	?>
 																</select>
@@ -120,20 +120,20 @@
                                                     </div>
                                                 </div>
 											</div>
-										</div>				
+										</div>
 										<div class="control-group info">
 											<div class="row align-items-center">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame"> Product Name</label>
 												</div>
-                                                <div class="col-md-8">	
+                                                <div class="col-md-8">
 													<div class="controls">
 														<input class="form-control" name="name" id="name" type="text" placeholder="Product Name" value="<?php echo isset($postData['name']) ? $postData['name']:'';?>" maxlength="50">
 														<?php echo form_error('name');?>
 													</div>
 												</div>
 											</div>
-										</div>	
+										</div>
 										<div class="control-group info">
 											<div class="row align-items-center">
 												<div class="col-md-4">
@@ -159,10 +159,10 @@
 													</div>
 												</div>
 											</div>
-										</div>							
+										</div>
 										<div class="control-group info">
 											<div class="row">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame">Product Price</label>
 												</div>
 												<div class="col-md-8">
@@ -184,7 +184,7 @@
 										</div>
 										<div class="control-group info">
 											<div class="row">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame">Product Attributes</label>
 												</div>
 												<div class="col-md-8">
@@ -209,7 +209,7 @@
                                                                 <label class="form-inner-label">Discount in %</label>
                                                                 <?php echo form_error('discount');?>
                                                             </div>
-                                                            
+
                                                             <div class="col-md-4">
                                                                 <select class="form-control" name="size">
                                                                 	<option selected="">Select Size</option>
@@ -231,17 +231,17 @@
                                                     </div>
                                                 </div>
 											</div>
-										</div>		
+										</div>
 										<div class="control-group info">
 											<div class="row">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame">Product Tags</label>
 												</div>
 												<div class="col-md-8">
                                                     <div class="controls small-controls">
                                                         <div class="row">
                                                         	<div class="col-md-6">
-                                                        		<?php 
+                                                        		<?php
 																$is_featured=isset($postData['is_featured']) ? $postData['is_featured']:'';
 																$cehecked='';
 																if($is_featured==1){
@@ -252,11 +252,11 @@
 															    <?php echo form_error('is_featured');?>
                                                             </div>
                                                             <div class="col-md-6">
-                                                        		<?php 
+                                                        		<?php
 																$is_special=isset($postData['is_special']) ? $postData['is_special']:'';
 																$cehecked='';
 																if($is_special==1){
-																	
+
 																	$cehecked='checked';
 																}
 																?>
@@ -264,11 +264,11 @@
 															    <?php echo form_error('is_special');?>
                                                             </div>
                                                             <div class="col-md-6">
-                                                        		<?php 
+                                                        		<?php
 																$is_bestseller=isset($postData['is_bestseller']) ? $postData['is_bestseller']:'';
 																$cehecked='';
 																if($is_bestseller==1){
-																	
+
 																	$cehecked='checked';
 																}
 																?>
@@ -276,11 +276,11 @@
 															    <?php echo form_error('is_bestseller');?>
                                                             </div>
                                                             <div class="col-md-6">
-                                                        		<?php 
+                                                        		<?php
 																$is_bestdeal=isset($postData['is_bestdeal']) ? $postData['is_bestdeal']:'';
 																$cehecked='';
 																if($is_bestdeal==1){
-																	
+
 																	$cehecked='checked';
 																}
 																?>
@@ -288,11 +288,11 @@
 															    <?php echo form_error('is_bestdeal ');?>
                                                             </div>
                                                             <div class="col-md-6">
-                                                        		<?php 
+                                                        		<?php
 																$is_stock=isset($postData['is_stock']) ? $postData['is_stock']:'';
 																$cehecked='';
 																if($is_stock==1){
-																	
+
 																	$cehecked='checked';
 																}
 																?>
@@ -300,11 +300,11 @@
 															    <?php echo form_error('is_stock ');?>
                                                             </div>
                                                             <div class="col-md-6">
-                                                        		<?php 
+                                                        		<?php
 																$is_today_deal=isset($postData['is_today_deal']) ? $postData['is_today_deal']:'';
 																$cehecked='';
 																if($is_today_deal==1){
-																	
+
 																	$cehecked='checked';
 																}
 																?>
@@ -323,7 +323,7 @@
                                                     </div>
                                                 </div>
 											</div>
-										</div>			
+										</div>
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -335,7 +335,7 @@
                                                             <div class="col-md-6">
                                                                 <label class="span2" id="hide-shipping-amount">
 										<input type="radio" name="free_shipping" value="1"
-										
+
 										<?php echo isset($postData['free_shipping']) && $postData['free_shipping'] ==1 ? 'checked':'';?>> Yes
 										</label>
                                                             </div>
@@ -363,20 +363,20 @@
 														<option value="">Select Product Type</option>
 														<?php
 														$product_type=isset($postData['product_type']) ? $postData['product_type']:'';
-														
+
 														 $ptoducttypeList=array(2=>'Personalised',1=>'Non Personalised');
-														 
-														
+
+
 														foreach($ptoducttypeList as $key=>$val){
-															
+
 															$selected='';
 															if($key==$product_type){
 																$selected='selected="selected"';
 															}
 														?>
-														 
+
 														   <option value="<?php echo $key?>" <?php echo $selected ?>><?php echo $val;?></option>
-														<?php    
+														<?php
 														}
 														?>
 													</select>
@@ -384,7 +384,7 @@
 												</div>
 											</div>
 											</div>
-										</div>	
+										</div>
 										<div class="control-group info" style="display:<?php echo $product_type==2 ? '':'none'?>" id="total_upload_image_div">
                                                 <div class="row">
                                                     <div class="col-md-4">
@@ -406,10 +406,10 @@
                                                     </div>
                                                 </div>
                                             </div>
-																
+
 										<div class="row">
 										    <div class="control-group info col-sm-12">
-											        
+
 													<div class="controls">
 													  <?php foreach($ProductImages as $key=>$list){ ?>
 													  <div class="col-xs-3" style="margin-bottom:15px;" id="img_<?php echo $list['id']?>">
@@ -423,11 +423,11 @@
 														</button>
 														</span>
 													  </div>
-													  <?php 
-													  }?> 
+													  <?php
+													  }?>
 												    </div>
 											        <div class="controls file-data">
-													    <div class="image-info col-xs-12" style="margin-bottom: 10px;"> 
+													    <div class="image-info col-xs-12" style="margin-bottom: 10px;">
 															<span>
 															 Allowed image type  : <b> (jpg, png, gif)</b>
 															</span><br>
@@ -454,7 +454,7 @@
 												  </div>
 										     </div>
 										</div>
-										
+
 										<div class="personalised-box" style="display: none;">
 										    <div class="control-group info">
                                                 <div class="row">
@@ -462,38 +462,38 @@
                                                         <label class="span2">Add Color<font color="red">*</font></label>
                                                         <br>
                                                         <div class="add-icon add-color">
-                                                             <span class="fa fa-plus "></span> 
+                                                             <span class="fa fa-plus "></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="controls ">
                                                             <div class="row field_wrapper">
 
-                                                            	<?php 
+                                                            	<?php
     $color=isset($personalise['color']) && !empty($personalise['color']) ? explode(',',$personalise['color']):array();
-																
+
 	if(count($color) > 0){
 	    $cnt=1;
 	foreach ($color as  $value) {
-																		
-																	
+
+
 																	?>
-																
+
 	<div class="col-md-4">
 		        <div class="single-filed-section">
 		                                                                <input class="form-control" type="text" name="personial_color[]" value="<?php echo $value ;?>">
 		                                                                <label class="form-inner-label">Color</label>
-		                                                                
+
 		                                                            </div>
 		                                                             <?php if($cnt>1) {?>
 		                                                            <div class="remove-icon remove-color">
-				                                                             <span class="fa fa-minus"></span> 
+				                                                             <span class="fa fa-minus"></span>
 				                                                        </div>
 				                                                    <?php }?>
 		                                                        </div>
-                                                               
-                                                               
-                                                            <?php $cnt++ ;} 
+
+
+                                                            <?php $cnt++ ;}
 															}else{?>
                                                                 <!-- Start -->
 		                                                         <div class="col-md-4">
@@ -502,7 +502,7 @@
                                                                         <label class="form-inner-label">Color</label>
                                                                     </div>
                                                                 </div>
-                                                            <?php 
+                                                            <?php
 															}?>
 		                                                        <!-- End -->
                                                             </div>
@@ -517,24 +517,24 @@
                                                         <label class="span2">Add Text Field<font color="red">*</font></label>
                                                         <br>
                                                         <div class="add-icon">
-                                                             <span class="fa fa-plus add-text-field"></span> 
+                                                             <span class="fa fa-plus add-text-field"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="controls text_field_wrapper">
 
 
-<?php 
+<?php
 	                                                        		;
-																	
-																	
-	
-	$text_field=isset($personalise['text_field']) && !empty($personalise['text_field']) ? json_decode($personalise['text_field']):array();																
+
+
+
+	$text_field=isset($personalise['text_field']) && !empty($personalise['text_field']) ? json_decode($personalise['text_field']):array();
 if(count($text_field)>0){
 	$cnt1=1;
     foreach ($text_field->personial_title as  $value) {
 																		//print_r($value);
-																	
+
 																	?>
 															<div class="single-filed-section">
 	                                                            <div class="row">
@@ -554,16 +554,16 @@ if(count($text_field)>0){
 	                                                           <?php if($cnt1>1) {?>
 
 	                                                            <div class="remove-icon remove-field">
-		                                                            <span class="fa fa-minus "></span> 
+		                                                            <span class="fa fa-minus "></span>
 		                                                        </div>
 		                                                        <?php }?>
 	                                                        </div>
 
 
-                                                            <?php $cnt1++ ;} 
+                                                            <?php $cnt1++ ;}
 															}else{?>
                                                             <!-- Start -->
-                                                            
+
                                                             <div class="single-filed-section">
                                                                 <div class="row">
                                                                     <div class="col-md-12">
@@ -580,7 +580,7 @@ if(count($text_field)>0){
                                                                     </div>
                                                                 </div>
                                                             </div>
-	                                                        <?php 
+	                                                        <?php
 															}?>
                                                             <!-- End -->
 
@@ -596,11 +596,11 @@ if(count($text_field)>0){
                                                         <label class="span2">Add Paragraph<font color="red">*</font></label>
                                                         <br>
                                                         <div class="add-icon">
-                                                             <span class="fa fa-plus add-paragraph"></span> 
+                                                             <span class="fa fa-plus add-paragraph"></span>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-8 wapper3">
-                                                       
+
                                                     	<div class="write-own-area">
                                                                 <label class="span2" id="open-write-character">
                         <input class="writeown" name="writeown" value="1" type="checkbox" <?php if(isset($personalise['writeown']) && $personalise['writeown'] ==1){ echo 'checked' ;}?>> Write Your Own
@@ -611,20 +611,20 @@ if(count($text_field)>0){
                                                                 </div>
                                                             </div>
                                                         <!-- Start -->
-                                                                   <?php 
+                                                                   <?php
 
-																	
-																															
+
+
 $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph']) ? json_decode($personalise['paragraph']):array();
 
 	if(count($paragraph)>0){
 		$cnt2=1;
 		foreach ($paragraph->paragraph_description as  $value) {
-																		
-																	
+
+
 																	?>
             <div class="controls small-control">
-                                                            
+
                     <div class="single-filed-section">
                         <div class="row">
                                     <div class="col-md-6">
@@ -640,12 +640,12 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
                                                                         <label class="form-inner-label">Description</label>
                                                                     </div>
                                                                 </div>
-                                                                
+
                                                             </div>
                                                              <?php  if($cnt2 >1) {?>
-  																	
+
                                                             <div class="remove-icon remove-paragraph">
-		                                                             <span class="fa fa-minus "></span> 
+		                                                             <span class="fa fa-minus "></span>
 		                                                       </div>
 		                                                        <?php }?>
                                                         </div>
@@ -653,7 +653,7 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
                                                         <?php $cnt2++ ;} }else{?>
 
                                                         <div class="controls small-control">
-                                                            
+
                                                             <div class="single-filed-section">
                                                                 <div class="row">
                                                                     <div class="col-md-6">
@@ -677,9 +677,9 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
                                                     </div>
                                                 </div>
                                             </div>
-                                            
+
 										</div>
-										
+
 										<div class="product-actions-btn text-right">
 										    <a class="orange-btn" id="open-personalised-box" style="display:<?php echo $product_type==2 ? '':'none'?>">Personalised</a>
 											<button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
@@ -691,7 +691,7 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
 							</div>
 						</div>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->
@@ -708,25 +708,25 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
             });
         })
     })
-   
+
     $(document).ready(function(){
 
 
     var maxField = 10; //Input fields increment limitation
     //Add button selector
     var wrapper = $('.field_wrapper'); //Input field wrapper
-    
+
 
     var wrapper2 = $('.text_field_wrapper');
     var wrapper3 = $('.wapper3');
     var fieldHTML = '<div class="col-md-4"><div class="single-filed-section"><input class="form-control" type="text" name="personial_color[]" value="">'
                                                                         +'<label class="form-inner-label">Color1</label>'
                                                                     +'</div> <div class="remove-icon remove-color"><span class="fa fa-minus"></span></div>';
-                                                                
-                                                            
-                                                            
-                                                            
-                                                            
+
+
+
+
+
      var fieldHTML2 = '<div class="single-filed-section"><div class="row"><div class="col-md-12"> <input class="form-control" type="text" name="personial_title[]" value=""><label class="form-inner-label">Title</label>'
                                                                     +' </div>'
                                                                      +'<div class="col-md-6">'
@@ -738,11 +738,11 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
                                                                         +' <label class="form-inner-label">Character</label>'
                                                                     +' </div>'
                                                                 +' </div> <div class="remove-icon remove-field"><span class="fa fa-minus"></span></div>'
-                                                             +'</div> '; 
-                                                             
-                                                             
+                                                             +'</div> ';
+
+
      var fieldHTML3 ='<div class="controls small-control">'
-                                        
+
                                         +'<div class="single-filed-section">'
                                         +'<div class="row">'
                                         +'<div class="col-md-6">'
@@ -759,17 +759,17 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
                                         +'</div>'
                                         +'</div>'
                                         +'</div><div class="remove-icon remove-paragraph"><span class="fa fa-minus"></span></div>'
-                                        +'</div>';                                                        
+                                        +'</div>';
     var x = 1; //Initial field counter is 1
-    
+
     $('body').on('click', '.add-paragraph', function() {
         //Check maximum number of input fields
-        if(x < maxField){ 
+        if(x < maxField){
             x++; //Increment field counter
             $(wrapper3).append(fieldHTML3); //Add field html
         }
     });
-    
+
     //Once remove button is clicked
     $(wrapper3).on('click', '.remove-paragraph', function(e){
       //  alert('fwfewf');
@@ -777,56 +777,56 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
         $(this).parent('div').remove(); //Remove field html
         x--; //Decrement field counter
     });
-    
-    
-    
+
+
+
      $('body').on('click', '.add-text-field', function() {
         //Check maximum number of input fields
-        if(x < maxField){ 
+        if(x < maxField){
             x++; //Increment field counter
             $(wrapper2).append(fieldHTML2); //Add field html
         }
     });
-    
+
     //Once remove button is clicked
     $(wrapper2).on('click', '.remove-field', function(e){
         e.preventDefault();
         $(this).parent('div').remove(); //Remove field html
         x--; //Decrement field counter
     });
-    
-    
-    
+
+
+
     //Once add button is clicked
     $('body').on('click', '.add-color', function() {
         //Check maximum number of input fields
-        if(x < maxField){ 
+        if(x < maxField){
             x++; //Increment field counter
             $(wrapper).append(fieldHTML); //Add field html
         }
     });
-    
+
     //Once remove button is clicked
     $(wrapper).on('click', '.remove-color', function(e){
         e.preventDefault();
         $(this).parent('div').remove(); //Remove field html
         x--; //Decrement field counter
     });
-    
-    
-    
-    
-});
-    
-    
 
-        
+
+
+
+});
+
+
+
+
   $('body').on('click', '.add-color', function() {
-      
+
     });
-    
+
     $('#menu_id').on('change', function (e) {
-		
+
 		var menu_id=$(this).val();
 		$("#category_id").html('<option value="">Select Category</option>');
 		$("#sub_category_id").html('<option value="">Select Sub Category</option>');
@@ -840,14 +840,14 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
 				processData: false,
 				success: function (data) {
 					$("#category_id").html(data);
-				}	
+				}
 		});
 	});
-	
+
 	$('#category_id').on('change', function (e) {
-		
+
 		$("#sub_category_id").html('<option value="">Select Sub Category</option>');
-		
+
 		var menu_id=$("#menu_id").val();
 		var category_id=$(this).val();
 		$("#sub_category_id").html('<option value="">Select Sub Category</option>');
@@ -861,11 +861,11 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
 				processData: false,
 				success: function (data) {
 					$("#sub_category_id").html(data);
-				}	
+				}
 		});
 	});
-	
-    $(function(){	
+
+    $(function(){
         $(document).on('click', '.btn-add', function(e){
 			e.preventDefault();
 			var controlForm = $('.file-data:first'),
@@ -876,7 +876,7 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
             newEntry.find('input').attr('id',timestamp);
 			var str='return Upload('+timestamp+')';
 			newEntry.find('input').attr('onchange',str);
-			
+
 			controlForm.find('.entry:not(:last) .btn-add')
 				.removeClass('btn-add').addClass('btn-remove')
 				.removeClass('btn-success').addClass('btn-danger')
@@ -888,9 +888,9 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
 			return false;
 		});
     });
-	
+
 	function remove_image(id,image_name){
-		
+
 		$("#submitBtn").attr("disabled", true);
 		$("#img_remove_btn").attr("disabled",true);
 		var product_id=$("#product_id").val();
@@ -904,7 +904,7 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
 				processData: false,
 				success: function (data) {
 					if(data==1){
-					    $("#img_"+id).remove();	
+					    $("#img_"+id).remove();
 					}else{
 						$("#img_remove_btn").attr("disabled",false);
 					}
@@ -913,30 +913,30 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
 				error: function (error) {
                   $("img_remove_btn").attr("disabled", false);
 				  $("#submitBtn").attr("disabled", false);
-				  
+
 				}
 		});
-		
+
 	}
-	
+
 	function bntInActive(id){
-		
+
 		$("#"+id).attr("disabled", true);
-		
+
 	}
  </script>
- 
- 
+
+
  <script>
- 
+
  function Upload(imageId) {
-	 
+
     var fileUpload = document.getElementById(imageId);
     //Check whether the file is valid Image.
     var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|jpge|.png|.gif)$");
     if (regex.test(fileUpload.value.toLowerCase())) {
         if (typeof (fileUpload.files) != "undefined") {
-			
+
             //Initiate the FileReader object.
             var reader = new FileReader();
             //Read the contents of Image File.
@@ -944,41 +944,41 @@ $paragraph=isset($personalise['paragraph']) && !empty($personalise['paragraph'])
             reader.onload = function (e) {
             //Initiate the JavaScript Image object.
             var image = new Image();
-			
+
             //Set the Base64 string return from FileReader as source.
-            image.src = e.target.result;  
+            image.src = e.target.result;
             //Validate the File Height and Width.
             image.onload = function () {
-				
+
                     var height = this.height;
                     var width = this.width;
 					var imagesize=fileUpload.files[0].size;
 					var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
-					
+
 					//alert(imagesize);
 					if(FILE_MAX_SIZE_JS < imagesize){
-						
+
 						$("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
 					    $("#MsgModal").modal('show');
                         return false;
-						
-						
+
+
 					}else if (height != width || height < 800 || width <800  || height > 1500 || width > 1500) {
-						
+
 						document.getElementById(imageId).value='';
 						$("#MsgModal .modal-body").html('<span style="color:red"> Allowed image in only square :minimum image dimensions 800pxX800px and maximum mindimensions 1500pxX1500px</b></span>');
 					    $("#MsgModal").modal('show');
                         return false;
                     }
-       
+
                 };
- 
+
             }
         }
     }
 }
 </script>
- 
+
 <script>
 $(document).ready(function(){
     $("#show-shipping-amount").click(function(){
@@ -987,34 +987,34 @@ $(document).ready(function(){
     $("#hide-shipping-amount").click(function(){
         $(".shipping-amount-area").hide();
     });
-	
+
     $("#open-personalised-box").click(function(){
         $(".personalised-box").toggle();
     });
 	$("#product_type").change(function(){
-		
+
         var product_type=$(this).val();
-		
+
 		if(product_type==2){
-			
+
 		   $("#open-personalised-box").show();
 		   $(".personalised-box").show();
 		   $("#total_upload_image_div").show();
 		}else{
-			
+
 			$("#open-personalised-box").hide();
 		    $(".personalised-box").hide();
 			$("#total_upload_image_div").hide();
 		}
-		
+
     });
-	
+
     pen-personalised-box
     $('body').on('click', '#open-write-character', function() {
-  
+
         $(".write-character").toggle();
     });
-	
+
 
 
 });

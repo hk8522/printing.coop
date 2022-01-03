@@ -1,5 +1,5 @@
 <?php
- 
+
 //root path relative to this include
 $rootPath = __DIR__ . "../../../../";
 

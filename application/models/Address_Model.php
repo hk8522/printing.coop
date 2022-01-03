@@ -170,13 +170,13 @@ Class Address_Model extends MY_Model {
     }
 
 	function getState($country_id=null)
-	{  
+	{
 	    $data=array();
         if($country_id){
 		$this->db->select('*');
         $this->db->from('states');
 		   $this->db->where('country_id',$country_id);
-		
+
 		$this->db->order_by('name','asc');
         $query = $this->db->get();
 		$data=$query->result_array();
@@ -185,14 +185,14 @@ Class Address_Model extends MY_Model {
 
 	}
 	function getCity($state_id=null)
-	{  
+	{
 	    $data=array();
         if($state_id){
-			
+
 		$this->db->select('*');
         $this->db->from('cities');
 		$this->db->where('state_id',$state_id);
-		
+
 		$this->db->order_by('name','asc');
         $query = $this->db->get();
 		$data=$query->result_array();
@@ -200,20 +200,20 @@ Class Address_Model extends MY_Model {
 		return $data;
 
 	}
-    
+
 	function getCountries($country_id="39")
 	{
 		$this->db->select('*');
 		$this->db->from('countries');
 		$this->db->order_by('name','asc');
 		if(!empty($country_id)){
-			
+
 			$this->db->where('id',$country_id);
 		}
 		$query = $this->db->get();
 		$data=$query->result_array();
 		return $data;
-		
+
 	}
 	function getStateById($id)
 	{
@@ -260,10 +260,10 @@ Class Address_Model extends MY_Model {
         $query = $this->db->get();
 		$data=(array)$query->row();
 		return $data;
-		
+
 
 	}
-	
+
 }
 
 ?>

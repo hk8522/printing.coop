@@ -1,13 +1,13 @@
 <?php
 
 Class Datatable_Model extends MY_Model {
-	
+
     public $table='';
 	public $column_order='';
 	public $column_search='';
-	
+
 	/*function __construct() {
-		
+
         /// Set table name
         $this->table = 'members';
         // Set orderable column fields
@@ -16,15 +16,15 @@ Class Datatable_Model extends MY_Model {
         $this->column_search = array('first_name','last_name','email','gender','country','created','status');
         // Set default order
         $this->order = array('first_name' => 'asc');
-		
+
     }*/
-    
+
     /*
      * Fetch members data from the database
      * @param $_POST filter data based on the posted parameters
      */
     public function getRows($postData){
-		
+
         $this->_get_datatables_query($postData);
         if($postData['length'] != -1){
             $this->db->limit($postData['length'], $postData['start']);
@@ -32,7 +32,7 @@ Class Datatable_Model extends MY_Model {
         $query = $this->db->get();
         return $query->result();
     }
-    
+
     /*
      * Count all records
      */
@@ -40,7 +40,7 @@ Class Datatable_Model extends MY_Model {
         $this->db->from($this->table);
         return $this->db->count_all_results();
     }
-    
+
     /*
      * Count records based on the filter params
      * @param $_POST filter data based on the posted parameters
@@ -50,17 +50,17 @@ Class Datatable_Model extends MY_Model {
         $query = $this->db->get();
         return $query->num_rows();
     }
-    
+
     /*
      * Perform the SQL queries needed for an server-side processing requested
      * @param $_POST filter data based on the posted parameters
      */
     private function _get_datatables_query($postData){
-         
+
         $this->db->from($this->table);
- 
+
         $i = 0;
-        // loop searchable columns 
+        // loop searchable columns
         /*foreach($this->column_search as $item){
             // if datatable send POST for search
             if($postData['search']['value']){
@@ -72,7 +72,7 @@ Class Datatable_Model extends MY_Model {
                 }else{
                     $this->db->or_like($item, $postData['search']['value']);
                 }
-                
+
                 // last loop
                 if(count($this->column_search) - 1 == $i){
                     // close bracket
@@ -81,7 +81,7 @@ Class Datatable_Model extends MY_Model {
             }
             $i++;
         }*/
-		
+
         if(isset($postData['order'])){
             $this->db->order_by($this->column_order[$postData['order']['0']['column']], $postData['order']['0']['dir']);
         }else if(isset($this->order)){

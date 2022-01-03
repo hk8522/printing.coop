@@ -61,7 +61,7 @@ class GetDhlEcommOpenShipmentsTests extends TestCase{
 
     public function testBySenderPhone(){
         $this->expectException(GetShipmentListException::class);
-        $this->assertNull($this->getBySenderPhone('317746883')); 
+        $this->assertNull($this->getBySenderPhone('317746883'));
     }
 
     public function testGetBySenderCompany(){
@@ -80,7 +80,7 @@ class GetDhlEcommOpenShipmentsTests extends TestCase{
                                                     ->setMethods(['execute'])
                                                     ->getMock();
         $this->openShipmentsRequest = $this->getDhlEcommOpenShipmentsRequest->execute();
-        
+
         $response =     '[
             {
                 "id": 3372182,
@@ -429,7 +429,7 @@ class GetDhlEcommOpenShipmentsTests extends TestCase{
                         "local_tracking_number": null
                     }
                 ]
-            },  
+            },
         ]';
 
         $this->shipmentsList =  new GetShipmentListCollection(json_decode($response));

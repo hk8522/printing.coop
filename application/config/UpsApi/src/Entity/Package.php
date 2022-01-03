@@ -41,7 +41,7 @@ class Package implements NodeInterface
      * @var ReferenceNumber
      */
     private $referenceNumber;
-    
+
     /**
      * @var ReferenceNumber
      */
@@ -169,7 +169,7 @@ class Package implements NodeInterface
         ) {
             $packageNode->appendChild($this->getReferenceNumber()->toNode($document));
         }
-        
+
         if ($this->getReferenceNumber2()
             && !is_null($this->getReferenceNumber2()->getCode())
             && !is_null($this->getReferenceNumber2()->getValue())
@@ -344,7 +344,7 @@ class Package implements NodeInterface
     {
         $this->referenceNumber = null;
     }
-    
+
     /**
      * @return ReferenceNumber
      */

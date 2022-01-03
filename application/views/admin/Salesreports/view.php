@@ -27,7 +27,7 @@
                                                             <div class="col-md-12">
                                                                 <div class="product-view-display">
                                                                 	<span><?php echo ucfirst($Product['menu_name']);?></span>
-                                                                </div>																	
+                                                                </div>
                                                                 <label class="form-inner-label">Menu </label>
                                                             </div>
                                                             <div class="col-md-6">
@@ -46,13 +46,13 @@
                                                     </div>
                                                 </div>
 											</div>
-										</div>				
+										</div>
 										<div class="control-group info">
 											<div class="row align-items-center">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame"> Product Name</label>
 												</div>
-                                                <div class="col-md-8">	
+                                                <div class="col-md-8">
 													<div class="controls">
 														<div class="product-view-display">
 	                                                        <span><?php echo ucfirst($Product['name']);?></span>
@@ -60,7 +60,7 @@
 													</div>
 												</div>
 											</div>
-										</div>	
+										</div>
 										<div class="control-group info">
 											<div class="row align-items-center">
 												<div class="col-md-4">
@@ -88,10 +88,10 @@
 													</div>
 												</div>
 											</div>
-										</div>							
+										</div>
 										<div class="control-group info">
 											<div class="row">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame">Product Price</label>
 												</div>
 												<div class="col-md-8">
@@ -116,7 +116,7 @@
 										</div>
 										<div class="control-group info">
 											<div class="row">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame">Product Attributes</label>
 												</div>
 												<div class="col-md-8">
@@ -174,21 +174,21 @@
                                                     </div>
                                                 </div>
 											</div>
-										</div>		
+										</div>
 										<div class="control-group info">
 											<div class="row">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame">Product Tags</label>
 												</div>
 												<div class="col-md-8">
                                                     <div class="controls small-controls">
                                                         <div class="row">
                                                         	<div class="col-md-6">
-                                                        		<?php 
+                                                        		<?php
 																$is_featured=isset($Product['is_featured']) ? $Product['is_featured']:'';
 																$cehecked='No';
 																if($is_featured==1){
-																	
+
 																	$cehecked='Yes';
 																}
 																?>
@@ -197,11 +197,11 @@
 			                                                    </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                        		<?php 
+                                                        		<?php
 																$is_special=isset($Product['is_special']) ? $Product['is_special']:'';
 																$cehecked='No';
 																if($is_special==1){
-																	
+
 																	$cehecked='No';
 																}
 																?>
@@ -210,11 +210,11 @@
 			                                                    </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                        		<?php 
+                                                        		<?php
 																$is_bestseller=isset($Product['is_bestseller']) ? $Product['is_bestseller']:'';
 																$cehecked='No';
 																if($is_bestseller==1){
-																	
+
 																	$cehecked='Yes';
 																}
 																?>
@@ -223,11 +223,11 @@
 			                                                    </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                        		<?php 
+                                                        		<?php
 																$is_bestdeal=isset($Product['is_bestdeal']) ? $Product['is_bestdeal']:'';
 																$cehecked='No';
 																if($is_bestdeal==1){
-																	
+
 																	$cehecked='Yes';
 																}
 																?>
@@ -236,11 +236,11 @@
 			                                                    </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                        		<?php 
+                                                        		<?php
 																$is_stock=isset($Product['is_stock']) ? $Product['is_stock']:'';
 																$cehecked='No';
 																if($is_stock==1){
-																	
+
 																	$cehecked='Yes';
 																}
 																?>
@@ -249,11 +249,11 @@
 			                                                    </div>
                                                             </div>
                                                             <div class="col-md-6">
-                                                        		<?php 
+                                                        		<?php
 																$is_today_deal=isset($Product['is_stock']) ? $Product['is_today_deal']:'';
 																$cehecked='No';
 																if($is_today_deal==1){
-																	
+
 																	$cehecked='Yes';
 																}
 																?>
@@ -276,7 +276,7 @@
                                                     </div>
                                                 </div>
 											</div>
-										</div>			
+										</div>
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -303,7 +303,7 @@
                                         </div>
                                         <div class="control-group info">
                                         	<div class="row">
-												<?php 
+												<?php
 												foreach($ProductImages as $key=>$list){ ?>
 													<div class="control-group info col-sm-4">
 															<div class="controls">
@@ -311,8 +311,8 @@
 																  <img src="<?php echo $imageurl?>" width="100%" height="auto">
 															</div>
 													 </div>
-												<?php 
-												}?> 
+												<?php
+												}?>
 											</div>
 										</div>
 										<div class="text-right">
@@ -323,7 +323,7 @@
 							</div>
 						</div>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->

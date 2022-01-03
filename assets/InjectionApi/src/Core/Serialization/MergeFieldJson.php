@@ -5,9 +5,9 @@ namespace Socketlabs\Core\Serialization;
  * To be serialized into JSON string before sending to the Injection Api.
  */
 class MergeFieldJson {
- 
+
     /**
-     * Gets or sets the merge field. 
+     * Gets or sets the merge field.
      */
     public $Field;
 

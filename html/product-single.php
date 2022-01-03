@@ -4,8 +4,8 @@
     <div class="container">
         <div class="page-title-section-inner universal-half-spacing">
             <div class="inner-breadcrum">
-                <a href="index.php">Home</a> 
-                / 
+                <a href="index.php">Home</a>
+                /
                 <span class="current">Product Single</span>
             </div>
         </div>
@@ -180,7 +180,7 @@
                                                         <button type="submit" title="Delete"><i class="las la-trash"></i></button>
                                                     </div>
                                                 </div>
-                                            </div>                                            
+                                            </div>
                                             <div class="upload-field">
                                                 <textarea type="text"></textarea>
                                             </div>
@@ -188,7 +188,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>                      
+                        </div>
                         <div class="quant-cart">
                             <button class="cart-adder" type="submit">
                                 <span class="after-click" style="display: none;"><i class="las la-check-circle"></i> Product Added</span>
@@ -202,7 +202,7 @@
         </div>
         <div class="shop-single-elements">
             <div class="featured-tabs tab">
-                <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'Description')">Description</button>             
+                <button class="tablinks" id="defaultOpen" onclick="openCity(event, 'Description')">Description</button>
                 <button class="tablinks" onclick="openCity(event, 'Reviews')">Reviews (1)</button>
             </div>
             <div class="featured-tab-output">

@@ -5,7 +5,7 @@ use \PHPUnit\Framework\TestCase;
 use Flagship\Shipping\Objects\Shipment;
 
 class EditShipmentTests extends TestCase{
- 
+
     public function testGetId(){
         $this->assertNotEmpty($this->editShipment->getId());
         $this->assertNotNull($this->editShipment->getId());
@@ -298,7 +298,7 @@ class EditShipmentTests extends TestCase{
             "weight": 10,
             "description": null
         }')
-  
+
         ];
 
         $this->assertNotEmpty($this->editShipment->getItemsDetails());
@@ -401,7 +401,7 @@ class EditShipmentTests extends TestCase{
 
     $this->editShipment = $this->getMockBuilder(Shipment::class)
                           ->setConstructorArgs([json_decode($response)])
-                          ->setMethods(['__construct']) 
+                          ->setMethods(['__construct'])
                           ->getMock();
     }
 }

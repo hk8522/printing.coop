@@ -5,17 +5,17 @@
 						<div class="quote-bottom-row summary-deatil">
 							<div class="summary-deatil-inner">
 								<div class="shipping-method-fields">
-								    
-									    <?php 
+
+									    <?php
 									     $shipping_method_formate=$PostData['shipping_method_formate'];
 									    ?>
-										 
+
 										 <?php
 										      $upsServiceCode=upsServiceCode();
 										      //pr($total_charges_ups);
                                               foreach($total_charges_ups as $key=>$val){
-												  
-												$value='ups-'.$val->TotalCharges->MonetaryValue.'-'.$val->Service->Code; 									 
+
+												$value='ups-'.$val->TotalCharges->MonetaryValue.'-'.$val->Service->Code;
 										  ?>
                                           <div class="shipping-metthod-single">
                                               <label>
@@ -34,15 +34,15 @@
                                                   </div>
                                               </label>
                                           </div>
-										  
-							           <?php 
-									   
+
+							           <?php
+
 									   }?>
 									   <?php
-										      
+
                                             foreach($CanedaPostShiping['list'] as $key=>$val){
-												  
-												$value='canadapost-'.$val['price'].'-'.$val['service_name']; 									 
+
+												$value='canadapost-'.$val['price'].'-'.$val['service_name'];
 										  ?>
                                           <div class="shipping-metthod-single">
                                               <label>
@@ -63,17 +63,17 @@
                                                   </div>
                                               </label>
                                           </div>
-										  
-							           <?php 
-									   
-									    }?> 
+
+							           <?php
+
+									    }?>
 										<?php
 									    foreach($PickupStoresList as $key=>$val){
-											
+
 										   $value='pickupinstore-0.00-'.$val['id'];
-										   
+
 										?>
-										
+
                                         <div class="shipping-metthod-single">
                                               <label>
                                                   <input type="radio" name="shipping_method_formate" value="<?php echo $value?>" <?php echo $shipping_method_formate==$value ? "checked":"" ?> class="shipping_method_formate">
@@ -98,9 +98,9 @@
                                                   </div>
                                               </label>
                                           </div>
-										<?php 
+										<?php
 										}?>
-									
+
 								</div>
 							</div>
 						</div>

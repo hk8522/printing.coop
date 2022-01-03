@@ -112,7 +112,7 @@
                                     </div>
                                     <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
                    <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="product_id">
- <div class="form-role-area">										        
+ <div class="form-role-area">
 <div class="control-group info">
 	<div class="row">
 		<div class="col-md-12 col-lg-12 col-xl-3" style="">
@@ -121,9 +121,9 @@
         <div class="col-md-12 col-lg-12 col-xl-9">
            <div class="controls small-controls">
 <?php
-//pr($ProductSizes);			
+//pr($ProductSizes);
 foreach($quantity as $qkey=>$qval){
-	
+
 	$ProductSizesByQTY=isset($ProductSizes[$qkey]) ? $ProductSizes[$qkey]:array();
 	$qty_extra_price=isset($ProductSizesByQTY['price']) ? $ProductSizesByQTY['price']:'';
 	$sizeData=isset($ProductSizesByQTY['sizeData']) ? $ProductSizesByQTY['sizeData']:'';
@@ -134,7 +134,7 @@ foreach($quantity as $qkey=>$qval){
             <div class="col-7 col-md-8">
                 <label class="span2">
                     <input type="checkbox" value="<?php echo $qkey?>" name="quantity[]" id="quantity_attribute_id_<?php echo $qkey?>" <?php if(array_key_exists($qkey,$ProductSizes)) echo "checked"?> onchange="addActiveQuantitySizeClass('<?php echo $qkey?>')">
-	                <?php echo $qval;?>		
+	                <?php echo $qval;?>
                 </label>
             </div>
             <div class="col-5 col-md-4">
@@ -145,51 +145,51 @@ foreach($quantity as $qkey=>$qval){
    	        </div>
 	    </div>
     </div>
-	
-	<div class="attribute-single" id="quantity_attribute_id_div_<?php echo $qkey?>" style="display:<?php echo array_key_exists($qkey,$ProductSizes) ? '' :'none'?>; padding: 10px 10px 10px 25px; background: #f5f5f5;">																    
-        <?php foreach($sizes as $key=>$val){  										
-            $items=isset($ProductSizes[$key]) ? $ProductSizes[$key]:array();		
+
+	<div class="attribute-single" id="quantity_attribute_id_div_<?php echo $qkey?>" style="display:<?php echo array_key_exists($qkey,$ProductSizes) ? '' :'none'?>; padding: 10px 10px 10px 25px; background: #f5f5f5;">
+        <?php foreach($sizes as $key=>$val){
+            $items=isset($ProductSizes[$key]) ? $ProductSizes[$key]:array();
             $size_extra_price='';
-            $size_extra_price=isset($items['extra_price']) ? $items['extra_price']:'';		
+            $size_extra_price=isset($items['extra_price']) ? $items['extra_price']:'';
           ?>
-        												   
-        <div class="attribute-single <?php if(array_key_exists($key,$ProductSizesByQTY)) echo "active"?>" id="size_attribute_id_div_<?php echo $qkey?>_<?php echo $key?>"> 
+
+        <div class="attribute-single <?php if(array_key_exists($key,$ProductSizesByQTY)) echo "active"?>" id="size_attribute_id_div_<?php echo $qkey?>_<?php echo $key?>">
 		    <!-- Toggle "active" class when clicked on input(checkbox) below -->
 		    <div class="attribute-single-title">
 	           <div class="row align-items-center">
 	               <div class="col-7 col-md-8">
 	                   <label class="span2">
 	                       <input type="checkbox" value="<?php echo $key?>" name="size_attribute_id_<?php echo $qkey?>[]"  id="size_attribute_id_<?php echo $qkey?>_<?php echo $key?>"  <?php if(array_key_exists($key,$ProductSizesByQTY)) echo "checked"?> onchange="addActiveSizeClass('<?php echo $qkey?>_<?php echo $key?>')">
-	                       <?php echo $val;?>		
+	                       <?php echo $val;?>
                         </label>
                     </div>
                     <div class="col-5 col-md-4">
                         <div class="attribute-single-inner">
-                            <input type="text"  name="size_extra_price_<?php echo $qkey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control" value="<?php echo showValue($size_extra_price)?>"> 
+                            <input type="text"  name="size_extra_price_<?php echo $qkey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control" value="<?php echo showValue($size_extra_price)?>">
 							<label class="form-inner-label">Extra Price</label>
                         </div>
                     </div>
                 </div>
             </div>
 		    <div class="for-att-multi attribute-info <?php echo $qkey.'_'.$key?>SizeQuantity">
-                <?php 
+                <?php
 				/*$items=isset($ProductSizesByQTY[$key]) ? $ProductSizesByQTY[$key]:array();*/
-				
-    				if(!empty($items)){		
+
+    				if(!empty($items)){
                     $last=count($items)-1;
     		        foreach($items as $subkey=>$subval){ #pr($subval);
 		        ?>
                 <div class="row <?php echo $qkey.'_'.$key?>sqddata">
             		<div class="col-md-12">
-            			<?php 
+            			<?php
 							$displayplusnbtn='none';
 						    $displayminusbtn='';
-            				if($last==0){  
-        						$displayplusnbtn=''; 
+            				if($last==0){
+        						$displayplusnbtn='';
         						$displayminusbtn='none';
         					}
                             else if($last==$subkey){
-        				        $displayplusnbtn=''; 
+        				        $displayplusnbtn='';
             				    $displayminusbtn='';
             				}
                         ?>
@@ -215,9 +215,9 @@ foreach($quantity as $qkey=>$qval){
                                     <div class="attribute-single-info-inner">
 									    <select name="paper_quality_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
         									<option value="">--Select--</option>
-        									<?php 
+        									<?php
             									foreach($PaperQualityList as $list){
-            										$selected='';	
+            										$selected='';
             									    if($list['name']==$subval['paper_quality']){
             										$selected='selected="selected"';
     									        }
@@ -229,7 +229,7 @@ foreach($quantity as $qkey=>$qval){
                                 </div>
                             </div>
                         </div>
-					</div>						    
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -242,12 +242,12 @@ foreach($quantity as $qkey=>$qval){
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">									
+                                    <div class="attribute-single-info-inner">
                                         <select name="ncr_number_parts_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
         									<option value="">
         									--Select--
         									</option>
-        									<?php 
+        									<?php
         									foreach($NCRNumberPartsList as $NCRPart){
                         							$selected='';
                         							if($subval['ncr_number_parts']==$NCRPart['name']){
@@ -278,12 +278,12 @@ foreach($quantity as $qkey=>$qval){
                                     <div class="attribute-single-info-inner">
     									<select name="stock_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
         									<option value="">
-        									 --Select-- 
+        									 --Select--
         									</option>
-        									<?php 
+        									<?php
         									foreach($StockList as $list){
-        										
-        									   $selected='';	
+
+        									   $selected='';
         									   if($list['name']==$subval['stock']){
         										$selected='selected="selected"';
         									   }
@@ -296,7 +296,7 @@ foreach($quantity as $qkey=>$qval){
                                 </div>
                             </div>
                         </div>
-					</div>						
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -312,12 +312,12 @@ foreach($quantity as $qkey=>$qval){
                                     <div class="attribute-single-info-inner">
     									<select name="color_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
         									<option value="">
-        									 --Select-- 
+        									 --Select--
         									</option>
-        									<?php 
+        									<?php
         									foreach($ColorList as $list){
-        										
-        										$selected='';	
+
+        										$selected='';
         									   if($list['name']==$subval['color']){
         										$selected='selected="selected"';
         									   }
@@ -329,7 +329,7 @@ foreach($quantity as $qkey=>$qval){
                                 </div>
                             </div>
                         </div>
-					</div>                         
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -345,11 +345,11 @@ foreach($quantity as $qkey=>$qval){
                                     <div class="attribute-single-info-inner">
     									<select name="diameter_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
         									<option value="">
-        									 --Select-- 
+        									 --Select--
         									</option>
-        									<?php 
+        									<?php
         									foreach($DiameterList as $list){
-        									   $selected='';	
+        									   $selected='';
         									   if($list['name']==$subval['diameter']){
         										$selected='selected="selected"';
         									   }
@@ -362,7 +362,7 @@ foreach($quantity as $qkey=>$qval){
                                 </div>
                             </div>
                         </div>
-					</div>				
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -375,14 +375,14 @@ foreach($quantity as $qkey=>$qval){
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">									
+                                    <div class="attribute-single-info-inner">
     									<select name="shape_paper_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
         									<option value="">
-        									 --Select-- 
+        									 --Select--
         									</option>
-        									<?php 
+        									<?php
                         						foreach($ShapePaperList as $list){
-                        								$selected='';	
+                        								$selected='';
                         								if($list['name']== $subval['shape_paper']){
         										$selected='selected="selected"';
         									   }
@@ -408,14 +408,14 @@ foreach($quantity as $qkey=>$qval){
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">									
+                                    <div class="attribute-single-info-inner">
     									<select name="grommets_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
         									<option value="">
-        									 --Select-- 
+        									 --Select--
         									</option>
-        									<?php 
+        									<?php
                         						foreach($Grommets as $list){
-                        								$selected='';	
+                        								$selected='';
                         								if($list['name']== $subval['grommets']){
         										$selected='selected="selected"';
         									   }
@@ -429,13 +429,13 @@ foreach($quantity as $qkey=>$qval){
                             </div>
                         </div>
 					</div>
-					
-					
+
+
 				</div>
 
         		<?php }
         		}else{?>
-		
+
                 <div class="row <?php echo $qkey.'_'.$key?>sqddata">
                     <div class="col-md-12">
             			<div class="attribute-single-info-inner">
@@ -444,7 +444,7 @@ foreach($quantity as $qkey=>$qval){
                                 <button class="btn btn-success <?php echo $qkey.'_'.$key?>sqbtn-add" type="button" onclick="AddRow($(this),'<?php echo $qkey.'_'.$key?>')"><span class="fa fa-plus"></span></button>
                             </span>
 	                    </div>
-                    </div>													            
+                    </div>
     				<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -460,9 +460,9 @@ foreach($quantity as $qkey=>$qval){
                                     <div class="attribute-single-info-inner">
 									<select name="paper_quality_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
 									<option value="">
-									 --Select-- 
+									 --Select--
 									</option>
-									<?php 
+									<?php
 									foreach($PaperQualityList as $list){
 									?>
 									<option value='<?php echo $list['name']?>'><?php echo $list['name']?>
@@ -473,7 +473,7 @@ foreach($quantity as $qkey=>$qval){
                                 </div>
                             </div>
                         </div>
-					</div>                           
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -481,17 +481,17 @@ foreach($quantity as $qkey=>$qval){
                                     <label class="form-inner-label">NCR Number of Parts</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">                                           
+                                    <div class="attribute-single-info-inner">
                                         <input type="text" value="" name="ncr_number_part_price_<?php echo $qkey?>_<?php echo $key?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-12">											
-                                    <div class="attribute-single-info-inner">											
+                                <div class="col-md-12">
+                                    <div class="attribute-single-info-inner">
                                         <select name="ncr_number_parts_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
 										<option value="">
 										--Select--
 										</option>
-										<?php 
+										<?php
 										foreach($NCRNumberPartsList as $NCRPart){
 										?>
 										<option value='<?php echo $NCRPart['name']?>'><?php echo $NCRPart['name']?>
@@ -502,7 +502,7 @@ foreach($quantity as $qkey=>$qval){
                                 </div>
                             </div>
                         </div>
-					</div>							
+					</div>
 				<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -518,9 +518,9 @@ foreach($quantity as $qkey=>$qval){
                                     <div class="attribute-single-info-inner">
 										<select name="stock_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
 										<option value="">
-										 --Select-- 
+										 --Select--
 										</option>
-										<?php 
+										<?php
 										foreach($StockList as $list){
 										?>
 										<option value='<?php echo $list['name']?>'><?php echo $list['name']?>
@@ -531,7 +531,7 @@ foreach($quantity as $qkey=>$qval){
                                 </div>
                             </div>
                         </div>
-					</div>							
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -547,9 +547,9 @@ foreach($quantity as $qkey=>$qval){
                                     <div class="attribute-single-info-inner">
 										<select name="color_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
 										<option value="">
-										 --Select-- 
+										 --Select--
 										</option>
-										<?php 
+										<?php
 										foreach($ColorList as $list){
 										?>
 										<option value='<?php echo $list['name']?>'><?php echo $list['name']?>
@@ -560,7 +560,7 @@ foreach($quantity as $qkey=>$qval){
                                 </div>
                             </div>
                         </div>
-					</div>							
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -576,9 +576,9 @@ foreach($quantity as $qkey=>$qval){
                                     <div class="attribute-single-info-inner">
 										<select name="diameter_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
 										<option value="">
-										 --Select-- 
+										 --Select--
 										</option>
-										<?php 
+										<?php
 										foreach($DiameterList as $list){
 										?>
 										<option value='<?php echo $list['name']?>'><?php echo $list['name']?>
@@ -590,7 +590,7 @@ foreach($quantity as $qkey=>$qval){
                             </div>
                         </div>
 					</div>
-					
+
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -606,9 +606,9 @@ foreach($quantity as $qkey=>$qval){
                                     <div class="attribute-single-info-inner">
 										<select name="shape_paper_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
 										<option value="">
-										 --Select-- 
+										 --Select--
 										</option>
-										<?php 
+										<?php
 										foreach($ShapePaperList as $list){
 										?>
 										<option value='<?php echo $list['name']?>'><?php echo $list['name']?>
@@ -620,7 +620,7 @@ foreach($quantity as $qkey=>$qval){
                             </div>
                         </div>
 					</div>
-					
+
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -636,9 +636,9 @@ foreach($quantity as $qkey=>$qval){
                                     <div class="attribute-single-info-inner">
 										<select name="grommets_<?php echo $qkey?>_<?php echo $key?>[]" class="form-control">
 										<option value="">
-										 --Select-- 
+										 --Select--
 										</option>
-										<?php 
+										<?php
 										foreach($Grommets as $list){
 										?>
 										<option value='<?php echo $list['name']?>'><?php echo $list['name']?>
@@ -651,20 +651,20 @@ foreach($quantity as $qkey=>$qval){
                         </div>
 					</div>
 				</div>
-                															    
+
         		<?php }?>
     		</div>
 	    </div>
-        												 
+
         <?php }?>
     </div>
 </div>
-	  
+
 <?php }?>
 		    </div>
 	    </div>
 	</div>
-</div> 									
+</div>
   <div class="product-actions-btn text-right">
                                             <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
                                             <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
@@ -693,26 +693,26 @@ foreach($quantity as $qkey=>$qval){
 <script>
 
 	function AddRow(cr,id){
-		    
+
 		    var controlForm = $('.'+id+'SizeQuantity:first'),
 			currentEntry = cr.parents('.'+id+'sqddata:first'),
 			newEntry = $(currentEntry.clone()).appendTo(controlForm);
-			
+
 			newEntry.find('input').val('');
 			newEntry.find('textarea').val('');
 			newEntry.find('select').val('');
-			
-			var timestamp = new Date().getUTCMilliseconds();		
+
+			var timestamp = new Date().getUTCMilliseconds();
 			newEntry.find('input').attr('id',timestamp);
-			
+
 			newEntry.find('.'+id+'sqbtn-remove').show();
 			controlForm.find('.'+id+'sqbtn-remove').show();
 			controlForm.find('.'+id+'sqbtn-add').hide();
 			newEntry.find('.'+id+'sqbtn-add').show();
 	}
-	
+
 	function RemoveRow(cr,id){
-		
+
 		    cr.parents('.'+id+'sqddata:first').remove();
 			var numItems = $('.'+id+'SizeQuantity .'+id+'sqddata').length;
 			var controlForm = $('.'+id+'SizeQuantity .'+id+'sqddata').last();
@@ -726,61 +726,61 @@ foreach($quantity as $qkey=>$qval){
 			return false;
 	}
 	function isNumber(evt) {
-		
+
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode
         if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
             return false;
 
         return true;
     }
-	
+
 	function addActiveClass(id){
-		
+
 		if($("#attribute_id_"+id).prop("checked") == true){
 			$("#attribute_id_div_"+id).addClass('active');
 		}else{
 			$("#attribute_id_div_"+id).removeClass('active');
-		}		
+		}
 	}
-	
+
 	function setAttributesetItemId(id){
 		//alert(id);
-		
+
 		if($("#"+id).prop("checked") == true){
-			
+
 			$("#hidden_"+id).val($("#"+id).val());
 		}else{
-			
+
 			$("#hidden_"+id).val('');
 		}
-	   	
+
 	}
-	
+
 	function addActiveSizeClass(id){
-		
+
 		if($("#size_attribute_id_"+id).prop("checked") == true){
-			
+
 			$("#size_attribute_id_div_"+id).addClass('active');
 		}else{
-			
+
 			$("#size_attribute_id_div_"+id).removeClass('active');
-		}	
-	   	
+		}
+
 	}
-	
+
 	function addActiveQuantitySizeClass(id){
-		
-		
-		
+
+
+
 		if($("#quantity_attribute_id_"+id).prop("checked") == true){
-			
-			
+
+
 			$("#quantity_attribute_id_div_"+id).show();
-			
+
 		}else{
-			
+
 			$("#quantity_attribute_id_div_"+id).hide();
-		}	
-	   	
+		}
+
 	}
 </script>

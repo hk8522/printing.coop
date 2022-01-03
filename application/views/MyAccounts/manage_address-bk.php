@@ -7,7 +7,7 @@
                     <!--    <div class="today-deal-title">-->
                     <!--        <span>Manage Address</span>-->
                     <!--    </div>-->
-                        
+
                     <!--</div>-->
                 </div>
 <div class="col-md-9">
@@ -97,7 +97,7 @@
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
 </div>
 <div class="col-md-3 desktop-account">
    <?php $this->load->view('elements/my-account-menu');?>
@@ -203,7 +203,7 @@
                 </div>
             </div>
         </div>
-    </div>   
+    </div>
 </div>
 <div class="col-md-3 desktop-account">
    <?php $this->load->view('elements/my-account-menu');?>

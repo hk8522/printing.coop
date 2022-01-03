@@ -49,9 +49,9 @@ Class SubCategory_Model extends MY_Model {
 			$this->db->where('status', 1);
 
 			if ($menu_id && $category_id) {
-				
+
 			   $this->db->where([ 'menu_id' => $menu_id, 'category_id' => $category_id ]);
-			   
+
 	         } elseif ($category_id) {
 					$this->db->where('category_id', $category_id);
 			} elseif ($menu_id) {

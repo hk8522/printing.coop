@@ -1,6 +1,6 @@
-<?php 
+<?php
 								if(count($lists) > 0){
-									
+
 									foreach($lists as $key=>$list){
 									?>
 										<tr id="row-<?php echo $list['id'];?>">
@@ -17,11 +17,11 @@
 											</td>
 										</tr>
 								<?php
-                                   								
+
 								    }
 								}else{?>
 								    <tr>
 									<td colspan="5" class="text-center">List Empty.</td>
 								    </tr>
-								<?php 
+								<?php
 								}?>

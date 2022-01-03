@@ -5,7 +5,7 @@ namespace Socketlabs\Core\Serialization;
  * To be serialized into JSON string before sending to the Injection Api.
  */
 class MessageJson  {
- 
+
     /**
      * Gets or sets the list of To recipients.
      */
@@ -19,7 +19,7 @@ class MessageJson  {
     /**
      * Gets or sets the list of BCC recipients.
      */
-    public $Bcc = array(); 
+    public $Bcc = array();
 
     /**
      * Gets or sets the From address.
@@ -37,7 +37,7 @@ class MessageJson  {
     public $MergeData;
 
     /**
-     * Gets or sets the plain text portion of the message body.        
+     * Gets or sets the plain text portion of the message body.
      */
     public $TextBody;
 
@@ -65,7 +65,7 @@ class MessageJson  {
      * The optional character set for your message.
      */
     public $CharSet;
- 
+
     /**
      * Gets or sets the Reply To address.
      */
@@ -88,5 +88,5 @@ class MessageJson  {
     public function __construct()
     {
         $this->MergeData = new MergeDataJson();
-    } 
+    }
 }

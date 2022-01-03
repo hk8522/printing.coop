@@ -235,10 +235,10 @@ function pr($array,$debug=false){
 function getProductImage($imageName=null,$type='small'){
 
 	$imageurl='';
-	
-	
+
+
     if(!empty($imageName)){
-		
+
 		switch($type){
 			case 'small':
 			    if(file_exists(PRODUCT_IMAGE_SMALL_BASE_PATH.$imageName))
@@ -258,7 +258,7 @@ function getProductImage($imageName=null,$type='small'){
 
 		}
 	}else{
-		
+
 		if(empty($imageurl))
 		   $imageurl=PRODUCT_DEFAULT_IMAGE_URL;
 	}
@@ -486,57 +486,57 @@ function getRate($rate)
 	    $k = array_rand($array);
 	    return $array[$k];
     }
-	
+
     function showValue($val){
-		
+
 		$explode=explode(".",$val);
 		$newVal='';
 		if(empty($val) || $val =='0' || $val =='0.0' || $val =='0.00' || $val =='0.000' || $val =='0.0000'){
-			
+
 			return $newVal;
-			
+
 		}else if(empty($explode[1])  || $explode[1] =='0' || $explode[1] =='00' || $explode[1] =='000' || $explode[1] =='0000'){
-			
+
 			$newVal=$explode[0];
-			
+
 		}else if(!empty($explode[1])){
-			
+
 			$d1=substr($explode[1],0,1);
 			$d2=substr($explode[1],1,1);
 			$d3=substr($explode[1],2,1);
 		    $d4=substr($explode[1],3,1);
-		
+
 			if($d1 !=0 && $d2==0 && $d3==0 && $d4==0){
-				
+
 				$newVal=$explode[0].".".$d1;
-				
+
 			}else if($d1 ==0 && $d2 !=0 && $d3==0 && $d4==0){
-				
+
 				$newVal=$explode[0].".".$d1.$d2;
-				
+
 			}else if($d1 ==0 && $d2 ==0 && $d3 !=0 && $d4==0){
-				
+
 				$newVal=$explode[0].".".$d1.$d2.$d3;
-				
+
 			}else if($d1 ==0 && $d2 ==0 && $d3 ==0 && $d4 !=0){
-				
+
 				$newVal=$explode[0].".".$d1.$d2.$d3.$d4;
-				
+
 			}
 			else if($d1 !=0 && $d2 !=0 && $d3 !=0 && $d4!=0){
-				
+
 				$newVal=$val;
 			}else if($d1 !=0 && $d2 !=0 && $d3 ==0 && $d4==0){
-				
+
 				$newVal=$explode[0].".".$d1.$d2;
 			}else if($d1 ==0 && $d2 !=0 && $d3 !=0 && $d4==0){
-				
+
 				$newVal=$explode[0].".".$d1.$d2.$d3;
 			}else if($d1 ==0 && $d2 !=0 && $d3 ==0 && $d4!=0){
-				
+
 				$newVal=$explode[0].".".$d1.$d2.$d3.$d4;
 			}
-			
+
 		}
 		if(!empty($newVal)){
 			return $newVal;
@@ -585,7 +585,7 @@ function getRate($rate)
 	   $NCRParts=array('2 copies','3 copies','4 copies','2-Part Set (White/Yellow)','3-Part Set (White/Yellow/Pink)','4-Part Set (White/Yellow/Pink/Gold)','No parts only white  paper printer');
 
        return $NCRParts;
-	   
+
     }
    function getOrderSatus($status=null){
 
@@ -617,7 +617,7 @@ function getRate($rate)
 		   return $statusData;
 	   }
     }
-	
+
 	function getOrderSatusFrench($status=null){
 
 
@@ -698,8 +698,8 @@ function getRate($rate)
 
 
     }
-	
-	
+
+
 
 	function getDiscountType(){
 
@@ -710,19 +710,19 @@ function getRate($rate)
 
 
     }
-	
+
     function getOrderPaymentMethod($status){
 
 	   $statusData=array('DC'=>'Debit Card','CC'=>'Credit Card','NB'=>'Net Banking');
 	    if(isset($statusData[$status])){
-			
+
 	       return $statusData[$status];
-		 
+
 	    }
 
 
     }
-	
+
 	function PaymentMethod(){
 
 	    $statusData=array('Debit Card','Credit Card','Paypal','Stripe','COD');
@@ -747,14 +747,14 @@ function getRate($rate)
 		    );
 		}
 		if(!empty($status)){
-			
+
 	        return $statusData[$status];
 	   }else{
-		   
+
 		   return $statusData;
 	   }
     }
-	
+
     function getOrderPaymentStatusFrench($status=null,$type='list'){
 
 		if($type=='list'){
@@ -772,10 +772,10 @@ function getRate($rate)
 		    );
 		}
 		if(!empty($status)){
-			
+
 	        return $statusData[$status];
 	   }else{
-		   
+
 		   return $statusData;
 	   }
     }
@@ -811,7 +811,7 @@ function getRate($rate)
 	</div>';
      return $html;
 	}
-	
+
 	function emailTemplateFranch($subject,$body){
 
 			$html ='<div class="top-section" style="width:100%;text-align:center; font-family: Raleway, sans-serif !important;display: flex;justify-content: center;align-items: center;">
@@ -843,10 +843,10 @@ function getRate($rate)
 		</div>';
 		 return $html;
 	}
-	
-	
+
+
     /*function sendEmail($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){
-		
+
 		$from=!empty($from) ? $from:FROM_EMAIL;
 		$fromname=!empty($fromname) ? $fromname:WEBSITE_NAME;
 		$params = array(
@@ -859,9 +859,9 @@ function getRate($rate)
 		'from' => $from,
 		'fromname'  =>$fromname
 		);
-		
+
 		foreach($files as $fileName=>$path){
-			
+
 			$params['files['.$fileName.']'] = file_get_contents($path);
 		}
 		//pr($params);
@@ -877,9 +877,9 @@ function getRate($rate)
 		//pr($response,1);
 		curl_close($session);
 	}
-	
+
 	function sendEmailFranch($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){
-		
+
 		$from=!empty($from) ? $from:FROM_EMAIL;
 		$fromname=!empty($fromname) ? $fromname:WEBSITE_NAME_FRANCH;
 		$params = array(
@@ -892,9 +892,9 @@ function getRate($rate)
 		'from' => $from,
 		'fromname'  =>$fromname
 		);
-		
+
 		foreach($files as $fileName=>$path){
-			
+
 			$params['files['.$fileName.']'] = file_get_contents($path);
 		}
 		//pr($params);
@@ -910,12 +910,12 @@ function getRate($rate)
 		//pr($response);
 		curl_close($session);
 	}*/
-	
+
 	#sendEmailFranch('phpsolitaire@gmail.com','Test','<a href="https://www.imprimeur.coop/Logins/emailVerification/1">Testing Mail</a>');
 
 /* org send email functions */
 	/*function sendEmail($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){
-		
+
 		$from=!empty($from) ? $from:FROM_EMAIL;
 		$fromname=!empty($fromname) ? $fromname:WEBSITE_NAME;
 		$sendgrid_apikey = SEND_EMAIL_API_KEY;
@@ -927,9 +927,9 @@ function getRate($rate)
 		'from' => trim($from),
 		'fromname'  =>$fromname
 		);
-		
+
 		foreach($files as $fileName=>$path){
-			
+
 			$params['files['.$fileName.']'] = file_get_contents($path);
 		}
 		#pr($params);
@@ -946,9 +946,9 @@ function getRate($rate)
 		#pr($response,1);
 		curl_close($session);
 	}
-	
+
 	function sendEmailFranch($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){
-		
+
 		$from=!empty($from) ? $from:FROM_EMAIL_FRANCH;
 		$fromname=!empty($fromname) ? $fromname:WEBSITE_NAME_FRANCH;
 		$sendgrid_apikey = SEND_EMAIL_API_KEY;
@@ -962,7 +962,7 @@ function getRate($rate)
 		);
 		#pr($params);
 		foreach($files as $fileName=>$path){
-			
+
 			$params['files['.$fileName.']'] = file_get_contents($path);
 		}
 		//pr($params);
@@ -982,42 +982,42 @@ function getRate($rate)
 /* org send email functions end */
 
 /* socket lab mail functions */
-	function sendEmail($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){				
+	function sendEmail($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){
 		$from=!empty($from) ? $from:FROM_EMAIL;
 		$fromname=!empty($fromname) ? $fromname:WEBSITE_NAME;
-		$params = array('to' => trim($toEmail),'subject' => $sub,'html' => $body,'text' => $body,'from' => trim($from),'fromname'  => $fromname);		
+		$params = array('to' => trim($toEmail),'subject' => $sub,'html' => $body,'text' => $body,'from' => trim($from),'fromname'  => $fromname);
 		include_once (FILE_BASE_PATH."assets/InjectionApi/src/includes.php");
-		$client = new \Socketlabs\SocketLabsClient(SOCKETLAB_SERVER_ID,SOCKETLAB_API_KEY);		
+		$client = new \Socketlabs\SocketLabsClient(SOCKETLAB_SERVER_ID,SOCKETLAB_API_KEY);
 		$message = new \Socketlabs\Message\BasicMessage();
 		$message->subject = $params['subject'];
 		$message->htmlBody = $params['html'];
 		$message->plainTextBody = $params['text'];
-		
+
 		$message->from = new \Socketlabs\Message\EmailAddress($params['from']);
-		$message->replyTo = new Socketlabs\Message\EmailAddress($params['from']);	
-		foreach($files as $fileName=>$path){						
-			$message->attachments[] = \Socketlabs\Message\Attachment::createFromPath($path,$fileName);			
+		$message->replyTo = new Socketlabs\Message\EmailAddress($params['from']);
+		foreach($files as $fileName=>$path){
+			$message->attachments[] = \Socketlabs\Message\Attachment::createFromPath($path,$fileName);
 		}
-		$message->addToAddress($params['to']);		
-		$response = $client->send($message);	
-	}		
-	function sendEmailFranch($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){		
+		$message->addToAddress($params['to']);
+		$response = $client->send($message);
+	}
+	function sendEmailFranch($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){
 		$from=!empty($from) ? $from:FROM_EMAIL_FRANCH;
 		$fromname=!empty($fromname) ? $fromname:WEBSITE_NAME_FRANCH;
 		$params = array('to' => trim($toEmail),'subject' => $sub,'html' => $body,'text' => $body,'from' => trim($from),'fromname'  => $fromname);
 		include_once (FILE_BASE_PATH."assets/InjectionApi/src/includes.php");
-		$client = new \Socketlabs\SocketLabsClient(SOCKETLAB_SERVER_ID,SOCKETLAB_API_KEY);		
+		$client = new \Socketlabs\SocketLabsClient(SOCKETLAB_SERVER_ID,SOCKETLAB_API_KEY);
 		$message = new \Socketlabs\Message\BasicMessage();
 		$message->subject = $params['subject'];
 		$message->htmlBody = $params['html'];
 		$message->plainTextBody = $params['text'];
 		$message->from = new \Socketlabs\Message\EmailAddress($params['from']);
-		$message->replyTo = new Socketlabs\Message\EmailAddress($params['from']);	
-		foreach($files as $fileName=>$path){						
-			$message->attachments[] = \Socketlabs\Message\Attachment::createFromPath($path,$fileName);			
+		$message->replyTo = new Socketlabs\Message\EmailAddress($params['from']);
+		foreach($files as $fileName=>$path){
+			$message->attachments[] = \Socketlabs\Message\Attachment::createFromPath($path,$fileName);
 		}
-		$message->addToAddress($params['to']);		
-		$response = $client->send($message);	
+		$message->addToAddress($params['to']);
+		$response = $client->send($message);
 	}
 /* socket lab mail functions end */
 	function allLanguages()
@@ -1067,10 +1067,10 @@ function getRate($rate)
 
 			return $imageurl;
 	}
-	
-	
+
+
 	function  upsServiceCode(){
-		
+
 		$ups_service_code   = array(
 		'01' => 'UPS Next Day Air',
 		'02' => 'UPS 2nd Day Air',
@@ -1086,20 +1086,20 @@ function getRate($rate)
 		'65' => 'UPS World Wide Saver'
 		);
 	    return $ups_service_code;
-		
-		
+
+
 	}
 
  //CanedaPostApigetRate('K1K4T3');
- 
+
  function CanedaPostApigetRate($postalCode){
-	 
+
 	$Rates=array('status'=>'404','msg'=>'postal-code is not a valid','list'=>array());
 	$username = '99ee0c797ced5425';
 	$password = 'b638d92827ade27061a7ed';
 	$mailedBy = '0008736935';
 
-	
+
 // REST URL
 $service_url = 'https://ct.soa-gw.canadapost.ca/rs/ship/price';
 
@@ -1136,7 +1136,7 @@ curl_setopt($curl, CURLOPT_USERPWD, $username . ':' . $password);
 curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/vnd.cpc.ship.rate-v4+xml', 'Accept: application/vnd.cpc.ship.rate-v4+xml'));
 $curl_response = curl_exec($curl); // Execute REST Request
 if(curl_errno($curl)){
-	
+
 	//echo 'Curl error: ' . curl_error($curl) . "\n";
 }
 
@@ -1155,34 +1155,34 @@ if (!$xml) {
 		//echo "\t" . $error->message;
 	}
 } else {
-	
+
 		if ($xml->{'price-quotes'} ) {
 			$priceQuotes = $xml->{'price-quotes'}->children('http://www.canadapost.ca/ws/ship/rate-v4');
 			if ( $priceQuotes->{'price-quote'} ) {
-				
-				foreach ( $priceQuotes as $priceQuote ) { 
-                    
+
+				foreach ( $priceQuotes as $priceQuote ) {
+
 					$array = json_decode(json_encode($priceQuote), TRUE);
-                    $service_name=$array['service-name'];		
+                    $service_name=$array['service-name'];
 					$list['service_name']=$service_name;
 					$price=$array['price-details']['due'];
 					$list['price']       =$price;
 					$Rates['list'][]=$list;
 					$Rates['msg']="";
 				}
-				
-				
+
+
 			}
 		}
-		
-		if ($xml->{'messages'} ) {					
-			$messages = $xml->{'messages'}->children('http://www.canadapost.ca/ws/messages');		
+
+		if ($xml->{'messages'} ) {
+			$messages = $xml->{'messages'}->children('http://www.canadapost.ca/ws/messages');
 			foreach ( $messages as $message ) {
 				echo 'Error Code: ' . $message->code . "\n";
 				echo 'Error Msg: ' . $message->description . "\n\n";
 			}
 		}
-			
+
 	}
 	return $Rates;
     //die('Ok');
@@ -1190,32 +1190,32 @@ if (!$xml) {
 }
 
     function getShipingName($orderData){
-		
+
 		$upsServiceCode=upsServiceCode();
-        $str='';		
+        $str='';
 		if($orderData['shipping_method_formate']){
-		
+
 			$shipping_method_formate=explode('-',$orderData['shipping_method_formate']);
 			if($shipping_method_formate[0]=="ups"){
 				$str=$upsServiceCode[$shipping_method_formate[2]]." (UPS)";
 			}else if($shipping_method_formate[0]=="canadapost"){
-				
+
 				$str=$shipping_method_formate[2]." (Canada Post)";
 			}else if($shipping_method_formate[0]=="flagship"){
-				
+
 				$codeData=FlagShipServiceCode($shipping_method_formate[2]);
 													//pr($codeData);
-													
+
 			   $str=$codeData['courier_name'].'<br>'.$codeData['courier_desc']."</br>(FlagShip)";
 			}
-		   
+
 		}
 		return $str;
-		
+
 	}
-	
+
 	/*function CreatePdf(){
-		
+
 		$html="<H1>Hi</h1>";
 		include FILE_BASE_PATH.'dompdf-master/vendor/autoload.php';
 		use Dompdf\Dompdf;
@@ -1228,8 +1228,8 @@ if (!$xml) {
 		$file="test.pdf";
 		$dompdf->stream($file);
 		exit();
-		
-		
+
+
 	}*/
 	//include('PaytmKit/lib/config_paytm.php');
 	//include('PaytmKit/lib/encdec_paytm.php');
@@ -1243,21 +1243,21 @@ if (!$xml) {
 		$str=str_replace('&nbsp;','.',$str);
 		$strNew=$tr->translate($str);
 		return $strNew;
-		
+
 	}
 	function FRCNew1($text){
-		
-		$from_lan='en'; 
+
+		$from_lan='en';
 		$to_lan='fr';
 		$json = json_decode(file_get_contents('https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=' . urlencode($text) . '&langpair=' . $from_lan . '|' . $to_lan));
 		$translated_text = $json->responseData->translatedText;
 		pr($json->responseData,1);
 		return $translated_text;
-		
+
     }
-	
+
 	function FRCNew2($str){
-		
+
 		$apiKey = 'AIzaSyBiw1CyvkpCPKREwUjWov0cWqkGLMRuKns';
         $str=trim($str);
 		$str=str_replace('&middot;','.',$str);
@@ -1265,17 +1265,17 @@ if (!$xml) {
 		$url = 'https://www.googleapis.com/language/translate/v2?key=' . $apiKey . '&q=' . rawurlencode($str) . '&source=en&target=fr';
 		$handle = curl_init($url);
 		curl_setopt($handle, CURLOPT_RETURNTRANSFER, true);
-		$response = curl_exec($handle);  
-        		
+		$response = curl_exec($handle);
+
 		$responseDecoded = json_decode($response, true);
 		curl_close($handle);
 		/*echo 'Source: ' . $str . '<br>';
-		echo 'Translation: ' .*/ 
+		echo 'Translation: ' .*/
 		return isset($responseDecoded['data']['translations'][0]['translatedText']) ? $responseDecoded['data']['translations'][0]['translatedText']:'';
-		
-		
+
+
     }
-	
+
 	require_once(FILE_BASE_PATH.'application/config/flagship-api-sdk-master/vendor/autoload.php');
 	use Flagship\Shipping\Flagship;
     use Flagship\Shipping\Exceptions\QuoteException;
@@ -1286,32 +1286,32 @@ if (!$xml) {
 	use Flagship\Shipping\Exceptions\GetShipmentByIdException;
 	use Flagship\Shipping\Exceptions\CreateManifestException;
 	//getRatesFlagShip();
-	
+
 	defined('FLAGSHIP_MODE')  OR define('FLAGSHIP_MODE','test');
 	defined('API_VERSION') OR define('API_VERSION','1.1');
 	defined('MY_ACCESS_TOKEN_LIVE') OR define('MY_ACCESS_TOKEN_LIVE','nXiEiZtRLDzJtIzP1JWVBxv_7biNGkoydoAHO1NfFXA');
 	defined('MY_ACCESS_TOKEN_TEST') OR define('MY_ACCESS_TOKEN_TEST','y-ew5cE7ZN22doaiunkrK8oXHa9_hcQyw2-Esin-10Y');
 
 	function getRatesFlagShip($ProductOrder,$ProductOrderItems,$CountryData,$stateData,$cityData,$storeData){
-		
+
 		    //pr($orderData);
 			//pr($ProductOrderItem);
 			//pr($storeData);
 			//die('OK');
 			/*
-			 * @params 
+			 * @params
 			 * MY_ACCESS_TOKEN : use your Flagship token
 			 * For test environment use https://test-api.smartship.io and https://api.smartship.io for a live one
 			 * MY_WEBSITE : name of your website
 			 * API_VERSION : this is same as the tag number from github. Instead of master branch, download the latest tag. It is something like v1.1.x
 			 */
 			$API_URL= FLAGSHIP_MODE =='live' ? 'https://api.smartship.io':'https://test-api.smartship.io';
-			
+
 			$MY_ACCESS_TOKEN= FLAGSHIP_MODE == 'live' ? MY_ACCESS_TOKEN_LIVE:MY_ACCESS_TOKEN_TEST;
 			$website_name=isset($storeData['website_name']) ? $storeData['website_name'] :'printing.coop';
 			$store_name=isset($storeData['name']) ? $storeData['name'] :'printing.coop';
 			$store_email=isset($storeData['email']) ? $storeData['email'] :'info@printing.coop';
-			
+
 			$shipping_name=$ProductOrder['shipping_name'];
 			$shipping_address=$ProductOrder['shipping_address'];
 			$shipping_city=$cityData['name'];
@@ -1326,30 +1326,30 @@ if (!$xml) {
 			$user_email=$ProductOrder['email'];
 			$id=$ProductOrder['id'];
 			$items=array();
-			
+
 			foreach($ProductOrderItems as $ProductOrderItem){
-				
+
 				$name=$ProductOrderItem['name'];
 				//$description=$ProductOrderItem['name'];
 				$shipping_box_length=$ProductOrderItem['shipping_box_length'];
 				$shipping_box_width=$ProductOrderItem['shipping_box_width'];
 				$shipping_box_height=$ProductOrderItem['shipping_box_height'];
 				$shipping_box_weight=$ProductOrderItem['shipping_box_weight'];
-				
+
 				if(empty($shipping_box_length) || $shipping_box_length==0.00){
-					
+
 				    	$shipping_box_length=12;
 				}
 				if(empty($shipping_box_width) || $shipping_box_width==0.00){
-					
+
 				    	$shipping_box_width=9;
 				}
 				if(empty($shipping_box_height) || $shipping_box_height==0.00){
-					
+
 				    	$shipping_box_height=3;
 				}
 				if(empty($shipping_box_weight) || $shipping_box_weight==0.00){
-					
+
 				    	$shipping_box_weight=3;
 				}
 				$shipping_box_width=ceil($shipping_box_width);
@@ -1363,11 +1363,11 @@ if (!$xml) {
 							"weight" => $shipping_box_weight,
 							"description"=> $name
 			   ];
-			   
+
 			   //pr($items,1);
-				
+
 			}
-			
+
 			$flagship = new Flagship($MY_ACCESS_TOKEN, $API_URL,$website_name,API_VERSION);
 			$payload = [
 				'from' =>[
@@ -1429,8 +1429,8 @@ if (!$xml) {
 				$rates=json_decode($rates);
 				//pr($rates,1);
 				return $rates;
-				
-				
+
+
 			}
 			catch(QuoteException $e){
 				//echo $e->getMessage();
@@ -1439,28 +1439,28 @@ if (!$xml) {
 			}
 
     }
-	
+
 	function FlagShipConfirm($ProductOrder,$ProductOrderItems,$CountryData,$stateData,$cityData,$storeData){
-		
+
 		    $json=array('status'=>0,'msg'=>'','data'=>array());
 		    //pr($ProductOrder);
 			//pr($ProductOrderItem);
 			//pr($storeData,1);
 			//die('OK');
 			/*
-			 * @params 
+			 * @params
 			 * MY_ACCESS_TOKEN : use your Flagship token
 			 * For test environment use https://test-api.smartship.io and https://api.smartship.io for a live one
 			 * MY_WEBSITE : name of your website
 			 * API_VERSION : this is same as the tag number from github. Instead of master branch, download the latest tag. It is something like v1.1.x
 			 */
 			$API_URL= FLAGSHIP_MODE =='live' ? 'https://api.smartship.io':'https://test-api.smartship.io';
-			
+
 			$MY_ACCESS_TOKEN= FLAGSHIP_MODE == 'live' ? MY_ACCESS_TOKEN_LIVE:MY_ACCESS_TOKEN_TEST;
 			$website_name=isset($storeData['website_name']) ? $storeData['website_name'] :'printing.coop';
 			$store_name=isset($storeData['name']) ? $storeData['name'] :'printing.coop';
 			$store_email=isset($storeData['email']) ? $storeData['email'] :'info@printing.coop';
-			
+
 			$shipping_name=$ProductOrder['shipping_name'];
 			$shipping_address=$ProductOrder['shipping_address'];
 			$shipping_city=$cityData['name'];
@@ -1475,11 +1475,11 @@ if (!$xml) {
 			$user_email=$ProductOrder['email'];
 			$id=$ProductOrder['id'];
 			$items=array();
-			
+
 			foreach($ProductOrderItems as $ProductOrderItem){
-				
+
 				$name=$ProductOrderItem['name'];
-				
+
 				//$description=$ProductOrderItem['name'];
 				$items[]=[
 							"width"=> 9,
@@ -1488,11 +1488,11 @@ if (!$xml) {
 							"weight"=> 11,
 							"description"=> $name
 				         ];
-				
+
 			}
 			$service=array();
 			if(!empty($ProductOrder['shipping_method_formate'])){
-				
+
 				$shipping_method_formate=explode('-',$ProductOrder['shipping_method_formate']);
 				if($shipping_method_formate[0]=="flagship"){
 				$codeData=FlagShipServiceCode($shipping_method_formate[2]);
@@ -1501,13 +1501,13 @@ if (!$xml) {
 					$service=[
 					"courier_name"=>$courier_name,
 					"courier_code"=>$courier_code
-					];			
+					];
 				}
-		   
+
 		    }
-			
+
 			if(!empty($service)){
-				
+
 			$flagship = new Flagship($MY_ACCESS_TOKEN, $API_URL,$website_name,API_VERSION);
 			$payload = [
 				'from' =>[
@@ -1568,38 +1568,38 @@ if (!$xml) {
 				  $confirmedShipment = $flagship->confirmShipmentRequest($payload)->execute();
 				  //$flagship->confirmShipmentRequest->setStoreName($store_name)->setOrderId($id)->execute();
 				  //$confirmedShipment = $request->execute(); //returns a collection of rates
-				  
+
 				  //echo $confirmedShipment->getLabel(); //returns regular label
 				  //echo $confirmedShipment->getThermalLabel(); //returns thermal label
 				  //$confirmedShipment->getTotal();
 				  $json['data']=$confirmedShipment;
 				  $json['status']=1;
 				  $json['msg']='Shipping label created successfully';
-				
+
 			}
 			catch(ConfirmShipmentException $e){
-				
+
 				$json['msg']=$e->getMessage();
 				//die('Stop');
 			}
 		}else{
-			
+
 			$json['msg']='Invalid shipping method';
 		}
 		//pr($json);
 		return $json;
 
     }
-	
+
 	function FlagShipTracking($ProductOrder,$storeData){
-		
+
 		    $json=array('status'=>0,'msg'=>'','data'=>array());
 		    //pr($ProductOrder);
 			//pr($ProductOrderItem);
 			//pr($storeData,1);
 			//die('OK');
 			/*
-			 * @params 
+			 * @params
 			 * MY_ACCESS_TOKEN : use your Flagship token
 			 * For test environment use https://test-api.smartship.io and https://api.smartship.io for a live one
 			 * MY_WEBSITE : name of your website
@@ -1608,18 +1608,18 @@ if (!$xml) {
 			$API_URL= FLAGSHIP_MODE =='live' ? 'https://api.smartship.io':'https://test-api.smartship.io';
 			$MY_ACCESS_TOKEN= FLAGSHIP_MODE == 'live' ? MY_ACCESS_TOKEN_LIVE:MY_ACCESS_TOKEN_TEST;
 			$website_name=isset($storeData['website_name']) ? $storeData['website_name'] :'printing.coop';
-			
+
 			$tracking_number=$ProductOrder['tracking_number'];
 			$shipment_id=$ProductOrder['shipment_id'];
 			//$shipment_id='786073265551';
 			if(!empty($tracking_number) && !empty($shipment_id)){
-				
+
 				$flagship = new Flagship($MY_ACCESS_TOKEN, $API_URL,$website_name,API_VERSION);
 				$payload = [
 					 $shipment_id
 				];
 				try{
-					  
+
 					  //$data=$flagship->availableServicesRequest()->execute();
 					  //$data=$flagship->getShipmentListRequest()->execute();
 					  $confirmedShipment = $flagship->getShipmentByIdRequest($shipment_id)->execute();
@@ -1627,29 +1627,29 @@ if (!$xml) {
 					  $json['data']=$confirmedShipment;
 					  $json['status']=1;
 					  $json['msg']='Shipping label created successfully';
-					
+
 				}
 				catch(GetShipmentByIdException $e){
-					
+
 					$json['msg']=$e->getMessage();
 				}
 		}else{
-			
+
 			$json['msg']='Invalid shipping method';
 		}
 		return $json;
 
     }
-	
+
 	function FlagShipCancal($ProductOrder,$storeData){
-		
+
 		    $json=array('status'=>0,'msg'=>'','data'=>array());
 		    //pr($ProductOrder);
 			//pr($ProductOrderItem);
 			//pr($storeData,1);
 			//die('OK');
 			/*
-			 * @params 
+			 * @params
 			 * MY_ACCESS_TOKEN : use your Flagship token
 			 * For test environment use https://test-api.smartship.io and https://api.smartship.io for a live one
 			 * MY_WEBSITE : name of your website
@@ -1658,41 +1658,41 @@ if (!$xml) {
 			$API_URL= FLAGSHIP_MODE =='live' ? 'https://api.smartship.io':'https://test-api.smartship.io';
 			$MY_ACCESS_TOKEN= FLAGSHIP_MODE == 'live' ? MY_ACCESS_TOKEN_LIVE:MY_ACCESS_TOKEN_TEST;
 			$website_name=isset($storeData['website_name']) ? $storeData['website_name'] :'printing.coop';
-			
+
 			$tracking_number=$ProductOrder['tracking_number'];
 			$shipment_id=$ProductOrder['shipment_id'];
 			//$shipment_id='786073265551';
 			if(!empty($tracking_number) && !empty($shipment_id)){
-				
+
 				$flagship = new Flagship($MY_ACCESS_TOKEN, $API_URL,$website_name,API_VERSION);
 				$payload = [
 					 $shipment_id
 				];
 				try{
-					  
+
 					  //$data=$flagship->availableServicesRequest()->execute();
 					  //$data=$flagship->getShipmentListRequest()->execute();
 					  $flagship->cancelShipmentRequest($shipment_id)->execute();
 					  $json['status']=1;
 					  $json['msg']='Shipping label created successfully';
-					
+
 				}
 				catch(CancelShipmentException $e){
-					
+
 					$json['msg']=$e->getMessage();
 				}
 		}else{
-			
+
 			$json['msg']='Invalid shipping method';
 		}
 		return $json;
     }
-	
+
 	#FlagShipTestRate();
 	function FlagShipTestRate(){
-		   
+
 			/*
-			 * @params 
+			 * @params
 			 * MY_ACCESS_TOKEN : use your Flagship token
 			 * For test environment use https://test-api.smartship.io and https://api.smartship.io for a live one
 			 * MY_WEBSITE : name of your website
@@ -1740,7 +1740,7 @@ if (!$xml) {
 						],
 
 					],
-					"units"=> "imperial", 
+					"units"=> "imperial",
 					"type"=> "package",
 					"content"=> "goods"
 				],
@@ -1761,10 +1761,10 @@ if (!$xml) {
 					"shipment_tracking_emails"=> "jbeans@company.com;shipping1@company.com"
 				]
 			];
-             
+
 			try{
 				$data=$flagship->availableServicesRequest()->execute();
-                pr($data,1);				
+                pr($data,1);
 				$rates = $flagship->createQuoteRequest($payload)->execute();
 				//return $rates;
 				//pr($rates,1);
@@ -1772,11 +1772,11 @@ if (!$xml) {
 				//pr($rates,1);
 			}
 			catch(QuoteException $e){
-				
+
 				echo $e->getMessage();
 				die('Stop');
 			}
-			
+
 			/*try{
 				$rates = $flagship->createManifestRequest($payload)->execute();
 				//return $rates;
@@ -1785,18 +1785,18 @@ if (!$xml) {
 				//pr($rates,1);
 			}
 			catch(CreateManifestException $e){
-				
+
 				echo $e->getMessage();
 				die('Stop');
 			}*/
-			
+
 
 }
 
 #FlagShipTestConfirm();
 function FlagShipTestConfirm(){
 			/*
-			 * @params 
+			 * @params
 			 * MY_ACCESS_TOKEN : use your Flagship token
 			 * For test environment use https://test-api.smartship.io and https://api.smartship.io for a live one
 			 * MY_WEBSITE : name of your website
@@ -1870,9 +1870,9 @@ function FlagShipTestConfirm(){
 				]
 			];
 
-			try{  
+			try{
 			      $confirmedShipment = $flagship->confirmShipmentRequest($payload)->execute();
-				  
+
 				  //$confirmedShipment = $request->execute(); //returns a collection of rates
 				  pr($confirmedShipment);
 				  echo $confirmedShipment->getLabel(); //returns regular label
@@ -1880,21 +1880,21 @@ function FlagShipTestConfirm(){
 				  echo $confirmedShipment->getTotal();
 			}
 			catch(ConfirmShipmentException  $e){
-				
+
 				echo $e->getMessage();
 				die('Stop');
 			}
 
 }
     function  FlagShipServiceCode($code=null){
-		
+
 		$ups_service_code   = [
 		'FEDEX_GROUND'        => ['flagship_code' =>'standard',
                                  'courier_code' => 'FEDEX_GROUND',
                                  'courier_desc' => 'Ground',
                                  'courier_name' => 'FedEx'
 								 ],
-         
+
 		'FEDEX_2_DAY'         => ['flagship_code' =>'secondDay',
                                  'courier_code' => 'FEDEX_2_DAY',
                                  'courier_desc' => '2 Days',
@@ -1919,20 +1919,20 @@ function FlagShipTestConfirm(){
                                  'courier_code' => 'GRD',
                                  'courier_desc' => 'Dicom Ground',
                                  'courier_name' => 'Dicom'
-								 ],						 
+								 ],
 		];
-		
+
 		if(!empty($code)){
-			
+
 		 	return $ups_service_code[$code];
 			exit();
 		}
 	    return $ups_service_code;
-		
-		
+
+
 	}
 	function  FlagShipTrackingStatus($code=null){
-		
+
 		$ups_service_code   = [
 		'M'        => 'Manifested',
 		'P'        => 'Pickup',
@@ -1941,15 +1941,15 @@ function FlagShipTestConfirm(){
 		'X'        => 'Exception',
 		];
 		if(!empty($code)){
-			
+
 		 	return $ups_service_code[$code];
 			exit();
 		}
 	    return $ups_service_code;
-		
-		
-	}
-	
-	
 
-	
+
+	}
+
+
+
+

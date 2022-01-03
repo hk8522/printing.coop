@@ -5,13 +5,13 @@
                 <?php echo $this->session->flashdata('message_error');?>
             </div>
             <div class="text-center" style="color:green">
-                <?php 
-                echo $this->session->flashdata('message_success'); 
+                <?php
+                echo $this->session->flashdata('message_success');
                 ?>
             </div>
             <?php echo form_open_multipart('', array('class'=>'form-horizontal', 'id'=>'auto_attribute_add_form'));?>
             <input class="form-control" name="id" type="hidden"  value="<?php echo $id?>" id="id">
-            <input class="form-control" type="hidden"  
+            <input class="form-control" type="hidden"
             value="<?php echo $product_id?>" id="product_id" name="product_id">
             <div class="form-role-area">
                 <div class="control-group info">
@@ -30,8 +30,8 @@
                                             $selected = 'selected="selected"';
                                         }
                                     ?>
-                                        <option value="<?=$attribute['id']?>" <?=$selected?>><?=$attribute['name']?></option>  
-                                    <?php 
+                                        <option value="<?=$attribute['id']?>" <?=$selected?>><?=$attribute['name']?></option>
+                                    <?php
                                     }?>
                                 </select>
                             </div>
@@ -61,7 +61,7 @@ $('#auto_attribute_add_form').validate({
             },
         },
         submitHandler: function(form) {
-            $("#loder-img").show();  
+            $("#loder-img").show();
             $.ajax({
             type: "POST",
             url: '<?=$BASE_URL?>admin/Products/AutoAttributeAdd',
@@ -72,9 +72,9 @@ $('#auto_attribute_add_form').validate({
             success: function(data) {
                 $('button[type=submit]').attr('disabled', false);
                 $("#loder-img").hide();
-                $("#ItemModal .modal-body").html(data); 
+                $("#ItemModal .modal-body").html(data);
                 if (success == 1) {
-                    location.reload(); 
+                    location.reload();
                 }
             }
             });

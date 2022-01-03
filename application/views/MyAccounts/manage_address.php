@@ -5,23 +5,23 @@
             <div class="account-area">
                 <div class="universal-dark-title">
                     <span>
-                    <?php 
+                    <?php
 	                if($language_name=='French'){ ?>
 	                  Vos entrées d'adresse
 	                <?php }else{ ?>
 	                  Your Address Entries
-	                <?php 
+	                <?php
 	                }?></span>
                 </div>
                 <div class="account-address-area">
-                     <button class="add-address-field" id="new-address"><i class="las la-plus"></i> 
-                     <?php 
+                     <button class="add-address-field" id="new-address"><i class="las la-plus"></i>
+                     <?php
 	                if($language_name=='French'){ ?>
 	                  Ajouter une nouvelle adresse de livraison
 	                <?php }else{ ?>
 	                  Add a new shipping address
-	                <?php 
-	                }?></button>											  
+	                <?php
+	                }?></button>
 				    <form method="post" id="add-new-address">
 					<div class="delivery-fileds" id="checkout-new-address" style="display: none;">
 						<div class="row">
@@ -50,18 +50,18 @@
 									<textarea style="height:150px;" type="text" placeholder="Address (area &amp; street)*"name="address"></textarea>
 								</div>
 							</div>
-							
+
 							<div class="col-md-6">
 								<div class="single-review">
 									<select name="country" onchange="getState($(this).val())">
-										<?php 
+										<?php
 						                if($language_name=='French'){ ?>
 						                  <option value="">-- Choisissez le pays --</option>
 						                <?php }else{ ?>
 						                  <option value="">-- Select Country --</option>
-						                <?php 
+						                <?php
 						                }?>
-									  
+
 									  <?php foreach ($countries as $country) {
 										  $selected = '';
 										  $post_country = isset($postData['country']) ? $postData['country']:'';
@@ -74,20 +74,20 @@
 									</select>
 								</div>
 							</div>
-							
+
 							<div class="col-md-6">
 								<div class="single-review">
 									<select name="state" id="stateiD" onchange="getCity($(this).val())">
-										<?php 
+										<?php
 						                if($language_name=='French'){ ?>
 						                  <option value="">-- Sélectionnez l'état --</option>
 						                <?php }else{ ?>
 						                  <option value="">-- Select State --</option>
-						                <?php 
+						                <?php
 						                }?>
-									  
+
 									  <?php foreach ($states as $state) {
-										  
+
 										  $selected ='';
 										  $post_state = isset($postData['state']) ? $postData['state']:'';
 										  if ($state['id'] == $post_state){
@@ -99,25 +99,25 @@
 									</select>
 								</div>
 							</div>
-							
+
 							<div class="col-md-6">
 								<div class="single-review">
 								   <select name="city" id="cityId">
-								   	<?php 
+								   	<?php
 						                if($language_name=='French'){ ?>
 						                  <option value="">-- Sélectionnez une ville --</option>
 						                <?php }else{ ?>
 						                  <option value="">-- Select City --</option>
-						                <?php 
+						                <?php
 						                }?>
-									  
+
 									  <?php foreach ($citys as $city) {
-										  
+
 										  $selected ='';
 										  $post_city = isset($postData['city']) ?     $postData['state']:'';
-										  
+
 										    if ($city['id'] == $post_city){
-											  
+
 											  $selected='selected="selected"';
 										    }
 										  ?>
@@ -125,7 +125,7 @@
 									  <?php }?>
 									</select>
 									<!--<input type="text" placeholder="City*" name="city">-->
-									
+
 								</div>
 							</div>
 							<div class="col-md-6">
@@ -137,46 +137,46 @@
 							  <div class="address-type">
 								  <div class="single-review">
 									  <label>
-									  <?php 
+									  <?php
 						                if($language_name=='French'){ ?>
 						                  Type d'adresse
 						                <?php }else{ ?>
 						                  Address Type
-						                <?php 
+						                <?php
 						                }?></label>
 								  </div>
 								  <div class="row">
 									  <div class="col-md-6">
-										  <label id="home"><input name="address_type" value="home" for="home" type="radio" checked=""> 
-										  <?php 
+										  <label id="home"><input name="address_type" value="home" for="home" type="radio" checked="">
+										  <?php
 						                if($language_name=='French'){ ?>
 						                  Accueil (livraison toute la journée)
 						                <?php }else{ ?>
 						                  Home (All day delivery)
-						                <?php 
+						                <?php
 						                }?></label>
 									  </div>
 									  <div class="col-md-6">
-										  <label id="work"><input name="address_type" value="work" for="work" type="radio"> 
-										  <?php 
+										  <label id="work"><input name="address_type" value="work" for="work" type="radio">
+										  <?php
 						                if($language_name=='French'){ ?>
 						                  Travail (livraison entre 10h et 17h)
 						                <?php }else{ ?>
 						                  Work (Delivery between 10AM - 5PM)
-						                <?php 
+						                <?php
 						                }?></label>
 									  </div>
 									  <div class="col-md-6">
-									
+
 									<label id="default_delivery_address">
-									<input name="default_delivery_address" value="1" for="default_delivery_address" type="checkbox"  
+									<input name="default_delivery_address" value="1" for="default_delivery_address" type="checkbox"
 									 style="width: auto;height: 0px;">
-									 <?php 
+									 <?php
 						                if($language_name=='French'){ ?>
 						                  Créer une adresse de livraison par défaut
 						                <?php }else{ ?>
 						                  Make a Default Delivery Address
-						                <?php 
+						                <?php
 						                }?>
 									</label>
 								    </div>
@@ -186,29 +186,29 @@
 							<div class="col-md-12">
 							  <div class="save-btn login-btn">
 								  <button class="save" type="submit" id="save-address">
-								  <?php 
+								  <?php
 						                if($language_name=='French'){ ?>
 						                  sauver
 						                <?php }else{ ?>
 						                  Save
-						                <?php 
+						                <?php
 						                }?></button>
 								  <a id="cancel-address" href="javascript:void(0)">
-								  <?php 
+								  <?php
 						                if($language_name=='French'){ ?>
 						                  Annuler
 						                <?php }else{ ?>
 						                  Cancel
-						                <?php 
+						                <?php
 						                }?></a>
 							  </div>
 							</div>
 						</div>
 					</div>
 				</form>
-				 <div id="address-list"> 
-			   <?php 
-				foreach($address as $list){    
+				 <div id="address-list">
+			   <?php
+				foreach($address as $list){
 				?>
 				<div class="saved-address-box">
 					<div class="adrs-section">
@@ -224,33 +224,33 @@
 								<span><?php echo ucfirst($list['name'])?> <?php echo $list['mobile'];?> <?php echo !empty($list['alternate_phone']) ? ','.$list['alternate_phone']:'';?>
 								 <?php echo !empty($list['company_name']) ? '('.$list['company_name'].")":'';?>
 								</span>
-								
+
 								<br>
 								<span class="tt-t"><?php echo $list['address'];?>,
 								<?php echo $list['cityName'];?>,<?php echo $list['StateName'];?>,<?php echo $list['CountryName'];?> - <strong><?php echo $list['pin_code'];?></strong></span>
-								
+
 							</div>
 							<div class="dot-menu">
 								<button type="submit"><i class="fas fa-ellipsis-v"></i></button>
 								<div class="dot-menu-section">
 									<a href="<?php echo $BASE_URL;?>MyAccounts/addEditAddress/<?php echo base64_encode($list['id']);?>">
 									<button type="submit">
-									<?php 
+									<?php
 						                if($language_name=='French'){ ?>
 						                  Éditer
 						                <?php }else{ ?>
 						                  edit
-						                <?php 
+						                <?php
 						                }?></button>
 									</a>
 									<a href="<?php echo $BASE_URL;?>MyAccounts/deleteAddress/<?php echo base64_encode($list['id']);?>" onclick="return confirm('are you sure you wish to delete this address.');">
 									<button type="submit">
-									<?php 
+									<?php
 						                if($language_name=='French'){ ?>
 						                  supprimer
 						                <?php }else{ ?>
 						                  delete
-						                <?php 
+						                <?php
 						                }?></button>
 									</a>
 								</div>
@@ -258,10 +258,10 @@
 						</div>
 					</div>
 				</div>
-				<?php 
+				<?php
 				}?>
                 </div>
-				
+
                 </div>
             </div>
         </div>

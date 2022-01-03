@@ -16,7 +16,7 @@ class GetDhlEcommOpenShipmentsRequest extends ApiRequest{
     }
 
     public function execute() : GetShipmentListCollection {
-        try{    
+        try{
             $responseArray = $this->api_request($this->apiUrl,[],$this->apiToken,'GET',30,$this->flagshipFor,$this->version);
             $this->responseCode = $responseArray["httpcode"];
             $shipments = count((array)$responseArray["response"]->content) == 0 ? [] : $responseArray["response"]->content->records;

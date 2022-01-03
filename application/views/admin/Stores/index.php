@@ -39,7 +39,7 @@
 									<th>Url</th>
 									<th>Address</th>
 									<!--<th>Currency</th>-->
-									
+
 									<th>Langue</th>
 									<th>Action</th>
 								</tr>
@@ -47,7 +47,7 @@
 
 							<tbody>
 							    <?php
-								
+
 								if(count($lists) > 0){
 
 									foreach($lists as $key=>$blog){
@@ -74,10 +74,10 @@
 											<!--<td>
 												<?php $currency_id=explode(',',$blog['currency_id']);
 												foreach($currency_id as $val){
-													
+
 										echo $currency[$val]['currency_name']."<br>";
 												}
-												
+
 												?>
 											</td>-->
 											<td>
@@ -88,7 +88,7 @@
 												   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $blog['id'];?>" style="color:green;padding: 5px;" title="edit">
 												        <i class="far fa-edit fa-lg"></i>
 												   </a>
-											   
+
 											   </div>
 											</td>
 										</tr>
@@ -118,7 +118,7 @@
  </script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 0, "asc" ]]
 	});

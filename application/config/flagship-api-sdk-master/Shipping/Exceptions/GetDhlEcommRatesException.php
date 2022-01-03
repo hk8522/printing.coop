@@ -4,7 +4,7 @@ namespace Flagship\Shipping\Exceptions;
 
 use Flagship\Shipping\Exceptions\SmartshipException;
 
-class GetDhlEcommRatesException extends SmartshipException{ 
+class GetDhlEcommRatesException extends SmartshipException{
 
     public function __construct(string $message, int $code=0){
 

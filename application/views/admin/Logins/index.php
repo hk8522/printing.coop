@@ -10,7 +10,7 @@
 				<div class="text-center" style="color:green">
 				<?php echo $this->session->flashdata('message_success');?>
 				</div>
-				
+
 				<?php echo form_open('',array());?>
                     <div class="login-fields">
                         <input type="text" placeholder="Username" name="username">

@@ -1,16 +1,16 @@
-<?php 
+<?php
     #Montreal book printing Section
 	if($language_name=='French'){
-		
+
 	   $background_image=$section_4['french_background_image'];
 	}else{
-		
+
 	  $background_image=$section_4['background_image'];
 	}
 	$imageUrl=$BASE_URL.'assets/images/parallax2-1.jpg';
-	
+
 	if(!empty($background_image)){
-		
+
 		$imageUrl=getSectionImage($background_image);
 	}
 ?>
@@ -18,66 +18,66 @@
     <div class="container">
         <div class="tab-products-section-inner">
 			<div class="universal-light-title">
-              <span><?php 
+              <span><?php
 			    if($language_name=='French'){
-					 
+
 					 echo $section_4['name_france'] ?? '';
 					}else{
-						
+
 					  echo $section_4['name'] ?? '';
-					  
+
 					} ?></span>
             </div>
             <div class="universal-light-info">
               <span><?php if($language_name=='French'){
-				  
+
 					 echo $section_4['description_france'] ?? '';
 					}else{
-						
+
 					  echo $section_4['description'] ?? '';
-					  
+
 					}?></span>
             </div>
 		    <div class="universal-light-info">
               <span><?php
 			        if($language_name=='French'){
-				  
+
 					    echo $section_4['content_france'] ?? '';
 					}else{
-						
+
 					    echo $section_4['content'] ?? '';
-					} 
+					}
 					?></span>
             </div>
-			
+
             <div class="product-tabs">
                 <ul class="nav nav-pills">
 				    <?php
-					foreach($montreal_book_printing_tags as $key=>$val){ 
-				   
+					foreach($montreal_book_printing_tags as $key=>$val){
+
 				    $active='';
 					if($key==0){
-						
+
 						$active='active';
 					}
 				    $href="#Product1".$val['id'];
 					$label=ucwords($val['name']);
-					
+
 					if($language_name=='French'){
-						
+
 						$label=ucwords($val['name_french']);
-					}	
-					
+					}
+
 					$font_class=$val['font_class'];
 				   ?>
                     <li><a class="<?php echo $active;?>" data-toggle="pill" href="<?php echo $href;?>">
-					
+
 					 <i class="<?php echo $font_class;?>"></i><br>
 					 <?php echo $label;?>
 					</a>
 					</li>
-					
-				   <?php 
+
+				   <?php
 				   }?>
                 </ul>
             </div>
@@ -87,35 +87,35 @@
 <div class="products-tabs-content">
     <div class="container">
         <div class="tab-content">
-		<?php foreach($montreal_book_printing_tags as $key=>$val){ 
-				   
+		<?php foreach($montreal_book_printing_tags as $key=>$val){
+
 				    $active='';
-					
+
 					if($key==0){
-						
+
 						$active='active show';
-						
+
 					}
-					
+
 				    $div_id="Product1".$val['id'];
 					$label=ucwords($val['name']);
 					if($language_name=='French'){
-						
+
 						$label=ucwords($val['name_french']);
-						
+
 					}
 					$tag_id=$val['id'];
-					
+
 		?>
-            
+
 		    <div id="<?php echo $div_id?>" class="tab-pane fade  <?php echo $active;?>">
                 <div class="trend-all-products">
                   <div class="row">
                     <?php
 					  $cartNameProducts=$this->Product_Model->getProductByTagId($tag_id);
-					  
+
                       if ($cartNameProducts) {
-						  
+
                         foreach ($cartNameProducts as $key => $cartNameProduct) {
                           ?>
                           <div class="col-6 col-md-4 col-lg-3 col-xl-3">
@@ -143,12 +143,12 @@
                                   <div class="product-price-area">
                                     <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($cartNameProduct['id']);?>" class="cart-btn">
                                       <i class="las la-search"></i>
-                                      <span><?php 
+                                      <span><?php
                                               if($language_name=='French'){ ?>
                                               Aperçu rapide
                                             <?php }else{ ?>
                                               Quick View
-                                            <?php 
+                                            <?php
                                             }?></span>
                                     </a>
                                     <div class="product-price">
@@ -165,12 +165,12 @@
                         ?>
                           <div class="text-center col-md-12">
                               <p class="lead font-weight-bold text-white">
-                              <?php 
+                              <?php
                                 if($language_name=='French'){ ?>
                                 Aucun produit trouvé
                               <?php }else{ ?>
                                 No Product Found
-                              <?php 
+                              <?php
                               }?></p>
                           </div>
                         <?php
@@ -179,7 +179,7 @@
                   </div>
                 </div>
             </div>
-		<?php 
+		<?php
 		}?>
         </div>
     </div>

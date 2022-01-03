@@ -18,7 +18,7 @@
 				        			<?php echo form_open('',array('class'=>'form-horizontal'));?>
 					     			<input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>">
 					     			<div class="form-role-area">
-										
+
 										<div class="control-group info">
 											<div class="row">
 												<div class="col-md-4">
@@ -32,7 +32,7 @@
 												</div>
 											</div>
 										</div>
-										
+
 										<div class="control-group info">
 											<div class="row">
 												<div class="col-md-4">
@@ -46,7 +46,7 @@
 												</div>
 											</div>
 										</div>
-										
+
 										<div class="text-right">
 											<button type="submit" class="btn btn-success">Submit</button>
 											<a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
@@ -57,7 +57,7 @@
 						 	</div>
 					 </div>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->

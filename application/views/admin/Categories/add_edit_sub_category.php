@@ -59,7 +59,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -73,7 +73,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -113,7 +113,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -121,7 +121,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-														<input type="checkbox" name="show_main_menu" value="1" <?php echo !empty(    $postData['show_main_menu']) ? 'checked':''?>> Show Main Menu	
+														<input type="checkbox" name="show_main_menu" value="1" <?php echo !empty(    $postData['show_main_menu']) ? 'checked':''?>> Show Main Menu
                                                         <?php echo form_error('show_main_menu');
 														?>
                                                     </div>
@@ -148,7 +148,7 @@
     <!-- /.content -->
 </div>
 <script>
-	
+
 CKEDITOR.replace('content', {
 height: 300,
 filebrowserUploadUrl: "<?php echo $BASE_URL;?>upload.php",

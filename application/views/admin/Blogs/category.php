@@ -38,7 +38,7 @@
 									<th>Updated On</th>
 									<th>Status</th>
 									<th>Action</th>
-									
+
 								</tr>
 							</thead>
 
@@ -55,7 +55,7 @@
                                          	<!--<td>
 												<?php echo ucfirst($blog['order']);?>
 											</td>-->
-											
+
 											<td>
 						              <?php echo dateFormate($blog['created']);?>
 											</td>
@@ -83,7 +83,7 @@
 												   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $blog['id'];?>" style="color:green;padding: 5px;" title="edit">
 												        <i class="far fa-edit fa-lg"></i>
 												   </a>
-											  
+
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $blog['id'];?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this blog?');">
 											         <i class="fa fa-trash fa-lg"></i>
 											   </a>
@@ -116,7 +116,7 @@
  </script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 0, "asc" ]]
 	});

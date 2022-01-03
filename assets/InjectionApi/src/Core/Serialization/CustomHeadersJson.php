@@ -5,7 +5,7 @@ namespace Socketlabs\Core\Serialization;
  * To be serialized into JSON string before sending to the Injection Api.
  */
 class CustomHeadersJson  {
- 
+
     /**
      * Gets or sets the custom header name.
      */
@@ -24,6 +24,6 @@ class CustomHeadersJson  {
     public function __construct($name, $value)
     {
         $this->Name = $name;
-        $this->Value = $value; 
-    } 
+        $this->Value = $value;
+    }
 }

@@ -4,12 +4,12 @@
             <div class="col-8 col-md-8">
                 <div class="universal-light-info">
                     <span>
-                    <?php 
+                    <?php
                     if($language_name=='French'){ ?>
                       La navigation
                     <?php }else{ ?>
                       Navigation
-                    <?php 
+                    <?php
                     }?></span>
                 </div>
             </div>
@@ -23,48 +23,48 @@
     <div class="account-single-points">
         <ul>
 		    <li><a href="<?php echo $BASE_URL;?>MyOrders">
-            <?php 
+            <?php
             if($language_name=='French'){ ?>
               Historique des commandes
             <?php }else{ ?>
               Order History
-            <?php 
+            <?php
             }?></a></li>
             <li><a href="<?php echo $BASE_URL;?>MyAccounts">
-            <?php 
+            <?php
             if($language_name=='French'){ ?>
               Modifier le compte
             <?php }else{ ?>
               Edit Account
-            <?php 
+            <?php
             }?></a></li>
             <li><a href="<?php echo $BASE_URL;?>MyAccounts/changePassword">
-            <?php 
+            <?php
             if($language_name=='French'){ ?>
               Changer le mot de passe
             <?php }else{ ?>
               Change Password
-            <?php 
+            <?php
             }?></a></li>
             <li><a href="<?php echo $BASE_URL;?>MyAccounts/manageAddress">
-            <?php 
+            <?php
             if($language_name=='French'){ ?>
               Gérer les adresses
             <?php }else{ ?>
               Manage Addresses
-            <?php 
+            <?php
             }?></a></li>
             <!-- <li><a href="<?php echo $BASE_URL;?>Wishlists">Wishlist</a></li>  -->
-           
+
             <!-- <li><a href="<?php echo $BASE_URL;?>Tickets/index/">Support</a></li> -->
             <!-- <li><a href="<?php echo $BASE_URL;?>MyAccounts/notification">Notifications</a></li> -->
             <li><a href="<?php echo $BASE_URL;?>MyAccounts/logout">
-            <?php 
+            <?php
             if($language_name=='French'){ ?>
               Se déconnecter
             <?php }else{ ?>
               Logout
-            <?php 
+            <?php
             }?></a></li>
         </ul>
     </div>

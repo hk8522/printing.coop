@@ -88,7 +88,7 @@
                 <div class="col-md-5">
                     <div class="mid-search-bar">
                         <span>
-                        <input type="text" placeholder="Search...">                        
+                        <input type="text" placeholder="Search...">
                             <i class="las la-search"></i>
                         </span>
                     </div>
@@ -153,7 +153,7 @@
                                         </div>
                                     </a>
                                 </div>
-                            </li>                            
+                            </li>
                             <li>
                                 <div class="mid-action-single">
                                     <div class="mid-action-single-inner">
@@ -263,7 +263,7 @@
                 </a>
             </li>
             <li>
-                <a href="products.php">                        
+                <a href="products.php">
                     Products
                 </a>
                 <div class="product-dropdown">

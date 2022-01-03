@@ -48,7 +48,7 @@ class ShipmentTotalWeight implements NodeInterface
         }
 
         $node->appendChild($document->createElement('Weight', $this->getWeight()));
-        
+
         return $node;
     }
 
@@ -75,7 +75,7 @@ class ShipmentTotalWeight implements NodeInterface
     {
         return $this->weight;
     }
-    
+
     /**
      * @param string $weight
      */

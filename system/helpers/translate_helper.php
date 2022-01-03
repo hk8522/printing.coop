@@ -27,7 +27,7 @@
 // ------------------------------------------------------------------------
 
 /**
- * Translate 
+ * Translate
  *
  * $s - default source language ( English )
  * $d - Destination language ( French , Spanish ... )
@@ -56,14 +56,14 @@ if ( ! function_exists('translate'))
 		$json = json_decode($body, true);
 		$tranlate =  $json['responseData']['translatedText'];
 		echo $tranlate;
-		
+
 		} else {
 		echo $text;
 		}
-	}	
+	}
 }
 
- 	
+
 
 
 // ------------------------------------------------------------------------

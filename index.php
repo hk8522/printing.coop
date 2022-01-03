@@ -1,4 +1,4 @@
-<?php 
+<?php
  //echo 'site is maintenance mode';
 //error_reporting(-1);
 //ini_set('error_reporting', E_ALL);
@@ -67,7 +67,7 @@
  * Different environments will require different levels of error reporting.
  * By default development will show errors but testing and live will hide them.
  */
- 
+
 switch (ENVIRONMENT)
 {
 	case 'development':

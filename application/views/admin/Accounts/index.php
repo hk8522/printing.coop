@@ -26,7 +26,7 @@
 						</div>
 					</div>
 				</div>
-                
+
 				<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="custom-mini-table">
 						<table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
@@ -38,22 +38,22 @@
 									<th>Store Name</th>
 									<th>Username</th>
 									<th>Password</th>
-									
+
 									<th>Created On</th>
 									<th>Status</th>
 									<th>Action</th>
 								</tr>
 							</thead>
-							
+
 							<tbody>
-							    <?php 
+							    <?php
 								if(count($lists) > 0){
-									
+
 									foreach($lists as $key=>$list){
 									?>
 										<tr>
 											<td><?php echo ucfirst($list['name']);?></td>
-											
+
                                             <td>
 											<?php echo $list['email'];?>
 											</td>
@@ -69,7 +69,7 @@
                                             <td>
 											<?php echo $list['username'];?>
 											</td>
-											
+
                                             <td>*****</td>
 											<td>
 						                      	<?php echo dateFormate($list['created']);?>
@@ -78,13 +78,13 @@
 												<?php if($list['status']==1){?>
 													<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0/<?php echo $page_status?>">
 												 		<button type="submit" class="custon-active">Active</button>
-													</a> 
-												<?php 
+													</a>
+												<?php
 												}else{?>
 												   	<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1/<?php echo $page_status?>">
 												     	<button type="submit" class="custon-delete">Inactive</button>
 												   	</a>
-												<?php 
+												<?php
 												}?>
 											</td>
 											<td>
@@ -99,19 +99,19 @@
 											</td>
 										</tr>
 									<?php
-                                   								
+
 								    }
 								}else{?>
 								    <tr>
 									<td colspan="11	" class="text-center">List Empty.</td>
 								    </tr>
-								<?php 
+								<?php
 								}?>
 							</tbody>
 						</table>
 					</div>
 				</div>
-				
+
 				</div><!-- /.box-body -->
 			</div><!-- /.box -->
 		</div><!-- /.col -->
@@ -122,7 +122,7 @@
  </script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 3, "asc" ]]
 	});

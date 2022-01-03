@@ -100,54 +100,54 @@
 				<?php echo $this->session->flashdata('message_error');?>
 			</div>
 			<div class="text-center" style="color:green">
-				<?php 
-				echo $this->session->flashdata('message_success'); 
+				<?php
+				echo $this->session->flashdata('message_success');
 				?>
 			</div>
-			<?php 
+			<?php
 			    echo form_open_multipart('',array('class'=>'form-horizontal','id'=>'AddEditProductAttribute'));
 			?>
-			<input class="form-control" type="hidden"  
+			<input class="form-control" type="hidden"
 			value="<?php echo $product_id?>" id="product_id" name="product_id">
-			<input class="form-control" type="hidden"  
+			<input class="form-control" type="hidden"
 			value="<?php echo $quantity_id?>" id="quantity_id" name="quantity_id">
 			<input class="form-control" name="size_id" type="hidden"  value="<?php echo $size_id?>" id="size_id">
-			
+
 			<div class="form-role-area">
 				<div class="control-group info">
 					<div class="row align-items-center">
 						<div class="col-md-12">
-			
-			<div class="attribute-single active"> 
-		   
+
+			<div class="attribute-single active">
+
 		    <div class="for-att-multi attribute-info SizeQuantity">
                 <?php
 				//pr($NCRNumberPartsList,1);
-    			if(!empty($attribute)){		
+    			if(!empty($attribute)){
                     $last=count($attribute)-1;
     		        foreach($attribute as $subkey=>$subval){ #pr($subval);
 		        ?>
                 <div class="row sqddata">
             		<div class="col-md-12">
-            			<?php 
+            			<?php
 							$displayplusnbtn='none';
 						    $displayminusbtn='';
-            				if($last==0){								
-        						$displayplusnbtn=''; 
+            				if($last==0){
+        						$displayplusnbtn='';
         						$displayminusbtn='';
         					}
                             else if($last==$subkey){
-								
-        				        $displayplusnbtn=''; 
+
+        				        $displayplusnbtn='';
             				    $displayminusbtn='';
             				}
                         ?>
-                        
+
                     	    <div class="add-new-btn">
                                 <button class="btn-danger sqbtn-remove" type="button" style="display:<?php echo $displayminusbtn;?>" onclick="RemoveRow($(this))"><span class="fa fa-minus"></span></button>
                                 <button class="btn-success sqbtn-add" type="button" onclick="AddRow($(this))" style="display:<?php echo $displayplusnbtn;?>"><span class="fa fa-plus"></span></button>
                             </div>
-                        
+
                     </div>
                     <div class="col-md-6">
                         <div class="attribute-single-info">
@@ -164,10 +164,10 @@
                                     <div class="attribute-single-info-inner">
 									    <select name="paper_quality[]" class="form-control">
         									<option value="">--Select--</option>
-        									<?php 
+        									<?php
             									foreach($PaperQualityList as $list){
-													
-            										$selected='';	
+
+            										$selected='';
             									    if($list['name']==$subval['paper_quality']){
             										$selected='selected="selected"';
     									        }
@@ -192,12 +192,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">									
+                                    <div class="attribute-single-info-inner">
                                         <select name="ncr_number_parts[]" class="form-control">
         									<option value="">
         									--Select--
         									</option>
-        									<?php 
+        									<?php
         									foreach($NCRNumberPartsList as $list){
                         							$selected='';
                         							if($subval['ncr_number_parts']==$list['name']){
@@ -228,12 +228,12 @@
                                     <div class="attribute-single-info-inner">
     									<select name="stock[]" class="form-control">
         									<option value="">
-        									 --Select-- 
+        									 --Select--
         									</option>
-        									<?php 
+        									<?php
         									foreach($StockList as $list){
-        										
-        									   $selected='';	
+
+        									   $selected='';
         									   if($list['name']==$subval['stock']){
         										$selected='selected="selected"';
         									   }
@@ -246,7 +246,7 @@
                                 </div>
                             </div>
                         </div>
-					</div>						
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -262,12 +262,12 @@
                                     <div class="attribute-single-info-inner">
     									<select name="color[]" class="form-control">
         									<option value="">
-        									 --Select-- 
+        									 --Select--
         									</option>
-        									<?php 
+        									<?php
         									foreach($ColorList as $list){
-        										
-        										$selected='';	
+
+        										$selected='';
         									   if($list['name']==$subval['color']){
         										$selected='selected="selected"';
         									   }
@@ -279,7 +279,7 @@
                                 </div>
                             </div>
                         </div>
-					</div>                         
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -295,11 +295,11 @@
                                     <div class="attribute-single-info-inner">
     									<select name="diameter[]" class="form-control">
         									<option value="">
-        									 --Select-- 
+        									 --Select--
         									</option>
-        									<?php 
+        									<?php
         									foreach($DiameterList as $list){
-        									   $selected='';	
+        									   $selected='';
         									   if($list['name']==$subval['diameter']){
         										$selected='selected="selected"';
         									   }
@@ -312,7 +312,7 @@
                                 </div>
                             </div>
                         </div>
-					</div>				
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -325,14 +325,14 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">									
+                                    <div class="attribute-single-info-inner">
     									<select name="shape_paper[]" class="form-control">
         									<option value="">
-        									 --Select-- 
+        									 --Select--
         									</option>
-        									<?php 
+        									<?php
                         						foreach($ShapePaperList as $list){
-                        								$selected='';	
+                        								$selected='';
                         								if($list['name']== $subval['shape_paper']){
         										$selected='selected="selected"';
         									   }
@@ -358,14 +358,14 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">									
+                                    <div class="attribute-single-info-inner">
     									<select name="grommets[]" class="form-control">
         									<option value="">
-        									 --Select-- 
+        									 --Select--
         									</option>
-        									<?php 
+        									<?php
                         						foreach($Grommets as $list){
-                        								$selected='';	
+                        								$selected='';
                         								if($list['name']== $subval['grommets']){
         										$selected='selected="selected"';
         									   }
@@ -382,7 +382,7 @@
 				</div>
         		<?php }
         		}else{?>
-		
+
                 <div class="row sqddata">
                     <div class="col-md-12">
             			<div class="attribute-single-info-inner">
@@ -391,7 +391,7 @@
                                 <button class="btn btn-success sqbtn-add" type="button" onclick="AddRow($(this))"><span class="fa fa-plus"></span></button>
                             </span>
 	                    </div>
-                    </div>													            
+                    </div>
     				<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -407,9 +407,9 @@
                                     <div class="attribute-single-info-inner">
 									<select name="paper_quality[]" class="form-control">
 									<option value="">
-									 --Select-- 
+									 --Select--
 									</option>
-									<?php 
+									<?php
 									foreach($PaperQualityList as $list){
 									?>
 									<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
@@ -420,7 +420,7 @@
                                 </div>
                             </div>
                         </div>
-					</div>                           
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -428,29 +428,29 @@
                                     <label class="form-inner-label">NCR Number of Parts</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">                                           
+                                    <div class="attribute-single-info-inner">
                                         <input type="text" value="" name="ncr_number_part_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-12">											
-                                    <div class="attribute-single-info-inner">											
+                                <div class="col-md-12">
+                                    <div class="attribute-single-info-inner">
                                         <select name="ncr_number_parts[]" class="form-control">
 										<option value="">
 										--Select--
 										</option>
-										<?php 
+										<?php
 										foreach($NCRNumberPartsList as $list){
 										?>
 										<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
 										</option>
-										<?php 
+										<?php
 										}?>
 										</select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>							
+					</div>
 				<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -466,9 +466,9 @@
                                     <div class="attribute-single-info-inner">
 										<select name="stock[]" class="form-control">
 										<option value="">
-										 --Select-- 
+										 --Select--
 										</option>
-										<?php 
+										<?php
 										foreach($StockList as $list){
 										?>
 										<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
@@ -479,7 +479,7 @@
                                 </div>
                             </div>
                         </div>
-					</div>							
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -495,9 +495,9 @@
                                     <div class="attribute-single-info-inner">
 										<select name="color[]" class="form-control">
 										<option value="">
-										 --Select-- 
+										 --Select--
 										</option>
-										<?php 
+										<?php
 										foreach($ColorList as $list){
 										?>
 										<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
@@ -508,7 +508,7 @@
                                 </div>
                             </div>
                         </div>
-					</div>							
+					</div>
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -524,9 +524,9 @@
                                     <div class="attribute-single-info-inner">
 										<select name="diameter[]" class="form-control">
 										<option value="">
-										 --Select-- 
+										 --Select--
 										</option>
-										<?php 
+										<?php
 										foreach($DiameterList as $list){
 										?>
 										<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
@@ -538,7 +538,7 @@
                             </div>
                         </div>
 					</div>
-					
+
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -554,9 +554,9 @@
                                     <div class="attribute-single-info-inner">
 										<select name="shape_paper[]" class="form-control">
 										<option value="">
-										 --Select-- 
+										 --Select--
 										</option>
-										<?php 
+										<?php
 										foreach($ShapePaperList as $list){
 										?>
 										<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
@@ -568,7 +568,7 @@
                             </div>
                         </div>
 					</div>
-					
+
 					<div class="col-md-6">
                         <div class="attribute-single-info">
                             <div class="row align-items-center">
@@ -584,9 +584,9 @@
                                     <div class="attribute-single-info-inner">
 										<select name="grommets[]" class="form-control">
 										<option value="">
-										 --Select-- 
+										 --Select--
 										</option>
-										<?php 
+										<?php
 										foreach($Grommets as $list){
 										?>
 										<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
@@ -599,10 +599,10 @@
                         </div>
 					</div>
 				</div>
-                															    
+
         		<?php }?>
     		</div>
-	    </div> 
+	    </div>
 						</div>
 					</div>
 				</div>
@@ -617,26 +617,26 @@
 <script src="<?php echo $BASE_URL?>/assets/js/validation.js"></script>
 <script>
     function AddRow(cr){
-		    
+
 		    var controlForm = $('.SizeQuantity:first'),
 			currentEntry = cr.parents('.sqddata:first'),
 			newEntry = $(currentEntry.clone()).appendTo(controlForm);
-			
+
 			newEntry.find('input').val('');
 			newEntry.find('textarea').val('');
 			newEntry.find('select').val('');
-			
-			var timestamp = new Date().getUTCMilliseconds();		
+
+			var timestamp = new Date().getUTCMilliseconds();
 			newEntry.find('input').attr('id',timestamp);
-			
+
 			newEntry.find('.sqbtn-remove').show();
 			controlForm.find('.sqbtn-remove').show();
 			controlForm.find('.sqbtn-add').hide();
 			newEntry.find('.sqbtn-add').show();
 	}
-	
+
 	function RemoveRow(cr,id){
-		
+
 		    cr.parents('.sqddata:first').remove();
 			var numItems = $('.SizeQuantity .'+id+'sqddata').length;
 			var controlForm = $('.SizeQuantity .'+id+'sqddata').last();
@@ -649,18 +649,18 @@
 			}
 			return false;
 	}
-	
+
 success='<?php echo $success?>';
 $('#AddEditProductAttribute').validate({
 	    rules: {
-			
+
 		},
         messages: {
-            
+
         },
         submitHandler: function(form) {
-		  
-			$("#loder-img").show();  
+
+			$("#loder-img").show();
 			var url  = '<?php echo $BASE_URL ?>admin/Products/AddEditProductAttribute';
 			$.ajax({
 			  type: "POST",
@@ -670,12 +670,12 @@ $('#AddEditProductAttribute').validate({
 				 $('button[type=submit]').attr('disabled', true);
 			  },
 			  success: function(data) {
-				  
+
 				$('button[type=submit]').attr('disabled', false);
 				$("#loder-img").hide();
-				$("#QualityModal .modal-body").html(data); 
+				$("#QualityModal .modal-body").html(data);
 				    if(success==1){
-					  location.reload(); 
+					  location.reload();
 				    }
 			  }
 			});

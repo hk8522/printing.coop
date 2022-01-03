@@ -69,11 +69,11 @@
                     </div>
                 </nav>
             </header>
-			<?php 
+			<?php
 		//pr($ModuleList);
 		//pr($AdminSubModule);
 		 //pr($AdminModule,1);
-				
+
             ?>
             <div class="after-header"></div>
             <aside class="main-sidebar">
@@ -86,26 +86,26 @@
                             <span>Dashboard</span>
                             </a>
                         </li>
-					  <?php  
+					  <?php
 					   foreach($ModuleList as $key=>$val){
-						   
+
 					      $module=$val['module'];
 						  $sub_module=$val['sub_module'];
 						  $module_class_array=explode(',',strtolower($module['url']));
 						  $module_name=$module['module_name'];
 						  $class=$module['class'];
-						  if(in_array($key,$AdminModule)){
+						  if (in_array($key, $AdminModule)) {
 					  ?>
-                        <li class="treeview <?php echo in_array($CLASS_NAME,$module_class_array) ? 'active':''?>">
+                        <li class="treeview <?php echo in_array($CLASS_NAME, $module_class_array) ? 'active':''?>">
                             <a href="javascript:void(0)">
                             <i class="<?php echo $class; ?>"></i>
                             <span><?php echo $module_name;?></span>
                              <i class="fa fa-chevron-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-								<?php 
+								<?php
 								foreach($sub_module as $skey=>$sval){
-									
+
 								    $action=strtolower($sval['action']);
 									$class=strtolower($sval['class']);
 									$show_menu=$sval['show_menu'];
@@ -114,20 +114,18 @@
 									$sub_module_class=$module['sub_module_class'];
 									$url_prem=explode("/",$url);
 									$url_prem=isset($url_prem['2']) ? $url_prem['2']:'';
-								    if($show_menu && in_array($skey,$AdminSubModule)){
+								    if ($show_menu && in_array($skey, $AdminSubModule)) {
 								    ?>
-								
-								 
 										<li class="<?php echo $CLASS_NAME==$class && $METHOD_NAME==$action && $PARAMETER_NAME == $url_prem ? 'active':''?>">
 											<a href="<?php echo $BASE_URL_ADMIN.$url?>">
 											<i class="<?php echo $sub_module_class;?>"></i><?php echo $sub_module_name;?>
 											</a>
 										</li>
 									<?php }
-								 }?>	
+								 }?>
                             </ul>
                         </li>
-						 <?php 
+						 <?php
 						  }
 						 }?>
 						<!--<li class="treeview <?php echo in_array($CLASS_NAME,array('products')) ? 'active':''?>">
@@ -147,7 +145,7 @@
                                     <i class="fas fa-circle"></i>Product Attributes
                                     </a>
                                 </li>
-								
+
                                 <li class="<?php echo in_array($CLASS_NAME,array('products')) && in_array($METHOD_NAME,array('subscribeEmail'))  ? 'active':''?>">
                                     <a href="<?php echo $BASE_URL_ADMIN ?>Products/subscribeEmail">
                                     <i class="fas fa-circle"></i>Subscribe Email
@@ -231,7 +229,7 @@
                                     <i class="fas fa-circle"></i>Cancelled Orders
                                     </a>
                                 </li>
-                                
+
                             </ul>
                         </li>
                         <li class="treeview <?php echo in_array($CLASS_NAME,array('categories')) ? 'active':''?>">
@@ -301,7 +299,7 @@
                                 </li>
                             </ul>
                         </li>
-						
+
                         <li class="treeview <?php echo in_array($CLASS_NAME,array('Accounts','configrations')) ? 'active':''?>">
                             <a href="javascript:void(0)">
                             <i class="fas fa-cog"></i>
@@ -320,7 +318,7 @@
                                     <i class="fas fa-circle"></i>Site Configrations
                                     </a>
                                 </li>
-                                
+
                             </ul>
                         </li>
                         <li class="treeview">
@@ -352,7 +350,7 @@
                             <ul class="treeview-menu">
                                 <li class="">
                                     <a href="<?php echo $BASE_URL_ADMIN ?>Accounts">
-                                    <i class="fas fa-circle"></i>All Sub Admin List 
+                                    <i class="fas fa-circle"></i>All Sub Admin List
                                     </a>
                                 </li>
 								 <li class="">
@@ -365,7 +363,7 @@
                                     <i class="fas fa-circle"></i> Inactive Sub Admin List
                                     </a>
                                 </li>
-								
+
                             </ul>
                         </li>-->
                         <li class="treeview">
@@ -378,5 +376,5 @@
                 <!-- /.sidebar -->
             </aside>
         </div>
-		
+
 <div id="loder-img"><div id="loder-img-inner"><img src="<?php echo $BASE_URL;?>assets/images/loder.gif" width="100"></div></div>

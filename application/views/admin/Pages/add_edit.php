@@ -19,7 +19,7 @@
 				        			<?php echo form_open('',array('class'=>'form-horizontal'));?>
 					     			<input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>">
 					     			<div class="form-role-area">
-									
+
 									    <div class="control-group info">
 											<div class="row">
 												<div class="col-md-4">
@@ -31,12 +31,12 @@
 													   <option value="">Select WebSite</option>
 													   <?php foreach($MainStoreList as $key=>$val){
 														$selected='';
-                                                        if($postData['main_store_id'] == $key){		
+                                                        if($postData['main_store_id'] == $key){
 														     $selected='selected="selected"';
-														}												
+														}
 														?>
 													    <option value="<?php echo $key?>" <?php echo $selected?>><?php echo $val;?></option>
-													   <?php 
+													   <?php
 													   }?>
 													   </select>
 													   <?php echo form_error('main_store_id');?>
@@ -57,7 +57,7 @@
 												</div>
 											</div>
 										</div>
-										
+
 										<div class="control-group info">
 											<div class="row">
 												<div class="col-md-4">
@@ -92,7 +92,7 @@
 													<label class="span2 " for="inputMame">Show On Menu</label>
 												</div>
                         <div class="col-md-6">
-                            
+
 							<?php
                                 $display_on_top_menu = isset($postData['display_on_top_menu']) ? $postData['display_on_top_menu']:'';
                                 $cehecked='';
@@ -102,7 +102,7 @@
                                 ?>
                             <label class="span2"><input name="display_on_top_menu" id="display_on_top_menu" type="checkbox" value="1" <?php echo $cehecked;?>>Top Main Menu</label>
                             <?php echo form_error('display_on_top_menu');?>
-							
+
 							<?php
                                 $displayOnFooter = isset($postData['display_on_footer']) ? $postData['display_on_footer']:'';
                                 $cehecked='';
@@ -112,7 +112,7 @@
                                 ?>
                             <label class="span2"><input name="display_on_footer" id="display_on_footer" type="checkbox" value="1" <?php echo $cehecked;?>>Footer Menu One</label>
                             <?php echo form_error('display_on_footer');?>
-							
+
 							<?php
                                 $display_on_footer_last_menu = isset($postData['display_on_footer_last_menu']) ? $postData['display_on_footer_last_menu']:'';
                                 $cehecked='';
@@ -122,11 +122,11 @@
                                 ?>
                             <label class="span2"><input name="display_on_footer_last_menu" id="display_on_footer_last_menu" type="checkbox" value="1" <?php echo $cehecked;?>> Footer Menu Two</label>
                             <?php echo form_error('display_on_footer_last_menu');?>
-							
+
                         </div>
 											</div>
 										</div>
-										
+
 						                <div class="control-group info">
 											<div class="row">
 												<div class="col-md-4">
@@ -140,7 +140,7 @@
 												</div>
 											</div>
 										</div>
-										
+
 										<div class="control-group info">
 											<div class="row">
 												<div class="col-md-4">
@@ -224,8 +224,8 @@
 												</div>
 											</div>
 										</div>
-										
-										
+
+
 										<div class="control-group info">
 											<div class="row">
 												<div class="col-md-12">
@@ -261,7 +261,7 @@
     allowedContent:true,
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });
- 
+
 CKEDITOR.dtd.$removeEmpty.i = 0;
 CKEDITOR.replace('content1', {
     height: 300,

@@ -7,13 +7,13 @@ class Supports extends Admin_Controller
 	function __construct()
 	{
 		parent::__construct();
-		$this->class_name='admin/'.ucfirst(strtolower($this->router->fetch_class())).'/'; 
+		$this->class_name='admin/'.ucfirst(strtolower($this->router->fetch_class())).'/';
 		$this->data['class_name']= $this->class_name;
 	}
-	
+
     public function index()
     {
-		
+
 		$this->load->model('Ticket_Model');
 		$this->data['page_title'] = 'Supports';
 		$this->data['sub_page_title'] = '';
@@ -21,16 +21,16 @@ class Supports extends Admin_Controller
 	    $this->data['sub_page_view_url'] = 'view';
 		$this->data['sub_page_delete_url'] = 'delete';
 		$this->data['sub_page_url_active_inactive'] = '';
-		$this->data['SupportQuery']=$this->Ticket_Model->getSupportQuery();		
-		$this->load->model('Store_Model');		
+		$this->data['SupportQuery']=$this->Ticket_Model->getSupportQuery();
+		$this->load->model('Store_Model');
 		$StoreList=$this->Store_Model->getAllStoreList();
 		$this->data['StoreList']=$StoreList;
-		
+
 		$this->render($this->class_name.'index');
-		
-		
+
+
     }
-	
+
 	 public function view($id=null)
     {
 		if(empty($id)){
@@ -42,13 +42,13 @@ class Supports extends Admin_Controller
 		$this->data['main_page_url'] = '';
 		$data=$this->Ticket_Model->getSupportQuery($id);
 		$this->data['data']=$data;
-		$this->load->model('Store_Model');		
+		$this->load->model('Store_Model');
 		$StoreList=$this->Store_Model->getAllStoreList();
 		$this->data['StoreList']=$StoreList;
 		$this->render($this->class_name.'view');
-		
+
     }
-	
+
 	public function delete($id=null)
     {
 
@@ -73,7 +73,7 @@ class Supports extends Admin_Controller
 	    }
 		redirect('admin/Supports');
     }
-	
-	
-	
+
+
+
 }

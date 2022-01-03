@@ -65,7 +65,7 @@
                                     <span><a href="#">Booklet and Catalog</a></span>
                                     <span><a href="#">Placemats</a></span>
                                     <span><a href="#">Office supplies</a></span>
-                                    <span><a href="#">Presentation Folders</a></span>                                    
+                                    <span><a href="#">Presentation Folders</a></span>
                                     <span><a href="#">Bookmarks</a></span>
                                     <span><a href="#">Magnets</a></span>
                                 </div>
@@ -79,7 +79,7 @@
                                     <span><a href="#">Digital-printing-copies</a></span>
                                     <span><a href="#">Annonces</a></span>
                                     <span><a href="#">Gift certificate</a></span>
-                                    <span><a href="#">Check</a></span>                                    
+                                    <span><a href="#">Check</a></span>
                                     <span><a href="#">Tickets</a></span>
                                     <span><a href="#">View All</a></span>
                                 </div>
@@ -141,7 +141,7 @@
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="js/bootstrap.js"></script> 
+<script src="js/bootstrap.js"></script>
 <script src="js/customslider.js"></script>
 
 <script>
@@ -162,14 +162,14 @@ $(document).ready(function(){
         $(".before-click").hide();
         $(".addtocart-message").addClass("active");
     });
-    $("#account-change-pswd").click(function() { 
+    $("#account-change-pswd").click(function() {
         $(".change-pswd-field-show").show();
     });
-    $("#show-adress-field").click(function() { 
+    $("#show-adress-field").click(function() {
         $(".edit-address").show();
         $(".add-address-field").hide();
     });
-    $("#cancel-address").click(function() { 
+    $("#cancel-address").click(function() {
         $(".edit-address").hide();
         $(".add-address-field").show();
     });
@@ -220,11 +220,11 @@ function myFunction(x) {
 var x = window.matchMedia("(max-width: 768px)")
 myFunction(x) // Call listener function at run time
 x.addListener(myFunction) // Attach listener function on state changes
-</script> 
+</script>
 
 <script>
 function openCity(evt, cityName) {
-  
+
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {

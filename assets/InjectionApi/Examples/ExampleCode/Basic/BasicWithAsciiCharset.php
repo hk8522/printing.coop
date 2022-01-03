@@ -1,11 +1,11 @@
-<?php 
+<?php
 include_once (__DIR__ . "../../includes.php");
 
 use Socketlabs\Message\BasicMessage;
 use Socketlabs\Message\EmailAddress;
 use Socketlabs\SocketLabsClient;
 
-$client = new SocketLabsClient(exampleConfig::serverId(), exampleConfig::password()); 
+$client = new SocketLabsClient(exampleConfig::serverId(), exampleConfig::password());
 
 //Build the message
 $message = new BasicMessage();
@@ -19,6 +19,6 @@ $message->plainTextBody = "Lorem Ipsum";
 $message->charset = "ASCII";
 
 //Use the character set (✔)
-$message->htmlBody = "<body><strong>Lorem Ipsum</strong>Unicode: ✔ - Check</body>"; 
+$message->htmlBody = "<body><strong>Lorem Ipsum</strong>Unicode: ✔ - Check</body>";
 
 $response = $client->send($message);

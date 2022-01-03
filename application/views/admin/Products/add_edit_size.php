@@ -57,7 +57,7 @@
 												</div>
 											</div>
 										</div>
-										
+
 										<div class="text-right">
 											<button type="submit" class="btn btn-success" id="submitBtn" >Submit</button>
 											<a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>

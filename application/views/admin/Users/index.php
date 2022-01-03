@@ -10,7 +10,7 @@
 				<div class="text-center" style="color:green">
                     <?php echo $this->session->flashdata('message_success');?>
 				</div>
-				
+
 				<div class="inner-head-section">
 					<div class="row">
 						<div class="col-md-6 col-xs-12 text-left">
@@ -24,28 +24,28 @@
                                 	<a href="<?php echo $BASE_URL?>admin/Users/exportCSV/<?php echo $status;?>"/>
 									<button><i class="fas fa-file-csv"></i> Export CSV</button>
 									</a>
-									
+
                                 </div>
 								<div class="upload-area">
 									<form action="<?php echo $BASE_URL?>admin/Users/ImportCSV" id="ImportCSVFROM" enctype='multipart/form-data' method="post">
 										<input type="file" onchange="$('#ImportCSVFROM').submit()" name="csv" accept=".csv">
-									  <input type="hidden" name="page_status" value=<?php $status?>>  
+									  <input type="hidden" name="page_status" value=<?php $status?>>
 										<button><i class="fas fa-plus-circle"></i>  Import CSV</button>
 									</form>
                                 </div>
-								
+
 								<?php if(!empty($user_id)){?>
 									<div class="upload-area">
 										<a href="<?php echo $BASE_URL?>admin/Users"><button><i class="fas fa-arrow-left"></i> Back</button>
 										</a>
 									</div>
-								<?php 
+								<?php
 								}?>
 							</div>
 						</div>
 					</div>
 				</div>
-                
+
 				<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="custom-mini-table">
 						<table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
@@ -61,15 +61,15 @@
 									<th>Last Login</th>
 									<th>Last Login IP</th>
 									<th>Created On</th>
-									
+
 									<th>Status</th>
 									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
-							    <?php 
+							    <?php
 								if(count($lists) > 0){
-									
+
 									foreach($lists as $key=>$list){
 									?>
 										<tr>
@@ -77,15 +77,15 @@
 										    <td><?php echo $StoreList[$list['store_id']]['name']?></td>
 											<td>
 											<?php echo ucfirst($list['name']);?>
-											
+
 											<?php if($list['user_type']==2){
-												
+
 												echo '<b>(Preferred Customer)</b>';
 											}
 											?>
-										
+
 											</td>
-											
+
 											<td><?php echo ucfirst($list['mobile']);?></td>
                                             <td><?php echo ucfirst($list['email']);?></td>
                                             <!--<td>Username</td>-->
@@ -99,18 +99,18 @@
 											<td>
 						                      	<?php echo dateFormate($list['created']);?>
 											</td>
-											
+
 											<td>
 												<?php if($list['status']==1){?>
 													<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0/<?php echo $page_status?>">
 												 		<button type="submit" class="custon-active">Active</button>
-													</a> 
-												<?php 
+													</a>
+												<?php
 												}else{?>
 												   	<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1/<?php echo $page_status?>">
 												     	<button type="submit" class="custon-delete">Inactive</button>
 												   	</a>
-												<?php 
+												<?php
 												}?>
 											</td>
 											<td>
@@ -122,11 +122,11 @@
 													<a class="view-btn" href="<?php echo $BASE_URL?>admin/Orders/index/all/<?php echo $list['id']?>" style="color:#3c8dbc" title="View orders">
 											         	<i class="far fa-eye fa-lg"></i> View orders
 												   	</a>
-													
+
 													<!--<a class="view-btn" href="<?php echo $BASE_URL?>admin/Users/wishlists/<?php echo $list['id']?>/<?php echo $page_status?>" style="color:#3c8dbc" title="View Wishlists">
 											         	<i class="far fa-eye fa-lg"></i> View Wishlists
 												   	</a>-->
-													
+
 											   		<!-- <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>/<?php echo $page_status?>" style="color:green" title="edit">
 											        	<i class="far fa-edit fa-lg"></i>
 											   		</a> -->
@@ -137,19 +137,19 @@
 											</td>
 										</tr>
 									<?php
-                                   								
+
 								    }
 								}else{?>
 								    <tr>
 									<td colspan="11	" class="text-center">List Empty.</td>
 								    </tr>
-								<?php 
+								<?php
 								}?>
 							</tbody>
 						</table>
 					</div>
 				</div>
-				
+
 				</div><!-- /.box-body -->
 			</div><!-- /.box -->
 		</div><!-- /.col -->
@@ -160,7 +160,7 @@
  </script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 0, "desc" ]]
 	});

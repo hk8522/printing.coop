@@ -152,7 +152,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
                                         <!--<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -259,7 +259,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -314,8 +314,8 @@
                                                 <div class="col-md-8">
                                                   <div class="controls">
                             											  	<div class="col-xs-3" style="margin-bottom:15px;">
-                            												     
-						<?php 
+
+						<?php
 						$old_favicon =isset($configrations['favicon']) ? $configrations['favicon'] : '';
                          ?>
 
@@ -342,7 +342,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -351,7 +351,7 @@
                                                 <div class="col-md-8">
                                                   <div class="controls">
                 <div class="col-xs-3" style="margin-bottom:15px;">
-                            			<?php 
+                            			<?php
 				$old_french_favicon =isset($configrations['french_favicon']) ? $configrations['french_favicon'] : '';
                             													 ?>
 
@@ -377,7 +377,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success">Save</button>
                                             <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
@@ -401,7 +401,7 @@
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });
  CKEDITOR.dtd.$removeEmpty.i = 0;
- 
+
  CKEDITOR.replace('content1', {
     height: 300,
     filebrowserUploadUrl: "upload.php",

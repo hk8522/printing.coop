@@ -5,7 +5,7 @@ Class Configration_Model extends MY_Model {
 	public $table = 'configurations';
 
   public function saveData($data){
-	  
+
       $id = isset($data['id']) ? $data['id'] : '';
 
       if ($id) {
@@ -26,7 +26,7 @@ Class Configration_Model extends MY_Model {
     }
 	public function getConfigrations($website_store_id=1)
 	{
-		
+
 		if(empty($website_store_id)){
 			$website_store_id=1;
 		}
@@ -36,7 +36,7 @@ Class Configration_Model extends MY_Model {
 		$this->db->order_by('main_store_id','asc');
 		$query = $this->db->get();
 		return $query->row_array();
-		
+
 	}
     public function getConfigrationsList()
     {
@@ -45,18 +45,18 @@ Class Configration_Model extends MY_Model {
 		$this->db->order_by('main_store_id','asc');
 		$query = $this->db->get();
 		return $query->result_array();
-		
+
     }
 	public function getConfigrationsDataById($id)
     {
-		
+
 		$this->db->select('*');
 		$this->db->from($this->table);
 		$this->db->where('id',$id);
 		$this->db->order_by('main_store_id','asc');
 		$query = $this->db->get();
 		return $query->row_array();
-		
+
     }
 }
 ?>

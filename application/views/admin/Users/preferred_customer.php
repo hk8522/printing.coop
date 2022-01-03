@@ -15,7 +15,7 @@
 					    <span><?php echo ucfirst($page_title).' List'; ?></span>
 					</div>
 				</div>
-                
+
 				<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="custom-mini-table">
 						<table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
@@ -37,21 +37,21 @@
 									<th>City</th>
 									<th>Zip Code</th>
 									<th>Request</th>
-									
+
 									<th>Last Login</th>
 									<th>Last Login IP</th>
 									<th>Created On</th>
 									<th>Updated On</th>
 									<th>Verify</th>
 									<th>Status</th>
-									
+
 									<th>Action</th>
 								</tr>
 							</thead>
 							<tbody>
-							    <?php 
+							    <?php
 								if(count($lists) > 0){
-									
+
 									foreach($lists as $key=>$list){
 									?>
 										<tr>
@@ -70,16 +70,16 @@
 											<td><?php echo ucfirst($list['address']);?></td>
 											<td>
 											<?php
-											
+
 											$country=$this->Address_Model->getCountryById($list['country']);
 											echo $country['CountryName'];
-											
+
 											?></td>
-											<td><?php 
+											<td><?php
 											$steate=$this->Address_Model->getStateById($list['region']);
 										    echo $steate['StateName'];
-											
-											
+
+
 											?></td>
 											<td><?php echo ucfirst($list['city']);?></td>
 											<td><?php echo ucfirst($list['zip_code']);?></td>
@@ -88,7 +88,7 @@
 						                      	<?php echo dateFormate($list['last_login']);?>
 											</td>
 											<td>
-											
+
 						                      	<?php echo $list['last_login_ip'];?>
 											</td>
 											<td>
@@ -101,27 +101,27 @@
 												<?php if($list['preferred_status']==1){?>
 													<a href="<?php echo $BASE_URL.$class_name.'activeInactiveUserType'?>/<?php ?><?php echo $list['id']?>/0/<?php echo $page_status?>">
 												 		<button type="submit" class="custon-active">Verified</button>
-													</a> 
-												<?php 
+													</a>
+												<?php
 												}else{
 													?>
 												   	<a href="<?php echo $BASE_URL.$class_name.'activeInactiveUserType'?>/<?php ?><?php echo $list['id']?>/1/<?php echo $page_status?>">
 												     	<button type="submit" class="custon-delete">Unverified</button>
 												   	</a>
-												<?php 
+												<?php
 												}?>
 											</td>
 											<td>
 												<?php if($list['status']==1){?>
 													<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0/<?php echo $page_status?>">
 												 		<button type="submit" class="custon-active">Active</button>
-													</a> 
-												<?php 
+													</a>
+												<?php
 												}else{?>
 												   	<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1/<?php echo $page_status?>">
 												     	<button type="submit" class="custon-delete">Inactive</button>
 												   	</a>
-												<?php 
+												<?php
 												}?>
 											</td>
 											<td>
@@ -130,7 +130,7 @@
 													<a class="view-btn" href="<?php echo $BASE_URL?>admin/Orders/index/all/<?php echo $list['id']?>" style="color:#3c8dbc" title="View orders">
 											         	<i class="far fa-eye fa-lg"></i> View orders
 												   	</a>
-													
+
 													<!--<a class="view-btn" href="<?php echo $BASE_URL?>admin/Users/wishlists/<?php echo $list['id']?>/<?php echo $page_status?>" style="color:#3c8dbc" title="View Wishlists">
 											         	<i class="far fa-eye fa-lg"></i> View Wishlists
 												   	</a>-->
@@ -147,19 +147,19 @@
 											</td>
 										</tr>
 									<?php
-                                   								
+
 								    }
 								}else{?>
 								    <tr>
 									<td colspan="11	" class="text-center">List Empty.</td>
 								    </tr>
-								<?php 
+								<?php
 								}?>
 							</tbody>
 						</table>
 					</div>
 				</div>
-				
+
 				</div><!-- /.box-body -->
 			</div><!-- /.box -->
 		</div><!-- /.col -->
@@ -170,7 +170,7 @@
  </script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 0, "desc" ]]
 	});

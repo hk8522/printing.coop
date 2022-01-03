@@ -30,13 +30,13 @@
 													   <option value="">Select WebSite</option>
 													   <?php foreach($MainStoreList as $key=>$val){
 														$selected='';
-                                                        if($postData['main_store_id'] == $key){		
+                                                        if($postData['main_store_id'] == $key){
 														     $selected='selected="selected"';
-														}												
+														}
 														?>
-														
+
 													    <option value="<?php echo $key?>" <?php echo $selected?>><?php echo $val;?></option>
-													   <?php 
+													   <?php
 													   }?>
 													   </select>
 													   <?php echo form_error('main_store_id');?>
@@ -138,9 +138,9 @@
                                                             ?>
                                                         <?php
                                                             if($old_background_image !=''){
-																
+
                                                                $imageurl=getSectionImage($old_background_image);
-															   
+
 															   ?>
                                                             <img src="<?php echo $imageurl?>" width="100" height="80">
                                                         <?php
@@ -159,7 +159,7 @@
                                                    <input class="btn btn-primary" name="background_image" type="file" accept="image/x-png,image/gif,image/jpeg"/>
                                                     </div>
                                                     <div style="color:red">
-                                                   
+
                                                         <?php
                                                            echo form_error('background_image');
 														?>
@@ -168,7 +168,7 @@
                                               </div>
                                             </div>
 										</div>
-										
+
 										<div class="control-group info">
                                             <div class="row">
                                               <div class="col-md-4">
@@ -181,9 +181,9 @@
                                                             ?>
                                                         <?php
                                                             if($old_french_background_image !=''){
-																
+
                                                                $imageurl=getSectionImage($old_french_background_image);
-															   
+
 															   ?>
                                                             <img src="<?php echo $imageurl?>" width="100" height="80">
                                                         <?php
@@ -202,7 +202,7 @@
                                                    <input class="btn btn-primary" name="french_background_image" type="file" accept="image/x-png,image/gif,image/jpeg"/>
                                                     </div>
                                                     <div style="color:red">
-                                                   
+
                                                         <?php
                                                            echo form_error('french_background_image');
 														?>
@@ -211,7 +211,7 @@
                                               </div>
                                             </div>
 										</div>
-										
+
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success">Submit</button>
                                             <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>

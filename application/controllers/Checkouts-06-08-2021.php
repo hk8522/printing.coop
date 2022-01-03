@@ -18,13 +18,13 @@ class Checkouts extends Public_Controller
       $this->load->model('User_Model');
 	  $this->load->model('Discount_Model');
 	  $this->load->model('Store_Model');
-      
-      $this->load->helper('form'); 
+
+      $this->load->helper('form');
       $this->data['page_title']='Checkout';
 	  $main_store_data=$this->main_store_data;
-	  
+
 	  if(empty($this->loginId)){
-		redirect('/Logins');  
+		redirect('/Logins');
 	  }
       if($this->language_name=='French'){
 	     $this->data['page_title']='Check-out';
@@ -38,7 +38,7 @@ class Checkouts extends Public_Controller
       if ($order_id != '0') {
          $order_id=base64_decode($order_id);
       }
-	  
+
       if ($stap == 1 && !empty($this->loginId)){
          $stap=2;
       }
@@ -48,54 +48,54 @@ class Checkouts extends Public_Controller
       }
 
     if(isset($_GET['coupon_code']) && $_GET['coupon_code'] !='' && isset($_GET['apply_code']) && $_GET['apply_code'] !=''){
-		
+
 		$coupon_code=$_GET['coupon_code'];
 		$couponData=$this->Discount_Model->getDiscountDataByCode($coupon_code);
-		
+
 		if(!empty($couponData)){
-			
+
 			$discount=$couponData['discount'];
 		    $discount_type=$couponData['discount_type'];
 		    $discount_valid_from=$couponData['discount_valid_from'];
 		    $discount_valid_to=$couponData['discount_valid_to'];
 			$cdate=date('Y-m-d H:i:s');
 			if(strtotime($discount_valid_from) > strtotime($cdate)){
-				
+
 			   $this->session->set_flashdata('code_error','This coupon code that time not apply');
 			   $coupon_code='';
-			   
+
 			}else if(strtotime($discount_valid_to) < strtotime($cdate)){
-				
+
 				$this->session->set_flashdata('code_error','coupon code expired');
 				$coupon_code='';
 			}else{
-			
-			
+
+
 			    $coupon_discount_amount='0';
 			    if(!empty($coupon_code) && !empty($order_id)){
-				
+
 				$ProductOrder=$this->ProductOrder_Model->getProductOrderDataById($order_id);
 				$couponData=$this->Discount_Model->getDiscountDataByCode($coupon_code);
 				//pr($couponData);
 				if(!empty($couponData)){
-					
+
 					$discount=$couponData['discount'];
 					$discount_type=$couponData['discount_type'];
 					$discount_valid_from=$couponData['discount_valid_from'];
 					$discount_valid_to=$couponData['discount_valid_to'];
 					$cdate=date('Y-m-d H:i:s');
 					if(strtotime($discount_valid_from) <= strtotime($cdate) && strtotime($discount_valid_to) >= strtotime($cdate)){
-						
+
 					   if($discount_type=='discount_percent'){
-						   
+
 						   $coupon_discount_amount=($ProductOrder['sub_total_amount']*$discount)/100;
-						  
-						   
+
+
 					   }else{
-						   
-						   $coupon_discount_amount=$discount; 
+
+						   $coupon_discount_amount=$discount;
 					   }
-					   
+
 					}else{
 						$coupon_code='';
 					}
@@ -103,50 +103,50 @@ class Checkouts extends Public_Controller
 					$coupon_code='';
 				}
 				if($coupon_code==$ProductOrder['coupon_code']){
-					
+
 					$this->session->set_flashdata('code_success','coupon code already applied');
-					
-					
+
+
 				}else if(!empty($ProductOrder['coupon_code']) && $coupon_code !=$ProductOrder['coupon_code']){
-					
+
 					$ProductOrderNewData['coupon_discount_amount']=$coupon_discount_amount;
 					$ProductOrderNewData['coupon_code']=$coupon_code;
 					$ProductOrderNewData['total_amount']=($ProductOrder['total_amount']+$ProductOrder['coupon_discount_amount'])-$coupon_discount_amount;
 					$ProductOrderNewData['id']=$order_id;
 					$this->ProductOrder_Model->saveProductOrder($ProductOrderNewData);
 					$this->session->set_flashdata('code_success','coupon code applied successfully');
-					
-					
+
+
 				}else{
 					$ProductOrderNewData['coupon_discount_amount']=$coupon_discount_amount;
 					$ProductOrderNewData['coupon_code']=$coupon_code;
-				
+
 					$ProductOrderNewData['total_amount']=$ProductOrder['total_amount']-$coupon_discount_amount;
 					$ProductOrderNewData['id']=$order_id;
 					$this->ProductOrder_Model->saveProductOrder($ProductOrderNewData);
 					$this->session->set_flashdata('code_success','coupon code applied successfully');
 				}
 			}
-				
+
 			}
-			
+
 		}else{
-			
+
 			$this->session->set_flashdata('code_error','invalid coupon code');
 		}
-		
+
 	    redirect('Checkouts/index/'.base64_encode($stap).'/'.base64_encode($order_id)."/".base64_encode($product_id)."/".$coupon_code);
-		
-		
-		
-		
+
+
+
+
 	}
 
       $address = $this->Address_Model->getAddressListByUserId($this->loginId);
       $this->data['address'] = $address;
       $this->data['states'] =array();
 	  $this->data['citys'] =array();
-	  
+
 	  //$this->Address_Model->getState();
       $this->data['countries'] = $this->Address_Model->getCountries();
 
@@ -157,43 +157,43 @@ class Checkouts extends Public_Controller
 	  $CanedaPostShiping=$FlagShiping=array();
 	  $salesTaxRatesProvinces_Data=array();
       if(!empty($this->loginId)){
-		  
+
 		  $userData=$this->User_Model->getUserDataById($this->loginId);
 	  }
-	  
+
       if(!empty($order_id)) {
-		  
+
         $ProductOrder=$this->ProductOrder_Model->getProductOrderDataById($order_id);
         $ProductOrderItem=$this->ProductOrder_Model->getProductOrderItemDataById($order_id);
 		 //pr($ProductOrder);
          if (empty($ProductOrder)){
-			 
+
             redirect('/');
          }
-		   
+
 		        $stateData=$this->Address_Model->getStateById($ProductOrder['shipping_state']);
-				
+
 				$CountryData=$this->Address_Model->getCountryById($ProductOrder['shipping_country']);
 				$cityData=$this->Address_Model->getCityById($ProductOrder['shipping_city']);
 				/*pr($stateData);
 				pr($CountryData);
 				pr($cityData);
 				pr($ProductOrder);*/
-				
+
 				$shipping_pin_code=strtoupper(str_replace(" ","",$ProductOrder['shipping_pin_code']));
-				
+
 				$this->load->library('UpsKit/UpsRating');
 				$this->upsrating->addField('ShipTo_Name', $ProductOrder['shipping_name']);
 				$this->upsrating->addField('ShipTo_AddressLine', array(
-					$ProductOrder['shipping_address'], $ProductOrder['shipping_address']   
+					$ProductOrder['shipping_address'], $ProductOrder['shipping_address']
 				));
-				
+
 				$this->upsrating->addField('ShipTo_City', $cityData['name']);
 				$this->upsrating->addField('ShipTo_StateProvinceCode',$stateData['iso2']);
 				$this->upsrating->addField('ShipTo_PostalCode', $shipping_pin_code);
 				$this->upsrating->addField('ShipTo_CountryCode', $CountryData['iso2']);
-				
-			
+
+
 				/* Package Dimension and Weight */
 				/*$cart = $this->cart->contents();
 				$dimensions = array();
@@ -211,7 +211,7 @@ class Checkouts extends Public_Controller
 			    //$dimensions[$index]['Length'] = 1;
 				//$dimensions[$index]['Width'] = 1;
 				//$dimensions[$index]['Height'] = 1;
-			$dimensions[$index]['Weight'] = 1; #Kg 
+			$dimensions[$index]['Weight'] = 1; #Kg
 			$dimensions[$index]['Qty'] = $ProductOrder['total_items'];
 			$this->upsrating->addField('dimensions', $dimensions);
 			$this->upsrating->processRate();
@@ -220,54 +220,54 @@ class Checkouts extends Public_Controller
 			//pr($ups_response);
 			//pr($CanedaPostShiping);
 			if($status==200){
-				
-				$total_charges_ups = $ups_response->RateResponse->RatedShipment;	
-				
+
+				$total_charges_ups = $ups_response->RateResponse->RatedShipment;
+
 			}
-			
+
 			$CanedaPostShiping=CanedaPostApigetRate($shipping_pin_code);
-			
+
 			$salesTaxRatesProvinces_Data=$this->Address_Model->salesTaxRatesProvincesById($ProductOrder['billing_state']);
-			
+
 			//pr($CanedaPostShiping,1);
 		   $storeData=$this->Store_Model->getDataById($ProductOrder['store_id']);
 		   //$FlagShiping =getRatesFlagShip($ProductOrder,$ProductOrderItem,$CountryData,$stateData,$cityData,$storeData);
 		   //pr($FlagShiping,1);
-		   
-			
+
+
         } else {
-		     
+
             $ProductOrder['sub_total_amount'] = $this->cart->total();
 			$ProductOrder['total_amount'] = $this->cart->total();
 			$ProductOrder['preffered_customer_discount'] =0;
-			
+
 			$ProductOrder['currency_id'] = !empty($default_currency_id) ? $default_currency_id :1;
-			
-			
+
+
 			$ProductOrder['store_id']=$main_store_data['id'];
 			$ProductOrder['payment_mode']=$main_store_data['paypal_payment_mode'];
-			
-			
+
+
 			if(!empty($userData)){
-				
+
 			     $user_type=$userData['user_type'];
 				 $preferred_status=$userData['preferred_status'];
 				 if($user_type==2 && $preferred_status==1){
-					 
+
 					 $pramount=(($ProductOrder['sub_total_amount']*10)/100);
 					 $ProductOrder['preffered_customer_discount'] =$pramount;
 					 $ProductOrder['total_amount']=$ProductOrder['total_amount']-$pramount;
-					 
+
 				 }
 			}
-			
-			
-			
+
+
+
             $ProductOrder['total_items'] = $this->cart->total_items();
             $items = $this->cart->contents();
-			
+
         foreach($items as $key=>$item) {
-			
+
           $ProductData=$this->Product_Model->getProductDataById($item['id']);
 		  #pr($ProductData);
           $ProductOrderItem[$key]['id']='';
@@ -283,60 +283,60 @@ class Checkouts extends Public_Controller
           $ProductOrderItem[$key]['product_image']=$ProductData['product_image'];
           $ProductOrderItem[$key]['cart_images']=json_encode($item['options']['cart_images']);
           $ProductOrderItem[$key]['attribute_ids']=json_encode($item['options']['attribute_ids']);
-		  
+
 		  $ProductOrderItem[$key]['product_size']=json_encode($item['options']['product_size']);
-		  
+
 		  $ProductOrderItem[$key]['product_width_length']=json_encode($item['options']['product_width_length']);
-		  
+
 		  $ProductOrderItem[$key]['page_product_width_length']=json_encode($item['options']['page_product_width_length']);
-		  
+
 		  $ProductOrderItem[$key]['product_depth_length_width']=json_encode($item['options']['product_depth_length_width']);
-		  
-		  
+
+
 		  $ProductOrderItem[$key]['votre_text']=$item['options']['votre_text'];
-		  
+
 		  $ProductOrderItem[$key]['recto_verso']=$item['options']['recto_verso'];
-		  
-		  
+
+
           $ProductOrderItem[$key]['code']=$ProductData['code'];
           $ProductOrderItem[$key]['brand']=$ProductData['brand'];
           $ProductOrderItem[$key]['quantity']=$item['qty'];
           $ProductOrderItem[$key]['subtotal']=$item['subtotal'];
           $ProductOrderItem[$key]['delivery_charge']=$ProductData['delivery_charge'];
           $ProductOrderItem[$key]['total_stock']=$ProductData['total_stock'];
-		  
+
 		  $ProductOrderItem[$key]['shipping_box_length']=$ProductData['shipping_box_length'];
 		  $ProductOrderItem[$key]['shipping_box_width']=$ProductData['shipping_box_width'];
 		  $ProductOrderItem[$key]['shipping_box_height']=$ProductData['shipping_box_height'];
 		  $ProductOrderItem[$key]['shipping_box_weight']=$ProductData['shipping_box_weight'];
-		  
-		  
+
+
         }
-		
+
 		    $coupon_discount_amount='0';
 			if(!empty($coupon_code)){
-				
+
 				$couponData=$this->Discount_Model->getDiscountDataByCode($coupon_code);
 				//pr($couponData);
 				if(!empty($couponData)){
-					
+
 					$discount=$couponData['discount'];
 					$discount_type=$couponData['discount_type'];
 					$discount_valid_from=$couponData['discount_valid_from'];
 					$discount_valid_to=$couponData['discount_valid_to'];
 					$cdate=date('Y-m-d H:i:s');
 					if(strtotime($discount_valid_from) <= strtotime($cdate) && strtotime($discount_valid_to) >= strtotime($cdate)){
-						
+
 					   if($discount_type=='discount_percent'){
-						   
+
 						   $coupon_discount_amount=($ProductOrder['sub_total_amount']*$discount)/100;
-						  
-						   
+
+
 					   }else{
-						   
-						   $coupon_discount_amount=$discount; 
+
+						   $coupon_discount_amount=$discount;
 					   }
-					   
+
 					}else{
 						$coupon_code='';
 					}
@@ -344,37 +344,37 @@ class Checkouts extends Public_Controller
 					$coupon_code='';
 				}
 			}
-			
+
 			$ProductOrder['coupon_discount_amount']=$coupon_discount_amount;
             $ProductOrder['coupon_code']=$coupon_code;
-			
+
 			$ProductOrder['total_amount']=$ProductOrder['total_amount']-$coupon_discount_amount;
-			
+
 			$ProductOrder['total_sales_tax']='';
-			
+
 			//pr($ProductOrder,1);
-			
+
 	  }
-	  
+
       //pr($ProductOrderItem); die();
       if (empty($this->cart->total_items()) && empty($order_id) && empty($product_id)) {
           redirect('/');
       }
       $postData=array();
       if ($this->input->post()) {
-		  
+
         $userData=$this->User_Model->getUserDataById($this->loginId);
         $PostData['delivery_address_id'] = $this->input->post('delivery_address_id') ?? $this->ProductOrder_Model->getProductOrderDataById($order_id)['delivery_address_id'];
-		
+
         $address=$this->Address_Model->getAddressDataById($PostData['delivery_address_id']);
         if (!empty($order_id)){
           $PostData['id']=$order_id;
         }
-		
-		
-		
-		
-		
+
+
+
+
+
         $PostData['user_id']=$this->loginId;
         $PostData['name']=$this->loginName;
         $PostData['email']=$userData['email'];
@@ -382,7 +382,7 @@ class Checkouts extends Public_Controller
 
         $PostData['billing_name']=$address['name'];
 		$PostData['billing_company']=$address['company_name'];
-		
+
         $PostData['billing_pin_code']=$address['pin_code'];
         $PostData['billing_mobile']=$address['mobile'];
         $PostData['billing_address']=$address['address'];
@@ -404,19 +404,19 @@ class Checkouts extends Public_Controller
         $PostData['shipping_landmark']=$address['landmark'];
         $PostData['shipping_alternate_phone']=$address['alternate_phone'];
         $PostData['shipping_address_type']=$address['address_type'];
-		
-		
-		
+
+
+
 		$salesTaxRatesProvinces_Data=$this->Address_Model->salesTaxRatesProvincesById($PostData['billing_state']);
-		
+
 		$total_tax_rate=$salesTaxRatesProvinces_Data['total_tax_rate'];
 		$total_sales_tax=(($ProductOrder['sub_total_amount']*$total_tax_rate)/100);
 		$ProductOrder['total_amount']+$total_sales_tax;
-		
+
         $PostData['total_amount']=$ProductOrder['total_amount']+$total_sales_tax;
 		$PostData['total_sales_tax']=$total_sales_tax;
-		
-		
+
+
         $PostData['total_items']=$ProductOrder['total_items'];
 		$PostData['preffered_customer_discount']=$ProductOrder['preffered_customer_discount'];
 		$PostData['sub_total_amount']=$ProductOrder['sub_total_amount'];
@@ -425,29 +425,29 @@ class Checkouts extends Public_Controller
 		$PostData['payment_mode']=$ProductOrder['payment_mode'];
 		$PostData['coupon_code']= $ProductOrder['coupon_code'];
 		$PostData['coupon_discount_amount']= $ProductOrder['coupon_discount_amount'];
-		
-		
-		
-		
+
+
+
+
 		//pr($PostData,1);
-		
-		
+
+
 
         $insert_id=$this->ProductOrder_Model->saveProductOrder($PostData);
 
         if ($insert_id > 0) {
-			
+
           $PostDataNew=array();
           $PostDataNew['id']=$insert_id;
           $PostDataNew['order_id']=$main_store_data['order_id_prefix'].$insert_id;
-		  
+
 		  //$shipping_method=$this->input->post('shipping_method_formate') ?? $this->ProductOrder_Model->getProductOrderDataById($order_id)['shipping_method_formate'];
 		  $shipping_method=$this->input->post('shipping_method_formate') ?? '';
 		  if(!empty($shipping_method)){
-			  
+
 			  $shipping_method_old=$this->ProductOrder_Model->getProductOrderDataById($order_id)['shipping_method_formate'];
 			  if(!empty($shipping_method_old)){
-				  
+
 				   $delivery_charge_old=explode('-',$shipping_method_old);
 			       $ProductOrder['total_amount']=$ProductOrder['total_amount']-$delivery_charge_old[1];
 			  }
@@ -455,13 +455,13 @@ class Checkouts extends Public_Controller
 			  $delivery_charge=explode('-',$shipping_method);
 			  $PostDataNew['delivery_charge']=$delivery_charge[1];
 			  $PostDataNew['total_amount']=$ProductOrder['total_amount']+$delivery_charge[1];
-			  
+
 		  }
-		  
+
           $this->ProductOrder_Model->saveProductOrder($PostDataNew);
-		  
+
           foreach($ProductOrderItem as $ProductData) {
-			  
+
             $ProductOrderItemSaveData=array();
             $ProductOrderItemSaveData['id']=$ProductData['id'];
             $ProductOrderItemSaveData['product_id']=$ProductData['product_id'];
@@ -483,42 +483,42 @@ class Checkouts extends Public_Controller
             $ProductOrderItemSaveData['total_stock']=$ProductData['total_stock'];
 			$ProductOrderItemSaveData['cart_images']=$ProductData['cart_images'];
 			$ProductOrderItemSaveData['attribute_ids']=$ProductData['attribute_ids'];
-			
+
 			$ProductOrderItemSaveData['product_size']=$ProductData['product_size'];
-			
+
 			$ProductOrderItemSaveData['product_width_length']=$ProductData['product_width_length'];
-			
+
 			$ProductOrderItemSaveData['page_product_width_length']=$ProductData['page_product_width_length'];
-			
+
 			$ProductOrderItemSaveData['product_depth_length_width']=$ProductData['product_depth_length_width'];
-			
-			
+
+
 			$ProductOrderItemSaveData['votre_text']=$ProductData['votre_text'];
-			
+
 			$ProductOrderItemSaveData['recto_verso']=$ProductData['recto_verso'];
-			
+
 			$ProductOrderItemSaveData['shipping_box_length']=$ProductData['shipping_box_length'];
 			$ProductOrderItemSaveData['shipping_box_width']=$ProductData['shipping_box_width'];
 			$ProductOrderItemSaveData['shipping_box_height']=$ProductData['shipping_box_height'];
 			$ProductOrderItemSaveData['shipping_box_weight']=$ProductData['shipping_box_weight'];
-			
-			
-			
+
+
+
             $this->ProductOrder_Model->saveProductOrderItem($ProductOrderItemSaveData);
-			
-			
+
+
           }
 
           $stap = $stap+1;
           redirect('Checkouts/index/'.base64_encode($stap).'/'.base64_encode($insert_id)."/".base64_encode($product_id)."/".$coupon_code);
-		  
+
         } else{
           $this->session->set_flashdata('message_error','oder save  Unsuccessfully.');
         }
       }
-	  
+
 	  $PickupStoresList=$this->Store_Model->getPickupStoresList();
-	  
+
 	  $this->data['order_id']=base64_encode($order_id);
       $this->data['stap']=base64_encode($stap);
       $this->data['product_id']=base64_encode($product_id);
@@ -528,15 +528,15 @@ class Checkouts extends Public_Controller
 	  $this->data['CanedaPostShiping']=$CanedaPostShiping;
 	  $this->data['FlagShiping']=$FlagShiping;
 	  $this->data['PickupStoresList']=$PickupStoresList;
-	  
+
 	  $this->data['salesTaxRatesProvinces_Data']=$salesTaxRatesProvinces_Data;
-	  
+
 	  $this->data['coupon_code']=$coupon_code;
       $this->render($this->class_name.'index');
-	  
+
 
     }
-    
+
     public function SubmitOrder() {
 
 		$this->data['page_title']='Submit Order Details';
@@ -583,8 +583,8 @@ class Checkouts extends Public_Controller
 
 				}else if($payment_type=='paypal')
 				{
-					
-					
+
+
 					/*$returnURL = base_url().'Checkouts/success'; //payment success url
 					$cancelURL = base_url().'Checkouts/cancel'; //payment cancel url
 					$notifyURL = base_url().'Checkouts/ipn'; //ipn url
@@ -599,18 +599,18 @@ class Checkouts extends Public_Controller
 					$this->paypal_lib->add_field('amount', $ProductOrder['total_amount']);
 					// Load paypal form/
 					$this->paypal_lib->paypal_auto_form();*/
-					
+
 					$data['ProductOrder']=$ProductOrder;
 					$data['BASE_URL']=base_url();
 					$data['language_name']=$this->language_name;
 					$data['MainStoreData']=$this->main_store_data;
 					$this->load->view('elements/PaypalRedirect',$data);
-					
-					
+
+
 				}
-				
+
 				else{
-					
+
 					$this->session->set_flashdata('message_error','your order has been placed unsuccessfully');
 					redirect('Homes');
 				}
@@ -624,32 +624,32 @@ class Checkouts extends Public_Controller
 		   	redirect('Homes');
 		}
     }
-	
+
     function PayPalSuccessResponse($order_id=null){
 
         $orderData=array();
 		$this->data['page_title']='Order Details';
-		$payment_status=$_REQUEST['payment_status']; 
+		$payment_status=$_REQUEST['payment_status'];
 		$txn_id=$_REQUEST['txn_id'];
 		#pr($_REQUEST,1);
         if(!empty($order_id)){
-			
+
 			$orderData['id']=$order_id;
 		    $orderData['status']=2;
 			$orderData['payment_method']='paypal';
 			if($payment_status=='Completed' || $payment_status=='completed'){
-				
+
 			    $orderData['payment_status']=2;
 			    $orderData['transition_remark']='payment success';
-				
+
 		    }else if($payment_status=='Pending' || $payment_status=='pending'){
-				
+
 				$orderData['payment_status']=1;
-				
+
 				$orderData['transition_remark']='payment Pending';
-				
+
 			}else{
-				
+
 				$orderData['payment_status']=3;
 				$orderData['transition_remark']='payment Failed';
 			}
@@ -658,20 +658,20 @@ class Checkouts extends Public_Controller
 			$this->data['orderData']=$orderData;
 		    $this->session->set_flashdata('message_success','Your order payment has been successfully processed');
 			redirect('MyOrders/view/'.base64_encode($order_id));
-			
+
 		}else{
-			
+
 			redirect('Homes');
 		}
 	}
-	
+
 	function PayPalCancelResponse($order_id=null){
-		
-		
+
+
         $orderData=array();
 		$this->data['page_title']='Order Details';
 		if(!empty($order_id)){
-			
+
 			 $orderData['id']=$order_id;
 		     $orderData['status']=7;
 		     $orderData['payment_status']=3;
@@ -679,15 +679,15 @@ class Checkouts extends Public_Controller
 		     $this->session->set_flashdata('message_error','Your order payment has been failed');
 			 $this->data['orderData']=$orderData;
 			 redirect('MyOrders/view/'.base64_encode($order_id));
-			 
+
 		}else{
-			
+
 			redirect('Homes');
 		}
-		
+
 	}
-	
-	
+
+
 	function UpdateOrderStatus($orderData=array()){
 
 
@@ -696,14 +696,14 @@ class Checkouts extends Public_Controller
 	    $this->load->model('User_Model');
 		$this->load->model('Address_Model');
 		$this->load->model('Store_Model');
-		
-		
+
+
         $id=$orderData['id'];
 		$insert_id=$this->ProductOrder_Model->saveProductOrder($orderData);
 		$ProductOrderItem=$this->ProductOrder_Model->getProductOrderItemDataById($id);
-		
+
 		$StoreData=$this->main_store_data;
-		
+
 		$store_url    = $StoreData['url'];
 		$store_phone  = $StoreData['phone'];
 		$from_name    = $StoreData['name'];
@@ -711,12 +711,12 @@ class Checkouts extends Public_Controller
 		$admin_email1 = $StoreData['admin_email1'];
 		$admin_email2 = $StoreData['admin_email2'];
 		$admin_email3 = $StoreData['admin_email3'];
-		
-		
+
+
 		if($orderData['status']==2) {
-			
+
 				foreach($ProductOrderItem as $order){
-					
+
 					$ProductDataSave=array();
 					$product_id=$order['product_id'];
 					$quantityOrderItem=$order['quantity'];
@@ -732,47 +732,47 @@ class Checkouts extends Public_Controller
 					$this->Product_Model->saveProduct($ProductDataSave);
 
 				}
-             
+
 			        #Oreder Invoice And Order  Pdf  Created
 			        $this->getOrderInvoicePdf($id,$this->main_store_id);
 		            $this->getOrderPdf($id,$this->main_store_id);
-					
+
 			        #send Email and Msg
 		            $orderData=$this->ProductOrder_Model->getProductOrderDataById($id);
 					$order_url=$store_url.'MyOrders/view/'.base64_encode($id);
 					$toEmail=$orderData['email'];
 					$name=$orderData['name'];
 					$order_id=$orderData['order_id'];
-					
+
 					if($this->language_name=='French'){
-						
+
 						$order_id=$orderData['order_id'];
 						//$subject='Order '.$order_id.' Confirmation';
 						$subject='Reçu de la commande n ° '.$order_id;
-						
+
 						$image=$this->Store_Model->getStoreEmailTemapleImage($this->main_store_id,'receipt_for_order');
 						$image_template='';
 						if(!empty($image)){
-							
+
 							$image_url=$store_url.'uploads/email_templates/'.$image;
 							$image_template="<div class='top-info' style='margin-top: 25px;text-align: left;'><span style='font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;'><a href='".$order_url."'><img style='width:578px;' src='".$image_url."'></a></div>";
-							
+
 						}
-						
+
 						$body='<div class="top-info" style="margin-top: 25px;text-align: left;"><span style="color:#303030; font-size: 14px; letter-spacing: 0.5px; line-height: 22px; word-spacing: 0.5px;display: inline-block;">
 						'.$image_template.'
 						<br>
 						DÉTAILS DE LA COMMANDE
 						</span>
 						</div><br><br>';
-						
+
 						/*$body='<div class="top-info" style="margin-top: 25px;text-align: left;"><span style="color:#303030; font-size: 14px; letter-spacing: 0.5px; line-height: 22px; word-spacing: 0.5px;display: inline-block;">
 						salut '.ucfirst($name).',
 						<br>
 							Merci pour votre commande.
 						</span>
 						</div><br><br>';*/
-						
+
 						$invoice_file=$orderData['order_id'].'-fr-invoice.pdf';
 		                $invoice_file=strtolower($invoice_file);
 						$order_file=$orderData['order_id'].'-fr-order.pdf';
@@ -780,18 +780,18 @@ class Checkouts extends Public_Controller
 						$files[$invoice_file]=FILE_BASE_PATH.'pdf/'.$invoice_file;
 					    $files[$order_file]=FILE_BASE_PATH.'pdf/'.$order_file;
 						$body=$this->getorderEmail($id,$subject,$body,$this->main_store_id);
-						
+
 					}else{
-						
+
 						$subject='Receipt for order '.$order_id;
 						//$subject='Order '.$order_id.' Confirmation';
 						$image=$this->Store_Model->getStoreEmailTemapleImage($this->main_store_id,'receipt_for_order');
 						$image_template='';
 						if(!empty($image)){
-							
+
 							$image_url=$store_url.'uploads/email_templates/'.$image;
 							$image_template="<div class='top-info' style='margin-top: 25px;text-align: left;'><span style='font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;'><a href='".$order_url."'><img style='width:578px;' src='".$image_url."'></a></div>";
-							
+
 						}
 						$body='<div class="top-info" style="margin-top: 25px;text-align: left;"><span style="color:#303030; font-size: 14px; letter-spacing: 0.5px; line-height: 22px; word-spacing: 0.5px;display: inline-block;">
 						'.$image_template.'
@@ -799,42 +799,42 @@ class Checkouts extends Public_Controller
 						 ORDER DETAILS
 						</span>
 						</div><br><br>';
-						
+
 						/*$body='<div class="top-info" style="margin-top: 25px;text-align: left;"><span style="color:#303030; font-size: 14px; letter-spacing: 0.5px; line-height: 22px; word-spacing: 0.5px;display: inline-block;">
 						Hi '.ucfirst($name).',
 						<br>
 							Thanks for your order.
 						</span>
 						</div><br><br>';*/
-						
+
 						$invoice_file=$orderData['order_id'].'-invoice.pdf';
 		                $invoice_file=strtolower($invoice_file);
 						$order_file=$orderData['order_id'].'-order.pdf';
 		                $order_file=strtolower($order_file);
 						$files[$invoice_file]=FILE_BASE_PATH.'pdf/'.$invoice_file;
 					    $files[$order_file]=FILE_BASE_PATH.'pdf/'.$order_file;
-						
+
 						$body=$this->getorderEmail($id,$subject,$body,$this->main_store_id);
-						
-						
+
+
 					}
-					
+
 					sendEmail($toEmail,$subject,$body,$from_email,$from_name,$files);
-					
+
 					if(!empty($admin_email1)){
-							
+
 						sendEmail($admin_email1,$subject,$body,$from_email,$from_name,$files);
 					}
 					if(!empty($admin_email2)){
-							
+
 						sendEmail($admin_email2,$subject,$body,$from_email,$from_name,$files);
 					}
 					if(!empty($admin_email3)){
-							
+
 						sendEmail($admin_email3,$subject,$body,$from_email,$from_name,$files);
 					}
-					
-					
+
+
 
 		}else if($orderData['status']==7){
 
@@ -842,11 +842,11 @@ class Checkouts extends Public_Controller
 					$toEmail=$orderData['email'];
 					$name=$orderData['name'];
 					$order_id=$orderData['order_id'];
-					
+
 					if($this->language_name=='French'){
-						
+
 						$order_id=$orderData['order_id'];
-						
+
 						$subject='Votre commande '.$order_id.'Le paiement a échoué ';
 						$body='<div class="top-info" style="margin-top: 25px;text-align: left;">
 							<span style="font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;">
@@ -860,13 +860,13 @@ class Checkouts extends Public_Controller
 
 							</span>
 						</div><br><br>';
-						
+
 						$body=$this->getorderEmailFrance($id,$subject,$body,$this->main_store_id);
-					
-						
-						
+
+
+
 					}else{
-						
+
 						$subject='Your Order '.$order_id.'Payment Has Been Failed ';
 						$body='<div class="top-info" style="margin-top: 25px;text-align: left;">
 							<span style="font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;">
@@ -881,28 +881,28 @@ class Checkouts extends Public_Controller
 							</span>
 						</div><br><br>';
 						$body=$this->getorderEmail($id,$subject,$body,$this->main_store_id);
-						
+
 					}
 
                     sendEmail($toEmail,$subject,$body,$from_email,$from_name);
-					
+
 					if(!empty($admin_email1)){
-							
+
 						sendEmail($admin_email1,$subject,$body,$from_email,$from_name);
 					}
-					
+
 					if(!empty($admin_email2)){
-							
+
 						sendEmail($admin_email2,$subject,$body,$from_email,$from_name);
 					}
-					
+
 					if(!empty($admin_email3)){
-							
+
 						sendEmail($admin_email3,$subject,$body,$from_email,$from_name);
-					} 					
+					}
 
 		}
-		
+
 		$this->cart->destroy();
 		if($insert_id > 0){
 		   return true;
@@ -910,7 +910,7 @@ class Checkouts extends Public_Controller
 			return false;
 		}
 	}
-	
+
 	function removeOrderItem(){
 
 		    $json=array('status'=>0,'msg'=>'');

@@ -1,20 +1,20 @@
 <?php
  /**
  * Sample code for the GetOptions Canada Post service.
- * 
- * The GetOptions service  returns information about a given add-on option such 
- * as how it is used and whether it requires or conflicts with other options. 
  *
- * This sample is configured to access the Developer Program sandbox environment. 
+ * The GetOptions service  returns information about a given add-on option such
+ * as how it is used and whether it requires or conflicts with other options.
+ *
+ * This sample is configured to access the Developer Program sandbox environment.
  * Use your development key username and password for the web service credentials.
- * 
+ *
  **/
 
 // Your username and password are imported from the following file
-// CPCWS_Rating_PHP_Samples\REST\rating\user.ini 
+// CPCWS_Rating_PHP_Samples\REST\rating\user.ini
 $userProperties = parse_ini_file(realpath(dirname($_SERVER['SCRIPT_FILENAME'])) . '/../user.ini');
 
-$username = $userProperties['username']; 
+$username = $userProperties['username'];
 $password = $userProperties['password'];
 
 // REST URL
@@ -22,7 +22,7 @@ $service_url = 'https://ct.soa-gw.canadapost.ca/rs/ship/option/DC';
 
 $curl = curl_init($service_url); // Create REST Request
 curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
-curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2); 
+curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);
 curl_setopt($curl, CURLOPT_CAINFO, realpath(dirname($_SERVER['SCRIPT_FILENAME'])) . '/../../../third-party/cert/cacert.pem'); // Mozilla cacerts
 curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($curl, CURLOPT_HTTPAUTH, CURLAUTH_BASIC);
@@ -57,14 +57,14 @@ if (!$xml) {
 			echo 'Qualifier Required: ' . $option->{'qualifier-required'} . "\n";
 		}
 	}
-	if ($xml->{'messages'} ) {					
-		$messages = $xml->{'messages'}->children('http://www.canadapost.ca/ws/messages');		
+	if ($xml->{'messages'} ) {
+		$messages = $xml->{'messages'}->children('http://www.canadapost.ca/ws/messages');
 		foreach ( $messages as $message ) {
 			echo 'Error Code: ' . $message->code . "\n";
 			echo 'Error Msg: ' . $message->description . "\n\n";
 		}
 	}
-		
+
 }
 
 ?>

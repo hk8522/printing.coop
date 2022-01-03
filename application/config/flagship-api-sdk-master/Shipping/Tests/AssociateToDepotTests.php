@@ -14,7 +14,7 @@ class AssociateToDepotTests extends TestCase{
         $this->assertNotNull($this->associateToDepotRequest->execute());
         $this->assertSame(FALSE,$this->associateToDepotRequest->execute());
     }
-    
+
 
     protected function setUp(){
         $this->associateToDepotRequest = $this->getMockBuilder(AssociateToDepotRequest::class)

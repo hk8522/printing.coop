@@ -4,8 +4,8 @@
     <div class="container">
         <div class="page-title-section-inner universal-half-spacing">
             <div class="inner-breadcrum">
-                <a href="index.php">Home</a> 
-                / 
+                <a href="index.php">Home</a>
+                /
                 <span class="current">Login/Register</span>
             </div>
         </div>
@@ -44,7 +44,7 @@
                                         <a href="forgot-password.php">Forgot password?</a>
                                     </div>
                                 </div>
-                            </div>                            
+                            </div>
                         </div>
                     </div>
                 </div>

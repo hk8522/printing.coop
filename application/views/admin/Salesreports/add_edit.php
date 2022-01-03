@@ -23,11 +23,11 @@
 				        			<?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
 						     		<input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="product_id">
 					     			<div class="form-role-area">
-																	
+
 										<div class="row">
 										    <div class="control-group info col-sm-12">
 											        <div class="controls file-data">
-													    <div class="image-info col-xs-12" style="margin-bottom: 10px;"> 
+													    <div class="image-info col-xs-12" style="margin-bottom: 10px;">
 															<span>
 															 Allowed image type  : <b> (csv)</b>
 															</span><br>
@@ -44,7 +44,7 @@
 														<span class="fa fa-plus"></span>
 														</button>
 														</span>-->
-														
+
 													  </div>
 													  <div style="color:red">
 									                  <?php echo $this->session->flashdata('csv_file');?>
@@ -52,11 +52,11 @@
 												  </div>
 										     </div>
 										</div>
-										
-										
-										
+
+
+
 										<div class="product-actions-btn text-right">
-										   
+
 											<button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
 											<a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
 										</div>
@@ -66,13 +66,13 @@
 							</div>
 						</div>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->
  </div>
- 
- 
- 
- 
- 
+
+
+
+
+

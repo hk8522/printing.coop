@@ -10,9 +10,9 @@ class SingleAttributes extends Admin_Controller
 			$this->class_name='admin/'.$this->router->fetch_class().'/';
 			$this->data['class_name']= $this->class_name;
 	}
-	
+
     public function index(){
-      
+
         $this->load->model('Product_Model');
 		$this->data['page_title']                   = 'Product Attributes';
 		$this->data['sub_page_title']               = 'Add New Attribute';
@@ -24,7 +24,7 @@ class SingleAttributes extends Admin_Controller
 		$this->data['lists']=$lists;
 		$this->render($this->class_name.'index');
 	}
-	
+
     public function addEditAttribute($id=null)
     {
         $this->load->helper('form');
@@ -50,33 +50,33 @@ class SingleAttributes extends Admin_Controller
 
 			$postData['name']=$this->input->post('name');
 			$postData['name_french']=$this->input->post('name_french');
-			
+
 			$attribute_item_name=$this->input->post('attribute_item_name');
-			
+
 			$item_name_french=$this->input->post('item_name_french');
 			$attribute_item_id=$this->input->post('attribute_item_id');
 			#pr($attribute_item_name);
 			#pr($attribute_item_id);
-			
+
 			if($this->form_validation->run()===TRUE)
 			{
 
 				$saveData=true;
-				
+
 				if($saveData){
-					
+
 					$insert_id=$this->Product_Model->saveAttributes($postData);
-                    
+
 					if ($insert_id > 0)
 					{
                                 $data = array();
-								 
+
 								foreach($attribute_item_name as $k=>$v) {
-									
-									
+
+
 									$sdata=array();
 									$sdata['id']=$attribute_item_id[$k];
-									
+
 									$sdata['item_name']=$v;
 									$sdata['item_name_french']=$item_name_french[$k];
 									$sdata['created']=date('Y-m-d H:i:s');
@@ -85,8 +85,8 @@ class SingleAttributes extends Admin_Controller
 									$data[]=$sdata;
 							    }
 								#pr($data,1);
-							
-						$this->Product_Model->saveAttributeItem($data,$insert_id);						
+
+						$this->Product_Model->saveAttributeItem($data,$insert_id);
 						$this->session->set_flashdata('message_success',$page_title.' Successfully.');
 						redirect('admin/SingleAttributes');
 					}
@@ -109,13 +109,13 @@ class SingleAttributes extends Admin_Controller
     {
 
         if(!empty($id) && ($status==1 || $status==0)){
-			
+
 			    $postData['id']=$id;
 		        $postData['status']=$status;
 				$page_title='Attributes Active';
 				$this->load->model('Product_Model');
 				if($status==0){
-					
+
 					$page_title='Attributes Inactive';
 				}
 				if ($this->Product_Model->saveAttributes($postData))
@@ -132,7 +132,7 @@ class SingleAttributes extends Admin_Controller
 	    }
 		redirect('admin/SingleAttributes');
     }
-	
+
 	public function deleteAttribute($id=null)
     {
         if(!empty($id)){

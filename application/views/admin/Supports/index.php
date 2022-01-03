@@ -21,7 +21,7 @@
 											<th>Message</th>
 											<th>Created On</th>
 											<th>Action</th>
-											
+
 										</tr>
 									</thead>
 									<tbody>
@@ -38,28 +38,28 @@
 											</td>
 											<td>
 												<div class="action-btns">
-												   	
-												   
+
+
 										  	 	<a href="<?php echo $BASE_URL.$class_name.$sub_page_view_url?>/<?php echo $row['id'];?>" style="color:#3c8dbc;padding: 5px;" title="view">
 											        <i class="far fa-eye fa-lg"></i>
 											   	</a>
-										
+
 											   	<a href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $row['id'];?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this query?');">
 										         	<i class="fa fa-trash fa-lg"></i>
 											   	</a>
 										   </div>
-											   
+
 											</td>
-											
+
 										</tr>
-									<?php 
+									<?php
 									}?>
 									</tbody>
 								</table>
 							</div>
 						</div>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->
@@ -67,7 +67,7 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script>
 $(document).ready(function(){
-	
+
     /* $('#example1').DataTable({
 		"order": [[ 4, "desc" ]]
 	}); */

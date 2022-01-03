@@ -3,12 +3,12 @@ include_once (__DIR__ . "../../includes.php");
 
 use Socketlabs\Message\BasicMessage;
 use Socketlabs\Message\EmailAddress;
-use Socketlabs\SocketLabsClient; 
+use Socketlabs\SocketLabsClient;
 
-$client = new SocketLabsClient(exampleConfig::serverId(), exampleConfig::password()); 
+$client = new SocketLabsClient(exampleConfig::serverId(), exampleConfig::password());
 
 //Build the message
-$message = new BasicMessage(); 
+$message = new BasicMessage();
 
 $message->subject = "Sending A Test Message";
 $message->htmlBody = "<html>This is the Html Body of my message.</html>";
@@ -23,5 +23,5 @@ $att->customHeaders = array(
     "Place" => "Beach",
 );
 $message->attachments[] = $att;
- 
+
 $response = $client->send($message);

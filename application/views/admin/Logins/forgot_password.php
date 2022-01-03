@@ -8,7 +8,7 @@
                 <!--<div class="login-logo">
                     <!--<span><?php echo WEBSITE_NAME;?></span>-
                 </div>-->
-				
+
 				<div class="text-center" style="color:red">
 				<?php echo $this->session->flashdata('message_error');?></div>
 				<div class="text-center" style="color:green">
@@ -20,7 +20,7 @@
 						<?php echo form_error('email');?>
                         <button type="submit" name="login">Submit</button>
                     </div>
-					
+
 				<?php echo form_close();?>
             </div>
             <div class="forgot-password">

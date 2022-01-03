@@ -29,7 +29,7 @@ class BulkRecipient extends EmailAddress{
                 return;
             }
         }
-        $this->mergeData[] = $newMergeData; 
+        $this->mergeData[] = $newMergeData;
 
         return $this;
     }

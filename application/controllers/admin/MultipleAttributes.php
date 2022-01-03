@@ -11,7 +11,7 @@ class MultipleAttributes extends Admin_Controller
 			$this->data['class_name']= $this->class_name;
 	}
     public function index(){
-      
+
         $this->load->model('Product_Model');
 		$this->data['page_title'] = 'Product Multiple Attributes';
 		$this->data['sub_page_title'] = 'Add New Attribute';
@@ -23,7 +23,7 @@ class MultipleAttributes extends Admin_Controller
 		$this->data['lists']=$lists;
 		$this->render($this->class_name.'index');
 	}
-	
+
     public function addEditAttribute($id=null)
     {
         $this->load->helper('form');
@@ -36,9 +36,9 @@ class MultipleAttributes extends Admin_Controller
 		$postData=array();
 		$postData=$this->Product_Model->getMultipleAttributesDataById($id);
         $productItemData=$this->Product_Model->getMultipleAttributesItemDataById($id);
-		
+
 		if($this->input->post()){
-			
+
 			$this->load->library('form_validation');
 			$set_rules=$this->Product_Model->configMultipleAttributes;
 			$this->form_validation->set_rules($set_rules);
@@ -47,32 +47,32 @@ class MultipleAttributes extends Admin_Controller
 
 			   $postData['id']=$this->input->post('id');
 			}
-			
+
 			$postData['name']=$this->input->post('name');
 			$postData['name_french']=$this->input->post('name_french');
 			$attribute_item_name=$this->input->post('attribute_item_name');
 			$item_name_french=$this->input->post('item_name_french');
 			$attribute_item_id=$this->input->post('attribute_item_id');
-			
+
 			if($this->form_validation->run()===TRUE)
 			{
 
 				$saveData=true;
-				
+
 				if($saveData){
-					
+
 					$insert_id=$this->Product_Model->saveMultipleAttributes($postData);
-                    
+
 					if ($insert_id > 0)
 					{
                                 $data = array();
-								 
+
 								foreach($attribute_item_name as $k=>$v) {
-									
-									
+
+
 									$sdata=array();
 									$sdata['id']=$attribute_item_id[$k];
-									
+
 									$sdata['item_name']=$v;
 									$sdata['item_name_french']=$item_name_french[$k];
 									$sdata['created']=date('Y-m-d H:i:s');
@@ -81,8 +81,8 @@ class MultipleAttributes extends Admin_Controller
 									$data[]=$sdata;
 							    }
 								#pr($data,1);
-							
-						$this->Product_Model->saveMultipleAttributeItem($data,$insert_id);						
+
+						$this->Product_Model->saveMultipleAttributeItem($data,$insert_id);
 						$this->session->set_flashdata('message_success',$page_title.' Successfully.');
 						redirect('admin/MultipleAttributes');
 					}
@@ -100,18 +100,18 @@ class MultipleAttributes extends Admin_Controller
 		$this->data['productItemData']=$productItemData;
 	    $this->render($this->class_name.'add_edit_attribute');
     }
-	
+
     public function activeInactiveAttribute($id=null,$status=null)
     {
 
         if(!empty($id) && ($status==1 || $status==0)){
-			
+
 			    $postData['id']=$id;
 		        $postData['status']=$status;
 				$page_title='Attributes Active';
 				$this->load->model('Product_Model');
 				if($status==0){
-					
+
 					$page_title='Attributes Inactive';
 				}
 				if ($this->Product_Model->saveMultipleAttributes($postData))
@@ -128,7 +128,7 @@ class MultipleAttributes extends Admin_Controller
 	    }
 		redirect('admin/MultipleAttributes');
     }
-	
+
 	public function deleteAttribute($id=null)
     {
         if(!empty($id)){
@@ -165,7 +165,7 @@ class MultipleAttributes extends Admin_Controller
 		$this->render($this->class_name.'sizes');
 
 	}
-	
+
     public function addEditSize($id=null)
     {
         $this->load->helper('form');
@@ -195,8 +195,8 @@ class MultipleAttributes extends Admin_Controller
 
 			$postData['size_name']=$this->input->post('size_name');
 			$postData['size_name_french']=$this->input->post('size_name_french');
-			
-			
+
+
 			if($this->form_validation->run()===TRUE)
 			{
 			    $insert_id=$this->Product_Model->saveSize($postData);
@@ -205,7 +205,7 @@ class MultipleAttributes extends Admin_Controller
 				{
 
 					$this->session->set_flashdata('message_success',$page_title.' Successfully.');
-					
+
 
 					redirect('admin/MultipleAttributes/sizes');
 				}
@@ -213,20 +213,20 @@ class MultipleAttributes extends Admin_Controller
 				{
 					$this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 				}
-		
+
 
 			}else{
 
 				$this->session->set_flashdata('message_error','Missing information.');
 			}
 		}
-		
+
 	    $this->data['postData']=$postData;
 
 	    $this->render($this->class_name.'add_edit_size');
 
     }
-	
+
     public function activeInactiveSize($id=null,$status=null)
     {
 
@@ -239,7 +239,7 @@ class MultipleAttributes extends Admin_Controller
 				if($status==0){
 					$page_title='Size Inactive';
 				}
-				
+
 				if ($this->Product_Model->saveSize($postData))
 				{
 
@@ -277,10 +277,10 @@ class MultipleAttributes extends Admin_Controller
 			$this->session->set_flashdata('message_error','Missing information.');
 	    }
 		redirect('admin/MultipleAttributes/sizes');
-		
+
     }
     public function quantity(){
-        
+
         $this->load->model('Product_Model');
 		$this->data['page_title'] = 'Product Quantity';
 		$this->data['sub_page_title'] = 'Add New Quantity';
@@ -293,10 +293,10 @@ class MultipleAttributes extends Admin_Controller
 		$this->render($this->class_name.'quantity');
 
 	}
-	
+
     public function addEditQuantity($id=null)
     {
-		 
+
         $this->load->helper('form');
 		$this->data['page_title'] = $page_title = 'Add New Quantity';
 		if(!empty($id)){
@@ -309,7 +309,7 @@ class MultipleAttributes extends Admin_Controller
 		$postData=$this->Product_Model->getQtyById($id);
 
 		if($this->input->post()){
-			
+
             $this->load->library('form_validation');
 			if(!empty($id)){
 
@@ -320,7 +320,7 @@ class MultipleAttributes extends Admin_Controller
 			}
 			$this->form_validation->set_rules($set_rules);
 			$this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
-			
+
 			$postData['name']=$this->input->post('name');
 			$postData['name_french']=$this->input->post('name_french');
 			if($this->form_validation->run()===TRUE)
@@ -331,7 +331,7 @@ class MultipleAttributes extends Admin_Controller
 				{
 
 					$this->session->set_flashdata('message_success',$page_title.' Successfully.');
-					
+
 
 					redirect('admin/MultipleAttributes/quantity');
 				}
@@ -339,20 +339,20 @@ class MultipleAttributes extends Admin_Controller
 				{
 					$this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 				}
-		
+
 
 			}else{
 
 				$this->session->set_flashdata('message_error','Missing information.');
 			}
 		}
-		
+
 	    $this->data['postData']=$postData;
 
 	    $this->render($this->class_name.'add_edit_quantity');
 
     }
-	
+
     public function activeInactiveQuantity($id=null,$status=null)
     {
 
@@ -365,7 +365,7 @@ class MultipleAttributes extends Admin_Controller
 				if($status==0){
 					$page_title='Quantity Inactive';
 				}
-				
+
 				if ($this->Product_Model->saveQuantity($postData))
 				{
 
@@ -381,7 +381,7 @@ class MultipleAttributes extends Admin_Controller
 	    }
 		redirect('admin/MultipleAttributes/quantity');
     }
-	
+
 	public function deleteQuantity($id=null)
     {
         if(!empty($id)){
@@ -405,5 +405,5 @@ class MultipleAttributes extends Admin_Controller
 	    }
 		redirect('admin/MultipleAttributes/quantity');
     }
-	
+
 }

@@ -4,8 +4,8 @@
     <div class="container">
         <div class="page-title-section-inner universal-half-spacing">
             <div class="inner-breadcrum">
-                <a href="index.php">Home</a> 
-                / 
+                <a href="index.php">Home</a>
+                /
                 <span class="current">Products</span>
             </div>
         </div>
@@ -63,7 +63,7 @@
                 						<li><a class="" data-toggle="pill" href="#tab-list"><i class="las la-list"></i></a></li>
                 						<li>
                 							<span>
-                								Show: 
+                								Show:
                 								<a href="#">9</a> /
                 								<a href="#">12</a> /
                 								<a href="#">18</a> /
@@ -77,7 +77,7 @@
                 				<div class="sort-right-filter">
                 					<div class="sort-right-filter-inner">
                 						<span>
-                							Sort by: 
+                							Sort by:
                 							<select id="sorter" data-role="sorter" class="sorter-options">
 							                    <option value="position" selected="selected">Position</option>
 							                    <option value="name">Product Name</option>

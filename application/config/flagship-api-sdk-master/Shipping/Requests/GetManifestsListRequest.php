@@ -30,9 +30,9 @@ class GetManifestsListRequest extends ApiRequest{
     }
 
     public function getResponseCode() : ?int {
-        if(isset($this->responseCode)){    
+        if(isset($this->responseCode)){
             return $this->responseCode;
         }
         return NULL;
-    }   
+    }
 }

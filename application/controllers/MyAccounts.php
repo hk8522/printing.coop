@@ -20,28 +20,28 @@ class MyAccounts extends Public_Controller
 		$this->load->helper('form');
 		$this->data['page_title']='My Account';
 		if($this->language_name=='French'){
-				
+
 	        $this->data['page_title']="Mon compte";
-	    } 
+	    }
 		$page_title="My Account Information";
 		$postData=array();
 		$this->load->model('User_Model');
-		
+
 		$id=$this->loginId;
 		$postData=$this->User_Model->getUserDataById($id);
-		
+
 		$this->data['postData']=$postData;
 		$this->render($this->class_name.'index');
-		
+
   }
-  
+
    public function EditAccount()
     {
 
 	$this->load->helper('form');
 	$this->data['page_title']='Edit My  Account';
 	if($this->language_name=='French'){
-				
+
 	        $this->data['page_title']="Modifier mon compte";
 	}
 	$page_title="My Account Information";
@@ -93,7 +93,7 @@ class MyAccounts extends Public_Controller
 						$this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 					}
 				}else{
-					
+
 				  $this->session->set_flashdata('message_error','Missing information.');
 			    }
 	}
@@ -105,10 +105,10 @@ class MyAccounts extends Public_Controller
 	{
 		$this->data['page_title']='Change Password';
 		if($this->language_name=='French'){
-				
+
 	        $this->data['page_title']="Changer le mot de passe";
 	    }
-		
+
 		$this->render($this->class_name.'change_password');
 	}
     public function saveChangePassword()
@@ -130,16 +130,16 @@ class MyAccounts extends Public_Controller
 				$json['status']=1;
 				$json['msg']='Your password has been updated successfully.';
 				if($this->language_name=='French'){
-				
+
 	              $json['msg']='Votre mot de passe a été mis à jour avec succès.';
 	            }
-				
+
 
 			}else{
 
 				$json['msg']='Technical problem please try after some time';
 				if($this->language_name=='French'){
-				
+
 	              $json['msg']='Problème technique, veuillez essayer après un certain temps.';
 	            }
 			}
@@ -147,21 +147,21 @@ class MyAccounts extends Public_Controller
 
 		    $json['msg']='Email id does not exist';
 		    if($this->language_name=='French'){
-				
+
 	             $json['msg']="L'identifiant de messagerie n'existe pas.";
 	        }
 		}
 		echo json_encode($json);
 
 	}
-	
+
   public function  manageAddress()
   {
 
 	$this->load->model('Address_Model');
 	$this->data['page_title']='Manage Address';
 	if($this->language_name=='French'){
-				
+
 	    $this->data['page_title']="Gérer l'adresse";
 	}
 	$address=$this->Address_Model->getAddressListByUserId($this->loginId);
@@ -169,7 +169,7 @@ class MyAccounts extends Public_Controller
 	$this->data['address']   =$address;
 	$this->data['countries'] = $this->Address_Model->getCountries();
     $this->render($this->class_name.'manage_address');
-	
+
 
 
   }
@@ -184,19 +184,19 @@ class MyAccounts extends Public_Controller
           if (!empty($id)) {
 			         $this->data['page_title']=$page_title='Edit Address';
 					 if($this->language_name=='French'){
-				
+
 	                    $this->data['page_title']="Modifier l'adresse";
 	                }
 		      } else {
 			         $id = null;
 		      }
       }
-     
+
       if(!empty($id)) {
-		  
+
             $this->data['page_title']='Edit Address';
 		    if($this->language_name=='French'){
-				
+
 	          $this->data['page_title']="Modifier l'adresse";
 	        }
           $page_title='Address updated successfully';
@@ -204,7 +204,7 @@ class MyAccounts extends Public_Controller
           $this->data['page_title']=$page_title='Add New Address';
 		  $page_title='New address added successfully';
 	    }
-		
+
 	    $postData = array();
 	    $postData = $this->Address_Model->getAddressDataById($id);
 		$this->data['countries'] = $this->Address_Model->getCountries();
@@ -213,20 +213,20 @@ class MyAccounts extends Public_Controller
 		$this->data['states'] = $this->Address_Model->getState($country_id);
 		$this->data['citys'] = $this->Address_Model->getCity($state_id);
 		//pr($this->data['states']);
-		
-		
+
+
       if ($this->input->post()) {
-		  
+
          $this->load->library('form_validation');
          $set_rules=$this->Address_Model->config;
          $this->form_validation->set_rules($set_rules);
          $this->form_validation->set_error_delimiters('<label style="color:red">', '</label>');
-		 
+
          /*if (!empty($id)){
-			 
+
             $postData['id']=$id;
          }*/
-		 
+
 		 $postData['id']      = $this->input->post('id');
          $postData['user_id'] = $this->loginId;
          $postData['first_name'] = $this->input->post('first_name');
@@ -242,9 +242,9 @@ class MyAccounts extends Public_Controller
          $postData['landmark'] = $this->input->post('landmark');
          $postData['alternate_phone'] = $this->input->post('alternate_phone');$postData['address_type']=$this->input->post('address_type');
          $postData['default_delivery_address'] = $this->input->post('default_delivery_address');
-		 
+
          if ($this->input->is_ajax_request()) {
-			 
+
                return $this->addAddressByAjax($postData);
          }
 
@@ -259,7 +259,7 @@ class MyAccounts extends Public_Controller
                 $this->session->set_flashdata('message_error',' save address unsuccessfully.');
              }
          } else {
-			 
+
               $this->session->set_flashdata('message_error','Missing information.');
          }
      }
@@ -275,7 +275,7 @@ class MyAccounts extends Public_Controller
 
 				$page_title='Address delete';
 				if($this->language_name=='French'){
-				
+
 	                   $page_title="Suppression d'adresse";
 	            }
 				$this->load->model('Address_Model');
@@ -310,7 +310,7 @@ class MyAccounts extends Public_Controller
 
 	$this->data['page_title']='Notification';
 	if($this->language_name=='French'){
-				
+
 	    $page_title="Notification";
 	}
     $this->render($this->class_name.'notification');
@@ -321,9 +321,9 @@ class MyAccounts extends Public_Controller
       $this->session->sess_destroy();
       redirect('/');
 	}
-	
+
 	public function sendOtp(){
-		
+
 		$email=$this->input->post('account_email');
 		$type=$this->input->post('type');
 
@@ -333,7 +333,7 @@ class MyAccounts extends Public_Controller
 	    if($this->User_Model->checkEmailId($email)){
 
 		    $otp=getOtp();
-			
+
 			$StoreData=$this->main_store_data;
 			$store_url    = $StoreData['url'];
 			$store_phone  = $StoreData['phone'];
@@ -342,60 +342,60 @@ class MyAccounts extends Public_Controller
 			$admin_email1 = $StoreData['admin_email1'];
 			$admin_email2 = $StoreData['admin_email2'];
 			$admin_email3 = $StoreData['admin_email3'];
-			
+
 			if($this->language_name == 'French'){
-				
+
 				$massage=$otp." est le code de réinitialisation du mot de passe.code est confidentiel, veuillez ne pas partager ce code avec qui que ce soit pour assurer la sécurité des comptes";
 				$subject='réinitialiser le mot de passe';
 				$body='<div class="top-info" style="margin-top: 25px;text-align: left;"><span style="font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;">
 								'.$massage.'
 							</span>
 						</div>';
-						
-				   $body = $this->emailTemplate($subject,$body,$this->main_store_id);    
+
+				   $body = $this->emailTemplate($subject,$body,$this->main_store_id);
 				   sendEmail($email,$subject,$body,$from_email,$from_name);
-					
-					
-				
+
+
+
 			}else{
-				
+
 				    $massage=$otp.' is reset password code.code is confidential, Please do not share this code with anyone to ensure accounts security';
 				    $subject='Reset Password';
 				    $body='<div class="top-info" style="margin-top: 25px;text-align: left;"><span style="font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;">
 								'.$massage.'
 							</span>
 						</div>';
-						
-				    $body = $this->emailTemplate($subject,$body,$this->main_store_id);    
+
+				    $body = $this->emailTemplate($subject,$body,$this->main_store_id);
 				    sendEmail($email,$subject,$body,$from_email,$from_name);
-				
+
 			}
-            
-			
+
+
 			$json['status']=1;
-			
+
 			$json['msg']='Please check your mail reset password code has been sent to your email id: '.$email;
 			if($this->language_name == 'French'){
-				
+
 				$json['msg']='Veuillez vérifier que votre code de mot de passe de réinitialisation de messagerie a été envoyé à votre identifiant de messagerie:'.$email;
 			}
-			
+
 			$json['otp']=$otp;
 
 		}else{
 
 		    $json['msg']='Email id does not exist';
 		    if($this->language_name == 'French'){
-				
+
 				$json['msg']="L'identifiant de messagerie n'existe pas";
 			}
-			
+
 		}
 
 		echo json_encode($json);
-		
+
 	}
-	
+
 
   public function addAddressByAjax($postData)
   {
@@ -412,18 +412,18 @@ class MyAccounts extends Public_Controller
      $this->form_validation->set_rules($set_rules);
 
      if ($this->form_validation->run() === FALSE) {
-		 
+
          $response['errors'] = $this->form_validation->error_array();
      } else {
 		    //pr($postData,1);
             $insert_id = $this->Address_Model->saveAddress($postData);
-			
+
         if ($insert_id > 0) {
-			
+
             $this->Address_Model->CheckDeliveryAddress($insert_id,$postData);
             $this->data['address'] = $this->Address_Model->getAddressDataById($insert_id);
 			if(!empty($postData['id'])){
-				
+
 				$response['msg']    = 'Address Updated Successfully';
 				$response['updated']    = 1;
 			}else{
@@ -432,50 +432,50 @@ class MyAccounts extends Public_Controller
 			}
             $response['status'] = 'success';
             $response['data'] = $this->load->view('elements/addresses-list', $this->data, TRUE);
-			
+
         }
      }
-	 
+
      echo json_encode($response);
   }
-  
+
    function getStateDropDownListByAjax($country_id){
-		
-		
+
+
 	    $this->load->model('Address_Model');
 		$options='<option value="">--Select State--</option>';
 		if(!empty($country_id)){
-			
+
 		    $stateList=$this->Address_Model->getState($country_id);
 			//pr($stateList);
-			
+
 			foreach($stateList as $key=>$val){
-												
+
 				$options .='<option value="'.$val['id'].'">'.$val['name'].'</option>';
 			}
 		}
-		echo $options; 
-		exit(); 
-		
+		echo $options;
+		exit();
+
 	}
 	function getCityDropDownListByAjax($state_id){
-		
-		
+
+
 	    $this->load->model('Address_Model');
 		$options='<option value="">--Select City--</option>';
 		if(!empty($state_id)){
-			
+
 		    $stateList=$this->Address_Model->getCity($state_id);
 			//pr($stateList);
-			
+
 			foreach($stateList as $key=>$val){
-												
+
 				$options .='<option value="'.$val['id'].'">'.$val['name'].'</option>';
 			}
 		}
-		echo $options; 
-		exit(); 
-		
+		echo $options;
+		exit();
+
 	}
-	
+
 }

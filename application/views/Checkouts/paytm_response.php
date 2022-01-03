@@ -7,7 +7,7 @@
             <div class="today-deal-title">
                 <span><?php echo $page_title; ?></span>
             </div>
-            
+
         </div>
     </div> -->
 </div>
@@ -65,6 +65,6 @@
         setTimeout(function(){
 			window.location.href = "<?php echo $BASE_URL?>MyOrders";
 		  }, 2000
-		  
+
         );
 </script>

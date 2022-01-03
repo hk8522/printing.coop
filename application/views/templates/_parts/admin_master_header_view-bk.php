@@ -79,7 +79,7 @@
                             <span>Dashboard</span>
                             </a>
                         </li>
-						
+
                         <li class="treeview <?php echo in_array($CLASS_NAME,array('products')) ? 'active':''?>">
                             <a href="javascript:void(0)">
                             <i class="fab fa-product-hunt"></i>
@@ -97,7 +97,7 @@
                                     <i class="fas fa-circle"></i>Product Attributes
                                     </a>
                                 </li>
-								
+
                                 <li class="<?php echo in_array($CLASS_NAME,array('products')) && in_array($METHOD_NAME,array('subscribeEmail'))  ? 'active':''?>">
                                     <a href="<?php echo $BASE_URL_ADMIN ?>Products/subscribeEmail">
                                     <i class="fas fa-circle"></i>Subscribe Email
@@ -181,7 +181,7 @@
                                     <i class="fas fa-circle"></i>Cancelled Orders
                                     </a>
                                 </li>
-                                
+
                             </ul>
                         </li>
                         <li class="treeview <?php echo in_array($CLASS_NAME,array('categories')) ? 'active':''?>">
@@ -251,7 +251,7 @@
                                 </li>
                             </ul>
                         </li>
-						
+
                         <li class="treeview <?php echo in_array($CLASS_NAME,array('Accounts','configrations')) ? 'active':''?>">
                             <a href="javascript:void(0)">
                             <i class="fas fa-cog"></i>
@@ -270,7 +270,7 @@
                                     <i class="fas fa-circle"></i>Site Configrations
                                     </a>
                                 </li>
-                                
+
                             </ul>
                         </li>
                         <li class="treeview">
@@ -302,7 +302,7 @@
                             <ul class="treeview-menu">
                                 <li class="">
                                     <a href="<?php echo $BASE_URL_ADMIN ?>Accounts">
-                                    <i class="fas fa-circle"></i>All Sub Admin List 
+                                    <i class="fas fa-circle"></i>All Sub Admin List
                                     </a>
                                 </li>
 								 <li class="">
@@ -315,7 +315,7 @@
                                     <i class="fas fa-circle"></i> Inactive Sub Admin List
                                     </a>
                                 </li>
-								
+
                             </ul>
                         </li>
                         <li class="treeview">

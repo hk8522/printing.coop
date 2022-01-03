@@ -3,8 +3,8 @@
         <div class="top-home">
             <div class="marque">
                 <marquee>
-                    <i class="fas fa-glass-martini-alt"></i> Welcome to  <?php echo WEBSITE_NAME;?>  admin panel 
-                   
+                    <i class="fas fa-glass-martini-alt"></i> Welcome to  <?php echo WEBSITE_NAME;?>  admin panel
+
                 </marquee>
             </div>
         </div>
@@ -81,7 +81,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="charts-section">
             <div class="row">
                 <div class="col-md-4">
@@ -91,12 +91,12 @@
                         </div>
                         <!--<div class="card-body">
                             <h4 class="card-title">Support  Queries</h4>
-							
+
                             <p class="card-category"> Unresolved tickets</p>
 							<div class="product-number">
                                 <span>100</span>
                             </div>
-							
+
                         </div>
 						<div class="card-body section-divide">
                             <div class="card-body-info">
@@ -133,7 +133,7 @@
                         </div>
                         <div class="card-footer section-divide1">
                             <div class="stats">
-                                Till now 
+                                Till now
                             </div>
                             <div class="view-btn view-yellow">
                                 <a href="<?php echo $BASE_URL_ADMIN ?>Products/subscribeEmail"><button>View</button></a>
@@ -157,7 +157,7 @@
                         </div>
                         <div class="card-footer section-divide1">
                             <div class="stats">
-                               Till now 
+                               Till now
                             </div>
                             <div class="view-btn view-red">
                                 <a href="<?php echo $BASE_URL_ADMIN ?>Products"><button>View</button></a>
@@ -167,7 +167,7 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="status-section">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
@@ -210,11 +210,11 @@
                                         </thead>
                                         <tbody id="listOrderData">
                                             <tr>
-                                                <td class="text-center" colspan="4">   
-                                      			Please wait	loading orders...								
-                                                </td>           
+                                                <td class="text-center" colspan="4">
+                                      			Please wait	loading orders...
+                                                </td>
                                             </tr>
-											
+
                                         </tbody>
                                     </table>
 									<div class="view-btn view-blue text-right">
@@ -241,9 +241,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-								    <?php 
+								    <?php
 									if(!empty($userList)){
-									$i=1;	
+									$i=1;
 									foreach($userList as $list){?>
 										<tr>
 											<td><?php echo $i;
@@ -254,13 +254,13 @@
 											?></td>
 											<td><?php echo dateFormate($list['created']);?></td>
 										</tr>
-                                    <?php 
+                                    <?php
 									}
 									}else{?>
 									   <tr>
 											<td colspan="4" class="text-center">List empty</td>
-											
-										</tr> 
+
+										</tr>
 									<?php }?>
                                 </tbody>
                             </table>
@@ -281,19 +281,19 @@ var status='<?php echo base64_encode(2);?>';
 getOrdersByStatus(status);
 
 function getOrdersByStatus(order_status){
-	
+
 	    var url =BASE_URL+'Orders/getOrdersByStatus/'+order_status;
 		$.ajax({
 			    type: "GET",
 			    url: url,
 			    success: function(data)
-			    {    
-			      $("#listOrderData").html(data);  
+			    {
+			      $("#listOrderData").html(data);
 			    },
 			    error: function (error) {
-					
+
 			    }
 		});
-		
+
 }
 </script>

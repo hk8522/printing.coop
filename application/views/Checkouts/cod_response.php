@@ -1,8 +1,8 @@
 <div class="product-title-section">
     <div class="product-title-section-img">
-      
+
     </div>
- 
+
 </div>
 
 <div class="container-fluid checkout-main-section">
@@ -58,7 +58,7 @@
 								</table>
 							</div>
                     </div>
-					
+
                 </div>
             </div>
         </div>
@@ -68,6 +68,6 @@
         setTimeout(function(){
 			window.location.href = "<?php echo $BASE_URL?>MyOrders";
 		  }, 5000
-		  
+
         );
 </script>

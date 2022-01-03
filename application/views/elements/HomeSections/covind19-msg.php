@@ -5,7 +5,7 @@
       		<div class="modal-header">
         		<h5 class="modal-title" id="eWarningModalTitle">MESSAGE: COVID19</h5>
     			<a href="javascript:void(0)" onclick="COVIDMSGClose()">
-				
+
 					<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>-->

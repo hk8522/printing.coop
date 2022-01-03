@@ -15,7 +15,7 @@
 					    			<div class="text-center" style="color:red">
 										<?php echo $this->session->flashdata('message_error');?>
 									</div>
-									<div class="form-role-area">		
+									<div class="form-role-area">
 										<div class="control-group info">
 											<div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -79,7 +79,7 @@
 							</div>
 						</div>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->

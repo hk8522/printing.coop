@@ -1,14 +1,14 @@
 <?php
 /*if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') == 0){
 	//Request hash
-	$contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';	
+	$contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
 	if(strcasecmp($contentType, 'application/json') == 0){
 		$data = json_decode(file_get_contents('php://input'));
 		$hash=hash('sha512', $data->key.'|'.$data->txnid.'|'.$data->amount.'|'.$data->pinfo.'|'.$data->fname.'|'.$data->email.'|||||'.$data->udf5.'||||||'.$data->salt);
 		$json=array();
 		$json['success'] = $hash;
     	echo json_encode($json);
-	
+
 	}
 	exit(0);
 }
@@ -53,7 +53,7 @@ color="e34524" bolt-logo="http://boltiswatching.com/wp-content/uploads/2015/09/B
 		display:none;
 	}
 	.sbtn{
-		
+
 		width: 150px;
         height: 33px;
         font-size: 15px;
@@ -79,54 +79,54 @@ color="e34524" bolt-logo="http://boltiswatching.com/wp-content/uploads/2015/09/B
     <span class="hidden"><label>Merchant Salt:</label></span>
     <span><input type="hidden" id="salt" name="salt" placeholder="Merchant Salt" value="<?php echo $paramList["salt"]; ?>" /></span>
     </div>
-    
+
     <div class="dv">
     <span class="hidden"><label>Transaction/Order ID:</label></span>
     <span><input type="hidden" id="txnid" name="txnid" placeholder="Transaction ID" value="<?php echo $paramList["ORDER_ID"]; ?>" /></span>
     </div>
-    
+
     <div class="dv">
     <span class="hidden"><label>Amount:</label></span>
-    <span><input type="hidden" id="amount" name="amount" placeholder="Amount" value="<?php echo $paramList["TXN_AMOUNT"]; ?>" /></span>    
+    <span><input type="hidden" id="amount" name="amount" placeholder="Amount" value="<?php echo $paramList["TXN_AMOUNT"]; ?>" /></span>
     </div>
-    
+
     <div class="dv">
     <span class="hidden"><label>Product Info:</label></span>
     <span><input type="hidden" id="pinfo" name="pinfo" placeholder="Product Info" value="<?php echo $paramList["product_info"]; ?>" /></span>
     </div>
-    
+
     <div class="dv">
     <span class="hidden"><label>First Name:</label></span>
     <span><input type="hidden" id="fname" name="fname" placeholder="First Name" value="<?php echo $paramList["name"]; ?>" /></span>
     </div>
-    
+
     <div class="dv">
     <span class="hidden"><label>Email ID:</label></span>
     <span><input type="hidden" id="email" name="email" placeholder="Email ID" value="<?php echo $paramList["email"]; ?>" /></span>
     </div>
-    
+
     <div class="dv">
     <span class="hidden"><label>Mobile/Cell Number:</label></span>
     <span><input type="hidden" id="mobile" name="mobile" placeholder="Mobile/Cell Number" value="<?php echo $paramList["mobile"]; ?>" /></span>
     </div>
-    
+
     <div class="dv">
     <span class="hidden"><label>Hash:</label></span>
     <span><input type="hidden" id="hash" name="hash" placeholder="Hash" value="<?php echo $hash; ?>" /></span>
     </div>
     <!--<div style="text-align:center;">
 	 <b>Total Pay Amount: <?php echo $paramList["TXN_AMOUNT"]; ?> </b><?php ?><input type="submit" value="Pay" class="sbtn" onclick="launchBOLT(); return false;"/></div>-=>
-	 
-	 
+
+
 	</form>
-	
+
 </div>
 <script type="text/javascript"><!--
 $('#payment_form').bind('keyup blur', function(){
 	$.ajax({
           url: 'index.php',
           type: 'post',
-          data: JSON.stringify({ 
+          data: JSON.stringify({
             key: $('#key').val(),
 			salt: $('#salt').val(),
 			txnid: $('#txnid').val(),
@@ -143,11 +143,11 @@ $('#payment_form').bind('keyup blur', function(){
             if (json['error']) {
 			 $('#alertinfo').html('<i class="fa fa-info-circle"></i>'+json['error']);
             }
-			else if (json['success']) {	
+			else if (json['success']) {
 				$('#hash').val(json['success']);
             }
           }
-        }); 
+        });
 });
 //-->
 </script>
@@ -156,7 +156,7 @@ function launchBOLT()
 {
 	bolt.launch({
 	key: $('#key').val(),
-	txnid: $('#txnid').val(), 
+	txnid: $('#txnid').val(),
 	hash: $('#hash').val(),
 	amount: $('#amount').val(),
 	firstname: $('#fname').val(),
@@ -166,9 +166,9 @@ function launchBOLT()
 	udf5: $('#udf5').val(),
 	surl : $('#surl').val(),
 	furl: $('#surl').val(),
-	mode: 'dropout'	
+	mode: 'dropout'
 },{ responseHandler: function(BOLT){
-	console.log( BOLT.response.txnStatus);		
+	console.log( BOLT.response.txnStatus);
 	if(BOLT.response.txnStatus != 'CANCEL')
 	{
 		//Salt is passd here for demo purpose only. For practical use keep salt at server side only.
@@ -186,12 +186,12 @@ function launchBOLT()
 		'<input type=\"hidden\" name=\"hash\" value=\"'+BOLT.response.hash+'\" />' +
 		'</form>';
 		var form = jQuery(fr);
-		jQuery('body').append(form);								
+		jQuery('body').append(form);
 		form.submit();
 	}
-	
+
 	if(BOLT.response.txnStatus = 'CANCEL'){
-		
+
 		window.location="<?php echo $paramList['CALLBACK_URL']?>";
 	}
 },
@@ -204,4 +204,4 @@ launchBOLT();
 </script>
 </body>
 </html>
-	
+

@@ -12,13 +12,13 @@
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-7">
-                                	<div class="form-role-area">			
+                                	<div class="form-role-area">
 										<div class="control-group info">
 											<div class="row align-items-center">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame"> Generate Code</label>
 												</div>
-                                                <div class="col-md-8">	
+                                                <div class="col-md-8">
 													<div class="controls">
 														<input class="form-control" type="text">
 													</div>
@@ -27,10 +27,10 @@
 										</div>
 										<div class="control-group info">
 											<div class="row">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame">Select Fields</label>
 												</div>
-                                                <div class="col-md-8">	
+                                                <div class="col-md-8">
 													<div class="controls">
 													    <div class="row">
 													        <div class="col-md-12">
@@ -66,14 +66,14 @@
 													            </select>
                                                                 <label class="form-inner-label">Select Products</label>
 													        </div>
-													    </div> 
+													    </div>
 													</div>
 												</div>
 											</div>
 										</div>
 										<div class="control-group info">
 											<div class="row">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame"> Discount Type</label>
 												</div>
                                                 <div class="col-md-8">
@@ -100,10 +100,10 @@
 										</div>
 										<div class="control-group info">
 											<div class="row">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame"> Discount Valid</label>
 												</div>
-                                                <div class="col-md-8">	
+                                                <div class="col-md-8">
 													<div class="controls">
 													    <div class="row">
 													        <div class="col-md-12">
@@ -135,7 +135,7 @@
 										</div>
 										<div class="control-group info">
 											<div class="row">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame"> Discount Requirements</label>
 												</div>
                                                 <div class="col-md-8">
@@ -162,10 +162,10 @@
 										</div>
 										<div class="control-group info">
 											<div class="row align-items-center">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame">Discount Code Limit</label>
 												</div>
-                                                <div class="col-md-8">	
+                                                <div class="col-md-8">
 													<div class="controls">
 														<input class="form-control" type="number">
 													</div>
@@ -180,16 +180,16 @@
 							</div>
 						</div>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->
  </div>
- 
+
  <script src="<?php echo $BASE_URL;?>assets/admin/js/jquery.datetimepicker.full.js"></script>
 <script>
 $(document).ready(function(){
-	
+
     $("#show-discount-percent").click(function(){
         $(".discount-percent").show();
         $(".discount-amount").hide();
@@ -198,7 +198,7 @@ $(document).ready(function(){
         $(".discount-percent").hide();
         $(".discount-amount").show();
     });
-	
+
     $("#show-minimum").click(function(){
         $(".minimum-quantity").show();
         $(".maximum-quantity").hide();
@@ -207,13 +207,13 @@ $(document).ready(function(){
         $(".minimum-quantity").hide();
         $(".maximum-quantity").show();
     });
-	
+
     /*$('#multiple-category').selectpicker1();
     $('#multiple-brand').selectpicker2();
     $('#multiple-products').selectpicker3();*/
-	
+
 	$('#DiscountValid').datetimepicker();
-	
+
 });
 /*jQuery(document).ready(function () {
                 'use strict';

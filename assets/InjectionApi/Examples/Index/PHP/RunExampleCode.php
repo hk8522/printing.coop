@@ -1,5 +1,5 @@
 
-<?php 
+<?php
     if(!defined('SOCKETLABS_INJECTION_API_SAMPLE_ROOT_PATH'))
     define('SOCKETLABS_INJECTION_API_SAMPLE_ROOT_PATH', dirname(__DIR__) . '/');
 
@@ -18,7 +18,7 @@
 
         $response->responseMessage = $response->responseMessage;
         $output = array("request"=>$request, "response"=>$response);
-        
+
         header('Content-Type: application/json');
         echo json_encode($output);
     }

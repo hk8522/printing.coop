@@ -5,48 +5,48 @@ namespace Socketlabs\Message;
  */
 class BaseMessage{
 
-    /** 
-     * Message subject.   
+    /**
+     * Message subject.
      */
     public $subject;
 /**
-     * Plain text portion of the message body. 
-     * 
+     * Plain text portion of the message body.
+     *
      * (Optional)
-     * Atleast one of the following body types must be set: $plainTextBody (with ampBody), 
+     * Atleast one of the following body types must be set: $plainTextBody (with ampBody),
      * $htmlBody (with ampBody), or $apiTemplate.     */
     public $plainTextBody;
 
     /**
      * HTML portion of the message body.
-     * 
+     *
      * (Optional)
-     * Atleast one of the following body types must be set: $plainTextBody (with ampBody), 
+     * Atleast one of the following body types must be set: $plainTextBody (with ampBody),
      * $htmlBody (with ampBody), or $apiTemplate.
      */
     public $htmlBody;
 
     /**
-     * Api Template Id used to specify a template to be used for the message Id. 
-     * 
+     * Api Template Id used to specify a template to be used for the message Id.
+     *
      * (Optional)
-      * Atleast one of the following body types must be set: $plainTextBody (with ampBody), 
+      * Atleast one of the following body types must be set: $plainTextBody (with ampBody),
      * $htmlBody (with ampBody), or $apiTemplate.
      */
     public $apiTemplate;
 
     /**
-     * AmpBody Id used to specify a template to be used for the message Id. 
-     * 
+     * AmpBody Id used to specify a template to be used for the message Id.
+     *
      * (Optional)
-     * Atleast one of the following body types must be set: $plainTextBody (with ampBody), 
-     * $htmlBody (with ampBody), or $apiTemplate.    
+     * Atleast one of the following body types must be set: $plainTextBody (with ampBody),
+     * $htmlBody (with ampBody), or $apiTemplate.
      */
     public $ampBody;
 
     /**
      * Custom MailingId for the message.
-     * 
+     *
      * (Optional)
      * See https://www.socketlabs.com/blog/best-practices-for-using-custom-mailingids-and-messageids/ for more information.
      */
@@ -54,7 +54,7 @@ class BaseMessage{
 
     /**
      * Custom MessageId for the message.
-     * 
+     *
      * (Optional)
      * See https://www.socketlabs.com/blog/best-practices-for-using-custom-mailingids-and-messageids/ for more information.
      */
@@ -63,7 +63,7 @@ class BaseMessage{
 
     /**
      * From address.
-     * 
+     *
      * (Required)
      */
     public $from;
@@ -75,7 +75,7 @@ class BaseMessage{
 
     /**
      * The optional character set for your message.
-     * 
+     *
      * (Optional) Default is 'utf-8'
      */
     public $charset;
@@ -91,8 +91,8 @@ class BaseMessage{
     public $customHeaders = array();
 
     /**
-     * Adds custom header to the message. 
-     * 
+     * Adds custom header to the message.
+     *
      * @param string $name Header name.
      * @param string $value Header value.
      * @return BaseMessage Message Instance.
@@ -101,7 +101,7 @@ class BaseMessage{
         if(!is_string($name)) throw new InvalidArgumentException("The custom header name property must be type string.");
         if(!is_string($value)) throw new InvalidArgumentException("The custom value property must be type string.");
         $customHeader = new CustomHeader($name, $value);
-        $this->customHeaders[] = $customHeader; 
+        $this->customHeaders[] = $customHeader;
         return $this;
 
     }

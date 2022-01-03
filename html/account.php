@@ -4,8 +4,8 @@
     <div class="container">
         <div class="page-title-section-inner universal-half-spacing">
             <div class="inner-breadcrum">
-                <a href="index.php">Home</a> 
-                / 
+                <a href="index.php">Home</a>
+                /
                 <span class="current">Account</span>
             </div>
         </div>
@@ -53,7 +53,7 @@
                         <button type="submit">Continue</button>
                     </div>
                 </div>
-            </div>                    
+            </div>
         </div>
     </div>
 </div>

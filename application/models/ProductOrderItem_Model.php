@@ -1,7 +1,7 @@
 <?php
 
 Class ProductOrderItem extends MY_Model {
-	
+
 	public $table='product_order_items';
 	public $config = array(
         array(
@@ -20,7 +20,7 @@ Class ProductOrderItem extends MY_Model {
                         'required' => 'Select menu',
                 ),
         ),
-		
+
 		array(
                 'field' => 'category_id',
                 'label' => 'category',
@@ -68,7 +68,7 @@ Class ProductOrderItem extends MY_Model {
                         'required' => 'Enter product full description',
                 ),
         ),
-		
+
 		/*array(
                 'field' => 'files',
                 'label' => 'files',
@@ -78,33 +78,33 @@ Class ProductOrderItem extends MY_Model {
                 ),
         )*/
     );
-	
+
     public function getProductOrderList($id=null) {
-		
-		
+
+
         $this->db->select(array('Product.*','Menu.name as menu_name','Category.name as category_name','SubCategory.name as sub_category_name'));
         $this->db->from($this->table.' as Product');
-		
+
 		$this->db->where(array('Menu.status'=>1,'Category.status'=>1,'SubCategory.status'=>1));
 		if(!empty($id)){
-			
-		    $this->db->where(array('Menu.status'=>1,'Category.status'=>1,'SubCategory.status'=>1,'Product.id'=>$id));	
+
+		    $this->db->where(array('Menu.status'=>1,'Category.status'=>1,'SubCategory.status'=>1,'Product.id'=>$id));
 		}
 		$this->db->join('menus as Menu', 'Menu.id=Product.menu_id', 'inner');
 		$this->db->join('categories as Category', 'Category.id=Product.category_id', 'inner');
 		$this->db->join('sub_categories as SubCategory', 'SubCategory.id=Product.sub_category_id', 'inner');
         $query = $this->db->get();
 		if(!empty($id)){
-			
-			$data=(array)$query->row();	
+
+			$data=(array)$query->row();
 		}else{
-		    $data=$query->result_array();	
+		    $data=$query->result_array();
 		}
-		 
+
 		return $data;
-		
+
     }
-	
+
 	public function getLatestProducts() {
         $this->db->select('*');
 		$condition=array();
@@ -114,13 +114,13 @@ Class ProductOrderItem extends MY_Model {
 		$this->db->order_by('created','desc');
 		$this->db->limit(8);
         $query = $this->db->get();
-		$data=$query->result_array(); 
+		$data=$query->result_array();
 		return $data;
-		
+
     }
-	
+
 	public function getTodayDealProducts() {
-		
+
 		$today_date=date('Y-m-d');
         $this->db->select('*');
 		$condition=array();
@@ -131,13 +131,13 @@ Class ProductOrderItem extends MY_Model {
         $this->db->from($this->table);
 		$this->db->order_by('name','asc');
         $query = $this->db->get();
-		$data=$query->result_array(); 
+		$data=$query->result_array();
 		return $data;
-		
+
     }
-	
+
 	public function getSpecialProducts() {
-		
+
         $this->db->select('*');
 		$condition=array();
 		$condition['status']=1;
@@ -146,13 +146,13 @@ Class ProductOrderItem extends MY_Model {
         $this->db->from($this->table);
 		$this->db->order_by('name','asc');
         $query = $this->db->get();
-		$data=$query->result_array(); 
+		$data=$query->result_array();
 		return $data;
-		
+
     }
-	
+
 	public function getBestsellerProducts() {
-		
+
         $this->db->select('*');
 		$condition=array();
 		$condition['status']=1;
@@ -161,13 +161,13 @@ Class ProductOrderItem extends MY_Model {
         $this->db->from($this->table);
 		$this->db->order_by('name','asc');
         $query = $this->db->get();
-		$data=$query->result_array(); 
+		$data=$query->result_array();
 		return $data;
-		
+
     }
-	
+
 	public function getTopVisitedProducts() {
-		
+
         $this->db->select('*');
 		$condition=array();
 		$condition['status']=1;
@@ -176,12 +176,12 @@ Class ProductOrderItem extends MY_Model {
 		$this->db->order_by('total_visited','desc');
 		$this->db->limit(30);
         $query = $this->db->get();
-		$data=$query->result_array(); 
+		$data=$query->result_array();
 		return $data;
-		
+
     }
 	public function getProductOrderDataById($id) {
-		
+
         $this->db->select('*');
         $this->db->from($this->table);
 		$this->db->where(array('id'=>$id));
@@ -189,9 +189,9 @@ Class ProductOrderItem extends MY_Model {
 		$data=(array)$query->row();
 		return $data;
     }
-	
+
 	public function deleteProduct($id) {
-		
+
 		$this->db->where('id',$id);
         $query = $this->db->delete($this->table);
 		if ($query) {
@@ -199,26 +199,26 @@ Class ProductOrderItem extends MY_Model {
 		} else {
 			return 0;
 		}
-		
+
     }
-	
+
 	public function saveProduct($data) {
-		
+
 		$id=isset($data['id']) ? $data['id']:'';
-		
+
 		if(!empty($id)){
-			
+
 			$data['updated']=date('Y-m-d H:i:s');
 			$this->db->where('id', $id);
 			$query = $this->db->update($this->table, $data);
 			if ($query) {
-				
+
                return $id;
 			} else {
 				return 0;
 			}
 		}else{
-			
+
 			$data['created']=date('Y-m-d H:i:s');
 			$data['updated']=date('Y-m-d H:i:s');
 			$query = $this->db->insert($this->table, $data);
@@ -227,7 +227,7 @@ Class ProductOrderItem extends MY_Model {
 			} else {
 				return 0;
 			}
-			
+
 		}
     }
 

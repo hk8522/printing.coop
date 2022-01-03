@@ -12,10 +12,10 @@
 										<span><?php echo ucfirst($page_title).' List'; ?></span>
 									</div>
 								</div>
-								
+
 							   <div class="col-md-6 col-xs-12 text-right">
 									<div class="all-vol-btn">
-										
+
 										    <?php if($status_ticket==0){
 											$url=$BASE_URL.'admin/Tickets/index/'.base64_encode(1);
 											$text='Resolved Ticket';
@@ -37,7 +37,7 @@
 							</div>
 						</div>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->
@@ -58,7 +58,7 @@
 			      			</div>
 			      			<div class="message-chat-box" id="TicketChatData">
 							     			      					                    <h6 class="text-center">Please wait loading...</h6>
-			      				
+
 			          		</div>
 			          	</div>
 			      	</div>
@@ -79,10 +79,10 @@
                             <div></div>
                         </div>
                     </div>
-					
+
                     <div class="new-ticket-section-fields" id="createTicketFromData">
 					   <h6 class="text-center">Please wait loading...<h6>
-					   
+
                     </div>
                 </div>
             </div>

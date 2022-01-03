@@ -393,5 +393,5 @@ class GetShipmentByIdTests extends TestCase{
             ->getMock();
         $this->getShipment = $this->getShipmentByIdRequest->execute();
         $this->shipment = new Shipment(json_decode($response));
-    }   
+    }
 }

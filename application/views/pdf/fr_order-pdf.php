@@ -2,9 +2,9 @@
 	FILE_BASE_PATH.'dompdf-master/vendor/autoload.php';
 	include FILE_BASE_PATH.'dompdf-master/vendor/autoload.php';
 	use Dompdf\Dompdf;
-	$dompdf = new Dompdf();	
-	ob_start();	
-	
+	$dompdf = new Dompdf();
+	ob_start();
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -35,11 +35,11 @@
 	</table>
 	<table style="width: 100%; margin-top: 20px;">
 		<tr>
-			
+
 			<td style="width: 50%;">
 				<div>
 				    <?php  echo $StoreData['order_pdf_company'];?>
-					
+
 					<!--<p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><b>Impression Coop Inc.</b></p>
 					<p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;">9166 Rue Lajeunesse</p>
 					<p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;">Montreal, Quebec, H2M 1S2</p>
@@ -57,7 +57,7 @@
 					<p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;">Email: <?php echo ucfirst($orderData['email']);?></p>
 				</div>
 			</td>
-			
+
 		</tr>
 	</table>
 	<table style="width: 100%; margin-top: 20px;">
@@ -67,7 +67,7 @@
 					<p style="margin: 0px 0px 10px 0px; font-size: 20px; font-weight: 400; color: #000;"><b>Availability period</b></p>
 					<p style="margin: 0px 0px 0px 0px; font-size: 20px; font-weight: 400; color: #000;"></p>
 				</div>
-				
+
 			</td>
 			<td style="width: 20%;">
 				<div style="text-align: center;">
@@ -75,7 +75,7 @@
 					<p style="margin: 0px 0px 0px 0px; font-size: 20px; font-weight: 400; color: #000;"><?php echo date('d/m/Y',strtotime($orderData['created']))?></p>
 				</div>
 			</td>-->
-			
+
 			<td style="width: 20%;">
 				<div style="text-align: center;">
 					<p style="margin: 0px 0px 5px 0px; font-size: 16px; font-weight: 400; color: #000;"><b>Commercial</b></p>
@@ -86,10 +86,10 @@
 				<div style="text-align: center;">
 					<p style="margin: 0px 0px 5px 0px; font-size: 16px; font-weight: 400; color: #000;"><b>Code client</b></p>
 					<p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><?php if(!empty($orderData['user_id'])){
-																				
+
 																																			                                             echo CUSTOMER_ID_PREFIX.$orderData['user_id'];
 																												}else{
-																													echo "-";	
+																													echo "-";
 																												}?></p>
 				</div>
 			</td>
@@ -106,33 +106,33 @@
     		<tr>
     		    <th style="background: #aad4ff; color: #000; vertical-align: middle;font-size: 16px; text-transform: capitalize; font-weight: 400; white-space: nowrap; padding: 5px 10px !important; border-right: 2px solid #ff0000;">La désignation</th>
     		    <!--<th style="background: #aad4ff; color: #000; vertical-align: middle;font-size: 20px; text-transform: capitalize; font-weight: 400; white-space: nowrap; padding: 10px 10px !important; border-right: 2px solid #ff0000;">Taxes</th>-->
-				
+
     		    <th style="background: #aad4ff; color: #000; vertical-align: middle;font-size: 16px; text-transform: capitalize; font-weight: 400; white-space: nowrap; padding: 5px 10px !important; border-right: 2px solid #ff0000;">Prix</th>
     		    <th style="background: #aad4ff; color: #000; vertical-align: middle;font-size: 16px; text-transform: capitalize; font-weight: 400; white-space: nowrap; padding: 5px 10px !important; border-right: 2px solid #ff0000;">Quantité</th>
     		    <th style="background: #aad4ff; color: #000; vertical-align: middle;font-size: 16px; text-transform: capitalize; font-weight: 400; white-space: nowrap; padding: 5px 10px !important; border-right: 2px solid #ff0000;">Unité</th>
     		    <th style="background: #aad4ff; color: #000; vertical-align: middle;font-size: 16px; text-transform: capitalize; font-weight: 400; white-space: nowrap; padding: 5px 10px !important; border-right: 2px solid #ff0000;">Total</th>
     	    </tr>
     	</thead>
-    	<tbody>	
-		<?php 
+    	<tbody>
+		<?php
 		foreach ($OrderItemData as $rowid=>$items){
-											
+
 			        $cart_images=json_decode($items['cart_images'],true);
-			        $attribute_ids=json_decode($items['attribute_ids'],true);					  
-					$product_size=json_decode($items['product_size'],true);					  
-					$product_width_length=json_decode($items['product_width_length'],true);			  
+			        $attribute_ids=json_decode($items['attribute_ids'],true);
+					$product_size=json_decode($items['product_size'],true);
+					$product_width_length=json_decode($items['product_width_length'],true);
 					$page_product_width_length=json_decode($items['page_product_width_length'],true);
-					$product_depth_length_width=json_decode($items['product_depth_length_width'],true);			  
+					$product_depth_length_width=json_decode($items['product_depth_length_width'],true);
 					$votre_text=$items['votre_text'];
-				    $recto_verso=$items['recto_verso'];	
+				    $recto_verso=$items['recto_verso'];
 					$product_id=$items['product_id'];
-			
-		?>	
+
+		?>
     		<tr style="background-color: #fff; border-bottom: 1px dashed #ccc !important;">
     			<td style="color: #000; vertical-align: middle; font-size: 14px; font-weight: 400; padding: 5px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">
 				<?php echo ucfirst($items['name_french']);?><br>
-				<?php 
-				if(!empty($product_width_length)){?>									
+				<?php
+				if(!empty($product_width_length)){?>
 					    <span><strong>Longueur (pouces):<?php echo $product_width_length['product_length'];?></strong> </span>,
 					    <span><strong>Largeur (pouces):<?php echo $product_width_length['product_width'];?></strong>
 						</span>,
@@ -143,13 +143,13 @@
 						<?php if(!empty($product_width_length['product_total_page'])){?>
 						 <span><strong>Qualité:<?php echo $product_width_length['product_total_page'];?></strong>
 						</span>
-						<?php 
+						<?php
 						}?>
-					   <?php 
+					   <?php
 					   }?>
-					   <?php 
-					   
-				       if(!empty($product_depth_length_width)){?>									
+					   <?php
+
+				       if(!empty($product_depth_length_width)){?>
 					    <span><strong>Longueur (pouces):<?php echo $product_depth_length_width['product_depth_length'];?></strong> </span>,
 					    <span><strong>Largeur (pouces):<?php echo $product_depth_length_width['product_depth_width'];?></strong>
 						</span>,
@@ -162,11 +162,11 @@
 						<?php if(!empty($product_depth_length_width['product_depth_total_page'])){?>
 						 <span><strong>Qualité:<?php echo $product_depth_length_width['product_depth_total_page'];?></strong>
 						</span>
-						<?php 
+						<?php
 						}?>
-					   <?php 
+					   <?php
 					   }?>
-					   <?php if(!empty($page_product_width_length)){?>									
+					   <?php if(!empty($page_product_width_length)){?>
 					    <span><strong>Longueur de page (pouces):<?php echo $page_product_width_length['page_product_length'];?></strong> </span>,
 					    <span><strong>Largeur de page (pouces):<?php echo $page_product_width_length['page_product_width'];?></strong> </span>,
 						<?php if(!empty($page_product_width_length['page_length_width_color_show'])){?>
@@ -175,81 +175,81 @@
 						<?php }?>
 						<?php if(!empty($page_product_width_length['page_product_total_page'])){?>
 						<span><strong>Des pages:<?php echo $page_product_width_length['page_product_total_page_french'];?></strong> </span>
-						<?php 
+						<?php
 						}?>
 						<?php if(!empty($page_product_width_length['page_product_total_sheets_french'])){?>
 						<span><strong>Feuille par bloc:<?php echo $page_product_width_length['page_product_total_sheets_french'];?></strong> </span>
-						<?php 
+						<?php
 						}?>
 						<?php if(!empty($page_product_width_length['page_product_total_quantity'])){?>
 						<span><strong>Quantité:<?php echo $page_product_width_length['page_product_total_quantity'];?></strong> </span>
-						<?php 
+						<?php
 						}?>
-					<?php 
+					<?php
 					  }?>
-				    <?php 
+				    <?php
 					    if(!empty($product_size)){
-								
-							    $size_name = $product_size['product_size_french'];	
+
+							    $size_name = $product_size['product_size_french'];
 								$label_qty=$product_size['product_quantity_french'];
 								$attribute=isset($product_size['attribute']) ? $product_size['attribute']:'';
-								
-								?>   
+
+								?>
 							     <?php if($label_qty){ ?>
                                    <span><strong>Quantité:<?php echo $label_qty;?></strong> </span>
-									<?php 
+									<?php
 									}?>
-							    <?php 
+							    <?php
 								if($size_name){ ?>
 									  <span><strong>Taille:<?php echo $size_name;?></strong> </span>
-									<?php 
-								}?>	
-										
-										
-								<?php 
-								if($attribute){ 
-								
+									<?php
+								}?>
+
+
+								<?php
+								if($attribute){
+
 								    foreach($attribute as $akey=>$aval){
-										
+
 										$multiple_attribute_name=$aval['attributes_name_french'];
 									    $multiple_attribute_item_name=$aval['attributes_item_name_french'];
 								?>
-								
-                                   <span><strong><?php echo $multiple_attribute_name;?>:<?php echo $multiple_attribute_item_name;?></strong> </span>		
-								<?php 
-									}	
-								}?>	
-								
-							<?php    
+
+                                   <span><strong><?php echo $multiple_attribute_name;?>:<?php echo $multiple_attribute_item_name;?></strong> </span>
+								<?php
+									}
+								}?>
+
+							<?php
 						}
 					?>
-				         <?php 	   
-							#pr($attribute_ids);		   
+				         <?php
+							#pr($attribute_ids);
 							foreach($attribute_ids as $key=>$val){
-								
+
 								$attribute_name=$val['attribute_name_french'];
-								$item_name=$val['item_name_french'];	
+								$item_name=$val['item_name_french'];
 								?>
-								 <span><strong><?php echo $attribute_name;?>:<?php echo $item_name;?></strong> </span>		
-							<?php 	  
+								 <span><strong><?php echo $attribute_name;?>:<?php echo $item_name;?></strong> </span>
+							<?php
 						    }?>
 					<?php if($recto_verso){?>
 									<span><strong>Recto verso: <?php echo $recto_verso;?></strong> </span>,
-									<?php 
-						}?>										
-					 
-                    <?php 
+									<?php
+						}?>
+
+                    <?php
 					    if($votre_text){?>
 									<span><strong>Votre TEXTE - Votre TEXTE: <?php echo $votre_text;?></strong> </span>,
-									<?php 
-						}?> 					  
-				
+									<?php
+						}?>
+
 				</td>
     			<!--<td style="color: #000; vertical-align: middle; font-size: 18px; font-weight: 400; padding: 10px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">14,975%</td>-->
-				
+
     			<td style="color: #000; vertical-align: middle; font-size: 14px; font-weight: 400; padding: 5px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;"><?php echo $order_currency_currency_symbol.number_format($items['price'],2);?>
 				</td>
-    			<td style="color: #000; vertical-align: middle; font-size: 14px; font-weight: 400; padding: 5px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;"> 
+    			<td style="color: #000; vertical-align: middle; font-size: 14px; font-weight: 400; padding: 5px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">
 				<?php
 					echo $items['quantity'];
 				?>
@@ -259,11 +259,11 @@
 				    <?php
 					$subtotal=($items['price']*
 					$items['quantity']);
-					echo $order_currency_currency_symbol.number_format( $subtotal,2);							
+					echo $order_currency_currency_symbol.number_format( $subtotal,2);
 		            ?>
 				    </td>
     		</tr>
-		<?php 
+		<?php
 		}?>
     	</tbody>
     </table>
@@ -273,12 +273,12 @@
 				<!--<div style="">
 					<p style="margin: 0px 0px 0px 0px; font-size: 20px; font-weight: 400; color: #000;"><b>Expected delivery date</b> : <?php echo date('d M Y',strtotime($orderData['created']))?></p>
 				</div>-->
-				
+
 			</td>
 			<td style="width: 50%;">
 				<table style="width: 100%; text-align: left; border-collapse: collapse;">
-				
-			    	<tbody>	
+
+			    	<tbody>
 			    		<tr style="background-color: #fff;">
 			    			<td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important;">Total:</td>
 			    			<td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?php echo $order_currency_currency_symbol."".number_format($orderData['sub_total_amount'],2);?>
@@ -290,7 +290,7 @@
 			    			<td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?php echo '-'.$order_currency_currency_symbol.number_format($orderData['preffered_customer_discount'],2);?>
 							</td>
 			    		</tr>
-						<?php 
+						<?php
 						}?>
 						<?php if(!empty($orderData['coupon_discount_amount']) && $orderData['coupon_discount_amount'] !="0.00"){?>
 						<tr style="background-color: #fff;">
@@ -298,7 +298,7 @@
 			    			<td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?php echo '-'.$order_currency_currency_symbol.number_format($orderData['coupon_discount_amount'],2);?>
 							</td>
 			    		</tr>
-						<?php 
+						<?php
 						}?>
 						<?php if(!empty($orderData['delivery_charge']) && $orderData['delivery_charge'] !="0.00"){?>
 						<tr style="background-color: #fff;">
@@ -306,35 +306,35 @@
 			    			<td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?php echo $order_currency_currency_symbol.number_format($orderData['delivery_charge'],2);?>
 							</td>
 			    		</tr>
-						<?php 
+						<?php
 						}?>
 						 <?php if(!empty($orderData['total_sales_tax']) &&  $orderData['total_sales_tax'] !='0.00'){ ?>
 			    		<tr style="background-color: #fff;">
 			    			<td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important;"><?php echo $salesTaxRatesProvinces_Data['type']?> <?php echo number_format($salesTaxRatesProvinces_Data['total_tax_rate'],2);?>%:</td>
-			    			<td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?php 
+			    			<td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?php
 	echo $order_currency_currency_symbol.number_format($orderData['total_sales_tax'],2);?></td>
 			    		</tr>
-						<?php 
+						<?php
 						}?>
 			    		<tr style="background-color: #fff;">
 			    			<td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 600; padding: 5px 5px !important; background: #e7e7e7;">Total:</td>
-			    			<td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 600; padding: 5px 5px !important; background: #e7e7e7; text-align: right;"><?php 
+			    			<td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 600; padding: 5px 5px !important; background: #e7e7e7; text-align: right;"><?php
 	echo $order_currency_currency_symbol."".number_format($orderData['total_amount'],2);?></td>
 			    		</tr>
 			    	</tbody>
-					
+
 			    </table>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				<!--<p style="margin: 10px 0px 0px 0px; font-size: 20px; font-weight: 400; color: #000;">Current outstanding bill: <b><?php 
+				<!--<p style="margin: 10px 0px 0px 0px; font-size: 20px; font-weight: 400; color: #000;">Current outstanding bill: <b><?php
 	echo $order_currency_currency_symbol."".number_format($orderData['total_amount'],2);?></b></p>-->
-	
+
 			</td>
 		</tr>
 	</table>
-	
+
 	<!--<table style="width: 100%; margin-top: 20px;">
 		<tr style="vertical-align: top;">
 			<td style="width: 50%;">
@@ -355,10 +355,10 @@
 			</td>
 		</tr>
 	</table>-->
-	
+
 </body>
 </html>
-    <?php 
+    <?php
 	    $dompdf->loadHtml(ob_get_clean());
 		$dompdf->render();
 		//$dompdf->setPaper('A4','landscape');

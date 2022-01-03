@@ -22,12 +22,12 @@
 							<!--<a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>"><button>
 							<i class="fas fa-plus-circle"></i><?php echo $sub_page_title ?></button>
 							</a>-->
-							
+
 							</div>
 						</div>
 					</div>
 				</div>
-                
+
 				<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="col-sm-12 col-md-12 custom-mini-table">
 						<table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
@@ -40,9 +40,9 @@
 									<th width="10%">Action</th>
 								</tr>
 							</thead>
-							
+
 							<tbody>
-							    <?php 
+							    <?php
 								if(count($lists) > 0){
 									$i=1;
 									foreach($lists as $key=>$list){
@@ -60,17 +60,17 @@
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $list['id'];?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this email?');">
 											         <i class="fa fa-trash fa-lg"></i>
 											   </a>
-											   
+
 											</td>
 										</tr>
 								<?php
-                                   								
+
 								    }
 								}else{?>
 								    <tr>
 									<td colspan="6" class="text-center">List Empty.</td>
 								    </tr>
-								<?php 
+								<?php
 								}?>
 							</tbody>
 						</table>
@@ -89,7 +89,7 @@
  </script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 1, "desc" ]]
 	});

@@ -1,7 +1,7 @@
-<?php if(!empty($this->cart->contents())) {  
+<?php if(!empty($this->cart->contents())) {
 
 
-    
+
 ?>
 	<div class="cart-selector-content">
 			<div class="cart-product-display">
@@ -9,7 +9,7 @@
 							<tbody>
 								<?php
 								foreach ($this->cart->contents() as $rowid => $items) { //pr($items);
-								
+
 									$productData = $this->Product_Model->getProductDataById($items['id']);
 									$imageurl = getProductImage($items['options']['product_image']);
 									$Personalised = 'Unpersonalised';
@@ -68,20 +68,20 @@
 					</div>
 					<div class="cart-product-button">
 							<a href="<?php echo $BASE_URL?>ShoppingCarts"><button type="text" class="cart-view">
-							<?php 
+							<?php
 		                      if($language_name=='French'){ ?>
 		                        Voir le panier
 		                      <?php }else{ ?>
 		                        View cart
-		                      <?php 
+		                      <?php
 		                      }?> </button></a>
 							<a href="<?php echo $BASE_URL?>Checkouts"><button type="text" class="cart-checkout">
-							<?php 
+							<?php
                               if($language_name=='French'){ ?>
                                 Check-out
                               <?php }else{ ?>
                                 Checkout
-                              <?php 
+                              <?php
                               }?> </button></a>
 					</div>
 			</div>
@@ -93,22 +93,22 @@
 		<div class="container m-2">
 			<div class="universal-small-dark-title text-center">
 				<span>
-				<?php 
+				<?php
                               if($language_name=='French'){ ?>
                                Vous n'avez aucun article dans votre panier.
                               <?php }else{ ?>
                                 You have no items in your shopping cart.
-                              <?php 
+                              <?php
                               }?></span>
 			</div>
 			<div class="cart-product-button text-center">
 				<a href="<?php echo $BASE_URL?>Products"><button type="text" class="cart-checkout">
-				<?php 
+				<?php
                               if($language_name=='French'){ ?>
                                 Continuer vos achats
                               <?php }else{ ?>
                                 Continue Shopping
-                              <?php 
+                              <?php
                               }?></button></a>
 			</div>
 		</div>

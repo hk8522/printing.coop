@@ -24,13 +24,13 @@
 										<a href="<?php echo $BASE_URL?>admin/Users/index/<?php echo $page_status?>"><button><i class="fas fa-arrow-left"></i> Back</button>
 										</a>
 									</div>
-								<?php 
+								<?php
 								}?>
 							</div>
 						</div>
 					</div>
 				</div>
-                
+
 				<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="custom-mini-table">
 						<table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
@@ -43,42 +43,42 @@
 								</tr>
 							</thead>
 							<tbody>
-							    <?php 
+							    <?php
 								if(count($lists) > 0){
-									
+
 									foreach($lists as $key=>$list){
 									?>
 										<tr>
 											<td>
             									<div class="shopping-product-img">
-            										
+
             									    <?php $imageurl=getProductImage($list['product_image'],'medium');?>
             										<img src="<?php echo $imageurl?>">
-                                                  
+
             									</div>
             								</td>
-											
+
                                             <td><?php echo ucfirst($list['name']);?>
 											</td>
-                                            
-                                            <td>  
+
+                                            <td>
 											<?php $new_price=getDiscountPrice($list['price'],$list['discount']);?>
             											<?php if(!empty($new_price)){?>
             												<span class="new-price"><?php echo CURREBCY_SYMBOL.$new_price;?></span>
             											    <span class="old-price"  style="text-decoration: line-through;"><?php echo CURREBCY_SYMBOL.number_format($list['price'],2);?></span>
-            											<?php 
+            											<?php
             											}else{?>
             											    <span class="new-price"><?php echo CURREBCY_SYMBOL.number_format($list['price'],2);?></span>
-            											<?php 
+            											<?php
             											}?>
 											</td>
-											
+
 											<td>
 						                      <span>
-            										<?php 
+            										<?php
             										$addToCard=true;
-            										if(empty($list['is_stock']) && !empty($list['total_stock'])){ 
-            										    echo 'In Stock'; 
+            										if(empty($list['is_stock']) && !empty($list['total_stock'])){
+            										    echo 'In Stock';
             										}else{
             											echo 'Out of Stock';
             											$addToCard=false;
@@ -87,19 +87,19 @@
 											</td>
 										</tr>
 									<?php
-                                   								
+
 								    }
 								}else{?>
 								    <tr>
 									<td colspan="4" class="text-center">No Product In Wishlist</td>
 								    </tr>
-								<?php 
+								<?php
 								}?>
 							</tbody>
 						</table>
 					</div>
 				</div>
-				
+
 				</div><!-- /.box-body -->
 			</div><!-- /.box -->
 		</div><!-- /.col -->
@@ -110,7 +110,7 @@
  </script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 1, "asc" ]]
 	});

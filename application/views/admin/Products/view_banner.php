@@ -7,7 +7,7 @@
 					    <h3 class="text-center" style="color:#555 !important;"><?php echo $page_title?></h3>
 					    <div class="text-center" style="color:red">
 						<?php echo $this->session->flashdata('message_error');?></div>
-				        
+
 						<div class="row">
 								<div class="control-group info col-sm-4">
 									<div class="product-details-data">
@@ -19,7 +19,7 @@
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="control-group info col-sm-4">
 									<div class="product-details-data">
 										<label class="span2 " for="inputMame">Category</label>
@@ -30,7 +30,7 @@
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="control-group info col-sm-4">
 									<div class="product-details-data">
 										<label class="span2 " for="inputMame">Sub Category</label>
@@ -42,7 +42,7 @@
 									</div>
 								</div>
 							</div>
-                            <div class="row">							
+                            <div class="row">
 								<div class="control-group info col-sm-6">
 									<div class="product-details-data">
 										<label class="span2 " for="inputMame"> Product Name</label>
@@ -53,7 +53,7 @@
 										</div>
 									</div>
 								</div>
-								
+
 								<div class="control-group info col-sm-6">
 									<div class="product-details-data">
 										<label class="span2 " for="inputMame"> Banner Name</label>
@@ -64,11 +64,11 @@
 										</div>
 									</div>
 								</div>
-								
-								
+
+
 							</div>
-							
-							<div class="row">			 				
+
+							<div class="row">
 								<div class="control-group info col-sm-12">
 									 <label class="span2 " for="inputMame">   	Banner Description  </label>
 									<div class="controls">
@@ -77,26 +77,26 @@
 										</p>
 									</div>
 								</div>
-								
+
 							</div>
 							<div class="row">
-							   
+
 								<div class="control-group info col-sm-12">
 										<div class="controls">
-										  
+
 											 <?php $imageurl=getBannerImage($Product['banner_image'],'large');?>
 											  <img src="<?php echo $imageurl?>" width="1050" height="570">
 										</div>
 								 </div>
-								
+
 							</div>
-							
+
 							<div class="text-right">
-							<a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" 
+							<a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>"
 							class="btn btn-success">Back</a>
 							</div>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->

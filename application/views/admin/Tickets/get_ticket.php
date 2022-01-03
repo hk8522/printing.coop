@@ -14,13 +14,13 @@
 										</tr>
 									</thead>
 									<tbody>
-								
-									  
+
+
 									<?php
             					if(count($lists) >0){
             						foreach($lists as $list){
             					?>
-							
+
 									    <tr>
 											<td>
 											<?php echo "#".$list['id'];?>
@@ -40,7 +40,7 @@
 											<td>
 											<?php echo $list['message'];?>
 											</td>
-											
+
 											<td>
 						                      <?php echo dateFormate($list['created']);?>
 											</td>
@@ -48,27 +48,27 @@
 						                      <?php echo dateFormate($list['updated']);?>
 											</td>
 											<td>
-											    
+
 												<?php if($list['status']==1){?>
-												
+
 												    <button type="submit" class="custon-active btn-success">Resolved
 													</button>
-											
-												<?php 
+
+												<?php
 												}else{?>
 												  	<button type="submit" class="custon-delete btn-danger">Unresolved</button>
 												<?php }?>
 											</td>
 											<td>
-											
+
 											    <div class="action-btns">
     												<?php if($list['status']==0){ ?>
 													<a href="javascript:void(0)" class="comments-counts" style="color:green; padding: 5px;" title="Message" onclick="getChats('<?php echo base64_encode($list['id']);?>')">
     											        <i class="fas fa-comment-dots fa-lg"></i>
     											        <span>
-													<?php 
+													<?php
 			echo $this->Ticket_Model->getMessageCountAdmin($list['id']);
-													?>	
+													?>
 														</span>
     											   	</a>
 													<?php }?>
@@ -76,25 +76,25 @@
 											         	<i class="fa fa-trash fa-lg"></i>
 												   	</a>
 											   	</div>
-												
-											   
+
+
 											</td>
 										</tr>
-									<?php 
+									<?php
 								}
-								}else{?>	
+								}else{?>
 										<tr>
 											<td colspan="10" class="text-center"> Ticket list empty</td>
 										</tr>
-								<?php 
-								}?>		
+								<?php
+								}?>
 									</tbody>
 								</table>
-								
-								
+
+
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 6, "asc" ]]
 	});

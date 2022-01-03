@@ -27,7 +27,7 @@
 						</div>
 					</div>
 				</div>
-                
+
 				<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="custom-mini-table">
 						<table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
@@ -39,23 +39,23 @@
 									<th>Discount Valid Till</th>
 									<!--<th>Discount Requirement Quantity</th>
 									<th>Discount Limit Quantity</th>-->
-									
+
 									<th>Created On</th>
 									<th>Updated On</th>
-									
+
 									<th>Status</th>
 									<th>Action</th>
 								</tr>
 							</thead>
-							
+
 							<tbody>
-							    <?php 
+							    <?php
 								if(count($lists) > 0){
-									
+
 									foreach($lists as $key=>$list){
-										
+
 										$discount_valid_to_str_time=strtotime($list['discount_valid_to']);
-										
+
 										$cr_date=date("Y-m-d H:i:s");
 										$cr_date_str=strtotime($cr_date);
 										if($type=="current" && $cr_date_str <=$discount_valid_to_str_time){
@@ -64,12 +64,12 @@
 											<td><?php echo $list['code'];?></td>
 											<td>
 											<?php
-											
+
 											if($list['discount_type']=='discount_percent'){
-												
-												echo number_format($list['discount'],2)."%"; 
+
+												echo number_format($list['discount'],2)."%";
 											}else{
-												
+
 												echo "$".number_format($list['discount'],2);
 											}
 											?>
@@ -77,11 +77,11 @@
 											<td>
 						                      <?php echo dateFormate($list['discount_valid_from']);?>
 											</td>
-											
+
 											 <td>
 						                      <?php echo dateFormate($list['discount_valid_to']);?>
 											</td>
-											
+
 											<!--<td>
 						            <?php echo $list['discount_requirement_quantity'];
 												?>
@@ -90,38 +90,38 @@
 								<?php echo $list['discount_code_limit'];
 												?>
 											</td>-->
-											
+
 											<td>
 						                      <?php echo dateFormate($list['created']);?>
 											</td>
-											
+
 											<td>
 						                      <?php echo dateFormate($list['updated']);?>
 											</td>
-											
+
 											<td>
 											<?php if($list['status']==1){?>
 											<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0">
 											 <button type="submit" class="custon-active">Active
 											 </button>
-											</a> 
-											<?php 
+											</a>
+											<?php
 											}else{?>
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1">
 											     <button type="submit" class="custon-delete">Inactive
 											      </button>
 											   </a>
-											<?php 
+											<?php
 											}?>
 											</td>
 											<td>
 											<div class="action-btns">
 											 <a class="view-btn" href="<?php echo $BASE_URL?>admin/Products/index/<?php echo $list['id']?>" style="color:#3c8dbc" title="view">
-											
+
 											        <i class="far fa-eye fa-lg"></i> View Products
-											 	
+
 												</a>
-											
+
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>" style="color:green" title="edit">
 											        <i class="far fa-edit fa-lg"></i>
 											   </a>
@@ -130,21 +130,21 @@
 											      <i class="fa fa-trash fa-lg"></i>
 											   </a>
 											   </div>
-											   
+
 											</td>
 										</tr>
 								<?php   }else if($type=="expired" && $cr_date_str >  $discount_valid_to_str_time){ ?>
-									   
+
                                    		<tr>
 											<td><?php echo $list['code'];?></td>
 											<td>
 											<?php
-											
+
 											if($list['discount_type']=='discount_percent'){
-												
-												echo number_format($list['discount'],2)."%"; 
+
+												echo number_format($list['discount'],2)."%";
 											}else{
-												
+
 												echo "$".number_format($list['discount'],2);
 											}
 											?>
@@ -152,11 +152,11 @@
 											<td>
 						                      <?php echo dateFormate($list['discount_valid_from']);?>
 											</td>
-											
+
 											 <td>
 						                      <?php echo dateFormate($list['discount_valid_to']);?>
 											</td>
-											
+
 											<!--<td>
 						                   <?php echo $list['discount_requirement_quantity'];
 												?>
@@ -165,38 +165,38 @@
 								          <?php echo $list['discount_code_limit'];
 												?>
 											</td>-->
-											
+
 											<td>
 						                      <?php echo dateFormate($list['created']);?>
 											</td>
-											
+
 											<td>
 						                      <?php echo dateFormate($list['updated']);?>
 											</td>
-											
+
 											<td>
 											<?php if($list['status']==1){?>
 											<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0">
 											 <button type="submit" class="custon-active">Active
 											 </button>
-											</a> 
-											<?php 
+											</a>
+											<?php
 											}else{?>
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1">
 											     <button type="submit" class="custon-delete">Inactive
 											      </button>
 											   </a>
-											<?php 
+											<?php
 											}?>
 											</td>
 											<td>
 											<div class="action-btns">
 											 <!--<a class="view-btn" href="<?php echo $BASE_URL?>admin/Products/index/<?php echo $list['id']?>" style="color:#3c8dbc" title="view">
-											
+
 											        <i class="far fa-eye fa-lg"></i> View Products
-											 	
+
 												</a>-->
-											
+
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>" style="color:green" title="edit">
 											        <i class="far fa-edit fa-lg"></i>
 											   </a>
@@ -205,17 +205,17 @@
 											      <i class="fa fa-trash fa-lg"></i>
 											   </a>
 											   </div>
-											   
+
 											</td>
-										</tr>						
-								<?php     
+										</tr>
+								<?php
 									}
 								}
 								}else{?>
 								    <tr>
 									<td colspan="7" class="text-center">List Empty.</td>
 								    </tr>
-								<?php 
+								<?php
 								}?>
 							</tbody>
 						</table>
@@ -234,7 +234,7 @@
  </script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 2, "asc" ]]
 	});

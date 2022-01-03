@@ -13,7 +13,7 @@ class PrepareShipmentTests extends TestCase{
         $this->assertSame(2950226,$this->preparedShipment->getId());
     }
 
-    public function testGetTrackingNumber(){              
+    public function testGetTrackingNumber(){
         $this->assertSame(NULL,$this->preparedShipment->getTrackingNumber());
     }
 
@@ -400,7 +400,7 @@ class PrepareShipmentTests extends TestCase{
 
         $this->preparedShipment = $this->getMockBuilder(Shipment::class)
                                         ->setConstructorArgs([json_decode($response)])
-                                        ->setMethods(['__construct']) 
+                                        ->setMethods(['__construct'])
                                         ->getMock();
     }
 }

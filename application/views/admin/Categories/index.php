@@ -30,7 +30,7 @@
                             <div class="custom-mini-table">
                                 <table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
                                     <thead>
-                                        <tr role="row"> 
+                                        <tr role="row">
 										   <th class="hidden"></th>
                                             <th>Name</th>
                                             <th>Category Order</th>

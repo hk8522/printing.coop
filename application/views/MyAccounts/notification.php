@@ -28,7 +28,7 @@
         </div>
         <div class="customer-fields" style="min-height: initial;">
         </div>
-    </div>   
+    </div>
 </div>
 <div class="col-md-3 desktop-account">
     <?php $this->load->view('elements/my-account-menu');?>

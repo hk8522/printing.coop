@@ -4,8 +4,8 @@
     <div class="container">
         <div class="page-title-section-inner universal-half-spacing">
             <div class="inner-breadcrum">
-                <a href="index.php">Home</a> 
-                / 
+                <a href="index.php">Home</a>
+                /
                 <span class="current">Order History</span>
             </div>
         </div>
@@ -229,7 +229,7 @@
                         </div>
                     </div>
                 </div>
-            </div>                    
+            </div>
         </div>
     </div>
 </div>

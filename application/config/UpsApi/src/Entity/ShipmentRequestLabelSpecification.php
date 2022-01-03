@@ -93,7 +93,7 @@ class ShipmentRequestLabelSpecification
      * @var string
      */
     private $instructionDescription;
-    
+
     /**
      * Optional.
      * Language character set expected on label. Valid values are:
@@ -134,7 +134,7 @@ class ShipmentRequestLabelSpecification
 
     const INSTRUCTION_CODE_EXCHANGE_LIKE_ITEM_ONLY = '01';
     const INSTRUCTION_CODE_EXCHANGE_DRIVER_INSTRUCTIONS_INSIDE = '02';
-    
+
     const CHARACTER_SET_DANISH = 'dan';
     const CHARACTER_SET_DUTCH = 'nld';
     const CHARACTER_SET_FINNISH = 'fin';
@@ -324,7 +324,7 @@ class ShipmentRequestLabelSpecification
 
         return $this;
     }
-    
+
     /**
      * @return string
      */

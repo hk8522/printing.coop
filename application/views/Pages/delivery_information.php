@@ -7,7 +7,7 @@
     <!--        <div class="today-deal-title">-->
     <!--            <span><?php echo $page_title; ?></span>-->
     <!--        </div>-->
-            
+
     <!--    </div>-->
     <!--</div>-->
 </div>
@@ -33,7 +33,7 @@
                                 <span>Delivery Time</span>
                             </div>
                             <div class="main-single-info">
-                                <span>An estimated delivery time will be provided to you once your order is placed. Delivery times are estimates and commence from the date of shipping, rather than the date of order. Delivery times are to be used as a guide only and are subject to the acceptance and approval of your order. 
+                                <span>An estimated delivery time will be provided to you once your order is placed. Delivery times are estimates and commence from the date of shipping, rather than the date of order. Delivery times are to be used as a guide only and are subject to the acceptance and approval of your order.
                                 <br>Unless there are exceptional circumstances, we make every effort to fulfill your order within [15] business days of the date of your order. Business day mean Monday to Saturday, except Sundays and Public holidays.
                                 <br>Please note we do not ship on [Sundays].</span>
                             </div>

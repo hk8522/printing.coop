@@ -31,7 +31,7 @@ class RetrySettings{
     public function getNextWaitInterval($numberOfAttempts){
         $interval = (int)min(
             ((self::MINIMUM_RETRY_TIME * 1000) + RetrySettings::getRetryDelta($numberOfAttempts)),
-            (self::MAXIMUM_RETRY_TIME * 1000) 
+            (self::MAXIMUM_RETRY_TIME * 1000)
         );
         return $interval;
     }

@@ -51,10 +51,10 @@
     											</div>
     											<div class="col-md-9">
     												<div class="controls file-data">
-        												<?php 
+        												<?php
         												if(!empty($productItemData)){
 															$last=count($productItemData)-1;
-															
+
         													foreach($productItemData as $key=>$val){ //pr($val);?>
         														<div class="att-single">
         															<div class="row">
@@ -69,29 +69,29 @@
 																	  	</div>
 																  	</div>
 	    															<div class="add-new-btn">
-																	    <?php 
+																	    <?php
 																		$displayplusnbtn='none';
 									                                   	$displayminusbtn='';
-																		if($last==0){  
-																		    $displayplusnbtn=''; 
+																		if($last==0){
+																		    $displayplusnbtn='';
 																			$displayminusbtn='none';
-																		
+
 																		}else if($last==$key){
-																			
-																		   $displayplusnbtn=''; 
+
+																		   $displayplusnbtn='';
 																		   $displayminusbtn='';
-																		   
+
 																		}
-																		?>										
+																		?>
 																		<button class="btn-danger btn-remove" type="button" title="remove" style="display:<?php echo $displayminusbtn;?>">
-	        																<i class="fa fa-minus"></i> 
+	        																<i class="fa fa-minus"></i>
 	    																</button>
 	    																<button class="btn-success btn-add" type="button" style="display:<?php echo $displayplusnbtn;?>">
-	    																	<i class="fa fa-plus"></i> 
+	    																	<i class="fa fa-plus"></i>
 	    																</button>
 																	</div>
         														</div>
-        													<?php 
+        													<?php
         												  }
         												}else{?>
 												    	<div class="att-single">
@@ -103,19 +103,19 @@
 												    			<div class="col-md-6">
 												    				<label>French Attribute Item Name</label>
 												    				<input class="form-control" name="item_name_french[]" id="item_name_french" type="text" placeholder="French Attribute Item"  required>
-												    				<input class="form-control" name="attribute_item_id[]" id="attribute_item_id" type="hidden" maxlength="50" value="">     	
+												    				<input class="form-control" name="attribute_item_id[]" id="attribute_item_id" type="hidden" maxlength="50" value="">
 												    			</div>
 												    		</div>
         												    <div class="add-new-btn">
     												     <button class="btn-danger btn-remove" type="button"style="display:none">
-    												           		<i class="fa fa-minus"></i> 
+    												           		<i class="fa fa-minus"></i>
     												           	</button>
 									<button class="btn-success btn-add" type="button">
-        												            <i class="fa fa-plus"></i> 
+        												            <i class="fa fa-plus"></i>
         												        </button>
         												    </div>
         											    </div>
-														<?php 
+														<?php
 														}?>
         											    <div style="color:red">
     													    <?php echo $this->session->flashdata('file_message_error');?>
@@ -123,7 +123,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-										</div>     
+										</div>
 										<div class="text-right">
 											<button type="submit" class="btn btn-success" id="submitBtn" >Submit</button>
 											<a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
@@ -140,16 +140,16 @@
 	</section><!-- /.content -->
  </div>
  <script>
- 
+
      $(function(){
         $(document).on('click', '.btn-add', function(e){
-			
+
 			e.preventDefault();
 			var controlForm = $('.file-data:first'),
 			currentEntry = $(this).parents('.att-single:first'),
 			newEntry = $(currentEntry.clone()).appendTo(controlForm);
 			newEntry.find('input').val('');
-			var timestamp = new Date().getUTCMilliseconds();		
+			var timestamp = new Date().getUTCMilliseconds();
 			newEntry.find('input').attr('id',timestamp);
 			newEntry.find('.btn-remove').show();
 			controlForm.find('.btn-remove').show();
@@ -160,10 +160,10 @@
 			$(this).parents('.att-single:first').remove();
 			e.preventDefault();
 			var numItems = $('.file-data .att-single').length;
-			
-			
+
+
 			if(numItems==1){
-				
+
 			var controlForm = $('.file-data .att-single').last();
 			controlForm.find('.btn-remove').hide();
 			controlForm.find('.btn-add').show();
@@ -172,9 +172,9 @@
 			    controlForm.find('.btn-remove').show();
 			    controlForm.find('.btn-add').show();
 			}
-			
+
 			return false;
 		});
-		
+
     });
  </script>

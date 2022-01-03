@@ -7,7 +7,7 @@
     <!--        <div class="today-deal-title">-->
     <!--            <span><?php echo $page_title; ?></span>-->
     <!--        </div>-->
-            
+
     <!--    </div>-->
     <!--</div>-->
 </div>
@@ -19,7 +19,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="latest-product-section">
-                    
+
                 </div>
                 <div class="blog-main-section">
                     <!--
@@ -27,13 +27,13 @@
 					    <?php foreach($Brands as $list){?>
                         <div class="col-md-3">
 						     <?php $imageurl=getBrandImage($list['brand_image'],'large');?>
-                              
+
                              <div class="brand-name">
 							    <img src="<?php echo $imageurl;?>"><br>
                                 <span><?php echo ucfirst($list['name'])?></span>
                              </div>
                         </div>
-						<?php 
+						<?php
 						}?>
                     </div>
                     -->

@@ -1,21 +1,21 @@
 <?php
  /**
  * Sample code for the GetService Canada Post service.
- * 
- * The GetService service  returns details of a given postal service in 
- * terms of the min/max weight and dimensions offered by the postal service. 
- * Also returned are details about the available add-on options. 
  *
- * This sample is configured to access the Developer Program sandbox environment. 
+ * The GetService service  returns details of a given postal service in
+ * terms of the min/max weight and dimensions offered by the postal service.
+ * Also returned are details about the available add-on options.
+ *
+ * This sample is configured to access the Developer Program sandbox environment.
  * Use your development key username and password for the web service credentials.
- * 
+ *
  **/
 
 // Your username and password are imported from the following file
-// CPCWS_Rating_PHP_Samples\REST\rating\user.ini 
+// CPCWS_Rating_PHP_Samples\REST\rating\user.ini
 $userProperties = parse_ini_file(realpath(dirname($_SERVER['SCRIPT_FILENAME'])) . '/../user.ini');
 
-$username = $userProperties['username']; 
+$username = $userProperties['username'];
 $password = $userProperties['password'];
 
 // REST URL
@@ -48,26 +48,26 @@ if (!$xml) {
 		echo "\t" . $error->message;
 	}
 } else {
-	if ($xml->{'service'} ) {	
+	if ($xml->{'service'} ) {
 		$service = $xml->{'service'}->children('http://www.canadapost.ca/ws/ship/rate-v4');
 		if ( $service->{'service-code'} ) {
 			echo 'Service Code: ' . $service->{'service-code'} . "\n";
 			echo 'Service Name: ' . $service->{'service-name'} . "\n\n";
-			foreach ( $service->{'options'}->{'option'} as $option ) {  
+			foreach ( $service->{'options'}->{'option'} as $option ) {
 				echo 'Option Code: ' . $option->{'option-code'} . "\n";
-				echo 'Option Name: ' . $option->{'option-name'} . "\n";			
-				echo 'Href: ' . $option->{'link'}->attributes()->{'href'} . "\n\n";	
+				echo 'Option Name: ' . $option->{'option-name'} . "\n";
+				echo 'Href: ' . $option->{'link'}->attributes()->{'href'} . "\n\n";
 			}
 		}
 	}
-	if ($xml->{'messages'} ) {					
-		$messages = $xml->{'messages'}->children('http://www.canadapost.ca/ws/messages');		
+	if ($xml->{'messages'} ) {
+		$messages = $xml->{'messages'}->children('http://www.canadapost.ca/ws/messages');
 		foreach ( $messages as $message ) {
 			echo 'Error Code: ' . $message->code . "\n";
 			echo 'Error Msg: ' . $message->description . "\n\n";
 		}
 	}
-		
+
 }
 
 ?>

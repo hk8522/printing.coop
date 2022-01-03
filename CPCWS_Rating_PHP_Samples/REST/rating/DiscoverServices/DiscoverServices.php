@@ -1,20 +1,20 @@
 <?php
  /**
  * Sample code for the DiscoverServices Canada Post service.
- * 
- * The DiscoverServices service returns the list of available postal services for shipment 
- * of a parcel to a particular destination. 
  *
- * This sample is configured to access the Developer Program sandbox environment. 
+ * The DiscoverServices service returns the list of available postal services for shipment
+ * of a parcel to a particular destination.
+ *
+ * This sample is configured to access the Developer Program sandbox environment.
  * Use your development key username and password for the web service credentials.
- * 
+ *
  **/
 
 // Your username and password are imported from the following file
-// CPCWS_Rating_PHP_Samples\REST\rating\user.ini 
+// CPCWS_Rating_PHP_Samples\REST\rating\user.ini
 $userProperties = parse_ini_file(realpath(dirname($_SERVER['SCRIPT_FILENAME'])) . '/../user.ini');
 
-$username = $userProperties['username']; 
+$username = $userProperties['username'];
 $password = $userProperties['password'];
 
 // REST URL
@@ -50,15 +50,15 @@ if (!$xml) {
 	if ($xml->{'services'} ) {
 		$services = $xml->{'services'}->children('http://www.canadapost.ca/ws/ship/rate-v4');
 		if ( $services->{'service'} ) {
-			foreach ( $services->{'service'} as $service ) {  
+			foreach ( $services->{'service'} as $service ) {
 				echo 'Service Code: ' . $service->{'service-code'} . "\n";
 				echo 'Service Name: ' . $service->{'service-name'} . "\n";
-				echo 'Href: ' . $service->{'link'}->attributes()->{'href'} . "\n\n";	
+				echo 'Href: ' . $service->{'link'}->attributes()->{'href'} . "\n\n";
 			}
 		}
 	}
-	if ($xml->{'messages'} ) {					
-		$messages = $xml->{'messages'}->children('http://www.canadapost.ca/ws/messages');		
+	if ($xml->{'messages'} ) {
+		$messages = $xml->{'messages'}->children('http://www.canadapost.ca/ws/messages');
 		foreach ( $messages as $message ) {
 			echo 'Error Code: ' . $message->code . "\n";
 			echo 'Error Msg: ' . $message->description . "\n\n";

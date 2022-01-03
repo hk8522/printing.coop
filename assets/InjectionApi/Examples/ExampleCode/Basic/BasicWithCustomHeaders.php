@@ -4,7 +4,7 @@ include_once (__DIR__ . "../../includes.php");
 use Socketlabs\Message\BasicMessage;
 use Socketlabs\Message\EmailAddress;
 use Socketlabs\SocketLabsClient;
- 
+
 $client = new SocketLabsClient(exampleConfig::serverId(), exampleConfig::password());
 
 //Build the message

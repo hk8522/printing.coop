@@ -88,7 +88,7 @@
     		    <th style="background: #aad4ff; color: #000; vertical-align: middle;font-size: 20px; text-transform: capitalize; font-weight: 400; white-space: nowrap; padding: 10px 10px !important; border-right: 2px solid #ff0000;">Total</th>
     	    </tr>
     	</thead>
-    	<tbody>	
+    	<tbody>
     		<tr style="background-color: #fff; border-bottom: 1px dashed #ccc !important;">
     			<td style="color: #000; vertical-align: middle; font-size: 18px; font-weight: 400; padding: 10px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">2500 factures 8.5x11" 3 copies +annexe, blue reflex fold-over # 10 001 à 12 500</td>
     			<td style="color: #000; vertical-align: middle; font-size: 18px; font-weight: 400; padding: 10px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">14,975%</td>
@@ -132,7 +132,7 @@
 			</td>
 			<td style="width: 50%;">
 				<table style="width: 100%; text-align: left; border-collapse: collapse;">
-			    	<tbody>	
+			    	<tbody>
 			    		<tr style="background-color: #fff;">
 			    			<td style="color: #000; vertical-align: middle; font-size: 20px; font-weight: 400; padding: 5px 5px !important;">Subtotal</td>
 			    			<td style="color: #000; vertical-align: middle; font-size: 20px; font-weight: 400; padding: 5px 5px !important; text-align: right;">1 500,00 $</td>

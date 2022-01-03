@@ -8,17 +8,17 @@
                     <?php if($postData['email_verification']==0){?>
                               <div class="verify">
               			               <span class="verify-email mt-5" style="color:red"><small>
-                                       <?php 
+                                       <?php
                                         if($language_name=='French'){ ?>
                                           Vérifiez votre e-mail
                                         <?php }else{ ?>
                                           Verify your email
-                                        <?php 
+                                        <?php
                                         }?></p></small>
                               </div>
               			<?php
               			}?>
-					
+
                       </div>
                 </div>
             		<div class="text-center" style="color:red">
@@ -33,12 +33,12 @@
                         <div class="col-md-6">
                             <div class="single-review">
                                 <label>
-                                <?php 
+                                <?php
                                 if($language_name=='French'){ ?>
                                   Votre nom *
                                 <?php }else{ ?>
                                   Your Name *
-                                <?php 
+                                <?php
                                 }?></label>
                                 <input type="text" name="fname" value="<?php echo isset($postData['fname']) ? $postData['fname']:'';?>">
                                 <span class="text-danger"><?php echo form_error('fname');?></span>
@@ -47,12 +47,12 @@
                         <div class="col-md-6">
                             <div class="single-review">
                                 <label>
-                                <?php 
+                                <?php
                                 if($language_name=='French'){ ?>
                                   Votre nom de famille *
                                 <?php }else{ ?>
                                   Your Last Name *
-                                <?php 
+                                <?php
                                 }?></label>
                                 <input type="text" name="lname" value="<?php echo isset($postData['lname']) ? $postData['lname']:'';?>">
                                 <span class="text-danger"><?php echo form_error('lname');?></span>
@@ -63,12 +63,12 @@
                         <div class="col-md-6">
                             <div class="single-review">
                                 <label>
-                                 <?php 
+                                 <?php
                                 if($language_name=='French'){ ?>
                                   Votre adresse email *
                                 <?php }else{ ?>
                                   Your Email Address *
-                                <?php 
+                                <?php
                                 }?></label>
                                 <input type="text" name="email" value="<?php echo isset($postData['email']) ? $postData['email']:'';?>">
                                 <?php echo form_error('email');?>
@@ -77,12 +77,12 @@
                         <div class="col-md-6">
                             <div class="single-review">
                                 <label>
-                                 <?php 
+                                 <?php
                                 if($language_name=='French'){ ?>
                                   Ton téléphone *
                                 <?php }else{ ?>
                                   Your Phone *
-                                <?php 
+                                <?php
                                 }?></label>
                                 <input type="text" name="mobile" value="<?php echo isset($postData['mobile']) ? $postData['mobile']:'';?>">
                                 <?php echo form_error('mobile');?>
@@ -91,12 +91,12 @@
                     </div>
                     <div class="order-btn">
                         <button type="submit">
-                         <?php 
+                         <?php
                         if($language_name=='French'){ ?>
                           sauver
                         <?php }else{ ?>
                           Save
-                        <?php 
+                        <?php
                         }?></button>
                     </div>
                   <?php echo form_close();?>

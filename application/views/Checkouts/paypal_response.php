@@ -16,14 +16,14 @@
 						<div class="text-center" style="color:green">
 				         <?php echo $this->session->flashdata('message_success');?>
 		                </div>
-						
+
 						    <div class="shopping-product-display">
-								
+
 								<table>
 								<tr>
 								   <td>Order Id</td>
 								   <td>
-								     <?php 
+								     <?php
 									 //pr($orderData);
 									 echo $orderData['order_id']?>
 								   </td>
@@ -34,7 +34,7 @@
 								     <?php CURREBCY_SYMBOL.number_format($orderData['total_amount'],2)?>
 								   </td>
 								</tr>-->
-								
+
 								<tr>
 								   <td>Payment Status </td>
 								   <td>
@@ -58,10 +58,10 @@
 
 <script>
 setTimeout(function(){
-	
+
 			window.location.href = "<?php echo $BASE_URL?>MyOrders";
 		  }, 5000
-		  
+
 );
 
 </script>

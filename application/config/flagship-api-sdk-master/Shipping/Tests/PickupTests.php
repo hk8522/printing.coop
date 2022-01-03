@@ -141,7 +141,7 @@ class PickupTests extends TestCase{
 
 
     protected function setUp(){
-        
+
         $response = '{
             "id": "1085501",
             "confirmation": "00006293",
@@ -173,7 +173,7 @@ class PickupTests extends TestCase{
 
         $this->pickup = $this->getMockBuilder(Pickup::class)
                           ->setConstructorArgs([json_decode($response)])
-                          ->setMethods(['__construct']) 
+                          ->setMethods(['__construct'])
                           ->getMock();
     }
 

@@ -29,43 +29,43 @@ Class Page_Model extends MY_Model {
                 ),
         )
     );
-	
+
     public function getPageList($active = null,$display_on_top_menu=null,$display_on_footer=null,$display_on_footer_last_menu=null,$website_store_id=null){
-		
-		
+
+
 		$this->db->select(array('Page.*'));
 		$this->db->from($this->table.' as Page');
 		if ($website_store_id) {
-			
+
 			$this->db->where('Page.main_store_id',$website_store_id);
 		}
 		if ($active) {
-			
+
 			$this->db->where('Page.status',1);
 		}
-		
+
 		if($display_on_footer){
-			
+
 			 $this->db->where('display_on_footer',1);
 		}
-		
+
 		if($display_on_top_menu){
-			
+
 			 $this->db->where('display_on_top_menu',1);
 		}
-		
+
 		if($display_on_footer_last_menu){
-			
-			 $this->db->where('display_on_footer_last_menu',1);	
+
+			 $this->db->where('display_on_footer_last_menu',1);
 		}
-		
+
 		$this->db->order_by('shortOrder','asc');
         $query = $this->db->get();
 		$data=$query->result_array();
 		return $data;
 
     }
-	
+
 	public function getActivePageListByCategoryId($category_id) {
 
         $this->db->select(array('Page.*'));
@@ -106,19 +106,19 @@ Class Page_Model extends MY_Model {
 		$data=(array)$query->row();
 		return $data;
     }
-	
+
 	public function getSlug($title,$main_store_id){
 
 		$slug=strtolower(str_replace(' ','-',$title));
 		//$slug=preg_replace('/[^A-Za-z0-9\]/', '',$slug);
 		$data=$this->checkPageSlug($slug,$main_store_id);
 		if(!empty($data)){
-			
+
 		    $slug=$slug.'-1';
 		}
-		return $slug;	
+		return $slug;
     }
-	
+
 	public function savePage($data) {
 
 		$id=isset($data['id']) ? $data['id']:'';
@@ -158,9 +158,9 @@ Class Page_Model extends MY_Model {
 		{
 		$this->db->select(array('Page.*'));
 		$this->db->from($this->table.' as Page');
-		
+
 		if($active){
-			
+
 			 $this->db->where(array('Page.status'=>$active , 'display_on_footer' => 1));
 		}
 		$this->db->order_by('shortOrder','asc');

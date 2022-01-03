@@ -114,7 +114,7 @@
                                     </div>
                                     <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
                    <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="product_id">
- <div class="form-role-area">										        
+ <div class="form-role-area">
 <div class="control-group info">
 	<div class="row">
 		<!--<div class="col-md-12 col-lg-12 col-xl-12" style="">
@@ -127,14 +127,14 @@
 					<button type="button" onclick="addQuantity('')"><i class="fa fa-plus"></i> Add Quantity</button>
 				</div>
             </div>
-			
-<?php 
+
+<?php
     foreach($ProductSizes as $key=>$val){
-		
+
 		//pr($ProductSizes,1);
-		
+
 		$sizeData=isset($val['sizeData']) ? $val['sizeData']:'';
-		
+
 ?>
 <div class="attribute-single">
     <div class="attribute-single-title">
@@ -160,34 +160,34 @@
    	        </div>
 	    </div>
     </div>
-	<div class="attribute-single" id="quantity_attribute_id_div_<?php echo $key?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">	
+	<div class="attribute-single" id="quantity_attribute_id_div_<?php echo $key?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">
 	   	<div class="controls small-controls">
 		    <div class="attribute-single-info-inner">
 				<div class="cus-inner-btn">
 					<button type="button" onclick="addSize('<?php echo $key;?>','')">Add Size</button>
 				</div>
             </div>
-		
+
             <?php
     		if(!empty($sizeData)){
     		foreach($sizeData as $skey=>$sval){
-    			
+
                 $size_extra_price='';
                 $size_extra_price=isset($sval['extra_price']) ? $sval['extra_price']:'';
 				$attribute=$sval['attribute'];
-            ?>											   
-            <div class="attribute-single active" id="size_attribute_id_div_<?php echo $key?>_<?php echo $skey?>">		    
+            ?>
+            <div class="attribute-single active" id="size_attribute_id_div_<?php echo $key?>_<?php echo $skey?>">
     		    <div class="attribute-single-title">
     	           <div class="row align-items-center">
     	               <div class="col-6 col-md-6">
     	                   <label class="span2">
     	                       <input type="checkbox" value="<?php echo $skey?>" name="size_attribute_id_<?php echo $key?>[]"  id="size_attribute_id_<?php echo $key?>_<?php echo $skey?>" onchange="addActiveSizeClass('<?php echo $key?>_<?php echo $skey?>')" checked>
-    	                       <?php echo $sval['size_name'];?>		
+    	                       <?php echo $sval['size_name'];?>
                             </label>
                         </div>
                         <div class="col-3 col-md-4">
                             <div class="attribute-single-inner">
-                                <input type="text"  name="size_extra_price_<?php echo $skey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control" value="<?php echo showValue($size_extra_price)?>" readonly> 
+                                <input type="text"  name="size_extra_price_<?php echo $skey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control" value="<?php echo showValue($size_extra_price)?>" readonly>
     							<label class="form-inner-label">Extra Price</label>
                             </div>
                         </div>
@@ -199,11 +199,11 @@
     					</div>
                     </div>
                 </div>
-				
-				    <?php 
-				foreach($MultipleAttributes as $akey=>$aval){    
+
+				    <?php
+				foreach($MultipleAttributes as $akey=>$aval){
 				    ?>
-					<div class="attribute-single-items attribute_id_div_<?php echo $key?>_<?php echo $skey?>" id="attribute_id_div_<?php echo $key?>_<?php echo $skey?>_<?php echo $akey?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">		    
+					<div class="attribute-single-items attribute_id_div_<?php echo $key?>_<?php echo $skey?>" id="attribute_id_div_<?php echo $key?>_<?php echo $skey?>_<?php echo $akey?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">
 					<div class="attribute-single-title">
 					   <div class="row align-items-center">
 						   <div class="col-8 col-md-8">
@@ -214,30 +214,30 @@
 							</div>
 							<div class="col-4 col-md-4">
 								<div class="attribute-single-inner action-btns" style="text-align-last: end;">
-									
+
 									<div class="cus-inner-btn">
 					                    <button type="button" onclick="addEditAttribute('<?php echo $key;?>','<?php echo $skey;?>','<?php echo $akey;?>','')"> Add <?php echo $aval['name'];?> Item</button>
 				                    </div>
-									
+
 								</div>
 							</div>
 						</div>
-						
-						<?php 
-								
+
+						<?php
+
 						if(!empty($attribute[$akey])){
-								
+
 							$attribute_items=$attribute[$akey]['attribute_items'];
-							
-						?> 
+
+						?>
 						<div class="row" id="attribute_item_id_<?php echo $key.'_'.$skey.'_'.$akey?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">
 						<?php foreach($attribute_items as $atkey=>$atval){
-							
-							
+
+
 							$attributes_item_name=$atval['attributes_item_name'];
 							$attributes_item_extra_price=$atval['extra_price'];
 							$attributes_item_id=$atval['id'];
-							
+
 							?>
 							<div class="col-md-6">
 								<div class="attribute-single-info">
@@ -259,32 +259,32 @@
 									</div>
 								</div>
 							</div>
-						   <?php 
+						   <?php
 						   }?>
 						</div>
 						<?php
 						}?>
 					</div>
 				</div>
-				<?php 
+				<?php
 				}?>
     	    </div>
-            												 
-            <?php } 
+
+            <?php }
     		}
-    		?>		
+    		?>
         </div>
     </div>
 </div>
 <?php
 }?>
-	  
+
 
 		    </div>
-			
+
 	    </div>
 	</div>
-</div> 									
+</div>
   <div class="product-actions-btn text-right">
                                             <!--<button type="submit" class="btn btn-success" id="submitBtn">Submit</button>-->
                                             <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
@@ -339,88 +339,88 @@
     function bntInActive(id){
     $("#"+id).attr("disabled", true);
     }
-	
+
 </script>
 <script>
-    product_id='<?php echo $product_id?>'; 
+    product_id='<?php echo $product_id?>';
 	function isNumber(evt) {
-		
+
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode
         if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
             return false;
 
         return true;
     }
-	
+
 	function addActiveClass(id){
-		
+
 		if($("#attribute_id_"+id).prop("checked") == true){
 			$("#attribute_id_div_"+id).addClass('active');
 		}else{
 			$("#attribute_id_div_"+id).removeClass('active');
-		}		
+		}
 	}
-	
+
 	function setAttributesetItemId(id){
 		//alert(id);
-		
+
 		if($("#"+id).prop("checked") == true){
-			
+
 			$("#hidden_"+id).val($("#"+id).val());
 		}else{
-			
+
 			$("#hidden_"+id).val('');
 		}
-	   	
+
 	}
-	
+
 	function addActiveSizeClass(id){
-		
+
 		if($("#size_attribute_id_"+id).prop("checked") == true){
-			
+
 			//$("#size_attribute_id_div_"+id).addClass('active');
 			$(".attribute_id_div_"+id).show();
 		}else{
 			$(".attribute_id_div_"+id).hide();
 			//$("#size_attribute_id_div_"+id).removeClass('active');
-		}	
-	   	
+		}
+
 	}
 	function addActiveAttributeClass(id){
-		
+
 		if($("#attribute_id_"+id).prop("checked") == true){
-			
-			
+
+
 			$("#attribute_item_id_"+id).show();
 		}else{
 			$("#attribute_item_id_"+id).hide();
-			
-		}	
-	   	
+
+		}
+
 	}
 	function addActiveQuantitySizeClass(id){
-		
-		
-		
+
+
+
 		if($("#quantity_attribute_id_"+id).prop("checked") == true){
-			
-			
+
+
 			$("#quantity_attribute_id_div_"+id).show();
-			
+
 		}else{
-			
+
 			$("#quantity_attribute_id_div_"+id).hide();
-		}	  	
+		}
 	}
-	
+
 	function addQuantity(quantity_id){
-		
+
 		    $("#QualityModal .modal-title").html('Add Quantity');
 			if(quantity_id !=''){
 				$("#QualityModal .modal-title").html('Edit Quantity');
 			}
 		    $("#QualityModal").modal('show');
-			
+
 		    //$("#loder-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/AddEditProductQuantity/'+product_id+'/'+quantity_id;
 			$.ajax({
@@ -428,15 +428,15 @@
 				   url: url,
 				    success: function(data)
 				    {
-					    $("#QualityModal .modal-body").html(data);  	
+					    $("#QualityModal .modal-body").html(data);
 					}
 			});
 	}
-	
+
 	function deleteQuantity(quantity_id){
-		
+
 		var result = confirm("Are you sure you want to remove Quantity from this product ?");
-		
+
 		if(result==true && quantity_id !=''){
 			$("#loder-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/deleteProductQuantity/'+product_id+'/'+quantity_id;
@@ -444,18 +444,18 @@
 					type: "GET",
 					url: url,
 					success: function(data)
-					{   
-						location.reload();   	
+					{
+						location.reload();
 					}
 			});
 		}
 	}
-	
+
 	function addSize(quantity_id,size_id){
-		
+
 		    $("#QualityModal .modal-title").html('Add Size');
 			if(size_id !=''){
-				
+
 				$("#QualityModal .modal-title").html('Edit Size');
 			}
 		    $("#QualityModal").modal('show');
@@ -466,18 +466,18 @@
 				   url: url,
 				    success: function(data)
 				    {
-					    $("#QualityModal .modal-body").html(data);  	
+					    $("#QualityModal .modal-body").html(data);
 					}
 			});
 	}
-	
-	
+
+
 	function addEditAttribute(quantity_id,size_id,attribute_id,attribute_id_item){
-		
-		    
+
+
 			$("#ItemModal .modal-title").html('Add Attribute');
 			if(attribute_id_item !=''){
-				
+
 				$("#ItemModal .modal-title").html('Edit Attribute');
 			}
 			$("#ItemModal").modal('show');
@@ -487,17 +487,17 @@
 				   url: url,
 				    success: function(data)
 				    {
-					    $("#ItemModal .modal-body").html(data);  	
+					    $("#ItemModal .modal-body").html(data);
 					}
 			});
-			
-			
+
+
 	}
-	
+
 	function deleteQuantity(quantity_id){
-		
+
 		var result = confirm("Are you sure you want to remove Quantity from this product ?");
-		
+
 		if(result==true && quantity_id !=''){
 			$("#loder-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/deleteProductQuantity/'+product_id+'/'+quantity_id;
@@ -505,17 +505,17 @@
 					type: "GET",
 					url: url,
 					success: function(data)
-					{   
-						location.reload();   	
+					{
+						location.reload();
 					}
 			});
 		}
 	}
-	
+
 	function deleteQuantity(quantity_id){
-		
+
 		var result = confirm("Are you sure you want to remove Quantity from this product ?");
-		
+
 		if(result==true && quantity_id !=''){
 			$("#loder-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/deleteProductQuantity/'+product_id+'/'+quantity_id;
@@ -523,16 +523,16 @@
 					type: "GET",
 					url: url,
 					success: function(data)
-					{   
-						location.reload();   	
+					{
+						location.reload();
 					}
 			});
 		}
 	}
 	function deleteProductSize(quantity_id,size_id){
-		
+
 		var result = confirm("Are you sure you want to remove size from this product & quantity ?");
-		
+
 		if(result==true && quantity_id !=''){
 			$("#loder-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/deleteProductSize/'+product_id+'/'+quantity_id+'/'+size_id;
@@ -540,17 +540,17 @@
 					type: "GET",
 					url: url,
 					success: function(data)
-					{   
-						location.reload();   	
+					{
+						location.reload();
 					}
 			});
 		}
 	}
-	
+
 	function deleteAttribute(attributes_item_id){
-		
+
 		var result = confirm("Are you sure you want to remove item from this product ?");
-		
+
 		if(result==true && attributes_item_id !=''){
 			$("#loder-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/deleteProductMultipalAttribute/'+attributes_item_id;
@@ -558,8 +558,8 @@
 					type: "GET",
 					url: url,
 					success: function(data)
-					{   
-						location.reload();   	
+					{
+						location.reload();
 					}
 			});
 		}

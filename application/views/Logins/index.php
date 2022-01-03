@@ -1,15 +1,15 @@
 <style>
        #login-password{
-		   
+
            -webkit-text-security:disc;
        }
 </style>
 <div class="login-section universal-spacing universal-bg-white">
     <div class="container">
         <div class="login-section-inner">
-            <div class="row">			   
+            <div class="row">
                 <div class="col-md-5">
-                    <?php 
+                    <?php
                     if($language_name=='French'){ ?>
                         <div class="login-area">
                             <div class="universal-dark-title">
@@ -46,7 +46,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>                        
+                            </form>
                         </div>
                     <?php }else{ ?>
                         <div class="login-area">
@@ -84,37 +84,37 @@
                                         </div>
                                     </div>
                                 </div>
-                            </form>                        
+                            </form>
                         </div>
-                    <?php 
+                    <?php
                     }?>
                 </div>
                 <div class="col-md-7">
                     <div class="register-area">
                         <div class="universal-dark-title">
                             <span>
-                            <?php 
+                            <?php
                             if($language_name=='French'){ ?>
                                 Nouveaux clients
                             <?php }else{ ?>
                                 New Customers
-                            <?php 
-                            }?> 
+                            <?php
+                            }?>
                             </span>
                         </div>
                         <div class="universal-dark-info">
                             <span>
-                            <?php 
+                            <?php
                             if($language_name=='French'){ ?>
                                 En créant un compte sur notre boutique, vous pourrez passer vos commandes plus rapidement, enregistrer plusieurs adresses de livraison, consulter et suivre vos commandes, et plein d'autres choses encore.
                             <?php }else{ ?>
                                 By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.
-                            <?php 
+                            <?php
                             }?> </span>
                         </div>
                         <div class="universal-dark-info" id="signup-msg">
                         </div>
-                        <?php 
+                        <?php
                         if($language_name=='French'){ ?>
                             <form id="signup-form" method="post" autocomplete="off">
                                 <div class="shipping-form">
@@ -195,7 +195,7 @@
                                     </div>
                                 </div>
                             </form>
-                        <?php 
+                        <?php
                         }?>
                     </div>
                 </div>

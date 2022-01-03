@@ -1,5 +1,5 @@
 <?php return array (
-  'codeToName' => 
+  'codeToName' =>
   array (
     32 => 'space',
     160 => 'space',
@@ -228,7 +228,7 @@
   'ItalicAngle' => '0',
   'IsFixedPitch' => 'false',
   'CharacterSet' => 'ExtendedRoman',
-  'FontBBox' => 
+  'FontBBox' =>
   array (
     0 => '-168',
     1 => '-218',
@@ -246,7 +246,7 @@
   'StdHW' => '28',
   'StdVW' => '84',
   'StartCharMetrics' => '317',
-  'C' => 
+  'C' =>
   array (
     32 => 250.0,
     160 => 250.0,

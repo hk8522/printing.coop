@@ -5,8 +5,8 @@ use Socketlabs\Message\BasicMessage;
 use Socketlabs\Message\EmailAddress;
 use Socketlabs\SocketLabsClient;
 
-$client = new SocketLabsClient(exampleConfig::serverId(), exampleConfig::password()); 
- 
+$client = new SocketLabsClient(exampleConfig::serverId(), exampleConfig::password());
+
 //Build the message
 $message = new BasicMessage();
 
@@ -32,5 +32,5 @@ $message->ampBody = "<!doctype html>" +
 "  <h1>This is the AMP Html Body of my message</h1>" +
 "</body>" +
 "</html>";
- 
+
 $response = $client->send($message);

@@ -1,4 +1,4 @@
-<?php 
+<?php
 if(! defined('SOCKETLABS_INJECTION_API_ROOT_PATH')) define('SOCKETLABS_INJECTION_API_ROOT_PATH', dirname(__DIR__));
 
 include_once (SOCKETLABS_INJECTION_API_ROOT_PATH."/src/Core/InjectionRequest.php");

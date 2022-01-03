@@ -32,7 +32,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -46,7 +46,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -73,7 +73,7 @@
 												</div>
 											</div>
 										</div>
-										
+
 										<div class="control-group info">
 											<div class="row">
 												<div class="col-md-4">
@@ -156,7 +156,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -165,7 +165,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
 													    <textarea class="form-control" name="category_dispersion_french" id="content1"><?php echo isset($postData['category_dispersion_french']) ? $postData['category_dispersion_french']:'';?></textarea>
-    <?php 
+    <?php
 	    echo form_error('category_dispersion_french');
     ?>
                                                     </div>
@@ -182,23 +182,23 @@
 													    <input type="checkbox" name="show_our_printed_product" value="1" <?php echo !empty(    $postData['show_our_printed_product']) ? 'checked':''?>> Our Printed Product
                                                         <?php echo form_error('category_dispersion');
 														?>
-														<input type="checkbox" name="show_main_menu" value="1" <?php echo !empty(    $postData['show_main_menu']) ? 'checked':''?>> Show Main Menu	
+														<input type="checkbox" name="show_main_menu" value="1" <?php echo !empty(    $postData['show_main_menu']) ? 'checked':''?>> Show Main Menu
                                                         <?php echo form_error('show_main_menu');
 														?>
-<input type="checkbox" name="show_footer_menu" value="1" <?php echo !empty($postData['show_footer_menu']) ? 'checked':''?>> Show Footer Menu	
+<input type="checkbox" name="show_footer_menu" value="1" <?php echo !empty($postData['show_footer_menu']) ? 'checked':''?>> Show Footer Menu
                                                         <?php echo form_error('show_footer_menu');
-														?>														
-														
+														?>
+
                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
 									    <?php
-										
+
 										foreach($MainStoreList as $key=>$val){
-											
+
 										    $categoryImageData=$CategoriesImageData[$key];
-									    ?>       
+									    ?>
 										<input type="hidden" name="<?php echo $key?>category_image_id" value="<?php echo $categoryImageData['id']?>">
 										<div class="control-group info">
                                             <div class="row">
@@ -222,8 +222,8 @@
 															<span>
 															Allowed image type  : <b> (jpg, png, gif)</b>
 															</span>
-															
-														
+
+
 															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 																<input class="btn btn-primary" name="<?php echo $key?>files" type="file" accept="image/x-png,image/gif,image/jpeg" id="<?php echo $key?>upload" onchange="Upload('<?php echo $key?>upload')"/>
 															</div>
@@ -261,8 +261,8 @@
 															<span>
 															Allowed image type  : <b> (jpg, png, gif)</b>
 															</span>
-															
-														
+
+
 															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 																<input class="btn btn-primary" name="<?php echo $key?>files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
 															</div>
@@ -277,7 +277,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										        
+
 										<?php }
 										}?>
 										<!--<div class="control-group info">
@@ -302,8 +302,8 @@
 															<span>
 															Allowed image type  : <b> (jpg, png, gif)</b>
 															</span>
-															
-														
+
+
 															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 																<input class="btn btn-primary" name="files" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
 															</div>
@@ -318,7 +318,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -341,8 +341,8 @@
 															<span>
 															Allowed image type  : <b> (jpg, png, gif)</b>
 															</span>
-															
-														
+
+
 															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 																<input class="btn btn-primary" name="files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
 															</div>
@@ -357,9 +357,9 @@
                                                 </div>
                                             </div>
                                         </div>-->
-										
-										
-										
+
+
+
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success">Submit</button>
                                             <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
@@ -417,9 +417,9 @@
     allowedContent:true,
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });
- 
+
  CKEDITOR.dtd.$removeEmpty.i = 0;
- 
+
  CKEDITOR.replace('content1', {
     height: 300,
     filebrowserUploadUrl: "<?php echo $BASE_URL;?>upload.php",
@@ -427,6 +427,6 @@
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });
  CKEDITOR.dtd.$removeEmpty.i = 0;
- 
+
 
 </script>

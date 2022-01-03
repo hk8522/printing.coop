@@ -44,7 +44,7 @@ Class User_Model extends MY_Model {
 				'rules'  => 'required|matches[password]',
 	      ),
     );
-	
+
 	public $configFranch = array(
         array(
                 'field' => 'fname',
@@ -110,7 +110,7 @@ Class User_Model extends MY_Model {
                 'label' => 'email id',
                 'rules' => 'required|valid_email|max_length[50]',
                 'errors' => array(
-				
+
                         'required' => 'Enter email id',
                 ),
         ),
@@ -123,7 +123,7 @@ Class User_Model extends MY_Model {
                 ),
         )
     );
-	
+
 	public $prefconfigFranch = array(
         array(
                 'field' => 'fname',
@@ -146,7 +146,7 @@ Class User_Model extends MY_Model {
                 'label' => 'email id',
                 'rules' => 'required|valid_email|max_length[50]',
                 'errors' => array(
-				
+
                         'required' => "Entrez l'identifiant de l'e-mail",
                 ),
         ),
@@ -159,7 +159,7 @@ Class User_Model extends MY_Model {
                 ),
         )
     );
-	
+
 	public $config_edit = array(
         array(
                 'field' => 'fname',
@@ -215,9 +215,9 @@ Class User_Model extends MY_Model {
 						'rules'  => 'required',
 				],
 		];
-		
+
 	public $configChangePassword = array(
-       
+
 		array(
                 'field' => 'password',
                 'label' => 'password',
@@ -226,7 +226,7 @@ Class User_Model extends MY_Model {
                         'required' => 'Enter Password',
                 ),
         )
-    );	
+    );
     public function checkUserLogin($data,$md5=true){
 
 		$LoginUser=array();
@@ -274,7 +274,7 @@ Class User_Model extends MY_Model {
         if($query->num_rows() > 0) {
 
            return true;
-		   
+
         }else{
 
 			false;
@@ -326,7 +326,7 @@ Class User_Model extends MY_Model {
 		$data=$query->result_array();
 		return $data;
     }
-    
+
 	public function getListNewUser() {
         $this->db->select('*');
 		/*$condition=array();

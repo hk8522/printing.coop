@@ -19,7 +19,7 @@
                                     <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="id">
                                     <div class="form-role-area">
-									
+
 									    <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -27,27 +27,27 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <?php 
+													    <?php
 														$store_ids=$postData['store_id'];
 														if(!empty($store_ids)){
-															
+
 															$store_ids=explode(',',$store_ids);
 														}else{
 															$store_ids=array();
 														}
-														
+
 														foreach($StoreList as $key=>$val){
 															$checked='';
 														    if(in_array($key,$store_ids)){
-																
-																$checked='checked'; 
+
+																$checked='checked';
 															}
 														?>
-														
+
                                                             <input  name="store_id[]" type="checkbox" value="<?php echo $key?>" <?php echo $checked;?>><label style="margin-left:5px;"><?php echo $val['name']?></label>
-														<?php 
+														<?php
 														}?>
-                                                  
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -85,25 +85,25 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        
+
 														<select class="form-control" name="category_id">
 														<option value="">
 														Select Category
 														</option>
-														<?php 
+														<?php
 														   $category_id=$postData['category_id'] ? isset($postData['category_id']):0;
-														   
+
 														   foreach($categoryData as $key=>$val){
 															   $selected='';
 															   if($val['id']==$category_id){
-																   
+
 																   $selected='selected="selected"';
 															   }
 														?>
 														   <option value="<?php echo $val['id'];?>" <?php echo $selected;?>>
 														  <?php echo $val['category_name']?>
 														</option>
-														  <?php 
+														  <?php
 														  }?>
 														</select>
                                                         <?php echo form_error('category_id');?>
@@ -140,7 +140,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -157,7 +157,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
                                         <div class="control-group info">
                                             <div class="row">
                                               <div class="col-md-4">
@@ -172,7 +172,7 @@
                                                         <?php
                                                             if($old_image !=''){
                                                                $imageurl=getBlogImage($old_image,'large');
-															   
+
 															   ?>
                                                         <img src="<?php echo $imageurl?>" width="100" height="80">
                                                         <?php
@@ -191,7 +191,7 @@
                                                         Allowed image size maximum  : <b> (1Mb)</b>
                                                         </span>
                                                         <br>-->
-														
+
                                                     </div>
                                                     <div class="entry input-group col-xs-3" style="margin-bottom:15px;">
                                                    <input class="btn btn-primary" name="files" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>

@@ -32,4 +32,4 @@ class GetAddressByTokenRequest extends ApiRequest{
         }
         return NULL;
     }
-} 
+}

@@ -7,7 +7,7 @@
     <!--        <div class="today-deal-title">-->
     <!--            <span><?php echo $page_title; ?></span>-->
     <!--        </div>-->
-            
+
     <!--    </div>-->
     <!--</div>-->
 </div>

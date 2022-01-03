@@ -29,7 +29,7 @@ class RatesCollection extends Collection{
     }
 
     public function getByCourier(string $courier) : RatesCollection  {
-       
+
         $couriers = $this->filter(function($value,$key) use ($courier){
             return strcasecmp($value->rate->service->courier_name,$courier) === 0;
         });
@@ -46,7 +46,7 @@ class RatesCollection extends Collection{
         $sorted = $this->sortBy(function($value,$key){
             return $value->rate->price->total;
         });
-        
+
         return $sorted;
     }
 

@@ -26,7 +26,7 @@
 						</div>
 					</div>
 				</div>
-                
+
 				<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="custom-mini-table">
 						<table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
@@ -38,53 +38,53 @@
 									<th width="20%">Action</th>
 								</tr>
 							</thead>
-							
+
 							<tbody>
-							    <?php 
+							    <?php
 								if(count($lists) > 0){
-									
+
 									foreach($lists as $key=>$list){
 									?>
-										<tr> 
+										<tr>
 										    <td style="display:none"><?php echo ucfirst($list['set_order']);?></td>
 											<td><?php echo ucfirst($list['name']);?></td>
-											
+
 											<td>
 											<?php if($list['status']==1){?>
 											<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0">
 											 <button type="submit" class="custon-active">Active
 											 </button>
-											</a> 
-											<?php 
+											</a>
+											<?php
 											}else{?>
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1">
 											     <button type="submit" class="custon-delete">Inactive
 											      </button>
 											   </a>
-											<?php 
+											<?php
 											}?>
 											</td>
 											<td>
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>" style="color:green;padding: 5px;" title="edit">
 											        <i class="far fa-edit fa-lg"></i>
 											   </a>
-											   
-											   
-											 
+
+
+
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $list['id'];?>" style="color:#d71b23;padding: 5px;" title="delete"  onclick="return confirm('Are you sure you want to delete this quantity?');">
 											         <i class="fa fa-trash fa-lg"></i>
 											   </a>
-											   
+
 											</td>
 										</tr>
 								<?php
-                                   								
+
 								    }
 								}else{?>
 								    <tr>
 									<td colspan="4" class="text-center">List Empty.</td>
 								    </tr>
-								<?php 
+								<?php
 								}?>
 							</tbody>
 						</table>
@@ -103,7 +103,7 @@
  </script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 0, "asc" ]]
 	});

@@ -66,14 +66,14 @@
 	                                                            </div>
                                                                 <label class="form-inner-label">City </label>
                                                             </div>
-															
+
 															<div class="col-md-4">
                                                                 <div class="product-view-display">
 	                                                                <span><?php echo ucfirst($Product['province']);?></span>
 	                                                            </div>
                                                                 <label class="form-inner-label">Province</label>
                                                             </div>
-															
+
 															<div class="col-md-4">
                                                                 <div class="product-view-display">
 	                                                                <span><?php echo ucfirst($Product['country']);?></span>
@@ -91,7 +91,7 @@
                                                 </div>
 											</div>
 										</div>
-										
+
 										<div class="control-group info">
 											<div class="row align-items-center">
                                                 <div class="col-md-12">
@@ -114,7 +114,7 @@
                                                             </div>
 															<div class="col-md-4">
                                                                 <div class="product-view-display">
-	                                                                <span><?php 
+	                                                                <span><?php
 																	echo $Product['has_quote_form']==1 ? 'Yes':'No' ;?>
 																	</span>
 	                                                            </div>
@@ -193,14 +193,14 @@
 	                                                            </div>
                                                                 <label class="form-inner-label">Folding</label>
                                                             </div>
-															
-															
+
+
                                                         </div>
                                                     </div>
                                                 </div>
 											</div>
 										</div>
-										
+
 										<div class="control-group info">
 											<div class="row">
                                                 <div class="col-md-12">
@@ -228,7 +228,7 @@
                                                                 <label class="form-inner-label">Notes
 																</label>
                                                             </div>
-															
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -237,9 +237,9 @@
 												</div>
 											</div>
 										</div>
-										
-										
-                                        
+
+
+
 										<div class="text-right">
 											<a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
 										</div>

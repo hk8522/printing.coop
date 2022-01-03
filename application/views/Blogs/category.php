@@ -5,13 +5,13 @@
                 <div class="col-md-8 col-lg-9 col-xl-9">
                     <div class="blog-boxes">
                         <div class="row">
-						<?php 
+						<?php
 			           if($blogs){
 					   foreach($blogs as $blog){
-						
+
 					      $imageurl=getBlogImage($blog['image'],'large');
-						  
-						  
+
+
 			          ?>
                             <div class="col-md-12 col-lg-6 col-xl-4">
                                 <div class="single-blog-box">
@@ -21,20 +21,20 @@
                                             <div class="single-blog-category">
                                                <a href="<?php echo $BASE_URL?>Blogs/category/<?php echo base64_encode($blog['category_id'])?>"><span>
 									            <?php
-									    if($this->language_name=='French'){ 
-										
+									    if($this->language_name=='French'){
+
 									         echo $blog['category_name_french'];
 									    }else{
 											 echo $blog['category_name'];
-										}   
+										}
 									 ?></span></a>
                                             </div>
                                             <div class="universal-small-dark-title">
                                                 <span>
 													<a href="<?php echo $BASE_URL?>Blogs/singleview/<?php echo base64_encode($blog['id'])?>">
-													<?php 
+													<?php
 													if($this->language_name=='French'){
-												
+
 														echo $blog['title_french'];
 													}else{
 														echo $blog['title'];
@@ -47,7 +47,7 @@
                                             </div>
                                             <div class="universal-dark-info less-content">
                                                <span><?php if($this->language_name=='French'){
-											
+
 									       echo $blog['content_french'];
 									    }else{
 											echo $blog['content'];
@@ -60,16 +60,16 @@
                                     </div>
                                 </div>
                             </div>
-					   <?php 
+					   <?php
 					   }
 					  }else{?>
 					    <div class="col-md-12 col-lg-12 col-xl-12 text-center">
-                                
+
 						          No blog found
-								
-                        </div>						
-                      <?php 
-					  }?>					  
+
+                        </div>
+                      <?php
+					  }?>
                         </div>
                     </div>
                 </div>

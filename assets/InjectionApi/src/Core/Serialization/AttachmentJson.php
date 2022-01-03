@@ -5,7 +5,7 @@ namespace Socketlabs\Core\Serialization;
  * To be serialized into JSON string before sending to the Injection Api.
  */
 class AttachmentJson  {
-  
+
     /**
      * Name of attachment (displayed in email clients)
      */
@@ -29,5 +29,5 @@ class AttachmentJson  {
     /**
      * A list of custom headers added to the attachment.
      */
-    public $CustomHeaders; 
+    public $CustomHeaders;
 }

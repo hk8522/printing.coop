@@ -26,13 +26,13 @@ class Pages extends Admin_Controller
 	    $this->data['lists']=$lists;
 		$this->data['MainStoreList']=$MainStoreList;
         $this->render($this->class_name.'index');
-		
-		
+
+
     }
 
 	public function addEdit($id=null)
     {
-     
+
         $this->load->helper('form');
 		$this->data['page_title'] = $page_title = 'Add New Page';
 		if(!empty($id)){
@@ -43,10 +43,10 @@ class Pages extends Admin_Controller
 		$this->load->model('Page_Category_Model');
 		$this->load->model('Store_Model');
 		$catgoryList=$this->Page_Category_Model->getCategoryDropDownList();
-		
+
 		$MainStoreList=$this->Store_Model->MainStoreList();
 		$this->data['MainStoreList']=$MainStoreList;
-		
+
 		$postData=array();
 		$this->data['catgoryList']=$catgoryList;
 		$postData=$this->Page_Model->getPageDataById($id);
@@ -70,17 +70,17 @@ class Pages extends Admin_Controller
 			$postData['meta_description_content_france']=$this->input->post('meta_description_content_france');
 			$postData['meta_keywords_content']=$this->input->post('meta_keywords_content');
 			$postData['meta_keywords_content_france']=$this->input->post('meta_keywords_content_france');
-            
+
 			$postData['display_on_footer'] = !empty($this->input->post('display_on_footer')) ?
 			$this->input->post('display_on_footer'):0;
-			
+
 			$postData['display_on_top_menu'] = !empty($this->input->post('display_on_top_menu')) ?
 			$this->input->post('display_on_top_menu'):0;
-			
+
 			$postData['display_on_footer_last_menu'] = !empty($this->input->post('display_on_footer_last_menu')) ?
 			$this->input->post('display_on_footer_last_menu'):0;
-			
-			
+
+
 			$postData['main_store_id']=$this->input->post('main_store_id');
 
 			if($this->form_validation->run()===TRUE)
@@ -98,7 +98,7 @@ class Pages extends Admin_Controller
 
 
 				}
-				
+
 				if ($this->Page_Model->savePage($postData))
 				{
 

@@ -29,12 +29,12 @@
 													   <option value="">Select WebSite</option>
 													   <?php foreach($MainStoreList as $key=>$val){
 														$selected='';
-                                                        if($postData['main_store_id'] == $key){		
+                                                        if($postData['main_store_id'] == $key){
 														     $selected='selected="selected"';
-														}												
+														}
 														?>
 													    <option value="<?php echo $key?>" <?php echo $selected?>><?php echo $val;?></option>
-													   <?php 
+													   <?php
 													   }?>
 													   </select>
 													   <?php echo form_error('main_store_id');?>
@@ -94,14 +94,14 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
-										
+
 											<div class="row">
 												<div class="col-md-4">
 														<label class="span2 " for="inputMame">Service Image</label>
 												</div>
-												<div class="col-md-8">	
+												<div class="col-md-8">
 													<div class="controls">
 														<div class="col-xs-3" style="margin-bottom:15px;">
 															<?php $old_image =isset($postData['service_image']) ? $postData['service_image']:'';
@@ -121,8 +121,8 @@
 															<span>
 															Allowed image type  : <b> (jpg, png, gif)</b>
 															</span>
-														 
-														   
+
+
 														</div>
 														<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 															<input class="btn btn-primary" name="files" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
@@ -138,12 +138,12 @@
 											</div>
                                         </div>
 										<div class="control-group info">
-										
+
 											<div class="row">
 												<div class="col-md-4">
 														<label class="span2 " for="inputMame">Service Image French</label>
 												</div>
-												<div class="col-md-8">	
+												<div class="col-md-8">
 													<div class="controls">
 														<div class="col-xs-3" style="margin-bottom:15px;">
 															<?php $old_image_french =isset($postData['service_image_french']) ? $postData['service_image_french']:'';
@@ -163,8 +163,8 @@
 															<span>
 															Allowed image type  : <b> (jpg, png, gif)</b>
 															</span>
-														 
-														   
+
+
 														</div>
 														<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 															<input class="btn btn-primary" name="files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
@@ -179,7 +179,7 @@
 												</div>
 											</div>
                                         </div>
-										
+
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success">Submit</button>
                                             <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>

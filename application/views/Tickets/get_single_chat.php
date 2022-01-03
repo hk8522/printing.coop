@@ -1,19 +1,19 @@
 
-                                       
-										<?php if(!empty($list)){
-										
 
-                                          $send_message_detail='send-message-detail';				
-										   $send_message='send-message';	
+										<?php if(!empty($list)){
+
+
+                                          $send_message_detail='send-message-detail';
+										   $send_message='send-message';
      									   $sender_name='sender-name';
 										   $Username=$loginName;
-										   
+
 										   if($list['comment_author']==0){
-											    $send_message_detail='recieve-message-detail';				
-										        $send_message='recieve-message';	
+											    $send_message_detail='recieve-message-detail';
+										        $send_message='recieve-message';
      									        $sender_name='reciever-name';
 										        $Username='Support';
-												
+
 										   }
 										?>
 			      						<li class="<?php echo  $send_message;?>">
@@ -26,5 +26,5 @@
 												<span><?php echo dateFormate($list['created']);?></span>
 			              					</div>
 			      						</li>
-										<?php 
+										<?php
 										}?>

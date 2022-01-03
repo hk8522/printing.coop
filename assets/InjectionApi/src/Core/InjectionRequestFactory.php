@@ -4,7 +4,7 @@ namespace Socketlabs\Core;
  * Used by the Send function of the SocketLabsClient to generate an InjectionRequest for the Injection Api
  */
 class InjectionRequestFactory {
-    
+
     private $serverId;
     private $apiKey;
 
@@ -25,14 +25,14 @@ class InjectionRequestFactory {
      * @return object
      */
     public function generateRequest($message){
- 
+
         if(is_a($message, "Socketlabs\Message\BulkMessage")){
             return $this->generateBulkRequest($message);
-        } 
-        return $this->generateBasicRequest($message); 
-    } 
+        }
+        return $this->generateBasicRequest($message);
+    }
 
-    /** 
+    /**
      * Generate request setting properties common to both message types.
      * @param object $message
      * @return object
@@ -56,13 +56,13 @@ class InjectionRequestFactory {
         //set custom headers
         $messageJson->CustomHeaders = $this->getCustomHeaders($message->customHeaders);
 
-        //set from address 
+        //set from address
         $messageJson->From = new \Socketlabs\Core\Serialization\AddressJson($message->from->emailAddress, $message->from->friendlyName);
-        
-        //reply-to is optional, if provided, set it 
-        if($message->replyTo != null)     
+
+        //reply-to is optional, if provided, set it
+        if($message->replyTo != null)
             $messageJson->ReplyTo = new \Socketlabs\Core\Serialization\AddressJson($message->replyTo->emailAddress, $message->replyTo->friendlyName);
- 
+
         //append message to messages collection. there should only be one
         $request->Messages[] = $messageJson;
 
@@ -84,14 +84,14 @@ class InjectionRequestFactory {
         $messageJson->To = $this->getAddressList($basicMessage->to);
         $messageJson->Cc = $this->getAddressList($basicMessage->cc);
         $messageJson->Bcc = $this->getAddressList($basicMessage->bcc);
- 
+
         //this is important. if PerMessage is set, the api will process this as a bulk style message.
         //$messageJson->MergeData->PerMessage = null;
         unset($messageJson->MergeData);
- 
+
         return $request;
     }
- 
+
     /**
      * Generate request representing a bulk message
      * @param object $bulkMessage
@@ -122,7 +122,7 @@ class InjectionRequestFactory {
      * @return object
      */
     private function getAddressList($emailAddresses){
-        
+
         if($emailAddresses == null)
             return null;
 
@@ -142,11 +142,11 @@ class InjectionRequestFactory {
     private function getAttachments($attachments){
         if($attachments == null)
             return null;
-        
+
         $results = array();
 
         foreach($attachments as $attachment){
-             
+
             $target = new \Socketlabs\Message\Attachment();
             $target->Name = $attachment->name;
             $target->ContentType = $attachment->mimeType;
@@ -179,16 +179,16 @@ class InjectionRequestFactory {
             else{
                 $key = key($customHeaders);
                 $results[] = new \Socketlabs\Core\Serialization\CustomHeadersJson($key, $customHeader);
-            }  
-            next($customHeaders);  
+            }
+            next($customHeaders);
         }
-        
+
         return $results;
     }
 
     /**
      * Shape bulk recipients and their merge data into the format needed for the injection api
-     * @param object $bulkRecipients 
+     * @param object $bulkRecipients
      * @return array
      */
     private function getBulkMergeFields($bulkRecipients){
@@ -201,12 +201,12 @@ class InjectionRequestFactory {
             //add address
             $recipientMergeFields = array();
             $recipientMergeFields[] = new \Socketlabs\Core\Serialization\MergeFieldJson("DeliveryAddress", $bulkRecipient->emailAddress);
- 
-            //add friendly name if provided  
+
+            //add friendly name if provided
             if($bulkRecipient->friendlyName != null)
                 $recipientMergeFields[] = new \Socketlabs\Core\Serialization\MergeFieldJson('RecipientName', $bulkRecipient->friendlyName);
 
-            
+
             //if merge fields provided, add them as well
             if($bulkRecipient->mergeData != null){
                 foreach($bulkRecipient->mergeData as $mergeData){
@@ -217,7 +217,7 @@ class InjectionRequestFactory {
             //add recipient merge data to the results
             array_push($allRecipients, $recipientMergeFields);
 
-        } 
+        }
         return $allRecipients;
     }
 

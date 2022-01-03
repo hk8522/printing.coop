@@ -5,7 +5,7 @@ namespace Socketlabs\Core\Serialization;
  * To be serialized into JSON string before sending to the Injection Api.
  */
 class MergeDataJson {
- 
+
     /**
      * Defines merge field data for all messages in the request.
      */
@@ -22,6 +22,6 @@ class MergeDataJson {
     public function __construct()
     {
         $this->Global = array();
-        $this->PerMessage = array(array()); 
+        $this->PerMessage = array(array());
     }
 }

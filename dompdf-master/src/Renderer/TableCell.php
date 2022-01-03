@@ -36,7 +36,7 @@ class TableCell extends Block
 
         $this->_set_opacity($frame->get_opacity($style->opacity));
         list($x, $y, $w, $h) = $frame->get_border_box();
-        
+
 
         $table = Table::find_parent_table($frame);
 
@@ -104,7 +104,7 @@ class TableCell extends Block
                 ];
 
                 $border_top_width = max($border_top_width, $widths[0]);
-                
+
                 $method = "_border_" . $bp["top"]["style"];
                 $border_function_calls[] = [$method, [$x, $y, $w, $bp["top"]["color"], $widths, "top", "square"]];
             }
@@ -114,7 +114,7 @@ class TableCell extends Block
                 if ($bp["bottom"]["width"] <= 0) {
                     continue;
                 }
-                
+
                 $widths = [
                     (float)$bp["top"]["width"],
                     (float)$bp["right"]["width"],

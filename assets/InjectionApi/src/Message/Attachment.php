@@ -16,7 +16,7 @@ class Attachment
     public $mimeType = null;
 
     /**
-     * When set, used to embed an image within the body of an email message. 
+     * When set, used to embed an image within the body of an email message.
      * Example - <img> src="cid:contentId" </img>
      */
     public $contentId = null;
@@ -30,10 +30,10 @@ class Attachment
      * An optional list of custom headers added to the attachment
      */
     public $customHeaders = array();
- 
+
     /**
      * Creates attachment using content from specified path.
-     * 
+     *
      * @param string $path he path to your attachment on your local system.
      * @param string $name Name of attachment (displayed in email clients).
      * @param string $type The MIME type for your attachment.
@@ -42,7 +42,7 @@ class Attachment
      * @return Attachment
      */
     public static function createFromPath($path, $name = '', $type = '', $contentId = null, $headers = null){
- 
+
         // If a MIME type is not specified, try to work it out from the file name
         $type = $type == '' ? Attachment::filenameToType($path) : $type;
         $filename = basename($path);
@@ -50,7 +50,7 @@ class Attachment
 
         $fileResource = fopen($path, 'r');
         try{
-            return Attachment::createFromStream($fileResource, $name, $type, $contentId, $headers); 
+            return Attachment::createFromStream($fileResource, $name, $type, $contentId, $headers);
         }
         finally{
             fclose($fileResource);
@@ -59,7 +59,7 @@ class Attachment
 
     /**
      * Creates attachment using content from resource stream.
-     * 
+     *
      * @param string $resource .
      * @param string $name Name of attachment (displayed in email clients).
      * @param string $type The MIME type for your attachment.
@@ -79,7 +79,7 @@ class Attachment
         return $attachment;
     }
 
-    
+
     /**
      * Map a file name to a MIME type.
      * Defaults to 'application/octet-stream', i.e.. arbitrary binary data.
@@ -102,12 +102,12 @@ class Attachment
     /**
      * Multi-byte-safe pathinfo replacement.
      * Drop-in replacement for pathinfo(), but multibyte-safe, cross-platform-safe, old-version-safe.
-     * Works similarly to the one in PHP >= 5.2.0 
+     * Works similarly to the one in PHP >= 5.2.0
      * @link http://www.php.net/manual/en/function.pathinfo.php#107461
      * @param string $path A filename or path, does not need to exist as a file
      * @param integer|string $options Either a PATHINFO_* constant,
      *      or a string name to return only the specified piece, allows 'filename' to work on PHP < 5.2
-     * @return string|array 
+     * @return string|array
      */
     public static function mb_pathinfo($path, $options = null)
     {
@@ -144,11 +144,11 @@ class Attachment
                 return $ret;
         }
     }
- 
+
     /**
      * Gets the mime type from a file extension
      * @param string $ext File extension (w/out dot)
-     * @return string MIME type of file. 
+     * @return string MIME type of file.
      */
     public static function _mime_types($ext = '')
     {
@@ -200,7 +200,7 @@ class Attachment
 
             'pdf' => 'application/pdf',
 
-            'mov'    => 'video/quicktime' 
+            'mov'    => 'video/quicktime'
         );
         if (array_key_exists(strtolower($ext), $mimes)) {
             return $mimes[strtolower($ext)];

@@ -97,8 +97,8 @@
                                                     <div class="controls">
                                                         <div class="row">
                                                             <div class="col-md-12">
-          
-                                                                    
+
+
                             <?php
                             $store_ids = isset($postData['store_ids']) ? explode(',',$postData['store_ids']):'';
 																																																						foreach ($StoreList as $key=>$val){
@@ -110,14 +110,14 @@
 																																									         <input type="checkbox" value="<?php echo $val['id'];?>" <?php echo $selected;?> name="store_ids[]">&nbsp;
 														  <?php echo $val['name'];
 														  ?>
-                                                                    
+
 																	<?php
                                                                         }
                                                                         ?>
-                                                                
+
                                  <?php echo form_error('store_ids[]');?>
                                                             </div>
-                                                            
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -175,7 +175,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
@@ -189,7 +189,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
@@ -203,7 +203,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                               
+
 										 <div class="control-group info">
 	<div class="row">
 		<div class="col-md-3" style="">
@@ -212,7 +212,7 @@
 		<div class="col-md-9">
 			<div class="controls small-controls">
 				<?php //pr($ProductAttributes); ?>
-				<?php 	
+				<?php
 				 foreach($AttributesList as $key=>$val){  //pr($AttributesList); die('OK');?>
 
 					<div class="attribute-single <?php if(array_key_exists($key,$ProductAttributes)) echo "active"?>" id="attribute_id_div_<?php echo $key?>"> <!-- Toggle "active" class when clicked on input(checkbox) below -->
@@ -220,7 +220,7 @@
 							<div class="row align-items-center">
 							<div class="col-md-12">
 								<label class="span2">
-								<input type="checkbox" value="<?php echo $key?>" name="attribute_id_<?php echo $key?>"  id="attribute_id_<?php echo $key?>"  <?php if(array_key_exists($key,$ProductAttributes)) echo "checked"?> onchange="addActiveClass('<?php echo $key;?>')"> 
+								<input type="checkbox" value="<?php echo $key?>" name="attribute_id_<?php echo $key?>"  id="attribute_id_<?php echo $key?>"  <?php if(array_key_exists($key,$ProductAttributes)) echo "checked"?> onchange="addActiveClass('<?php echo $key;?>')">
 								<?php echo $val['name'];?>
 								</label>
 							</div>
@@ -228,21 +228,21 @@
 						</div>
 						<div class="attribute-info">
 						<div class="row">
-						<?php 
+						<?php
 						foreach($val['items'] as $subkey=>$subval){ ?>
 						<div class="col-md-6">
 							<div class="attribute-single-info">
 								<div class="row">
 									<div class="col-md-12">
 									<label class="span2">
-										<input type="checkbox" value="<?php echo $subkey?>" name="attribute_item_id_<?php echo $key?>[]" <?php if(isset($ProductAttributes[$key]['items']) && array_key_exists($subkey,$ProductAttributes[$key]['items'])) echo "checked"?>> 
+										<input type="checkbox" value="<?php echo $subkey?>" name="attribute_item_id_<?php echo $key?>[]" <?php if(isset($ProductAttributes[$key]['items']) && array_key_exists($subkey,$ProductAttributes[$key]['items'])) echo "checked"?>>
 										<?php echo $subval?>
 									</label>
 									</div>
 								</div>
 							</div>
 						</div>
-					      <?php 
+					      <?php
 						}?>
 					</div>
 					</div>
@@ -252,8 +252,8 @@
 			</div>
 		</div>
 	</div>
-</div>   
-										 
+</div>
+
                                         <div class="product-actions-btn text-right">
                                             <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
                                             <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
@@ -275,7 +275,7 @@
 </div>
 <script>
 	function isNumber(evt) {
-		
+
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode
         if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
             return false;
@@ -283,18 +283,18 @@
         return true;
     }
 	function addActiveClass(id){
-		
-		
-		
+
+
+
 		if($("#attribute_id_"+id).prop("checked") == true){
-			
-			
+
+
 			$("#attribute_id_div_"+id).addClass('active');
 		}else{
-			
+
 			$("#attribute_id_div_"+id).removeClass('active');
-		}	
-	   	
+		}
+
 	}
 </script>
 

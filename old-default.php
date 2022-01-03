@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	
+
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-S5JX3QGBRH"></script>
 <script>
@@ -12,8 +12,8 @@
 
   gtag('config', 'G-S5JX3QGBRH');
 </script>
-	
-	
+
+
     <title>Default page</title>
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">

@@ -83,7 +83,7 @@ abstract class ApiRequest{
 
     private function setHeader(string $key, string $value){
         $this->headers[] = $key.": ".$value;
-        return $this; 
+        return $this;
     }
 
 }

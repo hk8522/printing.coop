@@ -9,23 +9,23 @@
 						<?php echo $this->session->flashdata('message_error');?></div>
 						<div class="text-center" style="color:green">
 						<?php echo $this->session->flashdata('message_success');?>
-						
+
 						<?php if($success){?>
 						    <script>
 							setTimeout(function(){
-								
+
                                 window.location='<?php echo $BASE_URL_ADMIN?>Accounts/logout';
 
 							}, 2000
                             );
 
-							
+
 							</script>
 						<?php }?>
 						</div>
-						
+
 				        <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
-						     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="product_id">					
+						     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="product_id">
 								<div class="control-group info">
 									<label class="span2 " for="inputMame">Email Id</label>
 									<div class="controls">
@@ -38,10 +38,9 @@
 								</div>
 						 <?php echo form_close();?>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->
  </div>
 
- 

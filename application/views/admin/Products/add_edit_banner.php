@@ -30,16 +30,16 @@
 																<select class="form-control" name="menu_id" id="menu_id">
 																	<option value="">Select Menu</option>
 																	<?php
-																	$menu_id=isset($postData['menu_id']) ? $postData['menu_id']:'';										
+																	$menu_id=isset($postData['menu_id']) ? $postData['menu_id']:'';
 																	foreach($menuList as $key=>$val){
 																		$selected='';
-																		
+
 																		if($key==$menu_id){
 																			$selected='selected="selected"';
 																		}
 																	?>
 																	<option value="<?php echo $key?>" <?php echo $selected ?>><?php echo $val;?></option>
-																	<?php    
+																	<?php
 																	}
 																	?>
 																</select>
@@ -51,17 +51,17 @@
 																	<option value="">Select Product Name</option>
 																	<?php
 																	$product_id=isset($postData['product_id']) ? $postData['product_id']:'';
-																	
+
 																	foreach($ProductList as $key=>$val){
-																		
+
 																		$selected='';
 																		if($key==$product_id){
-																			
+
 																			$selected='selected="selected"';
 																		}
 																	?>
 																	<option value="<?php echo $key?>" <?php echo $selected ?>><?php echo $val;?></option>
-																	<?php    
+																	<?php
 																	}
 																	?>
 																</select>
@@ -75,10 +75,10 @@
 										</div>
 										<div class="control-group info">
 											<div class="row align-items-center">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame"> Banner Name</label>
 												</div>
-                                                <div class="col-md-8">	
+                                                <div class="col-md-8">
 													<div class="controls">
 														<input class="form-control" name="name" id="name" type="text" placeholder="Banner Name" value="<?php echo isset($postData['name']) ? $postData['name']:'';?>" maxlength="50">
 														<?php echo form_error('name');?>
@@ -88,10 +88,10 @@
 										</div>
 										<div class="control-group info">
 											<div class="row align-items-center">
-                                                <div class="col-md-4">	
+                                                <div class="col-md-4">
 													<label class="span2 " for="inputMame">Banner Description</label>
 												</div>
-                                                <div class="col-md-8">	
+                                                <div class="col-md-8">
 													<div class="controls">
 														<input class="form-control" name="short_description" id="short_description" type="text" placeholder="short description" value="<?php echo isset($postData['short_description']) ? $postData['short_description']:'';?>" maxlength="150">
 														<?php echo form_error('short_description');?>
@@ -103,9 +103,9 @@
 											 <label class="span2 " for="inputMame">   	Product  Full Description  </label>
 											<div class="controls">
 											    <textarea name="full_description"><?php echo isset($postData['full_description']) ? $postData['full_description']:'';?>
-												
+
 												</textarea>
-					                             <?php 
+					                             <?php
 												echo form_error('full_description');?>
 											</div>
 										</div>-->
@@ -114,19 +114,19 @@
 											  	<div class="col-xs-3" style="margin-bottom:15px;">
 												     <?php $old_image =isset($postData['banner_image']) ? $postData['banner_image']:'';
 													 ?>
-												 
-													 <?php 
+
+													 <?php
 													 if($old_image !=''){
 													    $imageurl=getBannerImage($old_image,'large');?>
 													  <img src="<?php echo $imageurl?>" width="100" height="80">
-													 <?php 
-													   } 
+													 <?php
+													   }
 													 ?>
 												  	<input name="old_image" value="<?php echo $old_image;?>" type="hidden">
 											  	</div>
 										    </div>
 									        <div class="controls file-data">
-											  	<div class="image-info col-xs-12" style="margin-bottom: 10px;"> 
+											  	<div class="image-info col-xs-12" style="margin-bottom: 10px;">
 													<span>
 													 	Allowed image type  : <b> (jpg, png, gif)</b>
 													</span>
@@ -145,7 +145,7 @@
 											  	<div style="color:red">
 							                  		<?php echo $this->session->flashdata('file_message_error');
 											  		?>
-											   		<?php 
+											   		<?php
 										    		echo form_error('files');?>
 											  	</div>
 										  	</div>
@@ -160,15 +160,15 @@
 				 			</div>
 				 		</div>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->
  </div>
  <script>
- 
+
     $('#menu_id').on('change', function (e) {
-		
+
 		var menu_id=$(this).val();
 		$("#product_id").html('<option value="">Select Product Name </option>');
 		$.ajax({
@@ -181,19 +181,19 @@
 				processData: false,
 				success: function (data) {
 					$("#product_id").html(data);
-				}	
+				}
 		});
 	});
-	
+
  </script>
   function Upload(imageId) {
-  
+
     var fileUpload = document.getElementById(imageId);
     //Check whether the file is valid Image.
     var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|jpge|.png|.gif)$");
     if (regex.test(fileUpload.value.toLowerCase())) {
         if (typeof (fileUpload.files) != "undefined") {
-			
+
             //Initiate the FileReader object.
             var reader = new FileReader();
             //Read the contents of Image File.
@@ -201,39 +201,38 @@
             reader.onload = function (e) {
             //Initiate the JavaScript Image object.
             var image = new Image();
-			
+
             //Set the Base64 string return from FileReader as source.
-            image.src = e.target.result;  
+            image.src = e.target.result;
             //Validate the File Height and Width.
             image.onload = function () {
-				
+
                     var height = this.height;
                     var width = this.width;
 					var imagesize=fileUpload.files[0].size;
 					var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
-					
+
 					//alert(imagesize);
 					if(FILE_MAX_SIZE_JS < imagesize){
-						
+
 						$("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
 					    $("#MsgModal").modal('show');
                         return false;
-						
-						
+
+
 					}else if (height != 570 || width !=1500) {
-						
+
 						document.getElementById(imageId).value='';
 						$("#MsgModal .modal-body").html('<span style="color:red"> Allowed image in only  dimensions(WXH) 1500pxX570px</b></span>');
 					    $("#MsgModal").modal('show');
                         return false;
                     }
-       
+
                 };
- 
+
             }
         }
     }
 }
 </script>
- 
- 
+

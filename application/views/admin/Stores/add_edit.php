@@ -75,31 +75,31 @@
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">
-													Store Langue 
+													Store Langue
 													</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        
+
 														<select class="form-control" name="langue_id">
 								<option value="">
 														Select Category
 								</option>
-														<?php 
+														<?php
 			$langue_id= isset($postData['langue_id']) ? $postData['langue_id'] :0;
-														   
+
 														   foreach($language as $key=>$val){
-															   
+
 															   $selected='';
 															   if($key==$langue_id){
-																   
+
 																   $selected='selected="selected"';
 															   }
 														?>
 														   <option value="<?php echo $key;?>" <?php echo $selected;?>>
 														  <?php echo $val?>
 														</option>
-														  <?php 
+														  <?php
 														  }?>
 														</select>
                                                         <?php echo form_error('langue_id');?>
@@ -107,35 +107,35 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<!--<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">
-													Store Currency 
+													Store Currency
 													</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        
-														
-														<?php 
+
+
+														<?php
 		$currency_id= isset($postData['currency_id']) ? explode(',',$postData['currency_id']) : array();
-		
-														   
+
+
 														   foreach($currency as $key=>$val){
-															   
+
 															   $selected='';
 															   if(in_array($key,$currency_id)){
-																   
+
 																   $selected='checked';
 															   }
 														?>
 							<input type="checkbox" value="<?php echo $key;?>" <?php echo $selected;?> name="currency_id[]">&nbsp;
 														  <?php echo $val['currency_name'];
 														  ?>
-												
-														  <?php 
+
+														  <?php
 														  }?>
                                                         <?php echo form_error('currency_id[]');?>
                                                     </div>
@@ -170,7 +170,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -186,7 +186,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -202,7 +202,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -242,7 +242,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -256,7 +256,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -272,7 +272,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -286,7 +286,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -315,7 +315,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -329,8 +329,8 @@
                                                 </div>
                                             </div>
                                         </div>
-										
-										
+
+
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -364,7 +364,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -391,7 +391,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -400,7 +400,7 @@
                                                 <div class="col-md-8">
                                                   <div class="controls">
                             											  	<div class="col-xs-3" style="margin-bottom:15px;">
-                            												     <?php 
+                            												     <?php
 									$old_image =isset($postData['pdf_template_logo']) ? $postData['pdf_template_logo'] : '';
                             													 ?>
 
@@ -426,12 +426,12 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 									    <div class="text-right">
 										  <button type="submit" class="btn btn-success" id="submitBtn" >Submit</button>
 										  <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
 									    </div>
-										
+
                                          <?php echo form_close();?>
                                         </div>
                                 </div>
@@ -455,7 +455,7 @@
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });
  CKEDITOR.dtd.$removeEmpty.i = 0;
- 
+
  CKEDITOR.replace('content1', {
     height: 300,
     filebrowserUploadUrl: "upload.php",

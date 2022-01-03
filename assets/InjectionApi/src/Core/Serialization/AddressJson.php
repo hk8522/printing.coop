@@ -5,7 +5,7 @@ namespace Socketlabs\Core\Serialization;
  * To be serialized into JSON string before sending to the Injection Api.
  */
 class AddressJson  {
- 
+
     /**
      * A valid email address
      */
@@ -24,6 +24,6 @@ class AddressJson  {
     public function __construct($emailAddress, $friendlyName)
     {
         $this->EmailAddress = $emailAddress;
-        $this->FriendlyName = $friendlyName; 
-    } 
+        $this->FriendlyName = $friendlyName;
+    }
 }

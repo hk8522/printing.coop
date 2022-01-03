@@ -75,7 +75,7 @@ class Address{
     }
 
     public function getIsHq() : bool {
-        return $this->address->is_hq == 1 ? TRUE : FALSE; 
+        return $this->address->is_hq == 1 ? TRUE : FALSE;
     }
 
     public function getIsBilling() : bool {

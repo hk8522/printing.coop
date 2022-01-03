@@ -4,7 +4,7 @@ namespace Socketlabs\Message;
  * Represents an individual email address for a message.
  */
 class EmailAddress{
-    
+
     /**
      * A valid email address
      */

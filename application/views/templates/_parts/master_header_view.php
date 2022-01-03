@@ -4,50 +4,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <?php 
+   <?php
 		$favicon_url= $BASE_URL.'assets/images/favicon.png';
 		$favicon='';
 		if($language_name=='French'){
-			
+
 			$favicon=$configrations['french_favicon'];
 		}else{
 			$favicon=$configrations['favicon'];
 		}
 		if(!empty($favicon)){
-			
+
 			$favicon_url = getLogoImages($favicon);
 		}
-		
+
 		if($website_store_id ==3 || $website_store_id ==5){  #Show only PrintCoop & Franch
-		
+
 			$meta_description_content='';
 			$meta_keywords_content='';
 			$page_title=$MainStoreData['name'].'-'.$page_title;
 		}else{
-			
+
 			if(!empty($meta_page_title)){
-				
+
 			    $page_title=$meta_page_title;
 		    }else{
 				$page_title=$MainStoreData['name'].'-'.$page_title;
 			}
 		}
-		
+
     ?>
-	
+
     <title>
     <?php echo $page_title;?>
     </title>
-	
-    <?php 
+
+    <?php
     if($meta_description_content){?>
-       <meta name="description" content="<?php echo $meta_description_content?>"> 
-    <?php 
+       <meta name="description" content="<?php echo $meta_description_content?>">
+    <?php
     }?>
-	<?php 
+	<?php
     if($meta_keywords_content){?>
-       <meta name="keywords" content="<?php echo $meta_keywords_content?>"> 
-    <?php 
+       <meta name="keywords" content="<?php echo $meta_keywords_content?>">
+    <?php
     }?>
    <?php echo $before_head;?>
   <meta charset="utf-8">
@@ -60,7 +60,7 @@
   <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/clickimprimerie.style.css">
   <?php }else if($website_store_id==5){?>
   <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/ecoink.style.css">
-  <?php }?> 
+  <?php }?>
   <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/customslider.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -78,8 +78,8 @@
 
   gtag('config', 'UA-183856793-1');
 </script>
-	
-	
+
+
 <?php if($website_store_id==1){?>
 	<?php if($language_name=='French'){ ?>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7V7YLFS15"></script>
@@ -118,20 +118,20 @@
 
   gtag('config', 'G-QHV7YWZEQ5');
 </script>
-<?php }?> 
+<?php }?>
 </head>
 <body>
   <div class="announcements-bar">
       <div class="container">
           <span>
-              <?php 
-			   if($language_name=='French'){ 
+              <?php
+			   if($language_name=='French'){
 			        echo $configrations['announcement_french'] ?? 'Proudly involved in the community! 10% discount for Community organizations, co-operatives, not-for-profit organizations and print reselling companies will benefit.';
 			   }else{
-				   
+
 					 echo $configrations['announcement'] ?? 'Proudly involved in the community! 10% discount for Community organizations, co-operatives, not-for-profit organizations and print reselling companies will benefit.';
 				}
-			  
+
 			  ?>
           </span>
           <i class="la la-times"></i>
@@ -147,12 +147,12 @@
 
   <!-- add a "active" class to show -->
   <div class="addwishlist-message">
-      <span><i class="la la-heart-o"></i> <?php 
+      <span><i class="la la-heart-o"></i> <?php
                   if($language_name=='French'){ ?>
                     "Produit" a été ajouté à votre liste de souhaits.
                   <?php }else{ ?>
                     "Product" has been added to your wishlist.
-                  <?php 
+                  <?php
                   }?></span>
   </div>
 <div id="loder-img">

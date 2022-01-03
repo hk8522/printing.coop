@@ -1,20 +1,20 @@
 <?php
  /**
  * Sample code for the GetRates Canada Post service.
- * 
- * The GetRates service returns a list of shipping services, prices and transit times 
- * for a given item to be shipped. 
  *
- * This sample is configured to access the Developer Program sandbox environment. 
+ * The GetRates service returns a list of shipping services, prices and transit times
+ * for a given item to be shipped.
+ *
+ * This sample is configured to access the Developer Program sandbox environment.
  * Use your development key username and password for the web service credentials.
- * 
+ *
  **/
 
-// Your username, password and customer number are imported from the following file    	
-// CPCWS_Rating_PHP_Samples\REST\rating\user.ini 
+// Your username, password and customer number are imported from the following file
+// CPCWS_Rating_PHP_Samples\REST\rating\user.ini
 $userProperties = parse_ini_file(realpath(dirname($_SERVER['SCRIPT_FILENAME'])) . '/../user.ini');
 
-$username = $userProperties['username']; 
+$username = $userProperties['username'];
 $password = $userProperties['password'];
 $mailedBy = $userProperties['customerNumber'];
 
@@ -22,7 +22,7 @@ $mailedBy = $userProperties['customerNumber'];
 $service_url = 'https://ct.soa-gw.canadapost.ca/rs/ship/price';
 
 // Create GetRates request xml
-$originPostalCode = 'H2B1A0'; 
+$originPostalCode = 'H2B1A0';
 $postalCode = 'K1K4T3';
 $weight = 1;
 
@@ -74,20 +74,20 @@ if (!$xml) {
 	if ($xml->{'price-quotes'} ) {
 		$priceQuotes = $xml->{'price-quotes'}->children('http://www.canadapost.ca/ws/ship/rate-v4');
 		if ( $priceQuotes->{'price-quote'} ) {
-			foreach ( $priceQuotes as $priceQuote ) {  
+			foreach ( $priceQuotes as $priceQuote ) {
 				echo 'Service Name: ' . $priceQuote->{'service-name'} . "\n";
-				echo 'Price: ' . $priceQuote->{'price-details'}->{'due'} . "\n\n";	
+				echo 'Price: ' . $priceQuote->{'price-details'}->{'due'} . "\n\n";
 			}
 		}
 	}
-	if ($xml->{'messages'} ) {					
-		$messages = $xml->{'messages'}->children('http://www.canadapost.ca/ws/messages');		
+	if ($xml->{'messages'} ) {
+		$messages = $xml->{'messages'}->children('http://www.canadapost.ca/ws/messages');
 		foreach ( $messages as $message ) {
 			echo 'Error Code: ' . $message->code . "\n";
 			echo 'Error Msg: ' . $message->description . "\n\n";
 		}
 	}
-		
+
 }
 
 ?>

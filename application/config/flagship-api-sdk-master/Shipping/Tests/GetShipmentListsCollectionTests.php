@@ -14,7 +14,7 @@ class GetShipmentListsCollectionTests extends TestCase{
         $this->assertSame('18663208383', $this->shipmentsCollection->getById(2950191)->shipment->from->phone);
     }
 
-    public function testGetByTrackingNumber(){  
+    public function testGetByTrackingNumber(){
         $this->assertNotNull($this->shipmentsCollection->getByTrackingNumber('329022023355'));
         $this->assertInstanceOf(Shipment::class , $this->shipmentsCollection->getByTrackingNumber('329022023355'));
         $this->assertSame('6749 Dennett Pl', $this->shipmentsCollection->getByTrackingNumber('329022023355')->shipment->to->address);
@@ -89,7 +89,7 @@ class GetShipmentListsCollectionTests extends TestCase{
     public function testGetByIdForException(){
         $this->expectException(GetShipmentListException::class);
         $this->shipmentsCollection->getById(6476476);
-        
+
     }
 
     public function testGetByTrackingNumberForException(){

@@ -6,7 +6,7 @@ namespace Socketlabs\Message;
  * message does not support merge fields.
  */
 class BasicMessage extends BaseMessage{
-    
+
     /**
      * Array of To recipients. When adding directly to array, EmailAddress type should be used.
      */

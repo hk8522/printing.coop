@@ -73,7 +73,7 @@ class Manifest{
             return json_decode(json_encode($this->manifest->totals->taxes),TRUE);
         }
         return NULL;
-    } 
+    }
 
     public function getTaxesTotal() : ?float {
         if(!property_exists($this->manifest, 'totals')){
@@ -102,21 +102,21 @@ class Manifest{
     }
 
     //returns regular labels
-    public function getShipmentsLabels() : ?string { 
+    public function getShipmentsLabels() : ?string {
         if(property_exists($this->manifest, 'documents')){
             return property_exists($this->manifest->documents,'labels') ? $this->manifest->documents->labels->regular : $this->manifest->documents->regular_label;
         }
         return NULL;
     }
 
-    public function getShipmentsThermalLabels() : ?string { 
+    public function getShipmentsThermalLabels() : ?string {
         if(property_exists($this->manifest, 'documents')){
             return property_exists($this->manifest->documents,'labels') ? $this->manifest->documents->labels->thermal : $this->manifest->documents->thermal_label;
         }
         return NULL;
     }
 
-    public function getManifestSummary() : ?string { 
+    public function getManifestSummary() : ?string {
         if(property_exists($this->manifest, 'documents')){
             return property_exists($this->manifest->documents,'manifest') ? $this->manifest->documents->manifest : NULL;
         }
@@ -124,7 +124,7 @@ class Manifest{
     }
 
     //returns regular label
-    public function getToDepotLabel() : ?string { 
+    public function getToDepotLabel() : ?string {
         if(property_exists($this->manifest, 'documents')){
             return property_exists($this->manifest->documents,'to_depot') ? $this->manifest->documents->to_depot->regular : NULL;
         }

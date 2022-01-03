@@ -3,38 +3,38 @@
         <div class="trend-section-inner">
             <div class="universal-dark-title">
               <span><?php
-                   #Proudly Display Your Brand  Section		  
+                   #Proudly Display Your Brand  Section
 			       if($language_name=='French'){
 					 echo $section_2['name_france'] ?? '';
-					}else{	
+					}else{
 					  echo $section_2['name'] ?? '';
-					} 
-			   
-				
+					}
+
+
 				?>
 			  </span>
             </div>
             <div class="universal-dark-info">
               <span><?php
-			  
+
 			    if($language_name=='French'){
-					
+
 					 echo $section_2['description_france'] ?? '';
-					}else{	
+					}else{
 					  echo $section_2['description'] ?? '';
 				}
-			   
-			  
+
+
 			  ?></span>
             </div>
-			
+
 			<div class="universal-dark-info">
               <span>
-				  <?php 
+				  <?php
 				  if($language_name=='French'){
-					
+
 					 echo $section_2['content_france'] ?? '';
-					}else{	
+					}else{
 					  echo $section_2['content'] ?? '';
 				}
 				  ?>
@@ -42,55 +42,55 @@
             </div>
             <div class="trend-tabs">
                 <ul class="nav nav-pills">
-				   <?php 
-				foreach($proudly_display_your_brand_tags as $key=>$val){ 
-				   
+				   <?php
+				foreach($proudly_display_your_brand_tags as $key=>$val){
+
 				    $active='';
 					if($key==0){
-						
+
 						$active='active';
 					}
 				    $href="#Process".$val['id'];
 					$label=ucwords($val['name']);
-					
+
 					if($language_name=='French'){
-						
+
 						$label=ucwords($val['name_french']);
 					}
 				   ?>
                     <li><a class="<?php echo $active;?>" data-toggle="pill" href="<?php echo $href;?>"><?php echo $label;?></a></li>
-					
-				   <?php 
+
+				   <?php
 				}?>
-					
+
                 </ul>
             </div>
             <div class="trend-tabs-content tab-content">
-			    <?php foreach($proudly_display_your_brand_tags as $key=>$val){ 
-				   
+			    <?php foreach($proudly_display_your_brand_tags as $key=>$val){
+
 				    $active='';
-					
+
 					if($key==0){
-						
+
 						$active='active show';
-						
+
 					}
-					
+
 				    $div_id="Process".$val['id'];
 					$label=ucwords($val['name']);
-					
+
 					if($language_name=='French'){
-						
+
 						$label=ucwords($val['name_french']);
 					}
 					$tag_id=$val['id'];
-					
+
 				?>
                 <div id="<?php echo $div_id?>" class="tab-pane fade  <?php echo $active;?>">
                     <div class="trend-all-products">
                         <div class="row">
                           <?php
-						  
+
 						    $posterAndPlansProducts=$this->Product_Model->getProductByTagId($tag_id);
                             if ($posterAndPlansProducts) {
                               foreach ($posterAndPlansProducts as  $index=> $posterAndPlansProduct) {
@@ -123,12 +123,12 @@
                                           <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($posterAndPlansProduct['id']);?>" class="cart-btn">
                                             <i class="las la-search"></i>
                                             <span>
-                                            <?php 
+                                            <?php
                                               if($language_name=='French'){ ?>
                                               Aperçu rapide
                                             <?php }else{ ?>
                                               Quick View
-                                            <?php 
+                                            <?php
                                             }?></span>
                                           </a>
                                           <div class="product-price">
@@ -145,12 +145,12 @@
                               ?>
                                 <div class="text-center col-md-12">
                                     <p class="lead font-weight-bold">
-                                    <?php 
+                                    <?php
                                       if($language_name=='French'){ ?>
                                       Aucun produit trouvé
                                     <?php }else{ ?>
                                       No Product Found
-                                    <?php 
+                                    <?php
                                     }?></p>
                                 </div>
                               <?php
@@ -159,7 +159,7 @@
                         </div>
                     </div>
                 </div>
-				<?php 
+				<?php
 				}?>
             </div>
         </div>

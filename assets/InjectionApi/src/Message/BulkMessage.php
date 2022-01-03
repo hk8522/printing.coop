@@ -1,12 +1,12 @@
 <?php
 namespace Socketlabs\Message;
 /**
- * A bulk message usually contains a single recipient per message 
- * and is generally used to send the same content to many recipients, 
+ * A bulk message usually contains a single recipient per message
+ * and is generally used to send the same content to many recipients,
  * optionally customizing the message via the use of MergeData.
  */
 class BulkMessage extends  BaseMessage{
-    
+
     /**
      * An array of the message recipients
      */
@@ -23,8 +23,8 @@ class BulkMessage extends  BaseMessage{
      * @param string $friendlyName
      */
     public function addToAddress($emailAddress, $friendlyName = null){
-        if(is_string($emailAddress)){  
-            return $this->addToAddress(new BulkRecipient($emailAddress, $friendlyName)); 
+        if(is_string($emailAddress)){
+            return $this->addToAddress(new BulkRecipient($emailAddress, $friendlyName));
         }
         else if(is_a($emailAddress, "Socketlabs\Message\BulkRecipient")){
             $this->to[] = $emailAddress;
@@ -54,7 +54,7 @@ class BulkMessage extends  BaseMessage{
                 return $this;
             }
         }
-        $this->global[] = $newMergeData; 
+        $this->global[] = $newMergeData;
         return $this;
     }
 

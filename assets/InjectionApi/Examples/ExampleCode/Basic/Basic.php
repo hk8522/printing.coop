@@ -4,10 +4,10 @@ include_once (__DIR__ . "../../includes.php");
 use Socketlabs\SocketLabsClient;
 use Socketlabs\Message\BasicMessage;
 use Socketlabs\Message\EmailAddress;
- 
-$client = new SocketLabsClient(exampleConfig::serverId(), exampleConfig::password()); 
- 
-$message = new BasicMessage(); 
+
+$client = new SocketLabsClient(exampleConfig::serverId(), exampleConfig::password());
+
+$message = new BasicMessage();
 
 $message->subject = "Sending A Basic Message";
 $message->htmlBody = "<html>This is the Html Body of my message.</html>";
@@ -20,5 +20,5 @@ $message->replyTo = new EmailAddress("replyto@example.com");
 $message->addToAddress("recipient1@example.com"); //Add a To address by passing the email address
 $message->addCcAddress("recipient2@example.com", "Recipient #2"); //Add a CC address by passing the email address and a friendly name
 $message->addBccAddress(new EmailAddress("recipient3@example.com")); //Add a BCC address by passing an EmailAddress object
- 
+
 $response = $client->send($message);

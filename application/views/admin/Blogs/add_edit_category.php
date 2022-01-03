@@ -26,27 +26,27 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <?php 
+													    <?php
 														$store_ids=$postData['store_id'];
 														if(!empty($store_ids)){
-															
+
 															$store_ids=explode(',',$store_ids);
 														}else{
 															$store_ids=array();
 														}
-														
+
 														foreach($StoreList as $key=>$val){
 															$checked='';
 														    if(in_array($key,$store_ids)){
-																
-																$checked='checked'; 
+
+																$checked='checked';
 															}
 														?>
-														
+
                                                             <input  name="store_id[]" type="checkbox" value="<?php echo $key?>" <?php echo $checked;?>><label style="margin-left:5px;"><?php echo $val['name']?></label>
-														<?php 
+														<?php
 														}?>
-                                                  
+
                                                     </div>
                                                 </div>
                                             </div>

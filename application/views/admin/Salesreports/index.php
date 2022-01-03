@@ -33,7 +33,7 @@
 						</div>
 					</div>
 				</div>
-                
+
 				<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 				    <div class="table-filter-area">
 				        <div class="row">
@@ -64,12 +64,12 @@
     				                            <label>Keywords </label>
     				                            <select class="form-control" name="keywords" required>
 												<option value="">Select Keywords</option>
-												
+
 												<option value="spend" <?php echo $keywords=='spend' ? 'selected="selected"':''?>>Spend</option>
-												
+
 												<option value="revenue" <?php echo $keywords=='revenue' ? 'selected="selected"':''?>>Revenue</option>
 												<option value="0-impressions" <?php echo $keywords=='0-impressions' ? 'selected="selected"':''?>>0 Impressions</option>
-												
+
 												</select>
     				                        </div>
     				                    </div>
@@ -88,7 +88,7 @@
 						<table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
 							<thead>
 								<tr role="row">
-								    <th style="display:none"></th> 
+								    <th style="display:none"></th>
 									<th>Start Date</th>
 									<th>end Date </th>
 									<th>Portfolio Name </th>
@@ -113,26 +113,26 @@
 									<th>7 Day Advertised SKU Sales</th>
 									<th>7 Day Other SKU Sales</th>
 									<!--<th>Action</th>-->
-									
+
 								</tr>
 							</thead>
-							
-							
+
+
 							<tbody>
-							    <?php 
+							    <?php
 								if(count($lists) > 0){
-									
+
 									foreach($lists as $key=>$list){
 									?>
 									<tr>
-									     <th style="display:none"></th> 
+									     <th style="display:none"></th>
 										<td>
 												<?php echo dateFormate($list['start_date'],false);?>
 										</td>
 										<td>
 												<?php echo dateFormate($list['end_date'],false);?>
 										</td>
-										
+
 										<td>
 										  	<?php echo $list['portfolio_name']; ?>
 									 	</td>
@@ -171,7 +171,7 @@
 										<td>
 										  	<?php echo $list['7_day_total_sales']; ?>
 									 	</td>
-										
+
 									 	<td>
 										  	<?php echo $list['7_day_total_orders']; ?>
 									 	</td>
@@ -193,9 +193,9 @@
 										<td>
 										  	<?php echo $list['7_day_other_sku_sales']; ?>
 									 	</td>
-									
+
 										<!--<td>
-											<div class="action-btns"> 
+											<div class="action-btns">
 										  	 	<a href="<?php echo $BASE_URL.$class_name.$sub_page_view_url?>/<?php echo $list['id'];?>" style="color:#3c8dbc;padding: 5px;" title="view">
 											        <i class="far fa-eye fa-lg"></i>
 											   	</a>
@@ -207,16 +207,16 @@
 											   	</a>
 										   </div>
 										</td>-->
-										
+
 									</tr>
 								<?php
-                                   								
+
 								    }
 								}else{?>
 								    <tr>
 									<td colspan="24" class="text-left">No Records Found</td>
 								    </tr>
-								<?php 
+								<?php
 								}?>
 							</tbody>
 						</table>
@@ -231,7 +231,7 @@
 						  </ul>
 						</nav>
 						</div>-->
-						
+
 					   <?php echo $links; ?>
 					</div>
 				</div>
@@ -248,7 +248,7 @@
  </script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example2').DataTable({
 		"order": [[ 3, "asc" ]]
 	});

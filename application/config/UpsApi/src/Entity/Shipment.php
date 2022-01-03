@@ -78,7 +78,7 @@ class Shipment
      * @var ReferenceNumber
      */
     private $referenceNumber;
-    
+
     /**
      * @var ReferenceNumber
      */
@@ -103,7 +103,7 @@ class Shipment
      * @var InvoiceLineTotal
      */
     private $invoiceLineTotal;
-    
+
     /**
      * @var ShipmentTotalWeight
      */
@@ -205,7 +205,7 @@ class Shipment
 
         return $this;
     }
-    
+
     /**
      * @param ReferenceNumber $referenceNumber
      *
@@ -225,7 +225,7 @@ class Shipment
     {
         return $this->referenceNumber;
     }
-    
+
     /**
      * @return ReferenceNumber
      */
@@ -574,7 +574,7 @@ class Shipment
     {
         $this->deliveryTimeInformation = $deliveryTimeInformation;
     }
-    
+
     /**
      * @return ShipmentTotalWeight
      */

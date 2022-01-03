@@ -172,9 +172,9 @@ abstract class AbstractFrameReflower
 
     /**
      * Get the combined (collapsed) length of two adjoining margins.
-     * 
+     *
      * See http://www.w3.org/TR/CSS2/box.html#collapsing-margins.
-     * 
+     *
      * @param number $length1
      * @param number $length2
      * @return number
@@ -184,11 +184,11 @@ abstract class AbstractFrameReflower
         if ($length1 < 0 && $length2 < 0) {
             return min($length1, $length2); // min(x, y) = - max(abs(x), abs(y)), if x < 0 && y < 0
         }
-        
+
         if ($length1 < 0 || $length2 < 0) {
             return $length1 + $length2; // x + y = x - abs(y), if y < 0
         }
-        
+
         return max($length1, $length2);
     }
 

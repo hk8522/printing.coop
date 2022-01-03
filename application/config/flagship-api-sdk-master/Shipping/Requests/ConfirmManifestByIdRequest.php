@@ -16,7 +16,7 @@ class ConfirmManifestByIdRequest extends ApiRequest{
     }
 
     public function execute() : Manifest {
-        try{    
+        try{
             $responseArray = $this->api_request($this->apiUrl,[],$this->apiToken,'PUT',30,$this->flagshipFor,$this->version);
             $confirmedManifest = count((array)$responseArray["response"]) == 0 ? new \stdClass() : $responseArray["response"]->content;
             $manifest = new Manifest($confirmedManifest);

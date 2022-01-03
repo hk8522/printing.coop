@@ -1,18 +1,18 @@
-    <?php 
+    <?php
 	$i=1;
 	?>
-	<?php 
+	<?php
 	$j=1;
 	$k=2;
 	?>
 	<?php if(!empty($options_qty)){
-		
+
 		    if($j==$last){
-				
-                $onchange="getPaperPrice('$i')"; 
+
+                $onchange="getPaperPrice('$i')";
 		    }else{
-			     $onchange="getQuantityPrice('product_size_option_$k')"; 
-		    }	
+			     $onchange="getQuantityPrice('product_size_option_$k')";
+		    }
 	?>
 	<div class="single-review">
 		<label>Quantity <span class="required">*</span></label>
@@ -20,18 +20,18 @@
 		<?php echo $options_qty;?>
 		</select>
 	</div>
-	<?php 
+	<?php
 	   $j++;
 	   $k++;
 	}?>
-	<?php if(!empty($options_ncr_number_parts)){ 
+	<?php if(!empty($options_ncr_number_parts)){
 
             if($j==$last){
-				
-                $onchange="getPaperPrice('$i')"; 
+
+                $onchange="getPaperPrice('$i')";
 		    }else{
-			     $onchange="getQuantityPrice('product_size_option_$k')"; 
-		    }	
+			     $onchange="getQuantityPrice('product_size_option_$k')";
+		    }
 	?>
 	<div class="single-review">
 		<label>NCR Number Of Parts <span class="required">*</span></label>
@@ -39,19 +39,19 @@
 		<?php echo $options_ncr_number_parts;?>
 		</select>
 	</div>
-	<?php 
+	<?php
 	   $j++;
 	   $k++;
 	}?>
-	
+
 	<?php if(!empty($options_paper_size)){
-		
+
 	        if($j==$last){
-				
+
                 $onchange="getPaperPrice('$i')";
-				
+
 		    }else{
-			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
 	?>
 	<div class="single-review">
@@ -60,19 +60,19 @@
 			<?php echo $options_paper_size;?>
 		</select>
 	</div>
-	<?php 
+	<?php
 	   $j++;
 	   $k++;
 	}?>
-	
+
 	<?php if(!empty($paper_quality)){
-		
+
 	        if($j==$last){
-				
+
                 $onchange="getPaperPrice('$i')";
-				
+
 		    }else{
-			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
 	?>
 	<div class="single-review">
@@ -81,19 +81,19 @@
 			<?php echo $paper_quality;?>
 		</select>
 	</div>
-	<?php 
+	<?php
 	   $j++;
 	   $k++;
 	}?>
-	
+
 	<?php if(!empty($stock)){
-		
+
 	        if($j==$last){
-				
+
                 $onchange="getPaperPrice('$i')";
-				
+
 		    }else{
-			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
 	?>
 	<div class="single-review">
@@ -102,19 +102,19 @@
 			<?php echo $stock;?>
 		</select>
 	</div>
-	<?php 
+	<?php
 	   $j++;
 	   $k++;
 	}?>
-	
+
 	<?php if(!empty($color)){
-		
+
 	        if($j==$last){
-				
+
                 $onchange="getPaperPrice('$i')";
-				
+
 		    }else{
-			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
 	?>
 	<div class="single-review">
@@ -123,19 +123,19 @@
 			<?php echo $color;?>
 		</select>
 	</div>
-	<?php 
+	<?php
 	   $j++;
 	   $k++;
 	}?>
-	
+
 	<?php if(!empty($coating)){
-		
+
 	        if($j==$last){
-				
+
                 $onchange="getPaperPrice('$i')";
-				
+
 		    }else{
-			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
 	?>
 	<div class="single-review">
@@ -144,19 +144,19 @@
 			<?php echo $coating;?>
 		</select>
 	</div>
-	<?php 
+	<?php
 	   $j++;
 	   $k++;
 	}?>
-	
+
 	<?php if(!empty($diameter)){
-		
+
 	        if($j==$last){
-				
+
                 $onchange="getPaperPrice('$i')";
-				
+
 		    }else{
-			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
 	?>
 	<div class="single-review">
@@ -165,19 +165,19 @@
 			<?php echo $diameter;?>
 		</select>
 	</div>
-	<?php 
+	<?php
 	   $j++;
 	   $k++;
 	}?>
-	
+
 	<?php if(!empty($envelope)){
-		
+
 	        if($j==$last){
-				
+
                 $onchange="getPaperPrice('$i')";
-				
+
 		    }else{
-			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
 	?>
 	<div class="single-review">
@@ -186,19 +186,19 @@
 			<?php echo $envelope;?>
 		</select>
 	</div>
-	<?php 
+	<?php
 	   $j++;
 	   $k++;
 	}?>
-	
+
 	<?php if(!empty($bundling)){
-		
+
 	        if($j==$last){
-				
+
                 $onchange="getPaperPrice('$i')";
-				
+
 		    }else{
-			     $onchange="getQuantityPrice('product_size_option_$k')"; 
+			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
 	?>
 	<div class="single-review">
@@ -207,9 +207,9 @@
 			<?php echo $bundling;?>
 		</select>
 	</div>
-	<?php 
+	<?php
 	   $j++;
 	   $k++;
 	}?>
-	
-	
+
+

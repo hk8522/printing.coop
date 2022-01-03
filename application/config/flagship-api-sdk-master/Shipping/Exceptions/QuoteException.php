@@ -9,5 +9,5 @@ class QuoteException extends SmartshipException{
         parent::__construct($message,$code);
         $this->message = implode("\n",$this->getErrors());
     }
-    
+
 }

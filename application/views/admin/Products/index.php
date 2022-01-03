@@ -10,7 +10,7 @@
 				<div class="text-center" style="color:green">
                     <?php echo $this->session->flashdata('message_success');?>
 				</div>
-				
+
 				<div class="inner-head-section">
 					<div class="row align-items-end">
 						<div class="col-md-12 col-lg-12 col-xl-12 col-xs-12 text-left">
@@ -25,11 +25,11 @@
 									<label class="span2">Search</label>
 									<input class="form-control" type="text" placeholder="Search Product"  onkeyup="searchProduct($(this).val())" id="searchSgedProductTextBox" name="searchSgedProductTextBox">
 									<!--<button type="button"><i class="fas fa-search"></i></button>-->
-								</div>					
+								</div>
 							    <div class="search-result" id="searchDiv" style="display:none"> <!-- Add "active" class to show -->
 									<a href="javascript:void(0)" onclick="hidesearchDiv()"><i class="fas fa-times" ></i></a>
 									<ul id="ProductListUl">
-									
+
 									</ul>
 								</div>
 							</div>
@@ -37,32 +37,32 @@
 						</div>
 						<div class="col-md-12 col-lg-5 col-xl-4 col-xs-12 text-left">
 							<div class="select-options">
-								<form action="<?php echo $BASE_URL?>admin/Products/index" method="post">						
+								<form action="<?php echo $BASE_URL?>admin/Products/index" method="post">
 								    <div>
 								    	<label class="span2">Order By</label>
 	                                    <select class="form-control" onchange="this.form.submit()" name="order">
-											<option value="desc" <?php echo $order=='decs' ? 'selected="selected"':'' ?>>Latest Product</option>
+											<option value="desc" <?php echo $order=='desc' ? 'selected="selected"':'' ?>>Latest Product</option>
 											<option value="asc" <?php echo $order=='asc' ? 'selected="selected"':''?>>Oldest Product</option>
 										</select>
-	                                </div>						
+	                                </div>
 									<div style="margin-left: 10px;">
 	                                    <a href="<?php echo $BASE_URL.$class_name?>"><button type="button">Reset</button></a>
 	                                </div>
-								</form>	
+								</form>
 							</div>
 						</div>
 						<div class="col-md-12 col-lg-12 col-xl-4 col-xs-12 text-right">
-							<div class="all-vol-btn">			
-        <form action="<?php echo $BASE_URL?>admin/Products/deleteAllProduct" method="post">                         
+							<div class="all-vol-btn">
+        <form action="<?php echo $BASE_URL?>admin/Products/deleteAllProduct" method="post">
 								<a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>" style="margin-right: 5px;">
 									<button type="button"><i class="fas fa-plus-circle"></i><?php echo $sub_page_title ?></button>
-								</a>								
+								</a>
 								<button><i class="fas fa-trash fa-lg"></i>Delete All</button>
 							</div>
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 					<div class="custom-mini-table">
 						<table id="example3" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example3">
@@ -115,7 +115,7 @@
 										<td>
 									 		<?php echo number_format($list['price_usd'],2);?>
 								 		</td>-->
-								 		
+
                                         <td>
                                         	<?php echo ucfirst($list['sub_category_name']);?>
                                         </td>
@@ -144,7 +144,7 @@
 										<td>
 					                      	<?php echo dateFormate($list['updated']);?>
 										</td>
-										
+
 										<td>
 											<?php if($list['status']==1){?>
 											<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0">
@@ -166,7 +166,7 @@
 											   	<a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>" style="color:green;padding: 5px;" title="edit">
 											        <i class="far fa-edit fa-lg"></i>
 											   	</a>
-												
+
 											   	<a href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $list['id'];?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this product?');">
 										         	<i class="fa fa-trash fa-lg"></i>
 												</a>
@@ -215,7 +215,7 @@
 });*/
 
 function searchProduct(searchtext){
-	
+
 	  	if(searchtext !=''){
 			$("#loder-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/searchProduct';
@@ -227,38 +227,38 @@ function searchProduct(searchtext){
 				   data:{'searchtext':searchtext}, // serializes the form's elements.
 				    success: function(data)
 				    {   $("#loder-img").hide();
-					    $("#ProductListUl").html(data);  	
+					    $("#ProductListUl").html(data);
 					},
 					error: function (error) {
-						
+
 					}
 			});
-			
-			
+
+
 		}else{
-			
+
 			$("#searchDiv").hide();
 			$("#ProductListUl").html('');
 			$("#searchSgedProductTextBox").val('');
-			
-			
+
+
 		}
     }
     function hidesearchDiv(){
-		
+
 		$("#searchDiv").hide();
 		$("#ProductListUl").html('');
-		
+
 	}
-	
+
 	$("#select-all").click(function () {
-		
+
 		if($(this).prop("checked") == true){
-			
+
 			$(".product_ids").prop('checked', true);
 		}else{
 			$(".product_ids").prop('checked',false);
 		}
-		
+
     });
 </script>

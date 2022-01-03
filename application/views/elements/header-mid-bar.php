@@ -6,15 +6,15 @@
                     <div class="site-logo">
                         <div class="menu-bar"><i class="las la-bars" data-toggle="dropdown" aria-expanded="false" onclick="openNav01()"></i></div>
                         <a href="<?php echo $BASE_URL;?>">
-                            <?php 
+                            <?php
 							if($configrations['logo_image']) {
 								$alt='';
 							   if($language_name=='French'){
-								   
+
                                 $imageurl = getLogoImages($configrations['logo_image_french']);
 								$alt=$configrations['log_alt_teg_french'];
 							   }else{
-								   
+
 								$imageurl = getLogoImages($configrations['logo_image']);
 								$alt=$configrations['log_alt_teg'];
 							   }
@@ -40,29 +40,29 @@
                             <i class="las la-search"></i>
                         </span>
 						<div class="open-search-dropdown" style="display:none" id="searchDiv">
-                                            
+
 							<div class="search-product-section">
 								<div class="search-product-section-title">
 									<span>
-                                    <?php 
+                                    <?php
                                       if($language_name=='French'){ ?>
                                         Résultats de recherche
                                       <?php }else{ ?>
                                         Search Results
-                                      <?php 
+                                      <?php
                                       }?></span>
 								</div>
 								<div class="search-product-result">
 								    <span style="color:black; border:0px;" id="coming-res-data">
-                                        <?php 
+                                        <?php
                                     if($language_name=='French'){ ?>
                                         Le résultat de la recherche arrive ...
                                       <?php }else{ ?>
                                         Search result is coming...
-                                      <?php 
+                                      <?php
                                       }?> </span>
 									<ul id="ProductListUl">
-                                     
+
 									</ul>
 								</div>
 							</div>
@@ -76,7 +76,7 @@
                                 <div class="mid-action-single">
                                     <a href="tel:18773848043">
                                         <div class="mid-action-single-inner">
-											<?php if($website_store_id==1){ ?>  
+											<?php if($website_store_id==1){ ?>
                                             <div class="mid-action-icon">
                                                 <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                     <g>
@@ -124,16 +124,16 @@
                                                     </g>
                                                 </svg>
                                             </div>
-											<?php }?> 
+											<?php }?>
                                             <div class="mid-action-content">
                                                 <span>
                                                     <strong>
-                                                    <?php 
+                                                    <?php
                                                     if($language_name=='French'){ ?>
                                                         L'aide est là.
                                                       <?php }else{ ?>
                                                         Help is here.
-                                                      <?php 
+                                                      <?php
                                                       }?></strong>
                                                     <?php echo $configrations['contact_no'] ?? '1-877-384-8043';?>
                                                 </span>
@@ -147,7 +147,7 @@
                                 <div class="mid-action-single">
                                     <a href="<?php echo $BASE_URL?>MyAccounts">
                                         <div class="mid-action-single-inner">
-                                        	<?php if($website_store_id==1){ ?>  
+                                        	<?php if($website_store_id==1){ ?>
                                             <div class="mid-action-icon">
                                                 <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                     <g>
@@ -192,17 +192,17 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                            <?php }?> 
+                                            <?php }?>
                                             <div class="mid-action-content">
                                                   <span>
                                                   <!-- Replace "Sign In" text with "User name" after login -->
                                                   <strong><?php echo $loginName?></strong>
-                                                  <?php 
+                                                  <?php
                                                     if($language_name=='French'){ ?>
                                                         Mon compte
                                                       <?php }else{ ?>
                                                         My account
-                                                      <?php 
+                                                      <?php
                                                       }?>
                                                   </span>
                                             </div>
@@ -278,16 +278,16 @@
                                               <?php echo count($this->cart->contents())?>
                                             </span>
                                         </div>
-                                        <?php }?> 
+                                        <?php }?>
                                         <div class="mid-action-content">
                                             <span>
                                                 <strong>
-                                                <?php 
+                                                <?php
                                                 if($language_name=='French'){ ?>
                                                     Chariot
                                                   <?php }else{ ?>
                                                     Cart
-                                                  <?php 
+                                                  <?php
                                                   }?></strong>
                                             </span>
                                         </div>

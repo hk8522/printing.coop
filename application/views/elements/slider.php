@@ -1,21 +1,21 @@
 <div class="main-slider-section">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
-	    <?php 
-		foreach($Branrers as $key=>$list) { 
+	    <?php
+		foreach($Branrers as $key=>$list) {
 		?>
             <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $key?>" class="<?php echo $key==0 ? 'active':''?>">
 			</li>
-		<?php 
+		<?php
 		}?>
-		
+
         <!--<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="6"></li>-->
-		
+
       </ol>
         <div class="carousel-inner">
           <?php
@@ -28,7 +28,7 @@
                   $class = "";
 				  $imageurl = getBannerImage($list['banner_image'],'large');
 				  if($language_name=='French'){
-					  
+
                      $imageurl = getBannerImage($list['banner_image_french'],'large');
 				  }
                   if ($key == 0) {

@@ -13,8 +13,8 @@ class Products extends Public_Controller
 
   public function index($category_id = null, $sub_category_id = null)
   {
-	  
-	  
+
+
       $this->load->model('Product_Model');
       $this->load->model('Category_Model');
       $this->load->model('SubCategory_Model');
@@ -28,32 +28,32 @@ class Products extends Public_Controller
       $category_id =     !empty($category_id) ? base64_decode($category_id) : 0;
 	  $sub_category_id = !empty($sub_category_id) ? base64_decode($sub_category_id) : 0;
 	  $url=base_url()."Products/";
-	  
+
       if (isset($_GET['category_id'])) {
-		  
+
           $category_id = base64_decode($_GET['category_id']);
-		
+
       }
-	  
+
 	  if (isset($_GET['sub_category_id'])) {
-		  
+
           $sub_category_id = base64_decode($_GET['sub_category_id']);
       }
-	  
+
       if (!empty($category_id)) {
-		  
+
           $this->data['category_id'] = $category_id;
           $data = $this->Category_Model->getCategoryDataById($category_id);
           $this->data['category_name'] = $data['name'];
-		  $this->data['category_data'] = $data; 
+		  $this->data['category_data'] = $data;
 		  $title.="/".ucfirst($data['name']);
 		  $url .='?category_id='.base64_encode($category_id);
       }else{
 		  $url .='?category_id=';
 	  }
-	  
+
       if (!empty($sub_category_id)) {
-		  
+
           $this->data['sub_category_id'] = $sub_category_id;
           $data = $this->SubCategory_Model->getSubCategoryDataById($sub_category_id);
           $this->data['sub_category_name'] = $data['name'];
@@ -63,68 +63,68 @@ class Products extends Public_Controller
       }else{
 		  $url .='&sub_category_id=';
 	  }
-	  
+
 	  $this->data['page_title'] = $title;
-	  
+
       if (isset($_GET['sort_by'])) {
-		  
+
           $sortBy = $_GET['sort_by'];
-		  
+
       } else {
-            $sortBy = 'name';	
+            $sortBy = 'name';
       }
-	  
+
 	  $url .="&sort_by=".$sortBy;
-	  
+
       $sortByOptions = getSortByDropdown();
       $sortByOptions = $sortByOptions[$sortBy] ?? '';
-	  
+
       $order_by = $sortByOptions['order_by'] ?? '';
       $type = $sortByOptions['type'] ?? '';
       $this->data['order'] = $sortBy;
-	  
+
 	   $total=$this->Product_Model->getToatalActiveProduct($category_id,$sub_category_id);
-	   
+
 	    if (isset($_GET['pageno'])) {
 			$pageno = $_GET['pageno'];
 	    } else {
 		    $pageno = 1;
 	    }
-	   
+
 	   $no_of_records_per_page = 12;
-	   $offset =($pageno-1) * $no_of_records_per_page; 
+	   $offset =($pageno-1) * $no_of_records_per_page;
 	   $total_pages = ceil($total / $no_of_records_per_page);
-	   
+
 	   $lists = $this->Product_Model->getActiveProductList($category_id,$sub_category_id,$order_by,$type,$offset,$no_of_records_per_page);
-	   
-	   
+
+
 	    $prevPage=$pageno-1;
 	    $NextPage=$pageno+1;
-		
+
 	    if($total_pages == $pageno){
-			
+
 		   $NextPage='';
 	    }
 	    if($pageno ==1){
-		   
+
 		   $prevPage='';
 	    }
-		
-		
+
+
 		$this->data['url']      = $url;
         $this->data['total']    = $total;
         $this->data['NextPage'] = $NextPage;
         $this->data['prevPage'] = $prevPage;
-		
+
         $this->data['lists']=$lists;
         foreach ($lists as $key => $list) {
-		  
+
           $this->data['lists'][$key]['category'] = $this->Category_Model->getCategoryDataById($list['category_id']);
-		  
-        } 
+
+        }
       $this->render($this->class_name.'index');
   }
-  
+
   public function view($id = null)
   {
       if (empty($id)) {
@@ -154,7 +154,7 @@ class Products extends Public_Controller
       $productQty = 0;
 
       if ($total_items > 0) {
-		  
+
         $carts = $this->cart->contents();
         foreach ($carts as $rowid =>$cart) {
             if ($cart['id'] == $Product['id']) {
@@ -231,7 +231,7 @@ class Products extends Public_Controller
 				   $name=ucfirst($list['name']);
 				   $imageurl = getProductImage($list['product_image'], 'medium');
 				   //$search_reslut.='<li><i class="fas fa-search"></i><a href="'.$url.'">'.$name.'</a></li>';
-				   
+
 				   $search_reslut.='<li><img src="'.$imageurl.'" width="50"><a href="'.$url.'">'.$name.'</a></li>';
 				}
 
@@ -295,7 +295,7 @@ class Products extends Public_Controller
 
       echo json_encode($response);
 	}
-   
+
 	function emailSubscribe()
   {
       $this->load->library('form_validation');
@@ -324,11 +324,11 @@ class Products extends Public_Controller
 
       echo json_encode($response);
 	}
-	
+
 	 function calculatePrice()
      {
-		
-	   
+
+
 	   $product_id=$this->input->post('product_id');
 	   $price=$this->input->post('price');
 	   $quantity=$this->input->post('quantity');
@@ -336,29 +336,29 @@ class Products extends Public_Controller
 	   $ProductAttributes=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
 	   //pr($_POST);
 	   foreach($ProductAttributes as $key=>$val){
-		   
+
 		   $attribute_name='attribute_id_'.$key;
 		   $attribute_item_id=isset($_POST[$attribute_name]) ? $this->input->post($attribute_name):'';
 		   $items=$val['items'];
-		   
+
 		   if(!empty($attribute_item_id) && array_key_exists($attribute_item_id,$items)){
-			    
+
 			    $extra_price=$items[$attribute_item_id]['extra_price'];
 			    $price += $extra_price;
 		   }
 	   }
-	   
+
 	   $response=array();
 	   $response['success'] = 1;
 	   $price=$price*$quantity;
 	   $response['price']=number_format($price,2);
        echo json_encode($response);
 	   exit(0);
-	   
+
 	}
-	
+
    function uploadImage(){
-	   
+
 	    #unset($_SESSION['product_id']); die();
 	    $product_id=$_POST['product_id'];
 	   /* Getting file name */
@@ -373,66 +373,66 @@ class Products extends Public_Controller
 		/* Upload file */
 		$data=array();
 		if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
-			
+
 			$src = DEFAULT_IMAGE_URL."default.png";
 			// checking file is image or not
 			if(is_array(getimagesize($location))){
-				
+
 				$src=FILE_UPLOAD_BASE_URL.$newfileName;
 			}
-			
+
 			$range=range(1,5000);
 			$key=array_rand($range);
 			$return_arr = array("name" => $filename,"size" => $filesize, "src"=> $src,'skey'=>$key,'product_id'=>$product_id,'location'=>$location,'cumment'=>'');
-			
+
 			$_SESSION['product_id'][$product_id][$key]=$return_arr;
-			
+
 			$data['return_arr']=$return_arr;
 		}
-		
+
 		$html=$this->load->view('Ajax/file_data',$data,true);
-		
+
 		$return_arr['html']=$html;
-		
+
 		echo json_encode($return_arr);
-		
-		
-		
-		
+
+
+
+
   }
-  
+
   function updateCumment(){
-	   
+
 	   $product_id=$_POST['product_id'];
 	   $skey=$_POST['skey'];
 	   $cumment=$_POST['cumment'];
-	   
+
 	   if(isset($_SESSION['product_id'][$product_id])){
-		   
+
 		  $_SESSION['product_id'][$product_id][$skey]['cumment']=$cumment;
 	   }
-       exit(0);	   
+       exit(0);
       //echo json_encode($return_arr);
   }
-  
+
   function deleteImage(){
-	  
+
 	   $product_id=$_POST['product_id'];
 	   $skey=$_POST['skey'];
 	   $location=$_POST['location'];
 	   if(isset($_SESSION['product_id'][$product_id])){
-		   
+
 		  unset($_SESSION['product_id'][$product_id][$skey]);
-		  
+
 		  /*if(file_exists($location)){
-			  
+
 			  unlink($location);
 		  }*/
 	   }
-       exit(0);	   
+       exit(0);
       //echo json_encode($return_arr);
   }
-  
+
   public function saveEstimate()
   {
       $this->load->library('form_validation');

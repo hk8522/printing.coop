@@ -29,12 +29,12 @@
 													   <option value="">Select WebSite</option>
 													   <?php foreach($MainStoreList as $key=>$val){
 														$selected='';
-                                                        if($postData['main_store_id'] == $key){		
+                                                        if($postData['main_store_id'] == $key){
 														     $selected='selected="selected"';
-														}												
+														}
 														?>
 													    <option value="<?php echo $key?>" <?php echo $selected?>><?php echo $val;?></option>
-													   <?php 
+													   <?php
 													   }?>
 													   </select>
 													   <?php echo form_error('main_store_id');?>
@@ -81,7 +81,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -95,7 +95,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
                                         <div class="control-group info">
                                             <div class="controls">
                                                 <div class="col-xs-3" style="margin-bottom:15px;">
@@ -151,7 +151,7 @@
                                                     <input name="old_image_french" value="<?php echo $old_image_french;?>" type="hidden">
                                                 </div>
                                             </div>
-											
+
                                             <div class="controls file-data">
                                                 <div class="image-info col-xs-12" style="margin-bottom: 10px;">
                                                     <span>
@@ -177,7 +177,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success" id="submitBtn" >Submit</button>
                                             <a href="<?php echo $BASE_URL.$class_name ?>" class="btn btn-success">Back</a>

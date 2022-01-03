@@ -19,7 +19,7 @@
                                     <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>">
                                     <div class="form-role-area">
-									    
+
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -59,7 +59,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										
+
 										<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -73,8 +73,8 @@
                                                 </div>
                                             </div>
                                         </div>
-										
-										
+
+
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -125,7 +125,7 @@
 															<!--<span>
 															Allowed image in only  dimensions(WXH) 1920pxX428px
 															</span>-->
-														
+
 															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 																<input class="btn btn-primary" name="files" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
 															</div>
@@ -170,7 +170,7 @@
 															<!--<span>
 															Allowed image in only  dimensions(WXH) 1920pxX428px
 															</span>-->
-														
+
 															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 																<input class="btn btn-primary" name="files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
 															</div>
@@ -184,7 +184,7 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div> 
+                                        </div>
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success">Submit</button>
                                             <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
@@ -239,7 +239,7 @@
                           return false;
 
 
-    			} 
+    			}
 				 /*else if (height  =< 400 || width !=1920) {
 
     				document.getElementById(imageId).value='';
@@ -260,7 +260,7 @@
     allowedContent:true,
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });
- 
+
  CKEDITOR.dtd.$removeEmpty.i = 0;
 
 </script>

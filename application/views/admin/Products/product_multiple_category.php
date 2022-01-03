@@ -112,22 +112,22 @@
                                     </div>
                                     <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
                    <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="product_id">
- <div class="form-role-area">										        
+ <div class="form-role-area">
 <div class="control-group info">
 	<div class="row">
 		<div class="col-md-3" style="">
 		    <label class="span2 " for="inputMame">Select Product Multiple Category</label>
 		</div>
-		
+
         <div class="col-md-9">
            <div class="controls small-controls">
-<?php    
-#pr($ProductCategory);     												
-foreach($Categoty as $qkey=>$qval){		  
+<?php
+#pr($ProductCategory);
+foreach($Categoty as $qkey=>$qval){
 $category_id=$qval['id'];
 $category_name=$qval['name'];
 $sub_categories=$qval['sub_categories'];
-$ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$category_id]:array();							   
+$ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$category_id]:array();
 ?>
 <div class="attribute-single">
     <div class="attribute-single-title">
@@ -135,41 +135,41 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
             <div class="col-md-12">
                 <label class="span2">
                     <input type="checkbox" value="<?php echo $category_id?>" name="category_id_<?php echo $category_id?>" id="category_id_<?php echo $category_id?>" <?php if(array_key_exists($category_id,$ProductCategory)) echo "checked"?> onchange="addActiveQuantitySizeClass('<?php echo $category_id?>')">
-	                <?php echo $category_name;?>		
+	                <?php echo $category_name;?>
                 </label>
             </div>
 	    </div>
     </div>
-	<div class="attribute-single" id="quantity_attribute_id_div_<?php echo $category_id ?>" style="display:<?php echo array_key_exists($category_id,$ProductCategory) ? '' :'none'?>; padding: 10px 10px 10px 25px; background: #f5f5f5;">																    
-        <?php 
+	<div class="attribute-single" id="quantity_attribute_id_div_<?php echo $category_id ?>" style="display:<?php echo array_key_exists($category_id,$ProductCategory) ? '' :'none'?>; padding: 10px 10px 10px 25px; background: #f5f5f5;">
+        <?php
 		foreach($sub_categories as $key=>$val){
-			
+
 			$sub_category_id=$val['id'];
-            $sub_category_name=$val['name'];										
-        ?>												   
-        <div class="attribute-single"> 
-		  
+            $sub_category_name=$val['name'];
+        ?>
+        <div class="attribute-single">
+
 		    <div class="attribute-single-title">
 	           <div class="row align-items-center">
 	               <div class="col-md-12">
 	                   <label class="span2">
 	                       <input type="checkbox" value="<?php echo $sub_category_id?>" name="sub_category_id_<?php echo $category_id?>_<?php echo $sub_category_id?>"  id="sub_category_id_<?php echo $category_id?>_<?php echo $sub_category_id?>"  <?php if(in_array($sub_category_id,$ProductSubCategory)) echo "checked"?>>
-	                       <?php echo $sub_category_name;?>		
+	                       <?php echo $sub_category_name;?>
                         </label>
                     </div>
                 </div>
             </div>
-	    </div>									 
+	    </div>
         <?php }?>
     </div>
 </div>
-	  
+
 <?php }?>
 		    </div>
 	    </div>
 	</div>
 </div>
-								
+
   <div class="product-actions-btn text-right">
                                             <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
                                             <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
@@ -192,50 +192,50 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 <script>
 
 	function addActiveClass(id){
-		
+
 		if($("#attribute_id_"+id).prop("checked") == true){
 			$("#attribute_id_div_"+id).addClass('active');
 		}else{
 			$("#attribute_id_div_"+id).removeClass('active');
-		}		
+		}
 	}
-	
+
 	function setAttributesetItemId(id){
 		//alert(id);
-		
+
 		if($("#"+id).prop("checked") == true){
-			
+
 			$("#hidden_"+id).val($("#"+id).val());
 		}else{
-			
+
 			$("#hidden_"+id).val('');
 		}
-	   	
+
 	}
-	
+
 	function addActiveSizeClass(id){
-		
+
 		if($("#size_attribute_id_"+id).prop("checked") == true){
-			
+
 			$("#size_attribute_id_div_"+id).addClass('active');
 		}else{
-			
+
 			$("#size_attribute_id_div_"+id).removeClass('active');
-		}	
-	   	
+		}
+
 	}
 	function addActiveQuantitySizeClass(id){
-		
+
 		if($("#category_id_"+id).prop("checked") == true){
-			
-			
+
+
 			$("#quantity_attribute_id_div_"+id).show();
-			
+
 		}else{
-			
+
 			$("#quantity_attribute_id_div_"+id).hide();
-		}	
-	   	
+		}
+
 	}
-	
+
 </script>

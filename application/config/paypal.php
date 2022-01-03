@@ -8,7 +8,7 @@ $config['business'] = 'vishusand123-facilitator@gmail.com';*/
 
 $config['client_id']='';
 $config['secret'] ='';
-$config['business']=''; 
+$config['business']='';
 // ------------------------------------------------------------------------
 // Paypal library configuration
 // ------------------------------------------------------------------------
@@ -24,7 +24,7 @@ $config['sandbox'] = TRUE; // FALSE for live environment
 $config['paypal_lib_ipn_log_file'] = BASEPATH . 'logs/paypal_ipn.log';
 $config['paypal_lib_ipn_log'] = TRUE;
 
-// Where are the buttons located at 
+// Where are the buttons located at
 $config['paypal_lib_button_path'] = 'buttons';
 
 // What is the default currency?

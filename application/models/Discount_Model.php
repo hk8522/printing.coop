@@ -1,7 +1,7 @@
 <?php
 
 Class Discount_Model extends MY_Model {
-	
+
 	public $table='discounts';
 	public $config = array(
         array(
@@ -63,44 +63,44 @@ Class Discount_Model extends MY_Model {
                 ),
         )*/
     );
-	
+
     public function getDiscountsList() {
-		
+
         $this->db->select(array('*'));
 		$this->db->from($this->table);
 		//$this->db->where(array('Page_Category.status'=>1));
 		$this->db->order_by('id','desc');
         $query = $this->db->get();
-		$data=$query->result_array(); 
+		$data=$query->result_array();
 		return $data;
-		
+
     }
-	
+
 	public function getActiveDiscountsList() {
-		
+
         $this->db->select(array('*'));
 		$this->db->from($this->table);
 		$this->db->where(array('status'=>1));
 		$this->db->order_by('id','desc');
         $query = $this->db->get();
-		$data=$query->result_array(); 
+		$data=$query->result_array();
 		return $data;
-		
+
     }
-	
+
 	public function getDiscountDataById($id) {
-		
+
         $this->db->select('*');
         $this->db->from($this->table);
 		$this->db->where(array('id'=>$id));
         $query = $this->db->get();
 		$data=(array)$query->row();
 		return $data;
-		
+
     }
-	
+
 	public function getDiscountDataByCode($code) {
-		
+
         $this->db->select('*');
         $this->db->from($this->table);
 		$this->db->where(array('code'=>$code));
@@ -108,33 +108,33 @@ Class Discount_Model extends MY_Model {
 		$data=(array)$query->row();
 		return $data;
     }
-	
-	
+
+
 	public function saveDiscount($data) {
-		
+
 		$id=isset($data['id']) ? $data['id']:'';
-		
+
 		if(!empty($id)){
-			
+
 			$data['updated']=date('Y-m-d H:i:s');
 			$this->db->where('id', $id);
 			$query = $this->db->update($this->table, $data);
 		}else{
-			
+
 			$data['created']=date('Y-m-d H:i:s');
 			$data['updated']=date('Y-m-d H:i:s');
 			$query = $this->db->insert($this->table, $data);
 		}
-		
+
         if ($query) {
             return true;
         } else {
             return false;
         }
     }
-	
+
 	public function deleteDiscount($id) {
-		
+
 		$this->db->where('id',$id);
         $query = $this->db->delete($this->table);
 		if ($query) {
@@ -142,8 +142,8 @@ Class Discount_Model extends MY_Model {
 		} else {
 			return 0;
 		}
-		
+
     }
-    
+
 }
 ?>

@@ -41,7 +41,7 @@
                                                 </div>
 											</div>
 										</div>-->
-										
+
 										<div class="control-group info">
 											<div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -116,8 +116,8 @@
 			                                                    </div>
                                                                 <label class="form-inner-label">List Price USD</label>
                                                             </div>-->
-															
-															
+
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -137,14 +137,14 @@
 			                                                    </div>
                                                                 <label class="form-inner-label">Code</label>
                                                             </div>
-															
+
                                                         	<!--<div class="col-md-4">
                                                                 <div class="product-view-display">
 			                                                        <span><?php echo $Product['total_stock'];?></span>
 			                                                    </div>
                                                                 <label class="form-inner-label">Total Stock</label>
                                                             </div>-->
-															
+
 															<div class="col-md-4">
                                                                 <?php
                                                                     $is_stock=isset($Product['is_stock']) ? $Product['is_stock']:'';
@@ -156,11 +156,11 @@
 																<div class="product-view-display">
 			                                                        <span><?php echo $cehecked?></span>
 			                                                    </div>
-                                                                <label class="form-inner-label">Show Out of Stock</label>	
-                                                               
+                                                                <label class="form-inner-label">Show Out of Stock</label>
+
                                                             </div>
-                                                            
-                                                   
+
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -174,42 +174,42 @@
 												<div class="col-md-8">
                                                     <div class="controls small-controls">
                                                         <div class="row">
-														
-	<?php 
-	
+
+	<?php
+
 	$product_tags=isset($Product['product_tag']) ? explode(',',$Product['product_tag']):array();
 	#pr($product_tags,1);
-	
+
 	foreach($tagList as $key=>$val){
-		
+
 		$tag_id=$val['id'];
-		if(in_array($tag_id,$product_tags)){								
-		
-		
-		
-	?>													
+		if(in_array($tag_id,$product_tags)){
+
+
+
+	?>
                     <div class="col-md-4">
-                                        
+
 					<div class="product-view-display">
-			                                                                                          <span>    
-																									<?php 
-						echo $val['name'];																			    
+			                                                                                          <span>
+																									<?php
+						echo $val['name'];
 																									  ?>
 																									  </span>
 			                                    </div>
                                         </div>
-                                                            
-		<?php 
+
+		<?php
 		    }
 	}?>
-                                                            
-                                                        
+
+
                                                         </div>
                                                     </div>
                                                 </div>
 											</div>
 										</div>
-								
+
                                         <div class="control-group info">
                                         	<div class="row">
 												<?php

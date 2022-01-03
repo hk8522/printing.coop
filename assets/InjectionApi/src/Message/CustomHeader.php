@@ -4,7 +4,7 @@ namespace Socketlabs\Message;
  * Used to  create, manage and manipulate custom headers for messages
  */
 class CustomHeader{
-    
+
     /**
      * The name of the custom header
      */

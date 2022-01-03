@@ -50,7 +50,7 @@
 												</a>
 											</td>
 											<td>
-												<div class="action-btns"> 
+												<div class="action-btns">
 											  	 	<a href="#" style="color:#3c8dbc;padding: 5px;" title="view">
 												        <i class="far fa-eye fa-lg"></i>
 												   	</a>
@@ -82,7 +82,7 @@
 											   	</a>
 											</td>
 											<td>
-												<div class="action-btns"> 
+												<div class="action-btns">
 											  	 	<a href="#" style="color:#3c8dbc;padding: 5px;" title="view">
 												        <i class="far fa-eye fa-lg"></i>
 												   	</a>
@@ -100,7 +100,7 @@
 							</div>
 						</div>
 					</div>
-				</div><!-- /.box -->         
+				</div><!-- /.box -->
 			</div><!-- /.col-->
 		</div><!-- ./row -->
 	</section><!-- /.content -->
@@ -109,7 +109,7 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script>
 $(document).ready(function(){
-	
+
     $('#example1').DataTable({
 		"order": [[ 3, "asc" ]]
 	});

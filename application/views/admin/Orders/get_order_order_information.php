@@ -46,7 +46,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="col-md-8">            			
+				<div class="col-md-8">
 					<div class="step-fields-inner universal-bg-white">
 						<div class="universal-small-dark-title">
 							<span>Shipping/Billing Address</span>
@@ -86,7 +86,7 @@
 											<label>Address</label>
 											<div class="controls">
 												<textarea class="form-control" style="height: 60px !important;" type="text" placeholder="Address (area &amp; street)*" name="billing_address"><?php echo isset($PostData['billing_address']) ? $PostData['billing_address']:'';?></textarea>
-												 <?php 
+												 <?php
 												 echo form_error('billing_address');
 												 ?>
 											</div>
@@ -98,11 +98,11 @@
 											<div class="controls">
 												 <select name="billing_country" onchange="getState($(this).val())" class="form-control">
 												  <option value="">Select Country</option>
-												  
+
 												  <?php foreach ($countries as $country) {
 													  $selected = '';
 													  $post_country = isset($PostData['billing_country']) ? $PostData['billing_country']:'';
-													  
+
 													  if ($country['id'] == $post_country){
 														  $selected='selected="selected"';
 													  }
@@ -110,7 +110,7 @@
 												  <option value="<?php echo $country['id']?>" <?php echo $selected;?>><?php echo $country['name'];?></option>
 												  <?php }?>
 												</select>
-												 <?php 
+												 <?php
 												 echo form_error('billing_country');
 												 ?>
 											</div>
@@ -120,28 +120,28 @@
 										<div class="table-filter-fields">
 											<label>State</label>
 											<div class="controls">
-												
+
 												<select name="billing_state" id="stateiD" class="form-control" onchange="getCity($(this).val())">
 												  <option value="">-- Select State --</option>
 												  <?php foreach ($states as $state) {
-													  
+
 													  $selected ='';
 													  $post_state = isset($PostData['billing_state']) ? $PostData['billing_state']:'';
 													  if ($state['id'] == $post_state){
-														  
+
 														  $selected='selected="selected"';
 													  }
 													  ?>
 												  <option value="<?php echo $state['id']?>" <?php echo $selected;?>><?php echo $state['name'];?></option>
 												  <?php }?>
 												</select>
-												<?php 
+												<?php
 												 echo form_error('billing_state');
 												 ?>
 											</div>
 										</div>
 									</div>
-									
+
 									<div class="col-md-3">
 										<div class="table-filter-fields">
 											<label>City</label>
@@ -149,21 +149,21 @@
 											 <select name="billing_city" id="cityId" class="form-control">
 											  <option value="">-- Select City --</option>
 											  <?php foreach ($citys as $city) {
-												  
+
 												  $selected ='';
 		                                          $post_city = isset($PostData['billing_city']) ? $PostData['billing_city']:'';
-												  
+
 													if ($city['id'] == $post_city){
-													  
+
 													   $selected='selected="selected"';
-														
+
 													}
 												  ?>
 											  <option value="<?php echo $city['id']?>" <?php echo $selected;?>><?php echo $city['name'];?></option>
 											  <?php }?>
 											   </select>
-												
-												<?php 
+
+												<?php
 												 echo form_error('billing_city');
 												 ?>
 											</div>
@@ -174,7 +174,7 @@
 											<label>Zip/Postal Code</label>
 											<div class="controls">
 												<input class="form-control" type="text" placeholder="Zip/Postal Code*" name="billing_pin_code" value="<?php echo isset($PostData['billing_pin_code']) ? $PostData['billing_pin_code']:'';?>" >
-												<?php 
+												<?php
 												 echo form_error('billing_pin_code');
 												 ?>
 											</div>
@@ -185,15 +185,15 @@
 						</div>
 					</div>
 				</div>
-				<?php 
-				    
+				<?php
+
 				?>
-				<div class="col-md-6">  
-                    <?php 
-					    include('shipping_method.php'); 
-					?>				
+				<div class="col-md-6">
+                    <?php
+					    include('shipping_method.php');
+					?>
 				</div>
-				
+
 				<div class="col-md-6">
 					<div class="step-fields-inner universal-bg-white">
 						<div class="universal-small-dark-title">
@@ -209,13 +209,13 @@
 												<select class="form-control" name="payment_type">
 													<option value="">Select Type</option>
 													<option value="paypal">Paypal</option>
-													<!--<?php 
+													<!--<?php
 													    foreach ($PaymentMethod as $key=>$val) {
 														  $selected = '';
 														  $payment_type = isset($PostData['payment_type']) ? $PostData['payment_type']:'';
-														  
+
 														  if ($val == $payment_type){
-															  
+
 															  $selected='selected="selected"';
 														  }
 														  ?>
@@ -223,7 +223,7 @@
 												  <?php
 												  }?>-->
 												</select>
-												<?php 
+												<?php
 												  echo form_error('payment_status');
 												 ?>
 											</div>
@@ -234,23 +234,23 @@
 											<label>Payment Status</label>
 											<div class="controls">
 												<select class="form-control" name="payment_status">
-												
+
 													<option value="">Select Status</option>
 														<?php foreach ($PaymentStatus as $key=>$val) {
 														  $selected = '';
 														  $payment_status = isset($PostData['payment_status']) ? $PostData['payment_status']:'';
-														  
+
 														  if ($key == $payment_status){
-															  
+
 															  $selected='selected="selected"';
 														  }
 														  ?>
 														 <option value="<?php echo $key?>" <?php echo $selected;?>><?php echo $val;?></option>
 												  <?php
 												  }?>
-													
+
 												</select>
-												<?php 
+												<?php
 												  echo form_error('payment_status');
 												 ?>
 											</div>
@@ -269,7 +269,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="col-md-6">
 					<div class="step-fields-inner universal-bg-white">
 						<div class="universal-small-dark-title">
@@ -287,7 +287,7 @@
 											</div>
 										</div>
 									</div>
-									
+
 								</div>
 							</div>
 						</div>
@@ -303,29 +303,29 @@
 								<div class="row" id="Order-Information">
 									<?php include('order-information.php');?>
 								</div>
-								
+
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="next-step-btn" id="confirmbtn">
-			   <?php 
+			   <?php
 			      include('confirm_btn.php');
 			   ?>
 			</div>
 		</div>
 	</div>
 	</form>
-	
+
 	<script>
-	
+
 	function getState(country_id){
-		
+
 		$("#stateiD").val('');
 		$("#stateiD").html('<option value="">Loding..</option>');
 		if(country_id !=''){
-			
+
 			var url ='<?php echo $BASE_URL ?>MyAccounts/getStateDropDownListByAjax/'+country_id;
 			$.ajax({
 				   type: "GET",
@@ -334,20 +334,20 @@
 				   //data:{'country_id':country_id}, // serializes the form's elements.
 				   success: function(data)
 				   {
-					   
-					   $("#stateiD").html(data);	
+
+					   $("#stateiD").html(data);
 				   }
 			});
 	    }
-		
+
 	}
-	
+
 	function getCity(state_id){
-		
+
 		$("#cityId").val('');
 		$("#cityId").html('<option value="">Loding..</option>');
 		if(state_id !=''){
-			
+
 			var url ='<?php echo $BASE_URL ?>/admin/Orders/getCityDropDownListByAjax/'+state_id;
 			$.ajax({
 				   type: "GET",
@@ -356,22 +356,21 @@
 				   //data:{'country_id':country_id}, // serializes the form's elements.
 				   success: function(data)
 				   {
-					   
+
 				    var json=JSON.parse(data);
 					var orderinformation = json.orderinformation;
 					var confirmbtn=json.confirmbtn;
 					$("#Order-Information").html(orderinformation);
 					$("#confirmbtn").html(confirmbtn);
 					$("#cityId").html(json.options);
-					
+
 				   }
 			});
 	    }
-		
+
 	}
 	</script>
-	
-	
-	
-	
-	
+
+
+
+

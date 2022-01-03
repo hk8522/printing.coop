@@ -15,7 +15,7 @@ class CancelManifestByIdRequest extends ApiRequest{
     }
 
     public function execute() : bool {
-        try{    
+        try{
             $cancelManifestRequest = $this->api_request($this->apiUrl,[],$this->apiToken,'DELETE',30,$this->flagshipFor,$this->version);
             $this->responseCode = $cancelManifestRequest["httpcode"];
             return $this->responseCode == 200 ? TRUE : FALSE;

@@ -14,11 +14,11 @@
 		<span><?php echo ucfirst($address['name'])?> <?php  $address['mobile'];?> <?php echo !empty($address['alternate_phone']) ? ','.$address['alternate_phone']:'';?>
 		<?php echo !empty($address['company_name']) ? '('.$address['company_name'].")":'';?>
 		</span>
-								
+
 		<br>
 		<span class="tt-t"><?php echo $address['address'];?>,
 		<?php echo $address['cityName'];?>,<?php echo $address['StateName'];?>,<?php echo $address['CountryName'];?> - <strong><?php echo $address['pin_code'];?></strong></span>
-		
+
 	</div>
 </div>
 <?php } ?>

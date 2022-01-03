@@ -190,7 +190,7 @@ class FontMetrics
             $prefix = iconv('utf-8', 'us-ascii//TRANSLIT', $prefix);
         }
         $prefix = preg_replace("/[^-\w]+/", "", $prefix);
-        
+
         $localFile = $fontDir . "/" . $prefix . "_" . $remoteHash;
 
         if (isset($entry[$styleString]) && $localFile == $entry[$styleString]) {
