@@ -1194,25 +1194,16 @@ Class Product_Model extends MY_Model {
         )
     );
 
-   public function getMultipleAttributesList($id=null) {
-
-
+    public function getMultipleAttributes() {
         $this->db->select('*');
         $this->db->from('product_multiple_attributes');
 		$this->db->order_by('set_order','asc');
         $query = $this->db->get();
-
-		if(!empty($id)){
-
-			$data=(array)$query->row();
-		}else{
-		    $data=$query->result_array();
-		}
+        $data = $query->result_array();
 		return $data;
-
     }
 
-	public function getMultipleAttributesListDropDwon() {
+	public function getMultipleAttributesDropDwon() {
         $this->db->select('*');
         $this->db->from('product_multiple_attributes');
 		$this->db->where('status','1');
@@ -1238,8 +1229,7 @@ Class Product_Model extends MY_Model {
 		return $dataNew;
     }
 
-	public function getMultipleAttributesDataById($id) {
-
+	public function getMultipleAttribute($id) {
         $this->db->select('*');
         $this->db->from('product_multiple_attributes');
 		$this->db->where(array('id'=>$id));
@@ -1248,11 +1238,11 @@ Class Product_Model extends MY_Model {
 		return $data;
     }
 
-    public function getMultipleAttributesItemDataById($id) {
+    public function getMultipleAttributeItems($attribute_id) {
 
         $this->db->select('*');
         $this->db->from('product_multiple_attribute_items');
-		$this->db->where(array('product_attribute_id'=>$id));
+		$this->db->where(array('product_attribute_id'=>$attribute_id));
         $query = $this->db->get();
 		$data=$query->result_array();
 		return $data;

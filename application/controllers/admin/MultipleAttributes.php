@@ -19,7 +19,7 @@ class MultipleAttributes extends Admin_Controller
 		$this->data['sub_page_view_url'] = 'viewAttribute';
 		$this->data['sub_page_delete_url'] = 'deleteAttribute';
 		$this->data['sub_page_url_active_inactive'] = 'activeInactiveAttribute';
-		$lists=$this->Product_Model->getMultipleAttributesList();
+		$lists=$this->Product_Model->getMultipleAttributes();
 		$this->data['lists']=$lists;
 		$this->render($this->class_name.'index');
 	}
@@ -34,8 +34,8 @@ class MultipleAttributes extends Admin_Controller
 		$this->data['main_page_url'] = '';
 		$this->load->model('Product_Model');
 		$postData=array();
-		$postData=$this->Product_Model->getMultipleAttributesDataById($id);
-        $productItemData=$this->Product_Model->getMultipleAttributesItemDataById($id);
+		$postData=$this->Product_Model->getMultipleAttribute($id);
+        $productItemData=$this->Product_Model->getMultipleAttributeItems($id);
 
 		if($this->input->post()){
 

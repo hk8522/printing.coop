@@ -6,31 +6,31 @@
 .entrynew.input-group .form-control {
 	width: 100px;
 }
-.attribute-single-inner, .attribute-single-info-inner {
+.attribute-inner, .attribute-info-inner {
 	text-align: center;
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 }
-.attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+.attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-start;
 }
-#WidthAndLengthSection .attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+#WidthAndLengthSection .attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-end;
 }
-.for-att-multi .attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+.for-att-multi .attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-end;
 }
-.for-att-multi .attribute-single-info .row .col-md-12 .attribute-single-info-inner {
+.for-att-multi .attribute-info .row .col-md-12 .attribute-info-inner {
     padding-left: 0px;
     margin-top: 5px;
 }
-.attribute-single-inner label, .attribute-single-info-inner label {
+.attribute-inner label, .attribute-info-inner label {
 	margin: 0px !important;
 	padding-right: 5px;
 }
-.control-group .attribute-single-inner input, .control-group .attribute-single-info-inner input {
+.control-group .attribute-inner input, .control-group .attribute-info-inner input {
     height: 30px !important;
     padding: 5px 5px !important;
     color: #000;
@@ -42,18 +42,18 @@
     width: 80px;
     text-align: center;
 }
-.control-group .attribute-single-inner input[type="checkbox"], .control-group .attribute-single-info-inner input[type="checkbox"] {
+.control-group .attribute-inner input[type="checkbox"], .control-group .attribute-info-inner input[type="checkbox"] {
     width: auto;
     height: auto !important;
 }
-.control-group .controls.small-controls .attribute-single-info-inner label.span2 {
+.control-group .controls.small-controls .attribute-info-inner label.span2 {
     margin: 0px !important;
     display: flex;
     justify-content: flex-end;
     width: 100%;
     height: auto !important;
 }
-.control-group .attribute-single-info-inner select {
+.control-group .attribute-info-inner select {
     height: 30px !important;
     padding: 5px 5px !important;
     color: #000;
@@ -77,32 +77,32 @@
     background: #f9f9f9;
     height: auto;
 }
-.attribute-single.active .attribute-info {
+.attribute.active .attribute-info {
 	padding: 10px 10px 10px 25px;
 	background: #f9f9f9;
 	height: auto;
 	margin-bottom: 10px;
 }
-.attribute-single-info {
+.attribute-info {
     background: #fff;
     padding: 5px 5px;
     margin-bottom: 10px;
 }
-.attribute-single-info-inner {
+.attribute-info-inner {
 	padding: 0px 0px 0px 20px;
 }
-.attribute-single-title {
+.attribute-title {
 	background: #f1f1f1;
 	padding: 5px 10px;
 }
-.attribute-single {
+.attribute {
 	padding-bottom: 10px;
 }
-.controls.small-controls .attribute-single:last-child {
+.controls.small-controls .attribute:last-child {
 	margin: 0px;
 	padding: 0px;
 }
-.control-group .controls.small-controls .attribute-single-title .span2 {
+.control-group .controls.small-controls .attribute-title .span2 {
 	margin-bottom: 0px !important;
 }
 </style>
@@ -600,13 +600,13 @@
                 		<div class="attribute-info field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="RectoVersoSection">
                 	       <div class="row">
                 				<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label"> Recto/Verso Percentage </label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['recto_verso_price'])?>" name="recto_verso_price" onkeypress="javascript:return isNumber(event)" placeholder="Percentage"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -656,13 +656,13 @@
                 		<div class="attribute-info field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="WidthAndLengthSection">
                 	       <div class="row">
                 				<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Minimum Length</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['min_length'])?>" name="min_length" onkeypress="javascript:return isNumber(event)" placeholder="Minimum"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -670,13 +670,13 @@
                                     </div>
                         		</div>
                                 <div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Maximum Length</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['max_length'])?>" name="max_length" onkeypress="javascript:return isNumber(event)" placeholder="Maximum"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -684,13 +684,13 @@
                                     </div>
                                 </div>
                 				<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Minimum Width</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['min_width'])?>" name="min_width" onkeypress="javascript:return isNumber(event)" placeholder="Minimum"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -698,13 +698,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Maximum Width</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['max_width'])?>" name="max_width" onkeypress="javascript:return isNumber(event)" placeholder="Maximum"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -712,13 +712,13 @@
                                     </div>
                                 </div>
                 				<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Length X Width Price</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['min_length_min_width_price'])?>" name="min_length_min_width_price" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -726,13 +726,13 @@
                                     </div>
                                 </div>
 								<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Unit Price Color</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['length_width_price_color'])?>" name="length_width_price_color" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -740,13 +740,13 @@
                                     </div>
                                 </div>
 								<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Unit Price Black</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['length_width_unit_price_black'])?>" name="length_width_unit_price_black" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -761,13 +761,13 @@
 								}
                                 ?>
 								<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Show Colors</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 												<input name="length_width_color_show" type="checkbox" value="1" <?php echo $cehecked;?> id="length_width_color_show">
                                                 </div>
                                             </div>
@@ -777,13 +777,13 @@
 
 
 								<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Quantity</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 
 				<select  class="form-control" name="length_width_pages_type">
 
@@ -803,13 +803,13 @@
                                     </div>
                                 </div>
 								<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Quantity Show</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 
 		<?php
         $id=isset($postData['id']) ? $postData['id']:'';
@@ -829,13 +829,13 @@
                                     </div>
                                 </div>
 								<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Minimum Quantity</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['length_width_min_quantity'])?>" name="length_width_min_quantity" onkeypress="javascript:return isNumber(event)" placeholder="Minimum Quantity"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -844,13 +844,13 @@
                                 </div>
 
 								<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Maximum Quantity</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['length_width_max_quantity'])?>" name="length_width_max_quantity" onkeypress="javascript:return isNumber(event)" placeholder="Maximum Quantity"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -891,13 +891,13 @@
                 		<div class="attribute-info field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="PageWidthAndLengthSection">
                 	       <div class="row">
                 				<div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Minimum Length</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['page_min_length'])?>" name="page_min_length" onkeypress="javascript:return isNumber(event)" placeholder="Minimum"  class="form-control PageLengthWidth">
                                                 </div>
                                             </div>
@@ -905,13 +905,13 @@
                                     </div>
                         		</div>
                                 <div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Maximum Length</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['page_max_length'])?>" name="page_max_length" onkeypress="javascript:return isNumber(event)" placeholder="Maximum"  class="form-control PageLengthWidth">
                                                 </div>
                                             </div>
@@ -919,13 +919,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Minimum Width</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['page_min_width'])?>" name="page_min_width" onkeypress="javascript:return isNumber(event)" placeholder="Minimum"  class="form-control PageLengthWidth">
                                                 </div>
                                             </div>
@@ -933,13 +933,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Maximum Width</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['page_max_width'])?>" name="page_max_width" onkeypress="javascript:return isNumber(event)" placeholder="Maximum"  class="form-control PageLengthWidth">
                                                 </div>
                                             </div>
@@ -947,14 +947,14 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Length X Width Price</label>
 
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['page_min_length_min_width_price'])?>" name="page_min_length_min_width_price" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control PageLengthWidth">
                                                 </div>
                                             </div>
@@ -962,13 +962,13 @@
                                     </div>
                                 </div>
 								<div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Unit Price Color</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['page_length_width_price_color'])?>" name="page_length_width_price_color" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -976,13 +976,13 @@
                                     </div>
                                 </div>
 								<div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Unit Price Black</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['page_length_width_price_black'])?>" name="page_length_width_price_black" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -996,13 +996,13 @@
 								}
                                 ?>
 								<div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Show Colors</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 												<input name="page_length_width_color_show" type="checkbox" value="1" <?php echo $cehecked;?> id="page_length_width_color_show">
                                                 </div>
                                             </div>
@@ -1011,13 +1011,13 @@
                                 </div>
 
                                 <div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Pages Type</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 
 				<select  class="form-control" name="page_length_width_pages_type">
 
@@ -1036,13 +1036,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Pages Show</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 
 		<?php
         $id=isset($postData['id']) ? $postData['id']:'';
@@ -1063,13 +1063,13 @@
                                     </div>
                                 </div>
 								<div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Sheets Type</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 
 				<select  class="form-control" name="page_length_width_sheets_type">
 
@@ -1087,13 +1087,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-4">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Sheets Show</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 
 		<?php
         $id=isset($postData['id']) ? $postData['id']:'';
@@ -1111,13 +1111,13 @@
                                     </div>
                                 </div>
 								<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Quantity</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 
 				<select  class="form-control" name="page_length_width_quantity_type">
 
@@ -1140,13 +1140,13 @@
 		                         <div class="col-md-6">
 
 
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Quantity Show</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 
 		<?php
         $id=isset($postData['id']) ? $postData['id']:'';
@@ -1166,13 +1166,13 @@
                                     </div>
                                 </div>
 								<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Minimum Quantity</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['page_length_width_min_quantity'])?>" name="page_length_width_min_quantity" onkeypress="javascript:return isNumber(event)" placeholder="Minimum Quantity"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -1181,13 +1181,13 @@
                                 </div>
 
 								<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Maximum Quantity</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['page_length_width_max_quantity'])?>" name="page_length_width_max_quantity" onkeypress="javascript:return isNumber(event)" placeholder="Maximum Quantity"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -1233,13 +1233,13 @@
                 		<div class="attribute-info field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="DepthWidthAndLengthSection">
                 	       <div class="row">
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Minimum Length</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['depth_min_length'])?>" name="depth_min_length" onkeypress="javascript:return isNumber(event)" placeholder="Minimum Length"  class="form-control DepthLengthWidth">
                                                 </div>
                                             </div>
@@ -1247,13 +1247,13 @@
                                     </div>
                         		</div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Maximum Length</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['depth_max_length'])?>" name="depth_max_length" onkeypress="javascript:return isNumber(event)" placeholder="Maximum"  class="form-control DepthLengthWidth">
                                                 </div>
                                             </div>
@@ -1261,13 +1261,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Minimum Width</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['depth_min_width'])?>" name="depth_min_width" onkeypress="javascript:return isNumber(event)" placeholder="Minimum"  class="form-control DepthLengthWidth">
                                                 </div>
                                             </div>
@@ -1275,13 +1275,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Maximum Width</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['depth_max_width'])?>" name="depth_max_width" onkeypress="javascript:return isNumber(event)" placeholder="Maximum"  class="form-control DepthLengthWidth">
                                                 </div>
                                             </div>
@@ -1289,13 +1289,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Minimum Depth</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['min_depth'])?>" name="min_depth" onkeypress="javascript:return isNumber(event)" placeholder="Minimum"  class="form-control DepthLengthWidth">
                                                 </div>
                                             </div>
@@ -1303,13 +1303,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Maximum Depth</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['max_depth'])?>" name="max_depth" onkeypress="javascript:return isNumber(event)" placeholder="Maximum"  class="form-control DepthLengthWidth">
                                                 </div>
                                             </div>
@@ -1317,13 +1317,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Length X Width X Depth Price</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['depth_width_length_price'])?>" name="depth_width_length_price" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control DepthLengthWidth">
                                                 </div>
                                             </div>
@@ -1331,13 +1331,13 @@
                                     </div>
                                 </div>
 								<div class="col-md-6 col-lg-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Unit Price Color</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['depth_price_color'])?>" name="depth_price_color" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -1345,13 +1345,13 @@
                                     </div>
                                 </div>
 								<div class="col-md-6 col-md-6 col-lg-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Unit Price Black</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['depth_unit_price_black'])?>" name="depth_unit_price_black" onkeypress="javascript:return isNumber(event)" placeholder="Price"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -1364,13 +1364,13 @@
 								}
                                 ?>
 								<div class="col-md-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Show Colors</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 												<input name="depth_color_show" type="checkbox" value="1" <?php echo $cehecked;?> id="depth_color_show">
                                                 </div>
                                             </div>
@@ -1379,13 +1379,13 @@
                                 </div>
 
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Quantity</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 
 				<select  class="form-control" name="depth_width_length_type">
 
@@ -1405,13 +1405,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Quantity Show</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
 
 		<?php
         $id=isset($postData['id']) ? $postData['id']:'';
@@ -1431,13 +1431,13 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Minimum Quantity</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['depth_min_quantity'])?>" name="depth_min_quantity" onkeypress="javascript:return isNumber(event)" placeholder="Minimum Quantity"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -1446,13 +1446,13 @@
                                 </div>
 
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Maximum Quantity</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo showValue($postData['depth_max_quantity'])?>" name="depth_max_quantity" onkeypress="javascript:return isNumber(event)" placeholder="Maximum Quantity"  class="form-control LengthWidth">
                                                 </div>
                                             </div>
@@ -1493,13 +1493,13 @@
                 		<div class="attribute-info field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="PagePhoneSection">
                 	       <div class="row">
                                 <div class="col-md-6 col-lg-6 col-xl-6">
-                                    <div class="attribute-single-info">
+                                    <div class="attribute-info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6">
                                                 <label class="form-inner-label">Phone Number</label>
                                             </div>
                                             <div class="col-md-6">
-                                                <div class="attribute-single-info-inner">
+                                                <div class="attribute-info-inner">
                                                     <input type="text" value="<?php echo isset($postData['phone_number']) ? $postData['phone_number']:'1-877-384-8043';?>" name="phone_number" maxlength="15" style="width:100%">
                                                 </div>
                                             </div>
@@ -1528,8 +1528,8 @@ $category_name=$qval['name'];
 $sub_categories=$qval['sub_categories'];
 $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$category_id]:array();
 ?>
-<div class="attribute-single">
-    <div class="attribute-single-title">
+<div class="attribute">
+    <div class="attribute-title">
         <div class="row align-items-center">
             <div class="col-md-12">
                 <label class="span2">
@@ -1539,16 +1539,16 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
             </div>
 	    </div>
     </div>
-	<div class="attribute-single" id="quantity_attribute_id_div_<?php echo $category_id ?>" style="display:<?php echo array_key_exists($category_id,$ProductCategory) ? '' :'none'?>; padding: 10px 10px 10px 25px; background: #f5f5f5;">
+	<div class="attribute" id="quantity_attribute_id_div_<?php echo $category_id ?>" style="display:<?php echo array_key_exists($category_id,$ProductCategory) ? '' :'none'?>; padding: 10px 10px 10px 25px; background: #f5f5f5;">
         <?php
 		foreach($sub_categories as $key=>$val){
 
 			$sub_category_id=$val['id'];
             $sub_category_name=$val['name'];
         ?>
-        <div class="attribute-single">
+        <div class="attribute">
 
-		    <div class="attribute-single-title">
+		    <div class="attribute-title">
 	           <div class="row align-items-center">
 	               <div class="col-md-12">
 	                   <label class="span2">

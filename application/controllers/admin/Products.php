@@ -1009,7 +1009,7 @@ class Products extends Admin_Controller
 				$ProductSizes=array();
 				$this->data['ProductSizes']=$this->Product_Model->ProductQuantySizeAttributeDropDwon($id);
 
-				$this->data['MultipleAttributes']=$this->Product_Model->getMultipleAttributesListDropDwon();
+				$this->data['MultipleAttributes']=$this->Product_Model->getMultipleAttributesDropDwon();
 
 				//pr($this->data['ProductSizes'],1);
 
@@ -1177,7 +1177,7 @@ class Products extends Admin_Controller
 
 		$this->load->helper('form');
 		$this->load->model('Product_Model');
-		$MultipleAttributes=$this->Product_Model->getMultipleAttributesListDropDwon();
+		$MultipleAttributes=$this->Product_Model->getMultipleAttributesDropDwon();
 		$data['BASE_URL']=base_url();
 		$attributeData=array();
 		$attribute_item_id=$extra_price='';

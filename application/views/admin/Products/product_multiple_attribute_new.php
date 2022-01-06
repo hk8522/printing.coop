@@ -5,30 +5,30 @@
 .entrynew.input-group .form-control {
 	width: 100px;
 }
-.attribute-single-inner, .attribute-single-info-inner {
+.attribute-inner, .attribute-info-inner {
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 }
-.attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+.attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-start;
 }
-#WidthAndLengthSection .attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+#WidthAndLengthSection .attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-end;
 }
-.for-att-multi .attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+.for-att-multi .attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-end;
 }
-.for-att-multi .attribute-single-info .row .col-md-12 .attribute-single-info-inner {
+.for-att-multi .attribute-info .row .col-md-12 .attribute-info-inner {
     padding-left: 0px;
     margin-top: 5px;
 }
-.attribute-single-inner label, .attribute-single-info-inner label {
+.attribute-inner label, .attribute-info-inner label {
 	margin: 0px !important;
 	padding-right: 5px;
 }
-.control-group .attribute-single-inner input, .control-group .attribute-single-info-inner input {
+.control-group .attribute-inner input, .control-group .attribute-info-inner input {
     height: 30px !important;
     padding: 5px 5px !important;
     color: #000;
@@ -40,7 +40,7 @@
     width: 80px;
     text-align: center;
 }
-.control-group .attribute-single-info-inner select {
+.control-group .attribute-info-inner select {
     height: 30px !important;
     padding: 5px 5px !important;
     color: #000;
@@ -64,32 +64,32 @@
     background: #f9f9f9;
     height: auto;
 }
-.attribute-single.active .attribute-info {
+.attribute.active .attribute-info {
 	padding: 10px 10px 10px 25px;
 	background: #f9f9f9;
 	height: auto;
 	margin-bottom: 10px;
 }
-.attribute-single-info {
+.attribute-info {
     background: #fff;
     padding: 5px 5px;
     margin-bottom: 10px;
 }
-.attribute-single-info-inner {
+.attribute-info-inner {
 	padding: 0px 0px 0px 20px;
 }
-.attribute-single-title {
+.attribute-title {
 	background: #f1f1f1;
 	padding: 5px 10px;
 }
-.attribute-single {
+.attribute {
 	padding-bottom: 10px;
 }
-.controls.small-controls .attribute-single:last-child {
+.controls.small-controls .attribute:last-child {
 	margin: 0px;
 	padding: 0px;
 }
-.control-group .controls.small-controls .attribute-single-title .span2 {
+.control-group .controls.small-controls .attribute-title .span2 {
 	margin-bottom: 0px !important;
 }
 </style>
@@ -122,7 +122,7 @@
 		</div>-->
         <div class="col-md-12 col-lg-12 col-xl-12">
             <div class="controls small-controls">
-		    <div class="attribute-single-info-inner">
+		    <div class="attribute-info-inner">
 				<div class="all-vol-btn">
 					<button type="button" onclick="addQuantity('')"><i class="fa fa-plus"></i> Add Quantity</button>
 				</div>
@@ -136,8 +136,8 @@
 		$sizeData=isset($val['sizeData']) ? $val['sizeData']:'';
 
 ?>
-<div class="attribute-single">
-    <div class="attribute-single-title">
+<div class="attribute">
+    <div class="attribute-title">
         <div class="row align-items-center">
             <div class="col-6 col-md-6">
                 <label class="span2">
@@ -147,13 +147,13 @@
                 </label>
             </div>
             <div class="col-3 col-md-4">
-                <div class="attribute-single-inner">
+                <div class="attribute-inner">
                     <input type="text" value='<?php echo showValue($val['price']);?>' name="quantity_extra_price[]?>"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control" readonly>
                     <label class="form-inner-label">Extra Price</label>
  				</div>
    	        </div>
 			<div class="col-3 col-md-2">
-                <div class="attribute-single-inner action-btns">
+                <div class="attribute-inner action-btns">
                      <button class="btn btn-success" type="button" onclick="addQuantity('<?php echo $key;?>')"><i class="far fa-edit fa-lg"></i></button>&nbsp;
                     <button class="btn btn-danger" type="button" onclick="deleteQuantity('<?php echo $key;?>')"><i class="fa fa-trash fa-lg"></i></button>
  				</div>
@@ -162,9 +162,9 @@
     </div>
 	<?php
 	?>
-	<div class="attribute-single" id="quantity_attribute_id_div_<?php echo $key?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">
+	<div class="attribute" id="quantity_attribute_id_div_<?php echo $key?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">
 	   	<div class="controls small-controls">
-		    <div class="attribute-single-info-inner">
+		    <div class="attribute-info-inner">
 				<div class="cus-inner-btn">
 					<button type="button" onclick="addSize('<?php echo $key;?>','')">Add Size</button>
 				</div>
@@ -178,8 +178,8 @@
                 $size_extra_price=isset($sval['extra_price']) ? $sval['extra_price']:'';
               ?>
 
-            <div class="attribute-single active" id="size_attribute_id_div_<?php echo $key?>_<?php echo $skey?>">
-    		    <div class="attribute-single-title">
+            <div class="attribute active" id="size_attribute_id_div_<?php echo $key?>_<?php echo $skey?>">
+    		    <div class="attribute-title">
     	           <div class="row align-items-center">
     	               <div class="col-6 col-md-6">
     	                   <label class="span2">
@@ -188,13 +188,13 @@
                             </label>
                         </div>
                         <div class="col-3 col-md-4">
-                            <div class="attribute-single-inner">
+                            <div class="attribute-inner">
                                 <input type="text"  name="size_extra_price_<?php echo $skey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control" value="<?php echo showValue($size_extra_price)?>" readonly>
     							<label class="form-inner-label">Extra Price</label>
                             </div>
                         </div>
     					<div class="col-3 col-md-2">
-    						<div class="attribute-single-inner action-btns">
+    						<div class="attribute-inner action-btns">
     							 <button class="btn btn-success" type="button" onclick="addSize('<?php echo $key;?>','<?php echo $skey;?>')"><i class="far fa-edit fa-lg"></i></button>&nbsp;
     							<button class="btn btn-danger" type="button" onclick="deleteProductSize('<?php echo $key;?>','<?php echo $skey;?>')"><i class="fa fa-trash fa-lg"></i></button>
     						</div>
@@ -207,7 +207,7 @@
     			?>
     		    <div class="for-att-multi attribute-info <?php echo $key.'_'.$skey?>">
         			<div class="controls small-controls">
-    					<div class="attribute-single-info-inner">
+    					<div class="attribute-info-inner">
     						<div class="cus-inner-btn">
     							<button type="button" onclick="addAttribute('<?php echo $key;?>','<?php echo $skey;?>','<?php echo $action?>')"><?php echo $action;?> Size Attribute</button>
     						</div>
@@ -223,18 +223,18 @@
     					if($subval['paper_quality']){
     					?>
                         <div class="col-md-6">
-                            <div class="attribute-single-info">
+                            <div class="attribute-info">
                                 <div class="row align-items-center">
                                     <div class="col-8 col-md-6">
                                         <label class="form-inner-label">Paper Quality</label>
                                     </div>
                                     <div class="col-4 col-md-6">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
                                             <input type="text"  name="paper_quality_extra_price_<?php echo $key?>_<?php echo $skey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control" value='<?php echo showValue($subval['paper_quality_extra_price'])?>' readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
     									   <label>
     									   <?php
     									   echo $subval['paper_quality'];
@@ -250,18 +250,18 @@
     					if($subval['ncr_number_parts']){
     					?>
     					<div class="col-md-6">
-                            <div class="attribute-single-info">
+                            <div class="attribute-info">
                                 <div class="row align-items-center">
                                     <div class="col-8 col-md-6">
                                         <label class="form-inner-label">NCR Number of Parts</label>
                                     </div>
                                     <div class="col-4 col-md-6">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
                                             <input type="text"  name="ncr_number_part_price_<?php echo $key?>_<?php echo $skey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" value='<?php echo showValue($subval['ncr_number_part_price'])?>'  class="form-control" readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
     									   <label>
     									   <?php
     									   echo $subval['ncr_number_parts'];
@@ -278,18 +278,18 @@
         				if($subval['stock']){
         				?>
     				    <div class="col-md-6">
-                            <div class="attribute-single-info">
+                            <div class="attribute-info">
                                 <div class="row align-items-center">
                                     <div class="col-8 col-md-6">
                                         <label class="form-inner-label">Background</label>
                                     </div>
                                     <div class="col-4 col-md-6">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
                                         <input type="text" value='<?php echo showValue($subval['stock_extra_price'])?>' name="stock_extra_price_<?php echo $key?>_<?php echo $skey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control" readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
     									   <label>
     									   <?php
     									   echo $subval['stock'];
@@ -306,18 +306,18 @@
     				    if($subval['color']){
     				    ?>
     					<div class="col-md-6">
-                            <div class="attribute-single-info">
+                            <div class="attribute-info">
                                 <div class="row align-items-center">
                                     <div class="col-8 col-md-6">
                                         <label class="form-inner-label">Printed Color</label>
                                     </div>
                                     <div class="col-4 col-md-6">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
                                             <input type="text" value='<?php echo showValue($subval['color_extra_price'])?>' name="color_extra_price_<?php echo $key?>_<?php echo $skey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control" readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
         									<label>
     									   <?php
     									   echo $subval['color'];
@@ -334,18 +334,18 @@
     				    if($subval['diameter']){
     				    ?>
     					<div class="col-md-6">
-                            <div class="attribute-single-info">
+                            <div class="attribute-info">
                                 <div class="row align-items-center">
                                     <div class="col-8 col-md-6">
                                         <label class="form-inner-label">Diameter</label>
                                     </div>
                                     <div class="col-4 col-md-6">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
                                             <input type="text" value='<?php echo showValue($subval['diameter_extra_price'])?>' name="diameter_extra_price_<?php echo $key?>_<?php echo $skey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control" readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
         								   <label>
     									   <?php
     									   echo $subval['diameter'];
@@ -362,18 +362,18 @@
     				    if($subval['shape_paper']){
     				    ?>
     					<div class="col-md-6">
-                            <div class="attribute-single-info">
+                            <div class="attribute-info">
                                 <div class="row align-items-center">
                                     <div class="col-8 col-md-6">
                                         <label class="form-inner-label">Coating</label>
                                     </div>
                                     <div class="col-4 col-md-6">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
                                             <input type="text" value='<?php echo showValue($subval['shape_paper_extra_price'])?>' name="shape_paper_extra_price_<?php echo $key?>_<?php echo $skey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control" readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
     									   <label>
     									   <?php
     									   echo $subval['shape_paper'];
@@ -390,18 +390,18 @@
     				    if($subval['grommets']){
     				    ?>
     					<div class="col-md-6">
-                            <div class="attribute-single-info">
+                            <div class="attribute-info">
                                 <div class="row align-items-center">
                                     <div class="col-8 col-md-6">
                                         <label class="form-inner-label">Grommets</label>
                                     </div>
                                     <div class="col-4 col-md-6">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
                                             <input type="text" value='<?php echo showValue($subval['grommets_extra_price'])?>' name="grommets_extra_price_<?php echo $key?>_<?php echo $skey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control" readonly>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
-                                        <div class="attribute-single-info-inner">
+                                        <div class="attribute-info-inner">
         								   <label>
     									   <?php
     									   echo $subval['grommets'];

@@ -1143,7 +1143,7 @@ class Products extends Public_Controller
 		}
 		$this->load->model('Product_Model');
 		$ProductSizes=$this->Product_Model->ProductQuantySizeAttributeDropDwon($product_id);
-		$MultipleAttributes=$this->Product_Model->getMultipleAttributesListDropDwon();
+		$MultipleAttributes=$this->Product_Model->getMultipleAttributesDropDwon();
 		$response=array();
 
 		$options = $this->language_name== 'French' ? '<option value="">Choisis une option...</option>':'<option value="">Choose an option...</option>';

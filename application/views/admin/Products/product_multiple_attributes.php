@@ -5,30 +5,30 @@
 .entrynew.input-group .form-control {
 	width: 100px;
 }
-.attribute-single-inner, .attribute-single-info-inner {
+.attribute-inner, .attribute-info-inner {
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 }
-.attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+.attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-start;
 }
-#WidthAndLengthSection .attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+#WidthAndLengthSection .attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-end;
 }
-.for-att-multi .attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+.for-att-multi .attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-end;
 }
-.for-att-multi .attribute-single-info .row .col-md-12 .attribute-single-info-inner {
+.for-att-multi .attribute-info .row .col-md-12 .attribute-info-inner {
     padding-left: 0px;
     margin-top: 5px;
 }
-.attribute-single-inner label, .attribute-single-info-inner label {
+.attribute-inner label, .attribute-info-inner label {
 	margin: 0px !important;
 	padding-right: 5px;
 }
-.control-group .attribute-single-inner input, .control-group .attribute-single-info-inner input {
+.control-group .attribute-inner input, .control-group .attribute-info-inner input {
     height: 30px !important;
     padding: 5px 5px !important;
     color: #000;
@@ -40,7 +40,7 @@
     width: 80px;
     text-align: center;
 }
-.control-group .attribute-single-info-inner select {
+.control-group .attribute-info-inner select {
     height: 30px !important;
     padding: 5px 5px !important;
     color: #000;
@@ -64,32 +64,32 @@
     background: #f9f9f9;
     height: auto;
 }
-.attribute-single.active .attribute-info {
+.attribute.active .attribute-info {
 	padding: 10px 10px 10px 25px;
 	background: #f9f9f9;
 	height: auto;
 	margin-bottom: 10px;
 }
-.attribute-single-info {
+.attribute-info {
     background: #fff;
     padding: 5px 5px;
     margin-bottom: 10px;
 }
-.attribute-single-info-inner {
+.attribute-info-inner {
 	padding: 0px 0px 0px 20px;
 }
-.attribute-single-title {
+.attribute-title {
 	background: #f1f1f1;
 	padding: 5px 10px;
 }
-.attribute-single {
+.attribute {
 	padding-bottom: 10px;
 }
-.controls.small-controls .attribute-single:last-child {
+.controls.small-controls .attribute:last-child {
 	margin: 0px;
 	padding: 0px;
 }
-.control-group .controls.small-controls .attribute-single-title .span2 {
+.control-group .controls.small-controls .attribute-title .span2 {
 	margin-bottom: 0px !important;
 }
 </style>
@@ -122,7 +122,7 @@
 		</div>-->
         <div class="col-md-12 col-lg-12 col-xl-12">
             <div class="controls small-controls">
-		    <div class="attribute-single-info-inner">
+		    <div class="attribute-info-inner">
 				<div class="all-vol-btn">
 					<button type="button" onclick="addQuantity('')"><i class="fa fa-plus"></i> Add Quantity</button>
 				</div>
@@ -136,8 +136,8 @@
 		$sizeData=isset($val['sizeData']) ? $val['sizeData']:'';
 
 ?>
-<div class="attribute-single">
-    <div class="attribute-single-title">
+<div class="attribute">
+    <div class="attribute-title">
         <div class="row align-items-center">
             <div class="col-6 col-md-6">
                 <label class="span2">
@@ -147,22 +147,22 @@
                 </label>
             </div>
             <div class="col-3 col-md-4">
-                <div class="attribute-single-inner">
+                <div class="attribute-inner">
                     <input type="text" value='<?php echo showValue($val['price']);?>' name="quantity_extra_price[]?>"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control" readonly>
                     <label class="form-inner-label">Extra Price</label>
  				</div>
    	        </div>
 			<div class="col-3 col-md-2">
-                <div class="attribute-single-inner action-btns">
+                <div class="attribute-inner action-btns">
                      <button class="btn btn-success" type="button" onclick="addQuantity('<?php echo $key;?>')"><i class="far fa-edit fa-lg"></i></button>&nbsp;
                     <button class="btn btn-danger" type="button" onclick="deleteQuantity('<?php echo $key;?>')"><i class="fa fa-trash fa-lg"></i></button>
  				</div>
    	        </div>
 	    </div>
     </div>
-	<div class="attribute-single" id="quantity_attribute_id_div_<?php echo $key?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">
+	<div class="attribute" id="quantity_attribute_id_div_<?php echo $key?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">
 	   	<div class="controls small-controls">
-		    <div class="attribute-single-info-inner">
+		    <div class="attribute-info-inner">
 				<div class="cus-inner-btn">
 					<button type="button" onclick="addSize('<?php echo $key;?>','')">Add Size</button>
 				</div>
@@ -176,8 +176,8 @@
                 $size_extra_price=isset($sval['extra_price']) ? $sval['extra_price']:'';
 				$attribute=$sval['attribute'];
             ?>
-            <div class="attribute-single active" id="size_attribute_id_div_<?php echo $key?>_<?php echo $skey?>">
-    		    <div class="attribute-single-title">
+            <div class="attribute active" id="size_attribute_id_div_<?php echo $key?>_<?php echo $skey?>">
+    		    <div class="attribute-title">
     	           <div class="row align-items-center">
     	               <div class="col-6 col-md-6">
     	                   <label class="span2">
@@ -186,13 +186,13 @@
                             </label>
                         </div>
                         <div class="col-3 col-md-4">
-                            <div class="attribute-single-inner">
+                            <div class="attribute-inner">
                                 <input type="text"  name="size_extra_price_<?php echo $skey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control" value="<?php echo showValue($size_extra_price)?>" readonly>
     							<label class="form-inner-label">Extra Price</label>
                             </div>
                         </div>
     					<div class="col-3 col-md-2">
-    						<div class="attribute-single-inner action-btns">
+    						<div class="attribute-inner action-btns">
     							 <button class="btn btn-success" type="button" onclick="addSize('<?php echo $key;?>','<?php echo $skey;?>')"><i class="far fa-edit fa-lg"></i></button>&nbsp;
     							<button class="btn btn-danger" type="button" onclick="deleteProductSize('<?php echo $key;?>','<?php echo $skey;?>')"><i class="fa fa-trash fa-lg"></i></button>
     						</div>
@@ -203,8 +203,8 @@
 				    <?php
 				foreach($MultipleAttributes as $akey=>$aval){
 				    ?>
-					<div class="attribute-single-items attribute_id_div_<?php echo $key?>_<?php echo $skey?>" id="attribute_id_div_<?php echo $key?>_<?php echo $skey?>_<?php echo $akey?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">
-					<div class="attribute-single-title">
+					<div class="attribute-items attribute_id_div_<?php echo $key?>_<?php echo $skey?>" id="attribute_id_div_<?php echo $key?>_<?php echo $skey?>_<?php echo $akey?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">
+					<div class="attribute-title">
 					   <div class="row align-items-center">
 						   <div class="col-8 col-md-8">
 							   <label class="span2">
@@ -213,7 +213,7 @@
 								</label>
 							</div>
 							<div class="col-4 col-md-4">
-								<div class="attribute-single-inner action-btns" style="text-align-last: end;">
+								<div class="attribute-inner action-btns" style="text-align-last: end;">
 
 									<div class="cus-inner-btn">
 					                    <button type="button" onclick="addEditAttribute('<?php echo $key;?>','<?php echo $skey;?>','<?php echo $akey;?>','')"> Add <?php echo $aval['name'];?> Item</button>
@@ -240,18 +240,18 @@
 
 							?>
 							<div class="col-md-6">
-								<div class="attribute-single-info">
+								<div class="attribute-info">
 									<div class="row align-items-center">
 										<div class="col-8 col-md-8">
 											<label class="form-inner-label"><?php echo $attributes_item_name;?></label>
 										</div>
 										<div class="col-2 col-md-2">
-											<div class="attribute-single-info-inner">
+											<div class="attribute-info-inner">
 												<input type="text"  name="paper_quality_extra_price_<?php echo $key?>_<?php echo $skey?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control" value='<?php echo showValue($attributes_item_extra_price)?>' readonly>
 											</div>
 										</div>
 										<div class="col-2 col-md-2">
-											<div class="attribute-single-inner action-btns">
+											<div class="attribute-inner action-btns">
 											<button class="btn btn-success" type="button" onclick="addEditAttribute('<?php echo $key;?>','<?php echo $skey;?>','<?php echo $akey;?>','<?php echo $attributes_item_id;?>')"><i class="far fa-edit fa-lg"></i></button>&nbsp;
 											<button class="btn btn-danger" type="button" onclick="deleteAttribute('<?php echo $attributes_item_id;?>')"><i class="fa fa-trash fa-lg"></i></button>
 											</div>

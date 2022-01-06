@@ -5,30 +5,30 @@
 .entrynew.input-group .form-control {
 	width: 100px;
 }
-.attribute-single-inner, .attribute-single-info-inner {
+.attribute-inner, .attribute-info-inner {
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 }
-.attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+.attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-start;
 }
-#WidthAndLengthSection .attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+#WidthAndLengthSection .attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-end;
 }
-.for-att-multi .attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+.for-att-multi .attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-end;
 }
-.for-att-multi .attribute-single-info .row .col-md-12 .attribute-single-info-inner {
+.for-att-multi .attribute-info .row .col-md-12 .attribute-info-inner {
     padding-left: 0px;
     margin-top: 5px;
 }
-.attribute-single-inner label, .attribute-single-info-inner label {
+.attribute-inner label, .attribute-info-inner label {
 	margin: 0px !important;
 	padding-right: 5px;
 }
-.control-group .attribute-single-inner input, .control-group .attribute-single-info-inner input {
+.control-group .attribute-inner input, .control-group .attribute-info-inner input {
     height: 30px !important;
     padding: 5px 5px !important;
     color: #000;
@@ -40,7 +40,7 @@
     width: 80px;
     text-align: center;
 }
-.control-group .attribute-single-info-inner select {
+.control-group .attribute-info-inner select {
     height: 30px !important;
     padding: 5px 5px !important;
     color: #000;
@@ -64,32 +64,32 @@
     background: #f9f9f9;
     height: auto;
 }
-.attribute-single.active .attribute-info {
+.attribute.active .attribute-info {
 	padding: 10px 10px 10px 25px;
 	background: #f9f9f9;
 	height: auto;
 	margin-bottom: 10px;
 }
-.attribute-single-info {
+.attribute-info {
     background: #fff;
     padding: 5px 5px;
     margin-bottom: 10px;
 }
-.attribute-single-info-inner {
+.attribute-info-inner {
 	padding: 0px 0px 0px 20px;
 }
-.attribute-single-title {
+.attribute-title {
 	background: #f1f1f1;
 	padding: 5px 10px;
 }
-.attribute-single {
+.attribute {
 	padding-bottom: 10px;
 }
-.controls.small-controls .attribute-single:last-child {
+.controls.small-controls .attribute:last-child {
 	margin: 0px;
 	padding: 0px;
 }
-.control-group .controls.small-controls .attribute-single-title .span2 {
+.control-group .controls.small-controls .attribute-title .span2 {
 	margin-bottom: 0px !important;
 }
 </style>
@@ -118,7 +118,7 @@
 					<div class="row align-items-center">
 						<div class="col-md-12">
 
-			<div class="attribute-single active">
+			<div class="attribute active">
 
 		    <div class="for-att-multi attribute-info SizeQuantity">
                 <?php
@@ -150,18 +150,18 @@
 
                     </div>
                     <div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">Paper Quality</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text"  name="paper_quality_extra_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control" value='<?php echo showValue($subval['paper_quality_extra_price'])?>'>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
 									    <select name="paper_quality[]" class="form-control">
         									<option value="">--Select--</option>
         									<?php
@@ -181,18 +181,18 @@
                         </div>
 					</div>
 					<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">NCR Number of Parts</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text"  name="ncr_number_part_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" value='<?php echo showValue($subval['ncr_number_part_price'])?>'  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <select name="ncr_number_parts[]" class="form-control">
         									<option value="">
         									--Select--
@@ -214,18 +214,18 @@
                         </div>
     				</div>
 				<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">Background</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text" value='<?php echo showValue($subval['stock_extra_price'])?>' name="stock_extra_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
     									<select name="stock[]" class="form-control">
         									<option value="">
         									 --Select--
@@ -248,18 +248,18 @@
                         </div>
 					</div>
 					<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">Printed Color</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text" value='<?php echo showValue($subval['color_extra_price'])?>' name="color_extra_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
     									<select name="color[]" class="form-control">
         									<option value="">
         									 --Select--
@@ -281,18 +281,18 @@
                         </div>
 					</div>
 					<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">Diameter</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text" value='<?php echo showValue($subval['diameter_extra_price'])?>' name="diameter_extra_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
     									<select name="diameter[]" class="form-control">
         									<option value="">
         									 --Select--
@@ -314,18 +314,18 @@
                         </div>
 					</div>
 					<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">Coating</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text" value='<?php echo showValue($subval['shape_paper_extra_price'])?>' name="shape_paper_extra_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
     									<select name="shape_paper[]" class="form-control">
         									<option value="">
         									 --Select--
@@ -347,18 +347,18 @@
                         </div>
 					</div>
 					<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">Grommets</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text" value='<?php echo showValue($subval['grommets_extra_price'])?>' name="grommets_extra_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
     									<select name="grommets[]" class="form-control">
         									<option value="">
         									 --Select--
@@ -385,7 +385,7 @@
 
                 <div class="row sqddata">
                     <div class="col-md-12">
-            			<div class="attribute-single-info-inner">
+            			<div class="attribute-info-inner">
                 			<span class="input-group-btn">
                                 <button class="btn btn-danger sqbtn-remove" type="button" style="display:none" onclick="RemoveRow($(this))"><span class="fa fa-minus"></span></button>
                                 <button class="btn btn-success sqbtn-add" type="button" onclick="AddRow($(this))"><span class="fa fa-plus"></span></button>
@@ -393,18 +393,18 @@
 	                    </div>
                     </div>
     				<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">Paper Quality</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text" value="" name="paper_quality_extra_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
 									<select name="paper_quality[]" class="form-control">
 									<option value="">
 									 --Select--
@@ -422,18 +422,18 @@
                         </div>
 					</div>
 					<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">NCR Number of Parts</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text" value="" name="ncr_number_part_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <select name="ncr_number_parts[]" class="form-control">
 										<option value="">
 										--Select--
@@ -452,18 +452,18 @@
                         </div>
 					</div>
 				<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">Background</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text" value="" name="stock_extra_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
 										<select name="stock[]" class="form-control">
 										<option value="">
 										 --Select--
@@ -481,18 +481,18 @@
                         </div>
 					</div>
 					<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">Printed Color</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text" value="" name="color_extra_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
 										<select name="color[]" class="form-control">
 										<option value="">
 										 --Select--
@@ -510,18 +510,18 @@
                         </div>
 					</div>
 					<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">Diameter</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text" value="" name="diameter_extra_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
 										<select name="diameter[]" class="form-control">
 										<option value="">
 										 --Select--
@@ -540,18 +540,18 @@
 					</div>
 
 					<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">Coating</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text" value="" name="shape_paper_extra_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
 										<select name="shape_paper[]" class="form-control">
 										<option value="">
 										 --Select--
@@ -570,18 +570,18 @@
 					</div>
 
 					<div class="col-md-6">
-                        <div class="attribute-single-info">
+                        <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
                                     <label class="form-inner-label">Grommets</label>
                                 </div>
                                 <div class="col-4 col-md-6">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
                                         <input type="text" value="" name="grommets_extra_price[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price"  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <div class="attribute-single-info-inner">
+                                    <div class="attribute-info-inner">
 										<select name="grommets[]" class="form-control">
 										<option value="">
 										 --Select--

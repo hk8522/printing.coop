@@ -2106,6 +2106,13 @@ ul.dropdown .open-dropdown {
 	left: 0px;
 	transform: translate(0%,-50%);
 }
+.control-group .controls.small-controls .span2 input.right, .control-group .controls.small-controls .span2 button.right {
+	position: absolute;
+	top: 50%;
+	right: 0px;
+    left: initial;
+	transform: translate(0%,-50%);
+}
 .action-btns {
 	display: flex;
 	align-items: center;
@@ -3279,46 +3286,43 @@ ul.dropdown .open-dropdown {
 .entry.input-group.col-xs-12 .input-group-btn {
 	margin-top: 5px;
 }
-.attribute-single-title {
-	padding: 5px 5px !important;
-}
 .control-group .controls.small-controls .span2 {
 	font-size: 12px !important;
 }
-.attribute-single-inner label.form-inner-label {
+.attribute-inner label.form-inner-label {
 	font-size: 10px !important;
 	margin: 0px !important;
 	padding-right: 0px !important;
 	right: 0px !important;
 	padding-left: 5px !important;
 }
-.control-group .attribute-single-title .attribute-single-inner input, .control-group .attribute-single-info .attribute-single-info-inner input {
+.control-group .attribute-title .attribute-inner input, .control-group .attribute-info .attribute-info-inner input {
 	height: 25px !important;
 	padding: 2px 2px !important;
 	border-radius: 2px !important;
 	font-size: 12px;
 	width: 70px;
 }
-.attribute-single.active .attribute-info {
+.attribute.active .attribute-info {
 	padding: 5px 5px 5px 5px !important;
 	margin-bottom: 0px !important;
 }
-.attribute-single-info-inner {
+.attribute-info-inner {
 	padding: 0px 0px 0px 0px !important;
 }
-.attribute-single-inner label, .attribute-single-info-inner label {
+.attribute-inner label, .attribute-info-inner label {
 	top: 0px !important;
 }
-.attribute-info .attribute-single-info-inner .form-inner-label {
+.attribute-info .attribute-info-inner .form-inner-label {
 	font-size: 10px !important;
 	margin: 0px !important;
 	padding: 0px !important;
 }
-.attribute-info .attribute-single-info-inner .form-inner-label {
+.attribute-info .attribute-info-inner .form-inner-label {
 	padding: 0px 0px 0px 5px !important;
 	right: 0px !important;
 }
-.control-group .attribute-single-info .attribute-single-info-inner select {
+.control-group .attribute-info .attribute-info-inner select {
 	height: 35px !important;
 	padding: 5px 5px !important;
 	border-radius: 2px !important;
@@ -3479,42 +3483,42 @@ ul.dropdown .open-dropdown {
 .control-group .controls.small-controls .span2 {
 	font-size: 13px !important;
 }
-.control-group .attribute-single-info .attribute-single-info-inner select {
+.control-group .attribute-info .attribute-info-inner select {
 	padding: 2px 2px !important;
 	border-radius: 2px !important;
 	font-size: 12px;
 }
-.attribute-single-info-inner {
+.attribute-info-inner {
 	padding: 0px 0px 0px 0px !important;
 }
-.control-group .attribute-single-info .attribute-single-info-inner input {
+.control-group .attribute-info .attribute-info-inner input {
 	padding: 2px 2px !important;
 	border-radius: 2px !important;
 	font-size: 12px;
 	width: 100%;
 }
-.attribute-single-inner label.form-inner-label {
+.attribute-inner label.form-inner-label {
 	font-size: 12px !important;
 	margin: 0px !important;
 	padding-right: 0px !important;
 	right: 0px !important;
 	padding-left: 5px !important;
 }
-.attribute-single-info-inner label.form-inner-label {
+.attribute-info-inner label.form-inner-label {
 	font-size: 12px !important;
 	margin: 0px !important;
 	padding-right: 0px !important;
 	right: 0px !important;
 	padding-left: 5px !important;
 }
-.control-group .attribute-single-title .attribute-single-inner input, .control-group .attribute-single-info .attribute-single-info-inner input {
+.control-group .attribute-title .attribute-inner input, .control-group .attribute-info .attribute-info-inner input {
 	height: 30px !important;
 	padding: 2px 2px !important;
 	border-radius: 2px !important;
 	font-size: 12px;
 	width: 80px;
 }
-.attribute-single.active .attribute-info {
+.attribute.active .attribute-info {
 	padding: 10px !important;
 	background: #f9f9f9;
 	height: auto;
@@ -3527,7 +3531,7 @@ ul.dropdown .open-dropdown {
 .shipping-metthod-single .col-md-8.col-lg-7.col-xl-7.p-0 {
 	padding: 0px 15px !important;
 }
-.attribute-single {
+.attribute {
 	padding-bottom: 5px;
 }
 .control-group label.span2 {
@@ -3592,15 +3596,15 @@ ul.dropdown .open-dropdown {
 	border-bottom: none;
 	padding-bottom: 0px;
 }
-.attribute-single-inner.action-btns button {
+.attribute-inner.action-btns button {
 	padding: 5px 10px;
 }
-.attribute-single-inner.action-btns button svg {
+.attribute-inner.action-btns button svg {
 	font-size: 12px;
 	position: relative;
 	top: -2px;
 }
-.attribute-single-info-inner .all-vol-btn {
+.attribute-info-inner .all-vol-btn {
 	margin: 0px 0px 10px 0px;
 	width: 100%;
 	display: flex;
@@ -3623,4 +3627,21 @@ ul.dropdown .open-dropdown {
 }
 .center {
     text-align: center;
+}
+
+.attribute-title {
+	padding: 5px 5px !important;
+}
+
+.hidden {
+    display: none;
+}
+::-ms-clear {
+  display: none;
+}
+
+.form-control-clear {
+  z-index: 10;
+  pointer-events: auto;
+  cursor: pointer;
 }

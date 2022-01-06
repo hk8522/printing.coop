@@ -5,30 +5,30 @@
 .entrynew.input-group .form-control {
 	width: 100px;
 }
-.attribute-single-inner, .attribute-single-info-inner {
+.attribute-inner, .attribute-info-inner {
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 }
-.attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+.attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-start;
 }
-#WidthAndLengthSection .attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+#WidthAndLengthSection .attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-end;
 }
-.for-att-multi .attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+.for-att-multi .attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-end;
 }
-.for-att-multi .attribute-single-info .row .col-md-12 .attribute-single-info-inner {
+.for-att-multi .attribute-info .row .col-md-12 .attribute-info-inner {
     padding-left: 0px;
     margin-top: 5px;
 }
-.attribute-single-inner label, .attribute-single-info-inner label {
+.attribute-inner label, .attribute-info-inner label {
 	margin: 0px !important;
 	padding-right: 5px;
 }
-.control-group .attribute-single-inner input, .control-group .attribute-single-info-inner input {
+.control-group .attribute-inner input, .control-group .attribute-info-inner input {
     height: 30px !important;
     padding: 5px 5px !important;
     color: #000;
@@ -40,7 +40,7 @@
     width: 80px;
     text-align: center;
 }
-.control-group .attribute-single-info-inner select {
+.control-group .attribute-info-inner select {
     height: 30px !important;
     padding: 5px 5px !important;
     color: #000;
@@ -64,32 +64,32 @@
     background: #f9f9f9;
     height: auto;
 }
-.attribute-single.active .attribute-info {
+.attribute.active .attribute-info {
 	padding: 10px 10px 10px 25px;
 	background: #f9f9f9;
 	height: auto;
 	margin-bottom: 10px;
 }
-.attribute-single-info {
+.attribute-info {
     background: #fff;
     padding: 5px 5px;
     margin-bottom: 10px;
 }
-.attribute-single-info-inner {
+.attribute-info-inner {
 	padding: 0px 0px 0px 20px;
 }
-.attribute-single-title {
+.attribute-title {
 	background: #f1f1f1;
 	padding: 5px 10px;
 }
-.attribute-single {
+.attribute {
 	padding-bottom: 10px;
 }
-.controls.small-controls .attribute-single:last-child {
+.controls.small-controls .attribute:last-child {
 	margin: 0px;
 	padding: 0px;
 }
-.control-group .controls.small-controls .attribute-single-title .span2 {
+.control-group .controls.small-controls .attribute-title .span2 {
 	margin-bottom: 0px !important;
 }
 </style>
@@ -125,8 +125,8 @@
         												<?php //pr($ProductAttributes); ?>
         												<?php foreach($AttributesList as $key=>$val){  //pr($AttributesList); die('OK');?>
 
-        												    <div class="attribute-single <?php if(array_key_exists($key,$ProductAttributes)) echo "active"?>" id="attribute_id_div_<?php echo $key?>"> <!-- Toggle "active" class when clicked on input(checkbox) below -->
-        													    <div class="attribute-single-title">
+        												    <div class="attribute <?php if(array_key_exists($key,$ProductAttributes)) echo "active"?>" id="attribute_id_div_<?php echo $key?>"> <!-- Toggle "active" class when clicked on input(checkbox) below -->
+        													    <div class="attribute-title">
         													        <div class="row align-items-center">
         													            <div class="col-7 col-md-8">
     														                <label class="span2">
@@ -135,7 +135,7 @@
 														                    </label>
         													            </div>
         													            <div class="col-5 col-md-4">
-        													                <div class="attribute-single-inner">
+        													                <div class="attribute-inner">
         													                    <input type="text" value="<?php if(array_key_exists($key,$ProductAttributes)) echo $ProductAttributes[$key]['data']['show_order']?>" name="attribute_order_<?php echo $key?>" onkeypress="javascript:return isNumber(event)"  placeholder="set Order">
         														                <label class="form-inner-label">set order</label>
         														            </div>
@@ -147,7 +147,7 @@
                 												        <?php
             			$k=1;					foreach($val['items'] as $subkey=>$subval){ ?>
     													                    <div class="col-md-6">
-                															    <div class="attribute-single-info">
+                															    <div class="attribute-info">
                 															        <div class="row">
                 															            <div class="col-md-12">
                 															                <label class="span2">
@@ -160,13 +160,13 @@
                 														                    </label>
             															                </div>
             															                <div class="col-6 col-md-6">
-            															                    <div class="attribute-single-info-inner">
+            															                    <div class="attribute-info-inner">
                 															                    <input type="text" value="<?php if(isset($ProductAttributes[$key]['items']) && array_key_exists($subkey,$ProductAttributes[$key]['items'])) echo showValue($ProductAttributes[$key]['items'][$subkey]['extra_price'])?>" name="attribute_item_extra_price_<?php echo $key?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price">
             															                        <label class="form-inner-label">Extra Price</label>
             															                    </div>
         															                    </div>
             															                <div class="col-6 col-md-6">
-            															                    <div class="attribute-single-info-inner">
+            															                    <div class="attribute-info-inner">
                     															                <input type="text" value="<?php if(isset($ProductAttributes[$key]['items']) && array_key_exists($subkey,$ProductAttributes[$key]['items'])) echo $ProductAttributes[$key]['items'][$subkey]['show_order']?>" name="attribute_item_order_<?php echo $key?>[]"  onkeypress="javascript:return isNumber(event)"  placeholder="set Order">
         															                            <label class="form-inner-label">set Order</label>
     															                            </div>

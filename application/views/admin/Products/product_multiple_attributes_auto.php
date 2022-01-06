@@ -16,27 +16,27 @@
                                 <div class="col-md-12">
                                     <div class="text-center" style="color:red">
                                         <?php echo $this->session->flashdata('message_error');
-										$product_id = $product['id'];
-										?>
+                                        $product_id = $product['id'];
+                                        ?>
                                     </div>
                                     <?php echo form_open_multipart('', array('class'=>'form-horizontal'));?>
                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($product['id']) ? $product['id']:'';?>" id="product_id">
     <div class="form-role-area"><div class="control-group info"><div class="row"><div class="col-md-12 col-lg-12 col-xl-12">
         <div class="controls small-controls">
-            <div class="attribute-single-info-inner">
+            <div class="attribute-info-inner">
                 <div class="all-vol-btn">
                     <button type="button" onclick="addQuantity('')"><i class="fa fa-plus"></i>Add Quantity</button>
                 </div>
             </div>
 
             <?php /* Quantity */ ?>
-            <div class="attribute-single">
+            <div class="attribute">
             <?php
                 foreach ($productQuantities as $quantity) {
                     $id = $quantity['id'];
             ?>
-                <div class="attribute-single-items" id="quantity-container-<?=$id?>">
-                    <div class="attribute-single-title">
+                <div class="attribute-items" id="quantity-container-<?=$id?>">
+                    <div class="attribute-title">
                         <div class="row align-items-center">
                             <div class="col-6 col-md-6">
                                 <label class="span2">
@@ -45,13 +45,13 @@
                                 </label>
                             </div>
                             <div class="col-3 col-md-4">
-                                <div class="attribute-single-inner">
+                                <div class="attribute-inner">
                                     <input type="text" value='<?php echo showValue($quantity['price']);?>' name="quantity_extra_price[]?>" placeholder="Extra Price" class="form-control" readonly>
                                     <label class="form-inner-label">Extra Price</label>
                                 </div>
                             </div>
                             <div class="col-3 col-md-2">
-                                <div class="attribute-single-inner action-btns">
+                                <div class="attribute-inner action-btns">
                                     <button class="btn btn-success" type="button" onclick="addQuantity('<?=$id?>')"><i class="far fa-edit fa-lg"></i></button>&nbsp;
                                     <button class="btn btn-danger" type="button" onclick="deleteQuantity('<?=$id?>')"><i class="fa fa-trash fa-lg"></i></button>
                                 </div>
@@ -66,20 +66,20 @@
 
     <div class="form-role-area"><hr><div class="control-group info"><div class="row"><div class="col-md-12 col-lg-12 col-xl-12">
         <div class="controls small-controls">
-            <div class="attribute-single-info-inner">
+            <div class="attribute-info-inner">
                 <div class="all-vol-btn">
                     <button type="button" onclick="addSize('')"><i class="fa fa-plus"></i>Add Size</button>
                 </div>
             </div>
 
             <?php /* Size */ ?>
-            <div class="attribute-single">
+            <div class="attribute">
             <?php
                 foreach ($productSizes as $size) {
                     $id = $size['id'];
             ?>
-                <div class="attribute-single-items" id="size-container-<?=$id?>">
-                    <div class="attribute-single-title">
+                <div class="attribute-items" id="size-container-<?=$id?>">
+                    <div class="attribute-title">
                         <div class="row align-items-center">
                             <div class="col-6 col-md-6">
                                 <label class="span2">
@@ -88,13 +88,13 @@
                                 </label>
                             </div>
                             <div class="col-3 col-md-4">
-                                <div class="attribute-single-inner">
+                                <div class="attribute-inner">
                                     <input type="text" value='<?php echo showValue($size['extra_price']);?>' name="size_extra_price[]?>" placeholder="Extra Price" class="form-control" readonly>
                                     <label class="form-inner-label">Extra Price</label>
                                 </div>
                             </div>
                             <div class="col-3 col-md-2">
-                                <div class="attribute-single-inner action-btns">
+                                <div class="attribute-inner action-btns">
                                     <button class="btn btn-success" type="button" onclick="addSize('<?=$id?>')"><i class="far fa-edit fa-lg"></i></button>&nbsp;
                                     <button class="btn btn-danger" type="button" onclick="deleteSize('<?=$id?>')"><i class="fa fa-trash fa-lg"></i></button>
                                 </div>
@@ -109,19 +109,19 @@
 
     <div class="form-role-area"><hr><div class="control-group info"><div class="row"><div class="col-md-12 col-lg-12 col-xl-12">
         <div class="controls small-controls">
-            <div class="attribute-single-info-inner">
+            <div class="attribute-info-inner">
                 <div class="all-vol-btn">
                     <button type="button" onclick="addAttribute('')"><i class="fa fa-plus"></i>Add Attributes</button>
                 </div>
             </div>
 
             <?php /* Attributes */ ?>
-            <div class="attribute-single">
+            <div class="attribute">
             <?php foreach($productAttributes as $attribute) {
                 $attribute_id = $attribute['id'];
                 ?>
-                <div class="attribute-single-items" id="attribute-container-<?=$attribute_id?>">
-                    <div class="attribute-single-title">
+                <div class="attribute-items" id="attribute-container-<?=$attribute_id?>">
+                    <div class="attribute-title">
                         <div class="row align-items-center">
                             <div class="col-8 col-md-8">
                                 <label class="span2">
@@ -130,7 +130,7 @@
                                 </label>
                             </div>
                             <div class="col-4 col-md-4">
-                                <div class="attribute-single-inner action-btns">
+                                <div class="attribute-inner action-btns">
                                     <div class="cus-inner-btn">
                                         <button type="button" onclick="addAttributeItem('<?=$attribute_id?>', '')">Add <?=$attribute['name']?> Item</button>
                                     </div>&nbsp;
@@ -149,18 +149,18 @@
                             $attribute_item_id = $item['id'];
                             ?>
                             <div class="col-md-6">
-                                <div class="attribute-single-info">
+                                <div class="attribute-info">
                                     <div class="row align-items-center">
                                         <div class="col-8 col-md-8">
                                             <label class="form-inner-label"><?=$item['item_name']?></label>
                                         </div>
                                         <div class="col-2 col-md-2">
-                                            <div class="attribute-single-info-inner">
+                                            <div class="attribute-info-inner">
                                                 <input type="text" name="extra_price_<?=$product_id?>_<?=$attribute_id?>_<?=$attribute_item_id?>[]" onkeypress="javascript:return isNumber(event)" placeholder="Extra Price" class="form-control" value='<?=showValue($item['extra_price'])?>' readonly>
                                             </div>
                                         </div>
                                         <div class="col-2 col-md-2">
-                                            <div class="attribute-single-inner action-btns">
+                                            <div class="attribute-inner action-btns">
                                             <button class="btn btn-success" type="button" onclick="addAttributeItem('<?=$attribute_id?>', '<?=$attribute_item_id?>')"><i class="far fa-edit fa-lg"></i></button>&nbsp;
                                             <button class="btn btn-danger" type="button" onclick="deleteAttributeItem('<?=$attribute_id?>', '<?=$attribute_item_id?>')"><i class="fa fa-trash fa-lg"></i></button>
                                             </div>

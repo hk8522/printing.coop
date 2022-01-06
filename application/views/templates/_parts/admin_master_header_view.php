@@ -376,5 +376,4 @@
                 <!-- /.sidebar -->
             </aside>
         </div>
-
 <div id="loder-img"><div id="loder-img-inner"><img src="<?php echo $BASE_URL;?>assets/images/loder.gif" width="100"></div></div>

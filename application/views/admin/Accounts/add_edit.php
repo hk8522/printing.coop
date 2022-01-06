@@ -7,20 +7,20 @@
 .entrynew.input-group .form-control {
 	width: 100px;
 }
-.attribute-single-inner, .attribute-single-info-inner {
+.attribute-inner, .attribute-info-inner {
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 }
-.attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+.attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
 	justify-content: flex-start;
 }
-.attribute-single-inner label, .attribute-single-info-inner label {
+.attribute-inner label, .attribute-info-inner label {
 	margin: 0px !important;
 	padding-right: 5px;
 }
-.attribute-single-inner input, .attribute-single-info-inner input {
+.attribute-inner input, .attribute-info-inner input {
 	height: 30px;
 	padding: 5px 5px !important;
 	color: #000;
@@ -39,32 +39,32 @@
 	overflow: hidden;
 	margin-bottom: 0px;
 }
-.attribute-single.active .attribute-info {
+.attribute.active .attribute-info {
 	padding: 10px 10px 10px 25px;
 	background: #f9f9f9;
 	height: auto;
 	margin-bottom: 10px;
 }
-.attribute-single-info {
+.attribute-info {
 	background: #fff;
 	padding: 10px 10px;
 	margin-bottom: 10px;
 }
-.attribute-single-info-inner {
+.attribute-info-inner {
 	padding: 0px 0px 0px 20px;
 }
-.attribute-single-title {
+.attribute-title {
 	background: #f1f1f1;
 	padding: 5px 10px;
 }
-.attribute-single {
+.attribute {
 	padding-bottom: 10px;
 }
-.controls.small-controls .attribute-single:last-child {
+.controls.small-controls .attribute:last-child {
 	margin: 0px;
 	padding: 0px;
 }
-.control-group .controls.small-controls .attribute-single-title .span2 {
+.control-group .controls.small-controls .attribute-title .span2 {
 	margin-bottom: 0px !important;
 }
 </style>
@@ -215,8 +215,8 @@
 				<?php
 				 foreach($AttributesList as $key=>$val){  //pr($AttributesList); die('OK');?>
 
-					<div class="attribute-single <?php if(array_key_exists($key,$ProductAttributes)) echo "active"?>" id="attribute_id_div_<?php echo $key?>"> <!-- Toggle "active" class when clicked on input(checkbox) below -->
-						<div class="attribute-single-title">
+					<div class="attribute <?php if(array_key_exists($key,$ProductAttributes)) echo "active"?>" id="attribute_id_div_<?php echo $key?>"> <!-- Toggle "active" class when clicked on input(checkbox) below -->
+						<div class="attribute-title">
 							<div class="row align-items-center">
 							<div class="col-md-12">
 								<label class="span2">
@@ -231,7 +231,7 @@
 						<?php
 						foreach($val['items'] as $subkey=>$subval){ ?>
 						<div class="col-md-6">
-							<div class="attribute-single-info">
+							<div class="attribute-info">
 								<div class="row">
 									<div class="col-md-12">
 									<label class="span2">

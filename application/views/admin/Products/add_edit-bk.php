@@ -7,20 +7,20 @@
 .entrynew.input-group .form-control {
 	width: 100px;
 }
-.attribute-single-inner, .attribute-single-info-inner {
+.attribute-inner, .attribute-info-inner {
 	text-align: center;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 }
-.attribute-single-info .row .col-md-6:nth-child(2) .attribute-single-info-inner {
+.attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
 	justify-content: flex-start;
 }
-.attribute-single-inner label, .attribute-single-info-inner label {
+.attribute-inner label, .attribute-info-inner label {
 	margin: 0px !important;
 	padding-right: 5px;
 }
-.attribute-single-inner input, .attribute-single-info-inner input {
+.attribute-inner input, .attribute-info-inner input {
 	height: 30px;
 	padding: 5px 5px !important;
 	color: #000;
@@ -39,32 +39,32 @@
 	overflow: hidden;
 	margin-bottom: 0px;
 }
-.attribute-single.active .attribute-info {
+.attribute.active .attribute-info {
 	padding: 10px 10px 10px 25px;
 	background: #f9f9f9;
 	height: auto;
 	margin-bottom: 10px;
 }
-.attribute-single-info {
+.attribute-info {
 	background: #fff;
 	padding: 10px 10px;
 	margin-bottom: 10px;
 }
-.attribute-single-info-inner {
+.attribute-info-inner {
 	padding: 0px 0px 0px 20px;
 }
-.attribute-single-title {
+.attribute-title {
 	background: #f1f1f1;
 	padding: 5px 10px;
 }
-.attribute-single {
+.attribute {
 	padding-bottom: 10px;
 }
-.controls.small-controls .attribute-single:last-child {
+.controls.small-controls .attribute:last-child {
 	margin: 0px;
 	padding: 0px;
 }
-.control-group .controls.small-controls .attribute-single-title .span2 {
+.control-group .controls.small-controls .attribute-title .span2 {
 	margin-bottom: 0px !important;
 }
 </style>
@@ -526,9 +526,9 @@
         												<?php //pr($sizes); ?>
         												<?php foreach($sizes as $key=>$val){  //pr($AttributesList); die('OK');?>
 
-        												    <div class="attribute-single <?php if(array_key_exists($key,$ProductSizes)) echo "active"?>" id="size_attribute_id_div_<?php echo $key?>">
+        												    <div class="attribute <?php if(array_key_exists($key,$ProductSizes)) echo "active"?>" id="size_attribute_id_div_<?php echo $key?>">
 															<!-- Toggle "active" class when clicked on input(checkbox) below -->
-	     													    <div class="attribute-single-title">
+	     													    <div class="attribute-title">
         													        <div class="row align-items-center">
         													            <div class="col-md-12">
     														                <label class="span2">
@@ -551,18 +551,18 @@
                												       ?>
     	 <div class="row <?php echo $key?>sqddata">
 		     <div class="col-md-12">
-                															    <div class="attribute-single-info">
+                															    <div class="attribute-info">
                 															        <div class="row">
 
             				<div class="col-md-4">
-            															                    <div class="attribute-single-info-inner">
+            															                    <div class="attribute-info-inner">
 
 	<label class="form-inner-label">Quantity </label>
 								<input type="text" value="<?php echo $subval['qty']?>" name="size_attribute_item_quantity_<?php echo $key?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Size Quantity">
 
             															                    </div>
         															                    </div>											                <div class="col-md-4">
-            															                    <div class="attribute-single-info-inner">
+            															                    <div class="attribute-info-inner">
 
 			<label class="form-inner-label">Extra Price</label>													<input type="text" value="<?php echo $subval['price']?>" name="size_attribute_item_extra_price_<?php echo $key?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price">
 
@@ -582,7 +582,7 @@
 					   $displayminusbtn='';
 
 					}
-			?>													                  <div class="attribute-single-info-inner">
+			?>													                  <div class="attribute-info-inner">
                 	    <span class="input-group-btn">
 
   <button class="btn btn-danger <?php echo $key?>sqbtn-remove" type="button" style="display:<?php echo $displayminusbtn;?>" onclick="RemoveRow($(this),'<?php echo $key?>')"><span class="fa fa-minus"></span></button>                                                              <button class="btn btn-success <?php echo $key?>sqbtn-add" type="button" onclick="AddRow($(this),'<?php echo $key?>')" style="display:<?php echo $displayplusnbtn;?>">
@@ -598,25 +598,25 @@
 
 		    <div class="row <?php echo $key?>sqddata">
 		     <div class="col-md-12">
-                															    <div class="attribute-single-info">
+                															    <div class="attribute-info">
                 															        <div class="row">
 
             				<div class="col-md-4">
-            															                    <div class="attribute-single-info-inner">
+            															                    <div class="attribute-info-inner">
 
 	                         <label class="form-inner-label">Quantity </label>
 				<input type="text" name="size_attribute_item_quantity_<?php echo $key?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Size qty">
 
             															                    </div>
         															                    </div>											                <div class="col-md-4">
-            															                    <div class="attribute-single-info-inner">
+            															                    <div class="attribute-info-inner">
 
 			<label class="form-inner-label">Extra Price</label>													<input type="text" value="" name="size_attribute_item_extra_price_<?php echo $key?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price">
 
             															                    </div>
         															                    </div>
 																						 <div class="col-md-4">
-            															                  <div class="attribute-single-info-inner">
+            															                  <div class="attribute-info-inner">
                 				<span class="input-group-btn">
 
   <button class="btn btn-danger <?php echo $key?>sqbtn-remove" type="button" style="display:none" onclick="RemoveRow($(this),'<?php echo $key?>')"><span class="fa fa-minus"></span></button>                                                              <button class="btn btn-success <?php echo $key?>sqbtn-add" type="button" onclick="AddRow($(this),'<?php echo $key?>')">
@@ -651,8 +651,8 @@
         												<?php //pr($ProductAttributes); ?>
         												<?php foreach($AttributesList as $key=>$val){  //pr($AttributesList); die('OK');?>
 
-        												    <div class="attribute-single <?php if(array_key_exists($key,$ProductAttributes)) echo "active"?>" id="attribute_id_div_<?php echo $key?>"> <!-- Toggle "active" class when clicked on input(checkbox) below -->
-        													    <div class="attribute-single-title">
+        												    <div class="attribute <?php if(array_key_exists($key,$ProductAttributes)) echo "active"?>" id="attribute_id_div_<?php echo $key?>"> <!-- Toggle "active" class when clicked on input(checkbox) below -->
+        													    <div class="attribute-title">
         													        <div class="row align-items-center">
         													            <div class="col-md-8">
     														                <label class="span2">
@@ -661,7 +661,7 @@
 														                    </label>
         													            </div>
         													            <div class="col-md-4">
-        													                <div class="attribute-single-inner">
+        													                <div class="attribute-inner">
         													                    <input type="text" value="<?php if(array_key_exists($key,$ProductAttributes)) echo $ProductAttributes[$key]['data']['show_order']?>" name="attribute_order_<?php echo $key?>" onkeypress="javascript:return isNumber(event)"  placeholder="set Order">
         														                <label class="form-inner-label">set order</label>
         														            </div>
@@ -673,7 +673,7 @@
                 												        <?php
             														        foreach($val['items'] as $subkey=>$subval){ ?>
     													                    <div class="col-md-6">
-                															    <div class="attribute-single-info">
+                															    <div class="attribute-info">
                 															        <div class="row">
                 															            <div class="col-md-12">
                 															                <label class="span2">
@@ -682,13 +682,13 @@
                 														                    </label>
             															                </div>
             															                <div class="col-md-6">
-            															                    <div class="attribute-single-info-inner">
+            															                    <div class="attribute-info-inner">
                 															                    <input type="text" value="<?php if(isset($ProductAttributes[$key]['items']) && array_key_exists($subkey,$ProductAttributes[$key]['items'])) echo $ProductAttributes[$key]['items'][$subkey]['extra_price']?>" name="attribute_item_extra_price_<?php echo $key?>[]"  onkeypress="javascript:return isNumber(event)" placeholder="Extra Price">
             															                        <label class="form-inner-label">Extra Price</label>
             															                    </div>
         															                    </div>
             															                <div class="col-md-6">
-            															                    <div class="attribute-single-info-inner">
+            															                    <div class="attribute-info-inner">
                     															                <input type="text" value="<?php if(isset($ProductAttributes[$key]['items']) && array_key_exists($subkey,$ProductAttributes[$key]['items'])) echo $ProductAttributes[$key]['items'][$subkey]['show_order']?>" name="attribute_item_order_<?php echo $key?>[]"  onkeypress="javascript:return isNumber(event)"  placeholder="set Order">
         															                            <label class="form-inner-label">set Order</label>
     															                            </div>
