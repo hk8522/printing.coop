@@ -256,7 +256,75 @@
                                                 </div>
                                             </div>
                                         </div>
-
+                                        <!-- CLOVER POS -->
+                                            <div class="control-group info">
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-4">
+                                                        <label class="span2 " for="inputMame">Clover Payment Mode</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="controls">
+                                                            <select name="clover_mode" class="form-control">
+                                                                <option value="0" <?php echo $postData['clover_mode']==0 ? 'selected':'';?>>Sandbox</option>
+                                                                <option value="1" <?php echo $postData['clover_mode']==1 ? 'selected':'';?>>Live</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="control-group info">
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-4">
+                                                        <label class="span2 " for="inputMame">Clover Sandbox Payment Api Key</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="controls">
+                                                            <input class="form-control" name="clover_sandbox_api_key" id="clover_sandbox_api_key" type="text" value="<?php echo isset($postData['clover_sandbox_api_key']) ? $postData['clover_sandbox_api_key']:'';?>" >
+                                                            <?php echo form_error('clover_sandbox_api_key'); ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="control-group info">
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-4">
+                                                        <label class="span2 " for="inputMame">Clover Sandbox Payment Secret</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="controls">
+                                                            <input class="form-control" name="clover_sandbox_secret" id="clover_sandbox_secret" type="text" value="<?php echo isset($postData['clover_sandbox_secret']) ? $postData['clover_sandbox_secret']:'';?>" >
+                                                            <?php echo form_error('clover_sandbox_secret'); ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="control-group info">
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-4">
+                                                        <label class="span2 " for="inputMame">Clover Live Payment Api Key</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="controls">
+                                                            <input class="form-control" name="clover_api_key" id="clover_api_key" type="text" value="<?php echo isset($postData['clover_api_key']) ? $postData['clover_api_key']:'';?>" >
+                                                            <?php echo form_error('clover_api_key'); ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="control-group info">
+                                                <div class="row align-items-center">
+                                                    <div class="col-md-4">
+                                                        <label class="span2 " for="inputMame">Clover Live Payment Secret</label>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div class="controls">
+                                                            <input class="form-control" name="clover_secret" id="clover_secret" type="text" value="<?php echo isset($postData['clover_secret']) ? $postData['clover_secret']:'';?>" >
+                                                            <?php echo form_error('clover_secret'); ?>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        <!-- CLOVER POS END -->
 										<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -265,7 +333,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <select name="paypal_payment_mode" class="form-control">
-														<option value="sendbox" <?php echo $postData['paypal_payment_mode']=='sendbox' ? 'selected':'';?>>Sendbox</option>
+														<option value="sandbox" <?php echo $postData['paypal_payment_mode']=='sandbox' ? 'selected':'';?>>Sandbox</option>
 														<option value="live" <?php echo $postData['paypal_payment_mode']=='live' ? 'selected':'';?>>Live</option>
 														</select>
                                                     </div>

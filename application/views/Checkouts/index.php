@@ -44,6 +44,12 @@
         <div class="checkout-section-inner">
             <div class="row">
                 <div class="col-md-7">
+                    <div class="text-center" style="color:red">
+                        <?php echo $this->session->flashdata('message_error');?>
+                    </div>
+                    <div class="text-center" style="color:green">
+                    <?php echo $this->session->flashdata('message_success');?>
+                    </div><br>
                     <div id="accordion">
                         <div class="card">
                             <div class="card-header <?php echo $stap == 1 ? '' : 'collapsed';?>" id="heading1" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
@@ -773,7 +779,7 @@
                             <?php
                             }?>
                         </div>
-                        <form action="<?php echo $BASE_URL?>Checkouts/SubmitOrder" method="post">
+                        <form action="<?php echo $BASE_URL?>Checkouts/SubmitOrder" id="place-order-form" method="post">
                           <input type="hidden" name="order_id" value="<?php echo base64_decode($order_id);?>">
                           <div class="card">
                               <div class="card-header <?php echo $stap == 4 ? '' : 'collapsed';?>" id="heading4" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
@@ -811,11 +817,47 @@
                                                           <?php
                                                           }?></span>
                                                       </div>
-
+                                                  </div>
                                                   </div>
                                               </div>
-
+<!-- POS CHECKOUT -->
+<div class="card pos">
+  <div class="card-header" id="headingPay4" data-toggle="collapse" data-target="#collapsePay4" aria-expanded="false" aria-controls="collapsePay4">
+      <label class="main-input" for="4payment"><input name="payment_type" value="pos" type="radio" id="4payment">
+      <?php 
+      if($language_name=='French'){ ?>
+        POS
+      <?php }else{ ?>
+        POS
+      <?php
+      }?></label>
                                           </div>
+  <div id="collapsePay4" class="collapse" aria-labelledby="headingPay4" data-parent="#accordion1" style="">
+      <div class="payment-option">
+          <div class="order-confirm-text">            
+            <input type="hidden" id="ExpMonth" name="ExpMonth">
+            <input type="hidden" id="ExpYear" name="ExpYear">
+          <!-- card form -->          
+            <p class="heading">PAYMENT DETAILS</p>
+            <div class="card-details">
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <p class="text-warning">Card Number</p> <input type="text" name="card-num" placeholder="1234 5678 9012 3457" id="CardNumber" size="20" minlength="19" maxlength="19">
+                </div>
+                <div class="col-md-3 form-group">
+                  <p class="text-warning">Expiration</p> <input type="text" id="ExpDate" placeholder="MM/YY" size="5" minlength="5" maxlength="5">
+                </div>
+                <div class="col-md-3">
+                  <p class="text-warning">Cvv</p> <input type="password" name="cvv" id="cvv" placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3">
+                </div>                
+              </div>
+            </div>
+          <!-- card form end -->
+          </div>
+      </div>
+  </div>
+</div>
+<!-- POS CHECKOUT END -->
                                          <!--<div class="card">
                                               <div class="card-header collapsed" id="headingPayFour" data-toggle="collapse" data-target="#collapsePayFour" aria-expanded="false" aria-controls="collapsePayFour">
                                                   <label class="main-input" for="Fourpayment"><input name="payment_type" value="cod" type="radio" id="Fourpayment">Cash On Delivery</label>

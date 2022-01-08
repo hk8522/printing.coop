@@ -1,7 +1,14 @@
 <?php
 error_reporting("ERROR");
 //error_reporting(E_ALL);
+
+
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+
+defined('PASSWORD_SECRET_START') OR define('PASSWORD_SECRET_START','####PRINTINGCOOPSECURITYSTART####');
+defined('PASSWORD_SECRET_END') OR define('PASSWORD_SECRET_END','####PRINTINGCOOPSECURITYEND####');
+defined('BLOCKED_IPS_ACCESS_TIME_IN_MINUTES') OR define('BLOCKED_IPS_ACCESS_TIME_IN_MINUTES',240);
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace

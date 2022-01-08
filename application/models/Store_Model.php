@@ -232,9 +232,16 @@ Class Store_Model extends MY_Model {
 			$datanew[$val['id']]=$val;
 		}
 		return $datanew;
-
     }
 
+	public function getCurrency($currency_id) {
+        $datanew=array();
+        $this->db->select('*');
+        $this->db->where('id',$currency_id);
+        $this->db->from('currency');
+        $query = $this->db->get();
+        return (array)$query->row();
+	}
 
 	public function getPickupStoresList() {
 

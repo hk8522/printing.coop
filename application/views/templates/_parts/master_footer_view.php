@@ -458,7 +458,7 @@
 <!-- <script src="//cdn.rawgit.com/tonystar/bootstrap-hover-tabs/v3.1.1/bootstrap-hover-tabs.js"></script> -->
 <script src="<?php echo $BASE_URL?>/assets/js/customslider.js"></script>
 <script src="<?php echo $BASE_URL?>/assets/js/validation.js"></script>
-
+<script src="<?php echo $BASE_URL?>/assets/js/jquery.mask.min.js"></script>
 <script>
 $(document).ready(function(){
   $("#back-top").hide();
@@ -2953,26 +2953,191 @@ function contactus_recaptcha(){
 					   }
 				});
 			}
-
 		}
-
 	}
 
+  function expiryMask() {
+      var inputChar = String.fromCharCode(event.keyCode);
+      var code = event.keyCode;
+      var allowedKeys = [8];
+      if (allowedKeys.indexOf(code) !== -1) {
+          return false;
+      }else
+      {
+          if($("#ExpDate").val().length > 7)
+          {
+              return false;
+          }else
+          {
+                  const key = event.keyCode;
+                  if (typeof key ==  "undefined" || key === 46) {
+                      var id = event.target.value;
+                      var lastChar = id.substr(id.length - 1);
+                      if(typeof lastChar != "undefined" && lastChar=='/')
+                      {
+                          event.target.value=event.target.value.replace("/","");
+                          return true;
+                      }else
+                      {
+                          event.target.value = event.target.value.replace(
+                              /^([1-9]\/|[2-9])$/g, '0$1/'
+                          ).replace(
+                              /^(0[1-9]|1[0-2])$/g, '$1/'
+                          ).replace(
+                              /^([0-1])([3-9])$/g, '0$1/$2'
+                          ).replace(
+                              /^(0?[1-9]|1[0-2])([0-9]{2})$/g, '$1/$2'
+                          ).replace(
+                              /^([0]+)\/|[0]+$/g, '0'
+                          ).replace(
+                              /[^\d\/]|^[\/]*$/g, ''
+                          ).replace(
+                              /\/\//g, '/'
+                          );
+                          splitDate($('#ExpDate').val())
+                          cardFormValidate()
+                          return true;
+                      }
+                  }else
+                  {
+                      event.target.value = event.target.value.replace(
+                          /^([1-9]\/|[2-9])$/g, '0$1/'
+                      ).replace(
+                          /^(0[1-9]|1[0-2])$/g, '$1/'
+                      ).replace(
+                          /^([0-1])([3-9])$/g, '0$1/$2'
+                      ).replace(
+                          /^(0?[1-9]|1[0-2])([0-9]{2})$/g, '$1/$2'
+                      ).replace(
+                          /^([0]+)\/|[0]+$/g, '0'
+                      ).replace(
+                          /[^\d\/]|^[\/]*$/g, ''
+                      ).replace(
+                          /\/\//g, '/'
+                      );
+                      splitDate($('#ExpDate').val())
+                      cardFormValidate()
+                      return true;
+                  }
+          }
+      }
+  }
+
+	function cardFormValidate(){
+    var cardValid = 1;
+    if($('#CardNumber').val().length < 14 || $('#CardNumber').val().length > 20 )
+    {
+      $("#CardNumber").addClass('is-invalid');
+      cardValid = 0;
+    }else
+    {
+      $("#CardNumber").removeClass('is-invalid');
+      cardValid = 1;
+    }
+    //card details validation
+    var expMonth = $("#ExpMonth").val();
+    var ExpDate = $("#ExpDate").val();
+    var ExpYear = $("#ExpYear").val();
+    var cvv = $("#cvv").val();
+    var regMonth = /^01|02|03|04|05|06|07|08|09|10|11|12$/;
+    var regYear = new RegExp("/^"+generateOfYears()+"$/");
+    var regcvv = /^[0-9]{3,3}$/;
+    if (!regMonth.test(expMonth) || !expMonth.length || !ExpDate.length) {
+        $("#ExpDate").addClass('is-invalid');
+        cardValid = 0;
+    }else
+    {
+        var date = new Date();
+        var month = parseInt(date.getMonth())+1
+        var year = date.getFullYear()
+        if(ExpYear.length && ExpYear == year && expMonth < month)
+        {
+            $("#ExpDate").addClass('is-invalid');
+            cardValid = 0;
+        }else
+        {
+            $("#ExpDate").removeClass('is-invalid');
+        }
+    }
+    var y = new Date().getFullYear();
+    if (!ExpDate.length || !ExpYear.length || !regYear.test(ExpYear)) {
+        if(y == ExpYear)
+        {
+            $("#ExpDate").removeClass('is-invalid');
+        }else
+        {
+            $("#ExpDate").addClass('is-invalid');
+            cardValid = 0;
+        }
+    }else
+    {
+        $("#ExpDate").removeClass('is-invalid');
+    }
+    if (!regcvv.test(cvv) || !cvv.length) {
+        $("#cvv").addClass('is-invalid');
+        cardValid = 0;
+    }else
+    {
+        $("#cvv").removeClass('is-invalid');
+    }
+    if(cardValid==1)
+    {
+      return true;
+    }else
+    {
+      return false;
+    }
+  }
+  function splitDate(value) {
+      var regExp = /(1[0-2]|0[1-9]|\d)\/(20\d{2}|19\d{2}|0(?!0)\d|[1-9]\d)/;
+      var matches = regExp.exec(value);
+      if(matches != null)
+      {
+          $('#ExpMonth').val(matches[1]);
+          $('#ExpYear').val("20"+matches[2]);
+      }
+  }
+  function generateOfYears() {
+    var year = new Date().getFullYear()
+    var years = ''
+    for (var i = year; i < year + 10; i++) {
+        years = years+i+'|';
+    }
+    years = years.substring(0, years.length - 1);
+    return years
+  }
 	$(document).ready(function() {
-
 		if(language_name=='French'){
-
 			$("#printer_brand").val('');
 			$("#printer_series").html("<option value=''>Sélectionnez une série d'imprimantes</option>");
-		    $("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
-
+		  $("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
 		}else{
-
-		   $("#printer_brand").val('');
-           $("#printer_series").html('<option value="">Select a Printer Series</option>');
-		   $("#printer_models").html('<option value="">Select a Printer Model</option>');
+      $("#printer_brand").val('');
+      $("#printer_series").html('<option value="">Select a Printer Series</option>');
+      $("#printer_models").html('<option value="">Select a Printer Model</option>');
 		}
+    $('#CardNumber').mask('0000 0000 0000 0000');
+    $(".pos input").keyup(function(){ cardFormValidate() })
+    $("#place-order-form").submit(function(e){
+      e.preventDefault()
+      if($('#4payment').is(":checked") && cardFormValidate() == true)
+      {
+        $("#place-order-form")[0].submit()
+      }else{
+        $("#place-order-form")[0].submit()
+      }
+    })
+    $(document).on('keyup change input paste','#ExpDate', function(){
+        if(expiryMask()){
+          var $this = $(this);
+          var val = $this.val();
+          var valLength = val.length;
+          if(valLength>5){
+            $this.val($this.val().substring(0,5));
+          }
+        };
     });
+  });
 </script>
 
 
