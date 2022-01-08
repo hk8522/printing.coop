@@ -65,19 +65,19 @@
     width: 100%;
     text-align: left;
 }
-.attribute-info {
+.attribute-row {
 	padding: 0px;
 	background: #f9f9f9;
 	height: 0px;
 	overflow: hidden;
 	margin-bottom: 0px;
 }
-.attribute-info.field-area {
+.attribute-row.field-area {
     padding: 10px 10px 10px 10px;
     background: #f9f9f9;
     height: auto;
 }
-.attribute.active .attribute-info {
+.attribute.active .attribute-row {
 	padding: 10px 10px 10px 25px;
 	background: #f9f9f9;
 	height: auto;
@@ -597,7 +597,7 @@
                    </div>
 
 				    </div>
-                		<div class="attribute-info field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="RectoVersoSection">
+                		<div class="attribute-row field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="RectoVersoSection">
                 	       <div class="row">
                 				<div class="col-md-6">
                                     <div class="attribute-info">
@@ -653,7 +653,7 @@
 
 
                                                         </div>
-                		<div class="attribute-info field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="WidthAndLengthSection">
+                		<div class="attribute-row field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="WidthAndLengthSection">
                 	       <div class="row">
                 				<div class="col-md-6">
                                     <div class="attribute-info">
@@ -888,7 +888,7 @@
         </div>
 
 				                                                 </div>
-                		<div class="attribute-info field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="PageWidthAndLengthSection">
+                		<div class="attribute-row field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="PageWidthAndLengthSection">
                 	       <div class="row">
                 				<div class="col-md-6 col-lg-6 col-xl-4">
                                     <div class="attribute-info">
@@ -1230,7 +1230,7 @@
 
 
                                                         </div>
-                		<div class="attribute-info field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="DepthWidthAndLengthSection">
+                		<div class="attribute-row field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="DepthWidthAndLengthSection">
                 	       <div class="row">
                                 <div class="col-md-6 col-lg-6 col-xl-6">
                                     <div class="attribute-info">
@@ -1490,7 +1490,7 @@
         </div>
 
 				                                                 </div>
-                		<div class="attribute-info field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="PagePhoneSection">
+                		<div class="attribute-row field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="PagePhoneSection">
                 	       <div class="row">
                                 <div class="col-md-6 col-lg-6 col-xl-6">
                                     <div class="attribute-info">

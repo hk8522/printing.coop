@@ -52,19 +52,19 @@
     width: 100%;
     text-align: left;
 }
-.attribute-info {
+.attribute-row {
 	padding: 0px;
 	background: #f9f9f9;
 	height: 0px;
 	overflow: hidden;
 	margin-bottom: 0px;
 }
-.attribute-info.field-area {
+.attribute-row.field-area {
     padding: 10px 10px 10px 10px;
     background: #f9f9f9;
     height: auto;
 }
-.attribute.active .attribute-info {
+.attribute.active .attribute-row {
 	padding: 10px 10px 10px 25px;
 	background: #f9f9f9;
 	height: auto;
@@ -120,7 +120,7 @@
 
 			<div class="attribute active">
 
-		    <div class="for-att-multi attribute-info SizeQuantity">
+		    <div class="for-att-multi attribute-row SizeQuantity">
                 <?php
 				//pr($NCRNumberPartsList,1);
     			if(!empty($attribute)){

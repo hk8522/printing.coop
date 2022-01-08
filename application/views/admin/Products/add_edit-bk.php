@@ -32,14 +32,14 @@
 	width: 80px;
 	text-align: center;
 }
-.attribute-info {
+.attribute-row {
 	padding: 0px;
 	background: #f9f9f9;
 	height: 0px;
 	overflow: hidden;
 	margin-bottom: 0px;
 }
-.attribute.active .attribute-info {
+.attribute.active .attribute-row {
 	padding: 10px 10px 10px 25px;
 	background: #f9f9f9;
 	height: auto;
@@ -538,7 +538,7 @@
         													            </div>
         													   	   </div>
         													    </div>
-        													    <div class="attribute-info <?php echo $key?>SizeQuantity">
+        													    <div class="attribute-row <?php echo $key?>SizeQuantity">
         													       <?php
 																$items=isset($ProductSizes[$key]) ? $ProductSizes[$key]:array();
 	//pr($ProductSizes);
@@ -668,7 +668,7 @@
         													            </div>
         													        </div>
         													    </div>
-        													    <div class="attribute-info">
+        													    <div class="attribute-row">
         													        <div class="row">
                 												        <?php
             														        foreach($val['items'] as $subkey=>$subval){ ?>

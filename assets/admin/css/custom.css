@@ -3303,7 +3303,7 @@ ul.dropdown .open-dropdown {
 	font-size: 12px;
 	width: 70px;
 }
-.attribute.active .attribute-info {
+.attribute.active .attribute-row {
 	padding: 5px 5px 5px 5px !important;
 	margin-bottom: 0px !important;
 }
@@ -3313,12 +3313,12 @@ ul.dropdown .open-dropdown {
 .attribute-inner label, .attribute-info-inner label {
 	top: 0px !important;
 }
-.attribute-info .attribute-info-inner .form-inner-label {
+.attribute-row .attribute-info-inner .form-inner-label {
 	font-size: 10px !important;
 	margin: 0px !important;
 	padding: 0px !important;
 }
-.attribute-info .attribute-info-inner .form-inner-label {
+.attribute-row .attribute-info-inner .form-inner-label {
 	padding: 0px 0px 0px 5px !important;
 	right: 0px !important;
 }
@@ -3518,7 +3518,7 @@ ul.dropdown .open-dropdown {
 	font-size: 12px;
 	width: 80px;
 }
-.attribute.active .attribute-info {
+.attribute.active .attribute-row {
 	padding: 10px !important;
 	background: #f9f9f9;
 	height: auto;
@@ -3579,19 +3579,19 @@ ul.dropdown .open-dropdown {
 	margin-right: 45px;
 	margin-bottom: 10px;
 }
-.modal-body .for-att-multi.attribute-info.SizeQuantity {
+.modal-body .for-att-multi.attribute-row.SizeQuantity {
 	position: relative;
 	padding-right: 50px !important;
 }
-.modal-body .for-att-multi.attribute-info.SizeQuantity .add-new-btn {
+.modal-body .for-att-multi.attribute-row.SizeQuantity .add-new-btn {
 	right: -30px;
 }
-.for-att-multi.attribute-info.SizeQuantity .row.sqddata {
+.for-att-multi.attribute-row.SizeQuantity .row.sqddata {
 	margin-bottom: 15px;
 	border-bottom: 1px solid rgba(0,0,0,0.1);
 	padding-bottom: 5px;
 }
-.for-att-multi.attribute-info.SizeQuantity .row.sqddata:last-child {
+.for-att-multi.attribute-row.SizeQuantity .row.sqddata:last-child {
 	margin-bottom: 0px;
 	border-bottom: none;
 	padding-bottom: 0px;
