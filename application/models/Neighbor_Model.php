@@ -108,7 +108,7 @@ class Neighbor_Model extends MY_Model
         $this->db->join('product_multiple_attributes', 'product_multiple_attributes.id=product_multiple_attribute_items.product_attribute_id', 'left');
         $this->db->join('n_attributes', 'n_attributes.attribute_id=product_multiple_attributes.id', 'left');
         $this->db->where('n_attributes.neighbor_id', $neighbor_id);
-        $this->db->order_by('n_attribute_items.neighbor_id');
+        $this->db->order_by('product_multiple_attributes.id');
         $this->db->order_by('product_multiple_attribute_items.item_name');
         $data = $this->db->get()->result_array();
         $result = [];
@@ -121,10 +121,17 @@ class Neighbor_Model extends MY_Model
         return $result;
     }
 
-    public function saveAttributes($neighbor_id, $attributesOrg, $attributesNew) {
+    public function saveAttributes($attributesOrg, $attributesNew) {
         if (count($attributesOrg) > 0)
             $this->db->update_batch('n_attributes', $attributesOrg, 'id');
         if (count($attributesNew) > 0)
             $this->db->insert_batch('n_attributes', $attributesNew);
+    }
+
+    public function saveAttributeItems($itemsOrg, $itemsNew) {
+        if (count($itemsOrg) > 0)
+            $this->db->update_batch('n_attribute_items', $itemsOrg, 'id');
+        if (count($itemsNew) > 0)
+            $this->db->insert_batch('n_attribute_items', $itemsNew);
     }
 }

@@ -87,13 +87,13 @@
                                     <input type="hidden" name="data_id[]" value="<?= $id?>" id="data_id">
                                     <input type="hidden" name="attribute_id[]" value="<?= $attribute['attribute_id']?>" id="attribute_id">
                                     <input type="checkbox" onclick="return false;" checked>
-                                    <span name="attribute_name"><?= $attribute['attribute_name']?></span>
+                                    <span name="attribute_name" class="copy-source"><?= $attribute['attribute_name']?></span>
                                     <button type="button" class="btn bg-transparent right select-attribute" onclick="return false;"><i class="fa fa-arrow-right"></i></button>
                                 </label>
                             </div>
                             <div class="col-6 col-md-6">
                                 <div class="input-group has-clear">
-                                    <input type="text" name="neighbor_attribute[]" class="form-control" placeholder="<?= $attribute['attribute_name']?>" value="<?= $attribute['name']?>">
+                                    <input type="text" name="neighbor_attribute[]" class="form-control copy-dest" placeholder="<?= $attribute['attribute_name']?>" value="<?= $attribute['name']?>">
                                     <button type="button" class="btn bg-transparent form-control-clear <?= strlen($attribute['name']) > 0 ? 'hidden' : ''?>" style="margin-left: -40px; z-index: 100;">
                                         <i class="fa fa-times"></i>
                                     </button>
@@ -103,6 +103,7 @@
                     </div>
                 </div>
                 <?php
+                    //pr($attributeItems[$id]);
                     foreach ($attributeItems[$id] as $item) {
                         $item_id = $item['id'];
                 ?>
@@ -112,15 +113,16 @@
                                 <div class="col-6 col-md-6">
                                     <label class="span2">
                                         <input type="hidden" name="item_data_id[]" value="<?= $item_id?>" id="item_data_id">
+                                        <input type="hidden" name="item_attribute_id[]" value="<?= $attribute['attribute_id']?>" id="item_attribute_id">
                                         <input type="hidden" name="attribute_item_id[]" value="<?= $item['attribute_item_id']?>" id="attribute_item_id">
                                         <input type="checkbox" onclick="return false;" checked>
-                                        <span name="attribute_item_name"><?= $item['attribute_item_name']?></span>
+                                        <span name="attribute_item_name" class="copy-source"><?= $item['attribute_item_name']?></span>
                                         <button type="button" class="btn bg-transparent right select-attribute-item" onclick="return false;"><i class="fa fa-arrow-right"></i></button>
                                     </label>
                                 </div>
                                 <div class="col-6 col-md-6">
                                     <div class="input-group has-clear">
-                                        <input type="text" name="neighbor_attribute_item[]" class="form-control" placeholder="<?= $item['attribute_item_name']?>" value="<?= $item['name']?>">
+                                        <input type="text" name="neighbor_attribute_item[]" class="form-control copy-dest" placeholder="<?= $item['attribute_item_name']?>" value="<?= $item['name']?>">
                                         <button type="button" class="btn bg-transparent form-control-clear <?= strlen($item['name']) > 0 ? 'hidden' : ''?>" style="margin-left: -40px; z-index: 100;">
                                             <i class="fa fa-times"></i>
                                         </button>
@@ -155,8 +157,10 @@
 <script>
 $('button.right').click(function() {
     var index = $('button.right').index($(this));
-    $($('[name="neighbor_attribute[]"]')[index]).val($('[name="attribute_name"]')[index].innerText);
-    $($('[name="neighbor_attribute[]"]')[index]).trigger('propertychange');
+    $($('.copy-dest')[index]).val($('.copy-source')[index].innerText);
+    $($('.copy-dest')[index]).trigger('propertychange');
+    // $($('[name="neighbor_attribute[]"]')[index]).val($('[name="attribute_name"]')[index].innerText);
+    // $($('[name="neighbor_attribute[]"]')[index]).trigger('propertychange');
 }).trigger('propertychange');
 
 function searchAttribute(searchtext) {

@@ -91,7 +91,32 @@ class Neighbor extends Admin_Controller
                                 'name' => $_POST['neighbor_attribute'][$index]
                             );
                     }
-                    $this->Neighbor_Model->saveAttributes($neighbor_id, $attributesOrg, $attributesNew);
+                    $this->Neighbor_Model->saveAttributes($attributesOrg, $attributesNew);
+
+                    $itemsOrg = [];
+                    $itemsNew = [];
+                    $item_data_ids = $_POST['item_data_id'];
+                    foreach ($item_data_ids as $index => $item_data_id) {
+                        if ($_POST['neighbor_attribute_item'][$index] == null)
+                            continue;
+                        if ($item_data_id > 0)
+                            $itemsOrg[] = array(
+                                'id' => $item_data_id,
+                                'neighbor_id' => $neighbor_id,
+                                'attribute_id' => $_POST['item_attribute_id'][$index],
+                                'attribute_item_id' => $_POST['attribute_item_id'][$index],
+                                'name' => $_POST['neighbor_attribute_item'][$index]
+                            );
+                        else
+                            $itemsNew[] = array(
+                                'neighbor_id' => $neighbor_id,
+                                'attribute_id' => $_POST['item_attribute_id'][$index],
+                                'attribute_item_id' => $_POST['attribute_item_id'][$index],
+                                'name' => $_POST['neighbor_attribute_item'][$index]
+                            );
+                    }
+                    $this->Neighbor_Model->saveAttributeItems($itemsOrg, $itemsNew);
+
                     $this->session->set_flashdata('message_success', "Saved Successfully.");
                     redirect('admin/Neighbor');
                 } else {
