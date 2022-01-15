@@ -1421,11 +1421,11 @@ CREATE TABLE `sheets` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-/*Table structure for table `size` */
+/*Table structure for table `sizes` */
 
-DROP TABLE IF EXISTS `size`;
+DROP TABLE IF EXISTS `sizes`;
 
-CREATE TABLE `size` (
+CREATE TABLE `sizes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `size_name` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   `size_name_french` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,

@@ -182,7 +182,7 @@ class MultipleAttributes extends Admin_Controller
 		if($this->input->post()){
 
 			$this->load->library('form_validation');
-			$set_rules=$this->Product_Model->configSize;
+			$set_rules=$this->Product_Model->configSizes;
 			$this->form_validation->set_rules($set_rules);
 			$this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
 

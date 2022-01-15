@@ -89,6 +89,15 @@ class Neighbor_Model extends MY_Model
         return $result[0]['COUNT(*)'];
     }
 
+    public function sizesFull($neighbor_id) {
+        $this->db->select(array('sizes.*', 'product_multiple_attributes.id AS attribute_id', 'product_multiple_attributes.name AS attribute_name'));
+        $this->db->from('product_multiple_attributes');
+        $this->db->join('n_attributes', "n_attributes.neighbor_id=$neighbor_id AND n_attributes.attribute_id=product_multiple_attributes.id", 'left');
+        $this->db->order_by('product_multiple_attributes.name');
+        $result = $this->db->get()->result_array();
+        return $result;
+    }
+
     public function attributesFull($neighbor_id) {
         $this->db->select(array('n_attributes.*', 'product_multiple_attributes.id AS attribute_id', 'product_multiple_attributes.name AS attribute_name'));
         $this->db->from('product_multiple_attributes');
