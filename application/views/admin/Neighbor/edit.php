@@ -104,7 +104,7 @@
                 </div>
                 <?php
                     //pr($attributeItems[$id]);
-                    foreach ($attributeItems[$id] as $item) {
+                    foreach ($attributeItems[$attribute['attribute_id']] as $item) {
                         $item_id = $item['id'];
                 ?>
                     <div class="attribute-items" id="attribute-container-<?=$item_id?>" style="margin-left: 25px;">

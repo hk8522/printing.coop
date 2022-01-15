@@ -106,8 +106,8 @@ class Neighbor_Model extends MY_Model
         $this->db->from('product_multiple_attribute_items');
         $this->db->join('n_attribute_items', 'n_attribute_items.attribute_item_id=product_multiple_attribute_items.id', 'left');
         $this->db->join('product_multiple_attributes', 'product_multiple_attributes.id=product_multiple_attribute_items.product_attribute_id', 'left');
-        $this->db->join('n_attributes', 'n_attributes.attribute_id=product_multiple_attributes.id', 'left');
-        $this->db->where('n_attributes.neighbor_id', $neighbor_id);
+        $this->db->join('n_attributes', "n_attributes.neighbor_id=$neighbor_id AND n_attributes.attribute_id=product_multiple_attributes.id", 'left');
+        // $this->db->where('n_attributes.neighbor_id', $neighbor_id);
         $this->db->order_by('product_multiple_attributes.id');
         $this->db->order_by('product_multiple_attribute_items.item_name');
         $data = $this->db->get()->result_array();
@@ -118,6 +118,8 @@ class Neighbor_Model extends MY_Model
                 $result[$attribute_id] = [];
             $result[$attribute_id][] = $item;
         }
+        // pr($this->db->last_query());
+        // exit(0);
         return $result;
     }
 
