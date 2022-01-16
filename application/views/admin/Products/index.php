@@ -178,7 +178,7 @@
 									</tr>
 								<?php
 								    }
-								}else{?>
+								} else {?>
 								    <tr>
 									<td colspan="10" class="text-center">List Empty.</td>
 								    </tr>

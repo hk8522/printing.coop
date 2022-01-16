@@ -80,13 +80,14 @@
                         <div class="row align-items-center">
                             <div class="col-12 col-md-12">
                                 <label class="span2">
-                                    <input type="checkbox" onclick="return false;">
+                                    <input type="checkbox" class="show-attributes-toggle">
                                     <span>Show Only Used</span>
                                 </label>
                             </div>
                         </div>
                     </div>
                 </div>
+                <hr>
             <?php
                 foreach ($attributes as $attribute) {
                     $id = $attribute['id'];
@@ -167,6 +168,19 @@
 </section><!-- /.content -->
 </div>
 <script>
+$('.show-attributes-toggle').click(function() {
+    var isChecked = this.checked;
+    $('.attribute-items').each(function(index, element) {
+        if (isChecked) {
+            if ($(element).find('[type="text"]').val() == "") {
+                $(element).addClass('hide');
+            }
+        }
+        else
+        $(element).removeClass('hide');
+    });
+});
+
 $('button.right').click(function() {
     var index = $('button.right').index($(this));
     $($('.copy-dest')[index]).val($('.copy-source')[index].innerText);
