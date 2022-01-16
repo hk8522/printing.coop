@@ -17,7 +17,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class DisallowAlternativePHPTagsSniff implements Sniff
 {
-
     /**
      * Whether ASP tags are enabled or not.
      *
@@ -31,7 +30,6 @@ class DisallowAlternativePHPTagsSniff implements Sniff
      * @var integer
      */
     private $phpVersion = null;
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -56,9 +54,7 @@ class DisallowAlternativePHPTagsSniff implements Sniff
             T_OPEN_TAG_WITH_ECHO,
             T_INLINE_HTML,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -157,9 +153,7 @@ class DisallowAlternativePHPTagsSniff implements Sniff
                 $phpcsFile->addWarning($error, $stackPtr, 'MaybeASPOpenTagFound', $data);
             }
         }
-
     }//end process()
-
 
     /**
      * Get a snippet from a HTML token.
@@ -187,9 +181,7 @@ class DisallowAlternativePHPTagsSniff implements Sniff
         }
 
         return $snippet;
-
     }//end getSnippet()
-
 
     /**
      * Try and find a matching PHP closing tag.
@@ -211,9 +203,7 @@ class DisallowAlternativePHPTagsSniff implements Sniff
         }
 
         return false;
-
     }//end findClosingTag()
-
 
     /**
      * Add a changeset to replace the alternative PHP tags.
@@ -246,8 +236,5 @@ class DisallowAlternativePHPTagsSniff implements Sniff
         $phpcsFile->fixer->replaceToken($openTagPointer, $openReplacement);
         $phpcsFile->fixer->replaceToken($closeTagPointer, $closeReplacement);
         $phpcsFile->fixer->endChangeset();
-
     }//end addChangeset()
-
-
 }//end class

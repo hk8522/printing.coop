@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class MultiLineFunctionDeclarationSniff extends PEARFunctionDeclarationSniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -24,7 +23,6 @@ class MultiLineFunctionDeclarationSniff extends PEARFunctionDeclarationSniff
         'PHP',
         'JS',
     ];
-
 
     /**
      * Determine if this is a multi-line function declaration.
@@ -89,9 +87,7 @@ class MultiLineFunctionDeclarationSniff extends PEARFunctionDeclarationSniff
         }//end foreach
 
         return false;
-
     }//end isMultiLineDeclaration()
-
 
     /**
      * Processes single-line declarations.
@@ -137,9 +133,7 @@ class MultiLineFunctionDeclarationSniff extends PEARFunctionDeclarationSniff
                 }
             }
         }//end if
-
     }//end processSingleLineDeclaration()
-
 
     /**
      * Processes multi-line declarations.
@@ -171,9 +165,7 @@ class MultiLineFunctionDeclarationSniff extends PEARFunctionDeclarationSniff
 
         $openBracket = $phpcsFile->findNext(T_OPEN_PARENTHESIS, ($use + 1), null);
         $this->processBracket($phpcsFile, $openBracket, $tokens, 'use');
-
     }//end processMultiLineDeclaration()
-
 
     /**
      * Processes the contents of a single set of brackets.
@@ -251,8 +243,5 @@ class MultiLineFunctionDeclarationSniff extends PEARFunctionDeclarationSniff
                 }
             }
         }//end for
-
     }//end processBracket()
-
-
 }//end class

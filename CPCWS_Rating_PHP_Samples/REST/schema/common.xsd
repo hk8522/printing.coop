@@ -162,8 +162,8 @@
         </xsd:restriction>
     </xsd:simpleType>
 
-  
-    
+
+
     <xsd:simpleType name="PostalCodeOrZipType">
         <xsd:restriction base="xsd:string">
             <xsd:pattern value="([A-Z]\d[A-Z]\d[A-Z]\d)|(\d{5}(-\d{4})?)"/>
@@ -260,7 +260,7 @@
             <xsd:fractionDigits value="2" />
         </xsd:restriction>
     </xsd:simpleType>
-    
+
      <xsd:simpleType name="CostTypeAllowsNegative">
         <xsd:restriction base="xsd:decimal">
             <xsd:minInclusive value="-999999.99" />
@@ -282,7 +282,7 @@
         </xsd:restriction>
     </xsd:simpleType>
 
-    
+
      <xsd:simpleType name="DimensionMeasurementType">
         <xsd:restriction base="xsd:decimal">
             <xsd:minExclusive value="0"/>
@@ -304,7 +304,7 @@
             <xsd:pattern value="[0-9]{7}" />
         </xsd:restriction>
     </xsd:simpleType>
-    
+
     <xsd:simpleType name="CustomsUnitOfMeasure">
 		<xsd:restriction base="xsd:normalizedString">
 			<xsd:length value="3" />

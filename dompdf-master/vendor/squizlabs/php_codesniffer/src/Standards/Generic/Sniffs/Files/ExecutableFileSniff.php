@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ExecutableFileSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -24,9 +22,7 @@ class ExecutableFileSniff implements Sniff
     public function register()
     {
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -52,8 +48,5 @@ class ExecutableFileSniff implements Sniff
 
         // Ignore the rest of the file.
         return ($phpcsFile->numTokens + 1);
-
     }//end process()
-
-
 }//end class

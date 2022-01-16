@@ -1,7 +1,6 @@
 
 
 										<?php if(!empty($lists)){
-
                                         foreach($lists as $list){
                                           $send_message_detail='send-message-detail';
 										   $send_message='send-message';
@@ -13,7 +12,6 @@
 										        $send_message='recieve-message';
      									        $sender_name='reciever-name';
 										        $Username='Support';
-
 										   }
 										?>
 			      						<li class="<?php echo  $send_message;?>">

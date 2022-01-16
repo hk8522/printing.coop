@@ -430,7 +430,6 @@ class Dompdf
         if ($encoding === null) {
             mb_detect_order('auto');
             if (($encoding = mb_detect_encoding($str, null, true)) === false) {
-
                 //"auto" is expanded to "ASCII,JIS,UTF-8,EUC-JP,SJIS"
                 $encoding = "auto";
             }

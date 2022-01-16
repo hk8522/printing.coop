@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/user_agent.html
  */
 class CI_User_agent {
-
 	/**
 	 * Current user-agent
 	 *
@@ -677,5 +676,4 @@ class CI_User_agent {
 			$this->_compile_data();
 		}
 	}
-
 }

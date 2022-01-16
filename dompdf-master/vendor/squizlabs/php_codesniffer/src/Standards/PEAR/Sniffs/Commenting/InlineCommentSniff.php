@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class InlineCommentSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -24,9 +22,7 @@ class InlineCommentSniff implements Sniff
     public function register()
     {
         return [T_COMMENT];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -61,8 +57,5 @@ class InlineCommentSniff implements Sniff
         ) {
             $phpcsFile->recordMetric($stackPtr, 'Inline comment style', '/* ... */');
         }
-
     }//end process()
-
-
 }//end class

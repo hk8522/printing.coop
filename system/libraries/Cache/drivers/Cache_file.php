@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link
  */
 class CI_Cache_file extends CI_Driver {
-
 	/**
 	 * Directory in which to save cache files
 	 *
@@ -282,5 +281,4 @@ class CI_Cache_file extends CI_Driver {
 
 		return $data;
 	}
-
 }

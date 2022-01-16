@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class FunctionDeclarationArgumentSpacingSniff implements Sniff
 {
-
     /**
      * How many spaces should surround the equals signs.
      *
@@ -37,7 +36,6 @@ class FunctionDeclarationArgumentSpacingSniff implements Sniff
      */
     public $requiredSpacesBeforeClose = 0;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -50,9 +48,7 @@ class FunctionDeclarationArgumentSpacingSniff implements Sniff
             T_CLOSURE,
             T_FN,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -88,9 +84,7 @@ class FunctionDeclarationArgumentSpacingSniff implements Sniff
                 $this->processBracket($phpcsFile, $openBracket);
             }
         }
-
     }//end process()
-
 
     /**
      * Processes the contents of a single set of brackets.
@@ -385,8 +379,5 @@ class FunctionDeclarationArgumentSpacingSniff implements Sniff
                 }
             }
         }
-
     }//end processBracket()
-
-
 }//end class

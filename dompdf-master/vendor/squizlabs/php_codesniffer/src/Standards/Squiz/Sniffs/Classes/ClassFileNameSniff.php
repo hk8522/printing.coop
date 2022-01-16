@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ClassFileNameSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -28,9 +26,7 @@ class ClassFileNameSniff implements Sniff
             T_INTERFACE,
             T_TRAIT,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -62,8 +58,5 @@ class ClassFileNameSniff implements Sniff
             ];
             $phpcsFile->addError($error, $stackPtr, 'NoMatch', $data);
         }
-
     }//end process()
-
-
 }//end class

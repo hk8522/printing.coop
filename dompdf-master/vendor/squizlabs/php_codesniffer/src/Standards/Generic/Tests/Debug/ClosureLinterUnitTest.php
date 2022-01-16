@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Config;
 
 class ClosureLinterUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Should this test be skipped for some reason.
      *
@@ -29,9 +27,7 @@ class ClosureLinterUnitTest extends AbstractSniffUnitTest
         }
 
         return false;
-
     }//end shouldSkipTest()
-
 
     /**
      * Returns the lines where errors should occur.
@@ -44,9 +40,7 @@ class ClosureLinterUnitTest extends AbstractSniffUnitTest
     public function getErrorList()
     {
         return [];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -62,8 +56,5 @@ class ClosureLinterUnitTest extends AbstractSniffUnitTest
             3 => 1,
             5 => 1,
         ];
-
     }//end getWarningList()
-
-
 }//end class

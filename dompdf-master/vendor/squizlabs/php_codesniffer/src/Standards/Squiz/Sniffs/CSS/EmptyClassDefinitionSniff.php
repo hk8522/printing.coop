@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class EmptyClassDefinitionSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
      * @var array
      */
     public $supportedTokenizers = ['CSS'];
-
 
     /**
      * Returns the token types that this sniff is interested in.
@@ -32,9 +30,7 @@ class EmptyClassDefinitionSniff implements Sniff
     public function register()
     {
         return [T_OPEN_CURLY_BRACKET];
-
     }//end register()
-
 
     /**
      * Processes the tokens that this sniff is interested in.
@@ -54,8 +50,5 @@ class EmptyClassDefinitionSniff implements Sniff
             $error = 'Class definition is empty';
             $phpcsFile->addError($error, $stackPtr, 'Found');
         }
-
     }//end process()
-
-
 }//end class

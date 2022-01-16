@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util;
 
 class CSS extends PHP
 {
-
-
     /**
      * Initialise the tokenizer.
      *
@@ -36,9 +34,7 @@ class CSS extends PHP
         }
 
         parent::__construct($content, $config, $eolChar);
-
     }//end __construct()
-
 
     /**
      * Creates an array of tokens when given some CSS code.
@@ -515,9 +511,7 @@ class CSS extends PHP
         }
 
         return $finalTokens;
-
     }//end tokenize()
-
 
     /**
      * Performs additional processing after main tokenizing.
@@ -530,8 +524,5 @@ class CSS extends PHP
             We override this method because we don't want the PHP version to
             run during CSS processing because it is wasted processing time.
         */
-
     }//end processAdditional()
-
-
 }//end class

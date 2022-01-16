@@ -14,14 +14,12 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class MultiLineAssignmentSniff implements Sniff
 {
-
     /**
      * The number of spaces code should be indented.
      *
      * @var integer
      */
     public $indent = 4;
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -31,9 +29,7 @@ class MultiLineAssignmentSniff implements Sniff
     public function register()
     {
         return [T_EQUAL];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -99,8 +95,5 @@ class MultiLineAssignmentSniff implements Sniff
             ];
             $phpcsFile->addError($error, $stackPtr, 'Indent', $data);
         }
-
     }//end process()
-
-
 }//end class

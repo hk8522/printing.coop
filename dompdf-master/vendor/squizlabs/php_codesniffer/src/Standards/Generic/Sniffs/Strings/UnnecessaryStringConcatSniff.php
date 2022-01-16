@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class UnnecessaryStringConcatSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -43,7 +42,6 @@ class UnnecessaryStringConcatSniff implements Sniff
      */
     public $allowMultiline = false;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -55,9 +53,7 @@ class UnnecessaryStringConcatSniff implements Sniff
             T_STRING_CONCAT,
             T_PLUS,
         ];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -118,8 +114,5 @@ class UnnecessaryStringConcatSniff implements Sniff
                 }
             }//end if
         }//end if
-
     }//end process()
-
-
 }//end class

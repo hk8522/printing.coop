@@ -6,7 +6,7 @@ Dompdf
 [![Total Downloads](https://poser.pugx.org/dompdf/dompdf/downloads.png)](https://packagist.org/packages/dompdf/dompdf)
 [![Latest Unstable Version](https://poser.pugx.org/dompdf/dompdf/v/unstable.png)](https://packagist.org/packages/dompdf/dompdf)
 [![License](https://poser.pugx.org/dompdf/dompdf/license.png)](https://packagist.org/packages/dompdf/dompdf)
- 
+
 **Dompdf is an HTML to PDF converter**
 
 At its heart, dompdf is (mostly) a [CSS 2.1](http://www.w3.org/TR/CSS2/) compliant
@@ -15,7 +15,7 @@ it will download and read external stylesheets, inline style tags, and the style
 attributes of individual HTML elements. It also supports most presentational
 HTML attributes.
 
-*This document applies to the latest stable code which may not reflect the current 
+*This document applies to the latest stable code which may not reflect the current
 release. For released code please
 [navigate to the appropriate tag](https://github.com/dompdf/dompdf/tags).*
 
@@ -44,7 +44,7 @@ Follow us on [![Twitter](http://twitter-badges.s3.amazonaws.com/twitter-a.png)](
  * No dependencies on external PDF libraries, thanks to the R&OS PDF class
  * Inline PHP support
  * Basic SVG support
- 
+
 ## Requirements
 
  * PHP version 7.1 or higher
@@ -52,7 +52,7 @@ Follow us on [![Twitter](http://twitter-badges.s3.amazonaws.com/twitter-a.png)](
  * MBString extension
  * php-font-lib
  * php-svg-lib
- 
+
 Note that some required dependencies may have further dependencies (notably php-svg-lib requires sabberworm/php-css-parser).
 
 ### Recommendations
@@ -103,7 +103,7 @@ require 'vendor/autoload.php';
 
 ### Download and install
 
-Download a packaged archive of dompdf and extract it into the 
+Download a packaged archive of dompdf and extract it into the
 directory where dompdf will reside
 
  * You can download stable copies of dompdf from
@@ -120,7 +120,7 @@ require_once 'dompdf/autoload.inc.php';
 ```
 
 Note: packaged releases are named according using semantic
-versioning (_dompdf_MAJOR-MINOR-PATCH.zip_). So the 1.0.0 
+versioning (_dompdf_MAJOR-MINOR-PATCH.zip_). So the 1.0.0
 release would be dompdf_1-0-0.zip. This is the only download
 that includes the autoloader for Dompdf and all its dependencies.
 
@@ -202,7 +202,7 @@ See [Dompdf\Options](src/Options.php) for a list of available options.
 
  * Dompdf is not particularly tolerant to poorly-formed HTML input. To avoid
    any unexpected rendering issues you should either enable the built-in HTML5
-   parser at runtime (`$dompdf->set_option('isHtml5ParserEnabled', true);`) 
+   parser at runtime (`$dompdf->set_option('isHtml5ParserEnabled', true);`)
    or run your HTML through a HTML validator/cleaner (such as
    [Tidy](http://tidy.sourceforge.net) or the
    [W3C Markup Validation Service](http://validator.w3.org)).

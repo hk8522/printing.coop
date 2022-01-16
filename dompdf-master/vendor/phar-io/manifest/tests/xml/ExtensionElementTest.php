@@ -21,5 +21,4 @@ class ExtensionElementTest extends \PHPUnit\Framework\TestCase {
     public function testCompatibleVersionConstraintCanBeRetrieved() {
         $this->assertEquals('~0.6', $this->extension->getCompatible());
     }
-
 }

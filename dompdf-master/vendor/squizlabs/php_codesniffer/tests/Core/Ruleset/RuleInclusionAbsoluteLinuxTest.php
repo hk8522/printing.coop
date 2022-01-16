@@ -15,7 +15,6 @@ use PHPUnit\Framework\TestCase;
 
 class RuleInclusionAbsoluteLinuxTest extends TestCase
 {
-
     /**
      * The Ruleset object.
      *
@@ -36,7 +35,6 @@ class RuleInclusionAbsoluteLinuxTest extends TestCase
      * @var string
      */
     private $contents = '';
-
 
     /**
      * Initialize the config and ruleset objects.
@@ -73,9 +71,7 @@ class RuleInclusionAbsoluteLinuxTest extends TestCase
         // Initialize the config and ruleset objects for the test.
         $config        = new Config(["--standard={$this->standard}"]);
         $this->ruleset = new Ruleset($config);
-
     }//end setUp()
-
 
     /**
      * Reset ruleset file.
@@ -85,9 +81,7 @@ class RuleInclusionAbsoluteLinuxTest extends TestCase
     public function tearDown()
     {
         file_put_contents($this->standard, $this->contents);
-
     }//end tearDown()
-
 
     /**
      * Test that sniffs registed with a Linux absolute path are correctly recognized and that
@@ -111,8 +105,5 @@ class RuleInclusionAbsoluteLinuxTest extends TestCase
             '10',
             $this->ruleset->sniffs['PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\SpaceAfterNotSniff']->spacing
         );
-
     }//end testLinuxStylePathRuleInclusion()
-
-
 }//end class

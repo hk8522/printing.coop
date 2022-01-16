@@ -47,7 +47,6 @@
 							    <?php
 
 								if(count($blogs) > 0){
-
 									foreach($blogs as $key=>$blog){
 									?>
 										<tr>
@@ -62,12 +61,10 @@
 											  <img src="<?php echo $imageurl?>" width="100" height="80">
 											 </td>
 
-
 											<td>
 								<?php echo ucfirst($blog['category_name']);?>
 											 </td>
 											<td>
-
 
 											   <?php echo isset($blog['populer'])  && $blog['populer'] ==1 ? 'Yes':'No';
 											   ?>
@@ -110,7 +107,6 @@
 											</td>
 										</tr>
 								<?php
-
 								    }
 								}else{?>
 								    <tr>
@@ -123,8 +119,6 @@
 					</div>
 				</div>
 
-
-
 				</div><!-- /.box-body -->
 			</div><!-- /.box -->
 		</div><!-- /.col -->
@@ -135,10 +129,8 @@
  </script>
 <script>
 $(document).ready(function(){
-
     $('#example1').DataTable({
 		"order": [[ 2, "desc" ]]
 	});
-
 });
 </script>

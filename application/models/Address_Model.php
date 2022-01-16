@@ -1,7 +1,6 @@
 <?php
 
 Class Address_Model extends MY_Model {
-
 	public $table='addresses';
 
 	public $config = array(
@@ -74,7 +73,6 @@ Class Address_Model extends MY_Model {
     );
 
 	public function getAddressListByUserId($user_id) {
-
         $this->db->select('*');
 		$this->db->select(array('Address.*','State.name as StateName','city.name as cityName','Country.iso2 as CountryName'));
 		$this->db->where(array('user_id'=>$user_id));
@@ -89,7 +87,6 @@ Class Address_Model extends MY_Model {
     }
 
 	public function getAddressDataById($id) {
-
         $this->db->select('*');
         $this->db->from($this->table);
 		$this->db->where(array('id'=>$id));
@@ -99,7 +96,6 @@ Class Address_Model extends MY_Model {
     }
 
 	public function deleteAddress($id) {
-
 		$this->db->where('id',$id);
         $query = $this->db->delete($this->table);
 		if ($query) {
@@ -107,15 +103,12 @@ Class Address_Model extends MY_Model {
 		} else {
 			return 0;
 		}
-
     }
 
 	public function saveAddress($data) {
-
 		$id=isset($data['id']) ? $data['id']:'';
 
 		if(!empty($id)){
-
 			$data['updated']=date('Y-m-d H:i:s');
 			$this->db->where('id', $id);
 			$query = $this->db->update($this->table, $data);
@@ -133,33 +126,26 @@ Class Address_Model extends MY_Model {
 			} else {
 				return 0;
 			}
-
 		}
     }
 
 	public function CheckDeliveryAddress($id,$data) {
-
         $this->db->select('*');
         $this->db->from($this->table);
 		 $this->db->where(array('default_delivery_address'=>'1','user_id'=>$data['user_id']));
 		$query = $this->db->get();
 
 		if(empty($data['default_delivery_address'])){
-
 			if($query->num_rows() == 0) {
-
 				$sdata['id']=$id;
 				$sdata['default_delivery_address']=1;
 		        $this->saveAddress($sdata);
 			}
 		}else{
 			if($query->num_rows() > 0) {
-
 				$datas=$query->result_array();
                 foreach($datas as $v){
-
 				    if($v['id'] !=$id){
-
 					   $sndata['id']=$v['id'];
 					   $sndata['default_delivery_address']=0;
 					   $this->saveAddress($sndata);
@@ -182,13 +168,11 @@ Class Address_Model extends MY_Model {
 		$data=$query->result_array();
 		}
 		return $data;
-
 	}
 	function getCity($state_id=null)
 	{
 	    $data=array();
         if($state_id){
-
 		$this->db->select('*');
         $this->db->from('cities');
 		$this->db->where('state_id',$state_id);
@@ -198,7 +182,6 @@ Class Address_Model extends MY_Model {
 		$data=$query->result_array();
 		}
 		return $data;
-
 	}
 
 	function getCountries($country_id="39")
@@ -207,17 +190,14 @@ Class Address_Model extends MY_Model {
 		$this->db->from('countries');
 		$this->db->order_by('name','asc');
 		if(!empty($country_id)){
-
 			$this->db->where('id',$country_id);
 		}
 		$query = $this->db->get();
 		$data=$query->result_array();
 		return $data;
-
 	}
 	function getStateById($id)
 	{
-
 		$this->db->select('*');
         $this->db->from('states');
 		$this->db->where('id',$id);
@@ -225,11 +205,9 @@ Class Address_Model extends MY_Model {
         $query = $this->db->get();
 		$data=(array)$query->row();
 		return $data;
-
 	}
 	function getCityById($id)
 	{
-
 		$this->db->select('*');
         $this->db->from('cities');
 		$this->db->where('id',$id);
@@ -237,11 +215,9 @@ Class Address_Model extends MY_Model {
         $query = $this->db->get();
 		$data=(array)$query->row();
 		return $data;
-
 	}
 	function getCountryById($id)
 	{
-
 		$this->db->select('*','name as CountryName');
         $this->db->from('countries');
 		$this->db->where('id',$id);
@@ -249,21 +225,16 @@ Class Address_Model extends MY_Model {
         $query = $this->db->get();
 		$data=(array)$query->row();
 		return $data;
-
 	}
 	function salesTaxRatesProvincesById($id)
 	{
-
 		$this->db->select('*');
         $this->db->from('sales-tax-rates-provinces');
 		$this->db->where('state_id',$id);
         $query = $this->db->get();
 		$data=(array)$query->row();
 		return $data;
-
-
 	}
-
 }
 
 ?>

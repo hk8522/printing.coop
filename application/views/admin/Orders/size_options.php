@@ -6,9 +6,7 @@
 	$k=2;
 	?>
 	<?php if(!empty($options_qty)){
-
 		    if($j==$last){
-
                 $onchange="getPaperPrice('$i')";
 		    }else{
 			     $onchange="getQuantityPrice('product_size_option_$k')";
@@ -25,9 +23,7 @@
 	   $k++;
 	}?>
 	<?php if(!empty($options_ncr_number_parts)){
-
             if($j==$last){
-
                 $onchange="getPaperPrice('$i')";
 		    }else{
 			     $onchange="getQuantityPrice('product_size_option_$k')";
@@ -45,11 +41,8 @@
 	}?>
 
 	<?php if(!empty($options_paper_size)){
-
 	        if($j==$last){
-
                 $onchange="getPaperPrice('$i')";
-
 		    }else{
 			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
@@ -66,11 +59,8 @@
 	}?>
 
 	<?php if(!empty($paper_quality)){
-
 	        if($j==$last){
-
                 $onchange="getPaperPrice('$i')";
-
 		    }else{
 			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
@@ -87,11 +77,8 @@
 	}?>
 
 	<?php if(!empty($stock)){
-
 	        if($j==$last){
-
                 $onchange="getPaperPrice('$i')";
-
 		    }else{
 			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
@@ -108,11 +95,8 @@
 	}?>
 
 	<?php if(!empty($color)){
-
 	        if($j==$last){
-
                 $onchange="getPaperPrice('$i')";
-
 		    }else{
 			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
@@ -129,11 +113,8 @@
 	}?>
 
 	<?php if(!empty($coating)){
-
 	        if($j==$last){
-
                 $onchange="getPaperPrice('$i')";
-
 		    }else{
 			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
@@ -150,11 +131,8 @@
 	}?>
 
 	<?php if(!empty($diameter)){
-
 	        if($j==$last){
-
                 $onchange="getPaperPrice('$i')";
-
 		    }else{
 			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
@@ -171,11 +149,8 @@
 	}?>
 
 	<?php if(!empty($envelope)){
-
 	        if($j==$last){
-
                 $onchange="getPaperPrice('$i')";
-
 		    }else{
 			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
@@ -192,11 +167,8 @@
 	}?>
 
 	<?php if(!empty($bundling)){
-
 	        if($j==$last){
-
                 $onchange="getPaperPrice('$i')";
-
 		    }else{
 			     $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
@@ -211,5 +183,4 @@
 	   $j++;
 	   $k++;
 	}?>
-
 

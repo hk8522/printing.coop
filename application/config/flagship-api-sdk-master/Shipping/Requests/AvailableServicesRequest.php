@@ -37,7 +37,6 @@ class AvailableServicesRequest extends ApiRequest{
     }
 
     protected function createArrayOfServices($responseArray) : array {
-
         if(count((array)$responseArray["response"]) == 0){
             return [];
         }
@@ -68,5 +67,4 @@ class AvailableServicesRequest extends ApiRequest{
         }
         return 0;
     }
-
 }

@@ -9,7 +9,6 @@
 						<?php echo $this->session->flashdata('message_error');?></div>
 				        <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
 
-
 								<div class="control-group info">
 									<label class="span2 " for="inputMame">Enter New Password</label>
 									<div class="controls">

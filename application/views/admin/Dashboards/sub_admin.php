@@ -281,7 +281,6 @@ var status='<?php echo base64_encode(2);?>';
 getOrdersByStatus(status);
 
 function getOrdersByStatus(order_status){
-
 	    var url =BASE_URL+'Orders/getOrdersByStatus/'+order_status;
 		$.ajax({
 			    type: "GET",
@@ -291,9 +290,7 @@ function getOrdersByStatus(order_status){
 			      $("#listOrderData").html(data);
 			    },
 			    error: function (error) {
-
 			    }
 		});
-
 }
 </script>

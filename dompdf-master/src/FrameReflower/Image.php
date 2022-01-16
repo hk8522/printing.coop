@@ -19,7 +19,6 @@ use Dompdf\FrameDecorator\Image as ImageFrameDecorator;
  */
 class Image extends AbstractFrameReflower
 {
-
     /**
      * Image constructor.
      * @param ImageFrameDecorator $frame
@@ -148,7 +147,6 @@ class Image extends AbstractFrameReflower
             $style->min_height !== "none" ||
             $style->max_height !== "none"
         ) {
-
             list( /*$x*/, /*$y*/, $w, $h) = $this->_frame->get_containing_block();
 
             $min_width = $style->length_in_pt($style->min_width, $w);

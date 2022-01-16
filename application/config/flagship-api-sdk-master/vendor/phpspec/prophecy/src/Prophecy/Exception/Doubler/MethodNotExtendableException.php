@@ -21,7 +21,6 @@
             $this->className = $className;
         }
 
-
         /**
          * @return string
          */
@@ -37,5 +36,4 @@
         {
             return $this->className;
         }
-
     }

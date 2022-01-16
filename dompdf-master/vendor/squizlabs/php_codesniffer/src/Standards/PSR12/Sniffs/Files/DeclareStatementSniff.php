@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class DeclareStatementSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class DeclareStatementSniff implements Sniff
     public function register()
     {
         return [T_DECLARE];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -249,8 +245,5 @@ class DeclareStatementSniff implements Sniff
                 }
             }
         }//end if
-
     }//end process()
-
-
 }//end class

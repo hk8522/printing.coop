@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class EndFileNewlineUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Returns the lines where errors should occur.
      *
@@ -36,9 +34,7 @@ class EndFileNewlineUnitTest extends AbstractSniffUnitTest
         default:
             return [];
         }//end switch
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -53,8 +49,5 @@ class EndFileNewlineUnitTest extends AbstractSniffUnitTest
     public function getWarningList($testFile='')
     {
         return [];
-
     }//end getWarningList()
-
-
 }//end class

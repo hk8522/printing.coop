@@ -16,8 +16,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class LanguageConstructSpacingSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -40,9 +38,7 @@ class LanguageConstructSpacingSniff implements Sniff
             T_NAMESPACE,
             T_USE,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -139,8 +135,5 @@ class LanguageConstructSpacingSniff implements Sniff
                 $phpcsFile->fixer->addContent($stackPtr, ' ');
             }
         }//end if
-
     }//end process()
-
-
 }//end class

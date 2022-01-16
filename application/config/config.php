@@ -25,7 +25,6 @@ date_default_timezone_set("Asia/Kolkata");
 */
 $config['base_url'] = 'https://printing.coop/';
 
-
 /*
 |--------------------------------------------------------------------------
 | Index File
@@ -523,8 +522,6 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
-
-
 $config['ups']['account'] = array(
 	'access' => '5D7A2B14E116D512',
 	'userid' => 'printing.coop',
@@ -575,8 +572,4 @@ $config['ups']['services'] = array(
 	'59' => 'UPS 2nd Day Air AM',
 	'65' => 'UPS World Wide Saver'
 );
-
-
-
-
 

@@ -25,7 +25,6 @@ use Dompdf\Frame\Factory;
  */
 abstract class AbstractFrameReflower
 {
-
     /**
      * Frame for this reflower
      *
@@ -410,7 +409,6 @@ abstract class AbstractFrameReflower
                     $p = $this->_frame->lookup_counter_frame($counter_id);
 
                     $text .= $p->counter_value($counter_id, $type);
-
                 } else if (strtolower($args[1]) == 'counters') {
                     // counters(name, string [,style])
                     if (isset($args[5])) {
@@ -439,7 +437,6 @@ abstract class AbstractFrameReflower
                     // countertops?
                     continue;
                 }
-
             } else if (isset($match[4]) && $match[4] !== "") {
                 // String match
                 $text .= $this->_parse_string($match[4]);

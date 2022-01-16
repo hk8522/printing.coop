@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 abstract class AbstractArraySniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -27,9 +25,7 @@ abstract class AbstractArraySniff implements Sniff
             T_ARRAY,
             T_OPEN_SHORT_ARRAY,
         ];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -97,9 +93,7 @@ abstract class AbstractArraySniff implements Sniff
         } else {
             $this->processMultiLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd, $indices);
         }
-
     }//end process()
-
 
     /**
      * Find next separator in array - either: comma or double arrow.
@@ -133,9 +127,7 @@ abstract class AbstractArraySniff implements Sniff
         }
 
         return $ptr;
-
     }//end getNext()
-
 
     /**
      * Processes a single-line array definition.
@@ -152,7 +144,6 @@ abstract class AbstractArraySniff implements Sniff
      */
     abstract protected function processSingleLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd, $indices);
 
-
     /**
      * Processes a multi-line array definition.
      *
@@ -167,6 +158,4 @@ abstract class AbstractArraySniff implements Sniff
      * @return void
      */
     abstract protected function processMultiLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd, $indices);
-
-
 }//end class

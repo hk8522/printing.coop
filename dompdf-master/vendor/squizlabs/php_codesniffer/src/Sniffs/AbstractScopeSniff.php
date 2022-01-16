@@ -31,7 +31,6 @@ use PHP_CodeSniffer\Exceptions\RuntimeException;
 
 abstract class AbstractScopeSniff implements Sniff
 {
-
     /**
      * The token types that this test wishes to listen to within the scope.
      *
@@ -52,7 +51,6 @@ abstract class AbstractScopeSniff implements Sniff
      * @var boolean
      */
     private $listenOutside = false;
-
 
     /**
      * Constructs a new AbstractScopeTest.
@@ -93,9 +91,7 @@ abstract class AbstractScopeSniff implements Sniff
         $this->listenOutside = $listenOutside;
         $this->scopeTokens   = array_flip($scopeTokens);
         $this->tokens        = $tokens;
-
     }//end __construct()
-
 
     /**
      * The method that is called to register the tokens this test wishes to
@@ -110,9 +106,7 @@ abstract class AbstractScopeSniff implements Sniff
     final public function register()
     {
         return $this->tokens;
-
     }//end register()
-
 
     /**
      * Processes the tokens that this test is listening for.
@@ -149,9 +143,7 @@ abstract class AbstractScopeSniff implements Sniff
         }
 
         return;
-
     }//end process()
-
 
     /**
      * Processes a token that is found within the scope that this test is
@@ -171,7 +163,6 @@ abstract class AbstractScopeSniff implements Sniff
      */
     abstract protected function processTokenWithinScope(File $phpcsFile, $stackPtr, $currScope);
 
-
     /**
      * Processes a token that is found outside the scope that this test is
      * listening to.
@@ -186,6 +177,4 @@ abstract class AbstractScopeSniff implements Sniff
      *                  the rest of the file.
      */
     abstract protected function processTokenOutsideScope(File $phpcsFile, $stackPtr);
-
-
 }//end class

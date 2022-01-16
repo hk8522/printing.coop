@@ -11,7 +11,6 @@ use Ups\NodeInterface;
  */
 class UnitPrice implements NodeInterface
 {
-
     /**
      * @var float
      */

@@ -12,15 +12,14 @@
 	$responseParamList = array();
 
 	if (isset($_POST["ORDER_ID"]) && $_POST["ORDER_ID"] != "") {
-
-		// In Test Page, we are taking parameters from POST request. In actual implementation these can be collected from session or DB. 
+		// In Test Page, we are taking parameters from POST request. In actual implementation these can be collected from session or DB.
 		$ORDER_ID = $_POST["ORDER_ID"];
 
 		// Create an array having all required parameters for status query.
-		$requestParamList = array("MID" => PAYTM_MERCHANT_MID , "ORDERID" => $ORDER_ID);  
-		
+		$requestParamList = array("MID" => PAYTM_MERCHANT_MID , "ORDERID" => $ORDER_ID);
+
 		$StatusCheckSum = getChecksumFromArray($requestParamList,PAYTM_MERCHANT_KEY);
-		
+
 		$requestParamList['CHECKSUMHASH'] = $StatusCheckSum;
 
 		// Call the PG's getTxnStatusNew() function for verifying the transaction status.
@@ -53,7 +52,7 @@
 		<br/></br/>
 		<?php
 		if (isset($responseParamList) && count($responseParamList)>0 )
-		{ 
+		{
 		?>
 		<h2>Response of status query:</h2>
 		<table style="border: 1px solid nopadding" border="0">

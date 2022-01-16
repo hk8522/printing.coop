@@ -49,7 +49,6 @@ call_user_func(
     }
 );
 
-
 EOT;
 
         foreach ($snapshot->globalVariables() as $name => $value) {

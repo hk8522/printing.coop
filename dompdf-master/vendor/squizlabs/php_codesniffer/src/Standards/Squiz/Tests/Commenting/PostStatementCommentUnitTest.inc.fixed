@@ -3,12 +3,12 @@
 function test()
 {
     $string = 'hello';
-    $string = 'hello'; 
+    $string = 'hello';
 // Set string to hello.
     // Valid comment.
 }
 
-function testing() 
+function testing()
 // This is a function
 {
 
@@ -17,7 +17,7 @@ function testing()
 
 class TestClass
 {
-    public $good = true; 
+    public $good = true;
 // Indeed.
 
 }//end class
@@ -35,7 +35,7 @@ $array = [
 	'key' => function($b) {
 	}, // comment.
 	'key' => 'value', // phpcs:ignore Standard.Category.SniffName -- for reasons.
-	'key' => 'value', 
+	'key' => 'value',
 // comment.
 ];
 

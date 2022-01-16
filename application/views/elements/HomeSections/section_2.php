@@ -10,7 +10,6 @@
 					  echo $section_2['name'] ?? '';
 					}
 
-
 				?>
 			  </span>
             </div>
@@ -18,12 +17,10 @@
               <span><?php
 
 			    if($language_name=='French'){
-
 					 echo $section_2['description_france'] ?? '';
 					}else{
 					  echo $section_2['description'] ?? '';
 				}
-
 
 			  ?></span>
             </div>
@@ -32,7 +29,6 @@
               <span>
 				  <?php
 				  if($language_name=='French'){
-
 					 echo $section_2['content_france'] ?? '';
 					}else{
 					  echo $section_2['content'] ?? '';
@@ -44,17 +40,14 @@
                 <ul class="nav nav-pills">
 				   <?php
 				foreach($proudly_display_your_brand_tags as $key=>$val){
-
 				    $active='';
 					if($key==0){
-
 						$active='active';
 					}
 				    $href="#Process".$val['id'];
 					$label=ucwords($val['name']);
 
 					if($language_name=='French'){
-
 						$label=ucwords($val['name_french']);
 					}
 				   ?>
@@ -67,20 +60,16 @@
             </div>
             <div class="trend-tabs-content tab-content">
 			    <?php foreach($proudly_display_your_brand_tags as $key=>$val){
-
 				    $active='';
 
 					if($key==0){
-
 						$active='active show';
-
 					}
 
 				    $div_id="Process".$val['id'];
 					$label=ucwords($val['name']);
 
 					if($language_name=='French'){
-
 						$label=ucwords($val['name_french']);
 					}
 					$tag_id=$val['id'];

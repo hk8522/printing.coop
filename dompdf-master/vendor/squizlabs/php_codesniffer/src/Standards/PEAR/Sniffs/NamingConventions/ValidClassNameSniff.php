@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ValidClassNameSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -28,9 +26,7 @@ class ValidClassNameSniff implements Sniff
             T_INTERFACE,
             T_TRAIT,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -90,8 +86,5 @@ class ValidClassNameSniff implements Sniff
                 $phpcsFile->addError($error, $stackPtr, 'Invalid', $data);
             }
         }//end if
-
     }//end process()
-
-
 }//end class

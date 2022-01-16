@@ -8,7 +8,6 @@ use Ups\NodeInterface;
 
 class QueryRequest implements NodeInterface
 {
-
     /**
      * @var Shipment
      */

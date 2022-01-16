@@ -2,11 +2,8 @@
 namespace Flagship\Shipping\Exceptions;
 
 class SmartshipException extends \Exception{
-
     protected function getErrors() : array {
-
         if(empty($this->message)){
-
             $this->message = 'Unable to connect to FlagShip - Code : '. $this->getCode();
             $errorsArray = [ $this->message ];
             return $errorsArray;
@@ -46,12 +43,10 @@ class SmartshipException extends \Exception{
         $keys = array_keys($errors);
 
         foreach($errors as $error){
-
             $errorsArray[] = $keys[$i]." : ".$this->normalizeErrors($error);
             $i++;
         }
         return $errorsArray;
-
     }
 
     protected function removeArrayBracketsIfExist(){
@@ -105,5 +100,4 @@ class SmartshipException extends \Exception{
             return ['Requested shipment not found'];
         }
     }
-
 }

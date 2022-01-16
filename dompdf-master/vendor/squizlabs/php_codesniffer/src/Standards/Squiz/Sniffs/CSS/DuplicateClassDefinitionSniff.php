@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class DuplicateClassDefinitionSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
      * @var array
      */
     public $supportedTokenizers = ['CSS'];
-
 
     /**
      * Returns the token types that this sniff is interested in.
@@ -32,9 +30,7 @@ class DuplicateClassDefinitionSniff implements Sniff
     public function register()
     {
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes the tokens that this sniff is interested in.
@@ -109,8 +105,5 @@ class DuplicateClassDefinitionSniff implements Sniff
 
             $next = $phpcsFile->findNext(T_OPEN_CURLY_BRACKET, ($next + 1));
         }//end while
-
     }//end process()
-
-
 }//end class

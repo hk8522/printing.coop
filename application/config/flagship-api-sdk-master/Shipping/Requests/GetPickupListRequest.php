@@ -8,7 +8,6 @@ use Flagship\Shipping\Exceptions\GetPickupListException;
 use Flagship\Shipping\Exceptions\FilterException;
 
 class GetPickupListRequest extends ApiRequest{
-
     protected $responseCode;
     protected $filters;
     public function __construct(string $baseUrl,string $token, string $flagshipFor, string $version){

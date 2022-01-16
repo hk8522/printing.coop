@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class CallTimePassByReferenceUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Returns the lines where errors should occur.
      *
@@ -33,9 +31,7 @@ class CallTimePassByReferenceUnitTest extends AbstractSniffUnitTest
             23 => 1,
             30 => 1,
         ];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -48,8 +44,5 @@ class CallTimePassByReferenceUnitTest extends AbstractSniffUnitTest
     public function getWarningList()
     {
         return [];
-
     }//end getWarningList()
-
-
 }//end class

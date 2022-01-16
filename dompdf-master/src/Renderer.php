@@ -24,7 +24,6 @@ use Dompdf\Renderer\Text;
  */
 class Renderer extends AbstractRenderer
 {
-
     /**
      * Array of renderers for specific frame types
      *
@@ -92,7 +91,6 @@ class Renderer extends AbstractRenderer
         }
 
         switch ($display) {
-
             case "block":
             case "list-item":
             case "inline-block":
@@ -149,7 +147,6 @@ class Renderer extends AbstractRenderer
 
             default:
                 break;
-
         }
 
         // Starts the overflow: hidden box
@@ -247,9 +244,7 @@ class Renderer extends AbstractRenderer
      */
     protected function _render_frame($type, $frame)
     {
-
         if (!isset($this->_renderers[$type])) {
-
             switch ($type) {
                 case "block":
                     $this->_renderers[$type] = new Block($this->_dompdf);
@@ -286,7 +281,6 @@ class Renderer extends AbstractRenderer
                 case "javascript":
                     $this->_renderers[$type] = new JavascriptEmbedder($this->_dompdf);
                     break;
-
             }
         }
 

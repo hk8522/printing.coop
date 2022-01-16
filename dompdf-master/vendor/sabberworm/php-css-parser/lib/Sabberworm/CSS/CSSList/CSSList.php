@@ -24,7 +24,6 @@ use Sabberworm\CSS\Value\Value;
  * Also, it may contain Import and Charset objects stemming from @-rules.
  */
 abstract class CSSList implements Renderable, Commentable {
-
 	protected $aComments;
 	protected $aContents;
 	protected $iLineNo;
@@ -175,7 +174,6 @@ abstract class CSSList implements Renderable, Commentable {
 			?: preg_match("/^(-\\w+-)?$sMatch$/i", $sIdentifier) === 1;
 	}
 
-
 	/**
 	 * @return int
 	 */
@@ -314,7 +312,7 @@ abstract class CSSList implements Renderable, Commentable {
 
 		return $sResult;
 	}
-	
+
 	/**
 	* Return true if the list can not be further outdented. Only important when rendering.
 	*/
@@ -344,5 +342,4 @@ abstract class CSSList implements Renderable, Commentable {
 	public function setComments(array $aComments) {
 		$this->aComments = $aComments;
 	}
-
 }

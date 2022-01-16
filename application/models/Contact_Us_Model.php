@@ -1,7 +1,6 @@
 <?php
 
 Class Contact_Us_Model extends MY_Model {
-
 	public $table='contact_us';
 
 	public $rules = [

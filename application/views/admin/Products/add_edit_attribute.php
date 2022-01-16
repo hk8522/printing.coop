@@ -75,12 +75,9 @@
 																		if($last==0){
 																		    $displayplusnbtn='';
 																			$displayminusbtn='none';
-
 																		}else if($last==$key){
-
 																		   $displayplusnbtn='';
 																		   $displayminusbtn='';
-
 																		}
 																		?>
 																		<button class="btn-danger btn-remove" type="button" title="remove" style="display:<?php echo $displayminusbtn;?>">
@@ -143,7 +140,6 @@
 
      $(function(){
         $(document).on('click', '.btn-add', function(e){
-
 			e.preventDefault();
 			var controlForm = $('.file-data:first'),
 			currentEntry = $(this).parents('.att-single:first'),
@@ -161,9 +157,7 @@
 			e.preventDefault();
 			var numItems = $('.file-data .att-single').length;
 
-
 			if(numItems==1){
-
 			var controlForm = $('.file-data .att-single').last();
 			controlForm.find('.btn-remove').hide();
 			controlForm.find('.btn-add').show();
@@ -175,6 +169,5 @@
 
 			return false;
 		});
-
     });
  </script>

@@ -7,7 +7,6 @@ use Flagship\Shipping\Exceptions\TrackShipmentException;
 use Flagship\Shipping\Objects\TrackShipment;
 
 class TrackShipmentRequest extends ApiRequest{
-
     public function __construct(string $baseUrl,string $token,int $id, string $flagshipFor, string $version){
         $this->url= $baseUrl.'/ship/track?shipment_id='.$id;
         $this->token = $token;

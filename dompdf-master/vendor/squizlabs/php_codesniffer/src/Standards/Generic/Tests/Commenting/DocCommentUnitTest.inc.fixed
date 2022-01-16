@@ -163,10 +163,10 @@
  */
 
 /**
- * @var Database $mockedDatabase 
+ * @var Database $mockedDatabase
 */
 /**
- * @var Container $mockedContainer 
+ * @var Container $mockedContainer
 */
 
 /**
@@ -213,7 +213,7 @@
  */
 
 /**
-* doc comment 
+* doc comment
 */
 
         /**
@@ -225,7 +225,7 @@
          */
 
         /**
- * Indented doc comment 
+ * Indented doc comment
 */
 
 /**

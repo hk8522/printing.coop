@@ -28,7 +28,6 @@ use Dompdf\Frame;
  */
 class Style
 {
-
     const CSS_IDENTIFIER = "-?[_a-zA-Z]+[_a-zA-Z0-9-]*";
     const CSS_INTEGER = "-?\d+";
 
@@ -257,7 +256,6 @@ class Style
         $this->_parent_font_size = null;
 
         if (!isset(self::$_defaults)) {
-
             // Shorthand
             $d =& self::$_defaults;
 
@@ -554,7 +552,6 @@ class Style
 
         $ret = 0;
         foreach ($length as $l) {
-
             if ($l === "auto") {
                 return "auto";
             }
@@ -653,7 +650,6 @@ class Style
 
         return $cache[$key] = $ret;
     }
-
 
     /**
      * Set inherited properties in this style using values in $parent
@@ -1287,7 +1283,6 @@ class Style
         ];
     }
 
-
     /**
      * Returns the background as it is currently stored
      *
@@ -1301,7 +1296,6 @@ class Style
     {
         return $this->_props["background_attachment"];
     }
-
 
     /**
      * Returns the background_repeat as it is currently stored
@@ -1317,7 +1311,6 @@ class Style
         return $this->_props["background_repeat"];
     }
 
-
     /**
      * Returns the background as it is currently stored
      *
@@ -1331,7 +1324,6 @@ class Style
     {
         return $this->_props["background"];
     }
-
 
     /**#@+
      * Returns the border color as an array
@@ -1695,7 +1687,6 @@ class Style
         }
         return $value;
     }
-
 
     /*==============================*/
 

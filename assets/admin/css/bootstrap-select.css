@@ -14,9 +14,9 @@ select.selectpicker {
   text-align: right;
   white-space: nowrap;
 }
-.bootstrap-select > .dropdown-toggle.bs-placeholder, 
-.bootstrap-select > .dropdown-toggle.bs-placeholder:hover, 
-.bootstrap-select > .dropdown-toggle.bs-placeholder:focus, 
+.bootstrap-select > .dropdown-toggle.bs-placeholder,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:hover,
+.bootstrap-select > .dropdown-toggle.bs-placeholder:focus,
 .bootstrap-select > .dropdown-toggle.bs-placeholder:active {
 	color: rgba(0,0,0,0.7);
 	height: 38px;

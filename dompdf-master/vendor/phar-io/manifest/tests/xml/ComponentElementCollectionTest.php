@@ -14,5 +14,4 @@ class ComponentElementCollectionTest extends \PHPUnit\Framework\TestCase {
             $this->assertInstanceOf(ComponentElement::class, $componentElement);
         }
     }
-
 }

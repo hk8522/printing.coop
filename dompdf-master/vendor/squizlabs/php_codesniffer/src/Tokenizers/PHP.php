@@ -13,7 +13,6 @@ use PHP_CodeSniffer\Util;
 
 class PHP extends Tokenizer
 {
-
     /**
      * A list of tokens that are allowed to open a scope.
      *
@@ -445,7 +444,6 @@ class PHP extends Tokenizer
      * @see standardiseToken()
      */
     private static $resolveTokenCache = [];
-
 
     /**
      * Creates an array of tokens when given some PHP code.
@@ -1674,9 +1672,7 @@ class PHP extends Tokenizer
         }
 
         return $finalTokens;
-
     }//end tokenize()
-
 
     /**
      * Performs additional processing after main tokenizing.
@@ -2180,9 +2176,7 @@ class PHP extends Tokenizer
         if (PHP_CODESNIFFER_VERBOSITY > 1) {
             echo "\t*** END ADDITIONAL PHP PROCESSING ***".PHP_EOL;
         }
-
     }//end processAdditional()
-
 
     /**
      * Takes a token produced from <code>token_get_all()</code> and produces a
@@ -2258,9 +2252,7 @@ class PHP extends Tokenizer
 
         $newToken['content'] = $token[1];
         return $newToken;
-
     }//end standardiseToken()
-
 
     /**
      * Converts simple tokens into a format that conforms to complex tokens
@@ -2366,8 +2358,5 @@ class PHP extends Tokenizer
 
         self::$resolveTokenCache[$token] = $newToken;
         return $newToken;
-
     }//end resolveSimpleToken()
-
-
 }//end class

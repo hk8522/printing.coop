@@ -188,7 +188,7 @@ if ($test)    { /*one space after the bracket*/
 
 ?>
 <?php foreach($formset['Fieldset'] as $fieldset): ?>
-    <?php foreach($fieldset['Field'] as $field): ?> 
+    <?php foreach($fieldset['Field'] as $field): ?>
     <?php endforeach; ?>
 <?php endforeach; ?>
 
@@ -241,7 +241,7 @@ endif;
 <?php endwhile; ?>
 
 <?php foreach($formset['Fieldset'] as $fieldset) : ?>
-    <?php foreach($fieldset['Field'] as $field) : ?> 
+    <?php foreach($fieldset['Field'] as $field) : ?>
     <?php endforeach; ?>
 <?php endforeach; ?>
 

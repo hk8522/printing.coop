@@ -17,5 +17,4 @@ class Issue2591_SeparateFunctionPreserveTest extends TestCase
     {
         $this->assertEquals('Hello', $GLOBALS['globalString']);
     }
-
 }

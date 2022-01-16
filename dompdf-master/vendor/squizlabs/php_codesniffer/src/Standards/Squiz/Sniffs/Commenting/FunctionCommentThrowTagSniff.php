@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class FunctionCommentThrowTagSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class FunctionCommentThrowTagSniff implements Sniff
     public function register()
     {
         return [T_FUNCTION];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -226,8 +222,5 @@ class FunctionCommentThrowTagSniff implements Sniff
             $data  = [$throw];
             $phpcsFile->addError($error, $commentEnd, 'Missing', $data);
         }
-
     }//end process()
-
-
 }//end class

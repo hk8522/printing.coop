@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class JumbledIncrementerUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Returns the lines where errors should occur.
      *
@@ -26,9 +24,7 @@ class JumbledIncrementerUnitTest extends AbstractSniffUnitTest
     public function getErrorList()
     {
         return [];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -45,8 +41,5 @@ class JumbledIncrementerUnitTest extends AbstractSniffUnitTest
             4  => 1,
             20 => 1,
         ];
-
     }//end getWarningList()
-
-
 }//end class

@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class MultipleStatementAlignmentUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Returns the lines where errors should occur.
      *
@@ -26,9 +24,7 @@ class MultipleStatementAlignmentUnitTest extends AbstractSniffUnitTest
     public function getErrorList()
     {
         return [];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -149,8 +145,5 @@ class MultipleStatementAlignmentUnitTest extends AbstractSniffUnitTest
             return [];
             break;
         }//end switch
-
     }//end getWarningList()
-
-
 }//end class

@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class IndentationSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -30,7 +29,6 @@ class IndentationSniff implements Sniff
      */
     public $indent = 4;
 
-
     /**
      * Returns the token types that this sniff is interested in.
      *
@@ -39,9 +37,7 @@ class IndentationSniff implements Sniff
     public function register()
     {
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes the tokens that this sniff is interested in.
@@ -143,8 +139,5 @@ class IndentationSniff implements Sniff
                 }
             }//end if
         }//end for
-
     }//end process()
-
-
 }//end class

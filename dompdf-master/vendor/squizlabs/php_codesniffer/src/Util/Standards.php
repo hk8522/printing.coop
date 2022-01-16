@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Config;
 
 class Standards
 {
-
-
     /**
      * Get a list of paths where standards are installed.
      *
@@ -45,9 +43,7 @@ class Standards
         }
 
         return $resolvedInstalledPaths;
-
     }//end getInstalledStandardPaths()
-
 
     /**
      * Get the details of all coding standards installed.
@@ -143,9 +139,7 @@ class Standards
         }//end foreach
 
         return $installedStandards;
-
     }//end getInstalledStandardDetails()
-
 
     /**
      * Get a list of all coding standards installed.
@@ -209,9 +203,7 @@ class Standards
         }//end foreach
 
         return $installedStandards;
-
     }//end getInstalledStandards()
-
 
     /**
      * Determine if a standard is installed.
@@ -256,9 +248,7 @@ class Standards
         }//end if
 
         return false;
-
     }//end isInstalledStandard()
-
 
     /**
      * Return the path of an installed coding standard.
@@ -301,9 +291,7 @@ class Standards
         }//end foreach
 
         return null;
-
     }//end getInstalledStandardPath()
-
 
     /**
      * Prints out a list of installed coding standards.
@@ -327,8 +315,5 @@ class Standards
                 echo 'The installed coding standards are '.$standardList.PHP_EOL;
             }
         }
-
     }//end printInstalledStandards()
-
-
 }//end class

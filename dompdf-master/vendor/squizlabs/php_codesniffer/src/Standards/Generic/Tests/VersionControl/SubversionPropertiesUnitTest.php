@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class SubversionPropertiesUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Should this test be skipped for some reason.
      *
@@ -24,9 +22,7 @@ class SubversionPropertiesUnitTest extends AbstractSniffUnitTest
     {
         // This sniff cannot be tested as no SVN version control directory is available.
         return true;
-
     }//end shouldSkipTest()
-
 
     /**
      * Returns the lines where errors should occur.
@@ -39,9 +35,7 @@ class SubversionPropertiesUnitTest extends AbstractSniffUnitTest
     public function getErrorList()
     {
         return [];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -54,8 +48,5 @@ class SubversionPropertiesUnitTest extends AbstractSniffUnitTest
     public function getWarningList()
     {
         return [];
-
     }//end getWarningList()
-
-
 }//end class

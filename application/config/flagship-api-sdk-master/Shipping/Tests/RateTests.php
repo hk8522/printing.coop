@@ -5,7 +5,6 @@ use \PHPUnit\Framework\TestCase;
 use Flagship\Shipping\Objects\Rate;
 
 class RateTests extends TestCase{
-
     public function testGetTotal(){
         $this->assertNotNull($this->rate->getTotal());
         $this->assertSame(64.78, $this->rate->getTotal());
@@ -98,7 +97,5 @@ class RateTests extends TestCase{
                           ->setConstructorArgs([json_decode($response)])
                           ->setMethods(['__construct'])
                           ->getMock();
-
     }
-
 }

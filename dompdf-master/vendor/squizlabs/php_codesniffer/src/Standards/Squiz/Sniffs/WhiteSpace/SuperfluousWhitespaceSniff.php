@@ -18,7 +18,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class SuperfluousWhitespaceSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -39,7 +38,6 @@ class SuperfluousWhitespaceSniff implements Sniff
      */
     public $ignoreBlankLines = false;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -55,9 +53,7 @@ class SuperfluousWhitespaceSniff implements Sniff
             T_DOC_COMMENT_WHITESPACE,
             T_CLOSURE,
         ];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -257,8 +253,5 @@ class SuperfluousWhitespaceSniff implements Sniff
                 }
             }//end if
         }//end if
-
     }//end process()
-
-
 }//end class

@@ -23,8 +23,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ClassCommentSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -33,9 +31,7 @@ class ClassCommentSniff implements Sniff
     public function register()
     {
         return [T_CLASS];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -80,8 +76,5 @@ class ClassCommentSniff implements Sniff
             $data  = [$tokens[$tag]['content']];
             $phpcsFile->addWarning($error, $tag, 'TagNotAllowed', $data);
         }
-
     }//end process()
-
-
 }//end class

@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class LowerCaseConstantSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -24,7 +23,6 @@ class LowerCaseConstantSniff implements Sniff
         'PHP',
         'JS',
     ];
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -38,9 +36,7 @@ class LowerCaseConstantSniff implements Sniff
             T_FALSE,
             T_NULL,
         ];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -76,8 +72,5 @@ class LowerCaseConstantSniff implements Sniff
         } else {
             $phpcsFile->recordMetric($stackPtr, 'PHP constant case', 'lower');
         }
-
     }//end process()
-
-
 }//end class

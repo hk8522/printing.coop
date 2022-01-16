@@ -99,7 +99,6 @@ class MethodProphecy
             usort(
                 $types,
                 static function(string $type1, string $type2) {
-
                     // null is lowest priority
                     if ($type2 == 'null') {
                         return -1;

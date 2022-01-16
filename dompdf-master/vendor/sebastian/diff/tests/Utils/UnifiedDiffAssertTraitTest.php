@@ -147,7 +147,6 @@ final class UnifiedDiffAssertTraitTest extends TestCase
 +++ New
 @@ -8 +8 @@
 
-
 '
         );
     }

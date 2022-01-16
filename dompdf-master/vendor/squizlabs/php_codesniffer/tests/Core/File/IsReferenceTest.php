@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Core\AbstractMethodUnitTest;
 
 class IsReferenceTest extends AbstractMethodUnitTest
 {
-
-
     /**
      * Test a class that extends another.
      *
@@ -30,9 +28,7 @@ class IsReferenceTest extends AbstractMethodUnitTest
         $bitwiseAnd = $this->getTargetToken($identifier, T_BITWISE_AND);
         $result     = self::$phpcsFile->isReference($bitwiseAnd);
         $this->assertSame($expected, $result);
-
     }//end testIsReference()
-
 
     /**
      * Data provider for the IsReference test.
@@ -229,8 +225,5 @@ class IsReferenceTest extends AbstractMethodUnitTest
                 true,
             ],
         ];
-
     }//end dataIsReference()
-
-
 }//end class

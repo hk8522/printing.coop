@@ -19,19 +19,19 @@ class ComposerStaticInitddd7fc6537bda800c1f3de091ba5cf46
     );
 
     public static $prefixLengthsPsr4 = array (
-        'p' => 
+        'p' =>
         array (
             'phpDocumentor\\Reflection\\' => 25,
         ),
-        'W' => 
+        'W' =>
         array (
             'Webmozart\\Assert\\' => 17,
         ),
-        'S' => 
+        'S' =>
         array (
             'Symfony\\Polyfill\\Ctype\\' => 23,
         ),
-        'P' => 
+        'P' =>
         array (
             'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
@@ -39,115 +39,115 @@ class ComposerStaticInitddd7fc6537bda800c1f3de091ba5cf46
             'Prophecy\\' => 9,
             'PhpParser\\' => 10,
         ),
-        'N' => 
+        'N' =>
         array (
             'Nerd\\CartesianProduct\\' => 22,
         ),
-        'H' => 
+        'H' =>
         array (
             'Http\\Message\\' => 13,
             'Http\\Client\\Tests\\' => 18,
         ),
-        'G' => 
+        'G' =>
         array (
             'GuzzleHttp\\Tests\\' => 17,
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
         ),
-        'D' => 
+        'D' =>
         array (
             'Doctrine\\Instantiator\\' => 22,
             'DeepCopy\\' => 9,
         ),
-        'C' => 
+        'C' =>
         array (
             'Clue\\StreamFilter\\' => 18,
         ),
-        'B' => 
+        'B' =>
         array (
             'Bamarni\\Composer\\Bin\\' => 21,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'phpDocumentor\\Reflection\\' => 
+        'phpDocumentor\\Reflection\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
             1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
             2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
         ),
-        'Webmozart\\Assert\\' => 
+        'Webmozart\\Assert\\' =>
         array (
             0 => __DIR__ . '/..' . '/webmozart/assert/src',
         ),
-        'Symfony\\Polyfill\\Ctype\\' => 
+        'Symfony\\Polyfill\\Ctype\\' =>
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-ctype',
         ),
-        'Psr\\Log\\' => 
+        'Psr\\Log\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
-        'Psr\\Http\\Message\\' => 
+        'Psr\\Http\\Message\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
             1 => __DIR__ . '/..' . '/psr/http-factory/src',
         ),
-        'Psr\\Http\\Client\\' => 
+        'Psr\\Http\\Client\\' =>
         array (
             0 => __DIR__ . '/..' . '/psr/http-client/src',
         ),
-        'Prophecy\\' => 
+        'Prophecy\\' =>
         array (
             0 => __DIR__ . '/..' . '/phpspec/prophecy/src/Prophecy',
         ),
-        'PhpParser\\' => 
+        'PhpParser\\' =>
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
-        'Nerd\\CartesianProduct\\' => 
+        'Nerd\\CartesianProduct\\' =>
         array (
             0 => __DIR__ . '/..' . '/th3n3rd/cartesian-product/src',
         ),
-        'Http\\Message\\' => 
+        'Http\\Message\\' =>
         array (
             0 => __DIR__ . '/..' . '/php-http/message-factory/src',
             1 => __DIR__ . '/..' . '/php-http/message/src',
         ),
-        'Http\\Client\\Tests\\' => 
+        'Http\\Client\\Tests\\' =>
         array (
             0 => __DIR__ . '/..' . '/php-http/client-integration-tests/src',
         ),
-        'GuzzleHttp\\Tests\\' => 
+        'GuzzleHttp\\Tests\\' =>
         array (
             0 => __DIR__ . '/../..' . '/tests',
         ),
-        'GuzzleHttp\\Psr7\\' => 
+        'GuzzleHttp\\Psr7\\' =>
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
         ),
-        'GuzzleHttp\\Promise\\' => 
+        'GuzzleHttp\\Promise\\' =>
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
         ),
-        'GuzzleHttp\\' => 
+        'GuzzleHttp\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
-        'Doctrine\\Instantiator\\' => 
+        'Doctrine\\Instantiator\\' =>
         array (
             0 => __DIR__ . '/..' . '/doctrine/instantiator/src/Doctrine/Instantiator',
         ),
-        'DeepCopy\\' => 
+        'DeepCopy\\' =>
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
-        'Clue\\StreamFilter\\' => 
+        'Clue\\StreamFilter\\' =>
         array (
             0 => __DIR__ . '/..' . '/clue/stream-filter/src',
         ),
-        'Bamarni\\Composer\\Bin\\' => 
+        'Bamarni\\Composer\\Bin\\' =>
         array (
             0 => __DIR__ . '/..' . '/bamarni/composer-bin-plugin/src',
         ),
@@ -788,7 +788,6 @@ class ComposerStaticInitddd7fc6537bda800c1f3de091ba5cf46
             $loader->prefixLengthsPsr4 = ComposerStaticInitddd7fc6537bda800c1f3de091ba5cf46::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitddd7fc6537bda800c1f3de091ba5cf46::$prefixDirsPsr4;
             $loader->classMap = ComposerStaticInitddd7fc6537bda800c1f3de091ba5cf46::$classMap;
-
         }, null, ClassLoader::class);
     }
 }

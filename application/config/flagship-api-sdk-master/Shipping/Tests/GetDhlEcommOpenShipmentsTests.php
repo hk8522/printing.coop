@@ -8,7 +8,6 @@ use Flagship\Shipping\Objects\Shipment;
 use Flagship\Shipping\Exceptions\GetShipmentListException;
 
 class GetDhlEcommOpenShipmentsTests extends TestCase{
-
     public function testGetById(){
         $this->assertNotNull($this->shipmentsList->getById(3372152));
         $this->assertInstanceOf(Shipment::class, $this->shipmentsList->getById(3372152));

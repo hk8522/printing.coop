@@ -23,7 +23,7 @@ class Neighbor extends Admin_Controller
         $this->load->helper('form');
         $this->load->library('form_validation');
         $this->load->library('pagination');
-        $this->load->config('pagination');	
+        $this->load->config('pagination');
 
         // $this->session->set_flashdata('message_success', '');
         // $this->session->set_flashdata('message_error',   '');
@@ -66,7 +66,7 @@ class Neighbor extends Admin_Controller
 
             $this->form_validation->set_rules($set_rules);
             $this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
-            
+
             if ($this->form_validation->run() === TRUE) {
                 $new_id = $this->Neighbor_Model->save($data);
 
@@ -75,6 +75,8 @@ class Neighbor extends Admin_Controller
                     $attributesNew = [];
                     $data_ids = $_POST['data_id'];
                     foreach ($data_ids as $index => $data_id) {
+                        if ($_POST['attribute_id'][$index] == 0)
+                            continue;
                         if ($_POST['neighbor_attribute'][$index] == null)
                             continue;
                         if ($data_id > 0)
@@ -142,6 +144,11 @@ class Neighbor extends Admin_Controller
         $this->data['order'] = $order;
 
         $this->data['attributes'] = $this->Neighbor_Model->attributesFull($neighbor_id);
+        $this->data['attributes'][0] = [
+            'attribute_id' => 0,
+            'name' => 'Size',
+            'attribute_name' => 'Size',
+        ];
         $this->data['attributeItems'] = $this->Neighbor_Model->attributeItemsFull($neighbor_id);
 
         $this->render($this->class_name . 'edit');
@@ -194,7 +201,7 @@ class Neighbor extends Admin_Controller
 
             $this->form_validation->set_rules($set_rules);
             $this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
-            
+
             if ($this->form_validation->run() === TRUE) {
                 $new_id = $this->Neighbor_Model->saveAttribute($data);
 

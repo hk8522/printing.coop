@@ -13,12 +13,9 @@
 						<?php if($success){?>
 						    <script>
 							setTimeout(function(){
-
                                 window.location='<?php echo $BASE_URL_ADMIN?>Accounts/logout';
-
 							}, 2000
                             );
-
 
 							</script>
 						<?php }?>

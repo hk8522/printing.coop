@@ -11,7 +11,6 @@ class Products extends Public_Controller
       $this->class_name=ucfirst(strtolower($this->router->fetch_class())).'/';
     }
     public function index($category_id = null, $sub_category_id = null){
-
         $this->load->model('Product_Model');
         $this->load->model('Category_Model');
         $this->load->model('SubCategory_Model');
@@ -33,39 +32,30 @@ class Products extends Public_Controller
 	    $url=base_url()."Products/";
 
         if (isset($_GET['category_id'])){
-
             $category_id = base64_decode($_GET['category_id']);
         }
 		#check condition ecoink
 	    if($this->main_store_data['show_all_categories'] ==0 && $category_id !=13 && $this->website_store_id==5){
-
 			$category_id=13;
 			$url .='?category_id='.base64_encode($category_id);
 			redirect($url);
-
 		}
 
 		if (isset($_GET['sub_category_id'])) {
-
 			  $sub_category_id = base64_decode($_GET['sub_category_id']);
 		}
 
 		if (isset($_GET['printer_brand'])) {
-
 			  $printer_brand =$_GET['printer_brand'];
 		}
 		if (isset($_GET['printer_series'])) {
-
 			  $printer_series =$_GET['printer_series'];
 		}
 		if (isset($_GET['printer_models'])) {
-
 			  $printer_models =$_GET['printer_models'];
 		}
 
-
         if (!empty($category_id)) {
-
           $this->data['category_id'] = $category_id;
           $data = $this->Category_Model->getCategoryDataById($category_id);
           $this->data['category_name'] = $data['name'];
@@ -74,15 +64,11 @@ class Products extends Public_Controller
 		  $pageData=$data;
 		  $url .='?category_id='.base64_encode($category_id);
 		}else{
-
 			  $url .='?category_id=';
 			  $pageData=$this->Page_Model->getPageDataBySlug('products',$this->website_store_id);
 		}
 
-
-
         if (!empty($sub_category_id)) {
-
           $this->data['sub_category_id'] = $sub_category_id;
           $data = $this->SubCategory_Model->getSubCategoryDataById($sub_category_id);
           $this->data['sub_category_name'] = $data['name'];
@@ -97,7 +83,6 @@ class Products extends Public_Controller
 	    }
 
 	    if (!empty($printer_brand)) {
-
 			$this->data['printer_brand'] = $printer_brand;
 			$title .=" / ".$printer_brand;
 			$url .='&printer_brand='.$printer_brand;
@@ -105,7 +90,6 @@ class Products extends Public_Controller
 		  $url .='&printer_brand=';
 	    }
 		 if (!empty($printer_series)) {
-
 			$this->data['printer_series'] = $printer_series;
 			$title .=" / ".$printer_series;
 			$url .='&printer_series='.$printer_series;
@@ -114,7 +98,6 @@ class Products extends Public_Controller
 	    }
 
 		if (!empty($printer_models)) {
-
 			$this->data['printer_models'] = $printer_models;
 			$title .=" / ".$printer_models;
 			$url .='&printer_models='.$printer_models;
@@ -124,7 +107,6 @@ class Products extends Public_Controller
 
 	    $this->data['page_title'] = $title;
 	    if(!empty($pageData)){
-
 			$this->data['meta_page_title'] = $pageData['page_title'];
 			$this->data['meta_description_content'] = $pageData['meta_description_content'];
 			$this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
@@ -136,9 +118,7 @@ class Products extends Public_Controller
 			}
 		}
       if (isset($_GET['sort_by'])) {
-
           $sortBy = $_GET['sort_by'];
-
       } else {
             $sortBy = 'name';
       }
@@ -162,19 +142,15 @@ class Products extends Public_Controller
 
 	    $lists = $this->Product_Model->getActiveProductList($category_id,$sub_category_id,$order_by,$type,$offset,  $no_of_records_per_page,$printer_brand,$printer_series,$printer_models);
 
-
 	    $prevPage=$pageno-1;
 	    $NextPage=$pageno+1;
 
 	    if($total_pages == $pageno){
-
 		   $NextPage='';
 	    }
 	    if($pageno ==1){
-
 		   $prevPage='';
 	    }
-
 
 		$this->data['url']      = $url;
         $this->data['total']    = $total;
@@ -183,16 +159,12 @@ class Products extends Public_Controller
 
         $this->data['lists']=$lists;
         foreach ($lists as $key => $list) {
-
             $this->data['lists'][$key]['category'] = $this->Category_Model->getCategoryDataById($list['category_id']);
 
 		    $multipalCategory=$this->Product_Model->getProductMultipalCategoriesAndSubCategories($list['id']);
 		    $multipalCategoryData=array();
 		    foreach($multipalCategory as $ckey=>$cval){
-
-
 			  $multipalCategoryData[$ckey]= $this->Category_Model->getCategoryDataById($ckey);
-
 		    }
 
 		    $this->data['lists'][$key]['multipalCategory']=$multipalCategoryData;
@@ -278,25 +250,18 @@ class Products extends Public_Controller
     {
 		$searchtext=$this->input->post('searchtext');
         if($searchtext !=''){
-
             $searchtext=trim($searchtext);
 			$this->load->model('Product_Model');
 			if($this->language_name=='French'){
-
 			    $lists=$this->Product_Model->getProductSearchFranchList($searchtext);
-
 			}else{
-
 				$lists=$this->Product_Model->getProductSearchList($searchtext);
 			}
 			//pr($lists,1);
 			$search_reslut='';
 			if(!empty($lists)){
-
 				foreach($lists as $list){
-
                     if($list['status']==1){
-
 					   $url=base_url()."Products/view/".base64_encode($list['id']);
 					   $name=$this->language_name=='French' ? $list['name_french']:$list['name'];
 					   $name=ucfirst($name);
@@ -306,27 +271,20 @@ class Products extends Public_Controller
 						   $category_id=13;
 						   $multipalCategory=$this->Product_Model->getProductMultipalCategoriesAndSubCategories($list['id']);
 						    if(array_key_exists($category_id,$multipalCategory)){
-
 							    $search_reslut.='<li><img src="'.$imageurl.'" width="50"><a href="'.$url.'">'.$name.'</a></li>';
 						    }
 					   }else{
 						    $search_reslut.='<li><img src="'.$imageurl.'" width="50"><a href="'.$url.'">'.$name.'</a></li>';
 					   }
-
 				    }
 				}
-
 			}else{
-
 			 $search_reslut='<li><i class="fas fa-search"></i><a href="javascript:void(0)">product not found</a></li>';
 			}
 		}else{
-
 			$search_reslut='<li><i class="fas fa-search"></i><a href="javascript:void(0)">product not found</a></li>';
-
 		}
 		if(empty($search_reslut)){
-
 			$search_reslut='<li><i class="fas fa-search"></i><a href="javascript:void(0)">product not found</a></li>';
 		}
 
@@ -385,7 +343,6 @@ class Products extends Public_Controller
 	function emailSubscribe()
     {
 		if($this->input->post()) {
-
 			  $this->load->library('form_validation');
 			   /*$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[subscribe_emails.email]','errors' => array(
 					'required' => 'Enter email id',
@@ -415,7 +372,6 @@ class Products extends Public_Controller
 						if($this->language_name=='French'){
 							 $response['msg'] = "Votre adresse e-mail s'est abonnée avec succès.";
 						}
-
 				  } else {
 					  $response['msg']='Your review posted unsuccessfully.';
 						if($this->language_name=='French'){
@@ -545,7 +501,6 @@ class Products extends Public_Controller
                     $response['product_width'] = 0;
                     $response['product_width_error'] = 'Please enter width between ' . showValue($min_width) . ' and ' . showValue($max_width);
                     if ($this->language_name == 'French') {
-
                         $response['product_width_error'] = 'Veuillez saisir la largeur entre ' . showValue($min_width) . ' et ' . showValue($max_width);
                     }
                 } else if (empty($product_total_page) && $length_width_quantity_show == 1) {
@@ -860,7 +815,6 @@ class Products extends Public_Controller
     }
 
 	function GetQuantity(){
-
 	    $product_id=$this->input->post('product_id');
 	    $price=$this->input->post('price');
 	    $quantity=$this->input->post('quantity');
@@ -894,20 +848,17 @@ class Products extends Public_Controller
 
 	    $ProductAttributes=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
 	    foreach($ProductAttributes as $key=>$val){
-
 		   $attribute_name='attribute_id_'.$key;
 		   $attribute_item_id=isset($_POST[$attribute_name]) ? $this->input->post($attribute_name):'';
 		   $items=$val['items'];
 
 		    if(!empty($attribute_item_id) && array_key_exists($attribute_item_id,$items)){
-
 			    $extra_price=$items[$attribute_item_id]['extra_price'];
 			    $price += $extra_price;
 		    }
 	    }
 
 		if(!empty($add_length_width)){
-
 			$product_length=$this->input->post('product_length');
 		    $product_width=$this->input->post('product_width');
 
@@ -917,10 +868,7 @@ class Products extends Public_Controller
 
 			$length_width_color=$this->input->post('length_width_color');
 
-
-
 			if(!empty($product_length) && !empty($product_width)){
-
 				$Product =$this->Product_Model->getProductList($product_id);
 			    $min_length=$Product['min_length'];
 			    $max_length=$Product['max_length'];
@@ -937,29 +885,21 @@ class Products extends Public_Controller
 				$extra_price=0;
 
 				if($length_width_color_show==1){
-
 					if(!empty($length_width_color)){
-
 						if($length_width_color=='black'){
-
 							$extra_price =$length_width_unit_price_black*$rq_area;
-
 						}else if($length_width_color=='color'){
-
 							$extra_price=$length_width_price_color*$rq_area;
 						}
 				    }else{
 						$extra_price=$min_length_min_width_price*$rq_area;
 					}
 				}else{
-
 				   $extra_price=$min_length_min_width_price*$rq_area;
 				}
 
 				if($length_width_quantity_show==1 && !empty($product_total_page)){
-
 				    $extra_price=$product_total_page*$extra_price;
-
 				}
 
 				$price += $extra_price;
@@ -967,7 +907,6 @@ class Products extends Public_Controller
 		}
 
 		if(!empty($depth_add_length_width)){
-
 				$product_depth_length=$this->input->post('product_depth_length');
 				$product_depth_width=$this->input->post('product_depth_width');
 
@@ -986,7 +925,6 @@ class Products extends Public_Controller
 				$depth_min_width=$Product['depth_min_width'];
 				$depth_max_width=$Product['depth_max_width'];
 
-
 				$depth_min_quantity=$Product['depth_min_quantity'];
 				$depth_max_quantity=$Product['depth_max_quantity'];
 
@@ -998,44 +936,31 @@ class Products extends Public_Controller
 
 				$depth_color_show=$Product['depth_color_show'];
 
-
 				if(!empty($product_depth_length) && !empty($product_depth_width) && !empty($product_depth)){
-
 					$rq_area=$product_depth_length*$product_depth_width*$product_depth;
 					$extra_price=0;
 
 					if($depth_color_show==1){
-
 						if(!empty($depth_color)){
-
 							if($depth_color=='black'){
 								$extra_price =$depth_unit_price_black*$rq_area;
-
 							}else if($depth_color=='color'){
-
 								$extra_price =$depth_price_color*$rq_area;
 							}
 						}else{
 							  $extra_price=$depth_width_length_price*$rq_area;
 						}
-
 					}else{
-
 					  $extra_price=$depth_width_length_price*$rq_area;
-
 					}
 
-
 					if($depth_width_length_quantity_show==1 && !empty($product_depth_total_page)){
-
 						$extra_price=$product_depth_total_page*$extra_price;
-
 					}
 			}
 	    }
 
 		if(!empty($page_add_length_width)){
-
 			$page_product_length=$this->input->post('page_product_length');
 		    $page_product_width=$this->input->post('page_product_width');
 			$page_product_total_sheets=$this->input->post('page_product_total_sheets');
@@ -1049,9 +974,7 @@ class Products extends Public_Controller
 
 			$page_product_total_quantity=$this->input->post('page_product_total_quantity');
 
-
 			if(!empty($page_product_length) && !empty($page_product_width)){
-
 				$Product =$this->Product_Model->getProductList($product_id);
 
 			    $page_min_length=$Product['page_min_length'];
@@ -1065,55 +988,40 @@ class Products extends Public_Controller
 
 			    $page_length_width_color_show=$Product['page_length_width_color_show'];
 
-
 				$rq_area=$page_product_length*$page_product_width;
 
 				$extra_price=0;
 				if($page_length_width_color_show==1){
-
-
 					if(!empty($page_length_width_color)){
-
 						if($page_length_width_color=='black'){
 							$extra_price =$page_length_width_price_black*$rq_area;
-
 						}else if($page_length_width_color=='color'){
-
 							$extra_price =$page_length_width_price_color*$rq_area;
 						}
 				    }else{
-
 						$extra_price=$page_min_length_min_width_price*$rq_area;
 					}
 				}else{
-
 					$extra_price=$page_min_length_min_width_price*$rq_area;
 				}
 				$page_extra_price=0;
 				$sheets_extra_price=0;
 				if(!empty($page_product_total_page) && $page_length_width_pages_show==1){
-
 					$page_product_total_page_error=explode('-',$page_product_total_page);
 					$page_extra_price = $page_product_total_page_error[0]*$extra_price;
 				}
 
 				if(!empty($page_product_total_sheets) && $page_length_width_sheets_show==1){
-
 					$sheets_extra_price=$page_product_total_sheets*$extra_price;
-
 				}
 
 				if(!empty($page_extra_price) || !empty($sheets_extra_price)){
-
 					$extra_price=$page_extra_price+$sheets_extra_price;
 				}
 
-
 				if(!empty($page_product_total_quantity) && $page_length_width_quantity_show==1){
-
 					$extra_price=$page_product_total_quantity*$extra_price;
 				}
-
 
 				$price += $extra_price;
 			}
@@ -1121,7 +1029,6 @@ class Products extends Public_Controller
 
 		#RECTO PRICE CAl.
 		if(!empty($recto_verso) && $recto_verso=="Yes" && !empty($recto_verso_price)){
-
 			$price = $price+(($price*$recto_verso_price)/100);
 		}
 
@@ -1136,9 +1043,7 @@ class Products extends Public_Controller
 	}
 
 	function getSizeOptions($product_id=null,$product_quantity_id=null,$product_size_id=null,$fl=0){
-
 		if(empty($product_id)){
-
 			redirect(base_url());
 		}
 		$this->load->model('Product_Model');
@@ -1151,89 +1056,66 @@ class Products extends Public_Controller
 		$size_disebal=true;
 		$AtirbuteProductSizes=array();
 	    if(!empty($product_quantity_id) && !empty($product_size_id)){
-
 			$quantityData=$ProductSizes[$product_quantity_id];
 			$sizeData=isset($quantityData['sizeData']) ? $quantityData['sizeData']:array();
 			$attribute=isset($sizeData[$product_size_id]['attribute']) ? $sizeData[$product_size_id]['attribute']:array();
 
 			if(!empty($sizeData)){
-
 				$options_size=$options;
 				$size_disebal=false;
 				foreach($sizeData as $key1=>$val1){
-
 					$label=$this->language_name== 'French' ? $val1['size_name_french']:$val1['size_name'];
 					$selected='';
 					if($key1==$product_size_id){
 					    $selected='selected="selected"';
 					}
 					$options_size = $options_size."<option value='".$key1."' $selected>".$label."</option>";
-
 				}
 			}
 
 			if(!empty($attribute)){
-
 				foreach($MultipleAttributes as $mkey=>$mval){
-
 					if(array_key_exists($mkey,$attribute)){
-
 						$AtirbuteProductSizes[$mkey]['attribute_name']=$attribute[$mkey]['attribute_name'];
 						$AtirbuteProductSizes[$mkey]['attributes_name_french']=$attribute[$mkey]['attributes_name_french'];
 						$AtirbuteProductSizes[$mkey]['attribute_items']=$attribute[$mkey]['attribute_items'];
 					}
 				}
 			}
-
         }else if(!empty($product_quantity_id) && empty($product_size_id)){
-
                 $quantityData=$ProductSizes[$product_quantity_id];
 				$sizeData=isset($quantityData['sizeData']) ? $quantityData['sizeData']:array();
 
 				if(!empty($sizeData)){
-
 					$options_size=$options;
 					$size_disebal=false;
 					foreach($sizeData as $key1=>$val1){
-
 						$label=$this->language_name== 'French' ? $val1['size_name_french']:$val1['size_name'];
 
 						$options_size = $options_size."<option value='".$key1."'>".$label."</option>";
 						$attribute=isset($val1['attribute']) ? $val1['attribute']:array();
 						if(!empty($attribute)){
-
 							foreach($MultipleAttributes as $mkey=>$mval){
-
 								if(array_key_exists($mkey,$attribute)){
-
 									$AtirbuteProductSizes[$mkey]['attribute_name']=$attribute[$mkey]['attribute_name'];
 									$AtirbuteProductSizes[$mkey]['attributes_name_french']=$attribute[$mkey]['attributes_name_french'];
 									$AtirbuteProductSizes[$mkey]['attribute_items']=$attribute[$mkey]['attribute_items'];
 								}
 							}
 						}
-
 					}
-
 				}
-
 		}else{
 			foreach($ProductSizes as $key=>$val){
-
 				$sizeData=isset($val['sizeData']) ? $val['sizeData']:array();
 				if(!empty($sizeData)){
-
 					$options_size=$options;
 					foreach($sizeData as $key1=>$val1){
-
 						$attribute=isset($val1['attribute']) ? $val1['attribute']:array();
 
 						if(!empty($attribute)){
-
 							foreach($MultipleAttributes as $mkey=>$mval){
-
 								if(array_key_exists($mkey,$attribute)){
-
 									$AtirbuteProductSizes[$mkey]['attribute_name']=$attribute[$mkey]['attribute_name'];
 									$AtirbuteProductSizes[$mkey]['attributes_name_french']=$attribute[$mkey]['attributes_name_french'];
 									$AtirbuteProductSizes[$mkey]['attribute_items']=$attribute[$mkey]['attribute_items'];
@@ -1242,7 +1124,6 @@ class Products extends Public_Controller
 						}
 					}
 				}
-
 			}
 		}
 
@@ -1257,23 +1138,18 @@ class Products extends Public_Controller
 		$response['size_disebal']=$size_disebal;
 		$response['AtirbuteProductSizes']=$AtirbuteProductSizes;
 		if(empty($options_size)){
-
 			return 0;
 			exit();
 		}
 		if($fl){
-
 	      return $this->load->view('Products/size_options',$response,true);
-
 		}else{
 			echo $this->load->view('Products/size_options',$response,true);
 		}
 		exit();
-
 	}
 
     function uploadImage(){
-
 	    #unset($_SESSION['product_id']); die();
 	    $product_id=$_POST['product_id'];
 	   /* Getting file name */
@@ -1294,25 +1170,20 @@ class Products extends Public_Controller
 		$return_arr = array("name" => $filename,"size" => $filesize, "src"=> $src,'skey'=>$key,'product_id'=>$product_id,'location'=>$location,'cumment'=>'','error'=>'','error_msg'=>'','file_base_url'=>'');
 
 		if($filetype !='application/pdf'){
-
 			$return_arr['error']=1;
 			$return_arr['error_msg']=$this->language_name== 'French' ? 'Type de fichier autorisé uniquement pdf' :'Allowed file type only pdf';
-
 		}else if($filesize > 262144000){  //250MB
 
 			$return_arr['error']=1;
 			$return_arr['error_msg']='Maximum file size allowed for upload 250 MB';
 			$return_arr['error_msg']=$this->language_name== 'French' ? 'Taille de fichier maximale autorisée pour le téléchargement 250 Mo' :'Maximum file size allowed for upload 250 MB';
-
 		} else if(move_uploaded_file($_FILES['file']['tmp_name'],$location)){
-
 			$src = DEFAULT_IMAGE_URL."pdf-icon.png";
 
 			$file_base_url=FILE_UPLOAD_BASE_URL.$newfileName;
 
 			// checking file is image or not
 			/*if(is_array(getimagesize($location))){
-
 				$src=FILE_UPLOAD_BASE_URL.$newfileName;
 			}*/
 
@@ -1324,34 +1195,25 @@ class Products extends Public_Controller
 
 			$data['return_arr']=$return_arr;
 		}else{
-
 			$return_arr['error']=1;
 			$return_arr['error_msg']=$this->language_name== 'French' ? 'Le téléchargement du fichier a échoué' :'File upload failed';
-
 		}
 
 		if(empty($return_arr['error'])){
-
 		    $html=$this->load->view('Ajax/file_data',$data,true);
 			$return_arr['html']=$html;
 		}else{
 			$return_arr['html']='';
 		}
 		echo json_encode($return_arr);
-
-
-
-
   }
 
   function updateCumment(){
-
 	   $product_id=$_POST['product_id'];
 	   $skey=$_POST['skey'];
 	   $cumment=$_POST['cumment'];
 
 	   if(isset($_SESSION['product_id'][$product_id])){
-
 		  $_SESSION['product_id'][$product_id][$skey]['cumment']=$cumment;
 	   }
        exit(0);
@@ -1359,16 +1221,13 @@ class Products extends Public_Controller
   }
 
   function deleteImage(){
-
 	   $product_id=$_POST['product_id'];
 	   $skey=$_POST['skey'];
 	   $location=$_POST['location'];
 	   if(isset($_SESSION['product_id'][$product_id])){
-
 		  unset($_SESSION['product_id'][$product_id][$skey]);
 
 		  /*if(file_exists($location)){
-
 			  unlink($location);
 		  }*/
 	   }
@@ -1395,12 +1254,9 @@ class Products extends Public_Controller
 			];
 
       if ($this->form_validation->run() == FALSE) {
-
           $response['status'] = 'error';
           $response['errors'] = $this->form_validation->error_array();
-
       } else {
-
           $postData['contact_name'] = $this->input->post('contact_name');
           $postData['company_name'] = $this->input->post('company_name');
           $postData['email'] = $this->input->post('email');
@@ -1428,14 +1284,11 @@ class Products extends Public_Controller
 		  $postData['store_id'] = $this->main_store_id;
 
           if ($this->Estimate_Model->saveEstimateData($postData)) {
-
               $response['msg'] = 'Thank you for contacting printing coop we have received your estimation query our representative will get back to you within 24 hours';
 			  if($this->language_name=='French'){
-
 				 $response['msg'] = "Merci d'avoir contacté Imprimeur.coop nous avons reçu votre demande d'estimation notre représentant vous répondra dans les 24 heures";
 			  }
           } else {
-
               $response['status'] = 'error';
               $response['msg'] = 'Your Estimate Not Save Please Try Again.';
 			  if($this->language_name=='French'){
@@ -1448,28 +1301,23 @@ class Products extends Public_Controller
     }
 
 	public function download($filePath = NULL,$name=null) {
-
 		$this->load->helper('download');
 		if ($filePath) {
-
 			///$file = FILE_UPLOAD_BASE_URL."cart-image\\" .$fileName;
 			$file=urldecode($filePath);
 			// check file exists
 			if (file_exists ( $file )) {
-
 			 // get file content
 			    $data = file_get_contents ($file);
 
 			    //force download
 			    force_download (urldecode($name), $data);
 				exit();
-
 			}
 		}
     }
 
 	function PrinterSeries($name=null){
-
 		$label=$this->language_name=='French' ? "Sélectionnez une série d'imprimantes":'Select a Printer Series';
 	    $this->load->model('Printer_Model');
 		$options='<option value="">'.$label.'</option>';
@@ -1477,22 +1325,18 @@ class Products extends Public_Controller
 		$name=str_replace('%20',' ',$name);
 
 		if(!empty($name)){
-
 			$data=$this->Printer_Model->getDataByName('printers',$name);
 			$printer_brand=$data['id'];
 		    $PrinterSeries=$this->Printer_Model->getAcctivePrinterSeriesByBrandId($printer_brand);
 			foreach($PrinterSeries as $key=>$val){
-
 				$options .='<option value="'.$val['name'].'">'.$val['name'].'</option>';
 			}
 		}
 		echo $options;
 		exit();
-
 	}
 
 	function PrinterModel($printer_brand=null,$printer_series=null){
-
 	    $this->load->model('Printer_Model');
 		$label=$this->language_name=='French' ? "Sélectionnez un modèle d'imprimante":'Select a Printer Model';
 		$options='<option value="">'.$label.'</option>';
@@ -1504,19 +1348,16 @@ class Products extends Public_Controller
 		$printer_brand=str_replace('%20',' ',$printer_brand);
 
 		if(!empty($printer_brand) && !empty($printer_series)){
-
 			$data=$this->Printer_Model->getDataByName('printers',$printer_brand);
 			$sdata=$this->Printer_Model->getDataByName('printer_series',$printer_series);
 			$printer_brand_id=$data['id'];
 			$printer_series_id=$sdata['id'];
 		    $PrinterModel=$this->Printer_Model->getAcctiveModelByBrandId($printer_brand_id,$printer_series_id);
 			foreach($PrinterModel as $key=>$val){
-
 				$options .='<option value="'.$val['name'].'">'.$val['name'].'</option>';
 			}
 		}
 		echo $options;
 		exit();
-
 	}
 }

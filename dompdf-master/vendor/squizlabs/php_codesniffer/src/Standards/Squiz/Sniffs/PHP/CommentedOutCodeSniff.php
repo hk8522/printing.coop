@@ -16,7 +16,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class CommentedOutCodeSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -34,7 +33,6 @@ class CommentedOutCodeSniff implements Sniff
      */
     public $maxPercentage = 35;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -43,9 +41,7 @@ class CommentedOutCodeSniff implements Sniff
     public function register()
     {
         return [T_COMMENT];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -281,8 +277,5 @@ class CommentedOutCodeSniff implements Sniff
         }
 
         return ($lastCommentBlockToken + 1);
-
     }//end process()
-
-
 }//end class

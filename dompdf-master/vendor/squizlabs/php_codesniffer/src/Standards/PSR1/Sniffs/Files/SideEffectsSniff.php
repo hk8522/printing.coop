@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class SideEffectsSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class SideEffectsSniff implements Sniff
     public function register()
     {
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -57,9 +53,7 @@ class SideEffectsSniff implements Sniff
 
         // Ignore the rest of the file.
         return ($phpcsFile->numTokens + 1);
-
     }//end process()
-
 
     /**
      * Searches for symbol declarations and side effects.
@@ -280,8 +274,5 @@ class SideEffectsSniff implements Sniff
             'symbol' => $firstSymbol,
             'effect' => $firstEffect,
         ];
-
     }//end searchForConflict()
-
-
 }//end class

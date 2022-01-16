@@ -13,7 +13,7 @@ All notable changes to Tokenizer are documented in this file using the [Keep a C
 
 ### Fixed
 
-* [#1](https://github.com/theseer/tokenizer/issues/1): Empty file causes invalid array read 
+* [#1](https://github.com/theseer/tokenizer/issues/1): Empty file causes invalid array read
 
 ### Changed
 

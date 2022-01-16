@@ -1,16 +1,13 @@
 <?php
     #Montreal book printing Section
 	if($language_name=='French'){
-
 	   $background_image=$section_4['french_background_image'];
 	}else{
-
 	  $background_image=$section_4['background_image'];
 	}
 	$imageUrl=$BASE_URL.'assets/images/parallax2-1.jpg';
 
 	if(!empty($background_image)){
-
 		$imageUrl=getSectionImage($background_image);
 	}
 ?>
@@ -20,31 +17,23 @@
 			<div class="universal-light-title">
               <span><?php
 			    if($language_name=='French'){
-
 					 echo $section_4['name_france'] ?? '';
 					}else{
-
 					  echo $section_4['name'] ?? '';
-
 					} ?></span>
             </div>
             <div class="universal-light-info">
               <span><?php if($language_name=='French'){
-
 					 echo $section_4['description_france'] ?? '';
 					}else{
-
 					  echo $section_4['description'] ?? '';
-
 					}?></span>
             </div>
 		    <div class="universal-light-info">
               <span><?php
 			        if($language_name=='French'){
-
 					    echo $section_4['content_france'] ?? '';
 					}else{
-
 					    echo $section_4['content'] ?? '';
 					}
 					?></span>
@@ -54,17 +43,14 @@
                 <ul class="nav nav-pills">
 				    <?php
 					foreach($montreal_book_printing_tags as $key=>$val){
-
 				    $active='';
 					if($key==0){
-
 						$active='active';
 					}
 				    $href="#Product1".$val['id'];
 					$label=ucwords($val['name']);
 
 					if($language_name=='French'){
-
 						$label=ucwords($val['name_french']);
 					}
 
@@ -88,21 +74,16 @@
     <div class="container">
         <div class="tab-content">
 		<?php foreach($montreal_book_printing_tags as $key=>$val){
-
 				    $active='';
 
 					if($key==0){
-
 						$active='active show';
-
 					}
 
 				    $div_id="Product1".$val['id'];
 					$label=ucwords($val['name']);
 					if($language_name=='French'){
-
 						$label=ucwords($val['name_french']);
-
 					}
 					$tag_id=$val['id'];
 
@@ -115,7 +96,6 @@
 					  $cartNameProducts=$this->Product_Model->getProductByTagId($tag_id);
 
                       if ($cartNameProducts) {
-
                         foreach ($cartNameProducts as $key => $cartNameProduct) {
                           ?>
                           <div class="col-6 col-md-4 col-lg-3 col-xl-3">

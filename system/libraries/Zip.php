@@ -53,7 +53,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/zip.html
  */
 class CI_Zip {
-
 	/**
 	 * Zip data in string form
 	 *

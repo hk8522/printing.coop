@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class OpeningBraceSameLineSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -28,9 +26,7 @@ class OpeningBraceSameLineSniff implements Sniff
             T_INTERFACE,
             T_TRAIT,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -116,8 +112,5 @@ class OpeningBraceSameLineSniff implements Sniff
                 }
             }
         }
-
     }//end process()
-
-
 }//end class

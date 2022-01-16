@@ -1,7 +1,6 @@
 <?php
 
 Class SubCategory_Model extends MY_Model {
-
 	public $table='sub_categories';
 	public $config = array(
         array(
@@ -32,7 +31,6 @@ Class SubCategory_Model extends MY_Model {
         return $this->db->get()->result_array();
     }
 	public function getSubCategoryDataById($id) {
-
         $this->db->select('*');
         $this->db->from($this->table);
 		$this->db->where(array('id'=>$id));
@@ -49,9 +47,7 @@ Class SubCategory_Model extends MY_Model {
 			$this->db->where('status', 1);
 
 			if ($menu_id && $category_id) {
-
 			   $this->db->where([ 'menu_id' => $menu_id, 'category_id' => $category_id ]);
-
 	         } elseif ($category_id) {
 					$this->db->where('category_id', $category_id);
 			} elseif ($menu_id) {
@@ -70,10 +66,8 @@ Class SubCategory_Model extends MY_Model {
   }
 
 	public function getActiveSubCategoryListByCategoryId($menu_id=null,$category_id=null) {
-
 		$lists=array();
 		if(!empty($menu_id) && !empty($category_id)){
-
 			$this->db->select(array('id','name'));
 			$this->db->where(array('status'=>'1','menu_id'=>$menu_id,'category_id'=>$category_id));
 			$this->db->from($this->table);
@@ -84,16 +78,13 @@ Class SubCategory_Model extends MY_Model {
 		return $lists;
     }
 	public function saveSubCategory($data) {
-
 		$id=isset($data['id']) ? $data['id']:'';
 
 		if(!empty($id)){
-
 			$data['updated']=date('Y-m-d H:i:s');
 			$this->db->where('id', $id);
 			$query = $this->db->update($this->table, $data);
 		}else{
-
 			$data['created']=date('Y-m-d H:i:s');
 			$data['updated']=date('Y-m-d H:i:s');
 			$query = $this->db->insert($this->table, $data);
@@ -105,6 +96,5 @@ Class SubCategory_Model extends MY_Model {
             return false;
         }
     }
-
 }
 ?>

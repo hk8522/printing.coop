@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/trackback.html
  */
 class CI_Trackback {
-
 	/**
 	 * Character set
 	 *
@@ -552,5 +551,4 @@ class CI_Trackback {
 	{
 		return (count($this->error_msg) > 0) ? $open.implode($close.$open, $this->error_msg).$close : '';
 	}
-
 }

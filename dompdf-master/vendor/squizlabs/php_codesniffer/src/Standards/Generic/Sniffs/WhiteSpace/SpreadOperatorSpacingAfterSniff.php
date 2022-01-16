@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class SpreadOperatorSpacingAfterSniff implements Sniff
 {
-
     /**
      * The number of spaces desired after a spread token.
      *
@@ -30,7 +29,6 @@ class SpreadOperatorSpacingAfterSniff implements Sniff
      */
     public $ignoreNewlines = false;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -39,9 +37,7 @@ class SpreadOperatorSpacingAfterSniff implements Sniff
     public function register()
     {
         return [T_ELLIPSIS];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -139,8 +135,5 @@ class SpreadOperatorSpacingAfterSniff implements Sniff
                 $phpcsFile->fixer->endChangeset();
             }
         }
-
     }//end process()
-
-
 }//end class

@@ -7,7 +7,6 @@ use Flagship\Shipping\Objects\Pickup;
 use Flagship\Apis\Exceptions\ApiException;
 use Flagship\Shipping\Exceptions\CreatePickupException;
 
-
 class CreatePickupRequest extends ApiRequest{
     protected $responseCode;
     public function __construct(string $baseUrl,string $token,array $pickupPayload, string $flagshipFor, string $version){
@@ -37,5 +36,4 @@ class CreatePickupRequest extends ApiRequest{
         }
         return NULL;
     }
-
 }

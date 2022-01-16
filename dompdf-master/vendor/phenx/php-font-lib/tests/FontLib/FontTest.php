@@ -44,5 +44,4 @@ class FontTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(6, count($cmapFormat12Table['endCode']));
         $this->assertEquals(53, count($cmapFormat12Table['glyphIndexArray']));
     }
-
 }

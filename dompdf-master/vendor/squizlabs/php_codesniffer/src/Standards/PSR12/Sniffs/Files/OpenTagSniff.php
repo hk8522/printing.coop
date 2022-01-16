@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class OpenTagSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -24,9 +22,7 @@ class OpenTagSniff implements Sniff
     public function register()
     {
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes this sniff when one of its tokens is encountered.
@@ -66,8 +62,5 @@ class OpenTagSniff implements Sniff
         }
 
         return $phpcsFile->numTokens;
-
     }//end process()
-
-
 }//end class

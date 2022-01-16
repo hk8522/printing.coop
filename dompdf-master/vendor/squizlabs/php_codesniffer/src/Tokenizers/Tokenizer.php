@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Util;
 
 abstract class Tokenizer
 {
-
     /**
      * The config data for the run.
      *
@@ -71,7 +70,6 @@ abstract class Tokenizer
      */
     public $ignoredLines = [];
 
-
     /**
      * Initialise and run the tokenizer.
      *
@@ -101,9 +99,7 @@ abstract class Tokenizer
 
         // Allow the tokenizer to do additional processing if required.
         $this->processAdditional();
-
     }//end __construct()
-
 
     /**
      * Checks the content to see if it looks minified.
@@ -125,9 +121,7 @@ abstract class Tokenizer
         }
 
         return false;
-
     }//end isMinifiedContent()
-
 
     /**
      * Gets the array of tokens.
@@ -137,9 +131,7 @@ abstract class Tokenizer
     public function getTokens()
     {
         return $this->tokens;
-
     }//end getTokens()
-
 
     /**
      * Creates an array of tokens when given some content.
@@ -150,14 +142,12 @@ abstract class Tokenizer
      */
     abstract protected function tokenize($string);
 
-
     /**
      * Performs additional processing after main tokenizing.
      *
      * @return void
      */
     abstract protected function processAdditional();
-
 
     /**
      * Sets token position information.
@@ -557,9 +547,7 @@ abstract class Tokenizer
         if ($checkAnnotations === false) {
             $this->ignoredLines = [];
         }
-
     }//end createPositionMap()
-
 
     /**
      * Replaces tabs in original token content with spaces.
@@ -659,9 +647,7 @@ abstract class Tokenizer
         $token['orig_content'] = $token['content'];
         $token['content']      = $newContent;
         $token['length']       = $length;
-
     }//end replaceTabsInToken()
-
 
     /**
      * Creates a map of brackets positions.
@@ -810,9 +796,7 @@ abstract class Tokenizer
         if (PHP_CODESNIFFER_VERBOSITY > 1) {
             echo "\t*** END TOKEN MAP ***".PHP_EOL;
         }
-
     }//end createTokenMap()
-
 
     /**
      * Creates a map for the parenthesis tokens that surround other tokens.
@@ -847,9 +831,7 @@ abstract class Tokenizer
                 }
             }//end if
         }//end for
-
     }//end createParenthesisNestingMap()
-
 
     /**
      * Creates a scope map of tokens that open scopes.
@@ -887,9 +869,7 @@ abstract class Tokenizer
         if (PHP_CODESNIFFER_VERBOSITY > 1) {
             echo "\t*** END SCOPE MAP ***".PHP_EOL;
         }
-
     }//end createScopeMap()
-
 
     /**
      * Recurses though the scope openers to build a scope map.
@@ -1431,9 +1411,7 @@ abstract class Tokenizer
         }//end for
 
         return $stackPtr;
-
     }//end recurseScopeMap()
-
 
     /**
      * Constructs the level map.
@@ -1675,8 +1653,5 @@ abstract class Tokenizer
         if (PHP_CODESNIFFER_VERBOSITY > 1) {
             echo "\t*** END LEVEL MAP ***".PHP_EOL;
         }
-
     }//end createLevelMap()
-
-
 }//end class

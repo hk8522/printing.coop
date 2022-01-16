@@ -21,5 +21,4 @@ class LicenseElementTest extends \PHPUnit\Framework\TestCase {
     public function testUrlCanBeRetrieved() {
         $this->assertEquals('https://some.tld/LICENSE', $this->license->getUrl());
     }
-
 }

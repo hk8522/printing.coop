@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_sqlite_result extends CI_DB_result {
-
 	/**
 	 * Number of rows in the result set
 	 *
@@ -160,5 +159,4 @@ class CI_DB_sqlite_result extends CI_DB_result {
 	{
 		return sqlite_fetch_object($this->result_id, $class_name);
 	}
-
 }

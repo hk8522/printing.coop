@@ -39,7 +39,7 @@ html, body {
      + Any page whose URL's host is "mozilla.org" or ends with
        ".mozilla.org"
      + Any page whose URL starts with "https:" */
- 
+
   /* make the above-mentioned pages really ugly */
   body { color: purple; background: yellow; }
 }

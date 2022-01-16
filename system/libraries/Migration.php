@@ -50,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link
  */
 class CI_Migration {
-
 	/**
 	 * Whether the library is enabled
 	 *
@@ -473,5 +472,4 @@ class CI_Migration {
 	{
 		return get_instance()->$var;
 	}
-
 }

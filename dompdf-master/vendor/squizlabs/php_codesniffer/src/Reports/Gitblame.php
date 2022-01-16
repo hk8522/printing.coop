@@ -14,14 +14,12 @@ use PHP_CodeSniffer\Exceptions\DeepExitException;
 
 class Gitblame extends VersionControl
 {
-
     /**
      * The name of the report we want in the output
      *
      * @var string
      */
     protected $reportName = 'GIT';
-
 
     /**
      * Extract the author from a blame line.
@@ -53,9 +51,7 @@ class Gitblame extends VersionControl
         $parts  = array_slice($parts, 0, (count($parts) - 2));
         $author = preg_replace('|\(|', '', implode(' ', $parts));
         return $author;
-
     }//end getAuthor()
-
 
     /**
      * Gets the blame output.
@@ -84,8 +80,5 @@ class Gitblame extends VersionControl
         chdir($cwd);
 
         return $blames;
-
     }//end getBlameContent()
-
-
 }//end class

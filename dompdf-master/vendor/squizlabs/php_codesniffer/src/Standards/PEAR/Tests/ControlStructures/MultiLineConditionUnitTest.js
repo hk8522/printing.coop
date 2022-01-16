@@ -1,5 +1,4 @@
 if (blah(param)) {
-
 }
 
 if ((condition1
@@ -63,7 +62,6 @@ if (
 ) {
 }
 
-
 if (   condition1
     || condition2
     || condition3
@@ -109,7 +107,6 @@ if (condition1
 || condition3)
     console.info('bar');
 
-
 if (condition1
     || condition2 || condition3
 )
@@ -118,7 +115,7 @@ if (condition1
 if (!a(post)
     && (!a(context.header)
     ^ a(context.header, 'Content-Type'))
-) { 
+) {
 // ...
 }
 
@@ -177,18 +174,6 @@ if (a
     )) {
     return false;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 
 if (foo == 401 || // phpcs:ignore Standard.Category.Sniff -- for reasons.
     bar == 3200)  /*

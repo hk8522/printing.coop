@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Files\File;
 
 class BrowserSpecificStylesSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -39,7 +38,6 @@ class BrowserSpecificStylesSniff implements Sniff
         'webkit' => true,
     ];
 
-
     /**
      * Returns the token types that this sniff is interested in.
      *
@@ -48,9 +46,7 @@ class BrowserSpecificStylesSniff implements Sniff
     public function register()
     {
         return [T_STYLE];
-
     }//end register()
-
 
     /**
      * Processes the tokens that this sniff is interested in.
@@ -80,8 +76,5 @@ class BrowserSpecificStylesSniff implements Sniff
             $error = 'Browser-specific styles are not allowed';
             $phpcsFile->addError($error, $stackPtr, 'ForbiddenStyle');
         }
-
     }//end process()
-
-
 }//end class

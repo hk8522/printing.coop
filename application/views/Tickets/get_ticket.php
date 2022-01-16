@@ -12,7 +12,6 @@
 									</thead>
 									<tbody>
 
-
 									<?php
             					if(count($lists) >0){
             						foreach($lists as $list){
@@ -64,7 +63,6 @@
 											         	<i class="fa fa-trash fa-lg"></i>
 												   	</a>
 											   	</div>
-
 
 											</td>
 										</tr>

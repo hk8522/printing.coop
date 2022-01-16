@@ -19,13 +19,11 @@
                     <?php
 					$i=1;
 				    foreach($our_ink_printed_products as $key=>$list) {
-
 						$src = getProductImage($list['product_image'], 'medium');
 						$multipalCategory=$this->Product_Model->getProductMultipalCategoriesAndSubCategories($list['id']);
 
 						$category_id=13;
 						if(array_key_exists($category_id,$multipalCategory) && $i <= 12){
-
 							$i++;
                         ?>
                             <div class="col-6 col-md-3 col-lg-2 col-xl-2">
@@ -39,7 +37,6 @@
 														<span>
 															<?php
 															if($language_name=='French'){
-
 																echo ucfirst($list['name_french']);
 															}else{
 																echo ucfirst($list['name']);

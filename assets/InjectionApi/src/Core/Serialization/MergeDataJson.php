@@ -5,7 +5,6 @@ namespace Socketlabs\Core\Serialization;
  * To be serialized into JSON string before sending to the Injection Api.
  */
 class MergeDataJson {
-
     /**
      * Defines merge field data for all messages in the request.
      */

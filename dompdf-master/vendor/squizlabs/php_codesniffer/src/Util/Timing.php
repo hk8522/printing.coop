@@ -11,7 +11,6 @@ namespace PHP_CodeSniffer\Util;
 
 class Timing
 {
-
     /**
      * The start time of the run.
      *
@@ -26,7 +25,6 @@ class Timing
      */
     private static $printed = false;
 
-
     /**
      * Start recording time for the run.
      *
@@ -34,11 +32,8 @@ class Timing
      */
     public static function startTiming()
     {
-
         self::$startTime = microtime(true);
-
     }//end startTiming()
-
 
     /**
      * Print information about the run.
@@ -79,8 +74,5 @@ class Timing
         echo "Time: $time; Memory: $mem".PHP_EOL.PHP_EOL;
 
         self::$printed = true;
-
     }//end printRunTime()
-
-
 }//end class

@@ -9,22 +9,16 @@
                     <div class="member-section-content">
                         <div class="universal-dark-title" style="text-align: left;">
                             <span><?php  if($language_name=='French'){
-
 					 echo $section_7['name_france'] ?? '';
 					}else{
-
 					  echo $section_7['name'] ?? '';
-
 					}?></span>
                         </div>
                         <div class="universal-dark-info" style="text-align: left;">
                             <span><?php if($language_name=='French'){
-
 					 echo $section_7['description_france'] ?? '';
 					}else{
-
 					  echo $section_7['description'] ?? '';
-
 					} ?></span><br>
                             <a href="<?php echo $BASE_URL?>Logins"><button type="text" class="checkout-view">
                             <?php
@@ -42,11 +36,8 @@
                         <div class="join_us_center_curve"></div>
                         <?php
 			if($language_name=='French'){
-
 					    echo $section_7['content_france'] ?? '';
-
 		}else{
-
 		echo $section_7['content'] ?? '';
 	}?>
                     </div>

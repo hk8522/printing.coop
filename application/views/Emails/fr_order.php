@@ -12,7 +12,6 @@
 				</div>
 				<?php
 				foreach ($OrderItemData as $rowid=>$items){
-
 				    $cart_images=json_decode($items['cart_images'],true);
 			        $attribute_ids=json_decode($items['attribute_ids'],true);
 					$product_size=json_decode($items['product_size'],true);
@@ -34,7 +33,6 @@
 							</div>
 							<div style="padding-left: 130px;">
 								<span style="font-size: 14px;color: #000; font-weight: 600"><?php echo ucfirst($items['name_french'])?></span>
-
 
 								<div style="margin: 10px 0px 0px 0px">
 								<?php if(!empty($product_width_length)){?>
@@ -100,7 +98,6 @@
 
 							 <?php
 							if(!empty($product_size)){
-
 							    $size_name = $product_size['product_size_french'];
 								$label_qty=$product_size['product_quantity_french'];
 								$attribute=isset($product_size['attribute']) ? $product_size['attribute']:'';
@@ -116,12 +113,9 @@
 									<?php
 								}?>
 
-
 								<?php
 								if($attribute){
-
 								    foreach($attribute as $akey=>$aval){
-
 										$multiple_attribute_name=$aval['attributes_name_french'];
 									    $multiple_attribute_item_name=$aval['attributes_item_name_french'];
 								?>
@@ -137,7 +131,6 @@
 						     <?php
 							#pr($attribute_ids);
 							foreach($attribute_ids as $key=>$val){
-
 								$attribute_name=$val['attribute_name_french'];
 								$item_name=$val['item_name_french'];
 								?>
@@ -149,7 +142,6 @@
 							<div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Recto verso:</font><?php echo $recto_verso;?>
 							</div>
 
-
 							<?php
 							}?>
 
@@ -157,15 +149,12 @@
 							<div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Votre TEXTE - Votre TEXTE:</font><?php echo $votre_text;?>
 							</div>
 
-
 							<?php
 							}?>
 						<br>
 						<?php
 						    if(!empty($cart_images)){
-
 							foreach($cart_images as $key=>$return_arr){
-
 							?>
 				               <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><img src="<?php echo $return_arr['src']?>" width="150"></div>
 							   <?php
@@ -305,7 +294,6 @@
         			        </div>
         			        <div style="width: 50%; margin-left: 5px; text-align: right">
         			            <strong style="color: #000; font-weight: 400; font-size: 14px;"><?php if(!empty($orderData['user_id'])){
-
 																																			                                             echo CUSTOMER_ID_PREFIX.$orderData['user_id'];
 																												}else{
 																													echo "-";
@@ -371,17 +359,12 @@
 								<?php
 
 							         if(!empty(getShipingName($orderData))){
-
 									    echo getShipingName($orderData);
-
 								   }else{
-
 									    if($orderData['shipping_method_formate']){
-
 											$shipping_method_formate=explode('-',$orderData['shipping_method_formate']);
 
 											if($shipping_method_formate[0]=="pickupinstore"){
-
 														$pickupStore=$this->Store_Model->getPickupStoreDataById($shipping_method_formate[2]);
 
 														echo 'Pickup In Store<br>'.$pickupStore['name']."<br>".$pickupStore['address']."<br>".$pickupStore['phone'];
@@ -462,9 +445,6 @@
 
                                         										<br>
       <?php echo $cityData['name'];?>,<?php echo $stateData['name'];?> ,<?php echo $cityData['name'];?> <?php echo $countryData['iso2'];?>,<?php echo $orderData['shipping_pin_code'];?>
-
-
-
 
 								</strong>
 	        			    </div>

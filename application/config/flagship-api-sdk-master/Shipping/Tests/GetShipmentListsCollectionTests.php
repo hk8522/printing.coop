@@ -7,7 +7,6 @@ use Flagship\Shipping\Exceptions\GetShipmentListException;
 use Flagship\Shipping\Objects\Shipment;
 
 class GetShipmentListsCollectionTests extends TestCase{
-
     public function testGetById(){
         $this->assertNotNull($this->shipmentsCollection->getById(2950191));
         $this->assertInstanceOf(Shipment::class , $this->shipmentsCollection->getById(2950191));
@@ -89,7 +88,6 @@ class GetShipmentListsCollectionTests extends TestCase{
     public function testGetByIdForException(){
         $this->expectException(GetShipmentListException::class);
         $this->shipmentsCollection->getById(6476476);
-
     }
 
     public function testGetByTrackingNumberForException(){
@@ -135,7 +133,6 @@ class GetShipmentListsCollectionTests extends TestCase{
     public function testGetBySenderPhoneForException(){
         $this->expectException(GetShipmentListException::class);
         $this->shipmentsCollection->getBySenderPhone(65656746747);
-
     }
 
     public function testGetByReceiverPhoneForException(){
@@ -152,7 +149,6 @@ class GetShipmentListsCollectionTests extends TestCase{
         $this->expectException(GetShipmentListException::class);
         $this->shipmentsCollection->getByReceiverCompany('Some Other Company');
     }
-
 
     protected function setUp(){
         $response = '[

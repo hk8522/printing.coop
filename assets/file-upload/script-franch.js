@@ -1,5 +1,4 @@
 $(function() {
-
     // preventing page from redirecting
     $("html").on("dragover", function(e) {
         e.preventDefault();
@@ -25,10 +24,9 @@ $(function() {
 
     // Drop
     $('.upload-area').on('drop', function (e) {
-		
         e.stopPropagation();
         e.preventDefault();
-		
+
 		$('#file').prop('disabled', true);
 		$(".file-btn").hide();
         $("#file-drop").text("téléchargement du fichier, veuillez patienter...");
@@ -36,7 +34,6 @@ $(function() {
         var fd = new FormData();
         fd.append('file', file[0]);
         uploadData(fd);
-		
     });
 
     // Open file selector on div click
@@ -46,7 +43,6 @@ $(function() {
 
     // file selected
     $("#file").change(function(){
-		
 		var product_id=$("#product_id").val();
 		$('#file').prop('disabled', true);
 		$(".file-btn").hide();
@@ -56,15 +52,13 @@ $(function() {
         fd.append('file',files);
 		fd.append('product_id',product_id);
         uploadData(fd);
-		
     });
 });
 
 // Sending AJAX request and upload file
 function uploadData(formdata){
-     
 	$("#loder-img").show();
-	
+
     $.ajax({
         url: '/Products/uploadImage',
         type: 'post',
@@ -73,15 +67,13 @@ function uploadData(formdata){
         processData: false,
         dataType: 'json',
         success: function(response){
-			
-			$("#loder-img").hide(); 
+			$("#loder-img").hide();
             addThumbnail(response);
         }
     });
 }
 // Added thumbnail
 function addThumbnail(data){
-	
     //$("#uploadfile #file-drop").remove();
 	$('#file').prop('disabled', false);
 	$(".file-btn").show();
@@ -96,24 +88,20 @@ function addThumbnail(data){
 	var product_id = data.product_id;
 	var error = data.error;
 	var error_msg = data.error_msg;
-	
+
 	if(error == '1'){
-		
 		alert(error_msg);
 	}
-	
+
     // Creating an thumbnail
     /*$("#uploadfile").append('<div id="thumbnail_'+num+'" class="thumbnail"></div>');
     $("#thumbnail_"+num).append('<img src="'+src+'" width="100%" height="78%">');
     $("#thumbnail_"+num).append('<span class="size">'+size+'<span>');*/
 	//alert(src);
-	
+
 	//var html_str='<div class="uploaded-file-single"><div class="uploaded-file-single-inner"><div class="uploaded-file-img" style="background-image: url('+src+')"></div><div class="uploaded-file-info"><div class="row align-items-center"><div class="col-md-7"><div class="uploaded-file-name"><span>'+name+'</span></div></div><div class="col-md-5"><div class="upload-action-btn"><button type="button" onclick="delete_image()">Update Note</button><button type="submit" title="Delete"><i class="las la-trash"></i></button></div></div></div><div class="upload-field"><textarea type="text"></textarea></div></div></div></div>';
-	
-	
+
 	$("#upload-file-data").append(data.html);
-	
-	
 }
 // Bytes conversion
 function convertSize(size) {

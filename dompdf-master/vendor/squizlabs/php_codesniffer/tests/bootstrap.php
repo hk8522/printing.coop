@@ -44,7 +44,6 @@ if (class_exists('PHPUnit_Framework_TestResult') === true && class_exists('PHPUn
     class_alias('PHPUnit_Framework_TestResult', 'PHPUnit'.'\Framework\TestResult');
 }
 
-
 /**
  * A global util function to help print unit test fixing data.
  *
@@ -80,5 +79,4 @@ function printPHPCodeSnifferTestOutput()
     }
 
     vprintf($output, $data);
-
 }//end printPHPCodeSnifferTestOutput()

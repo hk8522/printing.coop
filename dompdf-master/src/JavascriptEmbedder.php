@@ -14,7 +14,6 @@ namespace Dompdf;
  */
 class JavascriptEmbedder
 {
-
     /**
      * @var Dompdf
      */

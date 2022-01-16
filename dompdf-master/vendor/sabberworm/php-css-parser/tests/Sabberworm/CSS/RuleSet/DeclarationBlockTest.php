@@ -7,7 +7,6 @@ use Sabberworm\CSS\Rule\Rule;
 use Sabberworm\CSS\Value\Size;
 
 class DeclarationBlockTest extends \PHPUnit_Framework_TestCase {
-
 	/**
 	 * @dataProvider expandBorderShorthandProvider
 	 * */
@@ -224,7 +223,7 @@ class DeclarationBlockTest extends \PHPUnit_Framework_TestCase {
 		$this->assertEquals('right', $aRules[0]->getRule());
 		$this->assertEquals('-10px', $aRules[0]->getValue());
 	}
-	
+
 	public function testRuleInsertion() {
 		$sCss = '.wrapper { left: 10px; text-align: left; }';
 		$oParser = new Parser($sCss);
@@ -263,5 +262,4 @@ class DeclarationBlockTest extends \PHPUnit_Framework_TestCase {
 
 		$this->assertSame('.wrapper {left: 16em;left: 10px;text-align: 1;text-align: left;border-bottom-width: 1px;}', $oDoc->render());
 	}
-
 }

@@ -723,7 +723,6 @@ class PHP_Token_CLASS extends PHP_Token_INTERFACE
         if ($next instanceof PHP_Token_OPEN_CURLY ||
             $next instanceof PHP_Token_EXTENDS ||
             $next instanceof PHP_Token_IMPLEMENTS) {
-
             $this->name = sprintf(
                 'AnonymousClass:%s#%s',
                 $this->getLine(),

@@ -117,7 +117,6 @@
                                                                 <label class="form-inner-label">List Price USD</label>
                                                             </div>-->
 
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -160,7 +159,6 @@
 
                                                             </div>
 
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -181,12 +179,8 @@
 	#pr($product_tags,1);
 
 	foreach($tagList as $key=>$val){
-
 		$tag_id=$val['id'];
 		if(in_array($tag_id,$product_tags)){
-
-
-
 	?>
                     <div class="col-md-4">
 
@@ -202,7 +196,6 @@
 		<?php
 		    }
 	}?>
-
 
                                                         </div>
                                                     </div>

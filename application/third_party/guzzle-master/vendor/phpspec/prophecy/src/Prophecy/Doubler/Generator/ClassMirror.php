@@ -187,7 +187,6 @@ class ClassMirror
             $node->setAsPassedByReference();
         }
 
-
         $methodNode->addArgument($node);
     }
 
@@ -219,7 +218,6 @@ class ClassMirror
 
         if ($type instanceof ReflectionNamedType) {
             $types = [$type->getName()];
-
         }
         elseif ($type instanceof ReflectionUnionType) {
             $types = $type->getTypes();

@@ -20,7 +20,6 @@ use Dompdf\Helpers;
  */
 class Text extends AbstractFrameReflower
 {
-
     /**
      * @var BlockFrameDecorator
      */
@@ -265,7 +264,6 @@ class Text extends AbstractFrameReflower
                 }
 
                 break;
-
         }
 
         // Handle degenerate case

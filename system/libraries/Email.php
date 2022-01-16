@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/email.html
  */
 class CI_Email {
-
 	/**
 	 * Used as the User-Agent and X-Mailer headers' value.
 	 *

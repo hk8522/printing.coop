@@ -194,7 +194,6 @@
                                                                 <label class="form-inner-label">Folding</label>
                                                             </div>
 
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -237,8 +236,6 @@
 												</div>
 											</div>
 										</div>
-
-
 
 										<div class="text-right">
 											<a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>

@@ -118,7 +118,7 @@ if ($condition1
 if (!empty($post)
     && (!empty($context['header'])
     xor stripos($context['header'], 'Content-Type'))
-) { 
+) {
 // ...
 }
 

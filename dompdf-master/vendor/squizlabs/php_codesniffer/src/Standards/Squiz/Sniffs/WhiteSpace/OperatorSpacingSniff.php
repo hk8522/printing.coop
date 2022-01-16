@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class OperatorSpacingSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -48,7 +47,6 @@ class OperatorSpacingSniff implements Sniff
      * @var string[]
      */
     private $nonOperandTokens = [];
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -120,9 +118,7 @@ class OperatorSpacingSniff implements Sniff
         $targets[] = T_INSTANCEOF;
 
         return $targets;
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -315,9 +311,7 @@ class OperatorSpacingSniff implements Sniff
                 }
             }//end if
         }//end if
-
     }//end process()
-
 
     /**
      * Checks if an operator is actually a different type of token in the current context.
@@ -379,8 +373,5 @@ class OperatorSpacingSniff implements Sniff
         }//end if
 
         return true;
-
     }//end isOperator()
-
-
 }//end class

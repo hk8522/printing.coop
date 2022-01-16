@@ -9,7 +9,6 @@ define('SOCKETLABS_INJECTION_API_SAMPLE_ROOT_PATH', dirname(__DIR__) . '/');
     }
 
     function  runExample($fileNameOfExample){
-
         $exampleCodePath= "../../ExampleCode/$fileNameOfExample";
 
         $source = show_source($exampleCodePath);

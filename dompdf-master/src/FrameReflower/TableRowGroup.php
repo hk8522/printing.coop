@@ -17,7 +17,6 @@ use Dompdf\FrameDecorator\Table as TableFrameDecorator;
  */
 class TableRowGroup extends AbstractFrameReflower
 {
-
     /**
      * TableRowGroup constructor.
      * @param \Dompdf\Frame $frame

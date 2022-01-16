@@ -9,7 +9,6 @@ use Flagship\Shipping\Collections\ManifestListCollection;
 use Flagship\Shipping\Exceptions\ManifestListException;
 
 class GetManifestsListTest extends TestCase{
-
     public function testGetByStatus(){
         $this->assertNotNull($this->manifestList->getByStatus('confirmed'));
         $this->assertSame(23,$this->manifestList->getByStatus('confirmed')->first()->getId());
@@ -19,7 +18,6 @@ class GetManifestsListTest extends TestCase{
     }
 
     protected function setUp(){
-
         $response = '[
             {
                 "id": "25",

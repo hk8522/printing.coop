@@ -5,7 +5,6 @@ namespace Socketlabs\Core\Serialization;
  * To be serialized into JSON string before sending to the Injection Api.
  */
 class AddressJson  {
-
     /**
      * A valid email address
      */

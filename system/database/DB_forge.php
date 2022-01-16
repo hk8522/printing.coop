@@ -45,7 +45,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 abstract class CI_DB_forge {
-
 	/**
 	 * Database object
 	 *
@@ -1029,5 +1028,4 @@ abstract class CI_DB_forge {
 	{
 		$this->fields = $this->keys = $this->primary_keys = array();
 	}
-
 }

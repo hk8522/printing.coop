@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_mysql_result extends CI_DB_result {
-
 	/**
 	 * Class constructor
 	 *
@@ -195,5 +194,4 @@ class CI_DB_mysql_result extends CI_DB_result {
 	{
 		return mysql_fetch_object($this->result_id, $class_name);
 	}
-
 }

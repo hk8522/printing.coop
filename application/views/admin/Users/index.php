@@ -69,7 +69,6 @@
 							<tbody>
 							    <?php
 								if(count($lists) > 0){
-
 									foreach($lists as $key=>$list){
 									?>
 										<tr>
@@ -79,7 +78,6 @@
 											<?php echo ucfirst($list['name']);?>
 
 											<?php if($list['user_type']==2){
-
 												echo '<b>(Preferred Customer)</b>';
 											}
 											?>
@@ -137,7 +135,6 @@
 											</td>
 										</tr>
 									<?php
-
 								    }
 								}else{?>
 								    <tr>
@@ -160,10 +157,8 @@
  </script>
 <script>
 $(document).ready(function(){
-
     $('#example1').DataTable({
 		"order": [[ 0, "desc" ]]
 	});
-
 });
 </script>

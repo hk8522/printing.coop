@@ -38,7 +38,6 @@ use Flagship\Shipping\Exceptions\ConfirmManifestByIdException;
 use Flagship\Shipping\Exceptions\GetManifestByIdException;
 
 class Flagship{
-
     public function __construct(string $apiToken, string $apiUrl, string $flagshipFor='', string $version=''){
         $this->apiUrl = $apiUrl;
         $this->apiToken = $apiToken;
@@ -70,7 +69,6 @@ class Flagship{
     public function associateShipmentRequest(int $manifestId, array $payload) : AssociateShipmentRequest {
         $associateShipmentRequest = new AssociateShipmentRequest($this->apiToken,$this->apiUrl,$manifestId,$payload,$this->flagshipFor,$this->version);
         return $associateShipmentRequest;
-
     }
 
     public function createDepotShipmentRequest(array $payload) : ConfirmShipmentRequest {
@@ -214,5 +212,4 @@ class Flagship{
         $getPickupListRequest = new GetPickupListRequest($this->apiUrl,$this->apiToken,$this->flagshipFor,$this->version);
         return $getPickupListRequest;
     }
-
 }

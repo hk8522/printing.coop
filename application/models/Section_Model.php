@@ -1,7 +1,6 @@
 <?php
 
 Class Section_Model extends MY_Model {
-
 	public $table = 'sections';
 
   public $rules = [

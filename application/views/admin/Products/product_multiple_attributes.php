@@ -130,7 +130,6 @@
 
 <?php
     foreach($ProductSizes as $key=>$val){
-
 		//pr($ProductSizes,1);
 
 		$sizeData=isset($val['sizeData']) ? $val['sizeData']:'';
@@ -171,7 +170,6 @@
             <?php
     		if(!empty($sizeData)){
     		foreach($sizeData as $skey=>$sval){
-
                 $size_extra_price='';
                 $size_extra_price=isset($sval['extra_price']) ? $sval['extra_price']:'';
 				$attribute=$sval['attribute'];
@@ -226,14 +224,11 @@
 						<?php
 
 						if(!empty($attribute[$akey])){
-
 							$attribute_items=$attribute[$akey]['attribute_items'];
 
 						?>
 						<div class="row" id="attribute_item_id_<?php echo $key.'_'.$skey.'_'.$akey?>" style="display:; padding: 10px 10px 10px 25px; background: #f5f5f5;">
 						<?php foreach($attribute_items as $atkey=>$atval){
-
-
 							$attributes_item_name=$atval['attributes_item_name'];
 							$attributes_item_extra_price=$atval['extra_price'];
 							$attributes_item_id=$atval['id'];
@@ -278,7 +273,6 @@
 </div>
 <?php
 }?>
-
 
 		    </div>
 
@@ -344,7 +338,6 @@
 <script>
     product_id='<?php echo $product_id?>';
 	function isNumber(evt) {
-
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode
         if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
             return false;
@@ -353,7 +346,6 @@
     }
 
 	function addActiveClass(id){
-
 		if($("#attribute_id_"+id).prop("checked") == true){
 			$("#attribute_id_div_"+id).addClass('active');
 		}else{
@@ -365,56 +357,37 @@
 		//alert(id);
 
 		if($("#"+id).prop("checked") == true){
-
 			$("#hidden_"+id).val($("#"+id).val());
 		}else{
-
 			$("#hidden_"+id).val('');
 		}
-
 	}
 
 	function addActiveSizeClass(id){
-
 		if($("#size_attribute_id_"+id).prop("checked") == true){
-
 			//$("#size_attribute_id_div_"+id).addClass('active');
 			$(".attribute_id_div_"+id).show();
 		}else{
 			$(".attribute_id_div_"+id).hide();
 			//$("#size_attribute_id_div_"+id).removeClass('active');
 		}
-
 	}
 	function addActiveAttributeClass(id){
-
 		if($("#attribute_id_"+id).prop("checked") == true){
-
-
 			$("#attribute_item_id_"+id).show();
 		}else{
 			$("#attribute_item_id_"+id).hide();
-
 		}
-
 	}
 	function addActiveQuantitySizeClass(id){
-
-
-
 		if($("#quantity_attribute_id_"+id).prop("checked") == true){
-
-
 			$("#quantity_attribute_id_div_"+id).show();
-
 		}else{
-
 			$("#quantity_attribute_id_div_"+id).hide();
 		}
 	}
 
 	function addQuantity(quantity_id){
-
 		    $("#QualityModal .modal-title").html('Add Quantity');
 			if(quantity_id !=''){
 				$("#QualityModal .modal-title").html('Edit Quantity');
@@ -434,7 +407,6 @@
 	}
 
 	function deleteQuantity(quantity_id){
-
 		var result = confirm("Are you sure you want to remove Quantity from this product ?");
 
 		if(result==true && quantity_id !=''){
@@ -452,10 +424,8 @@
 	}
 
 	function addSize(quantity_id,size_id){
-
 		    $("#QualityModal .modal-title").html('Add Size');
 			if(size_id !=''){
-
 				$("#QualityModal .modal-title").html('Edit Size');
 			}
 		    $("#QualityModal").modal('show');
@@ -471,13 +441,9 @@
 			});
 	}
 
-
 	function addEditAttribute(quantity_id,size_id,attribute_id,attribute_id_item){
-
-
 			$("#ItemModal .modal-title").html('Add Attribute');
 			if(attribute_id_item !=''){
-
 				$("#ItemModal .modal-title").html('Edit Attribute');
 			}
 			$("#ItemModal").modal('show');
@@ -490,12 +456,9 @@
 					    $("#ItemModal .modal-body").html(data);
 					}
 			});
-
-
 	}
 
 	function deleteQuantity(quantity_id){
-
 		var result = confirm("Are you sure you want to remove Quantity from this product ?");
 
 		if(result==true && quantity_id !=''){
@@ -513,7 +476,6 @@
 	}
 
 	function deleteQuantity(quantity_id){
-
 		var result = confirm("Are you sure you want to remove Quantity from this product ?");
 
 		if(result==true && quantity_id !=''){
@@ -530,7 +492,6 @@
 		}
 	}
 	function deleteProductSize(quantity_id,size_id){
-
 		var result = confirm("Are you sure you want to remove size from this product & quantity ?");
 
 		if(result==true && quantity_id !=''){
@@ -548,7 +509,6 @@
 	}
 
 	function deleteAttribute(attributes_item_id){
-
 		var result = confirm("Are you sure you want to remove item from this product ?");
 
 		if(result==true && attributes_item_id !=''){

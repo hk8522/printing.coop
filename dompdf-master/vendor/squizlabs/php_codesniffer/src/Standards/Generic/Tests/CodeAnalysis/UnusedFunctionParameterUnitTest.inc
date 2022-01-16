@@ -44,13 +44,13 @@ HERE;
     $x = $parameter; // This line must be immediately after the HERE; with no intervening blank lines.
     $tango = <<<HERE
 1 Must be a HEREdoc
-2 
-3 
-4 
-5   
+2
+3
+4
+5
 6
 7
-8 
+8
 9 at least 9 lines long
 HERE;
 }

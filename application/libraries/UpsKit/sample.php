@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*
 | -------------------------------------------------------------------
 | Track
@@ -16,7 +16,7 @@ list($response, $status) = $this->upstrack->processTrack();
 $this->load->library('UpsRating');
 $this->upsrating->addField('ShipTo_Name', $data['name']);
 $this->upsrating->addField('ShipTo_AddressLine', array(
-	$data['address1'], $data['address2']   
+	$data['address1'], $data['address2']
 ));
 $this->upsrating->addField('ShipTo_City', $data['city_name']);
 $this->upsrating->addField('ShipTo_StateProvinceCode', $state_shortname);

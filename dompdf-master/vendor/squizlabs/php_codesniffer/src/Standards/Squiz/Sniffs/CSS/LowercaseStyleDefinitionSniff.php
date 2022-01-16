@@ -14,14 +14,12 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class LowercaseStyleDefinitionSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
      * @var array
      */
     public $supportedTokenizers = ['CSS'];
-
 
     /**
      * Returns the token types that this sniff is interested in.
@@ -31,9 +29,7 @@ class LowercaseStyleDefinitionSniff implements Sniff
     public function register()
     {
         return [T_OPEN_CURLY_BRACKET];
-
     }//end register()
-
 
     /**
      * Processes the tokens that this sniff is interested in.
@@ -90,8 +86,5 @@ class LowercaseStyleDefinitionSniff implements Sniff
                 }
             }
         }//end for
-
     }//end process()
-
-
 }//end class

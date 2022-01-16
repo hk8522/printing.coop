@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class OperatorBracketSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -26,7 +25,6 @@ class OperatorBracketSniff implements Sniff
         'JS',
     ];
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -35,9 +33,7 @@ class OperatorBracketSniff implements Sniff
     public function register()
     {
         return Tokens::$operators;
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -253,9 +249,7 @@ class OperatorBracketSniff implements Sniff
         if ($lastAssignment !== false && $lastAssignment > $lastBracket) {
             $this->addMissingBracketsError($phpcsFile, $stackPtr);
         }
-
     }//end process()
-
 
     /**
      * Add and fix the missing brackets error.
@@ -378,8 +372,5 @@ class OperatorBracketSniff implements Sniff
             $phpcsFile->fixer->replaceToken($after, $tokens[$after]['content'].')');
             $phpcsFile->fixer->endChangeset();
         }
-
     }//end addMissingBracketsError()
-
-
 }//end class

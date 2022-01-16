@@ -42,7 +42,6 @@ class Attachment
      * @return Attachment
      */
     public static function createFromPath($path, $name = '', $type = '', $contentId = null, $headers = null){
-
         // If a MIME type is not specified, try to work it out from the file name
         $type = $type == '' ? Attachment::filenameToType($path) : $type;
         $filename = basename($path);
@@ -68,7 +67,6 @@ class Attachment
      * @return Attachment
      */
     public static function createFromStream($resource, $name = '', $type = '', $contentId = null, $headers = null){
-
         $attachment = new Attachment();
         $attachment->name = $name;
         $attachment->mimeType = $type;
@@ -78,7 +76,6 @@ class Attachment
 
         return $attachment;
     }
-
 
     /**
      * Map a file name to a MIME type.
@@ -207,7 +204,5 @@ class Attachment
         }
         return 'application/octet-stream';
     }
-
-
 }
 

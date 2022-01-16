@@ -20,7 +20,7 @@ interface Test_Interface_Bad_A {
 }
 
 class Test_Class_Bad_A {
-	
+
 	}
 
 class Test_Class_Bad_B extends Test_Class_Bad_A {
@@ -38,7 +38,7 @@ class Test_Class_Bad_C implements Test_Interface_Bad_A {
 interface Test_Interface_Bad_C {
 }
 
-class Test_Class_Bad_G {		
+class Test_Class_Bad_G {
 }
 
 class Test_Class_Bad_H extends Test_Class_Bad_G {
@@ -67,7 +67,7 @@ class A_Class_With_Really_Long_Name_2
 // But this is not.
 class A_Class_With_Really_Long_Name_3
     extends Another_Class_With_A_Really_Long_Name {
-	
+
 
 }
 

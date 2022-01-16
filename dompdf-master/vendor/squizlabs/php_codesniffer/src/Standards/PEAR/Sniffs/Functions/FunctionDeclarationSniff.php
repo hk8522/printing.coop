@@ -17,7 +17,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class FunctionDeclarationSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -35,7 +34,6 @@ class FunctionDeclarationSniff implements Sniff
      */
     public $indent = 4;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -47,9 +45,7 @@ class FunctionDeclarationSniff implements Sniff
             T_FUNCTION,
             T_CLOSURE,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -199,9 +195,7 @@ class FunctionDeclarationSniff implements Sniff
         } else {
             $this->processSingleLineDeclaration($phpcsFile, $stackPtr, $tokens);
         }
-
     }//end process()
-
 
     /**
      * Determine if this is a multi-line function declaration.
@@ -238,9 +232,7 @@ class FunctionDeclarationSniff implements Sniff
         }
 
         return false;
-
     }//end isMultiLineDeclaration()
-
 
     /**
      * Processes single-line declarations.
@@ -265,9 +257,7 @@ class FunctionDeclarationSniff implements Sniff
 
         $sniff->checkClosures = true;
         $sniff->process($phpcsFile, $stackPtr);
-
     }//end processSingleLineDeclaration()
-
 
     /**
      * Processes multi-line declarations.
@@ -353,9 +343,7 @@ class FunctionDeclarationSniff implements Sniff
                 return;
             }//end if
         }//end if
-
     }//end processMultiLineDeclaration()
-
 
     /**
      * Processes multi-line argument list declarations.
@@ -504,8 +492,5 @@ class FunctionDeclarationSniff implements Sniff
                 continue;
             }
         }//end for
-
     }//end processArgumentList()
-
-
 }//end class

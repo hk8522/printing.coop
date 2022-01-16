@@ -14,14 +14,12 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class MissingColonSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
      * @var array
      */
     public $supportedTokenizers = ['CSS'];
-
 
     /**
      * Returns the token types that this sniff is interested in.
@@ -31,9 +29,7 @@ class MissingColonSniff implements Sniff
     public function register()
     {
         return [T_OPEN_CURLY_BRACKET];
-
     }//end register()
-
 
     /**
      * Processes the tokens that this sniff is interested in.
@@ -84,8 +80,5 @@ class MissingColonSniff implements Sniff
                 $foundColon = $i;
             }
         }//end for
-
     }//end process()
-
-
 }//end class

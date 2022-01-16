@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ShortFormTypeKeywordsSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -27,9 +25,7 @@ class ShortFormTypeKeywordsSniff implements Sniff
             T_BOOL_CAST,
             T_INT_CAST,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -68,8 +64,5 @@ class ShortFormTypeKeywordsSniff implements Sniff
 
             $phpcsFile->fixer->replaceToken($stackPtr, $replacement);
         }
-
     }//end process()
-
-
 }//end class

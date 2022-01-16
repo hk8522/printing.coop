@@ -7,7 +7,6 @@ use  PHPUnit\Framework\TestCase;
  * @covers \TheSeer\Tokenizer\XMLSerializer
  */
 class XMLSerializerTest extends TestCase {
-
     /** @var TokenCollection $tokens */
     private $tokens;
 
@@ -46,5 +45,4 @@ class XMLSerializerTest extends TestCase {
         $serializer = new XMLSerializer();
         $this->assertEquals($expected, $serializer->toXML((new TokenCollection())));
     }
-
 }

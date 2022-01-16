@@ -20,17 +20,13 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class SelfMemberReferenceSniff extends AbstractScopeSniff
 {
-
-
     /**
      * Constructs a Squiz_Sniffs_Classes_SelfMemberReferenceSniff.
      */
     public function __construct()
     {
         parent::__construct([T_CLASS], [T_DOUBLE_COLON]);
-
     }//end __construct()
-
 
     /**
      * Processes the function tokens within the class.
@@ -159,9 +155,7 @@ class SelfMemberReferenceSniff extends AbstractScopeSniff
                 $phpcsFile->fixer->endChangeset();
             }
         }
-
     }//end processTokenWithinScope()
-
 
     /**
      * Processes a token that is found within the scope that this test is
@@ -175,9 +169,7 @@ class SelfMemberReferenceSniff extends AbstractScopeSniff
      */
     protected function processTokenOutsideScope(File $phpcsFile, $stackPtr)
     {
-
     }//end processTokenOutsideScope()
-
 
     /**
      * Returns the declaration names for classes/interfaces/functions with a namespace.
@@ -206,9 +198,7 @@ class SelfMemberReferenceSniff extends AbstractScopeSniff
 
         $nameParts = array_reverse($nameParts);
         return implode('', $nameParts);
-
     }//end getDeclarationNameWithNamespace()
-
 
     /**
      * Returns the namespace declaration of a file.
@@ -233,8 +223,5 @@ class SelfMemberReferenceSniff extends AbstractScopeSniff
         }
 
         return $namespace;
-
     }//end getNamespaceOfScope()
-
-
 }//end class

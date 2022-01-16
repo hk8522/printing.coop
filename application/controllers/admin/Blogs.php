@@ -28,7 +28,6 @@ class Blogs extends Admin_Controller
 
     public function addEdit($id = null)
     {
-
 		$this->load->model('Blog_Model');
         $this->load->helper('form');
         $this->data['page_title'] = $page_title = 'Add New Blog';
@@ -47,19 +46,15 @@ class Blogs extends Admin_Controller
 		$this->data['StoreList']=$StoreList;
         $postData = array();
         if ($id) {
-
             $postData = $this->Blog_Model->getBlogDataById($id);
         }
 
         if ($this->input->post()) {
-
-
             $this->load->library('form_validation');
             $rules = $this->Blog_Model->rules;
             $this->form_validation->set_rules($rules);
             $this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
             if (!empty($id)) {
-
                 $postData['id'] = $this->input->post('id');
             }
             $postData['title']              = $this->input->post('title');
@@ -168,20 +163,15 @@ class Blogs extends Admin_Controller
 
     public function resizeImage($filename, $type = 'small', $widthlarge = 800, $heightlarge = 800, $section = 'product')
     {
-
-
         $source_path = BLOG_IMAGE_BASE_PATH . $filename;
         $target_path = BLOG_IMAGE_BASE_PATH . $type . '/' . $filename;
 
         if ($type == 'medium') {
-
             $width  = 400;
             $height = 390;
         } else if ($type == 'large') {
-
             $width  = $widthlarge;
             $height = $heightlarge;
-
         } else {
             $width  = 200;
             $height = 200;
@@ -213,7 +203,6 @@ class Blogs extends Admin_Controller
             $data      = $this->Blog_Model->getBlogDataById($id);
             $imageName = $data['image'];
             if ($this->Blog_Model->deleteBlog($id)) {
-
                 if (file_exists(BLOG_IMAGE_SMALL_BASE_PATH . $imageName))
                     unlink(BLOG_IMAGE_SMALL_BASE_PATH . $imageName);
                 if (file_exists(BLOG_IMAGE_MEDIUM_BASE_PATH . $imageName))
@@ -229,7 +218,6 @@ class Blogs extends Admin_Controller
                 $this->session->set_flashdata('message_error', $page_title . ' Unsuccessfully.');
             }
         } else {
-
             $this->session->set_flashdata('message_error', 'Missing information.');
         }
 
@@ -251,13 +239,11 @@ class Blogs extends Admin_Controller
 		$StoreList=$this->Store_Model->getAllStoreList();
 		$this->data['StoreList']=$StoreList;
 
-
         $blog                       = $this->Blog_Model->getBlogDataById($id);
         $blogComments               = $this->Blog_Comment_Model->getCommentsByBlogId($id);
         $this->data['blog']         = $blog;
         $this->data['blogComments'] = $blogComments;
         $this->render($this->class_name . 'view');
-
     }
 
 	public function Category()
@@ -280,7 +266,6 @@ class Blogs extends Admin_Controller
         $this->data['page_title'] = $page_title = 'Add New Category';
 
         if (!empty($id)) {
-
             $this->data['page_title'] = $page_title = 'Edit Category';
         }
 
@@ -302,7 +287,6 @@ class Blogs extends Admin_Controller
             $this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
 
             if (!empty($id)) {
-
                 $postData['id'] = $this->input->post('id');
             }
 
@@ -311,19 +295,15 @@ class Blogs extends Admin_Controller
 			$postData['store_id']           = implode(',',$this->input->post('store_id'));
 
             if ($this->form_validation->run() === TRUE) {
-
 				$insert_id = $this->Blog_Model->saveBlogCategory($postData);
 
 				if ($insert_id > 0) {
 					$this->session->set_flashdata('message_success', $page_title . ' Successfully.');
 					redirect('admin/Blogs/Category');
 				} else {
-
 					$this->session->set_flashdata('message_error', $page_title . ' Unsuccessfully.');
 				}
-
             } else {
-
                 $this->session->set_flashdata('message_error', 'Missing information.');
             }
         }
@@ -337,14 +317,11 @@ class Blogs extends Admin_Controller
             $page_title = 'Blog Delete';
             $this->load->model('Blog_Model');
             if ($this->Blog_Model->deleteBlogCategory($id)) {
-
                 $this->session->set_flashdata('message_success', $page_title . ' Successfully.');
             } else {
-
                 $this->session->set_flashdata('message_error', $page_title . ' Unsuccessfully.');
             }
         } else {
-
             $this->session->set_flashdata('message_error', 'Missing information.');
         }
 
@@ -373,5 +350,4 @@ class Blogs extends Admin_Controller
             $this->session->set_flashdata('message_error', 'Missing information.');
         }
     }
-
 }

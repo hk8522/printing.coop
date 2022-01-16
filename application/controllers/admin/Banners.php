@@ -99,9 +99,7 @@ class Banners extends Admin_Controller
                         $this->session->set_flashdata('file_message_error', 'maximum banner image size allowed on only 1Mb');
                         $saveData = false;
                     }
-
                 } else if(!empty($FileNamefrench)){
-
 					$_FILES['file']['name']     = $_FILES['files_french']['name'];
                     $_FILES['file']['type']     = $_FILES['files_french']['type'];
                     $_FILES['file']['tmp_name'] = $_FILES['files_french']['tmp_name'];
@@ -116,19 +114,15 @@ class Banners extends Admin_Controller
                     $this->upload->initialize($config);
 
                     if ($this->upload->do_upload('file')) {
-
                         $uploadDatafrench = $this->upload->data();
                         $this->resizeImage($uploadDatafrench['file_name'], 'small', '', '', 'banner');
                         $this->resizeImage($uploadDatafrench['file_name'], 'medium', '', '', 'banner');
                         $this->resizeImage($uploadDatafrench['file_name'], 'large', 1920, 428, 'banner');
-
                     } else {
                         $this->session->set_flashdata('file_message_error_french', 'maximum banner image size allowed on only 1Mb');
                         $saveData = false;
                     }
-
 			    }else {
-
                     if (empty($id)) {
                         $this->session->set_flashdata('file_message_error', 'Select  images of banner');
                         $saveData = false;
@@ -136,19 +130,16 @@ class Banners extends Admin_Controller
                 }
 
                 if ($saveData) {
-
                     $old_image_french= !empty($this->input->post('old_image_french')) ?
 					$this->input->post('old_image_french') : '';
 
 					if(!empty($FileNamefrench)){
-
 						$postData['banner_image_french']=$uploadDatafrench['file_name'];
 					}
 
                     $old_image = !empty($this->input->post('old_image')) ? $this->input->post('old_image') : '';
 
                     if (!empty($Filename)) {
-
                         $postData['banner_image'] = $uploadData['file_name'];
                     }
 
@@ -228,7 +219,6 @@ class Banners extends Admin_Controller
             } else {
                 $this->session->set_flashdata('message_error', $page_title . ' Unsuccessfully.');
             }
-
         } else {
             $this->session->set_flashdata('message_error', 'Missing information.');
         }
@@ -238,31 +228,24 @@ class Banners extends Admin_Controller
 
     public function resizeImage($filename, $type = 'small', $widthlarge = 800, $heightlarge = 800, $section = 'product')
     {
-
-
         $source_path = PRODUCT_IMAGE_BASE_PATH . $filename;
         $target_path = PRODUCT_IMAGE_BASE_PATH . $type . '/' . $filename;
         if ($section == 'banner') {
-
             $source_path = BANNER_IMAGE_BASE_PATH . $filename;
             $target_path = BANNER_IMAGE_BASE_PATH . $type . '/' . $filename;
         }
 
         if ($section == 'brand') {
-
             $source_path = BRAND_IMAGE_BASE_PATH . $filename;
             $target_path = BRAND_IMAGE_BASE_PATH . $type . '/' . $filename;
         }
 
         if ($type == 'medium') {
-
             $width  = 400;
             $height = 390;
         } else if ($type == 'large') {
-
             $width  = $widthlarge;
             $height = $heightlarge;
-
         } else {
             $width  = 200;
             $height = 200;

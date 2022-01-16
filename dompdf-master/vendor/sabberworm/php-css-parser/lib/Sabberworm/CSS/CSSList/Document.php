@@ -109,5 +109,4 @@ class Document extends CSSBlockList {
 	public function isRootList() {
 		return true;
 	}
-
 }

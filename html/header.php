@@ -2101,12 +2101,10 @@
     </div>
 </div>
 
-
 <!-- add a "active" class to show -->
 <div class="addtocart-message">
     <span><i class="la la-cart-plus"></i> "Product" has been added to your cart.</span>
 </div>
-
 
 <!-- add a "active" class to show -->
 <div class="addwishlist-message">

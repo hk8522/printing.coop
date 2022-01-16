@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ScopeClosingBraceSniff implements Sniff
 {
-
     /**
      * The number of spaces code should be indented.
      *
      * @var integer
      */
     public $indent = 4;
-
 
      /**
       * Returns an array of tokens this test wants to listen for.
@@ -32,9 +30,7 @@ class ScopeClosingBraceSniff implements Sniff
     public function register()
     {
         return Tokens::$scopeOpeners;
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -172,8 +168,5 @@ class ScopeClosingBraceSniff implements Sniff
                 $phpcsFile->fixer->addContentBefore($lineStart, $spaces);
             }
         }
-
     }//end process()
-
-
 }//end class

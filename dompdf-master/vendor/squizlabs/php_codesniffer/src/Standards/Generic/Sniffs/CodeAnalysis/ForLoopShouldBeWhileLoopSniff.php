@@ -28,8 +28,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ForLoopShouldBeWhileLoopSniff implements Sniff
 {
-
-
     /**
      * Registers the tokens that this sniff wants to listen for.
      *
@@ -38,9 +36,7 @@ class ForLoopShouldBeWhileLoopSniff implements Sniff
     public function register()
     {
         return [T_FOR];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -84,8 +80,5 @@ class ForLoopShouldBeWhileLoopSniff implements Sniff
             $error = 'This FOR loop can be simplified to a WHILE loop';
             $phpcsFile->addWarning($error, $stackPtr, 'CanSimplify');
         }
-
     }//end process()
-
-
 }//end class

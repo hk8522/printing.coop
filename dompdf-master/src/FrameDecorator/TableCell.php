@@ -18,7 +18,6 @@ use Dompdf\FrameDecorator\Block as BlockFrameDecorator;
  */
 class TableCell extends BlockFrameDecorator
 {
-
     protected $_resolved_borders;
     protected $_content_height;
 

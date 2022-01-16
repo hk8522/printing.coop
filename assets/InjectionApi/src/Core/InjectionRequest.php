@@ -4,7 +4,6 @@ namespace Socketlabs\Core;
  * Represents a injection request for sending to the Injection Api.
  */
 class InjectionRequest {
-
     /**
     * list of messages to be sent.
     */
@@ -32,5 +31,4 @@ class InjectionRequest {
 
         $this->Messages = array();
     }
-
 }

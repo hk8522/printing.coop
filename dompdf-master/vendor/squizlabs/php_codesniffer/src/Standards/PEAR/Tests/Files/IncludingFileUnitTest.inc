@@ -81,7 +81,7 @@ function get_some_value()
         if ($var === true) {
         }
     }
-    
+
     if (require_once 'blank.inc') {
         $var = require_once 'blank.inc';
         if ($var === true) {

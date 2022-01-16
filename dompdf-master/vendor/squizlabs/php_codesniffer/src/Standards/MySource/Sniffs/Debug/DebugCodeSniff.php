@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Files\File;
 
 class DebugCodeSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -24,9 +22,7 @@ class DebugCodeSniff implements Sniff
     public function register()
     {
         return [T_DOUBLE_COLON];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -48,8 +44,5 @@ class DebugCodeSniff implements Sniff
             $data   = [$tokens[$method]['content']];
             $phpcsFile->addError($error, $stackPtr, 'Found', $data);
         }
-
     }//end process()
-
-
 }//end class

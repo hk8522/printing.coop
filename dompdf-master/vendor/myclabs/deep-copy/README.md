@@ -119,11 +119,11 @@ use DeepCopy\DeepCopy;
 function deep_copy($var)
 {
     static $copier = null;
-    
+
     if (null === $copier) {
         $copier = new DeepCopy(true);
     }
-    
+
     return $copier->copy($var);
 }
 ```

@@ -105,5 +105,4 @@ class ExtensionTest extends TestCase {
             $extension->isCompatibleWith($app2, $version)
         );
     }
-
 }

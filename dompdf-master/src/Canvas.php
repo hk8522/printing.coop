@@ -346,7 +346,6 @@ interface Canvas
      */
     function get_width();
 
-
     /**
      * Return the image's height in pixels
      *

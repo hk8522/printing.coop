@@ -4,7 +4,6 @@
  *
  */
 foo.prototype = {
-
     /**
      * Some info about the function here.
      *
@@ -18,7 +17,6 @@ foo.prototype = {
   *
   */
 foo.prototype = {
-
     /**
       *Some info about the function here.
       *
@@ -32,7 +30,6 @@ foo.prototype = {
   *
 */
 foo.prototype = {
-
     /**
      * Some info about the function here.
       *

@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/image_lib.html
  */
 class CI_Image_lib {
-
 	/**
 	 * PHP extension/library to use for image manipulation
 	 * Can be: imagemagick, netpbm, gd, gd2
@@ -1838,5 +1837,4 @@ class CI_Image_lib {
 	{
 		return (count($this->error_msg) > 0) ? $open.implode($close.$open, $this->error_msg).$close : '';
 	}
-
 }

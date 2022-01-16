@@ -226,7 +226,6 @@
                                         <?php
                                             $DescriptionsIds=1;
                                             if(!empty($ProductDescriptions)){
-
                                             $last=count($ProductDescriptions);
                                             $last=$last-1;
 
@@ -242,12 +241,9 @@
 									if($last==0){
 										$displayplusnbtn='';
 										$displayminusbtn='none';
-
 									}else if($last==$key){
-
 									   $displayplusnbtn='';
 									   $displayminusbtn='';
-
 									}
 									?>
                                         <div class="add-new-btn">
@@ -265,7 +261,6 @@
 
 													<input type="text" class="form-control" placeholder="Title french" name="title_french[]" value="<?php echo $val['title_french'];?>">
 
-
 													<label>Description </label>
 
                                                     <textarea class="form-control Discription ckeditor" name="description[]" placeholder="Full Description" id="editor<?php echo $DescriptionsIds?>"><?php echo $val['description'];?></textarea>
@@ -276,7 +271,6 @@
 
                                         <?php
 										    $DescriptionsIds++;
-
 										}
                                         }else{?>
                                         <div class="controls description-class ddata">
@@ -300,12 +294,10 @@
 										<label>French Description </label>
 									   <textarea class="form-control ckeditor DiscriptionF" name="description_french[]" placeholder="Description French" id="editorf"></textarea>
 
-
                                         </div>
                                         </div>
 
                                         <?php }?>
-
 
 												</div>
 											</div>
@@ -319,12 +311,10 @@
                                         <?php
                                             //pr($ProductTemplates);
                                             if(!empty($ProductTemplates)){
-
                                             $last=count($ProductTemplates);
                                             $last=$last-1;
 
                                             foreach($ProductTemplates as $key=>$val){
-
                                             ?>
 
                                             <div class="controls description-class tmds">
@@ -336,12 +326,9 @@
 									if($last==0){
 										$displayplusnbtn='';
 										$displayminusbtn='none';
-
 									}else if($last==$key){
-
 									   $displayplusnbtn='';
 									   $displayminusbtn='';
-
 									}
 									?>
                                         <div class="add-new-btn">
@@ -367,7 +354,6 @@
 
 													<input class="btn btn-primary" name="template_file_old[]" type="hidden" value="<?php echo $val['template_file'];?>"/>
 													<?php if($val['template_file']){
-
 													   $link=$BASE_URL."admin/Orders/download/".urlencode(TEMPLATE_FILE_BASE_PATH.$val['template_file'])."/".urlencode($val['template_file']);
 													?>
 
@@ -408,7 +394,6 @@
 
                                         <?php }?>
 
-
 												</div>
 											</div>
 										</div>
@@ -444,8 +429,6 @@
                                                                 <?php echo form_error('price_usd');?>
                                                             </div>-->
 
-
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -469,10 +452,6 @@
                                                                 <label class="form-inner-label">French Code</label>
                                                                 <?php echo form_error('code_french');?>
                                                             </div>
-
-
-
-
 
 															<div class="col-md-6">
                                                                 <input class="form-control" name="model" id="model" type="text" placeholder="Product Model" value="<?php echo isset($postData['model']) ? $postData['model']:'';?>">
@@ -529,7 +508,6 @@
 
 		<?php }?>
 
-
                                                         </div>
                                                     </div>
                                                 </div>
@@ -545,13 +523,11 @@
 
                                         <div class="row">
 
-
                                             <div class="col-md-12">
                                                   <?php
 
 																																		$cehecked='';
         if ($postData['votre_text']==1) {
-
 		   $cehecked='checked';
         }
         ?>                                                        <label class="span2"><input name="votre_text" type="checkbox" value="1" <?php echo $cehecked;?>> Add
@@ -559,13 +535,7 @@
         <?php echo form_error('votre_text');?>
         </div>
 
-
-
-
-
-
                    </div>
-
 
                     </div>
                 </div>
@@ -581,13 +551,11 @@
 
                                         <div class="row">
 
-
                                             <div class="col-md-12">
                                                   <?php
 
 																														$cehecked='';
         if ($postData['recto_verso']==1) {
-
 		   $cehecked='checked';
         }
         ?>                                                        <label class="span2"><input name="recto_verso" type="checkbox" value="1" <?php echo $cehecked;?> onchange="RectoVersoSection(recto_verso)" id="recto_verso"> Add
@@ -617,11 +585,9 @@
                             </div>
                         </div>
 
-
                     </div>
                 </div>
          </div>
-
 
                      <div class="control-group info">
                                             <div class="row">
@@ -633,24 +599,17 @@
 
                                         <div class="row">
 
-
                                             <div class="col-md-12">
                                                   <?php
 
 																														$cehecked='';
         if ($postData['add_length_width']==1) {
-
 		   $cehecked='checked';
         }
         ?>                                                 <label class="span2"><input name="add_length_width" type="checkbox" value="1" <?php echo $cehecked;?> onchange="showWidthAndLength(add_length_width)" id="add_length_width"> Add
 		</label>
         <?php echo form_error('add_length_width');?>
         </div>
-
-
-
-
-
 
                                                         </div>
                 		<div class="attribute-row field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="WidthAndLengthSection">
@@ -775,7 +734,6 @@
                                     </div>
                                 </div>
 
-
 								<div class="col-md-6">
                                     <div class="attribute-info">
                                         <div class="row align-items-center">
@@ -793,8 +751,6 @@
 			<!--<option value="dropdown" <?php echo $postData['length_width_pages_type']=='dropdown' ? 'selected':''?>>
 					Dropdown
 			</option>-->
-
-
 
 											</select>
                                             </div>
@@ -815,10 +771,8 @@
         $id=isset($postData['id']) ? $postData['id']:'';
 		$cehecked='';
         if ($postData['length_width_quantity_show']==1){
-
 		$cehecked='checked';
         }else if(empty($id)){
-
 			$cehecked='checked';
 		}
         ?>                                                 <label class="span2"><input name="length_width_quantity_show" type="checkbox" value="1" <?php echo $cehecked;?> id="length_width_quantity_show">
@@ -873,13 +827,11 @@
 
                                         <div class="row">
 
-
                                             <div class="col-md-12">
                                                   <?php
 
 																														$cehecked='';
         if ($postData['page_add_length_width']==1) {
-
 		   $cehecked='checked';
         }
         ?>                                                         <label class="span2"><input name="page_add_length_width" type="checkbox" value="1" <?php echo $cehecked;?> onchange="pageShowWidthAndLength(page_add_length_width)" id="page_add_length_width"> Add
@@ -1048,10 +1000,8 @@
         $id=isset($postData['id']) ? $postData['id']:'';
 		$cehecked='';
         if ($postData['page_length_width_pages_show']==1){
-
 		   $cehecked='checked';
         }else if(empty($id)){
-
 			$cehecked='checked';
 		}
         ?>                                                 <label class="span2">
@@ -1099,7 +1049,6 @@
         $id=isset($postData['id']) ? $postData['id']:'';
 		$cehecked='';
         if ($postData['page_length_width_sheets_show']==1){
-
 		   $cehecked='checked';
         }
         ?>                                                 <label class="span2">
@@ -1128,8 +1077,6 @@
 					Dropdown
 			</option>
 
-
-
 											</select>
                                             </div>
                                             </div>
@@ -1138,7 +1085,6 @@
                                 </div>
 
 		                         <div class="col-md-6">
-
 
                                     <div class="attribute-info">
                                         <div class="row align-items-center">
@@ -1152,10 +1098,8 @@
         $id=isset($postData['id']) ? $postData['id']:'';
 		$cehecked='';
         if ($postData['page_length_width_quantity_show']==1){
-
 		$cehecked='checked';
         }else if(empty($id)){
-
 			$cehecked='checked';
 		}
         ?>                                                 <label class="span2"><input name="page_length_width_quantity_show" type="checkbox" value="1" <?php echo $cehecked;?> id="page_length_width_quantity_show">
@@ -1210,24 +1154,17 @@
 
                                         <div class="row">
 
-
                                             <div class="col-md-12">
                                                   <?php
 
 																														      $cehecked='';
         if ($postData['depth_add_length_width']==1) {
-
 		   $cehecked='checked';
         }
         ?>                                                 <label class="span2"><input name="depth_add_length_width" type="checkbox" value="1" <?php echo $cehecked;?> onchange="showDepthWidthAndLength(depth_add_length_width)" id="depth_add_length_width"> Add
 		</label>
         <?php echo form_error('depth_add_length_width');?>
         </div>
-
-
-
-
-
 
                                                         </div>
                 		<div class="attribute-row field-area" style="display:<?php echo $cehecked=='checked' ? '':'none';?>" id="DepthWidthAndLengthSection">
@@ -1396,8 +1333,6 @@
 					Dropdown
 			</option>-->
 
-
-
 											</select>
                                             </div>
                                             </div>
@@ -1417,10 +1352,8 @@
         $id=isset($postData['id']) ? $postData['id']:'';
 		$cehecked='';
         if ($postData['depth_width_length_quantity_show']==1){
-
 		$cehecked='checked';
         }else if(empty($id)){
-
 			$cehecked='checked';
 		}
         ?>                                                 <label class="span2"><input name="depth_width_length_quantity_show" type="checkbox" value="1" <?php echo $cehecked;?> id="depth_width_length_quantity_show">
@@ -1475,13 +1408,11 @@
 
                                         <div class="row">
 
-
                                             <div class="col-md-12">
                                                   <?php
 
 																														$cehecked='';
         if ($postData['call']==1) {
-
 		   $cehecked='checked';
         }
         ?>                                                     <label class="span2"><input name="call" type="checkbox" value="1" <?php echo $cehecked;?> onchange="pageShowCall(product_call)" id="product_call"> Add
@@ -1616,7 +1547,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 	<div class="attribute" id="quantity_attribute_id_div_<?php echo $category_id ?>" style="display:<?php echo array_key_exists($category_id,$ProductCategory) ? '' :'none'?>; padding: 10px 10px 10px 25px; background: #f5f5f5;">
         <?php
 		foreach($sub_categories as $key=>$val){
-
 			$sub_category_id=$val['id'];
             $sub_category_name=$val['name'];
         ?>
@@ -1718,9 +1648,7 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 
     var default_url_image='<?php echo $BASE_URL?>/assets/images/no-image.png';
 
-
     $('#menu_id').on('change', function (e) {
-
     var menu_id=$(this).val();
     $("#category_id").html('<option value="">Select Category</option>');
     $("#sub_category_id").html('<option value="">Select Sub Category</option>');
@@ -1739,7 +1667,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
     });
 
     $('#category_id').on('change', function (e) {
-
     $("#sub_category_id").html('<option value="">Select Sub Category</option>');
 
     var menu_id=$("#menu_id").val();
@@ -1760,7 +1687,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
     });
 
     $(function(){
-
 		$(document).on('click', '.btn-add', function(e){
 			e.preventDefault();
 
@@ -1784,16 +1710,11 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 			.removeClass('btn-add').addClass('btn-remove')
 			.removeClass('btn-success').addClass('btn-danger')
 			.html('<span class="fa fa-minus"></span>');*/
-
-
 		}).on('click', '.btn-remove', function(e)
 		{
-
 		var numItems = $('.file-data .entry').length;
 
-
 		if(numItems==1){
-
 			//$(this).parents('.entry:first').remove();
 			//e.preventDefault();
 
@@ -1802,9 +1723,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 			controlForm.find('img').attr('src',default_url_image);
 			controlForm.find('.btn-remove').hide();
 			controlForm.find('.btn-add').show();
-
-
-
 		}else{
 				$(this).parents('.entry:first').remove();
 			    e.preventDefault();
@@ -1817,7 +1735,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
     });
 
     function remove_image(id,image_name){
-
     $("#submitBtn").attr("disabled", true);
     $("#img_remove_btn").attr("disabled",true);
     var product_id=$("#product_id").val();
@@ -1829,11 +1746,9 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
     data:{'product_id':product_id,'id':id,'image_name':image_name},
     success: function (data) {
     	if(data==1){
-
     	    $("#img_"+id).remove();
 			$("#img_remove_btn").attr("disabled",false);
     	}else{
-
     		$("#img_remove_btn").attr("disabled",false);
     	}
 
@@ -1842,21 +1757,16 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
     error: function (error) {
       $("img_remove_btn").attr("disabled", false);
       $("#submitBtn").attr("disabled", false);
-
     }
     });
-
     }
 
     function bntInActive(id){
-
     $("#"+id).attr("disabled", true);
-
     }
 </script>
 <script>
     function Upload(imageId) {
-
        //alert(imageId);
        var fileUpload = document.getElementById(imageId);
        //Check whether the file is valid Image.
@@ -1864,7 +1774,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 	   //alert(fileUpload.value.toLowerCase());
        //if (regex.test(fileUpload.value.toLowerCase())) {
            if (typeof (fileUpload.files) != "undefined") {
-
                //Initiate the FileReader object.
                var reader = new FileReader();
                //Read the contents of Image File.
@@ -1879,7 +1788,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 			   $("#"+imageId+"-Image").attr('src', e.target.result);
                //Validate the File Height and Width.
                image.onload = function () {
-
                     var height = this.height;
                     var width = this.width;
     				var imagesize=fileUpload.files[0].size;
@@ -1887,23 +1795,17 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 
     				//alert(imagesize);
     				/*if(FILE_MAX_SIZE_JS < imagesize){
-
     					$("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
     				    $("#MsgModal").modal('show');
                            return false;
-
-
     				}
 					else if (height != width || height < 800 || width <800  || height > 1500 || width > 1500) {
-
     					document.getElementById(imageId).value='';
     					$("#MsgModal .modal-body").html('<span style="color:red"> Allowed image in only square :minimum image dimensions 800pxX800px and maximum mindimensions 1500pxX1500px</b></span>');
     				    $("#MsgModal").modal('show');
                            return false;
                     }*/
-
                    };
-
                }
            }
        //}
@@ -1911,14 +1813,12 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 </script>
 <script>
     $(document).ready(function(){
-
         $("#show-shipping-amount").click(function(){
             $(".shipping-amount-area").show();
         });
         $("#hide-shipping-amount").click(function(){
             $(".shipping-amount-area").hide();
         });
-
     });
 
 	$(document).on('click', '.dbtn-add', function(e){
@@ -1958,11 +1858,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 			controlForm.find('.dbtn-remove').show();
 			controlForm.find('.dbtn-add').hide();
 			newEntry.find('.dbtn-add').show();
-
-
-
-
-
 		}).on('click', '.dbtn-remove', function(e)
 		{
 			$(this).parents('.ddata:first').remove();
@@ -1973,7 +1868,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 			var controlForm = $('.DescriptionData .ddata').last();
 
 			if(numItems==1){
-
 			controlForm.find('.dbtn-remove').hide();
 			controlForm.find('.dbtn-add').show();
 			}else{
@@ -1981,12 +1875,9 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 			    controlForm.find('.dbtn-add').show();
 			}
 			return false;
-
 	});
 
-
 	function AddRow(cr,id){
-
 		    var controlForm = $('.'+id+'SizeQuantity:first'),
 			currentEntry = cr.parents('.'+id+'sqddata:first'),
 			newEntry = $(currentEntry.clone()).appendTo(controlForm);
@@ -2002,13 +1893,9 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 			controlForm.find('.'+id+'sqbtn-remove').show();
 			controlForm.find('.'+id+'sqbtn-add').hide();
 			newEntry.find('.'+id+'sqbtn-add').show();
-
-
-
 	}
 
 	function RemoveRow(cr,id){
-
 		    cr.parents('.'+id+'sqddata:first').remove();
 
 			var numItems = $('.'+id+'SizeQuantity .'+id+'sqddata').length;
@@ -2016,7 +1903,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 			var controlForm = $('.'+id+'SizeQuantity .'+id+'sqddata').last();
 
 			if(numItems==1){
-
 			controlForm.find('.'+id+'sqbtn-remove').hide();
 			controlForm.find('.'+id+'sqbtn-add').show();
 			}else{
@@ -2024,13 +1910,9 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 			    controlForm.find('.'+id+'sqbtn-add').show();
 			}
 			return false;
-
-
-
 	}
 
 	$(document).on('click', '.tdtn-add', function(e){
-
 			//alert('OK');
 			e.preventDefault();
 			var controlForm = $('.TempalteDiscription:first'),
@@ -2048,8 +1930,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 			controlForm.find('.tdtn-remove').show();
 			controlForm.find('.tdtn-add').hide();
 			newEntry.find('.tdtn-add').show();
-
-
 		}).on('click', '.tdtn-remove', function(e)
 		{
 			$(this).parents('.tmds:first').remove();
@@ -2060,7 +1940,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 			var controlForm = $('.TempalteDiscription .tmds').last();
 
 			if(numItems==1){
-
 			controlForm.find('.tdtn-remove').hide();
 			controlForm.find('.tdtn-add').show();
 			}else{
@@ -2070,7 +1949,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 			return false;
 	});
 	function isNumber(evt) {
-
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode
         if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
             return false;
@@ -2079,96 +1957,65 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
     }
 
 	function addActiveClass(id){
-
-
-
 		if($("#attribute_id_"+id).prop("checked") == true){
-
-
 			$("#attribute_id_div_"+id).addClass('active');
 		}else{
-
 			$("#attribute_id_div_"+id).removeClass('active');
 		}
-
 	}
 
 	function showWidthAndLength(id){
-
 		if($(id).prop("checked") == true){
-
-
 			$("#WidthAndLengthSection").show();
 			//$(".LengthWidth").attr("required", true);
 		}else{
 			//$(".LengthWidth").attr("required", false);
 			$("#WidthAndLengthSection").hide();
 		}
-
 	}
 	function showDepthWidthAndLength(id){
-
 		if($(id).prop("checked") == true){
-
-
 			$("#DepthWidthAndLengthSection").show();
 			//$(".LengthWidth").attr("required", true);
 		}else{
 			//$(".LengthWidth").attr("required", false);
 			$("#DepthWidthAndLengthSection").hide();
 		}
-
 	}
 
 	function pageShowWidthAndLength(id){
-
 		if($(id).prop("checked") == true){
-
-
 			$("#PageWidthAndLengthSection").show();
 			//$(".PageLengthWidth").attr("required", true);
 		}else{
-
 			//$(".PageLengthWidth").attr("required", false);
 			$("#PageWidthAndLengthSection").hide();
 		}
-
 	}
 	function pageShowCall(id){
-
 		if($(id).prop("checked") == true){
 			$("#PagePhoneSection").show();
-
 		}else{
 			$("#PagePhoneSection").hide();
 		}
-
 	}
 
 	function setAttributesetItemId(id){
 		//alert(id);
 
 		if($("#"+id).prop("checked") == true){
-
 			$("#hidden_"+id).val($("#"+id).val());
 		}else{
-
 			$("#hidden_"+id).val('');
 		}
-
 	}
 
 	function RectoVersoSection(id){
-
 		if($(id).prop("checked") == true){
-
-
 			$("#RectoVersoSection").show();
-
 		}else{
 			$("#RectoVersoSection").hide();
 		}
-
 	}
 
 	function addActiveCategory(id){
@@ -2177,10 +2024,8 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 		}else{
 			$("#quantity_attribute_id_div_"+id).hide();
 		}
-
 	}
 	$("form.form-horizontal").submit(function(e) {
-
 		var numberOfChecked = $('.Category-Ids:checked').length;
 		if(numberOfChecked==0){
 			alert('Please selected at least one product category');

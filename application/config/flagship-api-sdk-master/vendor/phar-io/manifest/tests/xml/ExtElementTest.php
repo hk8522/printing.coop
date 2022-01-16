@@ -17,5 +17,4 @@ class ExtElementTest extends \PHPUnit_Framework_TestCase {
     public function testNameCanBeRetrieved() {
         $this->assertEquals('dom', $this->ext->getName());
     }
-
 }

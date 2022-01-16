@@ -8,7 +8,6 @@ class Dashboards extends Admin_Controller
   {
     parent::__construct();
 	$this->class_name='admin/'.ucfirst(strtolower($this->router->fetch_class())).'/';
-
   }
 
 	public function index()

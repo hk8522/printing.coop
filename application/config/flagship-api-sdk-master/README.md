@@ -29,7 +29,7 @@ use Flagship\Shipping\Exceptions\QuoteException;
 require_once './vendor/autoload.php';
 
 /*
- * @params 
+ * @params
  * MY_ACCESS_TOKEN : use your Flagship token
  * For test environment use https://test-api.smartship.io and https://api.smartship.io for a live one
  * MY_WEBSITE : name of your website
@@ -135,7 +135,7 @@ try{
         'from'=>[ ... ],
         'to' => [ ... ],
         'packages' => [ ... ],
-        ...  
+        ...
   ]);
 
   $response = $request->execute();
@@ -152,7 +152,7 @@ try{
       'from'=>[ ... ],
       'to' => [ ... ],
       'packages' => [ ... ],
-      ...  
+      ...
   ]);
 
   $rates = $request->execute(); //returns a collection of rates
@@ -174,7 +174,7 @@ try{
       'from'=>[ ... ],
       'to' => [ ... ],
       'packages' => [ ... ],
-       ...  
+       ...
     ]);
 
   $confirmedShipment = $request->execute(); //returns a collection of rates

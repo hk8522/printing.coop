@@ -19,7 +19,6 @@ use Dompdf\Helpers;
  */
 class ListBulletImage extends AbstractFrameDecorator
 {
-
     /**
      * The underlying image frame
      *
@@ -150,5 +149,4 @@ class ListBulletImage extends AbstractFrameDecorator
     {
         return $this->_img->get_image_url();
     }
-
 }

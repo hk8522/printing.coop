@@ -50,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/benchmark.html
  */
 class CI_Benchmark {
-
 	/**
 	 * List of all benchmark markers
 	 *
@@ -129,5 +128,4 @@ class CI_Benchmark {
 	{
 		return '{memory_usage}';
 	}
-
 }

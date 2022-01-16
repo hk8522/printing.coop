@@ -19,7 +19,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class LineLengthSniff implements Sniff
 {
-
     /**
      * The limit that the length of a line should not exceed.
      *
@@ -46,7 +45,6 @@ class LineLengthSniff implements Sniff
      */
     public $ignoreComments = false;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -55,9 +53,7 @@ class LineLengthSniff implements Sniff
     public function register()
     {
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -81,9 +77,7 @@ class LineLengthSniff implements Sniff
 
         // Ignore the rest of the file.
         return ($phpcsFile->numTokens + 1);
-
     }//end process()
-
 
     /**
      * Checks if a line is too long.
@@ -194,8 +188,5 @@ class LineLengthSniff implements Sniff
             $warning = 'Line exceeds %s characters; contains %s characters';
             $phpcsFile->addWarning($warning, $stackPtr, 'TooLong', $data);
         }
-
     }//end checkLineLength()
-
-
 }//end class

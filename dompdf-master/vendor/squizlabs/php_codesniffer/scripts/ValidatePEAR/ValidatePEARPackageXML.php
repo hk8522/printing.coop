@@ -18,7 +18,6 @@ use PHP_CodeSniffer\Tests\FileList;
  */
 class ValidatePEARPackageXML
 {
-
     /**
      * The root directory of the project.
      *
@@ -65,7 +64,6 @@ class ValidatePEARPackageXML
      */
     private $listedContents = [];
 
-
     /**
      * Constructor.
      */
@@ -76,9 +74,7 @@ class ValidatePEARPackageXML
 
         $allFiles       = (new FileList($this->projectRoot, $this->projectRoot))->getList();
         $this->allFiles = array_flip($allFiles);
-
     }//end __construct()
-
 
     /**
      * Validate the file listings in the package.xml file.
@@ -97,9 +93,7 @@ class ValidatePEARPackageXML
         }
 
         exit($exitCode);
-
     }//end validate()
-
 
     /**
      * Validate the file listings in the <contents> tag.
@@ -154,9 +148,7 @@ class ValidatePEARPackageXML
         }
 
         return $valid;
-
     }//end checkContents()
-
 
     /**
      * Validate all child tags within a <dir> tag.
@@ -191,9 +183,7 @@ class ValidatePEARPackageXML
         }
 
         return $valid;
-
     }//end walkDirTag()
-
 
     /**
      * Validate the information within a <file> tag.
@@ -263,9 +253,7 @@ class ValidatePEARPackageXML
         }//end if
 
         return $valid;
-
     }//end checkFileTag()
-
 
     /**
      * Validate the file listings in the <phprelease> tags.
@@ -355,8 +343,5 @@ class ValidatePEARPackageXML
         }
 
         return $valid;
-
     }//end checkPHPRelease()
-
-
 }//end class

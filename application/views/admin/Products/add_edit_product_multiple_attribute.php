@@ -35,10 +35,8 @@
 								    <option value="">Select <?php echo $MultipleAttribute['name'];?></option>
 									<?php
 									foreach($MultipleAttribute['items'] as $key=>$val){
-
 									    $selected='';
                                         if($attribute_item_id==$key){
-
 											$selected='selected="selected"';
 										}
 									?>
@@ -87,7 +85,6 @@ $('#AddEditProductAttribute').validate({
             },
         },
         submitHandler: function(form) {
-
 			$("#loder-img").show();
 			var url  = '<?php echo $BASE_URL ?>admin/Products/AddEditProductAttribute';
 			$.ajax({
@@ -98,7 +95,6 @@ $('#AddEditProductAttribute').validate({
 				 $('button[type=submit]').attr('disabled', true);
 			  },
 			  success: function(data) {
-
 				$('button[type=submit]').attr('disabled', false);
 				$("#loder-img").hide();
 				$("#ItemModal .modal-body").html(data);

@@ -21,7 +21,6 @@ use PHP_CodeSniffer\Files\File;
 
 class Notifysend implements Report
 {
-
     /**
      * Notification timeout in milliseconds.
      *
@@ -50,7 +49,6 @@ class Notifysend implements Report
      */
     protected $version = null;
 
-
     /**
      * Load configuration data.
      */
@@ -76,9 +74,7 @@ class Notifysend implements Report
             '',
             exec($this->path.' --version')
         );
-
     }//end __construct()
-
 
     /**
      * Generate a partial report for a single processed file.
@@ -101,9 +97,7 @@ class Notifysend implements Report
         // We want this file counted in the total number
         // of checked files even if it has no errors.
         return true;
-
     }//end generateFileReport()
-
 
     /**
      * Generates a summary of errors and warnings for each file processed.
@@ -142,9 +136,7 @@ class Notifysend implements Report
         } else {
             $this->notifyErrors($msg);
         }
-
     }//end generate()
-
 
     /**
      * Generate the error message to show to the user.
@@ -180,9 +172,7 @@ class Notifysend implements Report
         }
 
         return $msg;
-
     }//end generateMessage()
-
 
     /**
      * Tell the user that all is fine and no error/warning has been found.
@@ -196,9 +186,7 @@ class Notifysend implements Report
         $cmd .= ' "PHP CodeSniffer: Ok"';
         $cmd .= ' "All fine"';
         exec($cmd);
-
     }//end notifyAllFine()
-
 
     /**
      * Tell the user that errors/warnings have been found.
@@ -214,9 +202,7 @@ class Notifysend implements Report
         $cmd .= ' "PHP CodeSniffer: Error"';
         $cmd .= ' '.escapeshellarg(trim($msg));
         exec($cmd);
-
     }//end notifyErrors()
-
 
     /**
      * Generate and return the basic notify-send command string to execute.
@@ -234,8 +220,5 @@ class Notifysend implements Report
         }
 
         return $cmd;
-
     }//end getBasicCommand()
-
-
 }//end class

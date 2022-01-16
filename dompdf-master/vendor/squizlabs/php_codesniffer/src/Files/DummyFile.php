@@ -19,8 +19,6 @@ use PHP_CodeSniffer\Config;
 
 class DummyFile extends File
 {
-
-
     /**
      * Creates a DummyFile object and sets the content.
      *
@@ -55,9 +53,7 @@ class DummyFile extends File
         }
 
         parent::__construct($path, $ruleset, $config);
-
     }//end __construct()
-
 
     /**
      * Set the error, warning, and fixable counts for the file.
@@ -75,8 +71,5 @@ class DummyFile extends File
         $this->warningCount = $warningCount;
         $this->fixableCount = $fixableCount;
         $this->fixedCount   = $fixedCount;
-
     }//end setErrorCounts()
-
-
 }//end class

@@ -178,7 +178,6 @@ class SurfaceCpdf implements SurfaceInterface
 
         $img = $this->image($image, $sx, $sy, $sw, $sh, "normal");
 
-
         unlink($image);
     }
 

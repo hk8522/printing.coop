@@ -16,8 +16,6 @@ use PHPUnit\Framework\TestSuite;
 
 class AllSniffs
 {
-
-
     /**
      * Prepare the test runner.
      *
@@ -26,9 +24,7 @@ class AllSniffs
     public static function main()
     {
         TestRunner::run(self::suite());
-
     }//end main()
-
 
     /**
      * Add all sniff unit tests into a test suite.
@@ -103,9 +99,7 @@ class AllSniffs
         }//end foreach
 
         return $suite;
-
     }//end suite()
-
 
     /**
      * Get the details of all coding standards installed.
@@ -116,8 +110,5 @@ class AllSniffs
     protected static function getInstalledStandardDetails()
     {
         return Standards::getInstalledStandardDetails(true);
-
     }//end getInstalledStandardDetails()
-
-
 }//end class

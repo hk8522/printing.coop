@@ -17,7 +17,6 @@ use PHP_CodeSniffer\Exceptions\RuntimeException;
 
 class Config
 {
-
     /**
      * The current version.
      *
@@ -181,7 +180,6 @@ class Config
      */
     private static $executablePaths = [];
 
-
     /**
      * Get the value of an inaccessible property.
      *
@@ -197,9 +195,7 @@ class Config
         }
 
         return $this->settings[$name];
-
     }//end __get()
-
 
     /**
      * Set the value of an inaccessible property.
@@ -252,9 +248,7 @@ class Config
         }//end switch
 
         $this->settings[$name] = $value;
-
     }//end __set()
-
 
     /**
      * Check if the value of an inaccessible property is set.
@@ -266,9 +260,7 @@ class Config
     public function __isset($name)
     {
         return isset($this->settings[$name]);
-
     }//end __isset()
-
 
     /**
      * Unset the value of an inaccessible property.
@@ -280,9 +272,7 @@ class Config
     public function __unset($name)
     {
         $this->settings[$name] = null;
-
     }//end __unset()
-
 
     /**
      * Get the array of all config settings.
@@ -292,9 +282,7 @@ class Config
     public function getSettings()
     {
         return $this->settings;
-
     }//end getSettings()
-
 
     /**
      * Set the array of all config settings.
@@ -306,9 +294,7 @@ class Config
     public function setSettings($settings)
     {
         return $this->settings = $settings;
-
     }//end setSettings()
-
 
     /**
      * Creates a Config object and populates it with command line values.
@@ -398,9 +384,7 @@ class Config
         }//end if
 
         fclose($handle);
-
     }//end __construct()
-
 
     /**
      * Set the command line values.
@@ -449,9 +433,7 @@ class Config
                 $this->processUnknownArgument($arg, $i);
             }//end if
         }//end for
-
     }//end setCommandLineValues()
-
 
     /**
      * Restore default values for all possible command line arguments.
@@ -576,9 +558,7 @@ class Config
                 $this->parallel = max((int) $parallel, 1);
             }
         }
-
     }//end restoreDefaults()
-
 
     /**
      * Processes a short (-e) command line argument.
@@ -681,9 +661,7 @@ class Config
                 $this->processUnknownArgument('-'.$arg, $pos);
             }
         }//end switch
-
     }//end processShortArgument()
-
 
     /**
      * Processes a long (--example) command line argument.
@@ -1217,9 +1195,7 @@ class Config
             }//end if
             break;
         }//end switch
-
     }//end processLongArgument()
-
 
     /**
      * Processes an unknown command line argument.
@@ -1246,9 +1222,7 @@ class Config
         }
 
         $this->processFilePath($arg);
-
     }//end processUnknownArgument()
-
 
     /**
      * Processes a file path and add it to the file list.
@@ -1282,9 +1256,7 @@ class Config
             $this->files = $files;
             self::$overriddenDefaults['files'] = true;
         }
-
     }//end processFilePath()
-
 
     /**
      * Prints out the usage information for this script.
@@ -1302,9 +1274,7 @@ class Config
         }
 
         echo PHP_EOL;
-
     }//end printUsage()
-
 
     /**
      * Prints out the short usage information for this script.
@@ -1329,9 +1299,7 @@ class Config
         }
 
         echo $usage;
-
     }//end printShortUsage()
-
 
     /**
      * Prints out the usage information for PHPCS.
@@ -1405,9 +1373,7 @@ class Config
         echo ' <standard>     The name or path of the coding standard to use'.PHP_EOL;
         echo ' <stdinPath>    If processing STDIN, the file path that STDIN will be processed as'.PHP_EOL;
         echo ' <tabWidth>     The number of spaces each tab represents'.PHP_EOL;
-
     }//end printPHPCSUsage()
-
 
     /**
      * Prints out the usage information for PHPCBF.
@@ -1459,9 +1425,7 @@ class Config
         echo ' <suffix>      Write modified files to a filename using this suffix'.PHP_EOL;
         echo '               ("diff" and "patch" are not used in this mode)'.PHP_EOL;
         echo ' <tabWidth>    The number of spaces each tab represents'.PHP_EOL;
-
     }//end printPHPCBFUsage()
-
 
     /**
      * Get a single config value.
@@ -1485,9 +1449,7 @@ class Config
         }
 
         return $phpCodeSnifferConfig[$key];
-
     }//end getConfigData()
-
 
     /**
      * Get the path to an executable utility.
@@ -1526,9 +1488,7 @@ class Config
 
         self::$executablePaths[$name] = $result;
         return $result;
-
     }//end getExecutablePath()
-
 
     /**
      * Set a single config value.
@@ -1615,9 +1575,7 @@ class Config
         }
 
         return true;
-
     }//end setConfigData()
-
 
     /**
      * Get all config data.
@@ -1662,9 +1620,7 @@ class Config
         self::$configDataFile = $configFile;
         self::$configData     = $phpCodeSnifferConfig;
         return self::$configData;
-
     }//end getAllConfigData()
-
 
     /**
      * Prints out the gathered config data.
@@ -1693,8 +1649,5 @@ class Config
         foreach ($data as $name => $value) {
             echo str_pad($name.': ', $max).$value.PHP_EOL;
         }
-
     }//end printConfigData()
-
-
 }//end class

@@ -2,7 +2,6 @@
 namespace TheSeer\Tokenizer;
 
 class TokenCollection implements \ArrayAccess, \Iterator, \Countable {
-
     /** @var Token[] */
     private $tokens = [];
 

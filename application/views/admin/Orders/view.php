@@ -209,7 +209,6 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             			            			        </div>
                             			            			        <div class="col-md-6">
                             			            			            <strong><?php if(!empty($orderData['user_id'])){
-
 																			        echo CUSTOMER_ID_PREFIX.$orderData['user_id'];
 																			}else{
 																			    echo "-";
@@ -302,19 +301,14 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 													  $Method = getShipingName($orderData);
 
 											            if(!empty($Method)){
-
 													        echo $Method;
-
 														}else{
-
 			                $shipping_method_formate=explode('-',$orderData['shipping_method_formate']);
 							if($shipping_method_formate[0]=="pickupinstore"){
-
 																$pickupStore=$this->Store_Model->getPickupStoreDataById($shipping_method_formate[2]);
 																echo 'Pickup In Store<br>'.$pickupStore['name']."<br>".$pickupStore['address']."<br>".$pickupStore['phone'];
 															}
 														}
-
 
 												        ?>
 															</strong>
@@ -544,22 +538,18 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <tbody>
                                                         <?php
                                                         foreach ($OrderItemData as $rowid=>$items){
-
 															$cart_images=$items['cart_images'];
 
 												           $cart_images=!empty($cart_images) ? json_decode($cart_images,true) : array();
 												           $cart_images=(array) $cart_images;
-
 
 									$attribute_ids=json_decode($items['attribute_ids'],true);
 
 $product_size=json_decode($items['product_size'],true);
 $product_width_length=$items['product_width_length'];
 
-
 $product_width_length=json_decode($items['product_width_length'],true);
 $page_product_width_length=json_decode($items['page_product_width_length'],true);
-
 
 $product_depth_length_width=json_decode($items['product_depth_length_width'],true);
 
@@ -567,7 +557,6 @@ $votre_text=$items['votre_text'];
 $recto_verso=$items['recto_verso'];
 $product_id=$items['product_id'];
 //$AttributesData=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
-
 
 													   ?>
                                                         <tr>
@@ -656,7 +645,6 @@ $product_id=$items['product_id'];
 
 								       echo 'Sheet Per Pad:'.$page_product_width_length['page_product_total_sheets'];
 
-
 												?></strong> </span>
 									</div>
 								<?php
@@ -675,12 +663,9 @@ $product_id=$items['product_id'];
 								}?>
 																	                                                           <?php
 							if(!empty($product_size)){
-
 								$size_name = $product_size['product_size'];
 								$label_qty=$product_size['product_quantity'];
 								$attribute=isset($product_size['attribute']) ? $product_size['attribute']:'';
-
-
 
 								?>
 							    <?php
@@ -702,13 +687,9 @@ $product_id=$items['product_id'];
 								<?php
 								}?>
 
-
-
 								<?php
 								if($attribute){
-
 								    foreach($attribute as $akey=>$aval){
-
 									    $multiple_attribute_name=$aval['attributes_name'];
 									    $multiple_attribute_item_name=$aval['attributes_item_name'];
 
@@ -741,7 +722,6 @@ $product_id=$items['product_id'];
 								</div>
 
 							<?php
-
 						    }?>
 						    <?php if(!empty($recto_verso)){?>
                                    <div class="col-md-6">
@@ -750,7 +730,6 @@ $product_id=$items['product_id'];
 
 								<?php
 								}?>
-
 
 								<?php if(!empty($votre_text)){?>
                                    <div class="col-md-6">
@@ -762,8 +741,6 @@ $product_id=$items['product_id'];
                                                                 </div>
                                                                 <div class="uploaded-file-detail" id="upload-file-data">
 													<?php if(!empty($cart_images)){
-
-
 													foreach($cart_images as $key=>$return_arr){
 															//pr($return_arr);
 
@@ -779,7 +756,6 @@ $product_id=$items['product_id'];
 																<?php
 																$link=$BASE_URL."admin/Orders/download/".urlencode($return_arr['location'])."/".urlencode($return_arr['name']);
 																?><br>
-
 
 																<div class="uploaded-file-info">
 																  <div class="uploaded-file-name">
@@ -802,9 +778,7 @@ $product_id=$items['product_id'];
 															</div>
 														</div>
 													<?php
-
 															   }
-
 														 }
 
 													?>

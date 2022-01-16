@@ -5,16 +5,12 @@
 	$k=2;
 	$last=1;
 	if(!empty($AtirbuteProductSizes)){
-
 		$last=$last+count($AtirbuteProductSizes);
 	}
 	//echo $last;
 	if(!empty($options_size)){
-
 		    if($j==$last){
-
                 $onchange="getPaperPrice('$i')";
-
 		    }else{
 			    $onchange="showSizeQuantity()";
 		    }
@@ -42,25 +38,17 @@
 	    #pr($AtirbuteProductSizes,1);
 		$l=1;
 	    foreach($AtirbuteProductSizes as $mkey=>$mval){
-
 			if(!empty($product_quantity_id) && !empty($product_size_id)){
-
 				$attribute_items=isset($mval['attribute_items']) ? $mval['attribute_items']:array();
-
 			}else if(!empty($product_quantity_id) && empty($product_size_id)){
-
 				$attribute_items=array();
 			}else{
-
 				$attribute_items=array();
 			}
 
 			if($j==$last){
-
                 $onchange="getPaperPrice('$i')";
-
 		    }else{
-
 			    $onchange="getQuantityPrice('product_size_option_$k')";
 		    }
 

@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class SpaceAfterNotSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -40,7 +39,6 @@ class SpaceAfterNotSniff implements Sniff
      */
     public $ignoreNewlines = false;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -49,9 +47,7 @@ class SpaceAfterNotSniff implements Sniff
     public function register()
     {
         return [T_BOOLEAN_NOT];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -128,8 +124,5 @@ class SpaceAfterNotSniff implements Sniff
                 $phpcsFile->fixer->endChangeset();
             }
         }
-
     }//end process()
-
-
 }//end class

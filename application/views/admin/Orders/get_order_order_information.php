@@ -124,11 +124,9 @@
 												<select name="billing_state" id="stateiD" class="form-control" onchange="getCity($(this).val())">
 												  <option value="">-- Select State --</option>
 												  <?php foreach ($states as $state) {
-
 													  $selected ='';
 													  $post_state = isset($PostData['billing_state']) ? $PostData['billing_state']:'';
 													  if ($state['id'] == $post_state){
-
 														  $selected='selected="selected"';
 													  }
 													  ?>
@@ -149,14 +147,11 @@
 											 <select name="billing_city" id="cityId" class="form-control">
 											  <option value="">-- Select City --</option>
 											  <?php foreach ($citys as $city) {
-
 												  $selected ='';
 		                                          $post_city = isset($PostData['billing_city']) ? $PostData['billing_city']:'';
 
 													if ($city['id'] == $post_city){
-
 													   $selected='selected="selected"';
-
 													}
 												  ?>
 											  <option value="<?php echo $city['id']?>" <?php echo $selected;?>><?php echo $city['name'];?></option>
@@ -215,7 +210,6 @@
 														  $payment_type = isset($PostData['payment_type']) ? $PostData['payment_type']:'';
 
 														  if ($val == $payment_type){
-
 															  $selected='selected="selected"';
 														  }
 														  ?>
@@ -241,7 +235,6 @@
 														  $payment_status = isset($PostData['payment_status']) ? $PostData['payment_status']:'';
 
 														  if ($key == $payment_status){
-
 															  $selected='selected="selected"';
 														  }
 														  ?>
@@ -321,11 +314,9 @@
 	<script>
 
 	function getState(country_id){
-
 		$("#stateiD").val('');
 		$("#stateiD").html('<option value="">Loding..</option>');
 		if(country_id !=''){
-
 			var url ='<?php echo $BASE_URL ?>MyAccounts/getStateDropDownListByAjax/'+country_id;
 			$.ajax({
 				   type: "GET",
@@ -334,20 +325,16 @@
 				   //data:{'country_id':country_id}, // serializes the form's elements.
 				   success: function(data)
 				   {
-
 					   $("#stateiD").html(data);
 				   }
 			});
 	    }
-
 	}
 
 	function getCity(state_id){
-
 		$("#cityId").val('');
 		$("#cityId").html('<option value="">Loding..</option>');
 		if(state_id !=''){
-
 			var url ='<?php echo $BASE_URL ?>/admin/Orders/getCityDropDownListByAjax/'+state_id;
 			$.ajax({
 				   type: "GET",
@@ -356,21 +343,15 @@
 				   //data:{'country_id':country_id}, // serializes the form's elements.
 				   success: function(data)
 				   {
-
 				    var json=JSON.parse(data);
 					var orderinformation = json.orderinformation;
 					var confirmbtn=json.confirmbtn;
 					$("#Order-Information").html(orderinformation);
 					$("#confirmbtn").html(confirmbtn);
 					$("#cityId").html(json.options);
-
 				   }
 			});
 	    }
-
 	}
 	</script>
-
-
-
 

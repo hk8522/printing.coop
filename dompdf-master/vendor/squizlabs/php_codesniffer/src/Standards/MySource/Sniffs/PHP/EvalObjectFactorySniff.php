@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class EvalObjectFactorySniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class EvalObjectFactorySniff implements Sniff
     public function register()
     {
         return [T_EVAL];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -107,8 +103,5 @@ class EvalObjectFactorySniff implements Sniff
                 $phpcsFile->addWarning($error, $stackPtr, 'Found');
             }
         }
-
     }//end process()
-
-
 }//end class

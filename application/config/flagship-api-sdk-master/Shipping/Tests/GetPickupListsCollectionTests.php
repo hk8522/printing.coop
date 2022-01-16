@@ -6,10 +6,7 @@ use Flagship\Shipping\Collections\GetPickupListCollection;
 use Flagship\Shipping\Exceptions\GetPickupListException;
 
 class GetPickupListsCollectionTests extends TestCase{
-
-
         public function testGetById(){
-
             $this->assertNotEmpty($this->pickupList->getById(1085727));
             $this->assertNotNull($this->pickupList->getById(1085727));
             $this->assertSame("148 Brunswick Boul",$this->pickupList->getById(1085729)->pickup->address->address);
@@ -141,6 +138,5 @@ class GetPickupListsCollectionTests extends TestCase{
 
         $this->pickupList = new GetPickupListCollection();
         $this->pickupList->importPickups(json_decode($response));
-
     }
 }

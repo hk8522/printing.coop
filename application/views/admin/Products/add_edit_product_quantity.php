@@ -76,7 +76,6 @@ $('#AddEditProductQuantity').validate({
           },
         },
         submitHandler: function(form) {
-
 			$("#loder-img").show();
 			var url  = '<?php echo $BASE_URL ?>admin/Products/AddEditProductQuantity';
 			$.ajax({
@@ -87,7 +86,6 @@ $('#AddEditProductQuantity').validate({
 				 $('button[type=submit]').attr('disabled', true);
 			  },
 			  success: function(data) {
-
 				$('button[type=submit]').attr('disabled', false);
 				$("#loder-img").hide();
 				$("#ItemModal .modal-body").html(data);

@@ -15,14 +15,12 @@ use PHPUnit\Framework\TestCase;
 
 class RuleInclusionTest extends TestCase
 {
-
     /**
      * The Ruleset object.
      *
      * @var \PHP_CodeSniffer\Ruleset
      */
     protected static $ruleset;
-
 
     /**
      * Initialize the test.
@@ -37,9 +35,7 @@ class RuleInclusionTest extends TestCase
             // by relative location.
             $this->markTestSkipped('Test cannot run from a PEAR install');
         }
-
     }//end setUp()
-
 
     /**
      * Initialize the config and ruleset objects based on the `RuleInclusionTest.xml` ruleset file.
@@ -56,9 +52,7 @@ class RuleInclusionTest extends TestCase
         $standard      = __DIR__.'/'.basename(__FILE__, '.php').'.xml';
         $config        = new Config(["--standard=$standard"]);
         self::$ruleset = new Ruleset($config);
-
     }//end setUpBeforeClass()
-
 
     /**
      * Test that sniffs are registered.
@@ -69,9 +63,7 @@ class RuleInclusionTest extends TestCase
     {
         $this->assertObjectHasAttribute('sniffCodes', self::$ruleset);
         $this->assertCount(14, self::$ruleset->sniffCodes);
-
     }//end testHasSniffCodes()
-
 
     /**
      * Test that sniffs are correctly registered, independently on the syntax used to include the sniff.
@@ -87,9 +79,7 @@ class RuleInclusionTest extends TestCase
     {
         $this->assertArrayHasKey($key, self::$ruleset->sniffCodes);
         $this->assertSame($value, self::$ruleset->sniffCodes[$key]);
-
     }//end testRegisteredSniffCodes()
-
 
     /**
      * Data provider.
@@ -158,9 +148,7 @@ class RuleInclusionTest extends TestCase
                 'PHP_CodeSniffer\Standards\Generic\Sniffs\Metrics\NestingLevelSniff',
             ],
         ];
-
     }//end dataRegisteredSniffCodes()
-
 
     /**
      * Test that setting properties for standards, categories, sniffs works for all supported rule
@@ -182,9 +170,7 @@ class RuleInclusionTest extends TestCase
 
         $actualValue = self::$ruleset->sniffs[$sniffClass]->$propertyName;
         $this->assertSame($expectedValue, $actualValue);
-
     }//end testSettingProperties()
-
 
     /**
      * Data provider.
@@ -244,8 +230,5 @@ class RuleInclusionTest extends TestCase
                 10,
             ],
         ];
-
     }//end dataSettingProperties()
-
-
 }//end class

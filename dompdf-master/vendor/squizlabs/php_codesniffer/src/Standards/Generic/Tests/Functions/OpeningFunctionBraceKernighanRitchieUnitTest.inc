@@ -23,16 +23,16 @@ class myClass
     // Good.
     function myFunction() {
     }
-    
+
     // Brace should be on same line.
     function myFunction()
     {
     }
-    
+
     // Too many spaces.
     function myFunction()   {
     }
-    
+
     // Uses tab.
     function myFunction()	{
     }
@@ -70,18 +70,18 @@ class myClass
     function myFunction($variable1, $variable2,
         $variable3, $variable4) {
     }
-    
+
     // Brace should be on same line.
     function myFunction($variable1, $variable2,
         $variable3, $variable4)
     {
     }
-    
+
     // Too many spaces.
     function myFunction($variable1, $variable2,
         $variable3, $variable4)   {
     }
-    
+
     // Uses tab.
     function myFunction($variable1, $variable2,
         $variable3, $variable4)	{

@@ -8,7 +8,6 @@ use Flagship\Shipping\Exceptions\CreateManifestException;
 use Flagship\Shipping\Objects\Manifest;
 
 class CreateManifestRequest extends ApiRequest{
-
     public function __construct(string $token,string $baseUrl,array $payload,string $flagshipFor,string $version){
         $this->apiToken = $token;
         $this->baseUrl = $baseUrl.'/ship/edhl/create';
@@ -35,5 +34,4 @@ class CreateManifestRequest extends ApiRequest{
         }
         return NULL;
     }
-
 }

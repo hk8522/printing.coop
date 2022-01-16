@@ -18,7 +18,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class MultipleStatementAlignmentSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -47,7 +46,6 @@ class MultipleStatementAlignmentSniff implements Sniff
      */
     public $maxPadding = 1000;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -58,9 +56,7 @@ class MultipleStatementAlignmentSniff implements Sniff
         $tokens = Tokens::$assignmentTokens;
         unset($tokens[T_DOUBLE_ARROW]);
         return $tokens;
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -94,9 +90,7 @@ class MultipleStatementAlignmentSniff implements Sniff
 
         $lastAssign = $this->checkAlignment($phpcsFile, $stackPtr);
         return ($lastAssign + 1);
-
     }//end process()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -396,8 +390,5 @@ class MultipleStatementAlignmentSniff implements Sniff
         } else {
             return $assign;
         }
-
     }//end checkAlignment()
-
-
 }//end class

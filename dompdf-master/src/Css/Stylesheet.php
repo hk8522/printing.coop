@@ -332,7 +332,6 @@ class Stylesheet
         $this->_parse_css($css);
     }
 
-
     /**
      * load and parse a CSS file
      *
@@ -452,7 +451,6 @@ class Stylesheet
      */
     private function _css_selector_to_xpath($selector, $first_pass = false)
     {
-
         // Collapse white space and strip whitespace around delimiters
         //$search = array("/\\s+/", "/\\s+([.>#+:])\\s+/");
         //$replace = array(" ", "\\1");
@@ -489,7 +487,6 @@ class Stylesheet
         $i = 0;
 
         while ($i < $len) {
-
             $s = $selector[$i];
             $i++;
 
@@ -526,7 +523,6 @@ class Stylesheet
             }
 
             switch ($s) {
-
                 case " ":
                 case ">":
                     // All elements matching the next token that are direct children of
@@ -592,7 +588,6 @@ class Stylesheet
 
                     // Pseudo-classes
                     switch ($tok) {
-
                         case "first-child":
                             $query .= "[1]";
                             $tok = "";
@@ -776,7 +771,6 @@ class Stylesheet
                     }
 
                     switch ($tok[$j]) {
-
                         case "~":
                         case "|":
                         case "$":
@@ -794,7 +788,6 @@ class Stylesheet
                         case "=":
                             $op = "=";
                             break;
-
                     }
 
                     // Read the attribute value, if required
@@ -815,7 +808,6 @@ class Stylesheet
                     $value = trim($value, "\"'");
 
                     switch ($op) {
-
                         case "":
                             $query .= "[@$attr]";
                             break;
@@ -885,7 +877,6 @@ class Stylesheet
 //       }
 
 //    }
-
 
         // Trim the trailing '/' from the query
         if (mb_strlen($query) > 2) {
@@ -1090,7 +1081,6 @@ class Stylesheet
 
             // Grab the applicable styles
             if (isset($styles[$id])) {
-
                 /** @var array[][] $applied_styles */
                 $applied_styles = $styles[$id];
 
@@ -1283,7 +1273,6 @@ class Stylesheet
             if ($match[2] !== "") {
                 // Handle @rules
                 switch ($match[2]) {
-
                     case "import":
                         $this->_parse_import($match[3]);
                         break;
@@ -1460,7 +1449,6 @@ class Stylesheet
                     break;
                 }
             }
-
         } else {
             // unconditional import
             $accept = true;

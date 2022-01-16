@@ -548,14 +548,12 @@
 <script>
 getSingleProduct();
 $('#category_id').on('change', function (e) {
-
 	    $("#loder-img").show();
         $("#sub_category_id").html('<option value="">Select Sub Category</option>');
 		$("#product_id").html('<option value="">Select Product</option>');
 		var category_id=$(this).val();
 
 		$.ajax({
-
 			type: 'GET',
 			dataType: 'html',
 			cache: false,
@@ -568,12 +566,10 @@ $('#category_id').on('change', function (e) {
 					$("#sub_category_id").html(json.sub_category);
 					$("#product_id").html(json.product_list);
 			}
-
 		});
  });
 
  $('#sub_category_id').on('change', function (e) {
-
 	    $("#loder-img").show();
 
 		$("#product_id").html('<option value="">Select Product</option>');
@@ -582,13 +578,10 @@ $('#category_id').on('change', function (e) {
 
 		url='<?php echo $BASE_URL ?>admin/Ajax/getActiveProductDropDownListByAjax/'+sub_category_id;
 		if(category_id !='' && sub_category_id==''){
-
 			url='<?php echo $BASE_URL ?>admin/Ajax/getSubCategoryAndProductDropDownListByAjax/'+category_id;
-
 		}
 
 		$.ajax({
-
 			type: 'GET',
 			dataType: 'html',
 			cache: false,
@@ -600,12 +593,10 @@ $('#category_id').on('change', function (e) {
 				    $("#loder-img").hide();
 					$("#product_id").html(json.product_list);
 			}
-
 		});
  });
 
  $('#coupon_code').on('change', function (e) {
-
 	    $("#loder-img").show();
 		$('input[type="submit"]').prop('disabled',true);
 	    $('input[type="button"]').prop('disabled',true);
@@ -613,7 +604,6 @@ $('#category_id').on('change', function (e) {
 		var coupon_code=$("#coupon_code").val();
 
 		$.ajax({
-
 			type: 'GET',
 			dataType: 'html',
 			cache: false,
@@ -621,7 +611,6 @@ $('#category_id').on('change', function (e) {
             processData: false,
 			url: '<?php echo $BASE_URL ?>admin/Orders/applyCode/'+coupon_code,
 			success: function (data) {
-
 				    var json=JSON.parse(data);
 				    $("#loder-img").hide();
 					$('input[type="submit"]').prop('disabled',false);
@@ -633,31 +622,24 @@ $('#category_id').on('change', function (e) {
 					$("#confirmbtn").html(confirmbtn);
 
 					if(json.status==0){
-
 						$("#coupon_code").val('');
 						$('#coupon_code_error').html(json.msg);
-
-
 					}
-			}
-
+					}
 		});
  });
 
  $('#email').on('change', function (e) {
-
 	    $("#loder-img").show();
 		$('input[type="submit"]').prop('disabled',true);
 		var email=$("#email").val();
 
 		$.ajax({
-
 			type: 'POST',
 			dataType: 'html',
 			url: '<?php echo $BASE_URL ?>admin/Orders/PrefferedCustomerDiscount/',
 			data:{'email':email},
 			success: function (data) {
-
 				    var json=JSON.parse(data);
 				    $("#loder-img").hide();
 					$('input[type="submit"]').prop('disabled',false);
@@ -669,33 +651,24 @@ $('#category_id').on('change', function (e) {
 					$("#confirmbtn").html(confirmbtn);
 
 					if(json.status==0){
-
-
 						$('#coupon_code_error').html(json.msg);
-
-
 					}
-			}
-
+					}
 		});
  });
 
-
  $('.shipping_method_formate').on('change', function (e) {
-
 	    $("#loder-img").show();
 		$('input[type="submit"]').prop('disabled',true);
 		var shipping_method_formate=$(this).val();
 		//alert(shipping_method_formate);
 
 		$.ajax({
-
 			type: 'POST',
 			dataType: 'html',
 			url: '<?php echo $BASE_URL ?>admin/Orders/shippingMethodFormate',
 			data:{'shipping_method_formate':shipping_method_formate},
 			success: function (data) {
-
 				    var json=JSON.parse(data);
 				    $("#loder-img").hide();
 					$('input[type="submit"]').prop('disabled',false);
@@ -706,28 +679,21 @@ $('#category_id').on('change', function (e) {
 					$("#Order-Information").html(orderinformation);
 					$("#confirmbtn").html(confirmbtn);
 					if(json.status==0){
-
 						$('#coupon_code_error').html(json.msg);
-
-
 					}
-			}
-
+					}
 		});
  });
 
  function AddSingleProduct(){
-
 	 var product_id=$("#product_id").val();
 	//var product_code_id=$("#product_code_id").val();
 	 $("#product_error").html('');
 	 /*if(product_id ==''){
-
 		 product_id=product_code_id;
 	 }*/
 
 	 if(product_id ==''){
-
 		 $("#product_error").html('Plese Select Product');
 
 		 return false;
@@ -744,18 +710,15 @@ $('#category_id').on('change', function (e) {
 				contentType: false,
 				processData: false,
 				success: function (data) {
-
 					$("#loder-img").hide();
 					$('input[type="submit"]').prop('disabled',false);
 	                $('input[type="button"]').prop('disabled',false);
 					$("#mainData").html(data);
-
 				}
     });
  }
 
  function getSingleProduct(){
-
 	 $("#loder-img").show();
 	 $('input[type="submit"]').prop('disabled',true);
 	 $('input[type="button"]').prop('disabled',true);
@@ -767,21 +730,16 @@ $('#category_id').on('change', function (e) {
 			contentType: false,
 			processData: false,
 			success: function (data) {
-
 				$("#loder-img").hide();
 				$('input[type="submit"]').prop('disabled',false);
 				$('input[type="button"]').prop('disabled',false);
 				$("#mainData").html(data);
-
 			}
     });
  }
 
  function removeProduct(product_id_key){
-
-
 	 if(product_id_key ==''){
-
 		 return false;
 	 }
 	 $("#loder-img").show();
@@ -795,52 +753,39 @@ $('#category_id').on('change', function (e) {
 				contentType: false,
 				processData: false,
 				success: function (data) {
-
 					$("#loder-img").hide();
 					$('input[type="submit"]').prop('disabled',false);
 	                $('input[type="button"]').prop('disabled',false);
 					var json = JSON.parse(data);
 					if(json.success==1){
-
 						$("#mainData").html(json.product_html);
 						$("#Order-Information").html(json.orderinformation);
 					    $("#confirmbtn").html(json.confirmbtn);
-
 					}
-
-
 				}
     });
  }
 
 function openCard(product_id_key){
-
 	 if(product_id_key ==''){
-
 		 return false;
 	 }
 	 $("#open-"+product_id_key).hide();
 	 $("#close-"+product_id_key).show();
 	 $("#"+product_id_key).addClass('active');
-
  }
 
  function closeCard(product_id_key){
-
 	 if(product_id_key ==''){
-
 		 return false;
 	 }
 	 $("#open-"+product_id_key).show();
 	 $("#close-"+product_id_key).hide();
 	 $("#"+product_id_key).removeClass('active');
-
  }
 
    function setQuantity(product_id_key){
-
 		if(product_id_key ==''){
-
 		return false;
 		}
 		quantity=$("#quantity"+product_id_key).val();
@@ -859,21 +804,17 @@ function openCard(product_id_key){
 			contentType: false,
 			processData: false,
 			success: function (data) {
-
 				$("#loder-img").hide();
 
 				var json = JSON.parse(data);
 				if(json.success==1){
-
 					$("#total-price-"+product_id_key).html(json.price);
 				}
-
 			}
 	  });
   }
 
     function showAttribute(cid,nid,product_id_key){
-
 	        $("#loder-img").show();
 	        var item_val=$("#attribute_id_"+cid).val();
 		    //alert('cardFrom-'+product_id_key);
@@ -892,17 +833,14 @@ function openCard(product_id_key){
 					 $("#loder-img").hide();
 
 					if(json.success==1){
-
 						$("#attribute_id_"+nid).attr("disabled", false);
 						$("#total-price-"+product_id_key).html(json.price);
 					}
-
 				}
           });
     }
 
 	function showQuantity(product_id_key){
-
 			var myForm = document.getElementById('cardFrom-'+product_id_key);
 			var formData = new FormData(myForm);
 			$.ajax({
@@ -918,18 +856,14 @@ function openCard(product_id_key){
 					 $("#loder-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
-
 						$("#SiZeOPrions"+product_id_key).html(json.sizeoprions);
 						$("#total-price-"+product_id_key).html(json.price);
-
 					}
-
 				}
             });
     }
 
 	function getQuantityPrice(nid,product_id_key){
-
 	        $("#loder-img").show();
             $(".new-price-img").hide();
 
@@ -949,19 +883,15 @@ function openCard(product_id_key){
 					 $("#loder-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
-
 						$("#"+nid).attr("disabled", false);
 
 						$("#total-price-"+product_id_key).html(json.price);
-
 					}
-
 				}
             });
     }
 
 	function getPaperPrice(nid,product_id_key){
-
 	        $("#loder-img").show();
             $(".new-price-img").hide();
 
@@ -981,19 +911,15 @@ function openCard(product_id_key){
 					 $("#loder-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
-
 						$("#attribute_id_"+nid).attr("disabled", false);
 
 						$("#total-price-"+product_id_key).html(json.price);
-
 					}
-
 				}
             });
     }
 
 	function getSizeOptions(product_id,make_a_default_qty_id,product_id_key){
-
 	        $("#loder-img").show();
 			$.ajax({
 				type: 'GET',
@@ -1010,14 +936,11 @@ function openCard(product_id_key){
     }
 
  function showLoder(){
-
 	$("#loder-img").show();
  }
 
-
 // Sending AJAX request and upload file
 function uploadData(formdata,product_id_key){
-
     $.ajax({
         url: '<?php echo $BASE_URL?>admin/Orders/uploadImage',
         type: 'post',
@@ -1032,7 +955,6 @@ function uploadData(formdata,product_id_key){
 }
 // Added thumbnail
 function addThumbnail(data,product_id_key){
-
     //$("#uploadfile #file-drop").remove();
 	$('#file'+product_id_key).prop('disabled', false);
 	$("#file-btn"+product_id_key).show();
@@ -1046,7 +968,6 @@ function addThumbnail(data,product_id_key){
 	var skey = data.skey;
 	var product_id = data.product_id;
 	$("#upload-file-data"+product_id_key).append(data.html);
-
 }
 // Bytes conversion
 function convertSize(size) {
@@ -1057,7 +978,6 @@ function convertSize(size) {
 }
 
 function update_cumment(skey,product_id,product_key_id){
-
 		    $("#loder-img").show();
 		    var cumment=$("#cumment-"+skey).val();
 			if(cumment ==''){ alert('Enter cumment'); return false}
@@ -1065,7 +985,6 @@ function update_cumment(skey,product_id,product_key_id){
 			$("#smc-"+skey).prop('disabled', true);
 			$("#smc-"+skey).html('<img src="<?php echo $BASE_URL?>/assets/images/loder.gif" width=20>');
 			$.ajax({
-
 				type: 'POST',
 				dataType: 'html',
 				url: '<?php echo $BASE_URL?>admin/Orders/updateCumment',
@@ -1076,11 +995,9 @@ function update_cumment(skey,product_id,product_key_id){
 					$("#smc-"+skey).html('Update Note');
 				}
           });
-
 }
 
 function delete_image(skey,product_id,product_key_id){
-
 	var location=$("#location-"+skey).val();
 	if(location ==''){ return false}
 
@@ -1089,23 +1006,17 @@ function delete_image(skey,product_id,product_key_id){
 	$("#loder-img").show();
 
 	$.ajax({
-
 			type: 'POST',
 			dataType: 'html',
 			url: '<?php echo $BASE_URL?>admin/Orders/deleteImage',
 			data: ({'location':location,'product_id':product_id,'product_key_id':product_key_id,'skey':skey}),
 			success: function (data) {
-
 				 $("#loder-img").hide();
 				 $("#upload-file-data"+product_key_id+" #teb-"+skey).remove();
-
 			}
      });
-
  }
         function getLengthWidthPrice(product_id_key){
-
-
 	        $("#loder-img").show();
             $(".new-price-img").hide();
 			var myForm = document.getElementById('cardFrom-'+product_id_key);
@@ -1119,12 +1030,10 @@ function delete_image(skey,product_id,product_key_id){
 				contentType: false,
 				processData: false,
 				success: function (data) {
-
 					var json = JSON.parse(data);
 					 $("#loder-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
-
 						$("#total-price-"+product_id_key).html(json.price);
 
 						$("#product_width_"+product_id_key).val(json.product_width);
@@ -1132,15 +1041,11 @@ function delete_image(skey,product_id,product_key_id){
 
 						$("#product_width_error_"+product_id_key).html(json.product_width_error);
 						$("#product_length_error_"+product_id_key).html(json.product_length_error);
-
-
 					}
-
 				}
             });
         }
  function isNumber(evt) {
-
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode
         if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
             return false;

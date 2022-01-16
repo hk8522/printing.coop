@@ -67,7 +67,6 @@ if (!$xml) {
 			echo 'Error Msg: ' . $message->description . "\n\n";
 		}
 	}
-
 }
 
 ?>

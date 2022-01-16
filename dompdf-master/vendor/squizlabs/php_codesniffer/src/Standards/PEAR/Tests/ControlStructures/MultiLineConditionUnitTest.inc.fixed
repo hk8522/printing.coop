@@ -30,7 +30,7 @@ if (($condition1
 
 if (($condition1
     || $condition2)
-    && $condition3 
+    && $condition3
     && $condition4
 ) {
 }
@@ -81,7 +81,7 @@ if ($condition1
     || $condition3
 ) {
 } elseif ($condition1
-    || $condition2 
+    || $condition2
     && $condition3
 ) {
 }
@@ -115,7 +115,7 @@ if ($condition1
 if (!empty($post)
     && (!empty($context['header'])
     xor stripos($context['header'], 'Content-Type'))
-) { 
+) {
 // ...
 }
 
@@ -208,7 +208,7 @@ if ($IPP->errorCode() == 401
     return false;
 }
 
-    if ($IPP->errorCode() == 401 
+    if ($IPP->errorCode() == 401
         /*
      * phpcs:disable Standard.Category.Sniff -- for reasons.
      */

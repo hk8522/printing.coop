@@ -29,7 +29,6 @@
 													    <?php
 														$store_ids=$postData['store_id'];
 														if(!empty($store_ids)){
-
 															$store_ids=explode(',',$store_ids);
 														}else{
 															$store_ids=array();
@@ -38,7 +37,6 @@
 														foreach($StoreList as $key=>$val){
 															$checked='';
 														    if(in_array($key,$store_ids)){
-
 																$checked='checked';
 															}
 														?>

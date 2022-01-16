@@ -37,7 +37,7 @@ The code above yields the output below:
 
 There are three output builders available in this package:
 
-#### UnifiedDiffOutputBuilder 
+#### UnifiedDiffOutputBuilder
 
 This is default builder, which generates the output close to udiff and is used by PHPUnit.
 
@@ -49,7 +49,7 @@ use SebastianBergmann\Diff\Output\UnifiedDiffOutputBuilder;
 
 $builder = new UnifiedDiffOutputBuilder(
     "--- Original\n+++ New\n", // custom header
-    false                      // do not add line numbers to the diff 
+    false                      // do not add line numbers to the diff
 );
 
 $differ = new Differ($builder);
@@ -101,7 +101,7 @@ print $differ->diff('foo', 'bar');
 
 #### DiffOutputBuilderInterface
 
-You can pass any output builder to the `Differ` class as longs as it implements the `DiffOutputBuilderInterface`. 
+You can pass any output builder to the `Differ` class as longs as it implements the `DiffOutputBuilderInterface`.
 
 #### Parsing diff
 

@@ -53,8 +53,6 @@
 										     </div>
 										</div>
 
-
-
 										<div class="product-actions-btn text-right">
 
 											<button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
@@ -71,8 +69,4 @@
 		</div><!-- ./row -->
 	</section><!-- /.content -->
  </div>
-
-
-
-
 

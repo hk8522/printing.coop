@@ -91,7 +91,6 @@ class ClassCodeGenerator
     private function generateArguments(array $arguments)
     {
         return array_map(function (Node\ArgumentNode $argument){
-
             $php = $this->generateTypes($argument->getTypeNode());
 
             $php .= ' '.($argument->isPassedByReference() ? '&' : '');

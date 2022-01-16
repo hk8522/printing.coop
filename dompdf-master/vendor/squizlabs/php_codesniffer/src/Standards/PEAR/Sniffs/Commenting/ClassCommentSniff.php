@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ClassCommentSniff extends FileCommentSniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -28,9 +26,7 @@ class ClassCommentSniff extends FileCommentSniff
             T_INTERFACE,
             T_TRAIT,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -69,9 +65,7 @@ class ClassCommentSniff extends FileCommentSniff
 
         // Check each tag.
         $this->processTags($phpcsFile, $stackPtr, $tokens[$commentEnd]['comment_opener']);
-
     }//end process()
-
 
     /**
      * Process the version tag.
@@ -97,8 +91,5 @@ class ClassCommentSniff extends FileCommentSniff
                 $phpcsFile->addWarning($error, $tag, 'InvalidVersion', $data);
             }
         }
-
     }//end processVersion()
-
-
 }//end class

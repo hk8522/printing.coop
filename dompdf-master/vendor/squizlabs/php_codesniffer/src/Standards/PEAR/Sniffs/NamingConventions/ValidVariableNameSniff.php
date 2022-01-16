@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\AbstractVariableSniff;
 
 class ValidVariableNameSniff extends AbstractVariableSniff
 {
-
-
     /**
      * Processes class member variables.
      *
@@ -62,9 +60,7 @@ class ValidVariableNameSniff extends AbstractVariableSniff
             $phpcsFile->addError($error, $stackPtr, 'PublicUnderscore', $data);
             return;
         }
-
     }//end processMemberVar()
-
 
     /**
      * Processes normal variables.
@@ -79,9 +75,7 @@ class ValidVariableNameSniff extends AbstractVariableSniff
         /*
             We don't care about normal variables.
         */
-
     }//end processVariable()
-
 
     /**
      * Processes variables in double quoted strings.
@@ -96,8 +90,5 @@ class ValidVariableNameSniff extends AbstractVariableSniff
         /*
             We don't care about normal variables.
         */
-
     }//end processVariableInString()
-
-
 }//end class

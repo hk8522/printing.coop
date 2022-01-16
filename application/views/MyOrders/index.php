@@ -83,15 +83,12 @@
 										;?></button></a>
 										<?php
 										if($language_name =='French'){
-
 										   $file_name=$list['order_id']."-fr-invoice.pdf";
 										   $file_name=strtolower($file_name);
 										   $location=FILE_BASE_PATH.'pdf/'.$file_name;
 										   $linkInvoice=$BASE_URL."MyOrders/download/".urlencode($location)."/".urlencode($file_name);
 										   $InvoiceText='Facture Pdf';
-
 										}else{
-
 											  $file_name=$list['order_id']."-invoice.pdf";
 										      $file_name=strtolower($file_name);
 										      $location=FILE_BASE_PATH.'pdf/'.$file_name;
@@ -106,14 +103,11 @@
 										?></button></a>
 										<?php
 										   if($language_name =='French'){
-
 											   $file_name=$list['order_id']."-fr-order.pdf";
 											   $file_name=strtolower($file_name);
 											   $location=FILE_BASE_PATH.'pdf/'.$file_name;
 											   $linkOrder=$BASE_URL."MyOrders/download/".urlencode($location)."/".urlencode($file_name);
-
 										    }else{
-
 											    $file_name=$list['order_id']."-order.pdf";
 										        $file_name=strtolower($file_name);
 										        $location=FILE_BASE_PATH.'pdf/'.$file_name;
@@ -270,7 +264,6 @@
 										 </span>
 										</div>
 								<?php if(!empty($list['total_sales_tax']) &&  $list['total_sales_tax'] !='0.00'){
-
 								   $salesTaxRatesProvinces_Data=$this->Address_Model->salesTaxRatesProvincesById($list['billing_state']);
 								?>
 										<div class="order-id">
@@ -278,10 +271,8 @@
 									      Total <?php echo $salesTaxRatesProvinces_Data['type']?> <?php echo number_format($salesTaxRatesProvinces_Data['total_tax_rate'],2);?>%:
                                             <strong>
 
-
 	                                       <?php
 	echo $product_price_currency_symbol.number_format($list['total_sales_tax'],2);?>
-
 
 										  </strong>
 										 </span>

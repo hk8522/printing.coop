@@ -51,7 +51,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_pdo_informix_driver extends CI_DB_pdo_driver {
-
 	/**
 	 * Sub-driver
 	 *
@@ -305,5 +304,4 @@ class CI_DB_pdo_informix_driver extends CI_DB_pdo_driver {
 		$select = 'SELECT '.($this->qb_offset ? 'SKIP '.$this->qb_offset : '').'FIRST '.$this->qb_limit.' ';
 		return preg_replace('/^(SELECT\s)/i', $select, $sql, 1);
 	}
-
 }

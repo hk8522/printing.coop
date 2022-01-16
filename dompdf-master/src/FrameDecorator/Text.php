@@ -21,7 +21,6 @@ use Dompdf\Exception;
  */
 class Text extends AbstractFrameDecorator
 {
-
     // protected members
     protected $_text_spacing;
 

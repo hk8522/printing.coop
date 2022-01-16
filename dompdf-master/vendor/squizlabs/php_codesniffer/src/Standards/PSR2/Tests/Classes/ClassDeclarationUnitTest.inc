@@ -13,7 +13,7 @@ extends ParentClass
 implements \ArrayAccess, \Countable
 {
     // constants, properties, methods
-    
+
 }
 
 class ClassName extends  ParentClass  implements

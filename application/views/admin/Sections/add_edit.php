@@ -138,7 +138,6 @@
                                                             ?>
                                                         <?php
                                                             if($old_background_image !=''){
-
                                                                $imageurl=getSectionImage($old_background_image);
 
 															   ?>
@@ -181,7 +180,6 @@
                                                             ?>
                                                         <?php
                                                             if($old_french_background_image !=''){
-
                                                                $imageurl=getSectionImage($old_french_background_image);
 
 															   ?>

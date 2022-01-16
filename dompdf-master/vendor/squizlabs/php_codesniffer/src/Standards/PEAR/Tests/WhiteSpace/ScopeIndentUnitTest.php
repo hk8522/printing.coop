@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class ScopeIndentUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Returns the lines where errors should occur.
      *
@@ -44,9 +42,7 @@ class ScopeIndentUnitTest extends AbstractSniffUnitTest
             284 => 1,
             311 => 1,
         ];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -59,8 +55,5 @@ class ScopeIndentUnitTest extends AbstractSniffUnitTest
     public function getWarningList()
     {
         return [];
-
     }//end getWarningList()
-
-
 }//end class

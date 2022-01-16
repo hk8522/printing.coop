@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Files\File;
 
 class Xml implements Report
 {
-
-
     /**
      * Generate a partial report for a single processed file.
      *
@@ -84,9 +82,7 @@ class Xml implements Report
         echo $content;
 
         return true;
-
     }//end generateFileReport()
-
 
     /**
      * Prints all violations for processed files, in a proprietary XML format.
@@ -119,8 +115,5 @@ class Xml implements Report
         echo '<phpcs version="'.Config::VERSION.'">'.PHP_EOL;
         echo $cachedData;
         echo '</phpcs>'.PHP_EOL;
-
     }//end generate()
-
-
 }//end class

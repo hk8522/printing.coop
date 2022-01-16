@@ -45,7 +45,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_pdo_sqlite_forge extends CI_DB_pdo_forge {
-
 	/**
 	 * CREATE TABLE IF statement
 	 *
@@ -234,5 +233,4 @@ class CI_DB_pdo_sqlite_forge extends CI_DB_pdo_forge {
 			$this->primary_keys = array();
 		}
 	}
-
 }

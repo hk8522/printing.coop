@@ -14,14 +14,12 @@ use PHP_CodeSniffer\Files\File;
 
 class AssignThisSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
      * @var array
      */
     public $supportedTokenizers = ['JS'];
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -31,9 +29,7 @@ class AssignThisSniff implements Sniff
     public function register()
     {
         return [T_THIS];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -74,8 +70,5 @@ class AssignThisSniff implements Sniff
             $error = 'Keyword "this" can only be assigned to a variable called "self" or "_self"';
             $phpcsFile->addError($error, $prev, 'NotSelf');
         }
-
     }//end process()
-
-
 }//end class

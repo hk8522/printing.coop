@@ -136,7 +136,6 @@ class Helpers
      */
     public static function dec2roman($num)
     {
-
         static $ones = ["", "i", "ii", "iii", "iv", "v", "vi", "vii", "viii", "ix"];
         static $tens = ["", "x", "xx", "xxx", "xl", "l", "lx", "lxx", "lxxx", "xc"];
         static $hund = ["", "c", "cc", "ccc", "cd", "d", "dc", "dcc", "dccc", "cm"];
@@ -426,9 +425,7 @@ class Helpers
             if (isset($arr["fragment"])) {
                 $file .= "#" . $arr["fragment"];
             }
-
         } else {
-
             $i = mb_stripos($url, "file://");
             if ($i !== false) {
                 $url = mb_substr($url, $i + 7);
@@ -445,7 +442,6 @@ class Helpers
             // Check that the path exists
             if ($path !== false) {
                 $path .= '/';
-
             } else {
                 // generate a url to access the file if no real path found.
                 $protocol = isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? 'https://' : 'http://';
@@ -845,7 +841,6 @@ class Helpers
                 if (isset($http_response_header)) {
                     $headers = $http_response_header;
                 }
-
             } elseif (function_exists('curl_exec')) {
                 $curl = curl_init($uri);
 

@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ObjectMemberCommaSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
      * @var array
      */
     public $supportedTokenizers = ['JS'];
-
 
     /**
      * Registers the token types that this sniff wishes to listen to.
@@ -32,9 +30,7 @@ class ObjectMemberCommaSniff implements Sniff
     public function register()
     {
         return [T_CLOSE_OBJECT];
-
     }//end register()
-
 
     /**
      * Process the tokens that this sniff is listening for.
@@ -57,8 +53,5 @@ class ObjectMemberCommaSniff implements Sniff
                 $phpcsFile->fixer->replaceToken($prev, '');
             }
         }
-
     }//end process()
-
-
 }//end class

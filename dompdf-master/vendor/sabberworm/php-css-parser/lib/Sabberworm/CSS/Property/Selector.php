@@ -6,7 +6,6 @@ namespace Sabberworm\CSS\Property;
  * Class representing a single CSS selector. Selectors have to be split by the comma prior to being passed into this class.
  */
 class Selector {
-
 	//Regexes for specificity calculations
 	const NON_ID_ATTRIBUTES_AND_PSEUDO_CLASSES_RX = '/
 	(\.[\w]+)                   # classes
@@ -70,5 +69,4 @@ class Selector {
 		}
 		return $this->iSpecificity;
 	}
-
 }

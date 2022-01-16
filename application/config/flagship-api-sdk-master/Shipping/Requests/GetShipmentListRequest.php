@@ -9,7 +9,6 @@ use Flagship\Shipping\Collections\GetShipmentListCollection;
 use Flagship\Shipping\Exceptions\FilterException;
 
 class GetShipmentListRequest extends ApiRequest{
-
     protected $responseCode;
     protected $filters;
     public function __construct(string $baseUrl,string $token, string $flagshipFor, string $version) {
@@ -40,7 +39,6 @@ class GetShipmentListRequest extends ApiRequest{
         catch(ApiException $e){
             throw new GetShipmentListException($e->getMessage());
         }
-
     }
 
     public function getResponseCode() : ?int {
@@ -57,5 +55,4 @@ class GetShipmentListRequest extends ApiRequest{
             throw new GetShipmentListException($e->getMessage(),$e->getCode());
         }
     }
-
 }

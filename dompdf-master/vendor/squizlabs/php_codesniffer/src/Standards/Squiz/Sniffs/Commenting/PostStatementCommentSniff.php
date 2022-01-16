@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class PostStatementCommentSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -42,7 +41,6 @@ class PostStatementCommentSniff implements Sniff
         T_FOREACH => true,
     ];
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -51,9 +49,7 @@ class PostStatementCommentSniff implements Sniff
     public function register()
     {
         return [T_COMMENT];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -113,8 +109,5 @@ class PostStatementCommentSniff implements Sniff
         if ($fix === true) {
             $phpcsFile->fixer->addNewlineBefore($stackPtr);
         }
-
     }//end process()
-
-
 }//end class

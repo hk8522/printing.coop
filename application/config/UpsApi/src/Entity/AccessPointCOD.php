@@ -12,7 +12,6 @@ use Ups\NodeInterface;
  */
 class AccessPointCOD implements NodeInterface
 {
-
     /**
      * @var string
      */

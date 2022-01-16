@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Core\AbstractMethodUnitTest;
 
 class AnonClassParenthesisOwnerTest extends AbstractMethodUnitTest
 {
-
-
     /**
      * Test that anonymous class tokens without parenthesis do not get assigned a parenthesis owner.
      *
@@ -33,9 +31,7 @@ class AnonClassParenthesisOwnerTest extends AbstractMethodUnitTest
         $this->assertFalse(array_key_exists('parenthesis_owner', $tokens[$anonClass]));
         $this->assertFalse(array_key_exists('parenthesis_opener', $tokens[$anonClass]));
         $this->assertFalse(array_key_exists('parenthesis_closer', $tokens[$anonClass]));
-
     }//end testAnonClassNoParentheses()
-
 
     /**
      * Test that the next open/close parenthesis after an anonymous class without parenthesis
@@ -60,9 +56,7 @@ class AnonClassParenthesisOwnerTest extends AbstractMethodUnitTest
         $closer = $this->getTargetToken($testMarker, T_CLOSE_PARENTHESIS);
         $this->assertTrue(array_key_exists('parenthesis_owner', $tokens[$closer]));
         $this->assertSame($function, $tokens[$closer]['parenthesis_owner']);
-
     }//end testAnonClassNoParenthesesNextOpenClose()
-
 
     /**
      * Data provider.
@@ -78,9 +72,7 @@ class AnonClassParenthesisOwnerTest extends AbstractMethodUnitTest
             ['/* testNoParentheses */'],
             ['/* testNoParenthesesAndEmptyTokens */'],
         ];
-
     }//end dataAnonClassNoParentheses()
-
 
     /**
      * Test that anonymous class tokens with parenthesis get assigned a parenthesis owner,
@@ -120,9 +112,7 @@ class AnonClassParenthesisOwnerTest extends AbstractMethodUnitTest
         $this->assertSame($anonClass, $tokens[$closer]['parenthesis_owner']);
         $this->assertSame($opener, $tokens[$closer]['parenthesis_opener']);
         $this->assertSame($closer, $tokens[$closer]['parenthesis_closer']);
-
     }//end testAnonClassWithParentheses()
-
 
     /**
      * Data provider.
@@ -137,8 +127,5 @@ class AnonClassParenthesisOwnerTest extends AbstractMethodUnitTest
             ['/* testWithParentheses */'],
             ['/* testWithParenthesesAndEmptyTokens */'],
         ];
-
     }//end dataAnonClassWithParentheses()
-
-
 }//end class

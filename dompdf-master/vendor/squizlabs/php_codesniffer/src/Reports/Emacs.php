@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Files\File;
 
 class Emacs implements Report
 {
-
-
     /**
      * Generate a partial report for a single processed file.
      *
@@ -51,9 +49,7 @@ class Emacs implements Report
         }
 
         return true;
-
     }//end generateFileReport()
-
 
     /**
      * Generates an emacs report.
@@ -83,8 +79,5 @@ class Emacs implements Report
         $toScreen=true
     ) {
         echo $cachedData;
-
     }//end generate()
-
-
 }//end class

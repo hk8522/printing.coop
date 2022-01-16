@@ -5,7 +5,6 @@ namespace Sabberworm\CSS\Value;
 use Sabberworm\CSS\Parsing\ParserState;
 
 class Color extends CSSFunction {
-
 	public function __construct($aColor, $iLineNo = 0) {
 		parent::__construct(implode('', array_keys($aColor)), $aColor, ',', $iLineNo);
 	}

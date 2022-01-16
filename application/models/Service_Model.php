@@ -1,7 +1,6 @@
 <?php
 
 Class Service_Model extends MY_Model {
-
 	public $table = 'services';
 
     public $rules = [

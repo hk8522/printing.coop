@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class SemicolonSpacingSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
      * @var array
      */
     public $supportedTokenizers = ['CSS'];
-
 
     /**
      * Returns the token types that this sniff is interested in.
@@ -32,9 +30,7 @@ class SemicolonSpacingSniff implements Sniff
     public function register()
     {
         return [T_STYLE];
-
     }//end register()
-
 
     /**
      * Processes the tokens that this sniff is interested in.
@@ -96,8 +92,5 @@ class SemicolonSpacingSniff implements Sniff
 
             $phpcsFile->fixer->endChangeset();
         }
-
     }//end process()
-
-
 }//end class

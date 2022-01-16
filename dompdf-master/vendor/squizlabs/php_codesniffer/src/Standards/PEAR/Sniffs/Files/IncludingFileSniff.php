@@ -17,8 +17,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class IncludingFileSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -32,9 +30,7 @@ class IncludingFileSniff implements Sniff
             T_REQUIRE,
             T_INCLUDE,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -129,8 +125,5 @@ class IncludingFileSniff implements Sniff
                 }
             }
         }//end if
-
     }//end process()
-
-
 }//end class

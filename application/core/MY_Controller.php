@@ -29,9 +29,7 @@ class MY_Controller extends CI_Controller
 		$this->config->set_item('base_url',$FILE_BASE_URL);
         $MainStoreData=$StoreListData[1];
         foreach($StoreListData as $key=>$val){
-
 			if($val['url']==$FILE_BASE_URL || $val['http_url']==$FILE_BASE_URL){
-
 				$MainStoreData=$StoreListData[$key];
 				break;
 			}
@@ -45,10 +43,8 @@ class MY_Controller extends CI_Controller
 		$this->main_store_id=1;
 		$this->website_store_id=1;
 		if(!empty($MainStoreData)){
-
 			$this->main_store_id=$MainStoreData['id'];
 			$this->website_store_id=$MainStoreData['main_store_id'];
-
 		}
 
 		$StoreListData=$this->Store_Model->getStoreListData($this->website_store_id);
@@ -58,7 +54,6 @@ class MY_Controller extends CI_Controller
 		$this->data['website_store_id']=$this->website_store_id;
 
 		if(isset($_GET['currency_id']) && !empty($_GET['currency_id'])){
-
 			$currency_id=$_GET['currency_id'];
 			$cookie= array(
             'name'   => 'currency_id',
@@ -69,37 +64,28 @@ class MY_Controller extends CI_Controller
 			$REDIRECT_URL=$_GET['REDIRECT_URL'];
 			$this->cart->destroy();
 			if(!empty($REDIRECT_URL)){
-
 			  redirect($REDIRECT_URL, 'refresh');
 			}else{
-
 			   redirect('/', 'refresh');
 			}
 		}
 
 		if(is_null(get_cookie('currency_id')) || empty(get_cookie('currency_id'))){
-
             $cookie= array(
             'name'   => 'currency_id',
             'value'  => $MainStoreData['default_currency_id'],
             'expire' => 3600*24
             );
 		    $this->input->set_cookie($currency_id);
-
-
         }
 
 		$default_currency_id = !empty(get_cookie('currency_id')) ? get_cookie('currency_id'):1;
-
 
 		$DefaultcurrencyData = $AllCurrencyList[$default_currency_id];
 		$this->data['DefaultcurrencyData']    = $DefaultcurrencyData;
 		$this->data['default_currency_id']    = $default_currency_id;
 		$this->data['product_price_currency'] = $DefaultcurrencyData['product_price_currency'];
 		$this->data['product_price_currency_symbol'] = $DefaultcurrencyData['symbols'];
-
-
-
 
 		$this->default_currency_id=$default_currency_id;
 		$this->DefaultcurrencyData=$DefaultcurrencyData;
@@ -109,7 +95,6 @@ class MY_Controller extends CI_Controller
 		$showCOVID19MSG=true;
 
 		if(!empty(get_cookie('COVID19MSG'))){
-
 			$showCOVID19MSG=false;
 			/*$cookie= array(
             'name'   => 'currency_id',
@@ -117,7 +102,6 @@ class MY_Controller extends CI_Controller
             'expire' => 3600*24
             );
 		    $this->input->set_cookie($currency_id);*/
-
         }
 
 		$this->data['showCOVID19MSG'] = $showCOVID19MSG;
@@ -132,8 +116,6 @@ class MY_Controller extends CI_Controller
 	    $this->data['BASE_URL_ADMIN']= base_url().'admin/';
 	    $this->data['errors']     = $this->session->flashdata('errors');
 	    $this->data['old_values'] = $this->session->flashdata('old_values');
-
-
     }
 
   protected function render($the_view = NULL, $template = 'master')
@@ -151,7 +133,6 @@ class MY_Controller extends CI_Controller
   }
 
     public function getorderEmail($id,$heding="Order Confirmation",$body=null,$store_id=1){
-
 		$this->load->model('Product_Model');
 		$this->load->model('ProductOrder_Model');
 		$this->load->model('Address_Model');
@@ -168,7 +149,6 @@ class MY_Controller extends CI_Controller
 		$CurrencyList=$this->Store_Model->getCurrencyList();
 		$currency_id=$orderData['currency_id'];
 		if(empty($currency_id)){
-
 			$currency_id=1;
 		}
         $OrderCurrencyData=$CurrencyList[$currency_id];
@@ -187,31 +167,21 @@ class MY_Controller extends CI_Controller
 		$data['StoreData']=$StoreData;
 
 		if($StoreData['main_store_id']==5){
-
 			if($StoreData['langue_id']==2){
-
 				return $this->load->view('Emails/fr_ecoink_order',$data,true);
 			}else{
-
 				return $this->load->view('Emails/ecoink_order',$data,true);
-
 			}
-
 		}else{
-
 			if($StoreData['langue_id']==2){
-
 				return $this->load->view('Emails/fr_order',$data,true);
 			}else{
 				return $this->load->view('Emails/order',$data,true);
-
 			}
 		}
 	}
 
-
 	public function getorderEmailFrance($id,$heding="Order Confirmation",$body=null){
-
 		$this->load->model('Product_Model');
 		$this->load->model('ProductOrder_Model');
 		$this->load->model('Address_Model');
@@ -243,11 +213,9 @@ class MY_Controller extends CI_Controller
 		$data['order_currency_currency_symbol']=$order_currency_currency_symbol;
 		$data['salesTaxRatesProvinces_Data']=$salesTaxRatesProvinces_Data;
 	    return $this->load->view('Emails/fr_order',$data,true);
-
 	}
 
 	public function getOrderInvoicePdf($id,$store_id=1){
-
 		if(empty($store_id)){
 			$store_id=1;
 		}
@@ -287,29 +255,21 @@ class MY_Controller extends CI_Controller
 	    $data['StoreData']=$StoreData;
 
 		if($StoreData['main_store_id']==5){
-
 			if($StoreData['langue_id']==2){
-
 				return $this->load->view('pdf/fr_ecoink_invoice-pdf',$data,true);
 			}else{
 				return $this->load->view('pdf/ecoink_invoice-pdf',$data,true);
 			}
-
 		}else{
-
 			if($StoreData['langue_id']==2){
-
 		        return $this->load->view('pdf/fr_invoice-pdf',$data,true);
-
 			}else{
 				return $this->load->view('pdf/invoice-pdf',$data,true);
 			}
-
 		}
 	}
 
 	public function getOrderPdf($id,$store_id=1){
-
 		if(empty($store_id)){
 			$store_id=1;
 		}
@@ -346,29 +306,21 @@ class MY_Controller extends CI_Controller
 		$data['StoreData']=$StoreData;
 		#pr($StoreData,1);
 		if($StoreData['main_store_id']==5){
-
 			if($StoreData['langue_id']==2){
 			   return $this->load->view('pdf/fr_ecoink_order-pdf',$data,true);
 			}else{
-
 				return $this->load->view('pdf/ecoink_order-pdf',$data,true);
 			}
-
 		}else{
-
 			if($StoreData['langue_id']==2){
-
 			   return $this->load->view('pdf/fr_order-pdf',$data,true);
 			}else{
 				return $this->load->view('pdf/order-pdf',$data,true);
 			}
 		}
-
 	}
 
-
 	public function getOrderInvoicePdfFrance($id){
-
 		$this->load->model('Product_Model');
 		$this->load->model('ProductOrder_Model');
 		$this->load->model('Address_Model');
@@ -398,11 +350,9 @@ class MY_Controller extends CI_Controller
 		$data['order_currency_currency_symbol']=$order_currency_currency_symbol;
 		$data['salesTaxRatesProvinces_Data']=$salesTaxRatesProvinces_Data;
 	    return $this->load->view('pdf/fr_invoice-pdf',$data,true);
-
 	}
 
 	public function getOrderPdfFrance($id){
-
 		$this->load->model('Product_Model');
 		$this->load->model('ProductOrder_Model');
 		$this->load->model('Address_Model');
@@ -432,11 +382,9 @@ class MY_Controller extends CI_Controller
 		$data['order_currency_currency_symbol']=$order_currency_currency_symbol;
 		$data['salesTaxRatesProvinces_Data']=$salesTaxRatesProvinces_Data;
 	    return $this->load->view('pdf/fr_order-pdf',$data,true);
-
 	}
 
 	function emailTemplate($subject,$body,$store_id=1){
-
 		$this->load->model('Store_Model');
 		if(empty($store_id)){
 			$store_id=1;
@@ -447,36 +395,22 @@ class MY_Controller extends CI_Controller
 		$data['body']=$body;
 		$data['StoreData']=$StoreData;
 		if($StoreData['main_store_id']==5){
-
 			if($StoreData['langue_id']==2){
-
 				return $this->load->view('Emails/fr_ecoink_email',$data,true);
-
 			}else{
-
 				return $this->load->view('Emails/ecoink_email',$data,true);
-
 			}
-
 		}else{
-
 			if($StoreData['langue_id']==2){
-
 				return $this->load->view('Emails/fr_email',$data,true);
-
 			}else{
-
 				return $this->load->view('Emails/email',$data,true);
-
 			}
 		}
-
-
 	}
 }
 class Admin_Controller extends MY_Controller
 {
-
   public  $adminLoginId='';
   public  $adminLoginRole='';
   public  $action='';
@@ -485,7 +419,6 @@ class Admin_Controller extends MY_Controller
     parent::__construct();
     //echo $this->emailTemplate('Test','goos',2); die('OK');
 	if($this->main_store_id !='1'){
-
 		 redirect('https://www.printing.coop/pcoopadmin');
 	}
 	$this->load->library('session');
@@ -511,7 +444,6 @@ class Admin_Controller extends MY_Controller
 	$action_url=$url."/".$this->router->uri->rsegments[3];
     $action=true;
 	if($this->adminLoginRole !='admin' && $this->data['CLASS_NAME'] !='dashboards' && $url != 'Accounts/logout'){
-
 		$sub_module_id=$this->Module_Model->getSubModuleIdByUrl($action_url);
 		#pr($this->data['AdminSubModule'],1);
 
@@ -521,27 +453,22 @@ class Admin_Controller extends MY_Controller
 
 			redirect('admin/Dashboards', 'refresh');
 		}*/
-
 	}
-
   }
 
   protected function render($the_view = NULL, $template = 'admin_master')
   {
-
     parent::render($the_view, $template);
   }
 }
 
 class Adminlogin_Controller extends MY_Controller
 {
-
   function __construct()
   {
     parent::__construct();
 
 	if($this->main_store_id !='1'){
-
 		 redirect('https://www.printing.coop/pcoopadmin');
 	}
 	$this->load->library('session');
@@ -556,14 +483,12 @@ class Adminlogin_Controller extends MY_Controller
 
   protected function render($the_view = NULL, $template = 'admin_master_login')
   {
-
     parent::render($the_view, $template);
   }
 }
 
 class Public_Controller extends MY_Controller
 {
-
     public  $loginId='';
 	public	$loginName='';
 	public	$loginFirstName='';
@@ -580,14 +505,10 @@ class Public_Controller extends MY_Controller
 		$this->load->library('cart');
 		$loginUser=$this->session->get_userdata();
         if($this->main_store_id =='3' || $this->main_store_id =='4'){
-
 		    //redirect('https://www.imprimeur.coop/');
-
 	    }
 		if($this->main_store_id =='5'){
-
 		    //redirect('https://www.printing.coop/');
-
 	    }
 
 	    if(isset($loginUser['loginId']) && !empty($loginUser['loginId']))
@@ -599,7 +520,6 @@ class Public_Controller extends MY_Controller
 		   $this->loginPic=$loginUser['loginPic'];
 		   $this->loginMobile=$loginUser['loginMobile'];
 		   $this->loginEmail=$loginUser['loginEmail'];
-
         }
 
 		$this->data['loginId']=$this->loginId;
@@ -620,22 +540,15 @@ class Public_Controller extends MY_Controller
         $this->load->model('Configration_Model');
 
 		if(in_array($this->main_store_id,array(5,6))){
-
 			$this->data['categories']=$this->Category_Model->getCategoriesAndSubCategoriesForMainMenu($this->main_store_id);
 
 			$this->data['footerCategory']=$this->Category_Model->getActiveCategoryListByFooterMenu($this->main_store_id);
-
-
 		}else{
-
 			$this->data['categories']    = $this->Category_Model->getCategoriesAndSubCategoriesForMainMenu();
 			$this->data['footerCategory']=$this->Category_Model->getActiveCategoryListByFooterMenu();
 		}
         $this->data['configrations'] = $this->Configration_Model->getConfigrations($this->website_store_id);
 		#pr($this->data['configrations'],1);
-
-
-
   }
   protected function render($the_view = NULL, $template = 'master')
   {

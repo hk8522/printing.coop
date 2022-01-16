@@ -10,7 +10,6 @@
 namespace PharIo\Version;
 
 class VersionNumber {
-
     /** @var ?int */
     private $value;
 

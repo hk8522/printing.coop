@@ -86,7 +86,6 @@
 				<div style="text-align: center;">
 					<p style="margin: 0px 0px 5px 0px; font-size: 16px; font-weight: 400; color: #000;"><b>Code client</b></p>
 					<p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><?php if(!empty($orderData['user_id'])){
-
 																																			                                             echo CUSTOMER_ID_PREFIX.$orderData['user_id'];
 																												}else{
 																													echo "-";
@@ -116,7 +115,6 @@
     	<tbody>
 		<?php
 		foreach ($OrderItemData as $rowid=>$items){
-
 			        $cart_images=json_decode($items['cart_images'],true);
 			        $attribute_ids=json_decode($items['attribute_ids'],true);
 					$product_size=json_decode($items['product_size'],true);
@@ -189,7 +187,6 @@
 					  }?>
 				    <?php
 					    if(!empty($product_size)){
-
 							    $size_name = $product_size['product_size_french'];
 								$label_qty=$product_size['product_quantity_french'];
 								$attribute=isset($product_size['attribute']) ? $product_size['attribute']:'';
@@ -205,12 +202,9 @@
 									<?php
 								}?>
 
-
 								<?php
 								if($attribute){
-
 								    foreach($attribute as $akey=>$aval){
-
 										$multiple_attribute_name=$aval['attributes_name_french'];
 									    $multiple_attribute_item_name=$aval['attributes_item_name_french'];
 								?>
@@ -226,7 +220,6 @@
 				         <?php
 							#pr($attribute_ids);
 							foreach($attribute_ids as $key=>$val){
-
 								$attribute_name=$val['attribute_name_french'];
 								$item_name=$val['item_name_french'];
 								?>

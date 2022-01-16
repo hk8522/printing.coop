@@ -40,10 +40,6 @@
 
                                     <div class="product-image-gallery">
 
-
-
-
-
                                 <img id="zoom_05" src="" data-zoom-image=""/>
 
                               </div>
@@ -78,8 +74,6 @@
 
                             </div>
 
-
-
                        <!-- title -->
 
                       <div class="personalised-edit-single">
@@ -104,15 +98,9 @@
 
                           </div>
 
-
-
                         </div>
 
                       </div>
-
-
-
-
 
                       <div class="personalised-edit-single">
 
@@ -130,7 +118,6 @@
 
                       </div>
 
-
                       <div class="personalised-edit-single">
 
                         <div class="personalised-edit-single-title">
@@ -144,7 +131,6 @@
                           <div class="personalised-upload">
 
                             <div class="row">
-
 
                                 <!-- photo -->
 
@@ -170,11 +156,7 @@
 
                               </div>
 
-
                                 <!-- end -->
-
-
-
 
                             </div>
 
@@ -183,8 +165,6 @@
                         </div>
 
                       </div>
-
-
 
                     </div>
 
@@ -237,7 +217,6 @@ $(document).ready(function(){
     });
 });
 function showpersonale(id){
-
  // alert(id);
   $.ajax({
             type: 'POST',
@@ -246,7 +225,6 @@ function showpersonale(id){
             data: {id:id},
             dataType:'json',
             success: function (data) {
-
              console.log(JSON.parse(data.personaliseDetail));
                 $('#personalisemodal').modal('show');
             }

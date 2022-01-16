@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class MultiLineConditionSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -33,7 +32,6 @@ class MultiLineConditionSniff implements Sniff
      */
     public $indent = 4;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -45,9 +43,7 @@ class MultiLineConditionSniff implements Sniff
             T_IF,
             T_ELSEIF,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -276,8 +272,5 @@ class MultiLineConditionSniff implements Sniff
                 $phpcsFile->fixer->replaceToken(($closeBracket + 1), ' ');
             }
         }
-
     }//end process()
-
-
 }//end class

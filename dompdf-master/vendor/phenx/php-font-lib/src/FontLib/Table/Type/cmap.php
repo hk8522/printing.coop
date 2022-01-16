@@ -68,7 +68,6 @@ class cmap extends Table {
       }
 
       if ($subtable["format"] == 12) {
-
         $font->readUInt16();
 
         $subtable += $font->unpack(self::$subtable_v12_format);
@@ -78,7 +77,6 @@ class cmap extends Table {
         $startCodes = array();
 
         for ($p = 0; $p < $subtable['ngroups']; $p++) {
-
           $startCode = $startCodes[] = $font->readUInt32();
           $endCode = $endCodes[] = $font->readUInt32();
           $startGlyphCode = $font->readUInt32();
@@ -94,10 +92,8 @@ class cmap extends Table {
           "endCode" => $endCodes,
           "glyphIndexArray" => $glyphIndexArray,
         );
-
       }
       else if ($subtable["format"] == 4) {
-
         $subtable += $font->unpack(self::$subtable_v4_format);
 
         $segCount             = $subtable["segCountX2"] / 2;

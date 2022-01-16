@@ -6,7 +6,6 @@ use Flagship\Shipping\Exceptions\CancelShipmentException;
 
 class CancelShipmentRequest extends ApiRequest{
     public function __construct(string $baseUrl,string $token, int $id, string $flagshipFor, string $version){
-
         $this->url = $baseUrl.'/ship/shipments/'.$id;
         $this->token = $token;
         $this->flagshipFor = $flagshipFor;

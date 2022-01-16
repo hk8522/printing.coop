@@ -11,7 +11,6 @@ class Issue2137Test extends PHPUnit\Framework\TestCase
         $this->assertSame($provided, $expected);
     }
 
-
     public function provideBrandService()
     {
         return [
@@ -19,7 +18,6 @@ class Issue2137Test extends PHPUnit\Framework\TestCase
             new stdClass() // not valid
         ];
     }
-
 
     /**
      * @dataProvider provideBrandService

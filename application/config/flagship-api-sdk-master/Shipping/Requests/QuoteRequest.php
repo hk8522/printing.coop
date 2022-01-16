@@ -8,7 +8,6 @@ use Flagship\Shipping\Exceptions\QuoteException;
 use Flagship\Shipping\Collections\RatesCollection;
 
 class QuoteRequest extends ApiRequest{
-
     protected $responseCode;
 
     public function __construct(string $token,string $baseUrl,array $payloadArray, string $flagshipFor, string $version){
@@ -20,7 +19,6 @@ class QuoteRequest extends ApiRequest{
     }
 
     public function execute() : RatesCollection {
-
         try {
             $responseArray = $this->api_request($this->url,$this->payload,$this->token,'POST',10,$this->flagshipFor,$this->version);
             $responseObject = count((array)$responseArray["response"]) == 0 ? [] : $responseArray["response"]->content;

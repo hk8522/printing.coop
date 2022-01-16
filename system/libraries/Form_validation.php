@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/form_validation.html
  */
 class CI_Form_validation {
-
 	/**
 	 * Reference to the CodeIgniter instance
 	 *
@@ -1347,7 +1346,6 @@ class CI_Form_validation {
 	public function numeric($str)
 	{
 		return (bool) preg_match('/^[\-+]?[0-9]*\.?[0-9]+$/', $str);
-
 	}
 
 	// --------------------------------------------------------------------
@@ -1587,5 +1585,4 @@ class CI_Form_validation {
 		$this->error_string = '';
 		return $this;
 	}
-
 }

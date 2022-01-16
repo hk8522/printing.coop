@@ -87,7 +87,6 @@
 						                }?>
 
 									  <?php foreach ($states as $state) {
-
 										  $selected ='';
 										  $post_state = isset($postData['state']) ? $postData['state']:'';
 										  if ($state['id'] == $post_state){
@@ -112,12 +111,10 @@
 						                }?>
 
 									  <?php foreach ($citys as $city) {
-
 										  $selected ='';
 										  $post_city = isset($postData['city']) ?     $postData['state']:'';
 
 										    if ($city['id'] == $post_city){
-
 											  $selected='selected="selected"';
 										    }
 										  ?>

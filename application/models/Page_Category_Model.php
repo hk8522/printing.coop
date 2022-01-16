@@ -1,7 +1,6 @@
 <?php
 
 Class Page_Category_Model extends MY_Model {
-
 	public $table='page_categories';
 	public $config = array(
         array(
@@ -23,18 +22,15 @@ Class Page_Category_Model extends MY_Model {
     );
 
     public function getCategoryList() {
-
         $this->db->select(array('page_categories.*'));
         $this->db->from($this->table);
 		$this->db->order_by('category_order','asc');
         $query = $this->db->get();
 		$data=$query->result_array();
 		return $data;
-
     }
 
 	public function getActiveCategoryList() {
-
         $this->db->select(array('page_categories.*'));
         $this->db->from($this->table);
 		$this->db->where(array('status'=>1));
@@ -42,11 +38,9 @@ Class Page_Category_Model extends MY_Model {
         $query = $this->db->get();
 		$data=$query->result_array();
 		return $data;
-
     }
 
 	public function getCategoryDataById($id) {
-
         $this->db->select('*');
         $this->db->from($this->table);
 		$this->db->where(array('id'=>$id));
@@ -56,10 +50,7 @@ Class Page_Category_Model extends MY_Model {
     }
 
 	public function getCategoryDropDownList() {
-
 		$lists=array();
-
-
 
 			$this->db->select(array('id','name'));
 			$this->db->where(array('status'=>'1'));
@@ -68,23 +59,19 @@ Class Page_Category_Model extends MY_Model {
 			$query = $this->db->get();
 			$data=$query->result_array();
 			foreach($data as $val){
-
 				$lists[$val['id']]=ucfirst($val['name']);
 			}
 		return $lists;
     }
 
 	public function saveCategory($data) {
-
 		$id=isset($data['id']) ? $data['id']:'';
 
 		if(!empty($id)){
-
 			$data['updated']=date('Y-m-d H:i:s');
 			$this->db->where('id', $id);
 			$query = $this->db->update($this->table, $data);
 		}else{
-
 			$data['created']=date('Y-m-d H:i:s');
 			$data['updated']=date('Y-m-d H:i:s');
 			$query = $this->db->insert($this->table, $data);
@@ -98,7 +85,6 @@ Class Page_Category_Model extends MY_Model {
     }
 
 	public function deletePageCategory($id) {
-
 		$this->db->where('id',$id);
         $query = $this->db->delete($this->table);
 		if ($query) {
@@ -106,8 +92,6 @@ Class Page_Category_Model extends MY_Model {
 		} else {
 			return 0;
 		}
-
     }
-
 }
 ?>

@@ -6,7 +6,6 @@ use Sabberworm\CSS\Parser;
 use Sabberworm\CSS\Settings;
 
 class LenientParsingTest extends \PHPUnit_Framework_TestCase {
-
 	/**
 	* @expectedException Sabberworm\CSS\Parsing\UnexpectedTokenException
 	*/
@@ -22,7 +21,7 @@ class LenientParsingTest extends \PHPUnit_Framework_TestCase {
 		$oResult = $oParser->parse();
 		$this->assertSame('.test1 {}'."\n".'.test2 {hello: 2.2;hello: 2000000000000.2;}'."\n".'#test {}'."\n".'#test2 {help: none;}', $oResult->render());
 	}
-	
+
 	/**
 	* @expectedException Sabberworm\CSS\Parsing\UnexpectedTokenException
 	*/
@@ -40,7 +39,7 @@ class LenientParsingTest extends \PHPUnit_Framework_TestCase {
 		$oParser = new Parser(file_get_contents($sFile), Settings::create()->beStrict());
 		$oParser->parse();
 	}
-	
+
 	public function testEndTokenPositive() {
 		$sFile = dirname(__FILE__) . '/../../../files' . DIRECTORY_SEPARATOR . "-end-token.css";
 		$oParser = new Parser(file_get_contents($sFile), Settings::create()->withLenientParsing(true));
@@ -72,5 +71,4 @@ class LenientParsingTest extends \PHPUnit_Framework_TestCase {
 @media screen {}
 #myid {case: insensitive !important;frequency: 30Hz;font-size: 1em;color: #ff0;color: hsl(40,40%,30%);font-family: Arial;}', $oResult->render());
 	}
-
 }

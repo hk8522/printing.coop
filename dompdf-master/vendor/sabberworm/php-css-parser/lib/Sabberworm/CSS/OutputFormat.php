@@ -17,13 +17,13 @@ class OutputFormat {
 	public $sStringQuotingType = '"';
 	// Output RGB colors in hash notation if possible
 	public $bRGBHashNotation = true;
-	
+
 	/**
 	* Declaration format
 	*/
 	// Semicolon after the last rule of a declaration block can be omitted. To do that, set this false.
 	public $bSemicolonAfterLastRule = true;
-	
+
 	/**
 	* Spacing
 	* Note that these strings are not sanity-checked: the value should only consist of whitespace
@@ -50,7 +50,7 @@ class OutputFormat {
 	// This is what’s printed after the comma of value lists
 	public $sSpaceBeforeListArgumentSeparator = '';
 	public $sSpaceAfterListArgumentSeparator = '';
-	
+
 	public $sSpaceBeforeOpeningBrace = ' ';
 
 	// Content injected in and around declaration blocks.
@@ -63,20 +63,19 @@ class OutputFormat {
 	*/
 	// Indentation character(s) per level. Only applicable if newlines are used in any of the spacing settings.
 	public $sIndentation = "\t";
-	
+
 	/**
 	* Output exceptions.
 	*/
 	public $bIgnoreExceptions = false;
-	
-	
+
 	private $oFormatter = null;
 	private $oNextLevelFormat = null;
 	private $iIndentationLevel = 0;
-	
+
 	public function __construct() {
 	}
-	
+
 	public function get($sName) {
 		$aVarPrefixes = array('a', 's', 'm', 'b', 'f', 'o', 'c', 'i');
 		foreach($aVarPrefixes as $sPrefix) {
@@ -87,7 +86,7 @@ class OutputFormat {
 		}
 		return null;
 	}
-	
+
 	public function set($aNames, $mValue) {
 		$aVarPrefixes = array('a', 's', 'm', 'b', 'f', 'o', 'c', 'i');
 		if(is_string($aNames) && strpos($aNames, '*') !== false) {
@@ -111,7 +110,7 @@ class OutputFormat {
 		// Break the chain so the user knows this option is invalid
 		return false;
 	}
-	
+
 	public function __call($sMethodName, $aArguments) {
 		if(strpos($sMethodName, 'set') === 0) {
 			return $this->set(substr($sMethodName, 3), $aArguments[0]);
@@ -123,15 +122,15 @@ class OutputFormat {
 			throw new \Exception('Unknown OutputFormat method called: '.$sMethodName);
 		}
 	}
-	
+
 	public function indentWithTabs($iNumber = 1) {
 		return $this->setIndentation(str_repeat("\t", $iNumber));
 	}
-	
+
 	public function indentWithSpaces($iNumber = 2) {
 		return $this->setIndentation(str_repeat(" ", $iNumber));
 	}
-	
+
 	public function nextLevel() {
 		if($this->oNextLevelFormat === null) {
 			$this->oNextLevelFormat = clone $this;
@@ -140,18 +139,18 @@ class OutputFormat {
 		}
 		return $this->oNextLevelFormat;
 	}
-	
+
 	public function beLenient() {
 		$this->bIgnoreExceptions = true;
 	}
-	
+
 	public function getFormatter() {
 		if($this->oFormatter === null) {
 			$this->oFormatter = new OutputFormatter($this);
 		}
 		return $this->oFormatter;
 	}
-	
+
 	public function level() {
 		return $this->iIndentationLevel;
 	}
@@ -190,11 +189,11 @@ class OutputFormat {
 
 class OutputFormatter {
 	private $oFormat;
-	
+
 	public function __construct(OutputFormat $oFormat) {
 		$this->oFormat = $oFormat;
 	}
-	
+
 	public function space($sName, $sType = null) {
 		$sSpaceString = $this->oFormat->get("Space$sName");
 		// If $sSpaceString is an array, we have multple values configured depending on the type of object the space applies to
@@ -207,35 +206,35 @@ class OutputFormatter {
 		}
 		return $this->prepareSpace($sSpaceString);
 	}
-	
+
 	public function spaceAfterRuleName() {
 		return $this->space('AfterRuleName');
 	}
-	
+
 	public function spaceBeforeRules() {
 		return $this->space('BeforeRules');
 	}
-	
+
 	public function spaceAfterRules() {
 		return $this->space('AfterRules');
 	}
-	
+
 	public function spaceBetweenRules() {
 		return $this->space('BetweenRules');
 	}
-	
+
 	public function spaceBeforeBlocks() {
 		return $this->space('BeforeBlocks');
 	}
-	
+
 	public function spaceAfterBlocks() {
 		return $this->space('AfterBlocks');
 	}
-	
+
 	public function spaceBetweenBlocks() {
 		return $this->space('BetweenBlocks');
 	}
-	
+
 	public function spaceBeforeSelectorSeparator() {
 		return $this->space('BeforeSelectorSeparator');
 	}
@@ -297,7 +296,7 @@ class OutputFormatter {
 		}
 		return $sResult;
 	}
-	
+
 	public function removeLastSemicolon($sString) {
 		if($this->oFormat->get('SemicolonAfterLastRule')) {
 			return $sString;

@@ -7,7 +7,6 @@ use Flagship\Apis\Exceptions\ApiException;
 use Flagship\Shipping\Exceptions\AssociateToDepotException;
 
 class AssociateToDepotRequest extends ApiRequest{
-
     public function __construct(string $apiToken,string $baseUrl,int $manifestId,array $payload,string $flagshipFor,string $version){
         $this->apiToken = $apiToken;
         $this->apiUrl = $baseUrl.'/ship/edhl/to-depot/'.$manifestId;
@@ -32,5 +31,4 @@ class AssociateToDepotRequest extends ApiRequest{
         }
         return NULL;
     }
-
 }

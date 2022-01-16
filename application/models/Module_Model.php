@@ -2,7 +2,6 @@
 
 class Module_Model extends MY_Model
 {
-
     public $table = 'module';
 
     public function getModuleList()
@@ -72,7 +71,6 @@ class Module_Model extends MY_Model
                 $query = $this->db->get();
                 $data = $query->result_array();
                 foreach ($data as $key => $val) {
-
                     $module_id = $val['module_id'];
                     $module[] = $module_id;
                 }
@@ -83,7 +81,6 @@ class Module_Model extends MY_Model
             $query = $this->db->get();
             $data = $query->result_array();
             foreach ($data as $key => $val) {
-
                 $module_id = $val['id'];
                 $module[] = $module_id;
             }
@@ -112,7 +109,6 @@ class Module_Model extends MY_Model
             $query = $this->db->get();
             $data = $query->result_array();
             foreach ($data as $key => $val) {
-
                 $sub_module_id = $val['id'];
                 $submodule[] = $sub_module_id;
             }
@@ -174,7 +170,6 @@ class Module_Model extends MY_Model
         if ($class) {
             $mainurl = $class . "/" . $action;
             if (!empty($prem)) {
-
                 $mainurl = $mainurl . "/" . $prem;
             }
             $this->db->select('*');

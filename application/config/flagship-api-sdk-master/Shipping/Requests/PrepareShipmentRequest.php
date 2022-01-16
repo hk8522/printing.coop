@@ -10,7 +10,6 @@ class PrepareShipmentRequest extends ApiRequest{
     protected $responseCode;
 
     public function __construct(string $baseUrl, string $token, array $payload, string $flagshipFor, string $version){
-
         $this->url = $baseUrl.'/ship/prepare';
         $this->token = $token;
         $this->payload = $payload;

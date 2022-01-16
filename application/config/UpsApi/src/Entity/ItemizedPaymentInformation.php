@@ -6,7 +6,6 @@ use LogicException;
 
 class ItemizedPaymentInformation
 {
-
     /**
      * @var bool
      */

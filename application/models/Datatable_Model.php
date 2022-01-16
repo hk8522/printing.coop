@@ -1,13 +1,11 @@
 <?php
 
 Class Datatable_Model extends MY_Model {
-
     public $table='';
 	public $column_order='';
 	public $column_search='';
 
 	/*function __construct() {
-
         /// Set table name
         $this->table = 'members';
         // Set orderable column fields
@@ -16,7 +14,6 @@ Class Datatable_Model extends MY_Model {
         $this->column_search = array('first_name','last_name','email','gender','country','created','status');
         // Set default order
         $this->order = array('first_name' => 'asc');
-
     }*/
 
     /*
@@ -24,7 +21,6 @@ Class Datatable_Model extends MY_Model {
      * @param $_POST filter data based on the posted parameters
      */
     public function getRows($postData){
-
         $this->_get_datatables_query($postData);
         if($postData['length'] != -1){
             $this->db->limit($postData['length'], $postData['start']);
@@ -56,7 +52,6 @@ Class Datatable_Model extends MY_Model {
      * @param $_POST filter data based on the posted parameters
      */
     private function _get_datatables_query($postData){
-
         $this->db->from($this->table);
 
         $i = 0;
@@ -89,7 +84,6 @@ Class Datatable_Model extends MY_Model {
             $this->db->order_by(key($order), $order[key($order)]);
         }
     }
-
 }
 
 ?>

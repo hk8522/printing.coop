@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ForLoopDeclarationSniff implements Sniff
 {
-
     /**
      * How many spaces should follow the opening bracket.
      *
@@ -47,7 +46,6 @@ class ForLoopDeclarationSniff implements Sniff
         'JS',
     ];
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -56,9 +54,7 @@ class ForLoopDeclarationSniff implements Sniff
     public function register()
     {
         return [T_FOR];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -309,8 +305,5 @@ class ForLoopDeclarationSniff implements Sniff
                 }//end if
             }//end if
         } while ($semicolonCount < 2);
-
     }//end process()
-
-
 }//end class

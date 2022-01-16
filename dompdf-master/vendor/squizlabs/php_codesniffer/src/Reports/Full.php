@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Util;
 
 class Full implements Report
 {
-
-
     /**
      * Generate a partial report for a single processed file.
      *
@@ -184,9 +182,7 @@ class Full implements Report
 
         echo PHP_EOL;
         return true;
-
     }//end generateFileReport()
-
 
     /**
      * Prints all errors and warnings for each file processed.
@@ -224,8 +220,5 @@ class Full implements Report
         if ($toScreen === true && $interactive === false) {
             Util\Timing::printRunTime();
         }
-
     }//end generate()
-
-
 }//end class

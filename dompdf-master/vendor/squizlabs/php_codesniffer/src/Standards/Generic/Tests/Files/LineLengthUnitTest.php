@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class LineLengthUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Get a list of CLI values to set before the file is tested.
      *
@@ -26,9 +24,7 @@ class LineLengthUnitTest extends AbstractSniffUnitTest
     public function setCliValues($testFile, $config)
     {
         $config->tabWidth = 4;
-
     }//end setCliValues()
-
 
     /**
      * Returns the lines where errors should occur.
@@ -59,9 +55,7 @@ class LineLengthUnitTest extends AbstractSniffUnitTest
             return [];
             break;
         }//end switch
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -104,8 +98,5 @@ class LineLengthUnitTest extends AbstractSniffUnitTest
             return [];
             break;
         }//end switch
-
     }//end getWarningList()
-
-
 }//end class

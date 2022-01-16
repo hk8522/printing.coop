@@ -11,7 +11,6 @@ namespace PHP_CodeSniffer\Tests;
 
 class FileList
 {
-
     /**
      * The path to the project root directory.
      *
@@ -39,7 +38,6 @@ class FileList
      * @var string
      */
     private $baseRegex = '`^%s(?!\.git/)(?!(.*/)?\.+$)(?!.*\.(bak|orig)).*$`Dix';
-
 
     /**
      * Constructor.
@@ -69,9 +67,7 @@ class FileList
         $this->fileIterator = new \RegexIterator($flattened, $filter);
 
         return $this;
-
     }//end __construct()
-
 
     /**
      * Retrieve the filtered file list as an array.
@@ -87,8 +83,5 @@ class FileList
         }
 
         return $fileList;
-
     }//end getList()
-
-
 }//end class

@@ -252,22 +252,22 @@ class ParserState {
 			return mb_strlen($sString, $this->sCharset);
 		} else {
 			return strlen($sString);
-		}	
-	}	
+		}
+	}
 
 	private function substr($iStart, $iLength) {
 		if ($iLength < 0) {
 			$iLength = $this->iLength - $iStart + $iLength;
-		}	
+		}
 		if ($iStart + $iLength > $this->iLength) {
 			$iLength = $this->iLength - $iStart;
-		}	
+		}
 		$sResult = '';
 		while ($iLength > 0) {
 			$sResult .= $this->aText[$iStart];
 			$iStart++;
 			$iLength--;
-		}	
+		}
 		return $sResult;
 	}
 

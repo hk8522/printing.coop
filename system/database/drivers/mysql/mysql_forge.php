@@ -45,7 +45,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_mysql_forge extends CI_DB_forge {
-
 	/**
 	 * CREATE DATABASE statement
 	 *
@@ -185,7 +184,6 @@ class CI_DB_mysql_forge extends CI_DB_forge {
 			$extra_clause = ' FIRST';
 		}
 
-
 		return $this->db->escape_identifiers($field['name'])
 			.(empty($field['new_name']) ? '' : ' '.$this->db->escape_identifiers($field['new_name']))
 			.' '.$field['type'].$field['length']
@@ -239,5 +237,4 @@ class CI_DB_mysql_forge extends CI_DB_forge {
 
 		return $sql;
 	}
-
 }

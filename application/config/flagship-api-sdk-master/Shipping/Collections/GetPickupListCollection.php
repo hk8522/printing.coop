@@ -6,7 +6,6 @@ use Flagship\Shipping\Objects\Pickup;
 use Flagship\Shipping\Exceptions\GetPickupListException;
 
 class GetPickupListCollection extends Collection{
-
     public function importPickups(array $pickups) : array {
         $allPickups = [];
         if(count($pickups) === 0){
@@ -81,6 +80,4 @@ class GetPickupListCollection extends Collection{
         }
         return $result;
     }
-
-
 }

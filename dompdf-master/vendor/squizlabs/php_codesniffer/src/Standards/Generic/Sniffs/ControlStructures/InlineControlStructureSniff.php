@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class InlineControlStructureSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -32,7 +31,6 @@ class InlineControlStructureSniff implements Sniff
      * @var boolean
      */
     public $error = true;
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -51,9 +49,7 @@ class InlineControlStructureSniff implements Sniff
             T_SWITCH,
             T_FOR,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -364,8 +360,5 @@ class InlineControlStructureSniff implements Sniff
         }//end if
 
         $phpcsFile->fixer->endChangeset();
-
     }//end process()
-
-
 }//end class

@@ -10,8 +10,6 @@ $client->proxyUrl = exampleConfig::proxy();
 $client->requestTimeout = 5;
 $client->numberOfRetries = 2;
 
-
-
 //Build the message
 $message = new BasicMessage();
 

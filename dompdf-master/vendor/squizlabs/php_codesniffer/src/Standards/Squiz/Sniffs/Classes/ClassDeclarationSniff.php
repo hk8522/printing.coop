@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ClassDeclarationSniff extends PSR2ClassDeclarationSniff
 {
-
-
     /**
      * Processes this test, when one of its tokens is encountered.
      *
@@ -38,9 +36,7 @@ class ClassDeclarationSniff extends PSR2ClassDeclarationSniff
             $error = 'Only one interface or class is allowed in a file';
             $phpcsFile->addError($error, $nextClass, 'MultipleClasses');
         }
-
     }//end process()
-
 
     /**
      * Processes the opening section of a class declaration.
@@ -82,9 +78,7 @@ class ClassDeclarationSniff extends PSR2ClassDeclarationSniff
                 }
             }//end if
         }//end if
-
     }//end processOpen()
-
 
     /**
      * Processes the closing section of a class declaration.
@@ -199,8 +193,5 @@ class ClassDeclarationSniff extends PSR2ClassDeclarationSniff
                 }
             }
         }//end if
-
     }//end processClose()
-
-
 }//end class

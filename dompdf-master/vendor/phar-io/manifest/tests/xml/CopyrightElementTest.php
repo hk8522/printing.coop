@@ -48,5 +48,4 @@ class CopyrightElementTest extends \PHPUnit\Framework\TestCase {
             LicenseElement::class, $this->copyright->getLicenseElement()
         );
     }
-
 }

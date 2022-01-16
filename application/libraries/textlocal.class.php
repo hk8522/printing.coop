@@ -43,7 +43,6 @@ class Textlocal
 		if ($apiKey) {
 			$this->apiKey = $apiKey;
 		}
-
 	}
 
 	/**
@@ -58,7 +57,6 @@ class Textlocal
 	{
 		if ($this->apiKey && !empty($this->apiKey)) {
 			$params['apiKey'] = $this->apiKey;
-
 		} else {
 			$params['hash'] = $this->hash;
 		}
@@ -95,7 +93,6 @@ class Textlocal
 	 */
 	private function _sendRequestCurl($command, $params)
 	{
-
 		$url = self::REQUEST_URL . $command . '/';
 
 		// Initialize handle
@@ -159,7 +156,6 @@ class Textlocal
 
 	public function sendSms($numbers, $message, $sender, $sched = null, $test = false, $receiptURL = null, $custom = null, $optouts = false, $simpleReplyService = false)
 	{
-
 		if (!is_array($numbers))
 			throw new Exception('Invalid $numbers format. Must be an array');
 		if (empty($message))
@@ -184,7 +180,6 @@ class Textlocal
 		return $this->_sendRequest('send', $params);
 	}
 
-
 	/**
 	 * Send an SMS to a Group of contacts - group IDs can be retrieved from getGroups()
 	 * @param       $groupId
@@ -200,7 +195,6 @@ class Textlocal
 	 */
 	public function sendSmsGroup($groupId, $message, $sender = null, $sched = null, $test = false, $receiptURL = null, $custom = null, $optouts = false, $simpleReplyService = false)
 	{
-
 		if (!is_numeric($groupId))
 			throw new Exception('Invalid $groupId format. Must be a numeric group ID');
 		if (empty($message))
@@ -225,7 +219,6 @@ class Textlocal
 		return $this->_sendRequest('send', $params);
 	}
 
-
 	/**
 	 * Send an MMS to a one or more comma separated contacts
 	 * @param       $numbers
@@ -239,7 +232,6 @@ class Textlocal
 	 */
 	public function sendMms($numbers, $fileSource, $message, $sched = null, $test = false, $optouts = false)
 	{
-
 		if (!is_array($numbers))
 			throw new Exception('Invalid $numbers format. Must be an array');
 		if (empty($message))
@@ -278,7 +270,6 @@ class Textlocal
 	 */
 	public function sendMmsGroup($groupId, $fileSource, $message, $sched = null, $test = false, $optouts = false)
 	{
-
 		if (!is_numeric($groupId))
 			throw new Exception('Invalid $groupId format. Must be a numeric group ID');
 		if (empty($message))
@@ -324,7 +315,6 @@ class Textlocal
 
 	public function transferCredits($user, $credits)
 	{
-
 		if (!is_numeric($credits))
 			throw new Exception('Invalid credits format');
 		if (!is_numeric($user))
@@ -362,7 +352,6 @@ class Textlocal
 	 */
 	public function checkKeyword($keyword)
 	{
-
 		$params = array('keyword' => $keyword);
 		return $this->_sendRequest('check_keyword', $params);
 	}
@@ -388,7 +377,6 @@ class Textlocal
 	 */
 	public function getContacts($groupId, $limit, $startPos = 0)
 	{
-
 		if (!is_numeric($groupId))
 			throw new Exception('Invalid $groupId format. Must be a numeric group ID');
 		if (!is_numeric($startPos) || $startPos < 0)
@@ -556,7 +544,6 @@ class Textlocal
 		$options = array('group_id' => $groupid);
 		return $this->_sendRequest('delete_group', $options);
 	}
-
 
 	/**
 	 * Get single SMS history (single numbers, comma seperated numbers when sending)
@@ -740,5 +727,4 @@ if (!function_exists('json_encode')) {
 		}
 	}
 }
-
 

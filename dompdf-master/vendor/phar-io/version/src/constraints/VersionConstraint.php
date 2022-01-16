@@ -22,5 +22,4 @@ interface VersionConstraint {
      * @return string
      */
     public function asString();
-
 }

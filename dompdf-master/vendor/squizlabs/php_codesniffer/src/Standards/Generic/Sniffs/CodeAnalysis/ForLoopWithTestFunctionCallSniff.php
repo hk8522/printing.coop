@@ -32,8 +32,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ForLoopWithTestFunctionCallSniff implements Sniff
 {
-
-
     /**
      * Registers the tokens that this sniff wants to listen for.
      *
@@ -42,9 +40,7 @@ class ForLoopWithTestFunctionCallSniff implements Sniff
     public function register()
     {
         return [T_FOR];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -94,8 +90,5 @@ class ForLoopWithTestFunctionCallSniff implements Sniff
                 break;
             }
         }//end for
-
     }//end process()
-
-
 }//end class

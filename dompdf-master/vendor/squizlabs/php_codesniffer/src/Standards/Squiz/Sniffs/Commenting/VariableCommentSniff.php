@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Common;
 
 class VariableCommentSniff extends AbstractVariableSniff
 {
-
-
     /**
      * Called to process class member vars.
      *
@@ -137,9 +135,7 @@ class VariableCommentSniff extends AbstractVariableSniff
                 unset($replacement);
             }
         }
-
     }//end processMemberVar()
-
 
     /**
      * Called to process a normal variable.
@@ -154,9 +150,7 @@ class VariableCommentSniff extends AbstractVariableSniff
      */
     protected function processVariable(File $phpcsFile, $stackPtr)
     {
-
     }//end processVariable()
-
 
     /**
      * Called to process variables found in double quoted strings.
@@ -171,8 +165,5 @@ class VariableCommentSniff extends AbstractVariableSniff
      */
     protected function processVariableInString(File $phpcsFile, $stackPtr)
     {
-
     }//end processVariableInString()
-
-
 }//end class

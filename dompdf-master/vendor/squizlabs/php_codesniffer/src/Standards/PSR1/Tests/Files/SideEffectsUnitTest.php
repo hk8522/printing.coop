@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class SideEffectsUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Set CLI values before the file is tested.
      *
@@ -28,9 +26,7 @@ class SideEffectsUnitTest extends AbstractSniffUnitTest
         if ($testFile === 'SideEffectsUnitTest.12.inc') {
             $config->annotations = false;
         }
-
     }//end setCliValues()
-
 
     /**
      * Returns the lines where errors should occur.
@@ -45,9 +41,7 @@ class SideEffectsUnitTest extends AbstractSniffUnitTest
     public function getErrorList($testFile='')
     {
         return [];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -71,8 +65,5 @@ class SideEffectsUnitTest extends AbstractSniffUnitTest
         default:
             return [];
         }//end switch
-
     }//end getWarningList()
-
-
 }//end class

@@ -13,7 +13,6 @@ use Sabberworm\CSS\Rule\Rule;
  * However, unknown At-Rules (like @font-face) are also rule sets.
  */
 abstract class RuleSet implements Renderable, Commentable {
-
 	private $aRules;
 	protected $iLineNo;
 	protected $aComments;
@@ -179,7 +178,7 @@ abstract class RuleSet implements Renderable, Commentable {
 				$sResult .= $sRendered;
 			}
 		}
-		
+
 		if(!$bIsFirst) {
 			// Had some output
 			$sResult .= $oOutputFormat->spaceAfterRules();
@@ -208,5 +207,4 @@ abstract class RuleSet implements Renderable, Commentable {
 	public function setComments(array $aComments) {
 		$this->aComments = $aComments;
 	}
-
 }

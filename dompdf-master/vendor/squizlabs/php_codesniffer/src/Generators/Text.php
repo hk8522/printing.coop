@@ -13,8 +13,6 @@ namespace PHP_CodeSniffer\Generators;
 
 class Text extends Generator
 {
-
-
     /**
      * Process the documentation for a single sniff.
      *
@@ -35,9 +33,7 @@ class Text extends Generator
                 $this->printCodeComparisonBlock($node);
             }
         }
-
     }//end processSniff()
-
 
     /**
      * Prints the title area for a single sniff.
@@ -58,9 +54,7 @@ class Text extends Generator
         echo strtoupper(PHP_EOL."| $standard CODING STANDARD: $title |".PHP_EOL);
         echo str_repeat('-', (strlen("$standard CODING STANDARD: $title") + 4));
         echo PHP_EOL.PHP_EOL;
-
     }//end printTitle()
-
 
     /**
      * Print a text block found in a standard.
@@ -112,9 +106,7 @@ class Text extends Generator
         }//end foreach
 
         echo implode(PHP_EOL, $lines).PHP_EOL.PHP_EOL;
-
     }//end printTextBlock()
-
 
     /**
      * Print a code comparison block found in a standard.
@@ -246,8 +238,5 @@ class Text extends Generator
         }//end for
 
         echo str_repeat('-', 100).PHP_EOL.PHP_EOL;
-
     }//end printCodeComparisonBlock()
-
-
 }//end class

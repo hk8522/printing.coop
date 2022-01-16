@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Config;
 
 class Markdown extends Generator
 {
-
-
     /**
      * Generates the documentation for a standard.
      *
@@ -38,9 +36,7 @@ class Markdown extends Generator
         ob_end_clean();
 
         echo $content;
-
     }//end generate()
-
 
     /**
      * Print the markdown header.
@@ -52,9 +48,7 @@ class Markdown extends Generator
         $standard = $this->ruleset->name;
 
         echo "# $standard Coding Standard".PHP_EOL;
-
     }//end printHeader()
-
 
     /**
      * Print the markdown footer.
@@ -68,9 +62,7 @@ class Markdown extends Generator
         error_reporting(0);
         echo 'Documentation generated on '.date('r');
         echo ' by [PHP_CodeSniffer '.Config::VERSION.'](https://github.com/squizlabs/PHP_CodeSniffer)'.PHP_EOL;
-
     }//end printFooter()
-
 
     /**
      * Process the documentation for a single sniff.
@@ -93,9 +85,7 @@ class Markdown extends Generator
                 $this->printCodeComparisonBlock($node);
             }
         }
-
     }//end processSniff()
-
 
     /**
      * Print a text block found in a standard.
@@ -113,9 +103,7 @@ class Markdown extends Generator
         $content = str_replace('&lt;/em&gt;', '*', $content);
 
         echo $content.PHP_EOL;
-
     }//end printTextBlock()
-
 
     /**
      * Print a code comparison block found in a standard.
@@ -154,8 +142,5 @@ class Markdown extends Generator
         echo '</td>'.PHP_EOL;
         echo '   </tr>'.PHP_EOL;
         echo '  </table>'.PHP_EOL;
-
     }//end printCodeComparisonBlock()
-
-
 }//end class

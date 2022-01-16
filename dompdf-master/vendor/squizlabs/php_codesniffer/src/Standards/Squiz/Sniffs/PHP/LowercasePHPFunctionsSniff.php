@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class LowercasePHPFunctionsSniff implements Sniff
 {
-
     /**
      * String -> int hash map of all php built in function names
      *
@@ -23,18 +22,14 @@ class LowercasePHPFunctionsSniff implements Sniff
      */
     private $builtInFunctions;
 
-
     /**
      * Construct the LowercasePHPFunctionSniff
      */
     public function __construct()
     {
-
         $allFunctions           = get_defined_functions();
         $this->builtInFunctions = array_flip($allFunctions['internal']);
-
     }//end __construct()
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -44,9 +39,7 @@ class LowercasePHPFunctionsSniff implements Sniff
     public function register()
     {
         return [T_STRING];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -153,8 +146,5 @@ class LowercasePHPFunctionsSniff implements Sniff
         if ($fix === true) {
             $phpcsFile->fixer->replaceToken($stackPtr, $contentLc);
         }
-
     }//end process()
-
-
 }//end class

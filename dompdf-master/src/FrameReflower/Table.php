@@ -111,7 +111,6 @@ class Table extends AbstractFrameReflower
             } else {
                 $width = $min_width;
             }
-
         } else {
             if ($max_width + $delta < $cb["w"]) {
                 $width = $max_width;
@@ -124,7 +123,6 @@ class Table extends AbstractFrameReflower
             if ($width < $min_table_width) {
                 $width = $min_table_width;
             }
-
         }
 
         // Store our resolved width
@@ -193,7 +191,6 @@ class Table extends AbstractFrameReflower
 
                         $cellmap->set_column_width($i, $columns[$i]["min-width"] + $increment);
                     }
-
                 }
                 return;
             }
@@ -227,7 +224,6 @@ class Table extends AbstractFrameReflower
 
                     $cellmap->set_column_width($i, $w);
                     $used_width += $w;
-
                 }
 
                 // This works because $used_width includes the min-width of each
@@ -238,7 +234,6 @@ class Table extends AbstractFrameReflower
                     foreach ($auto as $i) {
                         $cellmap->set_column_width($i, $columns[$i]["min-width"] + $increment);
                     }
-
                 }
                 return;
             }
@@ -329,7 +324,6 @@ class Table extends AbstractFrameReflower
             if (isset($cb["h"])) {
                 $min_height = $style->length_in_pt($min_height, $cb["h"]);
                 $max_height = $style->length_in_pt($max_height, $cb["h"]);
-
             } else if (isset($cb["w"])) {
                 if (mb_strpos($min_height, "%") !== false) {
                     $min_height = 0;
@@ -492,7 +486,6 @@ class Table extends AbstractFrameReflower
                 // Check if a split has occured
                 $page->check_page_break($child);
             }
-
         }
 
         // Assign heights to our cells:

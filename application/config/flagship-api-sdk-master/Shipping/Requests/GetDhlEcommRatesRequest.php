@@ -8,7 +8,6 @@ use Flagship\Shipping\Collections\RatesCollection;
 use Flagship\Shipping\Exceptions\GetDhlEcommRatesException;
 
 class GetDhlEcommRatesRequest extends ApiRequest{
-
     public function __construct(string $token,string $baseUrl,array $payload,string $flagshipFor,string $version){
         $this->token = $token;
         $this->url = $baseUrl.'/ship/edhl/rates';
@@ -36,5 +35,4 @@ class GetDhlEcommRatesRequest extends ApiRequest{
         }
         return NULL;
     }
-
 }

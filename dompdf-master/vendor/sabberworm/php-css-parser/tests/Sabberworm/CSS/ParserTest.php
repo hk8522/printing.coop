@@ -11,7 +11,6 @@ use Sabberworm\CSS\Value\URL;
 use Sabberworm\CSS\Parsing\UnexpectedTokenException;
 
 class ParserTest extends \PHPUnit_Framework_TestCase {
-
 	function testFiles() {
 		$sDirectory = dirname(__FILE__) . '/../../files';
 		if ($rHandle = opendir($sDirectory)) {
@@ -214,7 +213,7 @@ body {color: green;}', $oDoc->render());
 		$this->assertSame('#header {margin: 10px 2em 1cm 2%;color: red !important;frequency: 30Hz;}
 body {color: green;}', $oDoc->render());
 	}
-	
+
 	function testRuleGetters() {
 		$oDoc = $this->parsedStructureForFile('values');
 		$aBlocks = $oDoc->getAllDeclarationBlocks();
@@ -319,7 +318,7 @@ foo|test {gaga: 1;}
 |test {gaga: 2;}';
 		$this->assertSame($sExpected, $oDoc->render());
 	}
-	
+
 	function testInnerColors() {
 		$oDoc = $this->parsedStructureForFile('inner-color');
 		$sExpected = 'test {background: -webkit-gradient(linear,0 0,0 bottom,from(#006cad),to(hsl(202,100%,49%)));}';
@@ -359,7 +358,7 @@ foo|test {gaga: 1;}
 		$this->assertSame('@media screen {html {some: -test(val2);}}
 #unrelated {other: yes;}', $oDoc->render());
 	}
-	
+
 	/**
 	* @expectedException Sabberworm\CSS\Parsing\OutputException
 	*/

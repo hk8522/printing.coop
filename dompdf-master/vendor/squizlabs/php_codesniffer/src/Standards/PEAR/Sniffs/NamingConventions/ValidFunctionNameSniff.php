@@ -16,7 +16,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ValidFunctionNameSniff extends AbstractScopeSniff
 {
-
     /**
      * A list of all PHP magic methods.
      *
@@ -47,16 +46,13 @@ class ValidFunctionNameSniff extends AbstractScopeSniff
      */
     protected $magicFunctions = ['autoload' => true];
 
-
     /**
      * Constructs a PEAR_Sniffs_NamingConventions_ValidFunctionNameSniff.
      */
     public function __construct()
     {
         parent::__construct(Tokens::$ooScopeTokens, [T_FUNCTION], true);
-
     }//end __construct()
-
 
     /**
      * Processes the tokens within the scope.
@@ -163,9 +159,7 @@ class ValidFunctionNameSniff extends AbstractScopeSniff
                 $phpcsFile->addError($error, $stackPtr, 'NotCamelCaps', $errorData);
             }
         }
-
     }//end processTokenWithinScope()
-
 
     /**
      * Processes the tokens outside the scope.
@@ -275,8 +269,5 @@ class ValidFunctionNameSniff extends AbstractScopeSniff
             $data[] = $newName;
             $phpcsFile->addError($error, $stackPtr, 'FunctionNameInvalid', $data);
         }
-
     }//end processTokenOutsideScope()
-
-
 }//end class

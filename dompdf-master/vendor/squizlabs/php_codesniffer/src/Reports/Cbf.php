@@ -19,8 +19,6 @@ use PHP_CodeSniffer\Util;
 
 class Cbf implements Report
 {
-
-
     /**
      * Generate a partial report for a single processed file.
      *
@@ -110,9 +108,7 @@ class Cbf implements Report
         echo $report['filename'].">>$errorCount>>$warningCount>>$fixableCount>>$fixedCount".PHP_EOL;
 
         return $fixed;
-
     }//end generateFileReport()
-
 
     /**
      * Prints a summary of fixed files.
@@ -243,8 +239,5 @@ class Cbf implements Report
         if ($toScreen === true && $interactive === false) {
             Util\Timing::printRunTime();
         }
-
     }//end generate()
-
-
 }//end class

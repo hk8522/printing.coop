@@ -16,7 +16,6 @@ use PHP_CodeSniffer\Exceptions\RuntimeException;
 
 abstract class AbstractPatternSniff implements Sniff
 {
-
     /**
      * If true, comments will be ignored if they are found in the code.
      *
@@ -54,7 +53,6 @@ abstract class AbstractPatternSniff implements Sniff
      */
     private $errorPos = [];
 
-
     /**
      * Constructs a AbstractPatternSniff.
      *
@@ -68,9 +66,7 @@ abstract class AbstractPatternSniff implements Sniff
         }
 
         $this->supplementaryTokens = $this->registerSupplementary();
-
     }//end __construct()
-
 
     /**
      * Registers the tokens to listen to.
@@ -109,9 +105,7 @@ abstract class AbstractPatternSniff implements Sniff
         }//end foreach
 
         return array_unique(array_merge($listenTypes, $this->supplementaryTokens));
-
     }//end register()
-
 
     /**
      * Returns the token types that the specified pattern is checking for.
@@ -141,9 +135,7 @@ abstract class AbstractPatternSniff implements Sniff
         }
 
         return $tokenTypes;
-
     }//end getPatternTokenTypes()
-
 
     /**
      * Returns the position in the pattern that this test should register as
@@ -168,9 +160,7 @@ abstract class AbstractPatternSniff implements Sniff
         }
 
         return $tokenTypes[$token];
-
     }//end getListenerTokenPos()
-
 
     /**
      * Processes the test.
@@ -234,9 +224,7 @@ abstract class AbstractPatternSniff implements Sniff
         foreach ($allErrors as $stackPtr => $error) {
             $phpcsFile->addError($error, $stackPtr, 'Found');
         }
-
     }//end process()
-
 
     /**
      * Processes the pattern and verifies the code at $stackPtr.
@@ -688,9 +676,7 @@ abstract class AbstractPatternSniff implements Sniff
         }
 
         return $errors;
-
     }//end processPattern()
-
 
     /**
      * Prepares an error for the specified patternCode.
@@ -712,9 +698,7 @@ abstract class AbstractPatternSniff implements Sniff
         $error = "Expected \"$expected\"; found \"$found\"";
 
         return $error;
-
     }//end prepareError()
-
 
     /**
      * Returns the patterns that should be checked.
@@ -722,7 +706,6 @@ abstract class AbstractPatternSniff implements Sniff
      * @return string[]
      */
     abstract protected function getPatterns();
-
 
     /**
      * Registers any supplementary tokens that this test might wish to process.
@@ -737,9 +720,7 @@ abstract class AbstractPatternSniff implements Sniff
     protected function registerSupplementary()
     {
         return [];
-
     }//end registerSupplementary()
-
 
      /**
       * Processes any tokens registered with registerSupplementary().
@@ -754,9 +735,7 @@ abstract class AbstractPatternSniff implements Sniff
       */
     protected function processSupplementary(File $phpcsFile, $stackPtr)
     {
-
     }//end processSupplementary()
-
 
     /**
      * Parses a pattern string into an array of pattern steps.
@@ -844,9 +823,7 @@ abstract class AbstractPatternSniff implements Sniff
         }//end for
 
         return $patterns;
-
     }//end parse()
-
 
     /**
      * Creates a skip pattern.
@@ -898,9 +875,7 @@ abstract class AbstractPatternSniff implements Sniff
         }
 
         return $skip;
-
     }//end createSkipPattern()
-
 
     /**
      * Creates a token pattern.
@@ -931,8 +906,5 @@ abstract class AbstractPatternSniff implements Sniff
         }
 
         return $patterns;
-
     }//end createTokenPattern()
-
-
 }//end class

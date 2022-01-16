@@ -21,5 +21,4 @@ class ComponentElementTest extends \PHPUnit_Framework_TestCase {
     public function testEmailCanBeRetrieved() {
         $this->assertEquals('0.6.0', $this->component->getVersion());
     }
-
 }

@@ -1,6 +1,5 @@
 <?php
 								if(count($lists) > 0){
-
 									foreach($lists as $key=>$list){
 									?>
 										<tr id="row-<?php echo $list['id'];?>">
@@ -17,7 +16,6 @@
 											</td>
 										</tr>
 								<?php
-
 								    }
 								}else{?>
 								    <tr>

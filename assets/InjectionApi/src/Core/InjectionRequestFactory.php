@@ -4,7 +4,6 @@ namespace Socketlabs\Core;
  * Used by the Send function of the SocketLabsClient to generate an InjectionRequest for the Injection Api
  */
 class InjectionRequestFactory {
-
     private $serverId;
     private $apiKey;
 
@@ -25,7 +24,6 @@ class InjectionRequestFactory {
      * @return object
      */
     public function generateRequest($message){
-
         if(is_a($message, "Socketlabs\Message\BulkMessage")){
             return $this->generateBulkRequest($message);
         }
@@ -38,7 +36,6 @@ class InjectionRequestFactory {
      * @return object
      */
     private function generateRequestCore($message){
-
         $request = new InjectionRequest($this->serverId, $this->apiKey);
 
         $messageJson = new \Socketlabs\Core\Serialization\MessageJson();
@@ -75,7 +72,6 @@ class InjectionRequestFactory {
      * @return object
      */
     private function generateBasicRequest($basicMessage){
-
         //populate properties common to all messages
         $request = $this->generateRequestCore($basicMessage);
         $messageJson = $request->Messages[0];
@@ -98,7 +94,6 @@ class InjectionRequestFactory {
      * @return object
      */
     private function generateBulkRequest($bulkMessage){
-
         //populate properties common to all messages
         $request = $this->generateRequestCore($bulkMessage);
         $messageJson = $request->Messages[0];
@@ -115,14 +110,12 @@ class InjectionRequestFactory {
         return $request;
     }
 
-
     /**
      * Shapes list of email addresses into injection api format
      * @param EmailAddress $emailAddress
      * @return object
      */
     private function getAddressList($emailAddresses){
-
         if($emailAddresses == null)
             return null;
 
@@ -146,7 +139,6 @@ class InjectionRequestFactory {
         $results = array();
 
         foreach($attachments as $attachment){
-
             $target = new \Socketlabs\Message\Attachment();
             $target->Name = $attachment->name;
             $target->ContentType = $attachment->mimeType;
@@ -192,12 +184,10 @@ class InjectionRequestFactory {
      * @return array
      */
     private function getBulkMergeFields($bulkRecipients){
-
         $allRecipients = array();
 
         //loop through each recipient
         foreach ($bulkRecipients as $bulkRecipient){
-
             //add address
             $recipientMergeFields = array();
             $recipientMergeFields[] = new \Socketlabs\Core\Serialization\MergeFieldJson("DeliveryAddress", $bulkRecipient->emailAddress);
@@ -205,7 +195,6 @@ class InjectionRequestFactory {
             //add friendly name if provided
             if($bulkRecipient->friendlyName != null)
                 $recipientMergeFields[] = new \Socketlabs\Core\Serialization\MergeFieldJson('RecipientName', $bulkRecipient->friendlyName);
-
 
             //if merge fields provided, add them as well
             if($bulkRecipient->mergeData != null){
@@ -216,7 +205,6 @@ class InjectionRequestFactory {
 
             //add recipient merge data to the results
             array_push($allRecipients, $recipientMergeFields);
-
         }
         return $allRecipients;
     }
@@ -227,7 +215,6 @@ class InjectionRequestFactory {
      * @return array
      */
     private function getGlobalMergeFields($globalMergeData){
-
         if($globalMergeData == null)
             return null;
 
@@ -238,6 +225,4 @@ class InjectionRequestFactory {
         }
         return $results;
     }
-
-
 }

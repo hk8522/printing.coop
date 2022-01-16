@@ -7,7 +7,6 @@ use Flagship\Apis\Exception\ApiException;
 
 class AssociateShipmentRequest extends ApiRequest{
     public function __construct(string $apiToken, string $baseUrl, int $manifestId, array $payload,string $flagshipFor, string $version){
-
         $this->apiToken = $apiToken;
         $this->apiUrl = $baseUrl.'/ship/edhl/associate/'.$manifestId;
         $this->payload = $payload;

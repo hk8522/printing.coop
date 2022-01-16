@@ -6,7 +6,6 @@ use \PHPUnit\Framework\TestCase;
 use Flagship\Shipping\Requests\CancelManifestByIdRequest;
 
 class CancelManifestByIdTests extends TestCase{
-
     public function testResponseCode(){
         $this->assertNull($this->cancelManifestByIdRequest->getResponseCode());
     }

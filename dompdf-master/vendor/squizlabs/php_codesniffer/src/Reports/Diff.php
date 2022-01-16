@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Files\File;
 
 class Diff implements Report
 {
-
-
     /**
      * Generate a partial report for a single processed file.
      *
@@ -88,9 +86,7 @@ class Diff implements Report
 
         echo $diff.PHP_EOL;
         return true;
-
     }//end generateFileReport()
-
 
     /**
      * Prints all errors and warnings for each file processed.
@@ -123,8 +119,5 @@ class Diff implements Report
         if ($toScreen === true && $cachedData !== '') {
             echo PHP_EOL;
         }
-
     }//end generate()
-
-
 }//end class

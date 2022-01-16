@@ -161,7 +161,7 @@ class Version {
             (?:
                 -
                 (?<PreReleaseSuffix>(?:(dev|beta|b|RC|alpha|a|patch|p)\.?\d*))
-            )?       
+            )?
         $/x';
 
         if (preg_match($regex, $version, $matches) !== 1) {

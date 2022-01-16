@@ -18,5 +18,4 @@ $message->addToAddress(new EmailAddress("recipient1@example.com"));
 //Invalid email address
 $message->from = new EmailAddress("!@#$!@#$!@#$@#!$");
 
-
 $response = $client->send($message);

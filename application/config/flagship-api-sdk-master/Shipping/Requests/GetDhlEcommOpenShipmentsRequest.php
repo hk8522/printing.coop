@@ -7,7 +7,6 @@ use Flagship\Shipping\Exceptions\GetDhlEcommOpenShipmentsException;
 use Flagship\Shipping\Collections\GetShipmentListCollection;
 
 class GetDhlEcommOpenShipmentsRequest extends ApiRequest{
-
     public function __construct(string $token,string $baseUrl,string $flagshipFor,string $version){
         $this->apiToken = $token;
         $this->apiUrl = $baseUrl.'/ship/edhl/open-shipments';

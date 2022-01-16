@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ForbiddenStylesSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -62,7 +61,6 @@ class ForbiddenStylesSniff implements Sniff
      */
     public $error = true;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -79,9 +77,7 @@ class ForbiddenStylesSniff implements Sniff
         }
 
         return [T_STYLE];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -121,9 +117,7 @@ class ForbiddenStylesSniff implements Sniff
         }//end if
 
         $this->addError($phpcsFile, $stackPtr, $style, $pattern);
-
     }//end process()
-
 
     /**
      * Generates the error or warning for this sniff.
@@ -170,8 +164,5 @@ class ForbiddenStylesSniff implements Sniff
                 $phpcsFile->addWarning($error, $stackPtr, $type, $data);
             }
         }
-
     }//end addError()
-
-
 }//end class

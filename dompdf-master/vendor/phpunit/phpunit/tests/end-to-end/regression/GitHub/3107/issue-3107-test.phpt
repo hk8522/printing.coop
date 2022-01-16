@@ -16,9 +16,9 @@ Issue3107\Issue3107
  ✘ One
    │
    │ Error: Call to undefined function %Sdoes_not_exist()
-   │ 
+   │
    │ %sIssue3107Test.php:%d
-   │ 
+   │
 
 Time: %s, Memory: %s
 

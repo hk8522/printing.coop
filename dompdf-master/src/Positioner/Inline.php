@@ -19,7 +19,6 @@ use Dompdf\Exception;
  */
 class Inline extends AbstractPositioner
 {
-
     /**
      * @param AbstractFrameDecorator $frame
      * @throws Exception

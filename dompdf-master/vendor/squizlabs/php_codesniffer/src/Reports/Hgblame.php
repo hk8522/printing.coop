@@ -14,14 +14,12 @@ use PHP_CodeSniffer\Exceptions\DeepExitException;
 
 class Hgblame extends VersionControl
 {
-
     /**
      * The name of the report we want in the output
      *
      * @var string
      */
     protected $reportName = 'MERCURIAL';
-
 
     /**
      * Extract the author from a blame line.
@@ -54,9 +52,7 @@ class Hgblame extends VersionControl
         $parts = array_slice($parts, 0, (count($parts) - 6));
 
         return trim(preg_replace('|<.+>|', '', implode(' ', $parts)));
-
     }//end getAuthor()
-
 
     /**
      * Gets the blame output.
@@ -103,8 +99,5 @@ class Hgblame extends VersionControl
         chdir($cwd);
 
         return $blames;
-
     }//end getBlameContent()
-
-
 }//end class

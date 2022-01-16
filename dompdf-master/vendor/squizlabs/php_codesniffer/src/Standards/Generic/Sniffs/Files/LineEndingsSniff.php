@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class LineEndingsSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -33,7 +32,6 @@ class LineEndingsSniff implements Sniff
      */
     public $eolChar = '\n';
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -42,9 +40,7 @@ class LineEndingsSniff implements Sniff
     public function register()
     {
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -134,8 +130,5 @@ class LineEndingsSniff implements Sniff
 
         // Ignore the rest of the file.
         return ($phpcsFile->numTokens + 1);
-
     }//end process()
-
-
 }//end class

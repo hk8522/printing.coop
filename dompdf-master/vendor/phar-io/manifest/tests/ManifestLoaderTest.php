@@ -64,7 +64,6 @@ class ManifestLoaderTest extends \PHPUnit\Framework\TestCase {
             Manifest::class,
             ManifestLoader::fromPhar(__DIR__ . '/_fixture/test.phar')
         );
-
     }
 
     public function testLoadingNonExistingFileThrowsException() {
@@ -79,5 +78,4 @@ class ManifestLoaderTest extends \PHPUnit\Framework\TestCase {
         $this->expectException(ManifestLoaderException::class);
         ManifestLoader::fromString('<?xml version="1.0" ?><broken>');
     }
-
 }

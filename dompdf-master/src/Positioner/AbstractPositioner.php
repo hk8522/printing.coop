@@ -20,7 +20,6 @@ use Dompdf\FrameDecorator\AbstractFrameDecorator;
  */
 abstract class AbstractPositioner
 {
-
     /**
      * @param AbstractFrameDecorator $frame
      * @return mixed

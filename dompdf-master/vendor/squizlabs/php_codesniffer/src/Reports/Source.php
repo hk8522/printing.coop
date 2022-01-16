@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Util\Timing;
 
 class Source implements Report
 {
-
-
     /**
      * Generate a partial report for a single processed file.
      *
@@ -60,9 +58,7 @@ class Source implements Report
         }
 
         return true;
-
     }//end generateFileReport()
-
 
     /**
      * Prints the source of all errors and warnings.
@@ -268,9 +264,7 @@ class Source implements Report
         if ($toScreen === true && $interactive === false) {
             Timing::printRunTime();
         }
-
     }//end generate()
-
 
     /**
      * Converts a camel caps name into a readable string.
@@ -329,8 +323,5 @@ class Source implements Report
         $friendlyName[0] = strtoupper($friendlyName[0]);
 
         return $friendlyName;
-
     }//end makeFriendlyName()
-
-
 }//end class

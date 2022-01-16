@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class FileHeaderSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class FileHeaderSniff implements Sniff
     public function register()
     {
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes this sniff when one of its tokens is encountered.
@@ -101,9 +97,7 @@ class FileHeaderSniff implements Sniff
         $this->processHeaderLines($phpcsFile, $possibleHeaders[$openTag]);
 
         return $phpcsFile->numTokens;
-
     }//end process()
-
 
     /**
      * Gather information about the statements inside a possible file header.
@@ -234,9 +228,7 @@ class FileHeaderSniff implements Sniff
         } while ($next !== false);
 
         return $headerLines;
-
     }//end getHeaderLines()
-
 
     /**
      * Check the spacing and grouping of the statements inside each header block.
@@ -384,8 +376,5 @@ class FileHeaderSniff implements Sniff
                 $phpcsFile->addError($error, $found[$type]['start'], 'IncorrectOrder', $data);
             }//end if
         }//end foreach
-
     }//end processHeaderLines()
-
-
 }//end class

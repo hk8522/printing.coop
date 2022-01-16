@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class ConstantVisibilityUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Returns the lines where errors should occur.
      *
@@ -26,9 +24,7 @@ class ConstantVisibilityUnitTest extends AbstractSniffUnitTest
     public function getErrorList()
     {
         return [];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -41,8 +37,5 @@ class ConstantVisibilityUnitTest extends AbstractSniffUnitTest
     public function getWarningList()
     {
         return [4 => 1];
-
     }//end getWarningList()
-
-
 }//end class

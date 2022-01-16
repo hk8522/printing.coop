@@ -28,8 +28,6 @@ class LineName extends ValueList {
 		return new LineName($aNames, $oParserState->currentLine());
 	}
 
-
-
 	public function __toString() {
 		return $this->render(new \Sabberworm\CSS\OutputFormat());
 	}
@@ -37,5 +35,4 @@ class LineName extends ValueList {
 	public function render(\Sabberworm\CSS\OutputFormat $oOutputFormat) {
 		return '[' . parent::render(\Sabberworm\CSS\OutputFormat::createCompact()) . ']';
 	}
-
 }

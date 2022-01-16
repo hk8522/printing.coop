@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ElseIfDeclarationSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -24,9 +22,7 @@ class ElseIfDeclarationSniff implements Sniff
     public function register()
     {
         return [T_ELSEIF];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -44,8 +40,5 @@ class ElseIfDeclarationSniff implements Sniff
         if ($fix === true) {
             $phpcsFile->fixer->replaceToken($stackPtr, 'else if');
         }
-
     }//end process()
-
-
 }//end class

@@ -97,7 +97,3 @@ var status_ticket='<?php echo isset($status_ticket) ? base64_encode($status_tick
  </script>
 <script src="<?php echo $BASE_URL;?>assets/admin/js/tickets.js"></script>
 
-
-
-
-

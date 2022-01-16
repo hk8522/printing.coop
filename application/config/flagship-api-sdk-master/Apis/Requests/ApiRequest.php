@@ -5,7 +5,6 @@ use Flagship\Apis\Exceptions\ApiException;
 use Flagship\Shipping\Exceptions\FilterException;
 
 abstract class ApiRequest{
-
     public function setStoreName(string $storeName){
         $this->setHeader("X-Store-Name",$storeName);
         return $this;
@@ -60,7 +59,6 @@ abstract class ApiRequest{
     }
 
     protected function addRequestFilter($key,$value){
-
         if(in_array($key,$this->filters)){
             $this->url = $this->url.'?'.$key.'='.$value;
             return $this;
@@ -85,5 +83,4 @@ abstract class ApiRequest{
         $this->headers[] = $key.": ".$value;
         return $this;
     }
-
 }

@@ -7,7 +7,6 @@ use \PHPUnit\Framework\TestCase;
 use Flagship\Shipping\Objects\Manifest;
 
 class CreateManifestTests extends TestCase{
-
     public function testGetName(){
         $this->assertNotNull($this->manifest->getName());
         $this->assertInternalType('string', $this->manifest->getName());

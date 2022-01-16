@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class LogicalOperatorSpacingSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -26,7 +25,6 @@ class LogicalOperatorSpacingSniff implements Sniff
         'JS',
     ];
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -35,9 +33,7 @@ class LogicalOperatorSpacingSniff implements Sniff
     public function register()
     {
         return Tokens::$booleanOperators;
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -95,8 +91,5 @@ class LogicalOperatorSpacingSniff implements Sniff
                 }
             }
         }
-
     }//end process()
-
-
 }//end class

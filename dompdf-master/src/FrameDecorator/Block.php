@@ -121,7 +121,6 @@ class Block extends AbstractFrameDecorator
               $frame instanceof Text && trim($frame->get_text())) &&
             ($frame->get_prev_sibling() && $frame->get_prev_sibling()->get_style()->display === "block" &&
              $this->_line_boxes[$this->_cl]->w > 0 )) {
-
                $this->maximize_line_height( $style->length_in_pt($style->line_height), $frame );
                $this->add_line();
 
@@ -272,7 +271,6 @@ class Block extends AbstractFrameDecorator
      */
     function add_line($br = false)
     {
-
 //     if ( $this->_line_boxes[$this->_cl]["h"] == 0 ) //count($this->_line_boxes[$i]["frames"]) == 0 ||
 //       return;
 

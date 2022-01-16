@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/output.html
  */
 class CI_Output {
-
 	/**
 	 * Final output string
 	 *

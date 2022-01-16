@@ -14,7 +14,6 @@ namespace Dompdf;
  */
 class PhpEvaluator
 {
-
     /**
      * @var Canvas
      */

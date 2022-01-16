@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Config;
 
 class Filter extends \RecursiveFilterIterator
 {
-
     /**
      * The top-level path we are filtering.
      *
@@ -60,7 +59,6 @@ class Filter extends \RecursiveFilterIterator
      */
     protected $acceptedPaths = [];
 
-
     /**
      * Constructs a filter.
      *
@@ -77,9 +75,7 @@ class Filter extends \RecursiveFilterIterator
         $this->basedir = $basedir;
         $this->config  = $config;
         $this->ruleset = $ruleset;
-
     }//end __construct()
-
 
     /**
      * Check whether the current element of the iterator is acceptable.
@@ -118,9 +114,7 @@ class Filter extends \RecursiveFilterIterator
 
         $this->acceptedPaths[$realPath] = true;
         return true;
-
     }//end accept()
-
 
     /**
      * Returns an iterator for the current entry.
@@ -145,9 +139,7 @@ class Filter extends \RecursiveFilterIterator
         $children->ignoreFilePatterns = $this->ignoreFilePatterns;
         $children->acceptedPaths      = $this->acceptedPaths;
         return $children;
-
     }//end getChildren()
-
 
     /**
      * Checks filtering rules to see if a file should be checked.
@@ -184,9 +176,7 @@ class Filter extends \RecursiveFilterIterator
         }
 
         return true;
-
     }//end shouldProcessFile()
-
 
     /**
      * Checks filtering rules to see if a path should be ignored.
@@ -275,8 +265,5 @@ class Filter extends \RecursiveFilterIterator
         }//end foreach
 
         return false;
-
     }//end shouldIgnorePath()
-
-
 }//end class

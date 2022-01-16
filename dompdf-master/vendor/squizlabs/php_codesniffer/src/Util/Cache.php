@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Ruleset;
 
 class Cache
 {
-
     /**
      * The filesystem location of the cache file.
      *
@@ -29,7 +28,6 @@ class Cache
      * @var array<string, mixed>
      */
     private static $cache = [];
-
 
     /**
      * Loads existing cache data for the run, if any.
@@ -272,9 +270,7 @@ class Cache
         }
 
         self::$cache['config'] = $configData;
-
     }//end load()
-
 
     /**
      * Saves the current cache to the filesystem.
@@ -284,9 +280,7 @@ class Cache
     public static function save()
     {
         file_put_contents(self::$path, json_encode(self::$cache));
-
     }//end save()
-
 
     /**
      * Retrieves a single entry from the cache.
@@ -307,9 +301,7 @@ class Cache
         }
 
         return false;
-
     }//end get()
-
 
     /**
      * Retrieves a single entry from the cache.
@@ -327,9 +319,7 @@ class Cache
         } else {
             self::$cache[$key] = $value;
         }
-
     }//end set()
-
 
     /**
      * Retrieves the number of cache entries.
@@ -339,8 +329,5 @@ class Cache
     public static function getSize()
     {
         return (count(self::$cache) - 1);
-
     }//end getSize()
-
-
 }//end class

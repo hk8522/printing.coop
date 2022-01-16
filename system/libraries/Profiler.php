@@ -53,7 +53,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/general/profiling.html
  */
 class CI_Profiler {
-
 	/**
 	 * List of profiler sections available to show
 	 *
@@ -570,5 +569,4 @@ class CI_Profiler {
 
 		return $output.'</div>';
 	}
-
 }

@@ -368,7 +368,6 @@ if ( ! function_exists('is_https'))
 
 if ( ! function_exists('is_cli'))
 {
-
 	/**
 	 * Is CLI?
 	 *

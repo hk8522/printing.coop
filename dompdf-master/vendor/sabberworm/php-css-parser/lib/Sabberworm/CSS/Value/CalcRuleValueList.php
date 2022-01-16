@@ -10,5 +10,4 @@ class CalcRuleValueList extends RuleValueList {
 	public function render(\Sabberworm\CSS\OutputFormat $oOutputFormat) {
 		return $oOutputFormat->implode(' ', $this->aComponents);
 	}
-
 }

@@ -93,7 +93,7 @@ The `$stream` can be any valid stream resource, such as:
 $stream = fopen('demo.txt', 'w+');
 ```
 
-The `$callback` should be a valid callable function which accepts 
+The `$callback` should be a valid callable function which accepts
 an individual chunk of data and should return the updated chunk:
 
 ```php
@@ -211,7 +211,7 @@ assert('grfg' === $fun('test'));
 assert('test' === $fun($fun('test'));
 ```
 
-Please note that not all filter functions may be available depending 
+Please note that not all filter functions may be available depending
 on installed PHP extensions and the PHP version in use.
 In particular, [HHVM](https://hhvm.com/) may not offer the same filter functions
 or parameters as Zend PHP.

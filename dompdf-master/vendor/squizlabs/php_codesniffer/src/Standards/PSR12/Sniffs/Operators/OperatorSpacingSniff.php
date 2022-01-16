@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class OperatorSpacingSniff extends SquizOperatorSpacingSniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -36,9 +34,7 @@ class OperatorSpacingSniff extends SquizOperatorSpacingSniff
         $targets[] = T_INSTANCEOF;
 
         return $targets;
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -105,8 +101,5 @@ class OperatorSpacingSniff extends SquizOperatorSpacingSniff
                 $phpcsFile->fixer->addContent($stackPtr, ' ');
             }
         }
-
     }//end process()
-
-
 }//end class

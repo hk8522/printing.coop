@@ -9,7 +9,6 @@ use Flagship\Shipping\Collections\RatesCollection;
 use Flagship\Shipping\Objects\Rate;
 
 class GetDhlEcommRatesTest extends TestCase{
-
     public function testGetCheapest(){
         $this->assertNotNull($this->rates->getCheapest());
         $this->assertSame(31.18,$this->rates->getCheapest()->getTotal());

@@ -130,7 +130,6 @@
 
 <?php
     foreach($ProductSizes as $key=>$val){
-
 		//pr($ProductSizes,1);
 
 		$sizeData=isset($val['sizeData']) ? $val['sizeData']:'';
@@ -173,7 +172,6 @@
             <?php
     		if(!empty($sizeData)){
     		foreach($sizeData as $skey=>$sval){
-
                 $size_extra_price='';
                 $size_extra_price=isset($sval['extra_price']) ? $sval['extra_price']:'';
               ?>
@@ -430,7 +428,6 @@
 <?php
 }?>
 
-
 		    </div>
 
 	    </div>
@@ -495,7 +492,6 @@
 <script>
     product_id='<?php echo $product_id?>';
 	function isNumber(evt) {
-
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode
         if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
             return false;
@@ -504,7 +500,6 @@
     }
 
 	function addActiveClass(id){
-
 		if($("#attribute_id_"+id).prop("checked") == true){
 			$("#attribute_id_div_"+id).addClass('active');
 		}else{
@@ -516,44 +511,29 @@
 		//alert(id);
 
 		if($("#"+id).prop("checked") == true){
-
 			$("#hidden_"+id).val($("#"+id).val());
 		}else{
-
 			$("#hidden_"+id).val('');
 		}
-
 	}
 
 	function addActiveSizeClass(id){
-
 		if($("#size_attribute_id_"+id).prop("checked") == true){
-
 			$("#size_attribute_id_div_"+id).addClass('active');
 		}else{
-
 			$("#size_attribute_id_div_"+id).removeClass('active');
 		}
-
 	}
 
 	function addActiveQuantitySizeClass(id){
-
-
-
 		if($("#quantity_attribute_id_"+id).prop("checked") == true){
-
-
 			$("#quantity_attribute_id_div_"+id).show();
-
 		}else{
-
 			$("#quantity_attribute_id_div_"+id).hide();
 		}
 	}
 
 	function addQuantity(quantity_id){
-
 		    $("#QualityModal .modal-title").html('Add Quantity');
 			if(quantity_id !=''){
 				$("#QualityModal .modal-title").html('Edit Quantity');
@@ -573,7 +553,6 @@
 	}
 
 	function deleteQuantity(quantity_id){
-
 		var result = confirm("Are you sure you want to remove Quantity from this product ?");
 
 		if(result==true && quantity_id !=''){
@@ -591,10 +570,8 @@
 	}
 
 	function addSize(quantity_id,size_id){
-
 		    $("#QualityModal .modal-title").html('Add Size');
 			if(size_id !=''){
-
 				$("#QualityModal .modal-title").html('Edit Size');
 			}
 		    $("#QualityModal").modal('show');
@@ -611,10 +588,8 @@
 	}
 
 	function addAttribute(quantity_id,size_id,action){
-
 			$("#ItemModal .modal-title").html('Add Size Attribute');
 			if(action !=''){
-
 				$("#ItemModal .modal-title").html('Edit Size Attribute');
 			}
 			$("#ItemModal").modal('show');
@@ -630,7 +605,6 @@
 	}
 
 	function deleteQuantity(quantity_id){
-
 		var result = confirm("Are you sure you want to remove Quantity from this product ?");
 
 		if(result==true && quantity_id !=''){
@@ -648,7 +622,6 @@
 	}
 
 	function deleteQuantity(quantity_id){
-
 		var result = confirm("Are you sure you want to remove Quantity from this product ?");
 
 		if(result==true && quantity_id !=''){
@@ -665,7 +638,6 @@
 		}
 	}
 	function deleteProductSize(quantity_id,size_id){
-
 		var result = confirm("Are you sure you want to remove size from this product & quantity ?");
 
 		if(result==true && quantity_id !=''){

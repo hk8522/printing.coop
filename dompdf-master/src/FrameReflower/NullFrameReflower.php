@@ -18,7 +18,6 @@ use Dompdf\FrameDecorator\Block as BlockFrameDecorator;
  */
 class NullFrameReflower extends AbstractFrameReflower
 {
-
     /**
      * NullFrameReflower constructor.
      * @param Frame $frame
@@ -35,5 +34,4 @@ class NullFrameReflower extends AbstractFrameReflower
     {
         return;
     }
-
 }

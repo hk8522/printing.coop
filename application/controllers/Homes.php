@@ -29,7 +29,6 @@ class Homes extends Public_Controller
 	   $this->data['allServices'] = $this->Service_Model->getActiveServices($this->website_store_id);
 
 	   if($this->website_store_id == 1){
-
 		   $this->data['section_1']   = $this->Section_Model->getSectionById(1);
 		   $this->data['section_2']   = $this->Section_Model->getSectionById(2);
 		   $this->data['section_3']   = $this->Section_Model->getSectionById(3);
@@ -51,7 +50,6 @@ class Homes extends Public_Controller
 				$this->data['meta_description_content'] = $pageData['meta_description_content'];
 				$this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
 				if($this->language_name=='French'){
-
 					$this->data['page_title']=$pageData['title_france'];
 					$this->data['meta_page_title'] = $pageData['page_title_france'];
 					$this->data['meta_description_content'] = $pageData['meta_description_content_france'];
@@ -61,9 +59,7 @@ class Homes extends Public_Controller
 				$this->data['slug']=$pageData['slug'];
 				$this->data['pageData']=$pageData;
 			}
-
 	   }else if($this->website_store_id == 3){
-
 		   $this->data['section_1']   = $this->Section_Model->getSectionById(8);
 		   $this->data['section_2']   = $this->Section_Model->getSectionById(10);
 		   $this->data['section_3']   = $this->Section_Model->getSectionById(12);
@@ -77,9 +73,7 @@ class Homes extends Public_Controller
 	        $this->data['proudly_display_your_brand_tags'] = $proudly_display_your_brand_tags;
             $this->data['montreal_book_printing_tags'] = $montreal_book_printing_tags;
 			$this->data['our_printed_products_category'] = $this->Category_Model->ourPrintedProductsCategory();
-
 	   }else if($this->website_store_id == 5){
-
 		   $this->data['section_1']   = $this->Section_Model->getSectionById(9);
 		   $this->data['section_2']   = $this->Section_Model->getSectionById(11);
 		   $this->data['section_3']   = $this->Section_Model->getSectionById(13);
@@ -93,17 +87,12 @@ class Homes extends Public_Controller
 		   $this->data['PrinterBrandsLists']              = $this->Printer_Model->getActicePrinterBrandsList();
 
 		   //pr($this->data['our_ink_printed_products'],1);
-
-
 	    }
 
         $this->render($this->class_name.'index');
-
-
     }
 
 	function COVIDMSGClose(){
-
 		$this->load->helper('cookie');
 		$cookie= array(
             'name'   => 'COVID19MSG',
@@ -112,6 +101,5 @@ class Homes extends Public_Controller
             );
 		$this->input->set_cookie($cookie);
 		exit();
-
 	}
 }

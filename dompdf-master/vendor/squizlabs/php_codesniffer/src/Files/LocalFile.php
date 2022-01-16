@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Cache;
 
 class LocalFile extends File
 {
-
-
     /**
      * Creates a LocalFile object and sets the content.
      *
@@ -60,9 +58,7 @@ class LocalFile extends File
         $this->reloadContent();
 
         parent::__construct($this->path, $ruleset, $config);
-
     }//end __construct()
-
 
     /**
      * Loads the latest version of the file's content from the file system.
@@ -72,9 +68,7 @@ class LocalFile extends File
     public function reloadContent()
     {
         $this->setContent(file_get_contents($this->path));
-
     }//end reloadContent()
-
 
     /**
      * Processes the file.
@@ -148,9 +142,7 @@ class LocalFile extends File
             $this->replayErrors($this->errors, $this->warnings);
             $this->configCache['cache'] = true;
         }
-
     }//end process()
-
 
     /**
      * Clears and replays error and warnings for the file.
@@ -211,8 +203,5 @@ class LocalFile extends File
         }
 
         $this->replayingErrors = false;
-
     }//end replayErrors()
-
-
 }//end class

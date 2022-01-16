@@ -1,6 +1,5 @@
 <style>
        #login-password{
-
            -webkit-text-security:disc;
        }
 </style>

@@ -23,7 +23,6 @@ use PHP_CodeSniffer\Util\Standards;
 
 class Runner
 {
-
     /**
      * The config data for the run.
      *
@@ -44,7 +43,6 @@ class Runner
      * @var \PHP_CodeSniffer\Reporter
      */
     public $reporter = null;
-
 
     /**
      * Run the PHPCS script.
@@ -142,9 +140,7 @@ class Runner
             // Errors found, and some can be fixed by PHPCBF.
             return 2;
         }
-
     }//end runPHPCS()
-
 
     /**
      * Run the PHPCBF script.
@@ -225,9 +221,7 @@ class Runner
 
         // PHPCBF fixed some fixable errors, but others failed to fix.
         return 2;
-
     }//end runPHPCBF()
-
 
     /**
      * Exits if the minimum requirements of PHP_CodeSniffer are not met.
@@ -273,9 +267,7 @@ class Runner
             $error = sprintf($error, $required, $missing);
             throw new DeepExitException($error, 3);
         }
-
     }//end checkRequirements()
-
 
     /**
      * Init the rulesets and other high-level settings.
@@ -335,9 +327,7 @@ class Runner
             $error .= $this->config->printShortUsage(true);
             throw new DeepExitException($error, 3);
         }
-
     }//end init()
-
 
     /**
      * Performs the run.
@@ -577,9 +567,7 @@ class Runner
         }
 
         return $return;
-
     }//end run()
-
 
     /**
      * Converts all PHP errors into exceptions.
@@ -604,9 +592,7 @@ class Runner
         }
 
         throw new RuntimeException("$message in $file on line $line");
-
     }//end handleErrors()
-
 
     /**
      * Processes a single file, including checking and fixing.
@@ -696,9 +682,7 @@ class Runner
 
         // Clean up the file to save (a lot of) memory.
         $file->cleanUp();
-
     }//end processFile()
-
 
     /**
      * Waits for child processes to complete and cleans up after them.
@@ -769,9 +753,7 @@ class Runner
         }//end while
 
         return $success;
-
     }//end processChildProcs()
-
 
     /**
      * Print progress information for a single processed file.
@@ -879,8 +861,5 @@ class Runner
         }
 
         echo str_repeat(' ', $padding)." $numProcessed / $numFiles ($percent%)".PHP_EOL;
-
     }//end printProgress()
-
-
 }//end class

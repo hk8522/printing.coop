@@ -112,7 +112,6 @@
     //$("#submitBtn").attr("disabled", false);
 
     $('#menu_id').on('change', function (e) {
-
 		var menu_id=$(this).val();
 		$("#category_id").html('<option value="">Select Category</option>');
 		$("#sub_category_id").html('<option value="">Select Sub Category</option>');
@@ -133,7 +132,6 @@
 	});
 
 	$('#category_id').on('change', function (e) {
-
 		$("#sub_category_id").html('<option value="">Select Sub Category</option>');
 
 		$("#product_id").html('<option value="">Select Product Name </option>');
@@ -156,7 +154,6 @@
 	});
 
 	$('#sub_category_id').on('change', function (e) {
-
 	    $("#product_id").html('<option value="">Select Product Name </option>');
 
 		var menu_id=$("#menu_id").val();

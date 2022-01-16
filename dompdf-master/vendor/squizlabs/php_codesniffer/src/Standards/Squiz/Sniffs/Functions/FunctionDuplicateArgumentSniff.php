@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class FunctionDuplicateArgumentSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -24,9 +22,7 @@ class FunctionDuplicateArgumentSniff implements Sniff
     public function register()
     {
         return [T_FUNCTION];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -57,8 +53,5 @@ class FunctionDuplicateArgumentSniff implements Sniff
                 }
             }
         }
-
     }//end process()
-
-
 }//end class

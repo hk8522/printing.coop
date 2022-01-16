@@ -5,13 +5,11 @@ use \PHPUnit\Framework\TestCase;
 use Flagship\Shipping\Objects\Shipment;
 
 class ConfirmShipmentTests extends TestCase{
-
         public function testGetId(){
             $this->assertNotEmpty($this->confirmShipment->getId());
             $this->assertNotNull($this->confirmShipment->getId());
             $this->assertSame(2950364,$this->confirmShipment->getId());
         }
-
 
         public function testGetTrackingNumber(){
             $this->assertNotEmpty($this->confirmShipment->getTrackingNumber());
@@ -19,12 +17,10 @@ class ConfirmShipmentTests extends TestCase{
             $this->assertSame("329022136009",$this->confirmShipment->getTrackingNumber());
         }
 
-
         public function testIsDocumentsOnly(){
             $this->assertNotNull($this->confirmShipment->isDocumentsOnly());
             $this->assertSame(FALSE,$this->confirmShipment->isDocumentsOnly());
         }
-
 
         public function testGetSubtotal(){
             $this->assertNotEmpty($this->confirmShipment->getSubtotal());
@@ -42,7 +38,6 @@ class ConfirmShipmentTests extends TestCase{
             $this->assertSame($expected, $this->confirmShipment->getTaxesDetails());
         }
 
-
         public function testGetTotal(){
             $this->assertNotEmpty($this->confirmShipment->getTotal());
             $this->assertNotNull($this->confirmShipment->getTotal());
@@ -55,13 +50,11 @@ class ConfirmShipmentTests extends TestCase{
             $this->assertSame("standard",$this->confirmShipment->getFlagshipCode());
         }
 
-
         public function testGetCourierCode(){
             $this->assertNotEmpty($this->confirmShipment->getCourierCode());
             $this->assertNotNull($this->confirmShipment->getCourierCode());
             $this->assertSame("PurolatorGround",$this->confirmShipment->getCourierCode());
         }
-
 
         public function testGetCourierDescription(){
             $this->assertNotEmpty($this->confirmShipment->getCourierDescription());
@@ -69,13 +62,11 @@ class ConfirmShipmentTests extends TestCase{
             $this->assertSame("Purolator Ground",$this->confirmShipment->getCourierDescription());
         }
 
-
         public function testGetCourierName(){
             $this->assertNotEmpty($this->confirmShipment->getCourierName());
             $this->assertNotNull($this->confirmShipment->getCourierName());
             $this->assertSame("Purolator",$this->confirmShipment->getCourierName());
         }
-
 
         public function testGetTransitTime(){
             $this->assertNotEmpty($this->confirmShipment->getTransitTime());
@@ -83,20 +74,17 @@ class ConfirmShipmentTests extends TestCase{
             $this->assertSame("1",$this->confirmShipment->getTransitTime());
         }
 
-
         public function testGetEstimatedDeliveryDate(){
             $this->assertNotEmpty($this->confirmShipment->getEstimatedDeliveryDate());
             $this->assertNotNull($this->confirmShipment->getEstimatedDeliveryDate());
             $this->assertSame("2018-11-02",$this->confirmShipment->getEstimatedDeliveryDate());
         }
 
-
         public function testGetLabel(){
             $this->assertNotEmpty($this->confirmShipment->getLabel());
             $this->assertNotNull($this->confirmShipment->getLabel());
             $this->assertSame("https://flagshipcompany.com/ship/2950364/labels/06df987f0d2ef55d19da283baebaa12771e46a8f?document=reg",$this->confirmShipment->getLabel());
         }
-
 
         public function testGetThermalLabel(){
             $this->assertNotEmpty($this->confirmShipment->getThermalLabel());
@@ -153,6 +141,5 @@ class ConfirmShipmentTests extends TestCase{
                               ->setConstructorArgs([json_decode($response)])
                               ->setMethods(['__construct'])
                               ->getMock();
-
         }
 }

@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Files\File;
 
 class GetRequestDataSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -24,9 +22,7 @@ class GetRequestDataSniff implements Sniff
     public function register()
     {
         return [T_VARIABLE];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -99,8 +95,5 @@ class GetRequestDataSniff implements Sniff
 
         $error .= ') instead';
         $phpcsFile->addError($error, $stackPtr, $type, $data);
-
     }//end process()
-
-
 }//end class

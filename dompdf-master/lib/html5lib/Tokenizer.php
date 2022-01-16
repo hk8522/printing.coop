@@ -131,7 +131,6 @@ class HTML5_Tokenizer {
         $escape = false;
         //echo "\n\n";
         while($state !== null) {
-
             /*echo $state . ' ';
             switch ($this->content_model) {
                 case self::PCDATA: echo 'PCDATA'; break;
@@ -188,7 +187,6 @@ class HTML5_Tokenizer {
                         character reference data state. Otherwise: treat it as per
                         the "anything else" entry below. */
                         $state = 'character reference data';
-
                     } elseif (
                         $char === '-' &&
                         $hyp_cond === true &&
@@ -244,7 +242,6 @@ class HTML5_Tokenizer {
                             'data' => '>'
                         ]);
                         // We do the "any case" part as part of "anything else".
-
                     } elseif ($char === false) {
                         /* EOF
                         Emit an end-of-file token. */
@@ -252,7 +249,6 @@ class HTML5_Tokenizer {
                         $this->tree->emitToken([
                             'type' => self::EOF
                         ]);
-
                     } elseif ($char === "\t" || $char === "\n" || $char === "\x0c" || $char === ' ') {
                         // Directly after emitting a token you switch back to the "data
                         // state". At that point spaceCharacters are important so they are
@@ -363,12 +359,10 @@ class HTML5_Tokenizer {
                                 /* U+0021 EXCLAMATION MARK (!)
                                 Switch to the markup declaration open state. */
                                 $state = 'markup declaration open';
-
                             } elseif ($char === '/') {
                                 /* U+002F SOLIDUS (/)
                                 Switch to the close tag open state. */
                                 $state = 'close tag open';
-
                             } elseif ('A' <= $char && $char <= 'Z') {
                                 /* U+0041 LATIN LETTER A through to U+005A LATIN LETTER Z
                                 Create a new start tag token, set its tag name to the lowercase
@@ -382,7 +376,6 @@ class HTML5_Tokenizer {
                                 ];
 
                                 $state = 'tag name';
-
                             } elseif ('a' <= $char && $char <= 'z') {
                                 /* U+0061 LATIN SMALL LETTER A through to U+007A LATIN SMALL LETTER Z
                                 Create a new start tag token, set its tag name to the input
@@ -396,7 +389,6 @@ class HTML5_Tokenizer {
                                 ];
 
                                 $state = 'tag name';
-
                             } elseif ($char === '>') {
                                 /* U+003E GREATER-THAN SIGN (>)
                                 Parse error. Emit a U+003C LESS-THAN SIGN character token and a
@@ -411,7 +403,6 @@ class HTML5_Tokenizer {
                                 ]);
 
                                 $state = 'data';
-
                             } elseif ($char === '?') {
                                 /* U+003F QUESTION MARK (?)
                                 Parse error. Switch to the bogus comment state. */
@@ -424,7 +415,6 @@ class HTML5_Tokenizer {
                                     'type' => self::COMMENT
                                 ];
                                 $state = 'bogus comment';
-
                             } else {
                                 /* Anything else
                                 Parse error. Emit a U+003C LESS-THAN SIGN character token and
@@ -519,7 +509,6 @@ class HTML5_Tokenizer {
                             ];
 
                             $state = 'tag name';
-
                         } elseif ('a' <= $char && $char <= 'z') {
                             /* U+0061 LATIN SMALL LETTER A through to U+007A LATIN SMALL LETTER Z
                             Create a new end tag token, set its tag name to the
@@ -532,7 +521,6 @@ class HTML5_Tokenizer {
                             ];
 
                             $state = 'tag name';
-
                         } elseif ($char === '>') {
                             /* U+003E GREATER-THAN SIGN (>)
                             Parse error. Switch to the data state. */
@@ -541,7 +529,6 @@ class HTML5_Tokenizer {
                                 'data' => 'expected-closing-tag-but-got-right-bracket'
                             ]);
                             $state = 'data';
-
                         } elseif ($char === false) {
                             /* EOF
                             Parse error. Emit a U+003C LESS-THAN SIGN character token and a U+002F
@@ -557,7 +544,6 @@ class HTML5_Tokenizer {
 
                             $this->stream->unget();
                             $state = 'data';
-
                         } else {
                             /* Parse error. Switch to the bogus comment state. */
                             $this->emitToken([
@@ -584,18 +570,15 @@ class HTML5_Tokenizer {
                         U+0020 SPACE
                         Switch to the before attribute name state. */
                         $state = 'before attribute name';
-
                     } elseif ($char === '/') {
                         /* U+002F SOLIDUS (/)
                         Switch to the self-closing start tag state. */
                         $state = 'self-closing start tag';
-
                     } elseif ($char === '>') {
                         /* U+003E GREATER-THAN SIGN (>)
                         Emit the current tag token. Switch to the data state. */
                         $this->emitToken($this->token);
                         $state = 'data';
-
                     } elseif ('A' <= $char && $char <= 'Z') {
                         /* U+0041 LATIN CAPITAL LETTER A through to U+005A LATIN CAPITAL LETTER Z
                         Append the lowercase version of the current input
@@ -605,7 +588,6 @@ class HTML5_Tokenizer {
 
                         $this->token['name'] .= strtolower($char . $chars);
                         $state = 'tag name';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Reconsume the EOF character in the data state. */
@@ -616,7 +598,6 @@ class HTML5_Tokenizer {
 
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else
                         Append the current input character to the current tag token's tag name.
@@ -640,18 +621,15 @@ class HTML5_Tokenizer {
                         U+0020 SPACE
                         Stay in the before attribute name state. */
                         $state = 'before attribute name';
-
                     } elseif ($char === '/') {
                         /* U+002F SOLIDUS (/)
                         Switch to the self-closing start tag state. */
                         $state = 'self-closing start tag';
-
                     } elseif ($char === '>') {
                         /* U+003E GREATER-THAN SIGN (>)
                         Emit the current tag token. Switch to the data state. */
                         $this->emitToken($this->token);
                         $state = 'data';
-
                     } elseif ('A' <= $char && $char <= 'Z') {
                         /* U+0041 LATIN CAPITAL LETTER A through to U+005A LATIN CAPITAL LETTER Z
                         Start a new attribute in the current tag token. Set that
@@ -665,7 +643,6 @@ class HTML5_Tokenizer {
                         ];
 
                         $state = 'attribute name';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Reconsume the EOF character in the data state. */
@@ -676,7 +653,6 @@ class HTML5_Tokenizer {
 
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* U+0022 QUOTATION MARK (")
                            U+0027 APOSTROPHE (')
@@ -716,23 +692,19 @@ class HTML5_Tokenizer {
                         U+0020 SPACE
                         Switch to the after attribute name state. */
                         $state = 'after attribute name';
-
                     } elseif ($char === '/') {
                         /* U+002F SOLIDUS (/)
                         Switch to the self-closing start tag state. */
                         $state = 'self-closing start tag';
-
                     } elseif ($char === '=') {
                         /* U+003D EQUALS SIGN (=)
                         Switch to the before attribute value state. */
                         $state = 'before attribute value';
-
                     } elseif ($char === '>') {
                         /* U+003E GREATER-THAN SIGN (>)
                         Emit the current tag token. Switch to the data state. */
                         $this->emitToken($this->token);
                         $state = 'data';
-
                     } elseif ('A' <= $char && $char <= 'Z') {
                         /* U+0041 LATIN CAPITAL LETTER A through to U+005A LATIN CAPITAL LETTER Z
                         Append the lowercase version of the current input
@@ -745,7 +717,6 @@ class HTML5_Tokenizer {
                         $this->token['attr'][$last]['name'] .= strtolower($char . $chars);
 
                         $state = 'attribute name';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Reconsume the EOF character in the data state. */
@@ -756,7 +727,6 @@ class HTML5_Tokenizer {
 
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* U+0022 QUOTATION MARK (")
                            U+0027 APOSTROPHE (')
@@ -803,23 +773,19 @@ class HTML5_Tokenizer {
                         U+0020 SPACE
                         Stay in the after attribute name state. */
                         $state = 'after attribute name';
-
                     } elseif ($char === '/') {
                         /* U+002F SOLIDUS (/)
                         Switch to the self-closing start tag state. */
                         $state = 'self-closing start tag';
-
                     } elseif ($char === '=') {
                         /* U+003D EQUALS SIGN (=)
                         Switch to the before attribute value state. */
                         $state = 'before attribute value';
-
                     } elseif ($char === '>') {
                         /* U+003E GREATER-THAN SIGN (>)
                         Emit the current tag token. Switch to the data state. */
                         $this->emitToken($this->token);
                         $state = 'data';
-
                     } elseif ('A' <= $char && $char <= 'Z') {
                         /* U+0041 LATIN CAPITAL LETTER A through to U+005A LATIN CAPITAL LETTER Z
                         Start a new attribute in the current tag token. Set that
@@ -833,7 +799,6 @@ class HTML5_Tokenizer {
                         ];
 
                         $state = 'attribute name';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Reconsume the EOF character in the data state. */
@@ -844,7 +809,6 @@ class HTML5_Tokenizer {
 
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* U+0022 QUOTATION MARK (")
                            U+0027 APOSTROPHE (')
@@ -883,24 +847,20 @@ class HTML5_Tokenizer {
                         U+0020 SPACE
                         Stay in the before attribute value state. */
                         $state = 'before attribute value';
-
                     } elseif ($char === '"') {
                         /* U+0022 QUOTATION MARK (")
                         Switch to the attribute value (double-quoted) state. */
                         $state = 'attribute value (double-quoted)';
-
                     } elseif ($char === '&') {
                         /* U+0026 AMPERSAND (&)
                         Switch to the attribute value (unquoted) state and reconsume
                         this input character. */
                         $this->stream->unget();
                         $state = 'attribute value (unquoted)';
-
                     } elseif ($char === '\'') {
                         /* U+0027 APOSTROPHE (')
                         Switch to the attribute value (single-quoted) state. */
                         $state = 'attribute value (single-quoted)';
-
                     } elseif ($char === '>') {
                         /* U+003E GREATER-THAN SIGN (>)
                         Parse error. Emit the current tag token. Switch to the data state. */
@@ -910,7 +870,6 @@ class HTML5_Tokenizer {
                         ]);
                         $this->emitToken($this->token);
                         $state = 'data';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Reconsume the EOF character in the data state. */
@@ -920,7 +879,6 @@ class HTML5_Tokenizer {
                         ]);
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* U+003D EQUALS SIGN (=)
                          * U+003C LESS-THAN SIGN (<)
@@ -950,14 +908,12 @@ class HTML5_Tokenizer {
                         /* U+0022 QUOTATION MARK (")
                         Switch to the after attribute value (quoted) state. */
                         $state = 'after attribute value (quoted)';
-
                     } elseif ($char === '&') {
                         /* U+0026 AMPERSAND (&)
                         Switch to the character reference in attribute value
                         state, with the additional allowed character
                         being U+0022 QUOTATION MARK ("). */
                         $this->characterReferenceInAttributeValue('"');
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Reconsume the EOF character in the data state. */
@@ -968,7 +924,6 @@ class HTML5_Tokenizer {
 
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else
                         Append the current input character to the current attribute's value.
@@ -990,12 +945,10 @@ class HTML5_Tokenizer {
                         /* U+0022 QUOTATION MARK (')
                         Switch to the after attribute value state. */
                         $state = 'after attribute value (quoted)';
-
                     } elseif ($char === '&') {
                         /* U+0026 AMPERSAND (&)
                         Switch to the entity in attribute value state. */
                         $this->characterReferenceInAttributeValue("'");
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Reconsume the EOF character in the data state. */
@@ -1006,7 +959,6 @@ class HTML5_Tokenizer {
 
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else
                         Append the current input character to the current attribute's value.
@@ -1031,20 +983,17 @@ class HTML5_Tokenizer {
                         U+0020 SPACE
                         Switch to the before attribute name state. */
                         $state = 'before attribute name';
-
                     } elseif ($char === '&') {
                         /* U+0026 AMPERSAND (&)
                         Switch to the entity in attribute value state, with the
                         additional allowed character  being U+003E
                         GREATER-THAN SIGN (>). */
                         $this->characterReferenceInAttributeValue('>');
-
                     } elseif ($char === '>') {
                         /* U+003E GREATER-THAN SIGN (>)
                         Emit the current tag token. Switch to the data state. */
                         $this->emitToken($this->token);
                         $state = 'data';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Reconsume the EOF character in the data state. */
@@ -1054,7 +1003,6 @@ class HTML5_Tokenizer {
                         ]);
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* U+0022 QUOTATION MARK (")
                            U+0027 APOSTROPHE (')
@@ -1092,18 +1040,15 @@ class HTML5_Tokenizer {
                            U+0020 SPACE
                         Switch to the before attribute name state. */
                         $state = 'before attribute name';
-
                     } elseif ($char === '/') {
                         /* U+002F SOLIDUS (/)
                         Switch to the self-closing start tag state. */
                         $state = 'self-closing start tag';
-
                     } elseif ($char === '>') {
                         /* U+003E GREATER-THAN SIGN (>)
                         Emit the current tag token. Switch to the data state. */
                         $this->emitToken($this->token);
                         $state = 'data';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Reconsume the EOF character in the data state. */
@@ -1113,7 +1058,6 @@ class HTML5_Tokenizer {
                         ]);
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else
                         Parse error. Reconsume the character in the before attribute
@@ -1139,7 +1083,6 @@ class HTML5_Tokenizer {
                         $this->token['self-closing'] = true;
                         $this->emitToken($this->token);
                         $state = 'data';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Reconsume the EOF character in the data state. */
@@ -1149,7 +1092,6 @@ class HTML5_Tokenizer {
                         ]);
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else
                         Parse error. Reconsume the character in the before attribute name state. */
@@ -1312,7 +1254,6 @@ class HTML5_Tokenizer {
                         /* U+002D HYPHEN-MINUS (-)
                         Switch to the comment end dash state */
                         $state = 'comment end dash';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Emit the comment token. Reconsume the EOF character
@@ -1324,7 +1265,6 @@ class HTML5_Tokenizer {
                         $this->emitToken($this->token);
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else
                         Append the input character to the comment token's data. Stay in
@@ -1343,7 +1283,6 @@ class HTML5_Tokenizer {
                         /* U+002D HYPHEN-MINUS (-)
                         Switch to the comment end state  */
                         $state = 'comment end';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Emit the comment token. Reconsume the EOF character
@@ -1355,7 +1294,6 @@ class HTML5_Tokenizer {
                         $this->emitToken($this->token);
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else
                         Append a U+002D HYPHEN-MINUS (-) character and the input
@@ -1374,7 +1312,6 @@ class HTML5_Tokenizer {
                         Emit the comment token. Switch to the data state. */
                         $this->emitToken($this->token);
                         $state = 'data';
-
                     } elseif ($char === '-') {
                         /* U+002D HYPHEN-MINUS (-)
                         Parse error. Append a U+002D HYPHEN-MINUS (-) character
@@ -1385,7 +1322,6 @@ class HTML5_Tokenizer {
                             'data' => 'unexpected-dash-after-double-dash-in-comment'
                         ]);
                         $this->token['data'] .= '-';
-
                     } elseif ($char === "\t" || $char === "\n" || $char === "\x0a" || $char === ' ') {
                         $this->emitToken([
                             'type' => self::PARSEERROR,
@@ -1393,14 +1329,12 @@ class HTML5_Tokenizer {
                         ]);
                         $this->token['data'] .= '--' . $char;
                         $state = 'comment end space';
-
                     } elseif ($char === '!') {
                         $this->emitToken([
                             'type' => self::PARSEERROR,
                             'data' => 'unexpected-bang-after-double-dash-in-comment'
                         ]);
                         $state = 'comment end bang';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Emit the comment token. Reconsume the
@@ -1412,7 +1346,6 @@ class HTML5_Tokenizer {
                         $this->emitToken($this->token);
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else
                         Parse error. Append two U+002D HYPHEN-MINUS (-)
@@ -1483,7 +1416,6 @@ class HTML5_Tokenizer {
                            U+0020 SPACE
                         Switch to the before DOCTYPE name state. */
                         $state = 'before DOCTYPE name';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Create a new DOCTYPE token. Set its
@@ -1501,7 +1433,6 @@ class HTML5_Tokenizer {
                         ]);
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else
                         Parse error. Reconsume the current character in the
@@ -1525,7 +1456,6 @@ class HTML5_Tokenizer {
                            U+000C FORM FEED (FF)
                            U+0020 SPACE
                         Stay in the before DOCTYPE name state. */
-
                     } elseif ($char === '>') {
                         /* U+003E GREATER-THAN SIGN (>)
                         Parse error. Create a new DOCTYPE token. Set its
@@ -1543,7 +1473,6 @@ class HTML5_Tokenizer {
                         ]);
 
                         $state = 'data';
-
                     } elseif ('A' <= $char && $char <= 'Z') {
                         /* U+0041 LATIN CAPITAL LETTER A through to U+005A LATIN CAPITAL LETTER Z
                         Create a new DOCTYPE token. Set the token's name to the
@@ -1557,7 +1486,6 @@ class HTML5_Tokenizer {
                         ];
 
                         $state = 'DOCTYPE name';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Create a new DOCTYPE token. Set its
@@ -1576,7 +1504,6 @@ class HTML5_Tokenizer {
 
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else
                         Create a new DOCTYPE token. Set the token's name to the
@@ -1602,20 +1529,17 @@ class HTML5_Tokenizer {
                            U+0020 SPACE
                         Switch to the after DOCTYPE name state. */
                         $state = 'after DOCTYPE name';
-
                     } elseif ($char === '>') {
                         /* U+003E GREATER-THAN SIGN (>)
                         Emit the current DOCTYPE token. Switch to the data state. */
                         $this->emitToken($this->token);
                         $state = 'data';
-
                     } elseif ('A' <= $char && $char <= 'Z') {
                         /* U+0041 LATIN CAPITAL LETTER A through to U+005A LATIN CAPITAL LETTER Z
                         Append the lowercase version of the input character
                         (add 0x0020 to the character's code point) to the current
                         DOCTYPE token's name. Stay in the DOCTYPE name state. */
                         $this->token['name'] .= strtolower($char);
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Set the DOCTYPE token's force-quirks flag
@@ -1629,7 +1553,6 @@ class HTML5_Tokenizer {
                         $this->emitToken($this->token);
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else
                         Append the current input character to the current
@@ -1655,13 +1578,11 @@ class HTML5_Tokenizer {
                            U+000C FORM FEED (FF)
                            U+0020 SPACE
                         Stay in the after DOCTYPE name state. */
-
                     } elseif ($char === '>') {
                         /* U+003E GREATER-THAN SIGN (>)
                         Emit the current DOCTYPE token. Switch to the data state. */
                         $this->emitToken($this->token);
                         $state = 'data';
-
                     } elseif ($char === false) {
                         /* EOF
                         Parse error. Set the DOCTYPE token's force-quirks flag
@@ -1675,7 +1596,6 @@ class HTML5_Tokenizer {
                         $this->emitToken($this->token);
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else */
 
@@ -1686,14 +1606,12 @@ class HTML5_Tokenizer {
                             consume those characters and switch to the before
                             DOCTYPE public identifier state. */
                             $state = 'before DOCTYPE public identifier';
-
                         } elseif ($nextSix === 'SYSTEM') {
                             /* Otherwise, if the next six characters are an ASCII
                             case-insensitive match for the word "SYSTEM", then
                             consume those characters and switch to the before
                             DOCTYPE system identifier state. */
                             $state = 'before DOCTYPE system identifier';
-
                         } else {
                             /* Otherwise, this is the parse error. Set the DOCTYPE
                             token's force-quirks flag to on. Switch to the bogus
@@ -2092,7 +2010,6 @@ class HTML5_Tokenizer {
                         Emit the DOCTYPE token. Switch to the data state. */
                         $this->emitToken($this->token);
                         $state = 'data';
-
                     } elseif ($char === false) {
                         /* EOF
                         Emit the DOCTYPE token. Reconsume the EOF character in
@@ -2100,7 +2017,6 @@ class HTML5_Tokenizer {
                         $this->emitToken($this->token);
                         $this->stream->unget();
                         $state = 'data';
-
                     } else {
                         /* Anything else
                         Stay in the bogus DOCTYPE state. */
@@ -2128,7 +2044,6 @@ class HTML5_Tokenizer {
     {
         return $this->tree;
     }
-
 
     /**
      * Returns the input stream.
@@ -2461,7 +2376,6 @@ class HTML5_Tokenizer {
         if ($dry === false && is_int($this->tree->content_model)) {
             $this->content_model = $this->tree->content_model;
             $this->tree->content_model = null;
-
         } elseif ($token['type'] === self::ENDTAG) {
             $this->content_model = self::PCDATA;
         }

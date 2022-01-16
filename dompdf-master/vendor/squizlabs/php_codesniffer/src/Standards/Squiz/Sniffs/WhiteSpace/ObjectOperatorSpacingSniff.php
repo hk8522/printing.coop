@@ -14,14 +14,12 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ObjectOperatorSpacingSniff implements Sniff
 {
-
     /**
      * Allow newlines instead of spaces.
      *
      * @var boolean
      */
     public $ignoreNewlines = false;
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -34,9 +32,7 @@ class ObjectOperatorSpacingSniff implements Sniff
             T_OBJECT_OPERATOR,
             T_DOUBLE_COLON,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -81,9 +77,7 @@ class ObjectOperatorSpacingSniff implements Sniff
 
         $phpcsFile->recordMetric($stackPtr, 'Spacing after object operator', $after);
         $this->checkSpacingAfterOperator($phpcsFile, $stackPtr, $after);
-
     }//end process()
-
 
     /**
      * Check the spacing before the operator.
@@ -120,9 +114,7 @@ class ObjectOperatorSpacingSniff implements Sniff
         }
 
         return true;
-
     }//end checkSpacingBeforeOperator()
-
 
     /**
      * Check the spacing after the operator.
@@ -159,8 +151,5 @@ class ObjectOperatorSpacingSniff implements Sniff
         }
 
         return true;
-
     }//end checkSpacingAfterOperator()
-
-
 }//end class

@@ -4,7 +4,6 @@ namespace Socketlabs\Message;
  * Contains properties and methods common to all message types.
  */
 class BaseMessage{
-
     /**
      * Message subject.
      */
@@ -60,7 +59,6 @@ class BaseMessage{
      */
     public $messageId;
 
-
     /**
      * From address.
      *
@@ -103,6 +101,5 @@ class BaseMessage{
         $customHeader = new CustomHeader($name, $value);
         $this->customHeaders[] = $customHeader;
         return $this;
-
     }
 }

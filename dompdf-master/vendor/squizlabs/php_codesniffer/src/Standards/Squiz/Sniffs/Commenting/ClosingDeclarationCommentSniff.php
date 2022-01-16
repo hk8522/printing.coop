@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ClosingDeclarationCommentSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -28,9 +26,7 @@ class ClosingDeclarationCommentSniff implements Sniff
             T_CLASS,
             T_INTERFACE,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -122,8 +118,5 @@ class ClosingDeclarationCommentSniff implements Sniff
 
             return;
         }
-
     }//end process()
-
-
 }//end class

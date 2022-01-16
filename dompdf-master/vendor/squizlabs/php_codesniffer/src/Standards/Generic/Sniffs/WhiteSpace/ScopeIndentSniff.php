@@ -16,7 +16,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ScopeIndentSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -98,7 +97,6 @@ class ScopeIndentSniff implements Sniff
      */
     private $debug = false;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -111,9 +109,7 @@ class ScopeIndentSniff implements Sniff
         }
 
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -1433,9 +1429,7 @@ class ScopeIndentSniff implements Sniff
 
         // Don't process the rest of the file.
         return $phpcsFile->numTokens;
-
     }//end process()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -1520,8 +1514,5 @@ class ScopeIndentSniff implements Sniff
         }//end if
 
         return true;
-
     }//end adjustIndent()
-
-
 }//end class

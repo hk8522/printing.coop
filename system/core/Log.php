@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/general/errors.html
  */
 class CI_Log {
-
 	/**
 	 * Path to save log files
 	 *

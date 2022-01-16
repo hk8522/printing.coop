@@ -4,7 +4,6 @@ namespace TheSeer\Tokenizer;
 use PHPUnit\Framework\TestCase;
 
 class TokenTest extends TestCase {
-
     /** @var  Token */
     private $token;
 
@@ -27,5 +26,4 @@ class TokenTest extends TestCase {
     public function testTokenValueCanBeRetrieved() {
         $this->assertEquals('blank', $this->token->getValue());
     }
-
 }

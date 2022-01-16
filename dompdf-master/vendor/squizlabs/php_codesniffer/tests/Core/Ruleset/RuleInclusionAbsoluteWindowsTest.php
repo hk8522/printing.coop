@@ -15,7 +15,6 @@ use PHPUnit\Framework\TestCase;
 
 class RuleInclusionAbsoluteWindowsTest extends TestCase
 {
-
     /**
      * The Ruleset object.
      *
@@ -36,7 +35,6 @@ class RuleInclusionAbsoluteWindowsTest extends TestCase
      * @var string
      */
     private $contents = '';
-
 
     /**
      * Initialize the config and ruleset objects.
@@ -72,9 +70,7 @@ class RuleInclusionAbsoluteWindowsTest extends TestCase
         // Initialize the config and ruleset objects for the test.
         $config        = new Config(["--standard={$this->standard}"]);
         $this->ruleset = new Ruleset($config);
-
     }//end setUp()
-
 
     /**
      * Reset ruleset file.
@@ -86,9 +82,7 @@ class RuleInclusionAbsoluteWindowsTest extends TestCase
         if (DIRECTORY_SEPARATOR !== '/') {
             file_put_contents($this->standard, $this->contents);
         }
-
     }//end tearDown()
-
 
     /**
      * Test that sniffs registed with a Windows absolute path are correctly recognized and that
@@ -112,8 +106,5 @@ class RuleInclusionAbsoluteWindowsTest extends TestCase
             '10',
             $this->ruleset->sniffs['PHP_CodeSniffer\Standards\Generic\Sniffs\Formatting\SpaceAfterCastSniff']->spacing
         );
-
     }//end testWindowsStylePathRuleInclusion()
-
-
 }//end class

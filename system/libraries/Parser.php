@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/parser.html
  */
 class CI_Parser {
-
 	/**
 	 * Left delimiter character for pseudo vars
 	 *
@@ -244,5 +243,4 @@ class CI_Parser {
 
 		return $replace;
 	}
-
 }

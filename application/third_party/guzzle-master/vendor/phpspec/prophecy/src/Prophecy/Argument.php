@@ -235,5 +235,4 @@ class Argument
     {
         return new Token\NotInArrayToken($value);
     }
-
 }

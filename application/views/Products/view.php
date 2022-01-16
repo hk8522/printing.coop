@@ -13,9 +13,7 @@ overflow: hidden;
             <div class="inner-breadcrum">
 			 <?php
 			if($language_name=='French'){
-
 			   $multipalCategoryData=$Product['multipalCategoryData'];
-
 
 			?>
                 <a href="<?php echo $BASE_URL;?>">Accueil</a>
@@ -60,7 +58,6 @@ overflow: hidden;
                       <div class="swiper-container-gallery-top">
                           <div class="swiper-wrapper">
                              <?php foreach ($ProductImages as $key => $ProductImage) {
-
                           ?>
                             <div class="swiper-slide">
                                 <div class="shop-product-img">
@@ -82,7 +79,6 @@ overflow: hidden;
                         <div class="swiper-container-gallery-thumbs">
                           <div class="swiper-wrapper">
                               <?php foreach ($ProductImages as $key => $ProductImage) {
-
                           ?>
                             <div class="swiper-slide">
                                     <div class="latest-single-product">
@@ -142,7 +138,6 @@ overflow: hidden;
 											if($language_name=='French'){
 											echo (empty($Product['is_stock'])) ? 'En Stock' : 'En rupture de stock';
 											}else{
-
 												echo (empty($Product['is_stock'])) ? 'In Stock' : 'Out of Stock';
 											}
 											?>
@@ -176,10 +171,8 @@ overflow: hidden;
 									<input type="hidden" name="depth_add_length_width" value="<?php echo $Product['depth_add_length_width'];?>">
 									<input type="hidden" name="depth_width_length_quantity_show" value="<?php echo $Product['depth_width_length_quantity_show'];?>">
 
-
 									<?php
 									if($Product['add_length_width']==1){
-
 									?>
 
 						             <div class="single-review">
@@ -258,7 +251,6 @@ overflow: hidden;
 												   <option value="<?php echo $Quantity['name'];?>">
 													<?php
 													if($language_name=='French'){
-
 													   echo $Quantity['name_french'];
 													}else{
 														echo $Quantity['name'];
@@ -275,10 +267,8 @@ overflow: hidden;
 									<?php
 									}?>
 
-
 									<?php
 									}?>
-
 
 								    <?php
 									 if($Product['page_add_length_width']==1){
@@ -361,7 +351,6 @@ overflow: hidden;
 										   <option value="<?php echo $Pages['total_page'].'-'.$Pages['name'];?>-<?php echo $Pages['name_french'];?>">
 										    <?php
 											if($language_name=='French'){
-
 											   echo $Pages['name_french'];
 											}else{
 												echo $Pages['name'];
@@ -405,7 +394,6 @@ overflow: hidden;
 										   <option value="<?php echo $Sheets['name'];?>">
 										    <?php
 											if($language_name=='French'){
-
 											   echo $Sheets['name_french'];
 											}else{
 												echo $Sheets['name'];
@@ -454,7 +442,6 @@ overflow: hidden;
 												   <option value="<?php echo $Quantity['name'];?>">
 													<?php
 													if($language_name=='French'){
-
 													   echo $Quantity['name_french'];
 													}else{
 														echo $Quantity['name'];
@@ -475,7 +462,6 @@ overflow: hidden;
 
 									<?php
 									if($Product['depth_add_length_width']==1){
-
 									?>
 
 						             <div class="single-review">
@@ -562,7 +548,6 @@ overflow: hidden;
 												   <option value="<?php echo $Quantity['name'];?>">
 													<?php
 													if($language_name=='French'){
-
 													   echo $Quantity['name_french'];
 													}else{
 														echo $Quantity['name'];
@@ -604,8 +589,6 @@ overflow: hidden;
 			        <?php
 
 				    foreach($ProductSizes as $key=>$val){
-
-
 						$qty_name='';
 						$qty_extra_price='';
 						$qty_name = $language_name=='French' ? $val['qty_name_french']:$val['qty_name'];
@@ -623,19 +606,13 @@ overflow: hidden;
 
 										<div id="SiZeOPrions">
 
-
 										</div>
 									 <?php
-
-
 									 }?>
-
-
 
 								    <?php
 									//pr($ProductAttributes,1);
 									foreach($ProductAttributes as $key=>$val){
-
 									    $items=$val['items'];
 
 									?>
@@ -669,7 +646,6 @@ overflow: hidden;
 											</div>
 
 									 <?php
-
 									 }?>
 
 								   <?php
@@ -797,7 +773,6 @@ overflow: hidden;
 
                                 <div class="uploaded-file-detail" id="upload-file-data">
 								    <?php if(isset($_SESSION['product_id'][$Product['id']])){
-
 										       $file_data=$_SESSION['product_id'][$Product['id']];
 											   #pr($file_data);
 											   foreach($file_data as $key=>$return_arr){
@@ -834,9 +809,7 @@ overflow: hidden;
 											</div>
 										</div>
                                     <?php
-
 											   }
-
 									     }
 
 									?>
@@ -880,7 +853,6 @@ overflow: hidden;
 				<?php
 
 				if(!empty($ProductDescriptions)){
-
 					foreach($ProductDescriptions as $key=>$val){
 				?>
 				    <button class="tablinks" id="defaultOpen<?php echo $val['id'];?>" onclick="openCity(event, 'Description<?php echo $val['id']?>')"><?php echo $language_name=='French' ? $val['title_french']:$val['title'];?></button>
@@ -945,7 +917,6 @@ overflow: hidden;
 
 				<?php
 				if(!empty($ProductTemplates)){
-
 				?>
 				    <div id="template" class="tabcontent" style="display:none">
                     <div class="tabcontent-inner">
@@ -1012,7 +983,6 @@ overflow: hidden;
 							</tbody>
 							</table>
 
-
                         </div>
 
                     </div>
@@ -1037,7 +1007,6 @@ overflow: hidden;
 <script>
 
     function showAttribute(cid,nid){
-
 	        $("#loder-img").show();
             $(".new-price-img").hide();
 	        var item_val=$("#attribute_id_"+cid).val();
@@ -1056,11 +1025,9 @@ overflow: hidden;
                     $("#loder-img").hide();
                     $(".new-price-img").show();
 					if(json.success==1){
-
 						$("#attribute_id_"+nid).attr("disabled", false);
 						$("#total-price").html(json.price);
 					}
-
 				},
                 error: function (resp) {
                     console.log(resp);
@@ -1068,11 +1035,9 @@ overflow: hidden;
                     $(".new-price-img").show();
                 }
           });
-
     }
 
 	function showQuantity(){
-
 	        $("#loder-img").show();
             $(".new-price-img").hide();
 			$(".multipal_size").html('<option value="">Choose an option...</option>');
@@ -1091,26 +1056,19 @@ overflow: hidden;
 					 $("#loder-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
-
-
 						if(json.sizeoprions == '0'){
-
 							$("#attribute_id_2").attr("disabled", false);
 							$("#SiZeOPrions").html('');
-
 						}else{
-
 							$("#SiZeOPrions").html(json.sizeoprions);
 						}
 						$("#total-price").html(json.price);
 					}
-
 				}
             });
     }
 
 	function showSizeQuantity(){
-
 	        $("#loder-img").show();
             $(".new-price-img").hide();
 			$(".multipal_size_item").html('<option value="">Choose an option...</option>');
@@ -1129,23 +1087,18 @@ overflow: hidden;
 					 $("#loder-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
-
 						$("#SiZeOPrions").html(json.sizeoprions);
 						$("#total-price").html(json.price);
 					}
-
 				}
             });
     }
 
 	var countsize ='<?php echo count($ProductSizes)?>';
 	if(countsize !=''){
-
 	    getSizeOptions('<?php echo $product_id?>','0');
-
 	}
 	function getSizeOptions(product_id,make_a_default_qty_id){
-
 	        $("#loder-img").show();
 			$.ajax({
 				type: 'GET',
@@ -1161,7 +1114,6 @@ overflow: hidden;
             });
     }
 	function getQuantityPrice(nid){
-
 	        $("#loder-img").show();
             $(".new-price-img").hide();
 			var myForm = document.getElementById('cardFrom');
@@ -1179,12 +1131,10 @@ overflow: hidden;
 					 $("#loder-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
-
 						$("#"+nid).attr("disabled", false);
 
 						$("#total-price").html(json.price);
 					}
-
 				},
                 error: function (resp) {
                     console.log(resp);
@@ -1195,7 +1145,6 @@ overflow: hidden;
     }
 
 	function getPaperPrice(nid){
-
 	        $("#loder-img").show();
             $(".new-price-img").hide();
 			var myForm = document.getElementById('cardFrom');
@@ -1213,18 +1162,15 @@ overflow: hidden;
 					 $("#loder-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
-
 						$("#attribute_id_"+nid).attr("disabled", false);
 
 						$("#total-price").html(json.price);
 					}
-
 				}
             });
     }
 
     function setQuantity(){
-
 			quantity=$("#quantity").val();
 			if(quantity=='' || quantity==0){
 				$("#quantity").val('1');
@@ -1243,24 +1189,18 @@ overflow: hidden;
 				contentType: false,
 				processData: false,
 				success: function (data) {
-
 					$("#loder-img").hide();
                      $(".new-price-img").show();
 					var json = JSON.parse(data);
 
 					if(json.success==1){
-
 						$("#total-price").html(json.price);
-
 					}
-
 				}
           });
      }
 
-
 	 function update_cumment(skey){
-
 		    var cumment=$("#cumment-"+skey).val();
             var product_id='<?php echo $product_id;?>';
 			if(cumment ==''){ alert('Enter cumment'); return false}
@@ -1269,7 +1209,6 @@ overflow: hidden;
 			$("#smc-"+skey).html('<img src="<?php echo $BASE_URL?>/assets/images/loder.gif" width=20>');
 			$("#loder-img").show();
 			$.ajax({
-
 				type: 'POST',
 				dataType: 'html',
 				url: '<?php echo $BASE_URL?>Products/updateCumment',
@@ -1278,14 +1217,11 @@ overflow: hidden;
 					$("#loder-img").hide();
 					$("#smc-"+skey).prop('disabled', false);
 					$("#smc-"+skey).html('Update Note');
-
 				}
           });
-
      }
 
 	 function delete_image(skey){
-
 		    var location=$("#location-"+skey).val();
             var product_id='<?php echo $product_id;?>';
 			if(location ==''){ return false}
@@ -1294,7 +1230,6 @@ overflow: hidden;
 			$("#smd-"+skey).html('<img src="<?php echo $BASE_URL?>/assets/images/loder.gif" width=20>');
 			$("#loder-img").show();
 			$.ajax({
-
 				type: 'POST',
 				dataType: 'html',
 				url: '<?php echo $BASE_URL?>Products/deleteImage',
@@ -1304,17 +1239,11 @@ overflow: hidden;
 					 //$("#smd-"+skey).prop('disabled', false);
 					//$("#smd-"+skey).html('<i class="las la-trash"></i>');
 					 $("#upload-file-data #teb-"+skey).remove();
-
-
-
-
 				}
           });
-
      }
 
 		function isNumber(evt) {
-
 			var iKeyCode = (evt.which) ? evt.which : evt.keyCode
 			if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
 				return false;
@@ -1323,7 +1252,6 @@ overflow: hidden;
 		}
 
 	    $('form#cardFrom').on('submit', function (e) {
-
 		      $("#loder-img").show();
 			   $("#btnsubmit").prop('disabled',true);
 				var formData = new FormData(this);
@@ -1343,7 +1271,6 @@ overflow: hidden;
 					   var msg = json.msg;
 					   $("#btnsubmit").prop('disabled',false);
 					   if (status == 1 ) {
-
 							 $(".cart-contents-count").html(json.total_item);
 							 getCardItem();
 							 //$(".after-click").show();
@@ -1351,14 +1278,11 @@ overflow: hidden;
 							 $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>'+msg+'.</span>').addClass("active");
 
 							 setTimeout(function() {
-
 								 $('.addtocart-message').removeClass("active");
 
 								location.assign("<?php echo $BASE_URL?>ShoppingCarts");
-
 							 }, 1000);
 					   } else {
-
 							 $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>'+msg+'.</span>').addClass("active");
 							 setTimeout(function() {
 								 $('.addtocart-message').removeClass("active");
@@ -1388,7 +1312,6 @@ overflow: hidden;
 					 $("#loder-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
-
 						$("#total-price").html(json.price);
 						$("#product_width").val(json.product_width);
 						$("#product_length").val(json.product_length);
@@ -1399,9 +1322,7 @@ overflow: hidden;
 						$("#product_length_error").html(json.product_length_error);
 
 						$("#product_total_page_error").html(json.product_total_page_error);
-
 					}
-
 				}
             });
         }
@@ -1423,7 +1344,6 @@ overflow: hidden;
 					 $("#loder-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
-
 						$("#total-price").html(json.price);
 
 						$("#product_depth_width").val(json.product_depth_width);
@@ -1433,17 +1353,13 @@ overflow: hidden;
 
 						$("#product_depth").val(json.product_depth);
 
-
-
 						$("#product_depth_width_error").html(json.product_depth_width_error);
 						$("#product_depth_length_error").html(json.product_depth_length_error);
 
 						$("#product_depth_total_page_error").html(json.product_depth_total_page_error);
 
 						$("#product_depth_error").html(json.product_depth_error);
-
 					}
-
 				}
             });
         }
@@ -1467,7 +1383,6 @@ overflow: hidden;
                      $(".new-price-img").show();
 
 					if(json.success==1){
-
 						$("#total-price").html(json.price);
 						$("#page_product_width").val(json.page_product_width);
 						$("#page_product_length").val(json.page_product_length);
@@ -1482,76 +1397,58 @@ overflow: hidden;
                         $("#page_product_total_page_error").html(json.page_product_total_page_error);
 						$("#page_product_total_quantity_error").html(json.page_product_total_quantity_error);
 						$("#page_product_total_sheets_error").html(json.page_product_total_sheets_error);
-
-
-
 					}
-
 				}
             });
         }
 
 		$("#product_width" ).change(function(){
-
 			product_width=$(this).val();
 			getLengthWidthPrice();
         });
 
 		$("#product_total_page" ).change(function(){
-
 			product_width=$(this).val();
 			getLengthWidthPrice();
         });
 
 		$("#product_length" ).change(function(){
-
 			product_length=$(this).val();
 			getLengthWidthPrice();
         });
 
 		$("#length_width_color" ).change(function(){
-
 			product_length=$(this).val();
 			getLengthWidthPrice();
-
         });
 
 		$("#page_product_width" ).change(function(){
-
 			getPageLengthWidthPrice();
         });
 
 		$("#page_product_length" ).change(function(){
-
 			getPageLengthWidthPrice();
         });
 
 		$("#page_product_total_page" ).change(function(){
-
 			getPageLengthWidthPrice();
         });
 
 		$("#page_product_total_sheets" ).change(function(){
-
 			getPageLengthWidthPrice();
         });
 
 		$("#page_length_width_color" ).change(function(){
-
 			getPageLengthWidthPrice();
         });
 		$("#page_product_total_quantity" ).change(function(){
-
 			getPageLengthWidthPrice();
         });
-
 
 		$("#product_depth_width" ).change(function(){
 			getDepthLengthWidthPrice();
         });
 		$("#product_depth_total_page" ).change(function(){
-
-
 			getDepthLengthWidthPrice();
         });
 
@@ -1565,6 +1462,5 @@ overflow: hidden;
 		$("#depth_color" ).change(function(){
 			getDepthLengthWidthPrice();
         });
-
 
 </script>

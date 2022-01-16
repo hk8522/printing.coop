@@ -2,7 +2,6 @@
 namespace Socketlabs;
 
 class RetrySettings{
-
     const DEFAULT_NUMBER_OF_RETRIES = 0;
     const MAXIMUM_ALLOWED_NUMBER_OF_RETRIES = 5;
     const MINIMUM_RETRY_TIME = 1;
@@ -11,9 +10,7 @@ class RetrySettings{
     private $maximumNumberOfRetries;
 
     public function __construct($maximumNumberOfRetries=null){
-
         if (!is_null($maximumNumberOfRetries)){
-
             if ($maximumNumberOfRetries < 0) {throw new InvalidArgumentException("maximumNumberOfRetries must be greater than 0");}
             if ($maximumNumberOfRetries > self::MAXIMUM_ALLOWED_NUMBER_OF_RETRIES) {throw new InvalidArgumentException("The maximum number of allowed retries is ".self::MAXIMUM_ALLOWED_NUMBER_OF_RETRIES);}
 
@@ -41,5 +38,4 @@ class RetrySettings{
         $max = (int)(1 * 1000 * 1.2);
         return (int)((pow(2.0, $numberOfAttempts) - 1.0) * rand($min, $max));
     }
-
 }

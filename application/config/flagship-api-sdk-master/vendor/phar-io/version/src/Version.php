@@ -148,7 +148,7 @@ class Version {
                 (?:
                     (?<ReleaseTypeCount>[0-9])
                 )?
-            )?       
+            )?
         $/x';
 
         if (preg_match($regex, $version, $matches) !== 1) {

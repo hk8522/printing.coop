@@ -30,7 +30,6 @@ use Dompdf\Positioner\AbstractPositioner;
  */
 class Factory
 {
-
      /**
      * Array of positioners for specific frame types
      *
@@ -83,7 +82,6 @@ class Factory
         $display = $style->display;
 
         switch ($display) {
-
             case "flex": //FIXME: display type not yet supported
             case "table-caption": //FIXME: display type not yet supported
             case "block":

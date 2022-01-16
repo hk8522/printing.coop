@@ -14,14 +14,12 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class DuplicatePropertySniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
      * @var array
      */
     public $supportedTokenizers = ['JS'];
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -31,9 +29,7 @@ class DuplicatePropertySniff implements Sniff
     public function register()
     {
         return [T_OBJECT];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -75,8 +71,5 @@ class DuplicatePropertySniff implements Sniff
 
             $next = $phpcsFile->findNext($wantedTokens, ($next + 1), $tokens[$stackPtr]['bracket_closer']);
         }//end while
-
     }//end process()
-
-
 }//end class

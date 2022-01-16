@@ -15,17 +15,13 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class StaticThisUsageSniff extends AbstractScopeSniff
 {
-
-
     /**
      * Constructs the test with the tokens it wishes to listen for.
      */
     public function __construct()
     {
         parent::__construct([T_CLASS, T_TRAIT, T_ANON_CLASS], [T_FUNCTION]);
-
     }//end __construct()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -84,9 +80,7 @@ class StaticThisUsageSniff extends AbstractScopeSniff
             $error = 'Usage of "$this" in static methods will cause runtime errors';
             $phpcsFile->addError($error, $next, 'Found');
         } while ($next !== false);
-
     }//end processTokenWithinScope()
-
 
     /**
      * Processes a token that is found within the scope that this test is
@@ -100,8 +94,5 @@ class StaticThisUsageSniff extends AbstractScopeSniff
      */
     protected function processTokenOutsideScope(File $phpcsFile, $stackPtr)
     {
-
     }//end processTokenOutsideScope()
-
-
 }//end class

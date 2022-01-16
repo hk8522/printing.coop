@@ -139,7 +139,6 @@
  <script src="<?php echo $BASE_URL;?>assets/admin/js/jquery.datetimepicker.full.js"></script>
 <script>
 $(document).ready(function(){
-
     $("#show-discount-percent").click(function(){
         $(".discount-percent").show();
         $(".discount-amount").hide();
@@ -152,6 +151,5 @@ $(document).ready(function(){
 	$('#discount_valid_to,#discount_valid_from').datetimepicker({
          minDate:new Date()
       });
-
 });
 </script>

@@ -30,7 +30,7 @@ class UpsShipping {
 			}
 			curl_close($ch);
 			/* Curl End */
-			
+
 			if( is_string( $res ) ) {
 				$resObject = json_decode( $res );
 			}
@@ -72,7 +72,7 @@ class UpsShipping {
 		$shipment['Shipper'] = $shipper;
 
 		/* Important */
-		/* Shipping to Customer Address */		
+		/* Shipping to Customer Address */
 		$shipto['Name'] = $this->fields['ShipTo_Name'];
 		$shipto['AttentionName'] = $this->fields['ShipTo_Name'];
 		$addressTo['AddressLine'] = $this->fields['ShipTo_AddressLine'];
@@ -124,7 +124,7 @@ class UpsShipping {
 		$package['PackageWeight'] = $packageweight;
 
 		$shipment['Package'] = array( $package );
-		
+
 		/* Important */
 		$labelimageformat['Code'] = 'GIF';
 		$labelimageformat['Description'] = 'GIF';

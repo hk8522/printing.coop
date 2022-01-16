@@ -60,7 +60,6 @@ class DataTables
 
 	private $wheres = [];
 
-
 	/**
 	 * DataTables constructor.
 	 */
@@ -83,7 +82,6 @@ class DataTables
 
 		return $this;
 	}
-
 
 	/**
 	 * @param boolean $boolProtect
@@ -114,7 +112,6 @@ class DataTables
 		return $this;
 	}
 
-
 	/**
 	 * Sets the wildcard matching to be a done on a specific column in the search
 	 *
@@ -135,7 +132,6 @@ class DataTables
 
 		$this->matchType[ $col ] = $type;
 
-
 		return $this;
 	}
 
@@ -147,10 +143,8 @@ class DataTables
 	 */
 	public function make( $debug = false )
 	{
-
 		$start = (int) $this->input->post_get( 'start' );
 		$limit = (int) $this->input->post_get( 'length' );
-
 
 		$output_array                    = [];
 		$output_array['start']           = $start;
@@ -266,10 +260,8 @@ class DataTables
 			$dataArray[] = $colObj;
 		}
 
-
 		$this->sqlJoinsAndWhere();
 		$totalRecords = $this->ci->db->count_all_results();
-
 
 		$output_array['start']           = $start;
 		$output_array['limit']           = $limit;
@@ -305,10 +297,8 @@ class DataTables
 			}
 		}
 
-
 		$searchableColumns = [];
 		foreach ( $this->input->post_get( 'columns' ) as $c ) {
-
 			$colName = $c['data'];
 
 			if ( substr( $colName, 0, 2 ) === '$.' ) {
@@ -330,7 +320,6 @@ class DataTables
 				$this->ci->db->like( $colName, $c['search']['value'], $searchType, $this->protectIdentifiers );
 			}
 		}
-
 
 		// put together a global search if specified
 		$global_search = $this->input->post_get( 'search' );
@@ -370,7 +359,6 @@ class DataTables
 			}
 		}
 
-
 		return $this;
 	}
 
@@ -383,7 +371,6 @@ class DataTables
 	{
 		return isset( $this->matchType[ $col ] ) ? $this->matchType[ $col ] : 'both';
 	}
-
 
 	/**
 	 * @param $column

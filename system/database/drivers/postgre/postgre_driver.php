@@ -51,7 +51,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_postgre_driver extends CI_DB {
-
 	/**
 	 * Database driver
 	 *
@@ -615,5 +614,4 @@ class CI_DB_postgre_driver extends CI_DB {
 	{
 		pg_close($this->conn_id);
 	}
-
 }

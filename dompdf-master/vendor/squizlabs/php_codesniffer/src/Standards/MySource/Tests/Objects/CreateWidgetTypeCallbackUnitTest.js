@@ -1,5 +1,4 @@
 SampleWidgetType.prototype = {
-
     create: function(callback)
     {
         if (x === 1) {
@@ -35,11 +34,9 @@ SampleWidgetType.prototype = {
 
         callback.call(self);
     }
-
 };
 
 AnotherSampleWidgetType.prototype = {
-
     create: function(input)
     {
         return;
@@ -49,31 +46,23 @@ AnotherSampleWidgetType.prototype = {
     {
         return 1;
     }
-
 };
 
-
 NoCreateWidgetType.prototype = {
-
     getSomething: function(input)
     {
         return;
     }
-
 };
 
-
 SomeRandom.prototype = {
-
     create: function(input)
     {
         return;
     }
-
 };
 
 SampleWidgetType.prototype = {
-
     create: function(callback)
     {
         if (a === 1) {
@@ -81,23 +70,17 @@ SampleWidgetType.prototype = {
             // even though it is conditional.
             callback.call(self);
         }
-
     }
-
 };
 
 SampleWidgetType.prototype = {
-
     create: function(callback)
     {
         var something = callback;
-
     }
-
 };
 
 SampleWidgetType.prototype = {
-
     create: function(callback)
     {
         // Also valid because we are passing the callback to
@@ -108,13 +91,10 @@ SampleWidgetType.prototype = {
         }
 
         this.init(callback);
-
     }
-
 };
 
 SampleWidgetType.prototype = {
-
     create: function(callback)
     {
         // Also valid because we are passing the callback to
@@ -124,13 +104,10 @@ SampleWidgetType.prototype = {
         }
 
         this.init(callback);
-
     }
-
 };
 
 SampleWidgetType.prototype = {
-
     create: function(callback)
     {
         if (a === 1) {
@@ -138,14 +115,10 @@ SampleWidgetType.prototype = {
             // even though it is conditional.
             this.something(callback);
         }
-
     }
-
 };
 
-
 SampleWidgetType.prototype = {
-
     create: function(callback)
     {
         if (dfx.isFn(callback) === true) {
@@ -153,12 +126,9 @@ SampleWidgetType.prototype = {
             return;
         }
     }
-
 };
 
-
 SampleWidgetType.prototype = {
-
     create: function(callback)
     {
         dfx.foreach(items, function(item) {
@@ -169,11 +139,9 @@ SampleWidgetType.prototype = {
             callback.call(this);
         }
     }
-
 };
 
 SampleWidgetType.prototype = {
-
     create: function(callback)
     {
         var self = this;
@@ -182,5 +150,4 @@ SampleWidgetType.prototype = {
             return;
         });
     }
-
 };

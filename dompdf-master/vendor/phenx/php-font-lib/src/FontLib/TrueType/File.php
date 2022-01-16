@@ -280,7 +280,6 @@ class File extends BinaryStream {
       return;
     }
 
-
     $type = $this->getFontType();
     $class = "FontLib\\$type\\TableDirectoryEntry";
 

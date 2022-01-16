@@ -20,7 +20,6 @@ namespace Svg\Surface;
 
 class CPdf
 {
-
     /**
      * @var integer The current number of pdf objects in the document
      */
@@ -552,7 +551,6 @@ class CPdf
                     if (isset($options['id']) && isset($options['rid']) && isset($options['pos'])) {
                         $i = array_search($options['rid'], $o['info']['pages']);
                         if (isset($o['info']['pages'][$i]) && $o['info']['pages'][$i] == $options['rid']) {
-
                             // then there is a match
                             // make a space
                             switch ($options['pos']) {
@@ -3651,7 +3649,6 @@ EOT;
             if ($char_spacing != 0) {
                 $w += $char_spacing * $space_scale * (count($unicode) + $n_spaces);
             }
-
         } else {
             // If CPDF is in Unicode mode but the current font does not support Unicode we need to convert the character set to Windows-1252
             if ($this->isUnicode) {
@@ -4566,7 +4563,6 @@ EOT;
             $label = $this->imagelist[$imgname]['label'];
             //debugpng
             //if (DEBUGPNG) print '[addJpegImage_common Duplicate '.$imgname.']';
-
         } else {
             if ($data == null) {
                 $this->addMessage('addJpegImage_common error - (' . $imgname . ') data not present!');
@@ -4698,7 +4694,6 @@ EOT;
                     );
             }
         } else {
-
             // the user is trying to set a font family
             // note that this can also be used to set the base ones to something else
             if (mb_strlen($family)) {

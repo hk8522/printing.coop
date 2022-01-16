@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ValidDefaultValueSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -28,9 +26,7 @@ class ValidDefaultValueSniff implements Sniff
             T_CLOSURE,
             T_FN,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -71,8 +67,5 @@ class ValidDefaultValueSniff implements Sniff
                 return;
             }
         }//end foreach
-
     }//end process()
-
-
 }//end class

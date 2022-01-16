@@ -16,7 +16,6 @@ use Dompdf\FrameDecorator\AbstractFrameDecorator;
  */
 class Fixed extends AbstractPositioner
 {
-
     /**
      * @param AbstractFrameDecorator $frame
      */

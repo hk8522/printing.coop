@@ -16,7 +16,6 @@ use PHPUnit\Framework\TestCase;
 
 abstract class AbstractMethodUnitTest extends TestCase
 {
-
     /**
      * The file extension of the test case file (without leading dot).
      *
@@ -33,7 +32,6 @@ abstract class AbstractMethodUnitTest extends TestCase
      * @var \PHP_CodeSniffer\Files\File
      */
     protected static $phpcsFile;
-
 
     /**
      * Initialize & tokenize \PHP_CodeSniffer\Files\File with code from the test case file.
@@ -61,9 +59,7 @@ abstract class AbstractMethodUnitTest extends TestCase
 
         self::$phpcsFile = new DummyFile($contents, $ruleset, $config);
         self::$phpcsFile->process();
-
     }//end setUpBeforeClass()
-
 
     /**
      * Clean up after finished test.
@@ -73,9 +69,7 @@ abstract class AbstractMethodUnitTest extends TestCase
     public static function tearDownAfterClass()
     {
         self::$phpcsFile = null;
-
     }//end tearDownAfterClass()
-
 
     /**
      * Get the token pointer for a target token based on a specific comment found on the line before.
@@ -133,8 +127,5 @@ abstract class AbstractMethodUnitTest extends TestCase
         }
 
         return $target;
-
     }//end getTargetToken()
-
-
 }//end class

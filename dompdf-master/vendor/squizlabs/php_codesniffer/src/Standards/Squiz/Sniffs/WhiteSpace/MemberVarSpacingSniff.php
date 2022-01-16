@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class MemberVarSpacingSniff extends AbstractVariableSniff
 {
-
     /**
      * The number of blank lines between member vars.
      *
@@ -29,7 +28,6 @@ class MemberVarSpacingSniff extends AbstractVariableSniff
      * @var integer
      */
     public $spacingBeforeFirst = 1;
-
 
     /**
      * Processes the function tokens within the class.
@@ -178,9 +176,7 @@ class MemberVarSpacingSniff extends AbstractVariableSniff
         }
 
         return;
-
     }//end processMemberVar()
-
 
     /**
      * Processes normal variables.
@@ -195,9 +191,7 @@ class MemberVarSpacingSniff extends AbstractVariableSniff
         /*
             We don't care about normal variables.
         */
-
     }//end processVariable()
-
 
     /**
      * Processes variables in double quoted strings.
@@ -212,8 +206,5 @@ class MemberVarSpacingSniff extends AbstractVariableSniff
         /*
             We don't care about normal variables.
         */
-
     }//end processVariableInString()
-
-
 }//end class

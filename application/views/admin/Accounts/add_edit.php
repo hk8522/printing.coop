@@ -98,7 +98,6 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
 
-
                             <?php
                             $store_ids = isset($postData['store_ids']) ? explode(',',$postData['store_ids']):'';
 																																																						foreach ($StoreList as $key=>$val){
@@ -275,7 +274,6 @@
 </div>
 <script>
 	function isNumber(evt) {
-
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode
         if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
             return false;
@@ -283,18 +281,11 @@
         return true;
     }
 	function addActiveClass(id){
-
-
-
 		if($("#attribute_id_"+id).prop("checked") == true){
-
-
 			$("#attribute_id_div_"+id).addClass('active');
 		}else{
-
 			$("#attribute_id_div_"+id).removeClass('active');
 		}
-
 	}
 </script>
 

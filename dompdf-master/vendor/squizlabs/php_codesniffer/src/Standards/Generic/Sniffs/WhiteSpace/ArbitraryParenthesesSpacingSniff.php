@@ -18,7 +18,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ArbitraryParenthesesSpacingSniff implements Sniff
 {
-
     /**
      * The number of spaces desired on the inside of the parentheses.
      *
@@ -40,7 +39,6 @@ class ArbitraryParenthesesSpacingSniff implements Sniff
      * @var array
      */
     private $ignoreTokens = [];
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -68,9 +66,7 @@ class ArbitraryParenthesesSpacingSniff implements Sniff
             T_OPEN_PARENTHESIS,
             T_CLOSE_PARENTHESIS,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -229,8 +225,5 @@ class ArbitraryParenthesesSpacingSniff implements Sniff
                 }//end if
             }//end if
         }//end if
-
     }//end process()
-
-
 }//end class

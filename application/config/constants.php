@@ -2,9 +2,7 @@
 error_reporting("ERROR");
 //error_reporting(E_ALL);
 
-
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 
 defined('PASSWORD_SECRET_START') OR define('PASSWORD_SECRET_START','####PRINTINGCOOPSECURITYSTART####');
 defined('PASSWORD_SECRET_END') OR define('PASSWORD_SECRET_END','####PRINTINGCOOPSECURITYEND####');
@@ -137,8 +135,6 @@ defined('LOGO_IMAGE_BASE_URL') OR define('LOGO_IMAGE_BASE_URL',FILE_UPLOAD_BASE_
 defined('SECTION_IMAGE_BASE_PATH') OR define('SECTION_IMAGE_BASE_PATH',FILE_UPLOAD_BASE_PATH.'section/');
 defined('SECTION_IMAGE_BASE_URL') OR define('SECTION_IMAGE_BASE_URL',FILE_UPLOAD_BASE_URL.'section/');
 
-
-
 defined('BANNER_IMAGE_LARGE_BASE_PATH') OR define('BANNER_IMAGE_LARGE_BASE_PATH',BANNER_IMAGE_BASE_PATH.'large/');
 
 defined('BANNER_IMAGE_MEDIUM_BASE_PATH') OR define('BANNER_IMAGE_MEDIUM_BASE_PATH',BANNER_IMAGE_BASE_PATH.'medium/');
@@ -173,7 +169,6 @@ defined('BLOG_IMAGE_MEDIUM_BASE_PATH') OR define('BLOG_IMAGE_MEDIUM_BASE_PATH',B
 
 defined('BLOG_IMAGE_SMALL_BASE_PATH') OR define('BLOG_IMAGE_SMALL_BASE_PATH',BLOG_IMAGE_BASE_PATH.'small/');
 
-
 defined('BLOG_IMAGE_BASE_URL') OR define('BLOG_IMAGE_BASE_URL',FILE_UPLOAD_BASE_URL.'blogs/');
 defined('BLOG_IMAGE_LARGE_BASE_URL') OR define('BLOG_IMAGE_LARGE_BASE_URL',BLOG_IMAGE_BASE_URL.'large/');
 defined('BLOG_IMAGE_MEDIUM_BASE_URL') OR define('BLOG_IMAGE_MEDIUM_BASE_URL',BLOG_IMAGE_BASE_URL.'medium/');
@@ -197,7 +192,6 @@ defined('CUSTOMER_ID_PREFIX') OR define('CUSTOMER_ID_PREFIX','CUST-0');
 defined('PAYUMONEY_MERCHANT_KEY') OR define('PAYUMONEY_MERCHANT_KEY','pUuv93T5');defined('PAYUMONEY_MERCHANT_SALT') OR define('PAYUMONEY_MERCHANT_SALT','nSAGaIQThL');
 defined('PAYUMONEY_CALL_BACK_URL') OR define('PAYUMONEY_CALL_BACK_URL',FILE_BASE_URL.'Checkouts/payumoneyResponse');
 
-
 //defined('SEND_EMAIL_USERNAME')   OR define('SEND_EMAIL_USERNAME', 'neelu164');
 //defined('SEND_EMAIL_PASSWORD')   OR define('SEND_EMAIL_PASSWORD', 'Neelu164@');
 
@@ -205,9 +199,6 @@ defined('SEND_EMAIL_USERNAME')   OR define('SEND_EMAIL_USERNAME', 'info@imprimeu
 defined('SEND_EMAIL_PASSWORD')   OR define('SEND_EMAIL_PASSWORD', 'KharhaKharha.@.1392');
 //defined('SEND_EMAIL_API_KEY')   OR define('SEND_EMAIL_API_KEY','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');
 defined('SEND_EMAIL_API_KEY')   OR define('SEND_EMAIL_API_KEY','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');
-
-
-
 
 defined('FROM_EMAIL')  OR define('FROM_EMAIL','info@printing.coop');
 defined('FROM_EMAIL_FRANCH')  OR define('FROM_EMAIL_FRANCH','info@imprimeur.coop');
@@ -227,10 +218,7 @@ defined('RECTO_ATTRIBUTE_PERCENTAGE') OR define('RECTO_ATTRIBUTE_PERCENTAGE','35
 defined('SOCKETLAB_SERVER_ID') OR define('SOCKETLAB_SERVER_ID','34629');
 defined('SOCKETLAB_API_KEY') OR define('SOCKETLAB_API_KEY','Zi35HzSo24Fkp8R9KxGc');
 
-
-
 function pr($array,$debug=false){
-
 	echo "<pre>";
 	print_r($array);
 	echo "</pre>";
@@ -240,12 +228,9 @@ function pr($array,$debug=false){
 }
 
 function getProductImage($imageName=null,$type='small'){
-
 	$imageurl='';
 
-
     if(!empty($imageName)){
-
 		switch($type){
 			case 'small':
 			    if(file_exists(PRODUCT_IMAGE_SMALL_BASE_PATH.$imageName))
@@ -262,16 +247,13 @@ function getProductImage($imageName=null,$type='small'){
 			default:
 			if(file_exists(PRODUCT_IMAGE_BASE_PATH.$imageName))
 			   $imageurl=PRODUCT_IMAGE_BASE_URL.$imageName;
-
 		}
 	}else{
-
 		if(empty($imageurl))
 		   $imageurl=PRODUCT_DEFAULT_IMAGE_URL;
 	}
 
 	if(empty($imageurl)){
-
 	   if(file_exists(BANNER_IMAGE_BASE_PATH.$imageName))
 	      $imageurl=BANNER_IMAGE_BASE_URL.$imageName;
        if(empty($imageurl))
@@ -284,7 +266,6 @@ function getBannerImage($imageName=null,$type='small'){
 	$imageurl='';
 
     if(!empty($imageName)){
-
 		switch($type){
 			case 'small':
 			    if(file_exists(BANNER_IMAGE_SMALL_BASE_PATH.$imageName))
@@ -303,13 +284,11 @@ function getBannerImage($imageName=null,$type='small'){
 			   $imageurl=BANNER_IMAGE_BASE_URL.$imageName;
 		}
 	}else{
-
 		if(empty($imageurl))
 		   $imageurl=BANNER_DEFAULT_IMAGE_URL;
 	}
 
 	if(empty($imageurl)){
-
 	   if(file_exists(BANNER_IMAGE_BASE_PATH.$imageName))
 	      $imageurl=BANNER_IMAGE_BASE_URL.$imageName;
        if(empty($imageurl))
@@ -321,7 +300,6 @@ function getBrandImage($imageName=null,$type='small'){
 	$imageurl='';
 
     if(!empty($imageName)){
-
 		switch($type){
 			case 'large':
 			    if(file_exists(BRAND_IMAGE_LARGE_BASE_PATH.$imageName))
@@ -332,13 +310,11 @@ function getBrandImage($imageName=null,$type='small'){
 			   $imageurl=BRAND_IMAGE_BASE_URL.$imageName;
 		}
 	}else{
-
 		if(empty($imageurl))
 		   $imageurl=BRAND_DEFAULT_IMAGE_URL;
 	}
 
 	if(empty($imageurl)){
-
 	   if(file_exists(BRAND_IMAGE_BASE_PATH.$imageName))
 	      $imageurl=BRAND_IMAGE_BASE_URL.$imageName;
        if(empty($imageurl))
@@ -349,9 +325,7 @@ function getBrandImage($imageName=null,$type='small'){
 function geCategoryImage($imageName=null,$type='large'){
 	$imageurl='';
     if(!empty($imageName)){
-
 		switch($type){
-
 			case 'large':
 			    if(file_exists(CATEGORY_IMAGE_LARGE_BASE_PATH.$imageName))
 				   $imageurl=CATEGORY_IMAGE_LARGE_BASE_URL.$imageName;
@@ -361,13 +335,11 @@ function geCategoryImage($imageName=null,$type='large'){
 			   $imageurl=CATEGORY_IMAGE_BASE_URL.$imageName;
 		}
 	}else{
-
 		if(empty($imageurl))
 		   $imageurl=CATEGORY_DEFAULT_IMAGE_URL;
 	}
 
 	if(empty($imageurl)){
-
 	   if(file_exists(CATEGORY_IMAGE_BASE_PATH.$imageName))
 	      $imageurl=CATEGORY_IMAGE_BASE_URL.$imageName;
        if(empty($imageurl))
@@ -380,7 +352,6 @@ function getBlogImage($imageName=null,$type='small'){
 		$imageurl='';
 
 	    if(!empty($imageName)){
-
 			switch($type){
 				case 'small':
 				    if(file_exists(BLOG_IMAGE_SMALL_BASE_PATH.$imageName))
@@ -399,13 +370,11 @@ function getBlogImage($imageName=null,$type='small'){
 				   $imageurl=BLOG_IMAGE_BASE_URL.$imageName;
 			}
 		}else{
-
 			if(empty($imageurl))
 			   $imageurl=BANNER_DEFAULT_IMAGE_URL;
 		}
 
 		if(empty($imageurl)){
-
 		   if(file_exists(BLOG_IMAGE_BASE_PATH.$imageName))
 		      $imageurl=BLOG_IMAGE_BASE_URL.$imageName;
 	       if(empty($imageurl))
@@ -413,7 +382,6 @@ function getBlogImage($imageName=null,$type='small'){
 		}
 	    return 	$imageurl;
 }
-
 
 function getSectionImage($imageName = null)
 {
@@ -426,7 +394,6 @@ function getSectionImage($imageName = null)
 }
 
 function dateFormate($date,$time=true){
-
 	$newDate='';
 	if($date !='' && $date !='0000-00-00 00:00:00' && $date !='0000-00-00' ){
 		if($time==false){
@@ -439,26 +406,21 @@ function dateFormate($date,$time=true){
 }
 
 function getDiscountPrice($price=0,$discount=0,$numberFormate=true){
-
 	$newPrice=0;
    // echo $price;
     //echo $discount;
 
     if(!empty($discount)){
-
         $pers=(($price*$discount)/100);
         $newPrice=$price-$pers;
         if($numberFormate)
 		$newPrice=number_format($newPrice,2);
 		//die();
-
 	}
     return $newPrice;
 }
 
-
 function checkBuyNowProduct($is_stock,$tota_stock){
-
 	$buy=true;
 	if(!empty($is_stock)){
 		$buy=false;
@@ -467,13 +429,10 @@ function checkBuyNowProduct($is_stock,$tota_stock){
 		$buy=false;
 	}*/
 	return $buy;
-
 }
-
 
 function getRate($rate)
 {
-
 		$html = '';
 
 		for ($i = 1; $i <= 5; $i++) {
@@ -488,62 +447,42 @@ function getRate($rate)
 	  return $html;
 }
     function getOtp(){
-
 	    $array=range(100000,999999);
 	    $k = array_rand($array);
 	    return $array[$k];
     }
 
     function showValue($val){
-
 		$explode=explode(".",$val);
 		$newVal='';
 		if(empty($val) || $val =='0' || $val =='0.0' || $val =='0.00' || $val =='0.000' || $val =='0.0000'){
-
 			return $newVal;
-
 		}else if(empty($explode[1])  || $explode[1] =='0' || $explode[1] =='00' || $explode[1] =='000' || $explode[1] =='0000'){
-
 			$newVal=$explode[0];
-
 		}else if(!empty($explode[1])){
-
 			$d1=substr($explode[1],0,1);
 			$d2=substr($explode[1],1,1);
 			$d3=substr($explode[1],2,1);
 		    $d4=substr($explode[1],3,1);
 
 			if($d1 !=0 && $d2==0 && $d3==0 && $d4==0){
-
 				$newVal=$explode[0].".".$d1;
-
 			}else if($d1 ==0 && $d2 !=0 && $d3==0 && $d4==0){
-
 				$newVal=$explode[0].".".$d1.$d2;
-
 			}else if($d1 ==0 && $d2 ==0 && $d3 !=0 && $d4==0){
-
 				$newVal=$explode[0].".".$d1.$d2.$d3;
-
 			}else if($d1 ==0 && $d2 ==0 && $d3 ==0 && $d4 !=0){
-
 				$newVal=$explode[0].".".$d1.$d2.$d3.$d4;
-
 			}
 			else if($d1 !=0 && $d2 !=0 && $d3 !=0 && $d4!=0){
-
 				$newVal=$val;
 			}else if($d1 !=0 && $d2 !=0 && $d3 ==0 && $d4==0){
-
 				$newVal=$explode[0].".".$d1.$d2;
 			}else if($d1 ==0 && $d2 !=0 && $d3 !=0 && $d4==0){
-
 				$newVal=$explode[0].".".$d1.$d2.$d3;
 			}else if($d1 ==0 && $d2 !=0 && $d3 ==0 && $d4!=0){
-
 				$newVal=$explode[0].".".$d1.$d2.$d3.$d4;
 			}
-
 		}
 		if(!empty($newVal)){
 			return $newVal;
@@ -553,7 +492,6 @@ function getRate($rate)
 	}
 	#echo showValue(0.0011);
 	function sendSms($numbers,$message){
-
 		$username = "sharma.neelu642@gmail.com";
 		$hash = "e991b5738cbcd30c121c43375e1a7a7f572c5a100c412253f2e395a671810a5d";
 		// Config variables. Consult http://api.textlocal.in/docs for more info.
@@ -579,7 +517,6 @@ function getRate($rate)
 			if($data->status =='success'){
 				return true;
 			}else{
-
 				return false;
 			}
 		}else{
@@ -587,70 +524,45 @@ function getRate($rate)
 		}
     }
     function getNCRParts(){
-
-
 	   $NCRParts=array('2 copies','3 copies','4 copies','2-Part Set (White/Yellow)','3-Part Set (White/Yellow/Pink)','4-Part Set (White/Yellow/Pink/Gold)','No parts only white  paper printer');
 
        return $NCRParts;
-
     }
    function getOrderSatus($status=null){
-
-
 	   $statusData=array(1=>'Incomplete',2=>'New',3=>'Processing',9=>'Ready for pickup',4=>'Shipped',5=>'Delivered',6=>'Cancelled',7=>'Failed',8=>'Complete');
 
-
 	   if(!empty($status)){
-
 		    return $statusData[$status];
 	   }else{
 		   return $statusData;
 	   }
-
-
-
     }
 	function getOrderSatusClass($status=null){
-
-
 	   $statusData=array(1=>'<button type="button" class="btn btn-sm">Incomplete</button>',2=>'<button type="button" class="btn btn-sm btn-primary">New Order</button>',3=>'<button type="button" class="btn btn-warning btn-sm">Processing</button>',4=>'<button type="button" class="btn btn-sm" style="background-color: #17a2b8; border-color: #17a2b8;">Shipped</button>',5=>'<button type="button" class="btn btn-info btn-sm">Delivered</button>',6=>'<button type="button" class="btn btn-dark btn-sm">Cancelled</button>',7=>'<button type="button" class="btn btn-danger btn-sm">Failed</button>',8=>'<button type="button" class="btn btn-info btn-sm">Complete</button>',9=>'<button type="button" class="btn btn-sm" style="background-color: #17a2b8; border-color: #17a2b8;">Ready for pickup</button>');
 
 	   if(!empty($status)){
-
 		    return $statusData[$status];
 	   }else{
-
 		   return $statusData;
 	   }
     }
 
 	function getOrderSatusFrench($status=null){
-
-
 	   $statusData=array(1=>'Incomplète',2=>'Nouvelle commande',3=>'En traitement',4=>'Expédié',5=>'Livré',6=>'Annulé',7=>'Échoué',8=>'Achevée');
 
-
 	   if(!empty($status)){
-
 		    return $statusData[$status];
 	   }else{
 		   return $statusData;
 	   }
-
-
-
     }
 
 	function getOrderSatusClassFrench($status=null){
-
-
 	   $statusData=array(1=>'<button type="button" class="btn btn-sm">Incomplète</button>',2=>'<button type="button" class="btn btn-sm btn-primary">Nouvelle commande</button>',3=>'<button type="button" class="btn btn-warning btn-sm">En traitement</button>',4=>'<button type="button" class="btn btn-sm" style="background-color: #17a2b8; border-color: #17a2b8;">Expédié</button>',5=>'<button type="button" class="btn btn-info btn-sm">Livré</button>',6=>'<button type="button" class="btn btn-dark btn-sm">Annulé</button>',7=>'<button type="button" class="btn btn-danger btn-sm">Échoué</button>',8=>'<button type="button" class="btn btn-info btn-sm">Achevée</button>');
 
 	   if(!empty($status)){
-
 		    return $statusData[$status];
 	   }else{
-
 		   return $statusData;
 	   }
     }
@@ -675,7 +587,6 @@ function getRate($rate)
     }
 
 	function pageSlug(){
-
 	    $pageSlugArray=array(
 					     'brands'=>array('class'=>'Pages','action'=>'brands'),
 					     'support'=>array('class'=>'Pages','action'=>'support'),
@@ -688,12 +599,9 @@ function getRate($rate)
 						 'blogs'=>array('class'=>'Blogs','action'=>'')
 			     );
 	    return $pageSlugArray;
-
-
     }
 
 	function afterLogin(){
-
 	    $pageSlugArray=array(
 					   'my-account'=>array('class'=>'MyAccounts','action'=>'index'),
 					   'order-history'=>array('class'=>'MyOrders','action'=>'index'),
@@ -701,43 +609,27 @@ function getRate($rate)
 					   'support'=>array('class'=>'Tickets','action'=>'index')
         );
 	    return $pageSlugArray;
-
-
     }
 
-
-
 	function getDiscountType(){
-
 	    $discountTypeArray=array('discount_percent'=>'Discount Percent',
 		'discount_amount'=>'Discount Amount'
         );
 	    return $discountTypeArray;
-
-
     }
 
     function getOrderPaymentMethod($status){
-
 	   $statusData=array('DC'=>'Debit Card','CC'=>'Credit Card','NB'=>'Net Banking');
 	    if(isset($statusData[$status])){
-
 	       return $statusData[$status];
-
 	    }
-
-
     }
 
 	function PaymentMethod(){
-
 	    $statusData=array('Debit Card','Credit Card','Paypal','Stripe','COD');
 	    return $statusData;
-
-
     }
     function getOrderPaymentStatus($status=null,$type='list'){
-
 		if($type=='list'){
 			$statusData=array(
 			   1=>'<button type="button" class="btn btn-sm btn-warning  ">Pending</button>',
@@ -745,7 +637,6 @@ function getRate($rate)
 			   3=>'<button type="button" class="btn btn-sm btn-danger ">Failed</button>'
 		    );
 		}else if($type='csv'){
-
 			$statusData=array(
 			   1=>'Pending',
 			   2=>'Success',
@@ -753,16 +644,13 @@ function getRate($rate)
 		    );
 		}
 		if(!empty($status)){
-
 	        return $statusData[$status];
 	   }else{
-
 		   return $statusData;
 	   }
     }
 
     function getOrderPaymentStatusFrench($status=null,$type='list'){
-
 		if($type=='list'){
 			$statusData=array(
 			   1=>'<button type="button" class="btn btn-sm btn-warning  ">En attente</button>',
@@ -770,7 +658,6 @@ function getRate($rate)
 			   3=>'<button type="button" class="btn btn-sm btn-danger ">Échoué</button>'
 		    );
 		}else if($type='csv'){
-
 			$statusData=array(
 			   1=>'En attente',
 			   2=>'Success',
@@ -778,16 +665,13 @@ function getRate($rate)
 		    );
 		}
 		if(!empty($status)){
-
 	        return $statusData[$status];
 	   }else{
-
 		   return $statusData;
 	   }
     }
 
 	function emailTemplate($subject,$body){
-
 		$html ='<div class="top-section" style="width:100%;text-align:center; font-family: Raleway, sans-serif !important;display: flex;justify-content: center;align-items: center;">
 		<div class="top-mid-section" style="width:100%; max-width:600px; height:auto; text-align:center; padding:0px 0px 0px 0px; box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);background-image: url('.FILE_BASE_URL.'assets/images/bg-vector-img.jpg);">
 			<div style="background: rgba(255,255,255,0.9)">
@@ -819,7 +703,6 @@ function getRate($rate)
 	}
 
 	function emailTemplateFranch($subject,$body){
-
 			$html ='<div class="top-section" style="width:100%;text-align:center; font-family: Raleway, sans-serif !important;display: flex;justify-content: center;align-items: center;">
 			<div class="top-mid-section" style="width:100%; max-width:600px; height:auto; text-align:center; padding:0px 0px 0px 0px; box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);background-image: url('.FILE_BASE_URL.'assets/images/bg-vector-img.jpg);">
 				<div style="background: rgba(255,255,255,0.9)">
@@ -850,9 +733,7 @@ function getRate($rate)
 		 return $html;
 	}
 
-
     /*function sendEmail($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){
-
 		$from=!empty($from) ? $from:FROM_EMAIL;
 		$fromname=!empty($fromname) ? $fromname:WEBSITE_NAME;
 		$params = array(
@@ -867,7 +748,6 @@ function getRate($rate)
 		);
 
 		foreach($files as $fileName=>$path){
-
 			$params['files['.$fileName.']'] = file_get_contents($path);
 		}
 		//pr($params);
@@ -885,7 +765,6 @@ function getRate($rate)
 	}
 
 	function sendEmailFranch($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){
-
 		$from=!empty($from) ? $from:FROM_EMAIL;
 		$fromname=!empty($fromname) ? $fromname:WEBSITE_NAME_FRANCH;
 		$params = array(
@@ -900,7 +779,6 @@ function getRate($rate)
 		);
 
 		foreach($files as $fileName=>$path){
-
 			$params['files['.$fileName.']'] = file_get_contents($path);
 		}
 		//pr($params);
@@ -921,7 +799,6 @@ function getRate($rate)
 
 /* org send email functions */
 	/*function sendEmail($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){
-
 		$from=!empty($from) ? $from:FROM_EMAIL;
 		$fromname=!empty($fromname) ? $fromname:WEBSITE_NAME;
 		$sendgrid_apikey = SEND_EMAIL_API_KEY;
@@ -935,7 +812,6 @@ function getRate($rate)
 		);
 
 		foreach($files as $fileName=>$path){
-
 			$params['files['.$fileName.']'] = file_get_contents($path);
 		}
 		#pr($params);
@@ -954,7 +830,6 @@ function getRate($rate)
 	}
 
 	function sendEmailFranch($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){
-
 		$from=!empty($from) ? $from:FROM_EMAIL_FRANCH;
 		$fromname=!empty($fromname) ? $fromname:WEBSITE_NAME_FRANCH;
 		$sendgrid_apikey = SEND_EMAIL_API_KEY;
@@ -968,7 +843,6 @@ function getRate($rate)
 		);
 		#pr($params);
 		foreach($files as $fileName=>$path){
-
 			$params['files['.$fileName.']'] = file_get_contents($path);
 		}
 		//pr($params);
@@ -1074,9 +948,7 @@ function getRate($rate)
 			return $imageurl;
 	}
 
-
 	function  upsServiceCode(){
-
 		$ups_service_code   = array(
 		'01' => 'UPS Next Day Air',
 		'02' => 'UPS 2nd Day Air',
@@ -1092,19 +964,15 @@ function getRate($rate)
 		'65' => 'UPS World Wide Saver'
 		);
 	    return $ups_service_code;
-
-
 	}
 
  //CanedaPostApigetRate('K1K4T3');
 
  function CanedaPostApigetRate($postalCode){
-
 	$Rates=array('status'=>'404','msg'=>'postal-code is not a valid','list'=>array());
 	$username = '99ee0c797ced5425';
 	$password = 'b638d92827ade27061a7ed';
 	$mailedBy = '0008736935';
-
 
 // REST URL
 $service_url = 'https://ct.soa-gw.canadapost.ca/rs/ship/price';
@@ -1142,7 +1010,6 @@ curl_setopt($curl, CURLOPT_USERPWD, $username . ':' . $password);
 curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/vnd.cpc.ship.rate-v4+xml', 'Accept: application/vnd.cpc.ship.rate-v4+xml'));
 $curl_response = curl_exec($curl); // Execute REST Request
 if(curl_errno($curl)){
-
 	//echo 'Curl error: ' . curl_error($curl) . "\n";
 }
 
@@ -1161,13 +1028,10 @@ if (!$xml) {
 		//echo "\t" . $error->message;
 	}
 } else {
-
 		if ($xml->{'price-quotes'} ) {
 			$priceQuotes = $xml->{'price-quotes'}->children('http://www.canadapost.ca/ws/ship/rate-v4');
 			if ( $priceQuotes->{'price-quote'} ) {
-
 				foreach ( $priceQuotes as $priceQuote ) {
-
 					$array = json_decode(json_encode($priceQuote), TRUE);
                     $service_name=$array['service-name'];
 					$list['service_name']=$service_name;
@@ -1176,8 +1040,6 @@ if (!$xml) {
 					$Rates['list'][]=$list;
 					$Rates['msg']="";
 				}
-
-
 			}
 		}
 
@@ -1188,40 +1050,31 @@ if (!$xml) {
 				echo 'Error Msg: ' . $message->description . "\n\n";
 			}
 		}
-
 	}
 	return $Rates;
     //die('Ok');
-
 }
 
     function getShipingName($orderData){
-
 		$upsServiceCode=upsServiceCode();
         $str='';
 		if($orderData['shipping_method_formate']){
-
 			$shipping_method_formate=explode('-',$orderData['shipping_method_formate']);
 			if($shipping_method_formate[0]=="ups"){
 				$str=$upsServiceCode[$shipping_method_formate[2]]." (UPS)";
 			}else if($shipping_method_formate[0]=="canadapost"){
-
 				$str=$shipping_method_formate[2]." (Canada Post)";
 			}else if($shipping_method_formate[0]=="flagship"){
-
 				$codeData=FlagShipServiceCode($shipping_method_formate[2]);
 													//pr($codeData);
 
 			   $str=$codeData['courier_name'].'<br>'.$codeData['courier_desc']."</br>(FlagShip)";
 			}
-
 		}
 		return $str;
-
 	}
 
 	/*function CreatePdf(){
-
 		$html="<H1>Hi</h1>";
 		include FILE_BASE_PATH.'dompdf-master/vendor/autoload.php';
 		use Dompdf\Dompdf;
@@ -1234,8 +1087,6 @@ if (!$xml) {
 		$file="test.pdf";
 		$dompdf->stream($file);
 		exit();
-
-
 	}*/
 	//include('PaytmKit/lib/config_paytm.php');
 	//include('PaytmKit/lib/encdec_paytm.php');
@@ -1249,21 +1100,17 @@ if (!$xml) {
 		$str=str_replace('&nbsp;','.',$str);
 		$strNew=$tr->translate($str);
 		return $strNew;
-
 	}
 	function FRCNew1($text){
-
 		$from_lan='en';
 		$to_lan='fr';
 		$json = json_decode(file_get_contents('https://ajax.googleapis.com/ajax/services/language/translate?v=1.0&q=' . urlencode($text) . '&langpair=' . $from_lan . '|' . $to_lan));
 		$translated_text = $json->responseData->translatedText;
 		pr($json->responseData,1);
 		return $translated_text;
-
     }
 
 	function FRCNew2($str){
-
 		$apiKey = 'AIzaSyBiw1CyvkpCPKREwUjWov0cWqkGLMRuKns';
         $str=trim($str);
 		$str=str_replace('&middot;','.',$str);
@@ -1278,8 +1125,6 @@ if (!$xml) {
 		/*echo 'Source: ' . $str . '<br>';
 		echo 'Translation: ' .*/
 		return isset($responseDecoded['data']['translations'][0]['translatedText']) ? $responseDecoded['data']['translations'][0]['translatedText']:'';
-
-
     }
 
 	require_once(FILE_BASE_PATH.'application/config/flagship-api-sdk-master/vendor/autoload.php');
@@ -1298,7 +1143,6 @@ if (!$xml) {
 	defined('MY_ACCESS_TOKEN_LIVE') OR define('MY_ACCESS_TOKEN_LIVE','nXiEiZtRLDzJtIzP1JWVBxv_7biNGkoydoAHO1NfFXA');
 	defined('MY_ACCESS_TOKEN_TEST') OR define('MY_ACCESS_TOKEN_TEST','y-ew5cE7ZN22doaiunkrK8oXHa9_hcQyw2-Esin-10Y');
 	function getRatesFlagShip($ProductOrder,$ProductOrderItems,$CountryData,$stateData,$cityData,$storeData){
-
 			/*
 			 * @params
 			 * MY_ACCESS_TOKEN : use your Flagship token
@@ -1328,7 +1172,6 @@ if (!$xml) {
 			$items=array();
 			$total_amount=$ProductOrder['total_amount'];
 			foreach($ProductOrderItems as $ProductOrderItem){
-
 				$name=$ProductOrderItem['name'];
 				//$description=$ProductOrderItem['name'];
 				$shipping_box_length=$ProductOrderItem['shipping_box_length'];
@@ -1337,19 +1180,15 @@ if (!$xml) {
 				$shipping_box_weight=$ProductOrderItem['shipping_box_weight'];
 
 				if(empty($shipping_box_length) || $shipping_box_length==0.00){
-
 				    	$shipping_box_length=12;
 				}
 				if(empty($shipping_box_width) || $shipping_box_width==0.00){
-
 				    	$shipping_box_width=9;
 				}
 				if(empty($shipping_box_height) || $shipping_box_height==0.00){
-
 				    	$shipping_box_height=3;
 				}
 				if(empty($shipping_box_weight) || $shipping_box_weight==0.00){
-
 				    	$shipping_box_weight=3;
 				}
 				$shipping_box_width=ceil($shipping_box_width);
@@ -1365,7 +1204,6 @@ if (!$xml) {
 			   ];
 
 			   //pr($items,1);
-
 			}
 
 			$flagship = new Flagship($MY_ACCESS_TOKEN, $API_URL,$website_name,API_VERSION);
@@ -1423,7 +1261,6 @@ if (!$xml) {
 			];
 
 			try{
-
 				$rates = $flagship->createQuoteRequest($payload)->execute();
 				//return $rates;
 				//$rates = $flagship->createQuoteRequest($payload)->setStoreName($store_name)->setOrderId($id)->execute();
@@ -1432,8 +1269,6 @@ if (!$xml) {
 				$ratesNew=array();
 				$codes=FlagShipServiceCode();
 				foreach($rates as $rate){
-
-
 					if(array_key_exists($rate->rate->service->courier_code,$codes)){
 						$ratesNew[]=$rate;
 					}
@@ -1441,18 +1276,15 @@ if (!$xml) {
 				//pr($rates,1);
 				#pr($ratesNew,1);
 				return $ratesNew;
-
 			}
 			catch(QuoteException $e){
 				//echo $e->getMessage();
 				//return $e->getMessage();
 				//die('Stop');
 			}
-
     }
 
 	function FlagShipConfirm($ProductOrder,$ProductOrderItems,$CountryData,$stateData,$cityData,$storeData){
-
 		    $json=array('status'=>0,'msg'=>'','data'=>array());
 		    //pr($ProductOrder);
 			//pr($ProductOrderItem);
@@ -1488,7 +1320,6 @@ if (!$xml) {
 			$items=array();
 
 			foreach($ProductOrderItems as $ProductOrderItem){
-
 				$name=$ProductOrderItem['name'];
 				//$description=$ProductOrderItem['name'];
 				$shipping_box_length=$ProductOrderItem['shipping_box_length'];
@@ -1497,19 +1328,15 @@ if (!$xml) {
 				$shipping_box_weight=$ProductOrderItem['shipping_box_weight'];
 
 				if(empty($shipping_box_length) || $shipping_box_length==0.00){
-
 				    	$shipping_box_length=12;
 				}
 				if(empty($shipping_box_width) || $shipping_box_width==0.00){
-
 				    	$shipping_box_width=9;
 				}
 				if(empty($shipping_box_height) || $shipping_box_height==0.00){
-
 				    	$shipping_box_height=3;
 				}
 				if(empty($shipping_box_weight) || $shipping_box_weight==0.00){
-
 				    	$shipping_box_weight=3;
 				}
 				$shipping_box_width=ceil($shipping_box_width);
@@ -1523,14 +1350,11 @@ if (!$xml) {
 							"weight" => $shipping_box_weight,
 							"description"=> $name
 			   ];
-
 			}
 			$service=array();
 			if(!empty($ProductOrder['shipping_method_formate'])){
-
 				$shipping_method_formate=explode('-',$ProductOrder['shipping_method_formate']);
 				if($shipping_method_formate[0]=="flagship"){
-
 				$codeData=FlagShipServiceCode($shipping_method_formate[2]);
 				$courier_name=$codeData['courier_name'];
 				$courier_code=$codeData['courier_code'];
@@ -1539,7 +1363,6 @@ if (!$xml) {
 					"courier_code"=>$courier_code
 					];
 				}
-
 		    }
 
 			if(!empty($service)){
@@ -1610,24 +1433,19 @@ if (!$xml) {
 				  $json['data']=$confirmedShipment;
 				  $json['status']=1;
 				  $json['msg']='Shipping label created successfully';
-
 			}
 			catch(ConfirmShipmentException $e){
-
 				$json['msg']=$e->getMessage();
 				//die('Stop');
 			}
 		}else{
-
 			$json['msg']='Invalid shipping method';
 		}
 		//pr($json);
 		return $json;
-
     }
 
 	function FlagShipTracking($ProductOrder,$storeData){
-
 		    $json=array('status'=>0,'msg'=>'','data'=>array());
 		    //pr($ProductOrder);
 			//pr($ProductOrderItem);
@@ -1648,13 +1466,11 @@ if (!$xml) {
 			$shipment_id=$ProductOrder['shipment_id'];
 			//$shipment_id='786073265551';
 			if(!empty($tracking_number) && !empty($shipment_id)){
-
 				$flagship = new Flagship($MY_ACCESS_TOKEN, $API_URL,$website_name,API_VERSION);
 				$payload = [
 					 $shipment_id
 				];
 				try{
-
 					  //$data=$flagship->availableServicesRequest()->execute();
 					  //$data=$flagship->getShipmentListRequest()->execute();
 					  $confirmedShipment = $flagship->getShipmentByIdRequest($shipment_id)->execute();
@@ -1662,22 +1478,17 @@ if (!$xml) {
 					  $json['data']=$confirmedShipment;
 					  $json['status']=1;
 					  $json['msg']='Shipping label created successfully';
-
 				}
 				catch(GetShipmentByIdException $e){
-
 					$json['msg']=$e->getMessage();
 				}
 		}else{
-
 			$json['msg']='Invalid shipping method';
 		}
 		return $json;
-
     }
 
 	function FlagShipCancal($ProductOrder,$storeData){
-
 		    $json=array('status'=>0,'msg'=>'','data'=>array());
 		    //pr($ProductOrder);
 			//pr($ProductOrderItem);
@@ -1698,26 +1509,21 @@ if (!$xml) {
 			$shipment_id=$ProductOrder['shipment_id'];
 			//$shipment_id='786073265551';
 			if(!empty($tracking_number) && !empty($shipment_id)){
-
 				$flagship = new Flagship($MY_ACCESS_TOKEN, $API_URL,$website_name,API_VERSION);
 				$payload = [
 					 $shipment_id
 				];
 				try{
-
 					  //$data=$flagship->availableServicesRequest()->execute();
 					  //$data=$flagship->getShipmentListRequest()->execute();
 					  $flagship->cancelShipmentRequest($shipment_id)->execute();
 					  $json['status']=1;
 					  $json['msg']='Shipping label cancelled successfully';
-
 				}
 				catch(CancelShipmentException $e){
-
 					$json['msg']=$e->getMessage();
 				}
 		}else{
-
 			$json['msg']='Invalid shipping method';
 		}
 		return $json;
@@ -1725,7 +1531,6 @@ if (!$xml) {
 
 	#FlagShipTestRate();
 	function FlagShipTestRate(){
-
 			/*
 			 * @params
 			 * MY_ACCESS_TOKEN : use your Flagship token
@@ -1807,7 +1612,6 @@ if (!$xml) {
 				//pr($rates,1);
 			}
 			catch(QuoteException $e){
-
 				echo $e->getMessage();
 				die('Stop');
 			}
@@ -1820,12 +1624,9 @@ if (!$xml) {
 				//pr($rates,1);
 			}
 			catch(CreateManifestException $e){
-
 				echo $e->getMessage();
 				die('Stop');
 			}*/
-
-
 }
 
 #FlagShipTestConfirm();
@@ -1915,14 +1716,11 @@ function FlagShipTestConfirm(){
 				  echo $confirmedShipment->getTotal();
 			}
 			catch(ConfirmShipmentException  $e){
-
 				echo $e->getMessage();
 				die('Stop');
 			}
-
 }
     function  FlagShipServiceCode($code=null){
-
 		$ups_service_code   = [
 		/*'FEDEX_GROUND'        => ['flagship_code' =>'standard',
                                  'courier_code' => 'FEDEX_GROUND',
@@ -1974,17 +1772,13 @@ function FlagShipTestConfirm(){
 		];
 
 		if(!empty($code)){
-
 		 	return $ups_service_code[$code];
 			exit();
 		}
 	    return $ups_service_code;
-
-
 	}
 
 	function  FlagShipTrackingStatus($code=null){
-
 		$ups_service_code   = [
 		'M'        => 'Manifested',
 		'P'        => 'Pickup',
@@ -1993,38 +1787,26 @@ function FlagShipTestConfirm(){
 		'X'        => 'Exception',
 		];
 		if(!empty($code)){
-
 		 	return $ups_service_code[$code];
 			exit();
 		}
 	    return $ups_service_code;
 	}
 
-
 	function calculateShippingCost($order_amount){
-
 		$shiping_coust=0.00;
 		$order_amount=round($order_amount,2);
 
 		if($order_amount <= 100.99){
-
 			$shiping_coust=25;
-
 		}else if($order_amount >= 101 && $order_amount <= 300.99){
-
 			 $shiping_coust=40;
-
 		}else if($order_amount >= 301 && $order_amount <= 999.99){
-
 			$shiping_coust=($order_amount*15)/100;
 			$shiping_coust=round($shiping_coust,2);
-
 		}else if($order_amount > 1000){
 			$shiping_coust=0.00;
 		}
 		return $shiping_coust;
-
 	}
-
-
 

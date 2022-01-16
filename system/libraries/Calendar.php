@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/calendar.html
  */
 class CI_Calendar {
-
 	/**
 	 * Calendar layout template
 	 *
@@ -542,5 +541,4 @@ class CI_Calendar {
 
 		return $this;
 	}
-
 }

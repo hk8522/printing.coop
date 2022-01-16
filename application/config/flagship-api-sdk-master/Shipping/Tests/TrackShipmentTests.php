@@ -5,7 +5,6 @@ use \PHPUnit\Framework\TestCase;
 use Flagship\Shipping\Objects\TrackShipment;
 
 class TrackShipmentTests extends TestCase{
-
     public function testGetCurrentStatus(){
         $this->assertNotNull($this->trackShipment->getCurrentStatus());
         $this->assertSame('T',$this->trackShipment->getCurrentStatus());

@@ -13,7 +13,6 @@ use PHPUnit\Framework\TestCase;
 
 class StyleTest extends TestCase
 {
-
     public function test_parseColor()
     {
         $this->assertEquals("none", Style::parseColor("none"));
@@ -54,6 +53,5 @@ class StyleTest extends TestCase
         $this->assertEquals(10, Style::convertSize("10pt"));
         $this->assertEquals(8, Style::convertSize("80%", 10, 72));
     }
-
 }
- 
+

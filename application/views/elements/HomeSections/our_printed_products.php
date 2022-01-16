@@ -17,13 +17,11 @@
                   <div class="row justify-content-center">
                     <?php
                     foreach ($our_printed_products_category as $key => $category) {
-
 						    $categoryImages=$category['categoryImages'];
 							$categoryImage=$categoryImages[$website_store_id];
 							$src=geCategoryImage($categoryImage['image']);
 
 						    if($language_name=='French'){
-
 								$src=geCategoryImage($categoryImage['image_french']);
 							}
                       ?>
@@ -43,7 +41,6 @@
 										            <img src="<?php echo $src; ?>">
                                                     <span><?php
 										if($language_name=='French'){
-
 										       echo ucfirst($category['name_french']);
 									    }else{
 										    echo ucfirst($category['name']);

@@ -1,7 +1,4 @@
 <?php if(!empty($this->cart->contents())) {
-
-
-
 ?>
 	<div class="cart-selector-content">
 			<div class="cart-product-display">

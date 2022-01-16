@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class UseDeclarationSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class UseDeclarationSniff implements Sniff
     public function register()
     {
         return [T_USE];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -267,9 +263,7 @@ class UseDeclarationSniff implements Sniff
         }//end foreach
 
         return $tokens[$ooToken]['scope_closer'];
-
     }//end process()
-
 
     /**
      * Processes a group use statement.
@@ -635,9 +629,7 @@ class UseDeclarationSniff implements Sniff
                 }
             }
         }//end if
-
     }//end processUseGroup()
-
 
     /**
      * Processes a single use statement.
@@ -693,8 +685,5 @@ class UseDeclarationSniff implements Sniff
                 $phpcsFile->fixer->replaceToken($next, ';'.$phpcsFile->eolChar.$padding.'use ');
             }
         }
-
     }//end processUseStatement()
-
-
 }//end class

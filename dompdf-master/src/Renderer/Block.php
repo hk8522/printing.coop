@@ -18,7 +18,6 @@ use Dompdf\Helpers;
  */
 class Block extends AbstractRenderer
 {
-
     /**
      * @param Frame $frame
      */

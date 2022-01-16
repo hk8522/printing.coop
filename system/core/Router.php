@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/general/routing.html
  */
 class CI_Router {
-
 	/**
 	 * CI_Config class object
 	 *
@@ -511,5 +510,4 @@ class CI_Router {
 	{
 		return $this->directory;
 	}
-
 }

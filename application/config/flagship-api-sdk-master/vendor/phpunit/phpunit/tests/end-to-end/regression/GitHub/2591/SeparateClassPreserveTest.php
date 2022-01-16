@@ -22,5 +22,4 @@ class Issue2591_SeparateClassPreserveTest extends TestCase
     {
         $this->assertEquals('Hello!', $GLOBALS['globalString']);
     }
-
 }

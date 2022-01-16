@@ -33,7 +33,7 @@ class MyClass {
 
     /* testMessyNullableReturnMethod */
     public function myFunction() /* comment
-        */ :  
+        */ :
         /* comment */ ? //comment
         array {}
 

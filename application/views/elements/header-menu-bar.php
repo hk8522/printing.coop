@@ -29,12 +29,10 @@
                                     <?php
 									//pr($categories);
 									foreach ($categories['categories'] as $key => $category) {
-
                                           $count=count($category['sub_categories']);
                                         $url=$BASE_URL.'Products?category_id='.base64_encode($category['id']);
                                         $data_toggle='';
                                         if(!empty($count)){
-
                                                      $url="Cat".$category['id'];
                                     $data_toggle='tab';
                                         }
@@ -46,13 +44,10 @@
                                         <button class="drop-cat tablinks" onmouseover="openCity(event, '<?php echo $url?>')">
                                             <?php
 											if($language_name=='French'){
-
 										       echo ucfirst($category['name_french']);
 									    }else{
 										    echo ucfirst($category['name']);
 									    }
-
-
 
 											?>
                                           <i class="las la-angle-right"></i>
@@ -60,13 +55,10 @@
 									 </a>
 									  <?php
 									  }else{
-
-
 									?>
 									   <a href="<?php echo $urlmain;?>">
 										<button class="drop-cat tablinks" type="button" onmouseover="openCity(event, '<?php echo $url?>')">
                                             <?php if($language_name=='French'){
-
 										       echo ucfirst($category['name_french']);
 									    }else{
 										    echo ucfirst($category['name']);
@@ -88,7 +80,6 @@
                                           <div id="Cat<?php echo $category['id']?>" class="tabcontent" style="display: none;">
                                             <div class="row">
                                             <?php foreach ($category['sub_categories'] as $key => $subCategory) {
-
                                $url=$BASE_URL.'Products?category_id='.base64_encode($category['id']).'&sub_category_id='.base64_encode($subCategory['id']);
                                                 ?>
                                                 <div class="col-md-6 col-lg-4 col-xl-4">
@@ -98,12 +89,10 @@
 															<?php
 
 												if($language_name=='French'){
-
 										       echo ucfirst($subCategory['name_french']);
 									    }else{
 										    echo ucfirst($subCategory['name']);
 									    }
-
 
 														?></a></span>
                                                         </div>
@@ -128,7 +117,6 @@
             ?>
             <?php
 			      foreach ($pages as $key => $page) {
-
                   $slug = $page['slug'];
                   $url = $BASE_URL.'Page/'.$slug;
                   $datatoggle = $datatarget='';
@@ -140,7 +128,6 @@
               <li>
                 <a href="<?php echo $url;?>" >
                   <?php if($language_name=='French'){
-
 										echo ucfirst($page['title_france']);
 									}else{
 										echo ucfirst($page['title']);
@@ -251,7 +238,6 @@
             ?>
             <?php
 			      foreach ($pages as $key => $page) {
-
                   $slug = $page['slug'];
                   $url = $BASE_URL.'Page/'.$slug;
                   $datatoggle = $datatarget='';
@@ -263,7 +249,6 @@
               <li>
                 <a href="<?php echo $url;?>" >
                   <?php if($language_name=='French'){
-
 										echo ucfirst($page['title_france']);
 									}else{
 										echo ucfirst($page['title']);

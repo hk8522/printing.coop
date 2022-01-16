@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class IncrementDecrementSpacingSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -25,7 +24,6 @@ class IncrementDecrementSpacingSniff implements Sniff
         'PHP',
         'JS',
     ];
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -38,9 +36,7 @@ class IncrementDecrementSpacingSniff implements Sniff
             T_DEC,
             T_INC,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -163,8 +159,5 @@ class IncrementDecrementSpacingSniff implements Sniff
                 $phpcsFile->fixer->endChangeset();
             }
         }//end if
-
     }//end process()
-
-
 }//end class

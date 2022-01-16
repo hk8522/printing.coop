@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/pagination.html
  */
 class CI_Pagination {
-
 	/**
 	 * Base URL
 	 *
@@ -592,7 +591,6 @@ class CI_Pagination {
 				$output .= $this->prev_tag_open.'<a href="'.$base_url.$append.'"'.$attributes.$this->_attr_rel('prev').'>'
 					.$this->prev_link.'</a>'.$this->prev_tag_close;
 			}
-
 		}
 
 		// Render the pages
@@ -700,5 +698,4 @@ class CI_Pagination {
 
 		return '';
 	}
-
 }

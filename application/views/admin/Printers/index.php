@@ -46,14 +46,10 @@
 							<tbody>
 							    <?php
 								if(count($lists) > 0){
-
 									foreach($lists as $key=>$list){
-
-
 									?>
 										<tr>
 											<td><?php echo $list['name'];?></td>
-
 
 											<?php
 											 if($type !='printers'){ ?>
@@ -82,7 +78,6 @@
 											<td>
 											<div class="action-btns">
 
-
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>/<?php echo $type?>" style="color:green" title="edit">
 											        <i class="far fa-edit fa-lg"></i>
 											   </a>
@@ -108,8 +103,6 @@
 					</div>
 				</div>
 
-
-
 				</div><!-- /.box-body -->
 			</div><!-- /.box -->
 		</div><!-- /.col -->
@@ -120,10 +113,8 @@
  </script>
 <script>
 $(document).ready(function(){
-
     $('#example1').DataTable({
 		"order": [[ 0, "asc" ]]
 	});
-
 });
 </script>

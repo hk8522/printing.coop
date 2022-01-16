@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/database/
  */
 class CI_DB_pdo_forge extends CI_DB_forge {
-
 	/**
 	 * CREATE TABLE IF statement
 	 *
@@ -61,5 +60,4 @@ class CI_DB_pdo_forge extends CI_DB_forge {
 	 * @var	string
 	 */
 	protected $_drop_table_if	= FALSE;
-
 }

@@ -8,7 +8,6 @@ class Dashboards extends Admin_Controller
   {
     parent::__construct();
 	$this->class_name='admin/'.ucfirst(strtolower($this->router->fetch_class())).'/';
-
   }
 
 	public function index()
@@ -44,11 +43,9 @@ class Dashboards extends Admin_Controller
 		$this->data['totalCancelledOrder']=$this->ProductOrder_Model->getCountOuder(6);*/
 
 		if($this->adminLoginRole  !='admin'){
-
 		    $this->render($this->class_name.'sub_admin');
 		}else{
 			$this->render($this->class_name.'index');
-
 		}
 	}
 }

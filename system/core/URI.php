@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/uri.html
  */
 class CI_URI {
-
 	/**
 	 * List of cached URI segments
 	 *
@@ -639,5 +638,4 @@ class CI_URI {
 	{
 		return ltrim(load_class('Router', 'core')->directory, '/').implode('/', $this->rsegments);
 	}
-
 }

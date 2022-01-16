@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ClassDeclarationSniff extends PEARClassDeclarationSniff
 {
-
     /**
      * The number of spaces code should be indented.
      *
      * @var integer
      */
     public $indent = 4;
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -46,9 +44,7 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
 
         $this->processOpen($phpcsFile, $stackPtr);
         $this->processClose($phpcsFile, $stackPtr);
-
     }//end process()
-
 
     /**
      * Processes the opening section of a class declaration.
@@ -462,9 +458,7 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
                 $nextComma = ($className + 1);
             }//end if
         }//end foreach
-
     }//end processOpen()
-
 
     /**
      * Processes the closing section of a class declaration.
@@ -521,8 +515,5 @@ class ClassDeclarationSniff extends PEARClassDeclarationSniff
                 $phpcsFile->addError($error, $closeBrace, 'CloseBraceSameLine', $data);
             }
         }
-
     }//end processClose()
-
-
 }//end class

@@ -6,7 +6,6 @@ use \PHPUnit\Framework\TestCase;
 use Flagship\Shipping\Objects\Shipment;
 
 class PrepareShipmentTests extends TestCase{
-
     public function testGetId(){
         $this->assertNotEmpty($this->preparedShipment->getId());
         $this->assertNotNull($this->preparedShipment->getId());

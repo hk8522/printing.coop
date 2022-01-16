@@ -6,7 +6,6 @@ script.onload = function()
   script456.onload = null;
     script.onreadystatechange = null;
     callback.call(this);
-
 };
 
 this.callbacks[type] = {
@@ -17,7 +16,6 @@ others: []
 blah = function()
 {
     print something;
-
     }
 
 test(blah, function() {
@@ -35,7 +33,6 @@ var test = [{
 }];
 
 Viper.prototype = {
-
      _removeEvents: function(elem)
      {
         if (!elem) {
@@ -43,9 +40,7 @@ Viper.prototype = {
         }
 
         ViperUtil.removeEvent(elem, '.' + this.getEventNamespace());
-
     }
-
 };
 
 this.init = function(data) {
@@ -63,14 +58,12 @@ this.init = function(data) {
             }
         );
     }//end if
-
 };
 
 a(
     function() {
         var _a = function() {
             b = false;
-
         };
     true
     }
@@ -101,13 +94,10 @@ a(
                 }
             }
         );
-
     };
-
 })();
 
 a.prototype = {
-
     a: function()
     {
         var currentSize = null;
@@ -125,11 +115,9 @@ a.prototype = {
         ViperUtil.addClass(midContent, 'Viper-popup-content');
         main.appendChild(midContent);
     }
-
 };
 
 a.prototype = {
-
     a: function()
     {
         ViperUtil.addClass(midContent, 'Viper-popup-content');
@@ -141,11 +129,9 @@ a.prototype = {
     if (clickAction) {
     }
     }
-
 };
 
 a.prototype = {
-
     a: function()
     {
         var a = function() {
@@ -154,7 +140,6 @@ a.prototype = {
 
     if (true) {
     }
-
     },
 
     b: function()
@@ -169,7 +154,6 @@ a.prototype = {
                 }
             }
         );
-
     },
 
     c: function()
@@ -185,9 +169,7 @@ a.prototype = {
                 }
             }
         );
-
     }
-
 };
 
 a.prototype = {
@@ -197,7 +179,6 @@ a.prototype = {
     _b: function()
     {
     }
-
 };
 
 for (var i = 0; i < 10; i++) {

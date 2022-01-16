@@ -114,7 +114,6 @@
                    <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="product_id">
  <div class="form-role-area">
 
-
 <div class="control-group info">
 	<div class="row">
 	<div class="col-md-12 col-lg-12 col-xl-3" style="">
@@ -188,7 +187,6 @@
 </div>
 </div>
 
-
                                         <div class="product-actions-btn text-right">
                                             <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
                                             <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
@@ -217,7 +215,6 @@
 <script>
 
 	function AddRow(cr,id){
-
 		    var controlForm = $('.'+id+'SizeQuantity:first'),
 			currentEntry = cr.parents('.'+id+'sqddata:first'),
 			newEntry = $(currentEntry.clone()).appendTo(controlForm);
@@ -236,7 +233,6 @@
 	}
 
 	function RemoveRow(cr,id){
-
 		    cr.parents('.'+id+'sqddata:first').remove();
 			var numItems = $('.'+id+'SizeQuantity .'+id+'sqddata').length;
 			var controlForm = $('.'+id+'SizeQuantity .'+id+'sqddata').last();
@@ -250,7 +246,6 @@
 			return false;
 	}
 	function isNumber(evt) {
-
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode
         if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
             return false;
@@ -259,7 +254,6 @@
     }
 
 	function addActiveClass(id){
-
 		if($("#attribute_id_"+id).prop("checked") == true){
 			$("#attribute_id_div_"+id).addClass('active');
 		}else{
@@ -271,53 +265,34 @@
 		//alert(id);
 
 		if($("#"+id).prop("checked") == true){
-
 			$("#hidden_"+id).val($("#"+id).val());
 		}else{
-
 			$("#hidden_"+id).val('');
 		}
-
 	}
 
 	function addActiveSizeClass(id){
-
 		if($("#size_attribute_id_"+id).prop("checked") == true){
-
 			$("#size_attribute_id_div_"+id).addClass('active');
 		}else{
-
 			$("#size_attribute_id_div_"+id).removeClass('active');
 		}
-
 	}
 
 	function addActiveQuantitySizeClass(id){
-
-
-
 		if($("#quantity_attribute_id_"+id).prop("checked") == true){
-
-
 			$("#quantity_attribute_id_div_"+id).show();
-
 		}else{
-
 			$("#quantity_attribute_id_div_"+id).hide();
 		}
-
 	}
 	$(document).on('change', '.make_a_default', function(e){
-
 			e.preventDefault();
 			if($(this).prop("checked") == true){
 				$('.make_a_default').prop("checked", false);
 				$(this).prop("checked", true);
-
             }else{
-
 				$('.make_a_default').prop("checked", false);
 			}
-
 	});
 </script>

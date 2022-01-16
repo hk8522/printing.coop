@@ -4,7 +4,6 @@ namespace Socketlabs\Core;
  * Used by the SocketLabsClient to convert the response form the Injection API.
  */
 class InjectionResponseParser{
-
     /**
      * Parse the response from theInjection Api into SendResponse
      * @param $response
@@ -32,15 +31,12 @@ class InjectionResponseParser{
             if ($injectionResponse->MessageResults && is_array($injectionResponse->MessageResults) && count($injectionResponse->MessageResults) > 0) {
                 $newResponse->AddressResults = $injectionResponse->MessageResults[0]->AddressResults;
             }
-
-
         }
         else{
             $sendResult = InjectionResponseParser::DetermineSendResult(null, $responseHeader);
             $newResponse = new \Socketlabs\SendResponse($sendResult);
         }
         return $newResponse;
-
     }
 
     /**

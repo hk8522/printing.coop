@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class DisallowShortOpenTagSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -35,9 +33,7 @@ class DisallowShortOpenTagSniff implements Sniff
         }
 
         return $targets;
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -131,9 +127,7 @@ class DisallowShortOpenTagSniff implements Sniff
                 }
             }
         }//end if
-
     }//end process()
-
 
     /**
      * Get a snippet from a HTML token.
@@ -161,8 +155,5 @@ class DisallowShortOpenTagSniff implements Sniff
         }
 
         return $snippet;
-
     }//end getSnippet()
-
-
 }//end class

@@ -28,7 +28,6 @@
                   $class = "";
 				  $imageurl = getBannerImage($list['banner_image'],'large');
 				  if($language_name=='French'){
-
                      $imageurl = getBannerImage($list['banner_image_french'],'large');
 				  }
                   if ($key == 0) {

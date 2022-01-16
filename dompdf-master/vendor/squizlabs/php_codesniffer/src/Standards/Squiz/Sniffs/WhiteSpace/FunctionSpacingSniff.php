@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class FunctionSpacingSniff implements Sniff
 {
-
     /**
      * The number of blank lines between functions.
      *
@@ -44,7 +43,6 @@ class FunctionSpacingSniff implements Sniff
      */
     private $rulesetProperties = null;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -53,9 +51,7 @@ class FunctionSpacingSniff implements Sniff
     public function register()
     {
         return [T_FUNCTION];
-
     }//end register()
-
 
     /**
      * Processes this sniff when one of its tokens is encountered.
@@ -346,8 +342,5 @@ class FunctionSpacingSniff implements Sniff
                 }//end if
             }//end if
         }//end if
-
     }//end process()
-
-
 }//end class

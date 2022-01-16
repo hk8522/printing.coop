@@ -141,7 +141,6 @@ define('T_PHPCS_IGNORE_FILE', 'PHPCS_T_PHPCS_IGNORE_FILE');
 
 final class Tokens
 {
-
     /**
      * The token weightings.
      *
@@ -589,7 +588,6 @@ final class Tokens
         T_TRAIT      => T_TRAIT,
     ];
 
-
     /**
      * Given a token, returns the name of the token.
      *
@@ -609,9 +607,7 @@ final class Tokens
         }
 
         return substr($token, 6);
-
     }//end tokenName()
-
 
     /**
      * Returns the highest weighted token type.
@@ -649,8 +645,5 @@ final class Tokens
         }
 
         return $highestType;
-
     }//end getHighestWeightedToken()
-
-
 }//end class

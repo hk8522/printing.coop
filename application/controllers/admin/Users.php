@@ -33,13 +33,10 @@ class Users extends Admin_Controller
 		$this->data['lists']=$lists;
 		$this->data['status']=$status;
 		$this->render($this->class_name.'index');
-
     }
-
 
 	public function preferredCustomer($status=null)
     {
-
 		$this->load->model('User_Model');
 		$this->load->model('Address_Model');
 
@@ -61,13 +58,11 @@ class Users extends Admin_Controller
 		$lists=$this->User_Model->getPreferredCustomerUserList($status);
 		$this->data['lists']=$lists;
 		$this->render($this->class_name.'preferred_customer');
-
     }
 
     public function viewUser($id=null)
     {
 		if(empty($id)){
-
 			redirect('admin/Users');
 		}
 		$this->load->model('User_Model');
@@ -77,7 +72,6 @@ class Users extends Admin_Controller
 		$User=$this->User_Model->getUserList($id);
 		$this->data['User']=$User;
 		$this->render($this->class_name.'view');
-
     }
     public function changePassword($id,$page_status='',$paage_name=null)
     {
@@ -85,11 +79,9 @@ class Users extends Admin_Controller
 		$this->load->model('User_Model');
 		$this->data['page_title'] = $page_title='Change Password';
 		if(empty($id)){
-
 			redirect('admin/Users');
 		}
 		if ($this->input->post()){
-
 			$this->load->library('form_validation');
 		    $set_rules = $this->User_Model->configChangePassword;
 
@@ -99,15 +91,12 @@ class Users extends Admin_Controller
 			$postData['id']=$this->input->post('id');
 
 			if ($this->form_validation->run()===TRUE) {
-
 				$postData['password'] = md5($password);
 
 			    if($this->User_Model->saveUser($postData)){
-
 				   $this->session->set_flashdata('message_success',$page_title.' Successfully.');
 
 				   if(!empty($postData['id']) && !empty($password)){
-
 					    $postData=$this->User_Model->getUserDataById($postData['id']);
 						$this->load->model('Store_Model');
                         $store_id=$postData['store_id'];
@@ -125,7 +114,6 @@ class Users extends Admin_Controller
 						$admin_email3 = $Store['admin_email3'];
 
 						if($langue_id==2){
-
 							$subject="Réinitialiser le mot de passe par l'administrateur";
 							$body='<div class="top-info" style="margin-top: 25px;text-align: left;"><span style="font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;">
 									salut,'.$postData['name'].',
@@ -137,7 +125,6 @@ class Users extends Admin_Controller
 								</span>
 							</div>';
 						}else{
-
 							$subject="Reset Password By Admin";
 						    $toEmail=$postData['email'];
 							$body='<div class="top-info" style="margin-top: 25px;text-align: left;"><span style="font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;">
@@ -156,14 +143,10 @@ class Users extends Admin_Controller
 				    }
 
 				    if($paage_name=='preferred-customer'){
-
 					    redirect('admin/Users/preferredCustomer');
-
 				    }else{
 					    redirect('admin/Users/index/'.$page_status);
 				    }
-
-
 			    }else{
 				   $this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 			    }
@@ -171,7 +154,6 @@ class Users extends Admin_Controller
 		}
 		$this->data['id']=$id;
 		$this->render($this->class_name.'change_password');
-
     }
     public function addEdit($id=null,$page_status=null)
     {
@@ -187,12 +169,10 @@ class Users extends Admin_Controller
 		$postData=$this->User_Model->getUserDataById($id);
 
 		if($this->input->post()){
-
 			$this->load->library('form_validation');
 			$set_rules=$this->User_Model->config;
 
 			if(!empty($id)){
-
 				$set_rules=$this->User_Model->config_edit;
 			}
 
@@ -200,7 +180,6 @@ class Users extends Admin_Controller
 			$this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
 
 			if(!empty($id)){
-
 			   $postData['id']=$this->input->post('id');
 			}
 
@@ -217,7 +196,6 @@ class Users extends Admin_Controller
 			if($this->form_validation->run()===TRUE)
 			{
 				if(!empty($postData['password'])){
-
 					$postData['password']=md5($postData['password']);
 				}else{
 					unset($postData['password']);
@@ -225,7 +203,6 @@ class Users extends Admin_Controller
 				$insert_id=$this->User_Model->saveUser($postData);
 					if($insert_id > 0)
 					{
-
 						$this->session->set_flashdata('message_success',$page_title.' Successfully.');
 						redirect('admin/Users/index/'.$page_status);
 					}
@@ -240,15 +217,10 @@ class Users extends Admin_Controller
 
 	    $this->data['postData']=$postData;
 	    $this->render($this->class_name.'add_edit');
-
-
-
     }
     public function activeInactive($id=null,$status=null,$page_status=null)
     {
-
         if(!empty($id) && ($status==1 || $status==0)){
-
 			    $postData['id']=$id;
 		        $postData['status']=$status;
 				$page_title='User Active';
@@ -258,7 +230,6 @@ class Users extends Admin_Controller
 				$this->load->model('User_Model');
 				if ($this->User_Model->saveUser($postData))
 				{
-
 					    $this->session->set_flashdata('message_success',$page_title.' Successfully.');
 					    $postData=$this->User_Model->getUserDataById($id);
 
@@ -277,20 +248,16 @@ class Users extends Admin_Controller
 						$admin_email3 = $Store['admin_email3'];
 
 						if($langue_id==2){
-
 							$subject='Compte actif';
 							$msg="Votre compte a été actif par l'administrateur";
 							if($status==0){
-
 								$subject='Compte inactif';
 								$msg="Votre compte a été inactif par l'administrateur";
 							}
 						}else{
-
 							$subject='Active Account';
 							$msg="Your account has been active by admin";
 							if($status==0){
-
 								$subject='Compte inactif';
 								$msg="Your account has been inactive by admin";
 							}
@@ -305,14 +272,12 @@ class Users extends Admin_Controller
 
 						$body=$this->emailTemplate($subject,$body,$store_id);
 					    sendEmail($toEmail,$subject,$body,$from_email,$from_name);
-
 				}
 				else
 				{
 				    $this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 				}
 		}else{
-
 			$this->session->set_flashdata('message_error','Missing information.');
 	    }
 
@@ -321,9 +286,7 @@ class Users extends Admin_Controller
 
 	public function activeInactivePreferredCustomer($id=null,$status=null,$page_status=null)
     {
-
         if(!empty($id) && ($status==1 || $status==0)){
-
 			    $postData['id']=$id;
 		        $postData['status']=$status;
 				$page_title='User Active';
@@ -334,7 +297,6 @@ class Users extends Admin_Controller
 
 				if ($this->User_Model->saveUser($postData))
 				{
-
 				        $this->session->set_flashdata('message_success',$page_title.' Successfully.');
 				        $postData=$this->User_Model->getUserDataById($id);
 					    $this->load->model('Store_Model');
@@ -342,7 +304,6 @@ class Users extends Admin_Controller
 						$Store=$this->Store_Model->getStoreDataById($store_id);
 						$store_url=$Store['url'];
 						$langue_id=$Store['langue_id'];
-
 
 						$toEmail=$postData['email'];
 						$from_name    = $Store['name'];
@@ -352,20 +313,16 @@ class Users extends Admin_Controller
 						$admin_email3 = $Store['admin_email3'];
 
 						if($langue_id==2){
-
 							$subject='Compte actif';
 							$msg="Votre compte a été actif par l'administrateur";
 							if($status==0){
-
 								$subject='Compte inactif';
 								$msg="Votre compte a été inactif par l'administrateur";
 							}
 						}else{
-
 							$subject='Active Account';
 							$msg="Your account has been active by admin";
 							if($status==0){
-
 								$subject='Compte inactif';
 								$msg="Your account has been inactive by admin";
 							}
@@ -380,14 +337,12 @@ class Users extends Admin_Controller
 
 						$body=$this->emailTemplate($subject,$body,$store_id);
 					    sendEmail($toEmail,$subject,$body,$from_email,$from_name);
-
 				}
 				else
 				{
 				    $this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 				}
 		}else{
-
 			$this->session->set_flashdata('message_error','Missing information.');
 	    }
 
@@ -395,15 +350,12 @@ class Users extends Admin_Controller
     }
 	public function activeInactiveUserType($id=null,$status=null,$page_status=null)
     {
-
         if(!empty($id) && ($status==1 || $status==0)){
-
 			    $postData['id']=$id;
 		        $postData['preferred_status']=$status;
 				$page_title='User Unverified';
 				$this->load->model('User_Model');
 				if($status==1){
-
 					$page_title='User Verified';
 				}
 				if ($this->User_Model->saveUser($postData))
@@ -417,8 +369,6 @@ class Users extends Admin_Controller
 						$store_phone=$Store['phone'];
 						$langue_id=$Store['langue_id'];
 
-
-
 						$toEmail=$postData['email'];
 						$from_name    = $Store['name'];
 						$from_email   = $Store['from_email'];
@@ -426,23 +376,18 @@ class Users extends Admin_Controller
 						$admin_email2 = $Store['admin_email2'];
 						$admin_email3 = $Store['admin_email3'];
 
-
 						if($langue_id==2){
-
 							$subject='Compte actif';
 							$msg="Votre compte a été actif par l'administrateur";
 							if($status==1){
-
 								$subject='Votre compte '.$from_name.' est approuvé';
 
 								$image=$this->Store_Model->getStoreEmailTemapleImage($store_id,'account_approved');
 
 								$image_template='';
 								if(!empty($image)){
-
 									$image_url=$store_url.'uploads/email_templates/'.$image;
 									$image_template="<div class='top-info' style='margin-top: 25px;text-align: left;'><span style='font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;'><a href='".$store_url."/Logins'><img style='width:578px;' src='".$image_url."'></a></div>";
-
 								}
 
 								$body="<div class='top-info' style='margin-top: 25px;text-align: left;'><span style='font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;'>$image_template
@@ -460,29 +405,21 @@ class Users extends Admin_Controller
 								</span>
 								<div><h1>BIENVENUE SUR $from_name !</h1></div>
 								</div>";
-
 							}else{
-
 								$subject="Your $from_name Le compte n'est pas approuvé";
 								$body="<div class='top-info' style='margin-top: 25px;text-align: left;'><span style='font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;'>
 								Votre compte a été désactivé<br>
 								</div>";
-
 							}
 						}else{
-
-
 							if($status==1){
-
 								$subject='Your '.$from_name.' Account is Approved';
 
 								$image=$this->Store_Model->getStoreEmailTemapleImage($store_id,'account_approved');
 								$image_template='';
 								if(!empty($image)){
-
 									$image_url=$store_url.'uploads/email_templates/'.$image;
 									$image_template="<div class='top-info' style='margin-top: 25px;text-align: left;'><span style='font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;'><a href='".$store_url."/Logins'><img style='width:578px;'  src='".$image_url."'></a></div>";
-
 								}
 
 								$body='<div class="top-info" style="margin-top: 25px;text-align: left;"><span style="font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;">'.$image_template.'
@@ -499,9 +436,7 @@ class Users extends Admin_Controller
 							</span>
 							<div><h1>WELCOME TO '.$from_name.'!</h1></div>
 						    </div>';
-
 							}else{
-
 								$subject='Your '.$from_name.' Account is Unapproved';
 								$body='<div class="top-info" style="margin-top: 25px;text-align: left;"><span style="font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;">
 								Your account has been Inactivated.<br>
@@ -511,16 +446,12 @@ class Users extends Admin_Controller
 
 						$body=$this->emailTemplate($subject,$body,$store_id);
 					    sendEmail($toEmail,$subject,$body,$from_email,$from_name);
-
-
-
 				}
 				else
 				{
 				    $this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 				}
 		}else{
-
 			$this->session->set_flashdata('message_error','Missing information.');
 	    }
 
@@ -530,21 +461,17 @@ class Users extends Admin_Controller
 	public function deleteUser($id=null,$page_status=null)
     {
         if(!empty($id)){
-
 				$page_title='User Delete';
 				$this->load->model('User_Model');
 				if ($this->User_Model->deleteUser($id))
 				{
-
 				    $this->session->set_flashdata('message_success',$page_title.' Successfully.');
-
 				}
 				else
 				{
 				    $this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 				}
 		}else{
-
 			$this->session->set_flashdata('message_error','Missing information.');
 	    }
 		redirect('admin/Users/index/'.$page_status);
@@ -552,9 +479,7 @@ class Users extends Admin_Controller
 
 	public function wishlists($user_id=null,$page_status=null)
     {
-
 		if(empty($user_id)){
-
 			redirect('admin/Users/index/'.$page_status);
 		}
 
@@ -566,11 +491,9 @@ class Users extends Admin_Controller
 		$this->data['user_id']=$user_id;
 		$this->data['page_status']=$page_status;
 		$this->render($this->class_name.'wishlists');
-
     }
 
 	 public function subscribeEmail(){
-
         $this->load->model('Product_Model');
 		$this->data['page_title'] = 'subscribe Email';
 		$this->data['sub_page_title'] = '';
@@ -584,26 +507,21 @@ class Users extends Admin_Controller
 		$StoreList=$this->Store_Model->getAllStoreList();
 		$this->data['StoreList']=$StoreList;
 		$this->render($this->class_name.'subscribe_email');
-
 	}
 	public function deleteSubscribeEmail($id=null)
     {
         if(!empty($id)){
-
-
 				$page_title='Subscribe Email Delete';
 				$this->load->model('Product_Model');
 				if ($this->Product_Model->deleteSubscribeEmail($id))
 				{
 					$this->session->set_flashdata('message_success',$page_title.' Successfully.');
-
 				}
 				else
 				{
 				    $this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 				}
 		}else{
-
 			$this->session->set_flashdata('message_error','Missing information.');
 	    }
 
@@ -611,7 +529,6 @@ class Users extends Admin_Controller
     }
 
     public function exportCSV($status=null){
-
 		$this->load->model('User_Model');
 		// file name
 		$filename = 'user-list-'.date('d').'-'.date('m').'-'.date('Y').'.csv';
@@ -641,13 +558,10 @@ class Users extends Admin_Controller
 		exit;
 	}
 
-
 	public function ImportCSV(){
-
         $this->load->model('User_Model');
 		$page_status=$_POST['page_status'];
 		if(!empty($_FILES['csv']['name'])){
-
 			$tmp_name=$_FILES['csv']['tmp_name'];
 			$filename=$_FILES['csv']['name'];
 			$ext = pathinfo($filename, PATHINFO_EXTENSION);
@@ -655,18 +569,15 @@ class Users extends Admin_Controller
 				if (($handle = fopen($tmp_name, "r")) !== FALSE) {
 					$i=0;
 					while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-
 						$userSaveData=array();
 						$row=0;
 						if($i > 0){
-
 							$name=trim($data['0']);
 							$mobile=trim($data['1']);
 							$email=trim($data['2']);
 							$password=trim($data['3']);
 
 							if(!empty($email) && !$this->User_Model->checkEmailId($email) && !empty($name)){
-
 								$userSaveData['name']=$name;
 								$userSaveData['email']=$email;
 								$userSaveData['mobile']=$mobile;
@@ -677,7 +588,6 @@ class Users extends Admin_Controller
 								if($id > 0)
 								{
 									$row++;
-
 								}
 							}
 						}
@@ -686,22 +596,15 @@ class Users extends Admin_Controller
 
 					fclose($handle);
 					$this->session->set_flashdata('message_success',$row.' User import  successfully.');
-
 				}else{
-
 					 $this->session->set_flashdata('message_error','Selected only csv file');
 				}
 			}else{
-
 				 $this->session->set_flashdata('message_error','Selected only csv file');
-
 			}
-
 		}else{
-
 		   $this->session->set_flashdata('message_success','Please selected csv file');
 		}
 		redirect('admin/Users/index/'.$page_status);
 	}
-
 }

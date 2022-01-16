@@ -363,7 +363,6 @@ class ShipmentServiceOptions implements NodeInterface
         return $this;
     }
 
-
     /**
      * @return CallTagARS
      */

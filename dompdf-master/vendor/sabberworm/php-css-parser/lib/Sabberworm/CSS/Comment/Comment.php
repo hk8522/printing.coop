@@ -47,5 +47,4 @@ class Comment implements Renderable {
 	public function render(\Sabberworm\CSS\OutputFormat $oOutputFormat) {
 		return '/*' . $this->sComment . '*/';
 	}
-
 }

@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class FunctionCallSignatureSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -54,7 +53,6 @@ class FunctionCallSignatureSniff implements Sniff
      */
     public $requiredSpacesBeforeClose = 0;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -69,9 +67,7 @@ class FunctionCallSignatureSniff implements Sniff
         $tokens[] = T_CLOSE_PARENTHESIS;
 
         return $tokens;
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -161,9 +157,7 @@ class FunctionCallSignatureSniff implements Sniff
         } else {
             $this->processSingleLineCall($phpcsFile, $stackPtr, $openBracket, $tokens);
         }
-
     }//end process()
-
 
     /**
      * Determine if this is a multi-line function call.
@@ -186,9 +180,7 @@ class FunctionCallSignatureSniff implements Sniff
         }
 
         return false;
-
     }//end isMultiLineCall()
-
 
     /**
      * Processes single-line calls.
@@ -316,9 +308,7 @@ class FunctionCallSignatureSniff implements Sniff
                 }//end if
             }//end if
         }//end if
-
     }//end processSingleLineCall()
-
 
     /**
      * Processes multi-line calls.
@@ -620,8 +610,5 @@ class FunctionCallSignatureSniff implements Sniff
                 $argEnd   = $phpcsFile->findEndOfStatement($next);
             }//end if
         }//end for
-
     }//end processMultiLineCall()
-
-
 }//end class

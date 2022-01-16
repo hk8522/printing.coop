@@ -16,5 +16,4 @@ class ExtElementCollection extends ElementCollection {
             $this->getCurrentElement()
         );
     }
-
 }

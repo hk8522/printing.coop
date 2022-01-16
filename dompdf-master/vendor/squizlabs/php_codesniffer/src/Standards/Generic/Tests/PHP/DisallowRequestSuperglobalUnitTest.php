@@ -12,8 +12,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class DisallowRequestSuperglobalUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Returns the lines where errors should occur.
      *
@@ -29,9 +27,7 @@ class DisallowRequestSuperglobalUnitTest extends AbstractSniffUnitTest
             12 => 1,
             13 => 1,
         ];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -44,8 +40,5 @@ class DisallowRequestSuperglobalUnitTest extends AbstractSniffUnitTest
     protected function getWarningList()
     {
         return [];
-
     }//end getWarningList()
-
-
 }//end class

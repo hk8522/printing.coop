@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ImportStatementSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class ImportStatementSniff implements Sniff
     public function register()
     {
         return [T_USE];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -70,8 +66,5 @@ class ImportStatementSniff implements Sniff
         if ($fix === true) {
             $phpcsFile->fixer->replaceToken($next, '');
         }
-
     }//end process()
-
-
 }//end class

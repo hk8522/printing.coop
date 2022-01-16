@@ -15,7 +15,6 @@ use Ups\Entity\Tradeability\LandedCostRequest;
  */
 class Tradeability extends Ups
 {
-
     /**
      *
      */

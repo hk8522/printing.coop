@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link
  */
 class CI_Cache_dummy extends CI_Driver {
-
 	/**
 	 * Get
 	 *
@@ -168,5 +167,4 @@ class CI_Cache_dummy extends CI_Driver {
 	{
 		return TRUE;
 	}
-
 }

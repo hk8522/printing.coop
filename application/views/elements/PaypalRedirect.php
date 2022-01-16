@@ -16,10 +16,8 @@
 
 	$paypal_email=!empty($paypal_business_email) ? $paypal_business_email:'imprimeur.coop@gmail.com';
 	if($paypal_payment_mode=='sendbox'){
-
 		$paypal_email=!empty($paypal_sandbox_business_email) ? $paypal_sandbox_business_email:'sb-ks2ro721209@business.example.com';
 		$url='https://www.sandbox.paypal.com/cgi-bin/webscr';
-
 	}
 	$store_name=$MainStoreData['name'];
 	$store_url=$MainStoreData['url'];

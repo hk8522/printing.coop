@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/config.html
  */
 class CI_Config {
-
 	/**
 	 * List of all loaded config values
 	 *
@@ -375,5 +374,4 @@ class CI_Config {
 	{
 		$this->config[$item] = $value;
 	}
-
 }

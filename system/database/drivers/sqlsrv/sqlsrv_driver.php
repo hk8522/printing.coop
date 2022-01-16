@@ -51,7 +51,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_sqlsrv_driver extends CI_DB {
-
 	/**
 	 * Database driver
 	 *
@@ -539,5 +538,4 @@ class CI_DB_sqlsrv_driver extends CI_DB {
 	{
 		sqlsrv_close($this->conn_id);
 	}
-
 }

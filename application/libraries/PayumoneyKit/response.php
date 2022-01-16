@@ -13,14 +13,13 @@ if (isset($postdata ['key'])) {
 	$mihpayid			=	$postdata['mihpayid'];
 	$status				= 	$postdata['status'];
 	$resphash				= 	$postdata['hash'];
-	//Calculate response hash to verify	
+	//Calculate response hash to verify
 	$keyString 	  		=  	$key.'|'.$txnid.'|'.$amount.'|'.$productInfo.'|'.$firstname.'|'.$email.'|||||'.$udf5.'|||||';
 	$keyArray 	  		= 	explode("|",$keyString);
 	$reverseKeyArray 	= 	array_reverse($keyArray);
 	$reverseKeyString	=	implode("|",$reverseKeyArray);
 	$CalcHashString 	= 	strtolower(hash('sha512', $salt.'|'.$status.'|'.$reverseKeyString));
-	
-	
+
 	if ($status == 'success'  && $resphash == $CalcHashString) {
 		$msg = "Transaction Successful and Hash Verified...";
 		//Do success order processing here...
@@ -28,7 +27,7 @@ if (isset($postdata ['key'])) {
 	else {
 		//tampered or failed
 		$msg = "Payment failed for Hasn not verified...";
-	} 
+	}
 }
 else exit(0);
 ?>
@@ -60,57 +59,57 @@ else exit(0);
     <div>
     	<h3>PHP7 BOLT Kit Response</h3>
     </div>
-	
+
     <div class="dv">
     <span class="text"><label>Merchant Key:</label></span>
     <span><?php echo $key; ?></span>
     </div>
-    
+
     <div class="dv">
     <span class="text"><label>Merchant Salt:</label></span>
     <span><?php echo $salt; ?></span>
     </div>
-    
+
     <div class="dv">
     <span class="text"><label>Transaction/Order ID:</label></span>
     <span><?php echo $txnid; ?></span>
     </div>
-    
+
     <div class="dv">
     <span class="text"><label>Amount:</label></span>
-    <span><?php echo $amount; ?></span>    
+    <span><?php echo $amount; ?></span>
     </div>
-    
+
     <div class="dv">
     <span class="text"><label>Product Info:</label></span>
     <span><?php echo $productInfo; ?></span>
     </div>
-    
+
     <div class="dv">
     <span class="text"><label>First Name:</label></span>
     <span><?php echo $firstname; ?></span>
     </div>
-    
+
     <div class="dv">
     <span class="text"><label>Email ID:</label></span>
     <span><?php echo $email; ?></span>
     </div>
-    
+
     <div class="dv">
     <span class="text"><label>Mihpayid:</label></span>
     <span><?php echo $mihpayid; ?></span>
     </div>
-    
+
     <div class="dv">
     <span class="text"><label>Hash:</label></span>
     <span><?php echo $resphash; ?></span>
     </div>
-    
+
     <div class="dv">
     <span class="text"><label>Transaction Status:</label></span>
     <span><?php echo $status; ?></span>
     </div>
-    
+
     <div class="dv">
     <span class="text"><label>Message:</label></span>
     <span><?php echo $msg; ?></span>
@@ -118,4 +117,3 @@ else exit(0);
 </div>
 </body>
 </html>
-	

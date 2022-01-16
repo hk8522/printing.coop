@@ -49,7 +49,7 @@
 	<xsd:complexType name="QueryResponseType">
 		<xsd:sequence>
 			<xsd:element name="Shipment" type="lc:ShipmentResultType"/>
-			<xsd:element name="TransactionDigest" type="xsd:string"/>			
+			<xsd:element name="TransactionDigest" type="xsd:string"/>
 		</xsd:sequence>
 	</xsd:complexType>
 	<xsd:complexType name="EstimateResponseType">

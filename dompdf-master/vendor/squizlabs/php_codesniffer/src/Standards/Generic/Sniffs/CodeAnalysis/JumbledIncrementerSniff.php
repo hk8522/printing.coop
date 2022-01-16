@@ -34,8 +34,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class JumbledIncrementerSniff implements Sniff
 {
-
-
     /**
      * Registers the tokens that this sniff wants to listen for.
      *
@@ -44,9 +42,7 @@ class JumbledIncrementerSniff implements Sniff
     public function register()
     {
         return [T_FOR];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -93,9 +89,7 @@ class JumbledIncrementerSniff implements Sniff
                 $phpcsFile->addWarning($error, $stackPtr, 'Found', $data);
             }
         }
-
     }//end process()
-
 
     /**
      * Get all used variables in the incrementer part of a for statement.
@@ -127,8 +121,5 @@ class JumbledIncrementerSniff implements Sniff
         }
 
         return $incrementers;
-
     }//end findIncrementers()
-
-
 }//end class

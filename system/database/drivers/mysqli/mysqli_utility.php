@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_mysqli_utility extends CI_DB_utility {
-
 	/**
 	 * List databases statement
 	 *
@@ -207,5 +206,4 @@ class CI_DB_mysqli_utility extends CI_DB_utility {
 
 		return $output;
 	}
-
 }

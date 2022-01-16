@@ -121,22 +121,18 @@ switch (condition) {
 switch (condition) {
     case 'string':
 
-
         varStr = 'test';
 
     break;
 
-
     case 'bool':
         varStr = 'test';
-
 
     break;
     default:
 
         varStr = 'test';
     break;
-
 }
 
 switch (var) {
@@ -283,5 +279,4 @@ switch (foo) {
     case '1':
         return; // comment
     break;
-
 }

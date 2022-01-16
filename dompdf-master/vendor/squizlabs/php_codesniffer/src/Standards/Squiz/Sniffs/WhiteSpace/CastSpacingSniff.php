@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class CastSpacingSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class CastSpacingSniff implements Sniff
     public function register()
     {
         return Tokens::$castTokens;
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -58,8 +54,5 @@ class CastSpacingSniff implements Sniff
                 $phpcsFile->fixer->replaceToken($stackPtr, $expected);
             }
         }
-
     }//end process()
-
-
 }//end class

@@ -6,7 +6,6 @@ namespace Socketlabs\Message;
  * optionally customizing the message via the use of MergeData.
  */
 class BulkMessage extends  BaseMessage{
-
     /**
      * An array of the message recipients
      */
@@ -57,5 +56,4 @@ class BulkMessage extends  BaseMessage{
         $this->global[] = $newMergeData;
         return $this;
     }
-
 }

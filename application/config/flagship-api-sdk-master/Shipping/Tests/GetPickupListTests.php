@@ -8,7 +8,6 @@ use Flagship\Shipping\Collections\GetPickupListCollection;
 use Flagship\Shipping\Exceptions\GetPickupListException;
 
 class GetPickupListTests extends TestCase{
-
     public function testGetById(){
         $this->assertNotNull($this->pickupList->getById(1276083));
         $this->assertInstanceOf(Pickup::class,$this->pickupList->getById(1276083));

@@ -48,14 +48,12 @@
                     </div>
 <script>
   $("#TicketCreateFrom").submit(function(e) {
-
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 		var form = $(this);
 		var formsubmit=true;
 		$("#TicketCreateFromSubmit").attr("disabled",true);
 
 		if(formsubmit==true){
-
 			var url =BASE_URL+'Tickets/createTicket';
 			$.ajax({
 				   type: "POST",
@@ -76,23 +74,16 @@
 						);
 						$("#MsgModal .modal-body").html('<span style="color:green">'+msg+'</span>');
 						$("#MsgModal").modal('show');
-
 						}else{
-
 							$("#MsgModal .modal-body").html('<span style="color:red">'+msg+'</span>');
 							$("#MsgModal").modal('show');
-
 						}*/
-
 				    },
 				    error: function (error) {
-
 					  $("#TicketCreateFromSubmit").attr("disabled",false);
 				   }
 			});
-
 		}else{
-
 			$("#TicketCreateFromSubmit").attr("disabled",false);
 		}
     });

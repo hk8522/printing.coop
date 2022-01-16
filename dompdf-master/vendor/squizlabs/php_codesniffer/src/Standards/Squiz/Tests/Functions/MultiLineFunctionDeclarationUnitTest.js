@@ -22,7 +22,6 @@ function blah()
 
 var object =
 {
-
     someFunctionWithAVeryLongName: function(
         firstParameter='something',
         secondParameter='booooo',
@@ -55,7 +54,6 @@ var object =
          third=null
      ) {
      }
-
 }
 
 var a = Function('return 1+1');

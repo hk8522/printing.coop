@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Files\File;
 
 class Checkstyle implements Report
 {
-
-
     /**
      * Generate a partial report for a single processed file.
      *
@@ -67,9 +65,7 @@ class Checkstyle implements Report
         echo $out->flush();
 
         return true;
-
     }//end generateFileReport()
-
 
     /**
      * Prints all violations for processed files, in a Checkstyle format.
@@ -102,8 +98,5 @@ class Checkstyle implements Report
         echo '<checkstyle version="'.Config::VERSION.'">'.PHP_EOL;
         echo $cachedData;
         echo '</checkstyle>'.PHP_EOL;
-
     }//end generate()
-
-
 }//end class

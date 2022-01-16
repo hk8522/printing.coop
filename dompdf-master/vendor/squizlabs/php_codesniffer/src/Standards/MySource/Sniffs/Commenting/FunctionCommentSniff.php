@@ -17,8 +17,6 @@ use PHP_CodeSniffer\Files\File;
 
 class FunctionCommentSniff extends SquizFunctionCommentSniff
 {
-
-
     /**
      * Processes this test, when one of its tokens is encountered.
      *
@@ -77,8 +75,5 @@ class FunctionCommentSniff extends SquizFunctionCommentSniff
             $error = 'The @api tags must be the last tags in a function comment';
             $phpcsFile->addError($error, $commentEnd, 'ApiNotLast');
         }
-
     }//end process()
-
-
 }//end class

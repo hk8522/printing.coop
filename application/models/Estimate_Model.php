@@ -1,7 +1,6 @@
 <?php
 
 Class Estimate_Model extends MY_Model {
-
 	public $table='estimates';
 
 	public $rules = [
@@ -135,7 +134,6 @@ Class Estimate_Model extends MY_Model {
 	}
 
     public function getEstimateDataById($id) {
-
         $this->db->select('*');
         $this->db->from($this->table);
 		$this->db->where(array('id'=>$id));
@@ -145,7 +143,6 @@ Class Estimate_Model extends MY_Model {
     }
 
 	public function deleteProductEstimates($id) {
-
 		$this->db->where('id',$id);
         $query = $this->db->delete($this->table);
 		if ($query) {
@@ -153,8 +150,6 @@ Class Estimate_Model extends MY_Model {
 		} else {
 			return 0;
 		}
-
     }
-
 }
 ?>

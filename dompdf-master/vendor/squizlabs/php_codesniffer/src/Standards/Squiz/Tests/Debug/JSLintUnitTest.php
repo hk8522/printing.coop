@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Config;
 
 class JSLintUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Should this test be skipped for some reason.
      *
@@ -29,9 +27,7 @@ class JSLintUnitTest extends AbstractSniffUnitTest
         }
 
         return false;
-
     }//end shouldSkipTest()
-
 
     /**
      * Returns the lines where errors should occur.
@@ -44,9 +40,7 @@ class JSLintUnitTest extends AbstractSniffUnitTest
     public function getErrorList()
     {
         return [];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -62,8 +56,5 @@ class JSLintUnitTest extends AbstractSniffUnitTest
             1 => 2,
             2 => 1,
         ];
-
     }//end getWarningList()
-
-
 }//end class

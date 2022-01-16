@@ -60,7 +60,6 @@
 
 							<h6 class="text-center">Please wait loading...</h6>
 
-
         				    </div>
         				</div>
                     </div>

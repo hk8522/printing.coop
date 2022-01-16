@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link
  */
 class CI_Cache extends CI_Driver_Library {
-
 	/**
 	 * Valid cache drivers
 	 *

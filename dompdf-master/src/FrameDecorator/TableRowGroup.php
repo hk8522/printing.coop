@@ -19,7 +19,6 @@ use Dompdf\Frame;
  */
 class TableRowGroup extends AbstractFrameDecorator
 {
-
     /**
      * Class constructor
      *

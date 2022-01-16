@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/utf8.html
  */
 class CI_Utf8 {
-
 	/**
 	 * Class constructor
 	 *
@@ -160,5 +159,4 @@ class CI_Utf8 {
 	{
 		return (preg_match('/[^\x00-\x7F]/S', $str) === 0);
 	}
-
 }

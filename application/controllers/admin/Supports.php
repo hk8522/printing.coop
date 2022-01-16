@@ -13,7 +13,6 @@ class Supports extends Admin_Controller
 
     public function index()
     {
-
 		$this->load->model('Ticket_Model');
 		$this->data['page_title'] = 'Supports';
 		$this->data['sub_page_title'] = '';
@@ -27,14 +26,11 @@ class Supports extends Admin_Controller
 		$this->data['StoreList']=$StoreList;
 
 		$this->render($this->class_name.'index');
-
-
     }
 
 	 public function view($id=null)
     {
 		if(empty($id)){
-
 			redirect('admin/Supports');
 		}
 		$this->load->model('Ticket_Model');
@@ -46,34 +42,24 @@ class Supports extends Admin_Controller
 		$StoreList=$this->Store_Model->getAllStoreList();
 		$this->data['StoreList']=$StoreList;
 		$this->render($this->class_name.'view');
-
     }
 
 	public function delete($id=null)
     {
-
         if(!empty($id)){
-
-
 				$page_title='Query';
 				$this->load->model('Ticket_Model');
 				if ($this->Ticket_Model->deleteQuery($id))
 				{
-
 					$this->session->set_flashdata('message_success',$page_title.' Successfully.');
-
 				}
 				else
 				{
 				    $this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 				}
 		}else{
-
 			$this->session->set_flashdata('message_error','Missing information.');
 	    }
 		redirect('admin/Supports');
     }
-
-
-
 }

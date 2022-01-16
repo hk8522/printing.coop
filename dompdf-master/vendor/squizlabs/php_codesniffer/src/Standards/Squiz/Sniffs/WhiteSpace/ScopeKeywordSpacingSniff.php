@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ScopeKeywordSpacingSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -27,9 +25,7 @@ class ScopeKeywordSpacingSniff implements Sniff
         $register   = Tokens::$scopeModifiers;
         $register[] = T_STATIC;
         return $register;
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -118,8 +114,5 @@ class ScopeKeywordSpacingSniff implements Sniff
                 }
             }//end if
         }//end if
-
     }//end process()
-
-
 }//end class

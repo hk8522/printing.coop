@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ColonSpacingSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
      * @var array
      */
     public $supportedTokenizers = ['CSS'];
-
 
     /**
      * Returns the token types that this sniff is interested in.
@@ -32,9 +30,7 @@ class ColonSpacingSniff implements Sniff
     public function register()
     {
         return [T_COLON];
-
     }//end register()
-
 
     /**
      * Processes the tokens that this sniff is interested in.
@@ -100,8 +96,5 @@ class ColonSpacingSniff implements Sniff
                 }
             }
         }//end if
-
     }//end process()
-
-
 }//end class

@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/typography.html
  */
 class CI_Typography {
-
 	/**
 	 * Block level elements that should not be wrapped inside <p> tags
 	 *
@@ -275,7 +274,6 @@ class CI_Typography {
 		}
 
 		return preg_replace(array_keys($table), $table, $str);
-
 	}
 
 	// --------------------------------------------------------------------
@@ -420,5 +418,4 @@ class CI_Typography {
 
 		return $newstr;
 	}
-
 }

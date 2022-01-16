@@ -51,7 +51,6 @@
 							<tbody>
 							    <?php
 								if(count($lists) > 0){
-
 									foreach($lists as $key=>$list){
 									?>
 										<tr>
@@ -78,7 +77,6 @@
 											<td><?php
 											$steate=$this->Address_Model->getStateById($list['region']);
 										    echo $steate['StateName'];
-
 
 											?></td>
 											<td><?php echo ucfirst($list['city']);?></td>
@@ -147,7 +145,6 @@
 											</td>
 										</tr>
 									<?php
-
 								    }
 								}else{?>
 								    <tr>
@@ -170,10 +167,8 @@
  </script>
 <script>
 $(document).ready(function(){
-
     $('#example1').DataTable({
 		"order": [[ 0, "desc" ]]
 	});
-
 });
 </script>

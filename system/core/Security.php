@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/security.html
  */
 class CI_Security {
-
 	/**
 	 * List of sanitize filename strings
 	 *
@@ -634,7 +633,6 @@ class CI_Security {
 			return $output;
 		}
 
-
 		if (is_readable('/dev/urandom') && ($fp = fopen('/dev/urandom', 'rb')) !== FALSE)
 		{
 			// Try not to waste entropy ...
@@ -1086,5 +1084,4 @@ class CI_Security {
 
 		return $this->_csrf_hash;
 	}
-
 }

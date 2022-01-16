@@ -16,7 +16,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class CamelCapsFunctionNameSniff extends AbstractScopeSniff
 {
-
     /**
      * A list of all PHP magic methods.
      *
@@ -76,16 +75,13 @@ class CamelCapsFunctionNameSniff extends AbstractScopeSniff
      */
     public $strict = true;
 
-
     /**
      * Constructs a Generic_Sniffs_NamingConventions_CamelCapsFunctionNameSniff.
      */
     public function __construct()
     {
         parent::__construct(Tokens::$ooScopeTokens, [T_FUNCTION], true);
-
     }//end __construct()
-
 
     /**
      * Processes the tokens within the scope.
@@ -170,9 +166,7 @@ class CamelCapsFunctionNameSniff extends AbstractScopeSniff
         } else {
             $phpcsFile->recordMetric($stackPtr, 'CamelCase method name', 'yes');
         }
-
     }//end processTokenWithinScope()
-
 
     /**
      * Processes the tokens outside the scope.
@@ -214,8 +208,5 @@ class CamelCapsFunctionNameSniff extends AbstractScopeSniff
         } else {
             $phpcsFile->recordMetric($stackPtr, 'CamelCase method name', 'yes');
         }
-
     }//end processTokenOutsideScope()
-
-
 }//end class

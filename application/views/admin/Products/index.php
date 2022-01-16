@@ -86,11 +86,9 @@
 								</tr>
 							</thead>
 
-
 							<tbody>
 							    <?php
 								if(count($lists) > 0){
-
 									foreach($lists as $key=>$list){
 									?>
 									<tr>
@@ -124,13 +122,9 @@
 										</td>
 										<td>
 											 <?php if(empty($list['is_stock'])){
-
                                              echo 'In Stock';
-
                                             }else{
-
                                             echo 'Out of Stock';
-
                                             }
 
                                         ?>
@@ -183,7 +177,6 @@
 										</td>
 									</tr>
 								<?php
-
 								    }
 								}else{?>
 								    <tr>
@@ -207,15 +200,12 @@
  </script>
 <script>
 /*$(document).ready(function(){
-
     $('#example1').DataTable({
 		//"order": [[ 3, "asc" ]]
 	});
-
 });*/
 
 function searchProduct(searchtext){
-
 	  	if(searchtext !=''){
 			$("#loder-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/searchProduct';
@@ -230,35 +220,24 @@ function searchProduct(searchtext){
 					    $("#ProductListUl").html(data);
 					},
 					error: function (error) {
-
 					}
 			});
-
-
 		}else{
-
 			$("#searchDiv").hide();
 			$("#ProductListUl").html('');
 			$("#searchSgedProductTextBox").val('');
-
-
 		}
     }
     function hidesearchDiv(){
-
 		$("#searchDiv").hide();
 		$("#ProductListUl").html('');
-
 	}
 
 	$("#select-all").click(function () {
-
 		if($(this).prop("checked") == true){
-
 			$(".product_ids").prop('checked', true);
 		}else{
 			$(".product_ids").prop('checked',false);
 		}
-
     });
 </script>

@@ -51,7 +51,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_ibase_driver extends CI_DB {
-
 	/**
 	 * Database driver
 	 *
@@ -409,5 +408,4 @@ class CI_DB_ibase_driver extends CI_DB {
 	{
 		ibase_close($this->conn_id);
 	}
-
 }

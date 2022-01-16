@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class EmbeddedPhpSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class EmbeddedPhpSniff implements Sniff
     public function register()
     {
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -50,9 +46,7 @@ class EmbeddedPhpSniff implements Sniff
         } else {
             $this->validateInlineEmbeddedPhp($phpcsFile, $stackPtr);
         }
-
     }//end process()
-
 
     /**
      * Validates embedded PHP that exists on multiple lines.
@@ -283,9 +277,7 @@ class EmbeddedPhpSniff implements Sniff
                 $phpcsFile->fixer->endChangeset();
             }
         }//end if
-
     }//end validateMultilineEmbeddedPhp()
-
 
     /**
      * Validates embedded PHP that exists on one line.
@@ -395,8 +387,5 @@ class EmbeddedPhpSniff implements Sniff
                 }
             }
         }
-
     }//end validateInlineEmbeddedPhp()
-
-
 }//end class

@@ -50,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/general/controllers.html
  */
 class CI_Controller {
-
 	/**
 	 * Reference to the CI singleton
 	 *
@@ -92,5 +91,4 @@ class CI_Controller {
 	{
 		return self::$instance;
 	}
-
 }

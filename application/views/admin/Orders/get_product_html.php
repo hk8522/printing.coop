@@ -4,7 +4,6 @@
   #pr($_SESSION);
   $sn=1;
  if(isset($_SESSION['product_list'])){
-
 	$product_list=$_SESSION['product_list'];
 	$QtyOptions=array();
 	foreach($product_list as $product_id_key=>$product_val){
@@ -17,9 +16,7 @@
 
 	 $ProductSizes=$this->Product_Model->ProductSizeListDropDwon($product_id);
 
-
 	#pr($Product);
-
 
 ?>
 
@@ -69,10 +66,7 @@
 									if(!empty($ProductSizes)){
 										$i=2;
 
-
 									?>
-
-
 
 								<div class="col-md-3">
 										   <div class="table-filter-fields">
@@ -86,10 +80,8 @@
 						$qty_name='';
 						$qty_extra_price='';
 						foreach($val as $qty){
-
 	                         $qty_name=$qty[0]['qty_name'];
 							if(!empty($qty[0]['price']) && $qty[0]['price'] !='0.00'){
-
 							    //$qty_extra_price=" (+ ".$product_price_currency_symbol.$qty[0]['price'].")";
 							}
 		                    break;
@@ -104,8 +96,6 @@
 
 					?>
 												</select>
-
-
 
 											</div>
 										</div>
@@ -125,10 +115,7 @@
 
 												$attribute_ids=isset($product_val['options']['attribute_ids']) ? $product_val['options']['attribute_ids']:array();
 
-
 												foreach($ProductAttributes as $key=>$val){
-
-
 												//pr($val);
 												?>
 													<div class="col-md-3">
@@ -138,11 +125,9 @@
 															<?php $items=$val['items'];?>
 															<?php
 															 if(!empty($items)){
-
 															    $select_item_id='';
 																$disabled='disabled';
 													            if(array_key_exists($key,$attribute_ids)){
-
 														            $select_item_id=$attribute_ids[$key];
 																	$disabled='';
 													            }
@@ -190,7 +175,6 @@
 									<?php
                                     //pr($Product);
 									if($Product['add_length_width']==1){
-
 									?>
 
 						             <div class="col-md-3">
@@ -290,7 +274,6 @@
 		</form>
 		<script>
 		$('form#cardFrom-'+'<?php echo $product_id_key;?>').on('submit', function (e) {
-
 		        $("#loder-img").show();
 			    $('input[type="submit"]').prop('disabled',true);
 	            $('input[type="button"]').prop('disabled',true);
@@ -307,7 +290,6 @@
 				  contentType: false,
 				  processData: false,
 				  success: function(data) {
-
 					   $("#loder-img").hide();
 					   $('input[type="submit"]').prop('disabled',true);
 	                   $('input[type="button"]').prop('disabled',true);
@@ -317,27 +299,19 @@
 					   var orderinformation = json.orderinformation;
 
 					   if (status == 1 ) {
-
 							 $('#addtocart-message<?php echo $product_id_key;?>').html('<div class="alert alert-success alert-dismissible fade show" role="alert">'+msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 							 $("#Order-Information").html(orderinformation);
 							 $("#confirmbtn").html(json.confirmbtn);
-
-
 					   } else {
-
 							 $('#addtocart-message<?php echo $product_id_key;?>').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">'+msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
-
 					   }
 				  },
 				  error: function (error) {
-
 				  }
 			 });
   });
 
-
   $(function() {
-
     // preventing page from redirecting
     $("html").on("dragover", function(e) {
         e.preventDefault();
@@ -363,7 +337,6 @@
 
     // Drop
     $('#uploadfile<?php echo $product_id_key?>').on('drop', function (e) {
-
         e.stopPropagation();
         e.preventDefault();
 		var product_id=$("#product_id-<?php echo $product_id_key?>").val();
@@ -377,7 +350,6 @@
 		fd.append('product_id',product_id);
 		fd.append('product_id_key',product_id_key);
         uploadData(fd,'<?php echo $product_id_key?>');
-
     });
 
     // Open file selector on div click
@@ -387,7 +359,6 @@
 
     // file selected
     $("#file<?php echo $product_id_key?>").change(function(){
-
 		var product_id=$("#product_id-<?php echo $product_id_key?>").val();
 		var product_id_key='<?php echo $product_id_key?>';
 		$('#file<?php echo $product_id_key?>').prop('disabled', true);
@@ -399,7 +370,6 @@
 		fd.append('product_id',product_id);
 		fd.append('product_id_key',product_id_key);
         uploadData(fd,'<?php echo $product_id_key?>');
-
     });
  });
   </script>

@@ -11,7 +11,6 @@ use Ups\NodeInterface;
  */
 class Weight implements NodeInterface
 {
-
     /**
      * @var UnitOfMeasurement
      */

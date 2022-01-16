@@ -5,7 +5,6 @@ use \PHPUnit\Framework\TestCase;
 use Flagship\Shipping\Objects\Pickup;
 
 class PickupTests extends TestCase{
-
     public function testGetId(){
         $this->assertNotNull($this->pickup->getId());
         $this->assertSame(1085501, $this->pickup->getId());
@@ -139,9 +138,7 @@ class PickupTests extends TestCase{
         $this->assertSame(FALSE, $this->pickup->isCancelled());
     }
 
-
     protected function setUp(){
-
         $response = '{
             "id": "1085501",
             "confirmation": "00006293",
@@ -176,6 +173,4 @@ class PickupTests extends TestCase{
                           ->setMethods(['__construct'])
                           ->getMock();
     }
-
-
 }

@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class NullableTypeDeclarationSniff implements Sniff
 {
-
     /**
      * An array of valid tokens after `T_NULLABLE` occurrences.
      *
@@ -28,7 +27,6 @@ class NullableTypeDeclarationSniff implements Sniff
         T_PARENT       => true,
     ];
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -37,9 +35,7 @@ class NullableTypeDeclarationSniff implements Sniff
     public function register()
     {
         return [T_NULLABLE];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -83,8 +79,5 @@ class NullableTypeDeclarationSniff implements Sniff
 
         // Non-whitespace tokens found; trigger error but don't fix.
         $phpcsFile->addError($error, $stackPtr, 'UnexpectedCharactersFound');
-
     }//end process()
-
-
 }//end class

@@ -19,7 +19,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class AssignmentInConditionSniff implements Sniff
 {
-
     /**
      * Assignment tokens to trigger on.
      *
@@ -35,7 +34,6 @@ class AssignmentInConditionSniff implements Sniff
      * @var array
      */
     protected $conditionStartTokens = [];
-
 
     /**
      * Registers the tokens that this sniff wants to listen for.
@@ -61,9 +59,7 @@ class AssignmentInConditionSniff implements Sniff
             T_CASE,
             T_WHILE,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -163,8 +159,5 @@ class AssignmentInConditionSniff implements Sniff
 
             $startPos = $hasAssignment;
         } while ($startPos < $closer);
-
     }//end process()
-
-
 }//end class

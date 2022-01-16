@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_result {
-
 	/**
 	 * Connection ID
 	 *
@@ -661,5 +660,4 @@ class CI_DB_result {
 	{
 		return new $class_name();
 	}
-
 }

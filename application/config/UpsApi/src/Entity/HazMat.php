@@ -11,7 +11,6 @@ use Ups\NodeInterface;
  */
 class HazMat implements NodeInterface
 {
-
     /**
      * @var string
      */
@@ -148,7 +147,6 @@ class HazMat implements NodeInterface
         }
 
         $node = $document->createElement('HazMat');
-
 
         if ($this->getPackagingTypeQuantity()) {
             $node->appendChild($document->createElement('PackagingTypeQuantity', $this->getPackagingTypeQuantity()));

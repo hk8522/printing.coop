@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class IncrementDecrementUsageSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -31,9 +29,7 @@ class IncrementDecrementUsageSniff implements Sniff
             T_INC,
             T_DEC,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -53,9 +49,7 @@ class IncrementDecrementUsageSniff implements Sniff
         } else {
             $this->processAssignment($phpcsFile, $stackPtr);
         }
-
     }//end process()
-
 
     /**
      * Checks to ensure increment and decrement operators are not confusing.
@@ -102,9 +96,7 @@ class IncrementDecrementUsageSniff implements Sniff
             $error = 'Increment and decrement operators must be bracketed when used in string concatenation';
             $phpcsFile->addError($error, $stackPtr, 'NoBrackets');
         }
-
     }//end processIncDec()
-
 
     /**
      * Checks to ensure increment and decrement operators are used.
@@ -217,8 +209,5 @@ class IncrementDecrementUsageSniff implements Sniff
             $error .= " operators should be used where possible; found \"$found\" but expected \"$expected\"";
             $phpcsFile->addError($error, $stackPtr, 'Found');
         }//end if
-
     }//end processAssignment()
-
-
 }//end class

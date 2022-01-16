@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class SpaceAfterCastSniff implements Sniff
 {
-
     /**
      * The number of spaces desired after a cast token.
      *
@@ -30,7 +29,6 @@ class SpaceAfterCastSniff implements Sniff
      */
     public $ignoreNewlines = false;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -39,9 +37,7 @@ class SpaceAfterCastSniff implements Sniff
     public function register()
     {
         return Tokens::$castTokens;
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -146,8 +142,5 @@ class SpaceAfterCastSniff implements Sniff
                 $phpcsFile->fixer->endChangeset();
             }
         }
-
     }//end process()
-
-
 }//end class

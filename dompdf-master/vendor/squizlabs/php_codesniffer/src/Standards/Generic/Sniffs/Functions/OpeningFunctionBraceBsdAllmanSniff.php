@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class OpeningFunctionBraceBsdAllmanSniff implements Sniff
 {
-
     /**
      * Should this sniff check function braces?
      *
@@ -30,7 +29,6 @@ class OpeningFunctionBraceBsdAllmanSniff implements Sniff
      */
     public $checkClosures = false;
 
-
     /**
      * Registers the tokens that this sniff wants to listen for.
      *
@@ -42,9 +40,7 @@ class OpeningFunctionBraceBsdAllmanSniff implements Sniff
             T_FUNCTION,
             T_CLOSURE,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -206,8 +202,5 @@ class OpeningFunctionBraceBsdAllmanSniff implements Sniff
         }//end if
 
         $phpcsFile->recordMetric($stackPtr, "$metricType opening brace placement", 'new line');
-
     }//end process()
-
-
 }//end class

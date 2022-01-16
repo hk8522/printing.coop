@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Util;
 
 class Comment
 {
-
-
     /**
      * Creates an array of tokens when given some PHP code.
      *
@@ -159,9 +157,7 @@ class Comment
         }
 
         return $tokens;
-
     }//end tokenizeString()
-
 
     /**
      * Process a single line of a comment.
@@ -235,9 +231,7 @@ class Comment
         }
 
         return $tokens;
-
     }//end processLine()
-
 
     /**
      * Collect consecutive whitespace into a single token.
@@ -270,8 +264,5 @@ class Comment
         ];
 
         return $token;
-
     }//end collectWhitespace()
-
-
 }//end class

@@ -127,7 +127,7 @@ class Nested_Anon_Class {
     public function getAnonymousClass() {
         // Spacing/comments should not cause false negatives for the NotUsed error.
               self::$prop;
-        
+
         /* some comment */
 
         self::// phpcs:ignore Standard.Category.SniffName -- for reasons.

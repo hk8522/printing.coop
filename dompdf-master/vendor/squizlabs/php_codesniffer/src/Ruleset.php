@@ -16,7 +16,6 @@ use PHP_CodeSniffer\Util;
 
 class Ruleset
 {
-
     /**
      * The name of the coding standard being used.
      *
@@ -114,7 +113,6 @@ class Ruleset
      * @var \PHP_CodeSniffer\Config
      */
     private $config = null;
-
 
     /**
      * Initialise the ruleset that the run will use.
@@ -225,9 +223,7 @@ class Ruleset
         if ($numSniffs === 0) {
             throw new RuntimeException('No sniffs were registered');
         }
-
     }//end __construct()
-
 
     /**
      * Prints a report showing the sniffs contained in a standard.
@@ -290,9 +286,7 @@ class Ruleset
             echo '  '.$sniff.PHP_EOL;
             $lastCount++;
         }//end foreach
-
     }//end explain()
-
 
     /**
      * Processes a single ruleset and returns a list of the sniffs it represents.
@@ -600,9 +594,7 @@ class Ruleset
         }
 
         return $files;
-
     }//end processRuleset()
-
 
     /**
      * Expands a directory into a list of sniff files within.
@@ -660,9 +652,7 @@ class Ruleset
         }//end foreach
 
         return $sniffs;
-
     }//end expandSniffDirectory()
-
 
     /**
      * Expands a ruleset reference into a list of sniff files.
@@ -843,9 +833,7 @@ class Ruleset
                 return $this->processRuleset($ref, ($depth + 2));
             }
         }//end if
-
     }//end expandRulesetReference()
-
 
     /**
      * Processes a rule from a ruleset XML file, overriding built-in defaults.
@@ -1086,9 +1074,7 @@ class Ruleset
                 }
             }//end foreach
         }//end foreach
-
     }//end processRule()
-
 
     /**
      * Determine if an element should be processed or ignored.
@@ -1121,9 +1107,7 @@ class Ruleset
         }
 
         return false;
-
     }//end shouldProcessElement()
-
 
     /**
      * Loads and stores sniffs objects used for sniffing files.
@@ -1186,9 +1170,7 @@ class Ruleset
         }//end foreach
 
         $this->sniffs = $listeners;
-
     }//end registerSniffs()
-
 
     /**
      * Populates the array of PHP_CodeSniffer_Sniff objects for this file.
@@ -1269,9 +1251,7 @@ class Ruleset
                 }
             }
         }//end foreach
-
     }//end populateTokenListeners()
-
 
     /**
      * Set a single property for a sniff.
@@ -1321,9 +1301,7 @@ class Ruleset
         }
 
         $this->sniffs[$sniffClass]->$name = $value;
-
     }//end setSniffProperty()
-
 
     /**
      * Gets the array of ignore patterns.
@@ -1347,9 +1325,7 @@ class Ruleset
         }
 
         return [];
-
     }//end getIgnorePatterns()
-
 
     /**
      * Gets the array of include patterns.
@@ -1373,8 +1349,5 @@ class Ruleset
         }
 
         return [];
-
     }//end getIncludePatterns()
-
-
 }//end class

@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ArrayDeclarationSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -28,9 +26,7 @@ class ArrayDeclarationSniff implements Sniff
             T_ARRAY,
             T_OPEN_SHORT_ARRAY,
         ];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -126,9 +122,7 @@ class ArrayDeclarationSniff implements Sniff
         } else {
             $this->processMultiLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd);
         }
-
     }//end process()
-
 
     /**
      * Processes a single-line array definition.
@@ -294,9 +288,7 @@ class ArrayDeclarationSniff implements Sniff
                 }
             }//end foreach
         }//end if
-
     }//end processSingleLineArray()
-
 
     /**
      * Processes a multi-line array definition.
@@ -873,8 +865,5 @@ class ArrayDeclarationSniff implements Sniff
                 }
             }
         }//end foreach
-
     }//end processMultiLineArray()
-
-
 }//end class

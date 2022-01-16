@@ -8,7 +8,6 @@ use Flagship\Shipping\Collections\AvailableServicesCollection;
 use Flagship\Shipping\Exceptions\AvailableServicesException;
 
 class AvailableServicesTests extends TestCase{
-
     public function testGetServicesByCourier(){
         $this->assertNotEmpty($this->availableServices->getServicesByCourier('canpar'));
         $this->assertNotNull($this->availableServices->getServicesByCourier('fedex'));
@@ -51,7 +50,6 @@ class AvailableServicesTests extends TestCase{
     }
 
     protected function setUp(){
-
         $response = '[
             {
                 "flagship_code": "intlExpressEarlyAm",
@@ -415,7 +413,6 @@ class AvailableServicesTests extends TestCase{
             }
         ]';
 
-
         $this->getAvailableServicesRequest = $this->getMockBuilder(AvailableServicesRequest::class)
             ->setConstructorArgs(['testToken','localhost','test','1.0.11'])
             ->setMethods(['execute'])
@@ -424,7 +421,5 @@ class AvailableServicesTests extends TestCase{
 
         $this->availableServices = new AvailableServicesCollection();
         $this->availableServices->importServices(json_decode($response));
-
-
     }
 }

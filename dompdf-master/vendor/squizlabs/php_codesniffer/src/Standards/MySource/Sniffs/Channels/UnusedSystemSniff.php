@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Files\File;
 
 class UnusedSystemSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -24,9 +22,7 @@ class UnusedSystemSniff implements Sniff
     public function register()
     {
         return [T_DOUBLE_COLON];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -134,8 +130,5 @@ class UnusedSystemSniff implements Sniff
         $error = 'Included system "%s" is never used';
         $data  = [$systemName];
         $phpcsFile->addError($error, $stackPtr, 'Found', $data);
-
     }//end process()
-
-
 }//end class

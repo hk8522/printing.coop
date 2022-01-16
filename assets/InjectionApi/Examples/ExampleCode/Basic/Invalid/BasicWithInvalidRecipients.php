@@ -25,5 +25,4 @@ $message->addToAddress(new EmailAddress("failure.com"));
 $message->addToAddress(new EmailAddress("ImMissingSomethin"));
 $message->addToAddress(new EmailAddress("Fail@@!.Me"));
 
-
 $response = $client->send($message);

@@ -2,7 +2,6 @@
 namespace TheSeer\Tokenizer;
 
 class Tokenizer {
-
     /**
      * Token Map for "non-tokens"
      *

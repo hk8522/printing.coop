@@ -8,7 +8,6 @@ use Flagship\Shipping\Exceptions\ManifestException;
 use Flagship\Shipping\Exceptions\ManifestListException;
 
 class ManifestListCollection extends Collection{
-
     public function importManifests(array $manifests){
         if(count($manifests) == 0){
             throw new ManifestException('No manifests available');
@@ -34,5 +33,4 @@ class ManifestListCollection extends Collection{
         }
         return $result;
     }
-
 }

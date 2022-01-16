@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_ibase_result extends CI_DB_result {
-
 	/**
 	 * Number of fields in the result set
 	 *
@@ -157,5 +156,4 @@ class CI_DB_ibase_result extends CI_DB_result {
 
 		return $class_name;
 	}
-
 }

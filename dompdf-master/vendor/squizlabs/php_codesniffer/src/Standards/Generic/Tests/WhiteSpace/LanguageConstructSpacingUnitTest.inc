@@ -72,7 +72,7 @@ return
 $newLine;
 
 // The following line must have a single space at the end (after return)
-return 
+return
 $spaceAndNewLine;
 
 // The following line must be the last line in the file

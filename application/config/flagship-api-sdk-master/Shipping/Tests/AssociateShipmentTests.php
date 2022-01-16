@@ -6,7 +6,6 @@ use Flagship\Shipping\Requests\AssociateShipmentRequest;
 use \PHPUnit\Framework\TestCase;
 
 class AssociateShipmentTests extends TestCase{
-
     public function testResponseCode(){
         $this->assertNull($this->associateShipmentRequest->getResponseCode());
     }

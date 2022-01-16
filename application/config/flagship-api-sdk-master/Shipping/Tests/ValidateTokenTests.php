@@ -4,7 +4,6 @@ use \PHPUnit\Framework\TestCase;
 use Flagship\Shipping\Requests\ValidateTokenRequest;
 
 class ValidateTokenTests extends TestCase{
-
     public function testExecute(){
         $this->assertNotNull($this->validateTokenRequest->execute());
         $this->assertSame(FALSE,$this->validateTokenRequest->execute());

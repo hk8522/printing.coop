@@ -22,8 +22,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class UnusedFunctionParameterSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -36,9 +34,7 @@ class UnusedFunctionParameterSniff implements Sniff
             T_CLOSURE,
             T_FN,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -229,8 +225,5 @@ class UnusedFunctionParameterSniff implements Sniff
                 }
             }
         }//end if
-
     }//end process()
-
-
 }//end class

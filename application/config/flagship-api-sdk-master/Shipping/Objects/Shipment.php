@@ -4,9 +4,7 @@ namespace Flagship\Shipping\Objects;
 
 use Flagship\Shipping\Objects\Package;
 
-
 class Shipment{
-
     public function __construct(\stdclass $shipment){
         $this->shipment = $shipment;
     }
@@ -17,7 +15,6 @@ class Shipment{
         }
         return $this->shipment->id;
     }
-
 
     public function getTrackingNumber() : ?string {
         return property_exists($this->shipment, 'tracking_number') ? $this->shipment->tracking_number : NULL ;
@@ -76,7 +73,6 @@ class Shipment{
     }
 
     public function getSenderDetails() : ?array {
-
         $sender = property_exists($this->shipment, 'from') ?json_decode(json_encode($this->shipment->from),TRUE) : NULL ;
         return $sender;
     }
@@ -140,9 +136,7 @@ class Shipment{
     }
 
     public function getDriverInstructions() : ?string {
-
         return property_exists($this->shipment, 'options') ? (property_exists($this->shipment->options, 'driver_instructions') ? $this->shipment->options->driver_instructions : NULL) : NULL;
-
     }
 
     public function isSignatureRequired() : ?bool {
@@ -176,7 +170,6 @@ class Shipment{
     public function getCodReceiverPhone() : ?string {
         return property_exists($this->shipment, 'options') ? (property_exists($this->shipment->options, 'cod') ? $this->shipment->options->cod->receiver_phone :NULL) : NULL;
     }
-
 
     public function getCodAmount() : ?float {
         return property_exists($this->shipment, 'options') ? (property_exists($this->shipment->options, 'cod') ? $this->shipment->options->cod->amount :NULL) : NULL;
@@ -312,7 +305,6 @@ class Shipment{
     }
 
     public function getThermalLabel() : ?string {
-
         $thermalLabel =  property_exists($this->shipment, 'documents') ? $this->shipment->documents->thermal_label : NULL;
         $thermalLabel = property_exists($this->shipment, 'labels') ? $this->shipment->labels->thermal : $thermalLabel;
         return $thermalLabel;

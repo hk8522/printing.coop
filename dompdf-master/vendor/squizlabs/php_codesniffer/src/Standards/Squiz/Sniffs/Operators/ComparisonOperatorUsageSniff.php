@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ComparisonOperatorUsageSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -58,7 +57,6 @@ class ComparisonOperatorUsageSniff implements Sniff
         ],
     ];
 
-
     /**
      * Registers the token types that this sniff wishes to listen to.
      *
@@ -73,9 +71,7 @@ class ComparisonOperatorUsageSniff implements Sniff
             T_WHILE,
             T_FOR,
         ];
-
     }//end register()
-
 
     /**
      * Process the tokens that this sniff is listening for.
@@ -228,8 +224,5 @@ class ComparisonOperatorUsageSniff implements Sniff
             $error = 'Implicit true comparisons prohibited; use === TRUE instead';
             $phpcsFile->addError($error, $stackPtr, 'ImplicitTrue');
         }
-
     }//end process()
-
-
 }//end class

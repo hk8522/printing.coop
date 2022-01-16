@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Core\AbstractMethodUnitTest;
 
 class BackfillNumericSeparatorTest extends AbstractMethodUnitTest
 {
-
-
     /**
      * Test that numbers using numeric seperators are tokenized correctly.
      *
@@ -33,9 +31,7 @@ class BackfillNumericSeparatorTest extends AbstractMethodUnitTest
         $this->assertSame(constant($testData['type']), $tokens[$number]['code']);
         $this->assertSame($testData['type'], $tokens[$number]['type']);
         $this->assertSame($testData['value'], $tokens[$number]['content']);
-
     }//end testBackfill()
-
 
     /**
      * Data provider.
@@ -140,9 +136,7 @@ class BackfillNumericSeparatorTest extends AbstractMethodUnitTest
                 ],
             ],
         ];
-
     }//end dataTestBackfill()
-
 
     /**
      * Test that numbers using numeric seperators which are considered parse errors and/or
@@ -166,9 +160,7 @@ class BackfillNumericSeparatorTest extends AbstractMethodUnitTest
             $this->assertSame($expectedToken['code'], $tokens[$i]['code']);
             $this->assertSame($expectedToken['content'], $tokens[$i]['content']);
         }
-
     }//end testNoBackfill()
-
 
     /**
      * Data provider.
@@ -373,8 +365,5 @@ class BackfillNumericSeparatorTest extends AbstractMethodUnitTest
                 ],
             ],
         ];
-
     }//end dataNoBackfill()
-
-
 }//end class

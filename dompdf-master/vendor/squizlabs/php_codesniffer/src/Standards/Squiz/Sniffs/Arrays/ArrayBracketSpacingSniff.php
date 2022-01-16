@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ArrayBracketSpacingSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -27,9 +25,7 @@ class ArrayBracketSpacingSniff implements Sniff
             T_OPEN_SQUARE_BRACKET,
             T_CLOSE_SQUARE_BRACKET,
         ];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -88,8 +84,5 @@ class ArrayBracketSpacingSniff implements Sniff
                 }
             }
         }
-
     }//end process()
-
-
 }//end class

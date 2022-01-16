@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class UpperCaseConstantNameSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -28,9 +26,7 @@ class UpperCaseConstantNameSniff implements Sniff
             T_STRING,
             T_CONST,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -133,8 +129,5 @@ class UpperCaseConstantNameSniff implements Sniff
         } else {
             $phpcsFile->recordMetric($stackPtr, 'Constant name case', 'upper');
         }
-
     }//end process()
-
-
 }//end class

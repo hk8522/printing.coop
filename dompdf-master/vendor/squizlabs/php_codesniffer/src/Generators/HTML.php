@@ -17,8 +17,6 @@ use PHP_CodeSniffer\Config;
 
 class HTML extends Generator
 {
-
-
     /**
      * Generates the documentation for a standard.
      *
@@ -44,9 +42,7 @@ class HTML extends Generator
         ob_end_clean();
 
         echo $content;
-
     }//end generate()
-
 
     /**
      * Print the header of the HTML page.
@@ -128,9 +124,7 @@ class HTML extends Generator
         echo ' </head>'.PHP_EOL;
         echo ' <body>'.PHP_EOL;
         echo "  <h1>$standard Coding Standards</h1>".PHP_EOL;
-
     }//end printHeader()
-
 
     /**
      * Print the table of contents for the standard.
@@ -153,9 +147,7 @@ class HTML extends Generator
         }
 
         echo '  </ul>'.PHP_EOL;
-
     }//end printToc()
-
 
     /**
      * Print the footer of the HTML page.
@@ -175,9 +167,7 @@ class HTML extends Generator
 
         echo ' </body>'.PHP_EOL;
         echo '</html>'.PHP_EOL;
-
     }//end printFooter()
-
 
     /**
      * Process the documentation for a single sniff.
@@ -201,9 +191,7 @@ class HTML extends Generator
                 $this->printCodeComparisonBlock($node);
             }
         }
-
     }//end processSniff()
-
 
     /**
      * Print a text block found in a standard.
@@ -222,9 +210,7 @@ class HTML extends Generator
         $content = str_replace('&lt;/em&gt;', '</em>', $content);
 
         echo "  <p class=\"text\">$content</p>".PHP_EOL;
-
     }//end printTextBlock()
-
 
     /**
      * Print a code comparison block found in a standard.
@@ -263,8 +249,5 @@ class HTML extends Generator
         echo "    <td class=\"code-comparison-code\">$second</td>".PHP_EOL;
         echo '   </tr>'.PHP_EOL;
         echo '  </table>'.PHP_EOL;
-
     }//end printCodeComparisonBlock()
-
-
 }//end class

@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class BlockCommentSniff implements Sniff
 {
-
     /**
      * The --tab-width CLI value that is being used.
      *
      * @var integer
      */
     private $tabWidth = null;
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -35,9 +33,7 @@ class BlockCommentSniff implements Sniff
             T_COMMENT,
             T_DOC_COMMENT_OPEN_TAG,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -381,8 +377,5 @@ class BlockCommentSniff implements Sniff
             $error = 'Empty line required after block comment';
             $phpcsFile->addError($error, $commentCloser, 'NoEmptyLineAfter');
         }
-
     }//end process()
-
-
 }//end class

@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_sqlite3_result extends CI_DB_result {
-
 	/**
 	 * Number of fields in the result set
 	 *
@@ -190,5 +189,4 @@ class CI_DB_sqlite3_result extends CI_DB_result {
 		// Only resetting to the start of the result set is supported
 		return ($n > 0) ? FALSE : $this->result_id->reset();
 	}
-
 }

@@ -183,5 +183,4 @@ class ManifestTest extends TestCase {
 
         $this->assertTrue($manifest->isExtensionFor($appName, new Version('1.2.3')));
     }
-
 }

@@ -33,5 +33,4 @@ class RequiresElementTest extends \PHPUnit\Framework\TestCase {
 
         $this->assertInstanceOf(PhpElement::class, $this->requires->getPHPElement());
     }
-
 }

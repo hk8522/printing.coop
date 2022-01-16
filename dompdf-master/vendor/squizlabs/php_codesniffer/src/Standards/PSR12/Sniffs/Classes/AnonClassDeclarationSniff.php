@@ -17,7 +17,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class AnonClassDeclarationSniff extends ClassDeclarationSniff
 {
-
     /**
      * The PSR2 MultiLineFunctionDeclarations sniff.
      *
@@ -32,7 +31,6 @@ class AnonClassDeclarationSniff extends ClassDeclarationSniff
      */
     private $functionCallSniff = null;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -41,9 +39,7 @@ class AnonClassDeclarationSniff extends ClassDeclarationSniff
     public function register()
     {
         return [T_ANON_CLASS];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -127,9 +123,7 @@ class AnonClassDeclarationSniff extends ClassDeclarationSniff
                 $phpcsFile->fixer->endChangeset();
             }
         }//end if
-
     }//end process()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -214,9 +208,7 @@ class AnonClassDeclarationSniff extends ClassDeclarationSniff
                 }//end if
             }//end if
         }//end if
-
     }//end processSingleLineArgumentList()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -235,8 +227,5 @@ class AnonClassDeclarationSniff extends ClassDeclarationSniff
 
         $this->multiLineSniff->processBracket($phpcsFile, $openBracket, $tokens, 'argument');
         $this->multiLineSniff->processArgumentList($phpcsFile, $stackPtr, $this->indent, 'argument');
-
     }//end processMultiLineArgumentList()
-
-
 }//end class

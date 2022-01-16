@@ -4,7 +4,6 @@ namespace Socketlabs;
  * The result of a single recipient in the Injection request.
  */
 class AddressResult{
-
     /**
      * The recipient's email address.
      */

@@ -18,13 +18,11 @@ use Dompdf\FrameDecorator\AbstractFrameDecorator;
  */
 class ListBullet extends AbstractPositioner
 {
-
     /**
      * @param AbstractFrameDecorator $frame
      */
     function position(AbstractFrameDecorator $frame)
     {
-
         // Bullets & friends are positioned an absolute distance to the left of
         // the content edge of their parent element
         $cb = $frame->get_containing_block();

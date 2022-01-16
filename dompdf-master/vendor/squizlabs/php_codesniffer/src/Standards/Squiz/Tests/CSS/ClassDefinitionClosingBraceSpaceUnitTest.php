@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class ClassDefinitionClosingBraceSpaceUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Returns the lines where errors should occur.
      *
@@ -38,9 +36,7 @@ class ClassDefinitionClosingBraceSpaceUnitTest extends AbstractSniffUnitTest
             69 => 1,
             81 => 2,
         ];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -53,8 +49,5 @@ class ClassDefinitionClosingBraceSpaceUnitTest extends AbstractSniffUnitTest
     public function getWarningList()
     {
         return [];
-
     }//end getWarningList()
-
-
 }//end class

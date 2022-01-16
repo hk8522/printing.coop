@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class LowerCaseTypeSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -28,9 +26,7 @@ class LowerCaseTypeSniff implements Sniff
         $tokens[] = T_FUNCTION;
         $tokens[] = T_CLOSURE;
         return $tokens;
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -155,8 +151,5 @@ class LowerCaseTypeSniff implements Sniff
                 }//end if
             }//end if
         }//end foreach
-
     }//end process()
-
-
 }//end class

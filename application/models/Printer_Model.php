@@ -49,16 +49,13 @@ Class Printer_Model extends MY_Model {
 			],
 	];
 	public function getPrinterBrandList(){
-
 		$this->db->select('*');
 		$this->db->from('printers');
 		$query = $this->db->get();
 		$data=$query->result_array();
 		return $data;
-
 	}
 	public function getActicePrinterBrandsList(){
-
 			$this->db->select('*');
 			$this->db->from('printers');
 			$this->db->where('status',1);
@@ -66,15 +63,12 @@ Class Printer_Model extends MY_Model {
 			$query = $this->db->get();
 			$data=$query->result_array();
 			return $data;
-
     }
 	public function getPrinterSeriesList($printer_brand_id=null,$status=null){
-
 		$this->db->select('printer_series.*,printers.name as brand_name');
 		$this->db->from('printer_series');
 		$this->db->join('printers', 'printers.id=printer_series.printer_brand_id', 'inner');
 		if(!empty($printer_brand_id)){
-
 			$this->db->where('printer_series.printer_brand_id', $printer_brand_id);
 		}
 		$query = $this->db->get();
@@ -83,7 +77,6 @@ Class Printer_Model extends MY_Model {
 	}
 
 	public function getAcctivePrinterSeriesByBrandId($printer_brand_id=null){
-
 		$this->db->select('*');
 		$this->db->from('printer_series');
 		$this->db->where('printer_brand_id', $printer_brand_id);
@@ -95,7 +88,6 @@ Class Printer_Model extends MY_Model {
 	}
 
 	public function getAcctiveModelByBrandId($printer_brand_id=null,$printer_series_id=null){
-
 		$this->db->select('*');
 		$this->db->from('printermodels');
 		$this->db->where('printer_brand_id', $printer_brand_id);
@@ -105,10 +97,8 @@ Class Printer_Model extends MY_Model {
 		$query = $this->db->get();
 		$data=$query->result_array();
 		return $data;
-
 	}
 	public function getPrinterSeriesListById($printer_brand_id=null){
-
 		$this->db->select('printer_series.*,printers.name as brand_name');
 		$this->db->from('printer_series');
 		$this->db->join('printers', 'printers.id=printer_series.printer_brand_id', 'inner');
@@ -118,7 +108,6 @@ Class Printer_Model extends MY_Model {
 		return $data;
 	}
 	public function getPrinterModelsList(){
-
 		$this->db->select('printermodels.*,printers.name as brand_name');
 		$this->db->from('printermodels');
 		$this->db->join('printers', 'printers.id=printermodels.printer_brand_id', 'inner');
@@ -126,8 +115,6 @@ Class Printer_Model extends MY_Model {
 		$data=$query->result_array();
 		return $data;
 	}
-
-
 
     public function save($table,$data)
     {
@@ -173,6 +160,5 @@ Class Printer_Model extends MY_Model {
         $this->db->where(array('name'=>$name));
         return $this->db->get()->row_array();
     }
-
 }
 ?>

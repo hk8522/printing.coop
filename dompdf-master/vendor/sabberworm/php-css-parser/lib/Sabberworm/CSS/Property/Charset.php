@@ -10,7 +10,6 @@ namespace Sabberworm\CSS\Property;
  * • Must not appear more than once.
  */
 class Charset implements AtRule {
-
 	private $sCharset;
 	protected $iLineNo;
 	protected $aComment;

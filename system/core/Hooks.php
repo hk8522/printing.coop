@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/general/hooks.html
  */
 class CI_Hooks {
-
 	/**
 	 * Determines whether hooks are enabled
 	 *
@@ -262,5 +261,4 @@ class CI_Hooks {
 		$this->_in_progress = FALSE;
 		return TRUE;
 	}
-
 }

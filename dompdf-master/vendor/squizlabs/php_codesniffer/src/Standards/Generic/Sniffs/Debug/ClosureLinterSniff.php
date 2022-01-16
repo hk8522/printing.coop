@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ClosureLinterSniff implements Sniff
 {
-
     /**
      * A list of error codes that should show errors.
      *
@@ -39,7 +38,6 @@ class ClosureLinterSniff implements Sniff
      */
     public $supportedTokenizers = ['JS'];
 
-
     /**
      * Returns the token types that this sniff is interested in.
      *
@@ -48,9 +46,7 @@ class ClosureLinterSniff implements Sniff
     public function register()
     {
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes the tokens that this sniff is interested in.
@@ -109,8 +105,5 @@ class ClosureLinterSniff implements Sniff
 
         // Ignore the rest of the file.
         return ($phpcsFile->numTokens + 1);
-
     }//end process()
-
-
 }//end class

@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class InlineIfDeclarationUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Get a list of CLI values to set before the file is tested.
      *
@@ -25,9 +23,7 @@ class InlineIfDeclarationUnitTest extends AbstractSniffUnitTest
     public function getCliValues($testFile)
     {
         return ['--encoding=utf-8'];
-
     }//end getCliValues()
-
 
     /**
      * Returns the lines where errors should occur.
@@ -53,9 +49,7 @@ class InlineIfDeclarationUnitTest extends AbstractSniffUnitTest
             44 => 1,
             47 => 1,
         ];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -68,8 +62,5 @@ class InlineIfDeclarationUnitTest extends AbstractSniffUnitTest
     public function getWarningList()
     {
         return [];
-
     }//end getWarningList()
-
-
 }//end class

@@ -4,7 +4,6 @@ namespace Socketlabs;
  * The response of an SocketLabsClient send request.
  */
 class SendResponse{
-
     /**
      * The result of the SocketLabsClient send request.
      */
@@ -149,7 +148,6 @@ class SendResponse{
 
                 default:
                     return "";
-
             }
         }
         user_error("Invalid property: " . __CLASS__ . "->$name");

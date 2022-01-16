@@ -1,8 +1,6 @@
 
 
 										<?php if(!empty($list)){
-
-
                                           $send_message_detail='send-message-detail';
 										   $send_message='send-message';
      									   $sender_name='sender-name';
@@ -13,7 +11,6 @@
 										        $send_message='recieve-message';
      									        $sender_name='reciever-name';
 										        $Username=$list['name'];
-
 										   }
 										?>
 			      						<li class="<?php echo  $send_message;?>">

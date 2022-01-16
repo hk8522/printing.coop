@@ -1,8 +1,6 @@
 function test(id)
 {
-
     this.id = id;
-
 }
 /**/
 test.prototype = {
@@ -17,7 +15,6 @@ test.prototype = {
         var z      = x[x['name']];
         var p      = x[x.name];
     }
-
 };
 
 function test() {

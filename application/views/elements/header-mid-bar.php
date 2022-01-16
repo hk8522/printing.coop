@@ -10,11 +10,9 @@
 							if($configrations['logo_image']) {
 								$alt='';
 							   if($language_name=='French'){
-
                                 $imageurl = getLogoImages($configrations['logo_image_french']);
 								$alt=$configrations['log_alt_teg_french'];
 							   }else{
-
 								$imageurl = getLogoImages($configrations['logo_image']);
 								$alt=$configrations['log_alt_teg'];
 							   }

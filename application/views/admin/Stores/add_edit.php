@@ -89,10 +89,8 @@
 			$langue_id= isset($postData['langue_id']) ? $postData['langue_id'] :0;
 
 														   foreach($language as $key=>$val){
-
 															   $selected='';
 															   if($key==$langue_id){
-
 																   $selected='selected="selected"';
 															   }
 														?>
@@ -118,16 +116,12 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
 
-
 														<?php
 		$currency_id= isset($postData['currency_id']) ? explode(',',$postData['currency_id']) : array();
 
-
 														   foreach($currency as $key=>$val){
-
 															   $selected='';
 															   if(in_array($key,$currency_id)){
-
 																   $selected='checked';
 															   }
 														?>
@@ -397,7 +391,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
 
 										<div class="control-group info">
                                             <div class="row">

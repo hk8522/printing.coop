@@ -13,7 +13,7 @@ class UpsRating {
 		try {
 			$rateData = $this->getProcessRate();
 			$rateData = json_encode( $rateData );
-			
+
 			/* Curl start to call UPS rating API */
 			$ch = curl_init($this->CI->config->item('ups')['urls']['rating']);
 			curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_1_1);
@@ -30,7 +30,7 @@ class UpsRating {
 			}
 			curl_close($ch);
 			/* Curl End */
-			
+
 			if( is_string( $res ) ) {
 				$resObject = json_decode( $res );
 			}
@@ -51,7 +51,7 @@ class UpsRating {
 		$accessLicenseNumber['AccessLicenseNumber'] = $this->CI->config->item('ups')['account']['access'];
 		$UPSSecurity['ServiceAccessToken'] = $accessLicenseNumber;
 		$request['UPSSecurity'] = $UPSSecurity;
-		
+
 		$option['RequestOption'] = 'Shop';
 		$request['RateRequest']['Request'] = $option;
 
@@ -62,7 +62,7 @@ class UpsRating {
 		$customerclassification['Code'] = '01';
 		$customerclassification['Description'] = 'Classfication';
 		$request['CustomerClassification'] = $customerclassification;
-		
+
 		$shipper['Name'] = $this->CI->config->item('ups')['shipper']['Name'];
 		$shipper['ShipperNumber'] = $this->CI->config->item('ups')['account']['shipperNumber'];
 		$address['AddressLine'] = $this->CI->config->item('ups')['shipper']['AddressLine'];

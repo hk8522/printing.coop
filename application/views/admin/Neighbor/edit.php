@@ -75,6 +75,18 @@
 
             <?php /* Quantity */ ?>
             <div class="attribute">
+                <div class="attribute-items" id="attribute-container-<?=$id?>">
+                    <div class="attribute-title">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-md-12">
+                                <label class="span2">
+                                    <input type="checkbox" onclick="return false;">
+                                    <span>Show Only Used</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <?php
                 foreach ($attributes as $attribute) {
                     $id = $attribute['id'];
@@ -88,13 +100,13 @@
                                     <input type="hidden" name="attribute_id[]" value="<?= $attribute['attribute_id']?>" id="attribute_id">
                                     <input type="checkbox" onclick="return false;" checked>
                                     <span name="attribute_name" class="copy-source"><?= $attribute['attribute_name']?></span>
-                                    <button type="button" class="btn bg-transparent right select-attribute" onclick="return false;"><i class="fa fa-arrow-right"></i></button>
+                                    <button type="button" class="btn bg-transparent right select-attribute" onclick="return false;" <?= $attribute['attribute_id'] == 0 ? 'disabled' : ''?>><i class="fa fa-arrow-right"></i></button>
                                 </label>
                             </div>
                             <div class="col-6 col-md-6">
                                 <div class="input-group has-clear">
-                                    <input type="text" name="neighbor_attribute[]" class="form-control copy-dest" placeholder="<?= $attribute['attribute_name']?>" value="<?= $attribute['name']?>">
-                                    <button type="button" class="btn bg-transparent form-control-clear <?= strlen($attribute['name']) > 0 ? 'hidden' : ''?>" style="margin-left: -40px; z-index: 100;">
+                                    <input type="text" name="neighbor_attribute[]" class="form-control copy-dest" placeholder="<?= $attribute['attribute_name']?>" value="<?= $attribute['name']?>" <?= $attribute['attribute_id'] == 0 ? 'readonly' : ''?>>
+                                    <button type="button" class="btn bg-transparent form-control-clear <?= strlen($attribute['name']) > 0 ? 'hidden' : ''?>" style="margin-left: -40px; z-index: 100;" <?= $attribute['attribute_id'] == 0 ? 'disabled' : ''?>>
                                         <i class="fa fa-times"></i>
                                     </button>
                                 </div>
@@ -122,7 +134,7 @@
                                 </div>
                                 <div class="col-6 col-md-6">
                                     <div class="input-group has-clear">
-                                        <input type="text" name="neighbor_attribute_item[]" class="form-control copy-dest" placeholder="<?= $item['attribute_item_name']?>" value="<?= $item['name']?>">
+                                        <input type="text" name="neighbor_attribute_item[]" class="form-control copy-dest" placeholder="<?= htmlspecialchars($item['attribute_item_name'])?>" value="<?= $item['name']?>">
                                         <button type="button" class="btn bg-transparent form-control-clear <?= strlen($item['name']) > 0 ? 'hidden' : ''?>" style="margin-left: -40px; z-index: 100;">
                                             <i class="fa fa-times"></i>
                                         </button>

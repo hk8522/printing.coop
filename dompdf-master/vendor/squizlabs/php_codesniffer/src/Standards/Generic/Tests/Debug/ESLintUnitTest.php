@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Config;
 
 class ESLintUnitTest extends AbstractSniffUnitTest
 {
-
     /**
      * Basic ESLint config to use for testing the sniff.
      *
@@ -32,7 +31,6 @@ class ESLintUnitTest extends AbstractSniffUnitTest
     }
 }';
 
-
     /**
      * Sets up this unit test.
      *
@@ -44,9 +42,7 @@ class ESLintUnitTest extends AbstractSniffUnitTest
 
         $cwd = getcwd();
         file_put_contents($cwd.'/.eslintrc.json', self::ESLINT_CONFIG);
-
     }//end setUp()
-
 
     /**
      * Remove artifact.
@@ -59,9 +55,7 @@ class ESLintUnitTest extends AbstractSniffUnitTest
 
         $cwd = getcwd();
         unlink($cwd.'/.eslintrc.json');
-
     }//end tearDown()
-
 
     /**
      * Should this test be skipped for some reason.
@@ -76,9 +70,7 @@ class ESLintUnitTest extends AbstractSniffUnitTest
         }
 
         return false;
-
     }//end shouldSkipTest()
-
 
     /**
      * Returns the lines where errors should occur.
@@ -91,9 +83,7 @@ class ESLintUnitTest extends AbstractSniffUnitTest
     public function getErrorList()
     {
         return [1 => 2];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -106,8 +96,5 @@ class ESLintUnitTest extends AbstractSniffUnitTest
     public function getWarningList()
     {
         return [];
-
     }//end getWarningList()
-
-
 }//end class

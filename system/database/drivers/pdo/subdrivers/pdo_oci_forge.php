@@ -45,7 +45,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_pdo_oci_forge extends CI_DB_pdo_forge {
-
 	/**
 	 * CREATE DATABASE statement
 	 *

@@ -105,10 +105,8 @@ class Style
         $styles = array();
 
         foreach ($stylesheets as $_sc) {
-
             /** @var \Sabberworm\CSS\RuleSet\DeclarationBlock $_decl */
             foreach ($_sc->getAllDeclarationBlocks() as $_decl) {
-
                 /** @var \Sabberworm\CSS\Property\Selector $_selector */
                 foreach ($_decl->getSelectors() as $_selector) {
                     $_selector = $_selector->getSelector();

@@ -10,7 +10,7 @@ class CSSNamespace implements AtRule {
 	private $sPrefix;
 	private $iLineNo;
 	protected $aComments;
-	
+
 	public function __construct($mUrl, $sPrefix = null, $iLineNo = 0) {
 		$this->mUrl = $mUrl;
 		$this->sPrefix = $sPrefix;
@@ -32,7 +32,7 @@ class CSSNamespace implements AtRule {
 	public function render(\Sabberworm\CSS\OutputFormat $oOutputFormat) {
 		return '@namespace '.($this->sPrefix === null ? '' : $this->sPrefix.' ').$this->mUrl->render($oOutputFormat).';';
 	}
-	
+
 	public function getUrl() {
 		return $this->mUrl;
 	}

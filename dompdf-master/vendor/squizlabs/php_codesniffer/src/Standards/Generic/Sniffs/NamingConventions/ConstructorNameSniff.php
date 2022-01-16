@@ -18,7 +18,6 @@ use PHP_CodeSniffer\Sniffs\AbstractScopeSniff;
 
 class ConstructorNameSniff extends AbstractScopeSniff
 {
-
     /**
      * The name of the class we are currently checking.
      *
@@ -33,16 +32,13 @@ class ConstructorNameSniff extends AbstractScopeSniff
      */
     private $functionList = [];
 
-
     /**
      * Constructs the test with the tokens it wishes to listen for.
      */
     public function __construct()
     {
         parent::__construct([T_CLASS, T_ANON_CLASS], [T_FUNCTION], true);
-
     }//end __construct()
-
 
     /**
      * Processes this test when one of its tokens is encountered.
@@ -106,9 +102,7 @@ class ConstructorNameSniff extends AbstractScopeSniff
 
             $startIndex = ($doubleColonIndex + 1);
         }
-
     }//end processTokenWithinScope()
-
 
     /**
      * Processes a token that is found within the scope that this test is
@@ -122,9 +116,7 @@ class ConstructorNameSniff extends AbstractScopeSniff
      */
     protected function processTokenOutsideScope(File $phpcsFile, $stackPtr)
     {
-
     }//end processTokenOutsideScope()
-
 
     /**
      * Extracts all the function names found in the given scope.
@@ -151,8 +143,5 @@ class ConstructorNameSniff extends AbstractScopeSniff
                 $i = $tokens[$i]['scope_closer'];
             }
         }
-
     }//end loadFunctionNamesInScope()
-
-
 }//end class

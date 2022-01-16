@@ -123,7 +123,6 @@
  </div>
  <script>
   $('#printer_brand_id').on('change', function (e) {
-
 		var printer_brand_id=$(this).val();
 		$("#printer_series_id").html('<option value="">Select Printer Series</option>');
 		$.ajax({
@@ -134,7 +133,6 @@
 		contentType: false,
 		processData: false,
 		success: function (data) {
-
 			$("#printer_series_id").html(data);
 		}
 		});

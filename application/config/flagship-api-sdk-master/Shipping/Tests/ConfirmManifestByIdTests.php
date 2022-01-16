@@ -11,9 +11,7 @@ use Flagship\Shipping\Objects\Rate;
 use Flagship\Shipping\Collections\RatesCollection;
 
 class ConfirmManifestByIdTests extends TestCase{
-
     public function testGetName(){
-
         $this->assertNotNull($this->manifest->getName());
         $this->assertSame('MyNewManifest',$this->manifest->getName());
     }
@@ -114,7 +112,6 @@ class ConfirmManifestByIdTests extends TestCase{
     }
 
     protected function setUp(){
-
         $response = '{
             "id": "23",
             "name": "MyNewManifest",

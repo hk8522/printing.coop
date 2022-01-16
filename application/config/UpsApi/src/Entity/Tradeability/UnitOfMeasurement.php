@@ -10,7 +10,6 @@ use DOMElement;
  */
 class UnitOfMeasurement extends \Ups\Entity\UnitOfMeasurement
 {
-
     /**
      * @param null|DOMDocument $document
      *

@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Common;
 
 class FileCommentSniff implements Sniff
 {
-
     /**
      * Tags in correct order and related info.
      *
@@ -68,7 +67,6 @@ class FileCommentSniff implements Sniff
         ],
     ];
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -77,9 +75,7 @@ class FileCommentSniff implements Sniff
     public function register()
     {
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -192,9 +188,7 @@ class FileCommentSniff implements Sniff
 
         // Ignore the rest of the file.
         return ($phpcsFile->numTokens + 1);
-
     }//end process()
-
 
     /**
      * Processes each required or optional tag.
@@ -291,9 +285,7 @@ class FileCommentSniff implements Sniff
                 $pos++;
             }
         }//end foreach
-
     }//end processTags()
-
 
     /**
      * Process the category tag.
@@ -333,9 +325,7 @@ class FileCommentSniff implements Sniff
                 $phpcsFile->addError($error, $tag, 'InvalidCategory', $data);
             }
         }//end foreach
-
     }//end processCategory()
-
 
     /**
      * Process the package tag.
@@ -386,9 +376,7 @@ class FileCommentSniff implements Sniff
                 $phpcsFile->addError($error, $tag, 'InvalidPackage', $data);
             }//end if
         }//end foreach
-
     }//end processPackage()
-
 
     /**
      * Process the subpackage tag.
@@ -430,9 +418,7 @@ class FileCommentSniff implements Sniff
             ];
             $phpcsFile->addError($error, $tag, 'InvalidSubpackage', $data);
         }//end foreach
-
     }//end processSubpackage()
-
 
     /**
      * Process the author tag(s) that this header comment has.
@@ -460,9 +446,7 @@ class FileCommentSniff implements Sniff
                 $phpcsFile->addError($error, $tag, 'InvalidAuthors');
             }
         }
-
     }//end processAuthor()
-
 
     /**
      * Process the copyright tags.
@@ -501,9 +485,7 @@ class FileCommentSniff implements Sniff
                 $phpcsFile->addError($error, $tag, 'IncompleteCopyright');
             }
         }//end foreach
-
     }//end processCopyright()
-
 
     /**
      * Process the license tag.
@@ -530,9 +512,7 @@ class FileCommentSniff implements Sniff
                 $phpcsFile->addError($error, $tag, 'IncompleteLicense');
             }
         }
-
     }//end processLicense()
-
 
     /**
      * Process the version tag.
@@ -562,8 +542,5 @@ class FileCommentSniff implements Sniff
                 $phpcsFile->addWarning($error, $tag, 'InvalidVersion', $data);
             }
         }
-
     }//end processVersion()
-
-
 }//end class

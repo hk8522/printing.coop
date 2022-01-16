@@ -88,7 +88,6 @@
                         </li>
 					  <?php
 					   foreach($ModuleList as $key=>$val){
-
 					      $module=$val['module'];
 						  $sub_module=$val['sub_module'];
 						  $module_class_array=explode(',',strtolower($module['url']));
@@ -105,7 +104,6 @@
                             <ul class="treeview-menu">
 								<?php
 								foreach($sub_module as $skey=>$sval){
-
 								    $action=strtolower($sval['action']);
 									$class=strtolower($sval['class']);
 									$show_menu=$sval['show_menu'];

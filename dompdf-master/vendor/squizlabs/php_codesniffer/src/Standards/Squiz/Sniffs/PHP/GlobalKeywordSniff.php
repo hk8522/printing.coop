@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class GlobalKeywordSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -24,9 +22,7 @@ class GlobalKeywordSniff implements Sniff
     public function register()
     {
         return [T_GLOBAL];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -46,8 +42,5 @@ class GlobalKeywordSniff implements Sniff
         $error   = 'Use of the "global" keyword is forbidden; use "$GLOBALS[\'%s\']" instead';
         $data    = [$varName];
         $phpcsFile->addError($error, $stackPtr, 'NotAllowed', $data);
-
     }//end process()
-
-
 }//end class

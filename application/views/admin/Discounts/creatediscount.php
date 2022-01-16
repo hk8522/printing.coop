@@ -189,7 +189,6 @@
  <script src="<?php echo $BASE_URL;?>assets/admin/js/jquery.datetimepicker.full.js"></script>
 <script>
 $(document).ready(function(){
-
     $("#show-discount-percent").click(function(){
         $(".discount-percent").show();
         $(".discount-amount").hide();
@@ -213,7 +212,6 @@ $(document).ready(function(){
     $('#multiple-products').selectpicker3();*/
 
 	$('#DiscountValid').datetimepicker();
-
 });
 /*jQuery(document).ready(function () {
                 'use strict';

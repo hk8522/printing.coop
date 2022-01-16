@@ -2,7 +2,6 @@
 namespace Flagship\Shipping\Objects;
 
 class Pickup{
-
     public function __construct(\stdClass $pickup){
         $this->pickup = $pickup;
     }

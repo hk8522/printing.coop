@@ -4,7 +4,6 @@ namespace Socketlabs\Message;
  * Represents an individual recipient for a message.
  */
 class BulkRecipient extends EmailAddress{
-
     /**
      * A dictionary containing MergeData items unique to the recipient.
      */

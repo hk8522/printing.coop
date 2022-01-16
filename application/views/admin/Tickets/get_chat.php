@@ -4,8 +4,6 @@
 									<ul id="ChatList">
 			      						<!--<li class="message-date">05 August 2019</li>-->
 										<?php foreach($lists as $list){
-
-
                                           $send_message_detail='send-message-detail';
 										   $send_message='send-message';
      									   $sender_name='sender-name';
@@ -16,8 +14,6 @@
 										        $send_message='recieve-message';
      									        $sender_name='reciever-name';
 										        $Username=$list['name'];
-
-
 										   }
 										?>
 			      						<li class="<?php echo  $send_message;?>">
@@ -56,7 +52,6 @@ $("#SendMessageFrom").submit(function(e) {
 		var formsubmit=true;
 		$("#SendMessageFromSubmit").attr("disabled",true);
 		if(formsubmit==true){
-
 			var url =BASE_URL+'Tickets/getChat/'+'<?php echo base64_encode($ticket_id);?>';
 			$.ajax({
 				   type: "POST",
@@ -69,23 +64,18 @@ $("#SendMessageFrom").submit(function(e) {
 					  $container.append(data);
                       $chatWindow.append($container);
                       $chatWindow.scrollTop($chatWindow[0].scrollHeight);
-
 				    },
 				    error: function (error) {
-
 					  $("#SendMessageFromSubmit").attr("disabled",false);
 				   }
 			});
-
 		}else{
-
 			$("#SendMessageFromSubmit").attr("disabled",false);
 		}
     });
 
 	setInterval(getLetestChat, 1000);
 	function getLetestChat(){
-
 		var url =BASE_URL+'Tickets/getLetestChat/'+'<?php echo base64_encode($ticket_id);?>';
 
 		$.ajax({
@@ -99,7 +89,6 @@ $("#SendMessageFrom").submit(function(e) {
                       $chatWindow.scrollTop($chatWindow[0].scrollHeight);
 				},
 				error: function (error) {
-
 			   }
 		});
 	}

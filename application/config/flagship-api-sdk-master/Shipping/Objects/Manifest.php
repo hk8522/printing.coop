@@ -7,7 +7,6 @@ use Flagship\Shipping\Objects\Rate;
 use Flagship\Shipping\Collections\RatesCollection;
 
 class Manifest{
-
     public function __construct(\stdClass $manifest){
         $this->manifest = $manifest;
     }
@@ -137,5 +136,4 @@ class Manifest{
         }
         return NULL;
     }
-
 }

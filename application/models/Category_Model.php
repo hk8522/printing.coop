@@ -1,7 +1,6 @@
  <?php
 
 Class Category_Model extends MY_Model {
-
 	public $table='categories';
 
 	public $config = [
@@ -33,7 +32,6 @@ Class Category_Model extends MY_Model {
 			$this->db->order_by('category_order','asc');
 			$query = $this->db->get();
 			return $query->result_array();
-
 	}
 	public function ourPrintedProductsCategory($store_id=null)
 	{
@@ -41,7 +39,6 @@ Class Category_Model extends MY_Model {
 			$this->db->from($this->table);
 			$this->db->where(array('status'=>'1','show_our_printed_product'=>1));
 			if(!empty($store_id)){
-
 				$this->db->where("find_in_set($store_id, store_id)");
 			}
 			$this->db->order_by('category_order','asc');
@@ -49,23 +46,18 @@ Class Category_Model extends MY_Model {
 			$data=$query->result_array();
 			$dataNew=array();
 			foreach($data as $key=>$val){
-
 				$id=$val['id'];
 				$categoryImages=$this->getCategoriesImagesDataBy($id);
 				$val['categoryImages']=$categoryImages;
 				$dataNew[]=$val;
 			}
 			return $dataNew;
-
-
 	}
 
 	public function getActiveCategoryListByMenuId($menu_id=null) {
-
         $data=array();
 
 		if(!empty($menu_id)){
-
 			$this->db->select(array('id','name'));
 			$this->db->where(array('status'=>'1','menu_id'=>$menu_id));
 			$this->db->from($this->table);
@@ -77,13 +69,11 @@ Class Category_Model extends MY_Model {
     }
 
 	public function getActiveCategoryListByFooterMenu($store_id=null){
-
 		$data=array();
 		$this->db->select(array('id','name','name_french'));
 		$this->db->where(array('status'=>'1','show_footer_menu'=>1));
 
 		if(!empty($store_id)){
-
 		    $this->db->where("find_in_set($store_id, store_id)");
 	    }
 		$this->db->from($this->table);
@@ -93,7 +83,6 @@ Class Category_Model extends MY_Model {
 		return $data;
     }
 	public function getCategoryDataById($id) {
-
         $this->db->select('*');
         $this->db->from($this->table);
 		$this->db->where(array('id'=>$id));
@@ -116,29 +105,24 @@ Class Category_Model extends MY_Model {
 			$this->db->order_by('category_order','asc');
 			$data = $this->db->get()->result_array();
 			foreach ($data as $val) {
-
 				 $lists[$val['id']] = $val['name'];
 			}
 			return $lists;
 	 }
 
 	public function saveCategory($data) {
-
 		$id=isset($data['id']) ? $data['id']:'';
 
 		if(!empty($id)){
-
 			$data['updated']=date('Y-m-d H:i:s');
 			$this->db->where('id', $id);
 			$query = $this->db->update($this->table, $data);
 			if ($query) {
-
                return $id;
 			} else {
 				return 0;
 			}
 		}else{
-
 			$data['created']=date('Y-m-d H:i:s');
 			$data['updated']=date('Y-m-d H:i:s');
 			$query = $this->db->insert($this->table, $data);
@@ -148,8 +132,6 @@ Class Category_Model extends MY_Model {
 				return 0;
 			}
 		}
-
-
     }
 
 		public function getCategoriesAndSubCategories()
@@ -159,7 +141,6 @@ Class Category_Model extends MY_Model {
 				$allCategoryProducts = 0;
 
 				foreach($data['categories'] as $key => $category) {
-
 						$subCategoryQuery = $this->db->select('*')->from('sub_categories')->where(['status'=> 1, 'category_id' => $category['id']])->order_by('sub_category_order','asc');
 						$data['categories'][$key]['sub_categories'] = $subCategoryQuery->get()->result_array();
 						$totalProducts = $this->db->select('products.id')->from('products')->where('category_id',  $category['id']);
@@ -176,9 +157,7 @@ Class Category_Model extends MY_Model {
 				$categoryQuery = $this->db->select('id,name')->from($this->table)->where(['status'=>'1'])->order_by('name','asc');
 				$categories = $categoryQuery->get()->result_array();
 
-
 				foreach($categories as $key => $category) {
-
 						$subCategoryQuery = $this->db->select('id,name')->from('sub_categories')->where(['status'=> 1, 'category_id' => $category['id']])->order_by('name','asc');
 						$data[$key]=$category;
 						$data[$key]['sub_categories'] = $subCategoryQuery->get()->result_array();
@@ -188,12 +167,10 @@ Class Category_Model extends MY_Model {
 
         public function getCategoriesAndSubCategoriesForMainMenu($store_id=null)
 		{
-
 				$this->db->select('*');
 				$this->db->from($this->table);
 				$this->db->where(['status'=>'1','show_main_menu'=>1]);
 				if(!empty($store_id)){
-
 				   $this->db->where("find_in_set($store_id, store_id)");
 			    }
 				$this->db->order_by('category_order','asc');
@@ -203,19 +180,16 @@ Class Category_Model extends MY_Model {
 				$allCategoryProducts = 0;
 
 				foreach ($data['categories'] as $key => $category) {
-
 						$subCategoryQuery = $this->db->select('*')->from('sub_categories')->where(['status'=> 1,'category_id' => $category['id'],'show_main_menu'=>1])->order_by('sub_category_order','asc');
 						$subCategoryQuery=$subCategoryQuery->get()->result_array();
 						$sub_categories=array();
 						foreach($subCategoryQuery as $skey=>$subcategory){
-
 							$subcategory_id=$subcategory['id'];
 							$products=$this->getActiveProductListBySubCategoryId($category['id'],$subcategory_id);
 
 							$subcategory['products']=$products;
 							$subcategory['sub_category_total_products']=$products;
 							$sub_categories[$skey]=$subcategory;
-
 						}
 						$data['categories'][$key]['sub_categories'] =$sub_categories;
 
@@ -235,7 +209,6 @@ Class Category_Model extends MY_Model {
 				$allCategoryProducts = 0;
 
 				foreach ($data['categories'] as $key => $category) {
-
 						$subCategoryQuery = $this->db->select('*')->from('sub_categories')->where(['status'=> 1,'category_id' => $category['id'],'show_main_menu'=>1])->order_by('sub_category_order','asc');
 						$subCategoryQuery->get()->result_array();
 
@@ -244,12 +217,10 @@ Class Category_Model extends MY_Model {
 						$totalProducts = $this->db->select('products.id')->from('products')->where('category_id',  $category['id']);
 						$productsCount= $totalProducts->get()->num_rows();
 						$data['categories'][$key]['total_products'] = $productsCount;
-
 				}
 
 				$data['all_categories_products'] = $this->getTotalActiveProduct();
 				return $data;
-
 		}
 		public function deleteCategory($id)
 		{
@@ -265,7 +236,6 @@ Class Category_Model extends MY_Model {
 	    }
 
 	    /*function getActiveProductListBySubCategoryId($sub_category_id){
-
 			$data=array();
 			$this->db->select('id,name');
 			$condition=array();
@@ -281,7 +251,6 @@ Class Category_Model extends MY_Model {
         }*/
 
         function getActiveProductListBySubCategoryId($category_id,$sub_category_id){
-
 			$data=array();
 			$this->db->select('product_subcategory.id');
 			$this->db->from('product_subcategory');
@@ -295,12 +264,9 @@ Class Category_Model extends MY_Model {
 			$data=$query->num_rows();
 			#pr($data);
 			return $data;
-
-
         }
 
         function getActiveProductListByCategoryId($category_id){
-
 			$data=array();
 			$this->db->select('product_category.id');
 			$this->db->from('product_category');
@@ -313,7 +279,6 @@ Class Category_Model extends MY_Model {
 			$data=$query->num_rows();
 			#pr($data);
 			return $data;
-
         }
 
         function getTotalActiveProduct(){
@@ -334,28 +299,22 @@ Class Category_Model extends MY_Model {
 			$this->db->select('*');
 			$this->db->from('tags');
 			if($status==1){
-
 				$this->db->where('status',1);
 			}
 			if($status==1){
-
 				$this->db->where('status',1);
 			}
 			if($proudly_display_your_brand==1){
-
 				$this->db->where('proudly_display_your_brand',1);
 			}
 			if($montreal_book_printing==1){
-
 				$this->db->where('montreal_book_printing',1);
 			}
 			if($footer==1){
-
 				$this->db->where('footer',1);
 			}
 
 			if(!empty($store_id)){
-
 				$this->db->where("find_in_set($store_id, store_id)");
 			}
 
@@ -364,7 +323,6 @@ Class Category_Model extends MY_Model {
 			#$this->db->last_query(); die();
 
 			return $query->result_array();
-
 	}
 
 	public function getTasgDropDwonList($status=null)
@@ -372,7 +330,6 @@ Class Category_Model extends MY_Model {
 			$this->db->select('*');
 			$this->db->from('tags');
 			if($status==1){
-
 				$this->db->where('status',1);
 			}
 			$this->db->order_by('tag_order','asc');
@@ -380,30 +337,24 @@ Class Category_Model extends MY_Model {
 			$data=$query->result_array();
 			$data_new=array();
 			foreach($data as $val){
-
 				$data_new[$val['id']]=$val['name'];
 			}
 			return $data_new;
-
 	}
 
 	public function saveTags($data) {
-
 		$id=isset($data['id']) ? $data['id']:'';
 		if(!empty($id)){
-
 			$data['updated']=date('Y-m-d H:i:s');
 			$this->db->where('id', $id);
 			$query = $this->db->update('tags', $data);
 		}else{
-
 			$data['created']=date('Y-m-d H:i:s');
 			$data['updated']=date('Y-m-d H:i:s');
 			$query = $this->db->insert('tags', $data);
 		}
         if ($query) {
             return true;
-
         } else {
             return false;
         }
@@ -411,29 +362,23 @@ Class Category_Model extends MY_Model {
 
 	public function deleteTags($id)
 	{
-
 	    $query = $this->db->delete('tags', array('id' => $id));
 		if ($query) {
-
 			return 1;
 		}
 		return 0;
 	}
 
 	public function getTagDataById($id) {
-
         $this->db->select('*');
         $this->db->from('tags');
 		$this->db->where(array('id'=>$id));
         $query = $this->db->get();
 		$data=(array)$query->row();
 		return $data;
-
     }
 
-
 	public function getCategoriesImagesDataBy($id){
-
         $this->db->select('*');
         $this->db->from('categories_images');
 		$this->db->where(array('category_id'=>$id));
@@ -442,22 +387,17 @@ Class Category_Model extends MY_Model {
 		$dataNew=array();
 
 		foreach($data as $key=>$val){
-
 			$dataNew[$val['main_store_id']]=$val;
-
 		}
 		return $dataNew;
     }
 
-
 	public function saveCategoryImage($data) {
-
 		$id=isset($data['id']) ? $data['id']:'';
 		if(!empty($id)){
 			$this->db->where('id', $id);
 			$data['updated']=date('Y-m-d H:i:s');
 			$query = $this->db->update('categories_images', $data);
-
 		}else{
 			$data['created']=date('Y-m-d H:i:s');
 			$data['updated']=date('Y-m-d H:i:s');
@@ -469,11 +409,6 @@ Class Category_Model extends MY_Model {
             return false;
         }
     }
-
 }
-
-
-
-
 
 ?>

@@ -7,7 +7,6 @@ use Flagship\Shipping\Requests\GetShipmentByIdRequest;
 use Flagship\Shipping\Objects\Package;
 
 class GetShipmentByIdTests extends TestCase{
-
     public function testGetId(){
         $this->assertNotNull($this->shipment->getId());
         $this->assertSame(3372194,$this->shipment->getId());
@@ -295,9 +294,7 @@ class GetShipmentByIdTests extends TestCase{
         $this->assertNull($this->shipment->getTransitTime());
     }
 
-
     protected function setUp(){
-
         $response = '{
             "id": 3372194,
             "tracking_number": "FS337219417D2B",

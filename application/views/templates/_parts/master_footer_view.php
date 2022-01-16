@@ -96,7 +96,6 @@
                                 <a href="<?php echo $url;?>" >
                                   <?php
 								    if($language_name=='French'){
-
 										echo ucfirst($page['title_france']);
 									}else{
 										echo ucfirst($page['title']);
@@ -130,7 +129,6 @@
 
 								<?php
 								foreach($footerCategory as $Category){
-
 								?>
 
 								  <div class="col-6 col-md-6">
@@ -138,13 +136,10 @@
 										  <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($Category['id']);?>">
 											<?php
 											if($language_name=='French'){
-
 											  echo ucfirst($Category['name_french']);
-
 											}else{
 												echo ucfirst($Category['name'] );
 											}
-
 
 											?>
 										  </a>
@@ -171,9 +166,7 @@
 										  <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($Category['id']);?>">
 											<?php
 											if($language_name=='French'){
-
 											  echo ucfirst($Category['name_french']);
-
 											}else{
 												echo ucfirst($Category['name'] );
 											}
@@ -189,9 +182,7 @@
 										  <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($Category['id']);?>&sub_category_id<?php echo base64_encode($subCategory['id']);?>">
 											<?php
 											if($language_name=='French'){
-
 											  echo ucfirst($subCategory['name_french']);
-
 											}else{
 												echo ucfirst($subCategory['name'] );
 											}
@@ -223,7 +214,6 @@
                         </div>
 						<?php
 						if($language_name=='French'){
-
 						echo $configrations['address_one_french'];
 						}else{
 							echo $configrations['address_one'];
@@ -420,7 +410,6 @@
 
                                  <a href="<?php echo $url?>">
 								 <?php if($language_name=='French'){
-
 										echo ucfirst($page['title_france']);
 									}else{
 										echo ucfirst($page['title']);
@@ -479,7 +468,6 @@ $(document).ready(function(){
       return false;
     });
   });
-
 });
 </script>
 
@@ -507,7 +495,6 @@ $(document).ready(function(){
 
 <script>
 language_name ='<?php echo $language_name;?>';
-
 
 $(document).ready(function() {
     $(window).scroll(function(){
@@ -636,7 +623,6 @@ x.addListener(myFunction) // Attach listener function on state changes
 
 <script>
 function openCity(evt, cityName) {
-
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
@@ -654,7 +640,6 @@ function openCity(evt, cityName) {
 
 <script>
     if(language_name=='French'){
-
 		/*login code start*/
 		$('#login-form').validate({
 			rules: {
@@ -687,7 +672,6 @@ function openCity(evt, cityName) {
 				   $('button[type=submit]').attr('disabled', true);
 				},
 				success: function(data) {
-
 				  $("#loder-img").hide();
 				  $('button[type=submit]').attr('disabled', false);
 				   let response = JSON.parse(data);
@@ -701,12 +685,9 @@ function openCity(evt, cityName) {
 						 validator.showErrors({[key] : value });
 					 });
 				   } else if (status === 'success') {
-
 						let url=response.url;
 						location.assign(url);
 						//location.assign("<?php echo $BASE_URL ?>MyOrders");
-
-
 				   } else {
 					   $("#login-msg").html('<span><label style="color:red">'+msg+'</label></span>');
 				   }
@@ -718,9 +699,7 @@ function openCity(evt, cityName) {
 			  });
 			},
 		});
-
 	}else{
-
 		$('#login-form').validate({
 			rules: {
 			 loginemail: {
@@ -751,7 +730,6 @@ function openCity(evt, cityName) {
 				   $('button[type=submit]').attr('disabled', true);
 				},
 				success: function(data) {
-
 				  $("#loder-img").hide();
 				  $('button[type=submit]').attr('disabled', false);
 				   let response = JSON.parse(data);
@@ -765,11 +743,7 @@ function openCity(evt, cityName) {
 						 validator.showErrors({[key] : value });
 					 });
 				   } else if (status === 'success') {
-
-
 						location.assign("<?php echo $BASE_URL ?>MyOrders");
-
-
 				   } else {
 					   $("#login-msg").html('<span><label style="color:red">'+msg+'</label></span>');
 				   }
@@ -784,10 +758,8 @@ function openCity(evt, cityName) {
 	}
 	/*login code end*/
 
-
 	/*signup code start*/
 	if(language_name=='French'){
-
 		$('#signup-form').validate({
 			rules: {
 			  fname: {
@@ -837,7 +809,6 @@ function openCity(evt, cityName) {
 			},
 
 			submitHandler: function(form) {
-
 			  $("#loder-img").show();
 			  var url ='<?php echo $BASE_URL ?>Logins/signup';
 			  $("#signup-msg").html('');
@@ -849,7 +820,6 @@ function openCity(evt, cityName) {
 					  $('button[type=submit]').attr('disabled', true);
 				   },
 				   success: function(data) {
-
 					  $("#loder-img").hide();
 					  $('button[type=submit]').attr('disabled', false);
 					  let response = JSON.parse(data);
@@ -878,8 +848,6 @@ function openCity(evt, cityName) {
 			  });
 			},
 		});
-
-
 	}else{
 		$('#signup-form').validate({
 			rules: {
@@ -924,7 +892,6 @@ function openCity(evt, cityName) {
 				},
 			},
 			submitHandler: function(form) {
-
 			  $("#loder-img").show();
 			  var url ='<?php echo $BASE_URL ?>Logins/signup';
 			  $("#signup-msg").html('');
@@ -936,7 +903,6 @@ function openCity(evt, cityName) {
 					  $('button[type=submit]').attr('disabled', true);
 				   },
 				   success: function(data) {
-
 					  $("#loder-img").hide();
 					  $('button[type=submit]').attr('disabled', false);
 					  let response = JSON.parse(data);
@@ -969,10 +935,8 @@ function openCity(evt, cityName) {
 
 	/*signup code end*/
 
-
 	/*Preferred code start*/
 	if(language_name=='French'){
-
 		$('#Preferred-Customer').validate({
         rules: {
           fname: {
@@ -1026,34 +990,26 @@ function openCity(evt, cityName) {
 				 required: "veuillez entrer dans la zone active",
 			},
 			address:{
-
 				required: "veuillez entrer l'adresse",
 			},
 			mobile:{
-
 				required: "veuillez entrer mobile",
 			},
 			country:{
-
 				required: "choisissez le pays",
 			},
 			region:{
-
 				required: "choisissez une région",
 			},
 			city:{
-
 				required: "entrer dans la ville",
 			},
 			zip_code:{
-
 				required: "entrer le code postal",
 			},
 			request:{
-
 				required: "entrer la demande",
 			}
-
 
             /*confirm_password: {
                 required: 'Please Enter Confirm Password',
@@ -1082,7 +1038,6 @@ function openCity(evt, cityName) {
                   $("#signup-password").val('');
 				  //console.log(response);
 				  if (status == 'success') {
-
                       $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
                       $("#msg-modal").modal('show');
                       setTimeout(function(){ location.reload(); }, 2000);
@@ -1091,15 +1046,12 @@ function openCity(evt, cityName) {
                   }
                },
                error: function (error) {
-
                   $('button[type=submit]').attr('disabled', false)
                },
           });
         },
     });
-
 	}else{
-
 		$('#Preferred-Customer').validate({
         rules: {
           fname: {
@@ -1164,7 +1116,6 @@ function openCity(evt, cityName) {
                   $("#signup-password").val('');
 				  //console.log(response);
 				  if (status == 'success') {
-
                       $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
                       $("#msg-modal").modal('show');
                       setTimeout(function(){ location.reload(); }, 2000);
@@ -1173,7 +1124,6 @@ function openCity(evt, cityName) {
                   }
                },
                error: function (error) {
-
                   $('button[type=submit]').attr('disabled', false)
                },
           });
@@ -1280,7 +1230,6 @@ function openCity(evt, cityName) {
     });
 	}
 
-
     $('#product-sorter').change(function() {
         this.form.submit();
     });
@@ -1351,12 +1300,8 @@ function openCity(evt, cityName) {
         },
     });
 
-
   function updateCardItem(product_id, rowId, quantity) {
-
-
 	  if(rowId !='' && quantity !='') {
-
              var url ='<?php echo $BASE_URL ?>ShoppingCarts/updateCardItem';
 			$.ajax({
 				   type: "POST",
@@ -1367,7 +1312,6 @@ function openCity(evt, cityName) {
 						var status=json.status;
 						var msg=json.msg;
             if (json.total_item == 0) {
-
                 $('#shoping-cart-container').html('<div class="text-center"><h4 class="lead">Shopping Cart Is Empty</h4></div>');
                 $('#shop-cart-table').html('');
             }
@@ -1382,7 +1326,6 @@ function openCity(evt, cityName) {
 				 setTimeout(function() {
 					 $('.addtocart-message').removeClass("active");
 				 }, 2000);
-
 			      } else {
                              $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>'+msg+'.</span>').addClass("active");
 				         setTimeout(function() {
@@ -1391,14 +1334,12 @@ function openCity(evt, cityName) {
 						}
 					},
 					error: function (error) {
-
 					}
 			});
 		}
   }
 
   function getCardItem() {
-
       var url ='<?php echo $BASE_URL ?>ShoppingCarts/getCardItemByAjax';
       $.ajax({
             type: "GET",
@@ -1406,16 +1347,13 @@ function openCity(evt, cityName) {
             success: function(data)
             {
             $(".cart-items-table").html(data);
-
           },
           error: function (error) {
-
           }
       });
    }
 
    $("#checkoutForm").submit(function(e) {
-
     e.preventDefault(); // avoid to execute the actual submit of the form.
     var form = $(this);
     var ck_moblie_number=$("#ck_moblie_number").val();
@@ -1444,7 +1382,6 @@ function openCity(evt, cityName) {
              var status=json.status;
              var msg=json.msg;
              if (status==1) {
-
               if (json.login == 1) {
                   $("#checkoutFormPenal").hide();
                   $("#LoginFormPenal").show();
@@ -1475,10 +1412,7 @@ function openCity(evt, cityName) {
    });
 
    function removeCardItem(rowId,product_id) {
-
-
 	  if(language_name == 'French'){
-
 		 var result = confirm("Voulez-vous vraiment supprimer l'article du panier ?");
 	  }else{
 		  var result = confirm("Are you sure you want to delete cart item ?");
@@ -1495,14 +1429,11 @@ function openCity(evt, cityName) {
            var msg = json.msg;
            if (status == 1){
              if(json.total_item == 0) {
-
 			   if(language_name == 'French'){
-
 			       $('#shoping-cart-container').html("<div class='text-center'><h4 class='lead'>Le panier d'achat est vide</h4></div>");
 			   }else{
 				   $('#shoping-cart-container').html('<div class="text-center"><h4 class="lead">Shopping Cart Is Empty</h4></div>');
 			   }
-
 
                $('#shop-cart-table').html('');
              }
@@ -1537,7 +1468,6 @@ function openCity(evt, cityName) {
   }
 
   $("#CkLoginForm").submit(function(e) {
-
     e.preventDefault(); // avoid to execute the actual submit of the form.
     var form = $(this);
     var ck_login_mobile = $("#ck_login_mobile").val();
@@ -1570,7 +1500,6 @@ function openCity(evt, cityName) {
            var errors = response.errors;
             $("#ck_login_password").val('');
             if (errors && Object.keys(errors).length) {
-
 			  $("#loder-img").hide();
               $("#ck_login_mobile_error").html(errors.loginemail);
               $("#ck_login_password_error").html(errors.loginpassword);
@@ -1585,7 +1514,6 @@ function openCity(evt, cityName) {
             }
            },
            error: function (error) {
-
               $("#ckloginSubmit").attr("disabled",false);
            }
       });
@@ -1595,7 +1523,6 @@ function openCity(evt, cityName) {
   });
 
   $("#CksignupForm").submit(function(e) {
-
      e.preventDefault(); // avoid to execute the actual submit of the form.
      var form = $(this);
        $('#ck_signup_mobile_error,#ck_singup_inputOtp_error,#ck_signup_fname_error,#ck_signup_lname_error,#ck_signup_password_error,#ck_signup_email_error').html('');
@@ -1641,7 +1568,6 @@ function openCity(evt, cityName) {
      }
 
      if(formsubmit == true) {
-
 	   $("#loder-img").show();
        var url ='<?php echo $BASE_URL ?>Logins/signup';
        $.ajax({
@@ -1659,7 +1585,6 @@ function openCity(evt, cityName) {
              $("#ck_signup_confirm_password").val('');
              if (errors && Object.keys(errors).length) {
                $.each(errors, function(id, message) {
-
                    $("#ck_signup_"+id+"_error").html(message);
                });
              } else if (status === 'success') {
@@ -1687,7 +1612,6 @@ function openCity(evt, cityName) {
                     }
                   },
                   error: function (error) {
-
                   }
                  });
                } else {
@@ -1704,7 +1628,6 @@ function openCity(evt, cityName) {
   });
 
     function sendOptToEmail() {
-
       $("#account-change-pswd").attr("disabled",true);
       $("#send-otp").val('');
       $("#account-email-error,#input-otp-error,#new-password-error,#g-recaptcha-error").html('');
@@ -1716,7 +1639,6 @@ function openCity(evt, cityName) {
       if (accountEmail == '') {
 		        $("#account-email-error").html("Please enter email id.");
 		    if(language_name=='French'){
-
 			    $("#account-email-error").html("Veuillez saisir votre adresse e-mail.");
 		    }
 
@@ -1724,23 +1646,19 @@ function openCity(evt, cityName) {
       } else if (ValidateEmail(accountEmail)) {
            $("#account-email-error").html("Please enter valied email id.");
 		    if(language_name=='French'){
-
 			    $("#account-email-error").html("Veuillez saisir une adresse e-mail valide.");
 		    }
           formsubmit = false;
       }
 	  if (g_recaptcha_response =='') {
-
           $("#g-recaptcha-error").html("Please select recaptcha");
 		  if(language_name=='French'){
-
 			    $("#g-recaptcha-error").html("Veuillez sélectionner recaptcha.");
 		    }
           formsubmit = false;
       }
 
       if (formsubmit == true) {
-
 		$("#loder-img").show();
         var url ='<?php echo $BASE_URL ?>MyAccounts/sendOtp';
         $.ajax({
@@ -1778,9 +1696,7 @@ function openCity(evt, cityName) {
 
     //For password-form Code
 	if(language_name=='French'){
-
 	  $("#password-form").submit(function(e) {
-
       e.preventDefault(); // avoid to execute the actual submit of the form.
       var form = $(this);
       $("#account-email-error, #input-otp-error, #new-password-error").html('');
@@ -1817,7 +1733,6 @@ function openCity(evt, cityName) {
       }
 
     if(formsubmit==true) {
-
 		  $("#loder-img").show();
           var url ='<?php echo $BASE_URL ?>MyAccounts/saveChangePassword';
           $.ajax({
@@ -1853,14 +1768,11 @@ function openCity(evt, cityName) {
               }
           });
       } else {
-
         $("#Fsubmit").attr("disabled", false);
       }
     });
 	}else{
-
 	  $("#password-form").submit(function(e) {
-
       e.preventDefault(); // avoid to execute the actual submit of the form.
       var form = $(this);
       $("#account-email-error, #input-otp-error, #new-password-error").html('');
@@ -1932,19 +1844,13 @@ function openCity(evt, cityName) {
               }
           });
       } else {
-
         $("#Fsubmit").attr("disabled", false);
       }
     });
-
 	}
     //For password-form Code end
 
-
-
-
   function cksendOptSignupMobile() {
-
     $("#ck-signup-continue").attr("disabled",true);
     $("ck_signupOtp").val('');
 
@@ -1960,7 +1866,6 @@ function openCity(evt, cityName) {
     }
 
     if (formsubmit==true) {
-
 	  $("#loder-img").show();
       var url ='<?php echo $BASE_URL ?>Logins/sendOtpSingup/';
       $.ajax({
@@ -2049,7 +1954,6 @@ function openCity(evt, cityName) {
           pin_code: {
               required: 'Please Enter Pincode',
           },
-
       },
       submitHandler: function(form) {
 		 $("#loder-img").show();
@@ -2063,7 +1967,6 @@ function openCity(evt, cityName) {
           },
 
           success: function(data) {
-
             $('button[type=submit]').attr('disabled', false);
              let response = JSON.parse(data);
              let errors = response.errors;
@@ -2077,15 +1980,12 @@ function openCity(evt, cityName) {
                    validator.showErrors({[key] : value });
                });
              } else if (status === 'success') {
-
 				$('#checkout-address')[0].reset();
                 $('#address-list').append(response.data);
 				$('#Save-and-Deliver-here').show();
 				$('#checkout-new-address').hide();
 				location.reload();
-
              } else {
-
                  $("#login-msg").html('<span><label style="color:red">'+msg+'</label></span>');
              }
           },
@@ -2154,7 +2054,6 @@ function openCity(evt, cityName) {
           pin_code: {
               required: 'Please Enter Pincode',
           },
-
       },
       submitHandler: function(form) {
 		 $("#loder-img").show();
@@ -2168,7 +2067,6 @@ function openCity(evt, cityName) {
           },
 
           success: function(data) {
-
             $('button[type=submit]').attr('disabled', false);
              let response = JSON.parse(data);
              let errors = response.errors;
@@ -2182,7 +2080,6 @@ function openCity(evt, cityName) {
                    validator.showErrors({[key] : value });
                });
              } else if (status === 'success') {
-
 				$('#add-new-address')[0].reset();
                 $('#address-list').append(response.data);
 				$('#Save-and-Deliver-here').show();
@@ -2191,14 +2088,10 @@ function openCity(evt, cityName) {
 				location.assign(url);
 
 				/*if(response.updated=="1"){
-
 					url='<?php echo $BASE_URL ?>MyAccounts/manageAddress';
 					location.assign(url);
-
 				}*/
-
              } else {
-
                  $("#login-msg").html('<span><label style="color:red">'+msg+'</label></span>');
              }
           },
@@ -2212,7 +2105,6 @@ function openCity(evt, cityName) {
 
   //contact code start
   if(language_name=='French'){
-
   $('#contact-us').validate({
       rules: {
         name: {
@@ -2281,7 +2173,6 @@ function openCity(evt, cityName) {
              } else {
                  $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">'+msg+'</label></span>');
              }
-
           },
           error: function (error) {
              $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">'+msg+'</label></span>');
@@ -2291,7 +2182,6 @@ function openCity(evt, cityName) {
       },
   });
   }else{
-
 	  $('#contact-us').validate({
       rules: {
         name: {
@@ -2352,7 +2242,6 @@ function openCity(evt, cityName) {
                         validator.showErrors({[key] : value });
                       }
                   });
-
                 } else if (status === 'success') {
                     $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
                     $("#msg-modal").modal('show');
@@ -2361,8 +2250,6 @@ function openCity(evt, cityName) {
                 } else {
                     $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">'+msg+'</label></span>');
                 }
-
-
           },
           error: function (error) {
              $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">'+msg+'</label></span>');
@@ -2379,7 +2266,6 @@ function contactus_recaptcha(){
 //contact code end
   //estimate code Start
  if(language_name=='French'){
-
 		$('#estimate-form').validate({
 			  rules: {
 				contact_name: {
@@ -2477,13 +2363,10 @@ function contactus_recaptcha(){
 						   validator.showErrors({[key] : value });
 					   });
 					 } else if (status === 'success') {
-
 						$("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
 						$("#msg-modal").modal('show');
 						setTimeout(function(){ location.reload() }, 2000);
-
 					 } else {
-
 						 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">'+msg+'</label></span>');
 					 }
 					 $("#estimate-form")[0].reset();
@@ -2495,7 +2378,6 @@ function contactus_recaptcha(){
 				});
 			  },
 		  });
-
     }else{
 	    $('#estimate-form').validate({
 			  rules: {
@@ -2596,7 +2478,6 @@ function contactus_recaptcha(){
 						 $("#msg-modal").modal('show');
 						 setTimeout(function(){ location.reload() }, 2000);
 					 } else {
-
 						 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">'+msg+'</label></span>');
 					 }
 					 $("#estimate-form")[0].reset();
@@ -2615,7 +2496,6 @@ function contactus_recaptcha(){
   var loginId='<?php echo $loginId?>';
   function addProductWishList(product_id){
 		if(loginId ==''){
-
 			  var url  = '<?php echo $BASE_URL ?>Logins';
 			  location.assign(url);
 			  return false;
@@ -2649,9 +2529,7 @@ function contactus_recaptcha(){
   function deleteWishlist(wishlist_id,type){
 		var result=true;
 		if (type==1){
-
 		  var result = confirm("Are you sure you want to delete wishlist item ?");
-
 		}
 		if(wishlist_id !='' && result==true){
 			var url ='<?php echo $BASE_URL ?>Wishlists/deleteWishlist';
@@ -2669,7 +2547,6 @@ function contactus_recaptcha(){
 							$("#"+wishlist_id).remove();
 							$("#WishlistsCount").html(json.count);
 							if(json.count==0){
-
 								$("#tableWishList").html('<tr><td colspan="5" class="text-center">Wishlist empty</td></tr>');
 							}
 							location.reload();
@@ -2682,16 +2559,13 @@ function contactus_recaptcha(){
 					}
 			});
 	    }
-
 	}
 
 	function getState(country_id){
-
 		$("#stateiD").val('');
 		$("#cityId").val('');
 		$("#stateiD").html('<option value="">Loding..</option>');
 		if(country_id !=''){
-
 			var url ='<?php echo $BASE_URL ?>MyAccounts/getStateDropDownListByAjax/'+country_id;
 			$.ajax({
 				   type: "GET",
@@ -2700,20 +2574,16 @@ function contactus_recaptcha(){
 				   //data:{'country_id':country_id}, // serializes the form's elements.
 				   success: function(data)
 				   {
-
 					   $("#stateiD").html(data);
 				   }
 			});
 	    }
-
 	}
 
 	function getCity(state_id){
-
 		$("#cityId").val('');
 		$("#cityId").html('<option value="">Loding..</option>');
 		if(state_id !=''){
-
 			var url ='<?php echo $BASE_URL ?>MyAccounts/getCityDropDownListByAjax/'+state_id;
 			$.ajax({
 				   type: "GET",
@@ -2722,27 +2592,21 @@ function contactus_recaptcha(){
 				   //data:{'country_id':country_id}, // serializes the form's elements.
 				   success: function(data)
 				   {
-
 					   $("#cityId").html(data);
 				   }
 			});
 	    }
-
 	}
 
 	function changeOrderStatus(order_id,status) {
-
 			var mobileMsg='';
 			$("#mobileMsg").html(mobileMsg);
 			$("#cl_order_id").val(order_id);
 		    $("#cl_status").val(status);
 			$("#myModal").modal('show');
-
-
 	}
 
 	$("#changeOrderStatusForm").submit(function(e) {
-
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 		var form = $(this);
 		var formsubmit=true;
@@ -2750,7 +2614,6 @@ function contactus_recaptcha(){
 		var order_id =$("#cl_order_id").val();
 		var status =$("#cl_status").val();
 		if(formsubmit==true){
-
 			var url ='<?php echo $BASE_URL ?>MyOrders/changeOrderStatus';
 			$.ajax({
 				   type: "POST",
@@ -2771,32 +2634,23 @@ function contactus_recaptcha(){
 						);
 						$("#MsgModal .modal-body").html('<span style="color:green">'+msg+'</span>');
 						$("#MsgModal").modal('show');
-
 						}else{
-
 							$("#MsgModal .modal-body").html('<span style="color:red">'+msg+'</span>');
 							$("#MsgModal").modal('show');
-
 						}
 				   },
 				   error: function (error) {
-
 					  $("#btnSubmit").attr("disabled",false);
 				   }
 			});
-
 		}else{
-
 			$("#btnSubmit").attr("disabled",false);
 		}
     });
 
 	function searchProduct(searchtext){
-
-
 		$("#ProductListUl").html('');
 	  	if(searchtext !=''){
-
 			$("#searchDiv").show();
 			$("#coming-res-data").show();
 
@@ -2812,11 +2666,8 @@ function contactus_recaptcha(){
 					    $("#ProductListUl").html(data);
 					},
 					error: function (error) {
-
 					}
 			});
-
-
 		}else{
 			$("#searchDiv").hide();
 			$("#coming-res-data").hide();
@@ -2824,12 +2675,9 @@ function contactus_recaptcha(){
     }
 
     function removeSerchProduct(){
-
 		$("#ToSeachBox").val('');
 		$("#ProductListUl").html('');
         $("#searchDiv").hide();
-
-
  	}
 
 	$(document).mouseup(function(e)
@@ -2858,7 +2706,6 @@ function contactus_recaptcha(){
 				   $("#WarningModal").modal('hide');
 				},
 				error: function (error) {
-
 				}
 		});
     }
@@ -2869,7 +2716,6 @@ function contactus_recaptcha(){
 		$("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
 
 		if(printer_brand !=''){
-
 			$("#printer_series").html('<option value="">Hébergement ..</option>');
 		   //$("#printer_models").html('<option value="">Loding..</option>');
 			var url ='<?php echo $BASE_URL ?>Products/PrinterSeries/'+printer_brand;
@@ -2879,7 +2725,6 @@ function contactus_recaptcha(){
 				   contentType:"html",
 				   success: function(data)
 				   {
-
 					   $("#printer_series").html(data);
 				   }
 			});
@@ -2887,12 +2732,10 @@ function contactus_recaptcha(){
 	}
 
 	function PrinterModel(printer_series){
-
 		var printer_brand= $("#printer_brand").val();
 		$("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
 
 		if(printer_series !=''){
-
 			$("#printer_models").html('<option value="">Hébergement ..</option>');
 			var url ='<?php echo $BASE_URL ?>Products/PrinterModel/'+printer_brand+'/'+printer_series;
 			$.ajax({
@@ -2906,17 +2749,14 @@ function contactus_recaptcha(){
 				   }
 			});
 	    }
-
 	}
 	}else{
-
 		function PrinterSeries(printer_brand){
 			//alert(printer_brand);
 			$("#printer_series").html('<option value="">Select a Printer Series</option>');
 			$("#printer_models").html('<option value="">Select a Printer Model</option>');
 
 			if(printer_brand !=''){
-
 				$("#printer_series").html('<option value="">Loding..</option>');
 			   //$("#printer_models").html('<option value="">Loding..</option>');
 				var url ='<?php echo $BASE_URL ?>Products/PrinterSeries/'+printer_brand;
@@ -2926,7 +2766,6 @@ function contactus_recaptcha(){
 					   contentType:"html",
 					   success: function(data)
 					   {
-
 						   $("#printer_series").html(data);
 					   }
 				});
@@ -2934,12 +2773,10 @@ function contactus_recaptcha(){
 		}
 
 		function PrinterModel(printer_series){
-
 			var printer_brand= $("#printer_brand").val();
 			$("#printer_models").html('<option value="">Select a Printer Model</option>');
 
 			if(printer_series !=''){
-
 				$("#printer_models").html('<option value="">Loding..</option>');
 				var url ='<?php echo $BASE_URL ?>Products/PrinterModel/'+printer_brand+'/'+printer_series;
 				$.ajax({
@@ -3139,7 +2976,6 @@ function contactus_recaptcha(){
     });
   });
 </script>
-
 
 </body>
 </html>

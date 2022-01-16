@@ -106,5 +106,4 @@ class ManifestDocumentMapperTest extends \PHPUnit\Framework\TestCase {
         $this->expectException(ManifestDocumentMapperException::class);
         $mapper->map($manifestDocument);
     }
-
 }

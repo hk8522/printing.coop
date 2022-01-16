@@ -50,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link
  */
 class CI_Cache_wincache extends CI_Driver {
-
 	/**
 	 * Class constructor
 	 *

@@ -20,7 +20,6 @@ use Dompdf\FrameDecorator\Page;
  */
 class LineBox
 {
-
     /**
      * @var Block
      */
@@ -298,6 +297,5 @@ class LineBox
 class LineBoxList implements Iterator {
   private $_p = 0;
   private $_lines = array();
-
 }
 */

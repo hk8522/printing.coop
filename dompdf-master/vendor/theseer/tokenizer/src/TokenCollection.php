@@ -2,7 +2,6 @@
 namespace TheSeer\Tokenizer;
 
 class TokenCollection implements \ArrayAccess, \Iterator, \Countable {
-
     /**
      * @var Token[]
      */
@@ -124,5 +123,4 @@ class TokenCollection implements \ArrayAccess, \Iterator, \Countable {
     public function offsetUnset($offset) {
         unset($this->tokens[$offset]);
     }
-
 }

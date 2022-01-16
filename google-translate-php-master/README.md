@@ -66,7 +66,7 @@ echo GoogleTranslate::trans('Hello again', 'ka', 'en');
 To detect language automatically, just set the source language to `null`:
 
 ```php
-$tr = new GoogleTranslate('es', null); // Or simply do not pass the second parameter 
+$tr = new GoogleTranslate('es', null); // Or simply do not pass the second parameter
 ```
 
 ```php
@@ -100,7 +100,7 @@ $responseArray = $tr->getResponse('Hello world!');
 You can override the default Google Translate url by `setUrl` method. Useful for some countries
 
 ```php
-$tr->setUrl('http://translate.google.cn/translate_a/single'); 
+$tr->setUrl('http://translate.google.cn/translate_a/single');
 ```
 
 ### HTTP Client Configuration
@@ -166,7 +166,7 @@ Static method `trans()` and non-static `translate()` and `getResponse()` will th
 In addition, `translate()` and `trans()` methods will return `null` if there is no translation available.
 
 ## Known Limitations
- 
+
  - `503 Service Unavailable` response:
    If you are getting this error, it is most likely that Google has banned your external IP address and/or [requires you to solve a CAPTCHA](https://github.com/Stichoza/google-translate-php/issues/18). This is not a bug in this package. Google has become stricter, and it seems like they keep lowering the number of allowed requests per IP per a certain amount of time. Try sending less requests to stay under the radar, or change your IP frequently ([for example using proxies](#http-client-configuration)). Please note that once an IP is banned, even if it's only temporary, the ban can last from a few minutes to more than 12-24 hours, as each case is different.
  - `429 Too Many Requests` response:
@@ -176,7 +176,7 @@ In addition, `translate()` and `trans()` methods will return `null` if there is 
  - `403 Forbidden` response:
    This is not an issue with this package. Google Translate itself has some problems when it comes to translating some characters and HTML entities. See https://github.com/Stichoza/google-translate-php/issues/119#issuecomment-558078133
 
- 
+
 ## Disclaimer
 
 This package is developed for educational purposes only. Do not depend on this package as it may break anytime as it is based on crawling the Google Translate website. Consider buying [Official Google Translate API](https://cloud.google.com/translate/) for other types of usage.
@@ -187,4 +187,4 @@ If this package helped you reduce your time to develop something, or it solved a
 
  - [Patreon](https://www.patreon.com/stichoza)
  - [PayPal](https://paypal.me/stichoza)
- 
+

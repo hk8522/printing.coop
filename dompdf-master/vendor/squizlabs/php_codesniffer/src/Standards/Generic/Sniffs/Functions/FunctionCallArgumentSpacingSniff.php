@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class FunctionCallArgumentSpacingSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -34,9 +32,7 @@ class FunctionCallArgumentSpacingSniff implements Sniff
             T_CLOSE_CURLY_BRACKET,
             T_CLOSE_PARENTHESIS,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -83,9 +79,7 @@ class FunctionCallArgumentSpacingSniff implements Sniff
         }
 
         $this->checkSpacing($phpcsFile, $stackPtr, $openBracket);
-
     }//end process()
-
 
     /**
      * Checks the spacing around commas.
@@ -178,8 +172,5 @@ class FunctionCallArgumentSpacingSniff implements Sniff
                 }//end if
             }//end if
         }//end while
-
     }//end checkSpacing()
-
-
 }//end class

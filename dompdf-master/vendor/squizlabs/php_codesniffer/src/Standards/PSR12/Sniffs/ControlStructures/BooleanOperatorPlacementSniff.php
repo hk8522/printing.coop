@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class BooleanOperatorPlacementSniff implements Sniff
 {
-
     /**
      * Used to restrict the placement of the boolean operator.
      *
@@ -23,7 +22,6 @@ class BooleanOperatorPlacementSniff implements Sniff
      * @var string|null
      */
     public $allowOnly = null;
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -38,9 +36,7 @@ class BooleanOperatorPlacementSniff implements Sniff
             T_SWITCH,
             T_ELSEIF,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -192,8 +188,5 @@ class BooleanOperatorPlacementSniff implements Sniff
         }//end foreach
 
         $phpcsFile->fixer->endChangeset();
-
     }//end process()
-
-
 }//end class

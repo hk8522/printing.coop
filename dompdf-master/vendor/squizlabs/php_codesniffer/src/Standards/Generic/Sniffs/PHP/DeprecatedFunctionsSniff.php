@@ -12,7 +12,6 @@ namespace PHP_CodeSniffer\Standards\Generic\Sniffs\PHP;
 
 class DeprecatedFunctionsSniff extends ForbiddenFunctionsSniff
 {
-
     /**
      * A list of forbidden functions with their alternatives.
      *
@@ -22,7 +21,6 @@ class DeprecatedFunctionsSniff extends ForbiddenFunctionsSniff
      * @var array<string, string|null>
      */
     public $forbiddenFunctions = [];
-
 
     /**
      * Constructor.
@@ -43,9 +41,7 @@ class DeprecatedFunctionsSniff extends ForbiddenFunctionsSniff
                 $this->forbiddenFunctions[$functionName] = null;
             }
         }
-
     }//end __construct()
-
 
     /**
      * Generates the error or warning for this sniff.
@@ -69,8 +65,5 @@ class DeprecatedFunctionsSniff extends ForbiddenFunctionsSniff
         } else {
             $phpcsFile->addWarning($error, $stackPtr, $type, $data);
         }
-
     }//end addError()
-
-
 }//end class

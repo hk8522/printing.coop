@@ -1,7 +1,6 @@
 <?php
 
 Class Admin_Model extends MY_Model {
-
 	public $table='admins';
 
 	public $config_chnage_password = array(
@@ -143,9 +142,7 @@ Class Admin_Model extends MY_Model {
 
     );
 
-
     public function checkAdminLogin($data){
-
 		$LoginUser=array();
 
 		$condition=array('username'=>$data['username'],'password'=>md5($data['password']));
@@ -154,21 +151,17 @@ Class Admin_Model extends MY_Model {
         $this->db->where($condition);
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
-
            $LoginUser=(array)$query->row();
         }
 		return $LoginUser;
 	}
 	public function getAdminList($status=null) {
-
         $this->db->select('*');
 		$condition=array();
 		$condition['role']='subadmin';
 		if($status=='active'){
-
 			$condition['status']=1;
 		}else if($status=='inactive'){
-
 			$condition['status']=0;
 		}
 
@@ -177,10 +170,8 @@ Class Admin_Model extends MY_Model {
         $query = $this->db->get();
 		$data=$query->result_array();
 		return $data;
-
     }
 	public function getAdminDataById($id) {
-
         $this->db->select('*');
         $this->db->from($this->table);
 		$this->db->where(array('id'=>$id));
@@ -190,22 +181,18 @@ Class Admin_Model extends MY_Model {
     }
 
 	public function getDataByEmailId($email) {
-
         $this->db->select('*');
         $this->db->from($this->table);
 		$this->db->where(array('email'=>$email));
         $query = $this->db->get();
 		$data=(array)$query->row();
 		return $data;
-
     }
 
 	public function saveAdmin($data) {
-
 		$id=isset($data['id']) ? $data['id']:'';
 
 		if(!empty($id)){
-
 			$data['updated']=date('Y-m-d H:i:s');
 			$this->db->where('id', $id);
 			$query = $this->db->update($this->table, $data);
@@ -223,35 +210,28 @@ Class Admin_Model extends MY_Model {
 			} else {
 				return 0;
 			}
-
 		}
     }
 
 	public function saveAdminAttributesData($attributes_data,$attributes_item_data,$admin_id) {
-
         $this->db->where('admin_id', $admin_id);
         $this->db->delete('admin_module');
 		$this->db->where('admin_id', $admin_id);
         $this->db->delete('admin_sub_module');
 		$query=false;
 		if(count($attributes_data) > 0){
-
 		   $query=$this->db->insert_batch('admin_module', $attributes_data);
 		}
         if ($query) {
-
 			if(count($attributes_item_data) > 0){
-
                $query=$this->db->insert_batch('admin_sub_module', $attributes_item_data);
 			}
-
         } else {
             return false;
         }
     }
 
     public function deleteAdmin($id) {
-
 		$this->db->where('id',$id);
         $query = $this->db->delete($this->table);
 		if ($query) {
@@ -259,7 +239,6 @@ Class Admin_Model extends MY_Model {
 		} else {
 			return 0;
 		}
-
     }
 }
 

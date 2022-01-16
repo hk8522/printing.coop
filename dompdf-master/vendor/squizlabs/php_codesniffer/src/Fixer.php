@@ -17,7 +17,6 @@ use PHP_CodeSniffer\Util\Common;
 
 class Fixer
 {
-
     /**
      * Is the fixer enabled and fixing a file?
      *
@@ -105,7 +104,6 @@ class Fixer
      */
     private $numFixes = 0;
 
-
     /**
      * Starts fixing a new file.
      *
@@ -128,9 +126,7 @@ class Fixer
                 $this->tokens[$index] = $token['content'];
             }
         }
-
     }//end startFile()
-
 
     /**
      * Attempt to fix the file by processing it until no fixes are made.
@@ -210,9 +206,7 @@ class Fixer
         }
 
         return true;
-
     }//end fixFile()
-
 
     /**
      * Generates a text diff of the original file and the new content.
@@ -284,9 +278,7 @@ class Fixer
         $diff = implode(PHP_EOL, $diff);
 
         return $diff;
-
     }//end generateDiff()
-
 
     /**
      * Get a count of fixes that have been performed on the file.
@@ -299,9 +291,7 @@ class Fixer
     public function getFixCount()
     {
         return $this->numFixes;
-
     }//end getFixCount()
-
 
     /**
      * Get the current content of the file, as a string.
@@ -312,9 +302,7 @@ class Fixer
     {
         $contents = implode($this->tokens);
         return $contents;
-
     }//end getContents()
-
 
     /**
      * Get the current fixed content of a token.
@@ -335,9 +323,7 @@ class Fixer
         } else {
             return $this->tokens[$stackPtr];
         }
-
     }//end getTokenContent()
-
 
     /**
      * Start recording actions for a changeset.
@@ -367,9 +353,7 @@ class Fixer
 
         $this->changeset   = [];
         $this->inChangeset = true;
-
     }//end beginChangeset()
-
 
     /**
      * Stop recording actions for a changeset, and apply logged changes.
@@ -414,9 +398,7 @@ class Fixer
         }
 
         $this->changeset = [];
-
     }//end endChangeset()
-
 
     /**
      * Stop recording actions for a changeset, and discard logged changes.
@@ -451,9 +433,7 @@ class Fixer
 
             $this->changeset = [];
         }//end if
-
     }//end rollbackChangeset()
-
 
     /**
      * Replace the entire contents of a token.
@@ -584,9 +564,7 @@ class Fixer
         }
 
         return true;
-
     }//end replaceToken()
-
 
     /**
      * Reverts the previous fix made to a token.
@@ -642,9 +620,7 @@ class Fixer
         }
 
         return true;
-
     }//end revertToken()
-
 
     /**
      * Replace the content of a token with a part of its current content.
@@ -667,9 +643,7 @@ class Fixer
         }
 
         return $this->replaceToken($stackPtr, $newContent);
-
     }//end substrToken()
-
 
     /**
      * Adds a newline to end of a token's content.
@@ -682,9 +656,7 @@ class Fixer
     {
         $current = $this->getTokenContent($stackPtr);
         return $this->replaceToken($stackPtr, $current.$this->currentFile->eolChar);
-
     }//end addNewline()
-
 
     /**
      * Adds a newline to the start of a token's content.
@@ -697,9 +669,7 @@ class Fixer
     {
         $current = $this->getTokenContent($stackPtr);
         return $this->replaceToken($stackPtr, $this->currentFile->eolChar.$current);
-
     }//end addNewlineBefore()
-
 
     /**
      * Adds content to the end of a token's current content.
@@ -713,9 +683,7 @@ class Fixer
     {
         $current = $this->getTokenContent($stackPtr);
         return $this->replaceToken($stackPtr, $current.$content);
-
     }//end addContent()
-
 
     /**
      * Adds content to the start of a token's current content.
@@ -729,9 +697,7 @@ class Fixer
     {
         $current = $this->getTokenContent($stackPtr);
         return $this->replaceToken($stackPtr, $content.$current);
-
     }//end addContentBefore()
-
 
     /**
      * Adjust the indent of a code block.
@@ -791,8 +757,5 @@ class Fixer
         if ($useChangeset === true) {
             $this->endChangeset();
         }
-
     }//end changeCodeBlockIndent()
-
-
 }//end class

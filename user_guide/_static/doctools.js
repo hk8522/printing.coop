@@ -119,12 +119,10 @@ if (!jQuery.browser) {
  * Small JavaScript module for the documentation.
  */
 var Documentation = {
-
   init : function() {
     this.fixFirefoxAnchorBug();
     this.highlightSearchWords();
     this.initIndexTable();
-    
   },
 
   /**

@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class IncludeSystemSniff extends AbstractScopeSniff
 {
-
     /**
      * A list of classes that don't need to be included.
      *
@@ -40,16 +39,13 @@ class IncludeSystemSniff extends AbstractScopeSniff
         'domdocument'               => true,
     ];
 
-
     /**
      * Constructs an AbstractScopeSniff.
      */
     public function __construct()
     {
         parent::__construct([T_FUNCTION], [T_DOUBLE_COLON, T_EXTENDS], true);
-
     }//end __construct()
-
 
     /**
      * Processes the function tokens within the class.
@@ -188,9 +184,7 @@ class IncludeSystemSniff extends AbstractScopeSniff
             $data  = [$className];
             $phpcsFile->addError($error, $stackPtr, 'NotIncludedCall', $data);
         }
-
     }//end processTokenWithinScope()
-
 
     /**
      * Processes a token within the scope that this test is listening to.
@@ -274,9 +268,7 @@ class IncludeSystemSniff extends AbstractScopeSniff
                 $phpcsFile->addError($error, $stackPtr, 'NotIncludedCall', $data);
             }
         }
-
     }//end processTokenOutsideScope()
-
 
     /**
      * Determines the included class name from given token.
@@ -307,8 +299,5 @@ class IncludeSystemSniff extends AbstractScopeSniff
         }
 
         return false;
-
     }//end getIncludedClassFromToken()
-
-
 }//end class

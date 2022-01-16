@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Files\File;
 
 class Json implements Report
 {
-
-
     /**
      * Generate a partial report for a single processed file.
      *
@@ -65,9 +63,7 @@ class Json implements Report
         echo ']},';
 
         return true;
-
     }//end generateFileReport()
-
 
     /**
      * Generates a JSON report.
@@ -99,8 +95,5 @@ class Json implements Report
         echo '{"totals":{"errors":'.$totalErrors.',"warnings":'.$totalWarnings.',"fixable":'.$totalFixable.'},"files":{';
         echo rtrim($cachedData, ',');
         echo "}}".PHP_EOL;
-
     }//end generate()
-
-
 }//end class

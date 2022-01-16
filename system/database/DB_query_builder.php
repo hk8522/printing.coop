@@ -50,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 
 abstract class CI_DB_query_builder extends CI_DB_driver {
-
 	/**
 	 * Return DELETE SQL flag
 	 *
@@ -705,7 +704,6 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 				$this->{$qb_cache_key}[] = ${$qb_key};
 				$this->qb_cache_exists[] = substr($qb_key, 3);
 			}
-
 		}
 
 		return $this;
@@ -2804,5 +2802,4 @@ abstract class CI_DB_query_builder extends CI_DB_driver {
 			'qb_limit'	=> FALSE
 		));
 	}
-
 }

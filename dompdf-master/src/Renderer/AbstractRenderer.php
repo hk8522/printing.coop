@@ -24,7 +24,6 @@ use Dompdf\Image\Cache;
  */
 abstract class AbstractRenderer
 {
-
     /**
      * Rendering backend
      *
@@ -323,7 +322,6 @@ abstract class AbstractRenderer
             if ($repeat === "no-repeat") {
                 // Simply place the image on the background
                 imagecopy($bg, $src, $dst_x, $dst_y, $src_x, $src_y, $img_w, $img_h);
-
             } else if ($repeat === "repeat-x") {
                 for ($bg_x = $start_x; $bg_x < $bg_width; $bg_x += $img_w) {
                     if ($bg_x < 0) {
@@ -338,7 +336,6 @@ abstract class AbstractRenderer
                     imagecopy($bg, $src, $dst_x, $dst_y, $src_x, $src_y, $w, $img_h);
                 }
             } else if ($repeat === "repeat-y") {
-
                 for ($bg_y = $start_y; $bg_y < $bg_height; $bg_y += $img_h) {
                     if ($bg_y < 0) {
                         $dst_y = 0;
@@ -381,7 +378,6 @@ abstract class AbstractRenderer
             }
 
             imagedestroy($src);
-
         } /* End optimize away creation of duplicates */
 
         $this->_canvas->clipping_rectangle($x, $y, $box_width, $box_height);
@@ -514,7 +510,6 @@ abstract class AbstractRenderer
         $this->_border_line($x, $y, $length, $color, $widths, $side, $corner_style, "dotted", $r1, $r2);
     }
 
-
     /**
      * @param $x
      * @param $y
@@ -530,7 +525,6 @@ abstract class AbstractRenderer
     {
         $this->_border_line($x, $y, $length, $color, $widths, $side, $corner_style, "dashed", $r1, $r2);
     }
-
 
     /**
      * @param $x

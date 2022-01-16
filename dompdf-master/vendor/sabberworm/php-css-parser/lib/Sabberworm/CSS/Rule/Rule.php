@@ -13,7 +13,6 @@ use Sabberworm\CSS\Value\Value;
  * In CSS, Rules are expressed as follows: “key: value[0][0] value[0][1], value[1][0] value[1][1];”
  */
 class Rule implements Renderable, Commentable {
-
 	private $sRule;
 	private $mValue;
 	private $bIsImportant;
@@ -232,5 +231,4 @@ class Rule implements Renderable, Commentable {
 	public function setComments(array $aComments) {
 		$this->aComments = $aComments;
 	}
-
 }

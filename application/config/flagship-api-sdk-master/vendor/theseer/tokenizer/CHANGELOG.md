@@ -8,7 +8,7 @@ This release is now PHP 8.0 compliant.
 
 ### Fixed
 
-* Whitespace handling in general (only noticable in the intermediate `TokenCollection`) is now consitent  
+* Whitespace handling in general (only noticable in the intermediate `TokenCollection`) is now consitent
 
 ### Changed
 
@@ -38,7 +38,7 @@ This release is now PHP 8.0 compliant.
 
 ### Fixed
 
-* [#1](https://github.com/theseer/tokenizer/issues/1): Empty file causes invalid array read 
+* [#1](https://github.com/theseer/tokenizer/issues/1): Empty file causes invalid array read
 
 ### Changed
 

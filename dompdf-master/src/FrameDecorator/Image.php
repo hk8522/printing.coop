@@ -19,7 +19,6 @@ use Dompdf\Image\Cache;
  */
 class Image extends AbstractFrameDecorator
 {
-
     /**
      * The path to the image file (note that remote images are
      * downloaded locally to Options:tempDir).
@@ -87,5 +86,4 @@ class Image extends AbstractFrameDecorator
     {
         return $this->_image_msg;
     }
-
 }

@@ -4,7 +4,6 @@ namespace TheSeer\Tokenizer;
 use DOMDocument;
 
 class XMLSerializer {
-
     /** @var \XMLWriter */
     private $writer;
 

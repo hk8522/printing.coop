@@ -19,7 +19,6 @@ use PHP_CodeSniffer\Exceptions\DeepExitException;
 
 class FileList implements \Iterator, \Countable
 {
-
     /**
      * A list of file paths that are included in the list.
      *
@@ -54,7 +53,6 @@ class FileList implements \Iterator, \Countable
      * @var array
      */
     protected $ignorePatterns = [];
-
 
     /**
      * Constructs a file list and loads in an array of file paths to process.
@@ -93,9 +91,7 @@ class FileList implements \Iterator, \Countable
         }//end foreach
 
         reset($this->files);
-
     }//end __construct()
-
 
     /**
      * Add a file to the list.
@@ -128,9 +124,7 @@ class FileList implements \Iterator, \Countable
             $this->files[$path] = $file;
             $this->numFiles++;
         }
-
     }//end addFile()
-
 
     /**
      * Get the class name of the filter being used for the run.
@@ -160,9 +154,7 @@ class FileList implements \Iterator, \Countable
         }
 
         return $filterClass;
-
     }//end getFilterClass()
-
 
     /**
      * Rewind the iterator to the first file.
@@ -172,9 +164,7 @@ class FileList implements \Iterator, \Countable
     public function rewind()
     {
         reset($this->files);
-
     }//end rewind()
-
 
     /**
      * Get the file that is currently being processed.
@@ -189,9 +179,7 @@ class FileList implements \Iterator, \Countable
         }
 
         return $this->files[$path];
-
     }//end current()
-
 
     /**
      * Return the file path of the current file being processed.
@@ -201,9 +189,7 @@ class FileList implements \Iterator, \Countable
     public function key()
     {
         return key($this->files);
-
     }//end key()
-
 
     /**
      * Move forward to the next file.
@@ -213,9 +199,7 @@ class FileList implements \Iterator, \Countable
     public function next()
     {
         next($this->files);
-
     }//end next()
-
 
     /**
      * Checks if current position is valid.
@@ -229,9 +213,7 @@ class FileList implements \Iterator, \Countable
         }
 
         return true;
-
     }//end valid()
-
 
     /**
      * Return the number of files in the list.
@@ -241,8 +223,5 @@ class FileList implements \Iterator, \Countable
     public function count()
     {
         return $this->numFiles;
-
     }//end count()
-
-
 }//end class

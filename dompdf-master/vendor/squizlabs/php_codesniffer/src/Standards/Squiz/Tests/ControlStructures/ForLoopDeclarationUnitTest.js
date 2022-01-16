@@ -81,18 +81,16 @@ for (
 
 // Test fixing each error in one go. Note: lines 84 + 88 contain trailing whitespace on purpose.
 for (
-     
 
       i = 0
 
-      ; 
+      ;
 
       i < 10
 
       ;
 
       i++
-
 
 ) {}
 
@@ -100,8 +98,6 @@ for (
 // phpcs:set Squiz.ControlStructures.ForLoopDeclaration requiredSpacesBeforeClose 1
 for (
 
-
-
       i = 0
 
       ;
@@ -111,7 +107,6 @@ for (
       ;
 
       i++
-
 
 ) {}
 // phpcs:set Squiz.ControlStructures.ForLoopDeclaration requiredSpacesAfterOpen 0

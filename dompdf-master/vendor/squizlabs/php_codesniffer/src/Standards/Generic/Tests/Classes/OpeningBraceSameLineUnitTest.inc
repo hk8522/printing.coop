@@ -38,7 +38,7 @@ class Test_Class_Bad_C implements Test_Interface_Bad_A
 interface Test_Interface_Bad_C   {
 }
 
-class Test_Class_Bad_G	{		
+class Test_Class_Bad_G	{
 }
 
 class Test_Class_Bad_H extends Test_Class_Bad_G			{

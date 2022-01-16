@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class SwitchDeclarationSniff implements Sniff
 {
-
     /**
      * The number of spaces code should be indented.
      *
      * @var integer
      */
     public $indent = 4;
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -32,9 +30,7 @@ class SwitchDeclarationSniff implements Sniff
     public function register()
     {
         return [T_SWITCH];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -195,9 +191,7 @@ class SwitchDeclarationSniff implements Sniff
                 }
             }
         }//end while
-
     }//end process()
-
 
     /**
      * Find the next CASE or DEFAULT statement from a point in the file.
@@ -224,9 +218,7 @@ class SwitchDeclarationSniff implements Sniff
         }
 
         return $stackPtr;
-
     }//end findNextCase()
-
 
     /**
      * Returns true if a nested terminating statement is found.
@@ -311,8 +303,5 @@ class SwitchDeclarationSniff implements Sniff
         }//end if
 
         return false;
-
     }//end findNestedTerminator()
-
-
 }//end class

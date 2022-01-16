@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Core\AbstractMethodUnitTest;
 
 class GetMethodPropertiesTest extends AbstractMethodUnitTest
 {
-
-
     /**
      * Test a basic function.
      *
@@ -34,9 +32,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testBasicFunction()
-
 
     /**
      * Test a function with a return type.
@@ -57,9 +53,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testReturnFunction()
-
 
     /**
      * Test a closure used as a function argument.
@@ -80,9 +74,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testNestedClosure()
-
 
     /**
      * Test a basic method.
@@ -103,9 +95,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testBasicMethod()
-
 
     /**
      * Test a private static method.
@@ -126,9 +116,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testPrivateStaticMethod()
-
 
     /**
      * Test a basic final method.
@@ -149,9 +137,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testFinalMethod()
-
 
     /**
      * Test a protected method with a return type.
@@ -172,9 +158,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testProtectedReturnMethod()
-
 
     /**
      * Test a public method with a return type.
@@ -195,9 +179,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testPublicReturnMethod()
-
 
     /**
      * Test a public method with a nullable return type.
@@ -218,9 +200,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testNullableReturnMethod()
-
 
     /**
      * Test a public method with a nullable return type.
@@ -241,9 +221,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testMessyNullableReturnMethod()
-
 
     /**
      * Test a method with a namespaced return type.
@@ -264,9 +242,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testReturnNamespace()
-
 
     /**
      * Test a method with a messy namespaces return type.
@@ -287,9 +263,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testReturnMultilineNamespace()
-
 
     /**
      * Test a basic abstract method.
@@ -310,9 +284,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testAbstractMethod()
-
 
     /**
      * Test an abstract method with a return type.
@@ -333,9 +305,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testAbstractReturnMethod()
-
 
     /**
      * Test a basic interface method.
@@ -356,9 +326,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testInterfaceMethod()
-
 
     /**
      * Test a static arrow function.
@@ -379,9 +347,7 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodPropertiesTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testArrowFunction()
-
 
     /**
      * Test helper.
@@ -397,8 +363,5 @@ class GetMethodPropertiesTest extends AbstractMethodUnitTest
         $found    = self::$phpcsFile->getMethodProperties($function);
 
         $this->assertArraySubset($expected, $found, true);
-
     }//end getMethodPropertiesTestHelper()
-
-
 }//end class

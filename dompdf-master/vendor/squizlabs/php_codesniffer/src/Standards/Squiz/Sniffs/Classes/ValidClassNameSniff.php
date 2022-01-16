@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Common;
 
 class ValidClassNameSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -29,9 +27,7 @@ class ValidClassNameSniff implements Sniff
             T_INTERFACE,
             T_TRAIT,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -79,8 +75,5 @@ class ValidClassNameSniff implements Sniff
         } else {
             $phpcsFile->recordMetric($stackPtr, 'PascalCase class name', 'yes');
         }
-
     }//end process()
-
-
 }//end class

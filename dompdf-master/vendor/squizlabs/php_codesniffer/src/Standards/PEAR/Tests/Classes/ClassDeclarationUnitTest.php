@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class ClassDeclarationUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Get a list of CLI values to set before the file is tested.
      *
@@ -30,9 +28,7 @@ class ClassDeclarationUnitTest extends AbstractSniffUnitTest
         }
 
         $config->tabWidth = 4;
-
     }//end setCliValues()
-
 
     /**
      * Returns the lines where errors should occur.
@@ -66,9 +62,7 @@ class ClassDeclarationUnitTest extends AbstractSniffUnitTest
         default:
             return [];
         }//end switch
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -87,8 +81,5 @@ class ClassDeclarationUnitTest extends AbstractSniffUnitTest
         }
 
         return[];
-
     }//end getWarningList()
-
-
 }//end class

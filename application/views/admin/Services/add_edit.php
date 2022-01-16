@@ -122,7 +122,6 @@
 															Allowed image type  : <b> (jpg, png, gif)</b>
 															</span>
 
-
 														</div>
 														<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 															<input class="btn btn-primary" name="files" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
@@ -164,7 +163,6 @@
 															Allowed image type  : <b> (jpg, png, gif)</b>
 															</span>
 
-
 														</div>
 														<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 															<input class="btn btn-primary" name="files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
@@ -197,13 +195,11 @@
 </div>
 <script>
     function Upload(imageId) {
-
       var fileUpload = document.getElementById(imageId);
       //Check whether the file is valid Image.
       var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|jpge|.png|.gif)$");
       if (regex.test(fileUpload.value.toLowerCase())) {
           if (typeof (fileUpload.files) != "undefined") {
-
               //Initiate the FileReader object.
               var reader = new FileReader();
               //Read the contents of Image File.
@@ -216,7 +212,6 @@
               image.src = e.target.result;
               //Validate the File Height and Width.
               image.onload = function () {
-
                       var height = this.height;
                       var width = this.width;
     			var imagesize=fileUpload.files[0].size;
@@ -224,23 +219,17 @@
 
     			//alert(imagesize);
     			/*if(FILE_MAX_SIZE_JS < imagesize){
-
     				$("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
     			    $("#MsgModal").modal('show');
                           return false;
-
-
     			}
                else if (height != 428 || width !=1920) {
-
     				document.getElementById(imageId).value='';
     				$("#MsgModal .modal-body").html('<span style="color:red"> Allowed image in only  dimensions(WXH) 1920pxX428px</b></span>');
     			    $("#MsgModal").modal('show');
                           return false;
                 }*/
-
                   }
-
               }
           }
       }

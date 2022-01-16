@@ -12,7 +12,6 @@ use Ups\NodeInterface;
  */
 class HazMatPackageInformation implements NodeInterface
 {
-
     /**
      * @var bool
      */

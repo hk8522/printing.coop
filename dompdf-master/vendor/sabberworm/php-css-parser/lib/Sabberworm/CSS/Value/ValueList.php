@@ -3,7 +3,6 @@
 namespace Sabberworm\CSS\Value;
 
 abstract class ValueList extends Value {
-
 	protected $aComponents;
 	protected $sSeparator;
 
@@ -43,5 +42,4 @@ abstract class ValueList extends Value {
 	public function render(\Sabberworm\CSS\OutputFormat $oOutputFormat) {
 		return $oOutputFormat->implode($oOutputFormat->spaceBeforeListArgumentSeparator($this->sSeparator) . $this->sSeparator . $oOutputFormat->spaceAfterListArgumentSeparator($this->sSeparator), $this->aComponents);
 	}
-
 }

@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class LongConditionClosingCommentSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -57,7 +56,6 @@ class LongConditionClosingCommentSniff implements Sniff
      */
     public $commentFormat = '//end %s';
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -66,9 +64,7 @@ class LongConditionClosingCommentSniff implements Sniff
     public function register()
     {
         return [T_CLOSE_CURLY_BRACKET];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -199,8 +195,5 @@ class LongConditionClosingCommentSniff implements Sniff
 
             return;
         }
-
     }//end process()
-
-
 }//end class

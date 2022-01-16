@@ -6,7 +6,7 @@ var x = {
       abc: 4
   },
   abc: 5
-  
+
   this.request({
     action: 'getSubmissions'
   });
@@ -16,9 +16,7 @@ var x = {
   });
 }
 
-
 LinkingEditScreenWidgetType.prototype = {
-
     _addDeleteButtonEvent: function(parentid)
     {
         var params = {
@@ -28,7 +26,6 @@ LinkingEditScreenWidgetType.prototype = {
             assetid: parentid,
             op: 'deleteLink'
         };
-
     },
 
     saveDesignEdit: function()
@@ -39,7 +36,5 @@ LinkingEditScreenWidgetType.prototype = {
             changes: dfx.jsonEncode(this.currnetLinksWdgt.getChanges()),
             op: 'saveLinkEdit'
         };
-
     }
-
 };

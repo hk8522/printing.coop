@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class ScopeIndentUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Get a list of CLI values to set before the file is tested.
      *
@@ -31,9 +29,7 @@ class ScopeIndentUnitTest extends AbstractSniffUnitTest
         } else {
             $config->tabWidth = 0;
         }
-
     }//end setCliValues()
-
 
     /**
      * Returns the lines where errors should occur.
@@ -183,9 +179,7 @@ class ScopeIndentUnitTest extends AbstractSniffUnitTest
             1457 => 1,
             1458 => 1,
         ];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -198,8 +192,5 @@ class ScopeIndentUnitTest extends AbstractSniffUnitTest
     public function getWarningList()
     {
         return [];
-
     }//end getWarningList()
-
-
 }//end class

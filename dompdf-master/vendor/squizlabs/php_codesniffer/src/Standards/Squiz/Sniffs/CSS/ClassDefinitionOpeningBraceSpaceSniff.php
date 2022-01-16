@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ClassDefinitionOpeningBraceSpaceSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
      * @var array
      */
     public $supportedTokenizers = ['CSS'];
-
 
     /**
      * Returns the token types that this sniff is interested in.
@@ -32,9 +30,7 @@ class ClassDefinitionOpeningBraceSpaceSniff implements Sniff
     public function register()
     {
         return [T_OPEN_CURLY_BRACKET];
-
     }//end register()
-
 
     /**
      * Processes the tokens that this sniff is interested in.
@@ -169,8 +165,5 @@ class ClassDefinitionOpeningBraceSpaceSniff implements Sniff
                 }//end if
             }//end if
         }//end if
-
     }//end process()
-
-
 }//end class

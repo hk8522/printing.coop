@@ -3,7 +3,6 @@
 namespace Sabberworm\CSS\Value;
 
 class CSSFunction extends ValueList {
-
 	protected $sName;
 
 	public function __construct($sName, $aArguments, $sSeparator = ',', $iLineNo = 0) {
@@ -36,5 +35,4 @@ class CSSFunction extends ValueList {
 		$aArguments = parent::render($oOutputFormat);
 		return "{$this->sName}({$aArguments})";
 	}
-
 }

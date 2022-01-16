@@ -221,7 +221,6 @@
                         l = void 0;
                     try {
                         l = new Y.CustomEvent(r, {
-      
                             detail: i,
                             bubbles: !0,
                             cancelable: !0

@@ -10,7 +10,6 @@
        $stap3Open = false;
        $stap4Open = false;
     } elseif ($stap == 2) {
-
        $stap1Title = $language_name=='French' ? 'Sidentifier <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>':'Login <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
        $stap2Title = $language_name=='French' ? 'Adresse de livraison':'Shipping Address';
        $stap3Title = $language_name=='French' ? 'méthodes de livraison':'Shipping Methods';
@@ -63,7 +62,6 @@
                                   <div class="card-body">
                                       <div class="checkout-select">
                                         <div class="checkout-select-single">
-
 
                                         </div>
                                           <div class="checkout-select-single" id="checkoutFormPenal">
@@ -289,7 +287,6 @@
                                                   <?php
                           												  $dispaly='none';
                           												  if (!empty($address)) {
-
                           												     $dispaly='';
                           												  ?>
                                                   <?php foreach ($address as $list) { ?>
@@ -418,7 +415,6 @@
                                                                   }?>
 
                                                                   <?php foreach ($states as $state) {
-
                                                                       $selected ='';
                                                                       $post_state = isset($postData['state']) ? $postData['state']:'';
                                                                       if ($state['id'] == $post_state){
@@ -435,12 +431,10 @@
                                                             <select name="city" id="cityId">
 															  <option value="">-- Select City --</option>
 															  <?php foreach ($citys as $city) {
-
 																  $selected ='';
 																  $post_city = isset($postData['city']) ?   $postData['city']:'';
 
 																	if ($city['id'] == $post_city){
-
 																	  $selected='selected="selected"';
 																	}
 																  ?>
@@ -449,7 +443,6 @@
 															</select>
                                                             </div>
                                                         </div>
-
 
                                                         <div class="col-md-6">
                                                             <div class="single-review">
@@ -540,7 +533,6 @@
 										      $upsServiceCode=upsServiceCode();
 										      //pr($total_charges_ups);
                                               foreach($total_charges_ups as $key=>$val){
-
 												$value='ups-'.$val->TotalCharges->MonetaryValue.'-'.$val->Service->Code;
 										  ?>
                                           <div class="shipping-metthod-single">
@@ -562,12 +554,10 @@
                                           </div>
 
 							           <?php
-
 									   }?>
 									   <?php
 
                                             foreach($CanedaPostShiping['list'] as $key=>$val){
-
 												$value='canadapost-'.$val['price'].'-'.$val['service_name'];
 										  ?>
                                           <div class="shipping-metthod-single">
@@ -598,7 +588,6 @@
                                           </div>
 
 							           <?php
-
 									   }?>
 								         <?php
 
@@ -608,13 +597,9 @@
                                               $flag_shiping_cost=$data->rate->price->total;
 											  $cutumer_shiping_cost=$flag_shiping_cost;
 											  if($our_company_shiping_cost==0 && $our_company_shiping_cost==0.00){
-
 												  $cutumer_shiping_cost='0.00';
-
 											  }else if($flag_shiping_cost < $our_company_shiping_cost){
-
 												   $cutumer_shiping_cost=$our_company_shiping_cost;
-
 											  }
 											  $value='flagship-'.$cutumer_shiping_cost.'-'.$data->rate->service->courier_code.'-'.$flag_shiping_cost;
 										  ?>
@@ -626,12 +611,10 @@
                                                           <strong>
 														  <?php
 														   if($cutumer_shiping_cost==0 && $cutumer_shiping_cost=='0.00'){
-
 														      if($language_name=='French'){
                                                                 echo 'Livraison gratuite';
                                                               }else{
                                                                  echo 'Free Delivery';
-
                                                                }
 														   }else{
 															   echo $product_price_currency_symbol.number_format($cutumer_shiping_cost,2);
@@ -661,11 +644,9 @@
                                           </div>
 
 							           <?php
-
 									   }?>
 									   <?php
 									    foreach($PickupStoresList as $key=>$val){
-
 										   $value='pickupinstore-0.00-'.$val['id'];
 
 										?>
@@ -710,7 +691,6 @@
                                           </div>
 										<?php
 										}?>
-
 
                                           <!--<div class="shipping-metthod-single">
                                               <label>
@@ -760,7 +740,6 @@
                                                   </div>
                                               </label>
                                           </div>-->
-
 
                                           <div class="save-btn">
                                             <button class="save" type="submit">
@@ -824,7 +803,7 @@
 <div class="card pos">
   <div class="card-header" id="headingPay4" data-toggle="collapse" data-target="#collapsePay4" aria-expanded="false" aria-controls="collapsePay4">
       <label class="main-input" for="4payment"><input name="payment_type" value="pos" type="radio" id="4payment">
-      <?php 
+      <?php
       if($language_name=='French'){ ?>
         POS
       <?php }else{ ?>
@@ -834,10 +813,10 @@
                                           </div>
   <div id="collapsePay4" class="collapse" aria-labelledby="headingPay4" data-parent="#accordion1" style="">
       <div class="payment-option">
-          <div class="order-confirm-text">            
+          <div class="order-confirm-text">
             <input type="hidden" id="ExpMonth" name="ExpMonth">
             <input type="hidden" id="ExpYear" name="ExpYear">
-          <!-- card form -->          
+          <!-- card form -->
             <p class="heading">PAYMENT DETAILS</p>
             <div class="card-details">
               <div class="row">
@@ -849,7 +828,7 @@
                 </div>
                 <div class="col-md-3">
                   <p class="text-warning">Cvv</p> <input type="password" name="cvv" id="cvv" placeholder="&#9679;&#9679;&#9679;" size="1" minlength="3" maxlength="3">
-                </div>                
+                </div>
               </div>
             </div>
           <!-- card form end -->
@@ -930,16 +909,12 @@
 										  $page_product_width_length=json_decode($items['page_product_width_length'],true);
 										  $product_depth_length_width=json_decode($items['product_depth_length_width'],true);
 
-
-
-
 						                $votre_text=$items['votre_text'];
 
 						                $recto_verso=$recto_verso_french=$items['recto_verso'];
 
 						                //$recto_verso=$items['options']['recto_verso'];
 						                //$recto_verso_french=$items['options']['recto_verso_french'];
-
 
 						                  //$AttributesData=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
                                       ?>
@@ -951,7 +926,6 @@
 
                                                   $imageurl=getProductImage($items['product_image']);
 
-
                                                 ?>
                                                 <img src="<?php echo $imageurl?>">
                                               </a>
@@ -962,7 +936,6 @@
 											  <?php if(   $language_name=='French'){
 												   echo ucfirst($Product['name_french']);
 												}else{
-
 													echo ucfirst($Product['name']);
 												}
 											  ?>
@@ -1018,10 +991,8 @@
 											<span><strong> <?php
 								       if($language_name=='French'){
 								                  echo 'Couleursv:'.$product_width_length['length_width_color_french'];
-
 								        }else{
 								            echo 'Colors:'.$product_width_length['length_width_color'];
-
 								        }?>
 										</strong> </span>
 									</div>
@@ -1075,10 +1046,8 @@
 											<span><strong> <?php
 								                 if($language_name=='French'){
 								                  echo 'Couleursv:'.$product_depth_length_width['depth_color_french'];
-
 								        }else{
 								            echo 'Colors:'.$product_depth_length_width['depth_color'];
-
 								        }?></strong> </span>
 									</div>
 							<?php
@@ -1123,10 +1092,8 @@
 
 									    if($language_name=='French'){
 								                  echo 'Couleursv:'.$page_product_width_length['page_length_width_color_french'];
-
 								        }else{
 								            echo 'Colors:'.$page_product_width_length['page_length_width_color'];
-
 								        }
 
 												?></strong> </span>
@@ -1138,10 +1105,8 @@
 											<span><strong><?php
 								                if($language_name=='French'){
 								                  echo 'Des pages:'.$page_product_width_length['page_product_total_page_french'];
-
 								                }else{
 								       echo 'Pages:'.$page_product_width_length['page_product_total_page'];
-
 								                }
 												?></strong> </span>
 									</div>
@@ -1152,10 +1117,8 @@
 											<span><strong><?php
 								                if($language_name=='French'){
 								                  echo ' Feuille par bloc:'.$page_product_width_length['page_product_total_sheets_french'];
-
 								                }else{
 								       echo 'Sheet Per Pad:'.$page_product_width_length['page_product_total_sheets'];
-
 								                }
 												?></strong> </span>
 									</div>
@@ -1167,10 +1130,8 @@
 											<span><strong><?php
 								                if($language_name=='French'){
 								                  echo 'Quantité:'.$page_product_width_length['page_product_total_quantity'];
-
 								                }else{
 								       echo 'Quantity:'.$page_product_width_length['page_product_total_quantity'];
-
 								                }
 												?></strong> </span>
 									</div>
@@ -1180,21 +1141,15 @@
 							}?>
 						 <?php
 							if(!empty($product_size)){
-
 								if($language_name=='French'){
-
 									$size_name= $product_size['product_size_french'];
 									$label_qty=$product_size['product_quantity_french'];
-
 								}else{
-
 									$size_name = $product_size['product_size'];
 									$label_qty=$product_size['product_quantity'];
 								}
 
 								$attribute=isset($product_size['attribute']) ? $product_size['attribute']:'';
-
-
 
 								?>
 							    <?php
@@ -1225,21 +1180,15 @@
 								<?php
 								}?>
 
-
-
 								<?php
 								if($attribute){
-
 								    foreach($attribute as $akey=>$aval){
-
 										$multiple_attribute_name=$aval['attributes_name'];
 									    $multiple_attribute_item_name=$aval['attributes_item_name'];
 
 										if($language_name=='French'){
-
 											$multiple_attribute_name=$aval['attributes_name_french'];
 									        $multiple_attribute_item_name=$aval['attributes_item_name_french'];
-
 										}
 								?>
 
@@ -1257,28 +1206,19 @@
 									}
 								}?>
 
-
 							<?php
 							}
 							?>
 
-
 							<?php
 							#pr($attribute_ids);
 							foreach($attribute_ids as $key=>$val){
-
-
-
 								if($language_name=='French'){
-
 									$attribute_name=$val['attribute_name_french'];
 									$item_name=$val['item_name_french'];
-
 								}else{
-
 									$attribute_name=$val['attribute_name'];
 									$item_name=$val['item_name'];
-
 								}
 								?>
 								<div class="col-md-12 col-lg-6 col-xl-6">
@@ -1286,28 +1226,21 @@
 								</div>
 
 								<?php
-
 						    }?>
-
-
 
 								 <?php if(!empty($recto_verso)){ ?>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
 											<span><strong>
 												<?php
 						if($language_name=='French'){
-
 						echo 'Recto verso:'.$recto_verso_french;
-
 								                }else{
 						echo 'Recto/Verso:'.$recto_verso;
-
 								                }?></strong> </span>
 									</div>
 
 								<?php
 								}?>
-
 
                                 <?php if(!empty($votre_text)){?>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
@@ -1327,8 +1260,6 @@
                             </div>
 								<div class="uploaded-file-detail" id="upload-file-data">
 								    <?php if(!empty($cart_images)){
-
-
 											   foreach($cart_images as $key=>$return_arr){
 												    #pr($return_arr);
 
@@ -1349,9 +1280,7 @@
 											</div>
 										</div>
                                     <?php
-
 											   }
-
 									     }
 
 									?>
@@ -1360,7 +1289,6 @@
 
                                           </td>
                                       </tr>
-
 
 									  <?php
                                     }
@@ -1465,39 +1393,30 @@
 
 										  <?php
 										    if($ProductOrder['shipping_method_formate']){
-
 												$shipping_method_formate=explode('-',$ProductOrder['shipping_method_formate']);
 											?>
 											  <span>
 											  <?php
 											    $upsServiceCode=upsServiceCode();
 											    if($shipping_method_formate[0]==='ups'){
-
 												   echo $upsServiceCode[$shipping_method_formate[2]]." (UPS)";
 											    } elseif($shipping_method_formate[0]=="canadapost"){
-
 													echo $shipping_method_formate[2]."(Canada Post)";
-
 												}
 												elseif($shipping_method_formate[0]=="flagship"){
 													$codeData=FlagShipServiceCode($shipping_method_formate[2]);
 													//pr($codeData);
 
 													echo $codeData['courier_name'].'<br>'.$codeData['courier_desc']."</br>(FlagShip)";
-
 												}
 												elseif($shipping_method_formate[0]=="pickupinstore"){
-
 													$pickupStore=$this->Store_Model->getPickupStoreDataById($shipping_method_formate[2]);
 
 													echo 'Pickup In Store<br>'.$pickupStore['name']."<br>".$pickupStore['address']."<br>".$pickupStore['phone'];
-
-
 												}
 
 											  ?>
 											  <?php
-
 
 											  ?><br> <strong>
 											 <?php echo $product_price_currency_symbol.ucfirst($shipping_method_formate[1]);
@@ -1544,7 +1463,6 @@
                             </div>
 
 							</form>
-
 
 							<?php if(!empty($ProductOrder['total_sales_tax']) &&  $ProductOrder['total_sales_tax'] !='0.00'){
 								//pr($salesTaxRatesProvinces_Data);

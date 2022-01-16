@@ -1,8 +1,6 @@
 <?php
 class exampleConfig{
-
     public function __construct(){
-
     }
 
     public static function serverId(){
@@ -20,5 +18,4 @@ class exampleConfig{
     public static function endpoint() {
         return "https://inject.socketlabs.com/api/v1/email";
     }
-
 }

@@ -666,7 +666,7 @@ class Baz {
  * Test
  *
  * @return void
- * @throws E 
+ * @throws E
  */
 function myFunction() {}
 

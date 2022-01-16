@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Timing;
 
 abstract class VersionControl implements Report
 {
-
     /**
      * The name of the report we want in the output.
      *
      * @var string
      */
     protected $reportName = 'VERSION CONTROL';
-
 
     /**
      * Generate a partial report for a single processed file.
@@ -127,9 +125,7 @@ abstract class VersionControl implements Report
         }
 
         return true;
-
     }//end generateFileReport()
-
 
     /**
      * Prints the author of all errors and warnings, as given by "version control blame".
@@ -349,9 +345,7 @@ abstract class VersionControl implements Report
         if ($toScreen === true && $interactive === false) {
             Timing::printRunTime();
         }
-
     }//end generate()
-
 
     /**
      * Extract the author from a blame line.
@@ -362,7 +356,6 @@ abstract class VersionControl implements Report
      */
     abstract protected function getAuthor($line);
 
-
     /**
      * Gets the blame output.
      *
@@ -371,6 +364,4 @@ abstract class VersionControl implements Report
      * @return array
      */
     abstract protected function getBlameContent($filename);
-
-
 }//end class

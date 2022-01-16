@@ -91,6 +91,5 @@
         $('#example1').DataTable({
     		"order": [[ 6, "desc" ]]
     	});
-
     });
 </script>

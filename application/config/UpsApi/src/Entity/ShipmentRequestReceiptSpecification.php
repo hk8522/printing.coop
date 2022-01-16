@@ -5,7 +5,6 @@
  * For a license agreement, see the LICENSE file.
  */
 
-
 namespace Ups\Entity;
 
 /**

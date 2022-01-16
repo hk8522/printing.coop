@@ -17,7 +17,6 @@ use PHP_CodeSniffer\Util\Common;
 
 class Reporter
 {
-
     /**
      * The config data for the run.
      *
@@ -80,7 +79,6 @@ class Reporter
      * @var array
      */
     private $tmpFiles = [];
-
 
     /**
      * Initialise the reporter.
@@ -162,9 +160,7 @@ class Reporter
                 file_put_contents($output, '');
             }
         }//end foreach
-
     }//end __construct()
-
 
     /**
      * Generates and prints final versions of all reports.
@@ -186,9 +182,7 @@ class Reporter
         }
 
         return $toScreen;
-
     }//end printReports()
-
 
     /**
      * Generates and prints a single final report.
@@ -252,9 +246,7 @@ class Reporter
                 unset($this->tmpFiles[$report]);
             }
         }
-
     }//end printReport()
-
 
     /**
      * Caches the result of a single processed file for all reports.
@@ -320,9 +312,7 @@ class Reporter
                 $this->totalFixable += $reportData['fixable'];
             }
         }
-
     }//end cacheFileReport()
-
 
     /**
      * Generate summary information to be used during report generation.
@@ -416,8 +406,5 @@ class Reporter
         ksort($errors);
         $report['messages'] = $errors;
         return $report;
-
     }//end prepareFileReport()
-
-
 }//end class

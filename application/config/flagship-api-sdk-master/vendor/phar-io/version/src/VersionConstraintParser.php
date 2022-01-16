@@ -19,7 +19,6 @@ class VersionConstraintParser {
      * @throws UnsupportedVersionConstraintException
      */
     public function parse($value) {
-
         if (strpos($value, '||') !== false) {
             return $this->handleOrGroup($value);
         }

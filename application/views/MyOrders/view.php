@@ -74,7 +74,6 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             			            			        </div>
                             			            			        <div class="col-md-6">
                             			            			            <strong><?php if(!empty($orderData['user_id'])){
-
 																			        echo CUSTOMER_ID_PREFIX.$orderData['user_id'];
 																			}else{
 																			    echo "-";
@@ -201,14 +200,10 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 													    $Method = getShipingName($orderData);
 
 											            if(!empty($Method)){
-
 													        echo $Method;
-
 														}else{
-
 			$shipping_method_formate=explode('-',$orderData['shipping_method_formate']);
 							if($shipping_method_formate[0]=="pickupinstore"){
-
 																$pickupStore=$this->Store_Model->getPickupStoreDataById($shipping_method_formate[2]);
 																echo 'Pickup In Store<br>'.$pickupStore['name']."<br>".$pickupStore['address']."<br>".$pickupStore['phone'];
 															}
@@ -451,14 +446,11 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                             <strong>
 															 <?php
 		if($language_name=='French'){
-
 	       $file_name=$orderData['order_id']."-fr-invoice.pdf";
 		   $file_name=strtolower($file_name);
 		   $location=FILE_BASE_PATH.'pdf/'.$file_name;
 		   $linkInvoice=$BASE_URL."MyOrders/downloadOrderPdf/".urlencode($location)."/".urlencode($file_name).'/'.urlencode($orderData['id']);
-
 		}else{
-
 		   $file_name=$orderData['order_id']."-invoice.pdf";
 		   $file_name=strtolower($file_name);
 		   $location=FILE_BASE_PATH.'pdf/'.$file_name;
@@ -494,19 +486,15 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                             <strong>
                                                                 <?php
 		if($language_name=='French'){
-
 	       $file_name=$orderData['order_id']."-fr-order.pdf";
 		   $file_name=strtolower($file_name);
 		   $location=FILE_BASE_PATH.'pdf/'.$file_name;
 		   $linkOrder=$BASE_URL."MyOrders/downloadOrderPdf/".urlencode($location)."/".urlencode($file_name).'/'.urlencode($orderData['id']);
-
 		}else{
-
 		   $file_name=$orderData['order_id']."-order.pdf";
 		   $file_name=strtolower($file_name);
 		   $location=FILE_BASE_PATH.'pdf/'.$file_name;
 		   $linkOrder=$BASE_URL."MyOrders/downloadOrderPdf/".urlencode($location)."/".urlencode($file_name).'/'.urlencode($orderData['id']);
-
 		}
 
         $linkOrder=$BASE_URL."MyOrders/downloadOrderPdf/".$orderData['id'].'/order';
@@ -572,7 +560,6 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                         <?php
 										#pr($OrderItemData);
                                         foreach ($OrderItemData as $rowid=>$items){
-
 										  $cart_images=json_decode($items['cart_images'],true);
 						                  $attribute_ids=json_decode($items['attribute_ids'],true);
 
@@ -584,17 +571,9 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 										  $page_product_width_length=json_decode($items['page_product_width_length'],true);
 										  $product_depth_length_width=json_decode($items['product_depth_length_width'],true);
 
-
-
-
 						                $votre_text=$items['votre_text'];
 
 						                $recto_verso=$items['recto_verso'];
-
-
-
-
-
 
 										$product_id=$items['product_id'];
 									   //$AttributesData=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
@@ -607,7 +586,6 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             			             $personailise_image=$items['personailise_image'];
                             						 $Personalised='Unpersonalised';
                             						 if($personailise==1 && $personailise_image !=''){
-
                             							 $Personalised='Personalised';
                             				             $imageurl=FILE_UPLOAD_BASE_URL.'personailise/'.$personailise_image;
                             			             }?>
@@ -649,10 +627,8 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 											<span><strong> <?php
 								       if($language_name=='French'){
 								                  echo 'Couleursv:'.$product_width_length['length_width_color_french'];
-
 								        }else{
 								            echo 'Colors:'.$product_width_length['length_width_color'];
-
 								        }?>
 										</strong> </span>
 									</div>
@@ -706,10 +682,8 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 											<span><strong> <?php
 								                 if($language_name=='French'){
 								                  echo 'Couleursv:'.$product_depth_length_width['depth_color_french'];
-
 								        }else{
 								            echo 'Colors:'.$product_depth_length_width['depth_color'];
-
 								        }?></strong> </span>
 									</div>
 							<?php
@@ -754,10 +728,8 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 
 									    if($language_name=='French'){
 								                  echo 'Couleursv:'.$page_product_width_length['page_length_width_color_french'];
-
 								        }else{
 								            echo 'Colors:'.$page_product_width_length['page_length_width_color'];
-
 								        }
 
 												?></strong> </span>
@@ -769,10 +741,8 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 											<span><strong><?php
 								                if($language_name=='French'){
 								                  echo 'Des pages:'.$page_product_width_length['page_product_total_page_french'];
-
 								                }else{
 								       echo 'Pages:'.$page_product_width_length['page_product_total_page'];
-
 								                }
 												?></strong> </span>
 									</div>
@@ -783,10 +753,8 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 											<span><strong><?php
 								                if($language_name=='French'){
 								                  echo ' Feuille par bloc:'.$page_product_width_length['page_product_total_sheets_french'];
-
 								                }else{
 								       echo 'Sheet Per Pad:'.$page_product_width_length['page_product_total_sheets'];
-
 								                }
 												?></strong> </span>
 									</div>
@@ -798,10 +766,8 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 											<span><strong><?php
 								                if($language_name=='French'){
 								                  echo 'Quantité:'.$page_product_width_length['page_product_total_quantity'];
-
 								                }else{
 								       echo 'Quantity:'.$page_product_width_length['page_product_total_quantity'];
-
 								                }
 												?></strong> </span>
 									</div>
@@ -811,21 +777,15 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 							}?>
 						    <?php
 							if(!empty($product_size)){
-
 								if($language_name=='French'){
-
 									$size_name= $product_size['product_size_french'];
 									$label_qty=$product_size['product_quantity_french'];
-
 								}else{
-
 									$size_name = $product_size['product_size'];
 									$label_qty=$product_size['product_quantity'];
 								}
 
 								$attribute=isset($product_size['attribute']) ? $product_size['attribute']:'';
-
-
 
 								?>
 							    <?php
@@ -856,21 +816,15 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 								<?php
 								}?>
 
-
-
 								<?php
 								if($attribute){
-
 								    foreach($attribute as $akey=>$aval){
-
 										$multiple_attribute_name=$aval['attributes_name'];
 									    $multiple_attribute_item_name=$aval['attributes_item_name'];
 
 										if($language_name=='French'){
-
 											$multiple_attribute_name=$aval['attributes_name_french'];
 									        $multiple_attribute_item_name=$aval['attributes_item_name_french'];
-
 										}
 								?>
 
@@ -888,28 +842,19 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 									}
 								}?>
 
-
 							<?php
 							}
 							?>
 
-
 							<?php
 							#pr($attribute_ids);
 							foreach($attribute_ids as $key=>$val){
-
-
-
 								if($language_name=='French'){
-
 									$attribute_name=$val['attribute_name_french'];
 									$item_name=$val['item_name_french'];
-
 								}else{
-
 									$attribute_name=$val['attribute_name'];
 									$item_name=$val['item_name'];
-
 								}
 								?>
 								<div class="col-md-12 col-lg-6 col-xl-6">
@@ -917,28 +862,21 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 								</div>
 
 								<?php
-
 						    }?>
-
-
 
 								 <?php if(!empty($recto_verso)){ ?>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
 											<span><strong>
 												<?php
 						if($language_name=='French'){
-
 						echo 'Recto verso:'.$recto_verso_french;
-
 								                }else{
 						echo 'Recto/Verso:'.$recto_verso;
-
 								                }?></strong> </span>
 									</div>
 
 								<?php
 								}?>
-
 
                                 <?php if(!empty($votre_text)){?>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
@@ -959,8 +897,6 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 
 												<div class="uploaded-file-detail" id="upload-file-data">
 													<?php if(!empty($cart_images)){
-
-
 															   foreach($cart_images as $key=>$return_arr){
 																	#pr($return_arr);
 
@@ -978,7 +914,6 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 																$link=$BASE_URL."MyOrders/download/".urlencode($return_arr['location'])."/".urlencode($return_arr['name']);
 																?><br>
 
-
 				<div class="uploaded-file-info">
 	 <a href="<?php echo $link?>">
                                                                         <i class="fas fa-file-download"></i> <?php
@@ -990,7 +925,6 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                             }?>
 
 	</a>
-
 
                                                <?php
                             										if(!empty($return_arr['cumment'])){?>
@@ -1006,7 +940,6 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             										<?php
                             										}?>
 
-
 																 </div>
 																			  </div>
 																 </div>
@@ -1014,9 +947,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 															</div>
 														</div>
 													<?php
-
 															   }
-
 														 }
 
 													?>
@@ -1089,7 +1020,6 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                 </div>
 										<?php
 										}?>
-
 
 										<div class="cart-total">
                                             <span><?php

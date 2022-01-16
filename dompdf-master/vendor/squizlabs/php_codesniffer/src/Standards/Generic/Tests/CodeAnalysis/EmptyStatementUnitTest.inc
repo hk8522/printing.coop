@@ -1,7 +1,7 @@
 <?php
 
 switch ($foo) {
-    // Empty switch statement body 
+    // Empty switch statement body
 }
 
 switch ($foo) {
@@ -15,9 +15,9 @@ switch ($foo) {
 if ($foo) {
     // Just a comment
 } elseif ($bar) {
-    // Yet another comment 
+    // Yet another comment
 } else {
-    
+
 }
 
 if ($foo) {
@@ -45,7 +45,7 @@ do {
 
 do {
     while ($bar) {
-        
+
     }
 } while (true);
 
@@ -53,7 +53,7 @@ while ($foo) { /* Comment in the same line */ }
 
 while ($foo) {
     try {
-        
+
     } catch (Exception $e) {
         echo $e->getTraceAsString();
     }

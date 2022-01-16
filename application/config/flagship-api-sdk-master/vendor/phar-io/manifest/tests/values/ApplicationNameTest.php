@@ -4,7 +4,6 @@ namespace PharIo\Manifest;
 use PHPUnit\Framework\TestCase;
 
 class ApplicationNameTest extends TestCase {
-
     public function testCanBeCreatedWithValidName() {
         $this->assertInstanceOf(
             ApplicationName::class,

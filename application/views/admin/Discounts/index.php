@@ -51,9 +51,7 @@
 							<tbody>
 							    <?php
 								if(count($lists) > 0){
-
 									foreach($lists as $key=>$list){
-
 										$discount_valid_to_str_time=strtotime($list['discount_valid_to']);
 
 										$cr_date=date("Y-m-d H:i:s");
@@ -66,10 +64,8 @@
 											<?php
 
 											if($list['discount_type']=='discount_percent'){
-
 												echo number_format($list['discount'],2)."%";
 											}else{
-
 												echo "$".number_format($list['discount'],2);
 											}
 											?>
@@ -141,10 +137,8 @@
 											<?php
 
 											if($list['discount_type']=='discount_percent'){
-
 												echo number_format($list['discount'],2)."%";
 											}else{
-
 												echo "$".number_format($list['discount'],2);
 											}
 											?>
@@ -222,8 +216,6 @@
 					</div>
 				</div>
 
-
-
 				</div><!-- /.box-body -->
 			</div><!-- /.box -->
 		</div><!-- /.col -->
@@ -234,10 +226,8 @@
  </script>
 <script>
 $(document).ready(function(){
-
     $('#example1').DataTable({
 		"order": [[ 2, "asc" ]]
 	});
-
 });
 </script>

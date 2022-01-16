@@ -17,5 +17,5 @@ PHPUnit %s by Sebastian Bergmann and contributors.
 
 Generating phpunit.xml in %s
 
-Bootstrap script (relative to path shown above; default: vendor/autoload.php): Tests directory (relative to path shown above; default: tests): Source directory (relative to path shown above; default: src): 
+Bootstrap script (relative to path shown above; default: vendor/autoload.php): Tests directory (relative to path shown above; default: tests): Source directory (relative to path shown above; default: src):
 Generated phpunit.xml in %s

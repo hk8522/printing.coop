@@ -7,7 +7,6 @@ use Flagship\Shipping\Exceptions\ConfirmManifestByIdException;
 use Flagship\Shipping\Objects\Manifest;
 
 class ConfirmManifestByIdRequest extends ApiRequest{
-
     public function __construct(string $token,string $baseUrl,int $manifestId,string $flagshipFor,string $version){
         $this->apiToken = $token;
         $this->apiUrl = $baseUrl.'/ship/edhl/close/'.$manifestId;

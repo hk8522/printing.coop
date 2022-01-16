@@ -1,7 +1,6 @@
 <?php
 
 Class Blog_Model extends MY_Model {
-
 		public $table = 'blogs';
 
 		public $rules = [
@@ -40,12 +39,10 @@ Class Blog_Model extends MY_Model {
 				$this->db->from($this->table);
                 $this->db->join('blog_category as blog_category', 'blog_category.id=blogs.category_id', 'left');
 				if (!empty($status)){
-
 					$this->db->where(array('blogs.status'=>1));
 				}
 
 				if (!empty($id)){
-
 					$this->db->where(array('blogs.id'=>$id));
 				}
                 $this->db->order_by('blogs.created','desc');
@@ -65,31 +62,23 @@ Class Blog_Model extends MY_Model {
 				$this->db->select('blogs.*,blog_category.category_name,blog_category.category_name_french');
 				$this->db->from($this->table);
 
-
 				$this->db->where(array('blogs.status'=>1));
 				if (!empty($category_id)){
-
 				$this->db->join('blog_category as blog_category', 'blog_category.id=blogs.category_id', 'left');
 				$this->db->where(array('blogs.category_id'=>$category_id));
-
-
 				}else{
-
 					$this->db->join('blog_category as blog_category', 'blog_category.id=blogs.category_id', 'left');
 				}
 
 				if (!empty($populer)){
-
 				   $this->db->where(array('blogs.populer'=>1));
 				}
 
 				if (!empty($search)){
-
 				   $this->db->like('blogs.title',$search);
 				}
 
 				if (!empty($store_id)){
-
 				    $this->db->where("find_in_set($store_id, blogs.store_id)");
 					$this->db->where("find_in_set($store_id, blog_category.store_id)");
 				}
@@ -97,7 +86,6 @@ Class Blog_Model extends MY_Model {
                 $this->db->order_by($order_by,$type);
 
 				if(!empty($limit)){
-
 					$this->db->limit($limit,$start);
 				}
 
@@ -115,7 +103,6 @@ Class Blog_Model extends MY_Model {
                 $this->db->order_by('blogs.created','desc');
 				$query = $this->db->get();
                 if (!empty($store_id)){
-
 				    $this->db->where("find_in_set($store_id, blogs.store_id)");
 					$this->db->where("find_in_set($store_id, blog_category.store_id)");
 				}
@@ -172,7 +159,6 @@ Class Blog_Model extends MY_Model {
 				return $this->db->get()->row_array();
 		}
 
-
 		public function getLatestBlogs($limit = null)
 		{
 				$this->db->select('*');
@@ -213,11 +199,9 @@ Class Blog_Model extends MY_Model {
 				$this->db->select('blog_category.*');
 				$this->db->from('blog_category');
 				if($status==1){
-
 					$this->db->where(array('blog_category.status'=>1));
 				}
 				if (!empty($store_id)){
-
 					$this->db->where("find_in_set($store_id, blog_category.store_id)");
 				}
 
@@ -225,8 +209,6 @@ Class Blog_Model extends MY_Model {
 				$query = $this->db->get();
 				$data=$query->result_array();
 				return $data;
-
-
 		}
 		public function getBlogCategoryDataById($id)
 		{

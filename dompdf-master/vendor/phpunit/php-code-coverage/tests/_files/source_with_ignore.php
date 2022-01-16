@@ -33,5 +33,4 @@ function baz()
 interface Bor
 {
     public function foo();
-
 }

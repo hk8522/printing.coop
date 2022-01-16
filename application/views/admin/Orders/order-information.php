@@ -78,7 +78,6 @@
 	</div>
 
 	<?php if(isset($_SESSION['total_sales_tax']) && !empty($_SESSION['total_sales_tax'])){
-
 		$state_id=isset($_SESSION['state_id']) ? $_SESSION['state_id']:0;
 		$salesTaxRatesProvinces_Data=$this->Address_Model->salesTaxRatesProvincesById($state_id);
 	?>

@@ -188,7 +188,6 @@
 																$is_featured=isset($Product['is_featured']) ? $Product['is_featured']:'';
 																$cehecked='No';
 																if($is_featured==1){
-
 																	$cehecked='Yes';
 																}
 																?>
@@ -201,7 +200,6 @@
 																$is_special=isset($Product['is_special']) ? $Product['is_special']:'';
 																$cehecked='No';
 																if($is_special==1){
-
 																	$cehecked='No';
 																}
 																?>
@@ -214,7 +212,6 @@
 																$is_bestseller=isset($Product['is_bestseller']) ? $Product['is_bestseller']:'';
 																$cehecked='No';
 																if($is_bestseller==1){
-
 																	$cehecked='Yes';
 																}
 																?>
@@ -227,7 +224,6 @@
 																$is_bestdeal=isset($Product['is_bestdeal']) ? $Product['is_bestdeal']:'';
 																$cehecked='No';
 																if($is_bestdeal==1){
-
 																	$cehecked='Yes';
 																}
 																?>
@@ -240,7 +236,6 @@
 																$is_stock=isset($Product['is_stock']) ? $Product['is_stock']:'';
 																$cehecked='No';
 																if($is_stock==1){
-
 																	$cehecked='Yes';
 																}
 																?>
@@ -253,7 +248,6 @@
 																$is_today_deal=isset($Product['is_stock']) ? $Product['is_today_deal']:'';
 																$cehecked='No';
 																if($is_today_deal==1){
-
 																	$cehecked='Yes';
 																}
 																?>

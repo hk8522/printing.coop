@@ -8,7 +8,6 @@ use Flagship\Shipping\Collections\AvailableServicesCollection;
 use Flagship\Shipping\Exceptions\AvailableServicesException;
 
 class AvailableServicesCollectionTests extends TestCase{
-
     public function testGetServicesByCourier(){
         $this->assertNotEmpty($this->servicesCollection->getServicesByCourier('canpar'));
         $this->assertNotNull($this->servicesCollection->getServicesByCourier('fedex'));
@@ -423,6 +422,5 @@ class AvailableServicesCollectionTests extends TestCase{
       $availableServicesRequest = new AvailableServicesRequest('dummyToken','baseUrl','testing','1.0.3');
 
       $this->servicesCollection->importServices(json_decode($response));
-
     }
 }

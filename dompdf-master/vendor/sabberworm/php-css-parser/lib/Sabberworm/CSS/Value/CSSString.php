@@ -6,7 +6,6 @@ use Sabberworm\CSS\Parsing\ParserState;
 use Sabberworm\CSS\Parsing\SourceException;
 
 class CSSString extends PrimitiveValue {
-
 	private $sString;
 
 	public function __construct($sString, $iLineNo = 0) {
@@ -62,5 +61,4 @@ class CSSString extends PrimitiveValue {
 		$sString = str_replace("\n", '\A', $sString);
 		return $oOutputFormat->getStringQuotingType() . $sString . $oOutputFormat->getStringQuotingType();
 	}
-
 }

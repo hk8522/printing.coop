@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ControlStructureSpacingSniff implements Sniff
 {
-
     /**
      * How many spaces should follow the opening bracket.
      *
@@ -29,7 +28,6 @@ class ControlStructureSpacingSniff implements Sniff
      * @var integer
      */
     public $requiredSpacesBeforeClose = 0;
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -48,9 +46,7 @@ class ControlStructureSpacingSniff implements Sniff
             T_ELSEIF,
             T_CATCH,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -134,8 +130,5 @@ class ControlStructureSpacingSniff implements Sniff
                 }
             }
         }//end if
-
     }//end process()
-
-
 }//end class

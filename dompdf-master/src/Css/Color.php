@@ -248,7 +248,6 @@ class Color
             }
 
             return $cache[$color] = self::getArray(vsprintf("%02X%02X%02X", $triplet), $alpha);
-
         }
 
         // cmyk( c,m,y,k ) format

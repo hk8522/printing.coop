@@ -8,7 +8,6 @@ use Flagship\Shipping\Exceptions\ManifestListException;
 use Flagship\Shipping\Collections\ManifestListCollection;
 
 class GetManifestsListRequest extends ApiRequest{
-
     public function __construct(string $token, string $baseUrl,string $flagshipFor,string $version){
         $this->apiToken = $token;
         $this->apiUrl = $baseUrl.'/ship/edhl/';

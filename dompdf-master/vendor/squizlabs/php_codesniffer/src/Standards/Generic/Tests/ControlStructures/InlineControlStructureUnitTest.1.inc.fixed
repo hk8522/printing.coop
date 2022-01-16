@@ -218,7 +218,7 @@ for ($x=0;$x<5;$x++):
 endfor;
 
 for ($x=0;$x<5;$x++):
-    if ($x) { continue; 
+    if ($x) { continue;
     } ?> <?php
 endfor;
 

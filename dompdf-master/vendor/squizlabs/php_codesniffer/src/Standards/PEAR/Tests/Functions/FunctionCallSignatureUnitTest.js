@@ -10,7 +10,6 @@ test( arg );
 test ( arg );
 
 if (foo(arg) === true) {
-
 }
 
 var something = get(arg1, arg2);
@@ -55,7 +54,6 @@ this.init = function(data) {
 };
 
 a.prototype = {
-
     a: function()
     {
         this.addItem(
@@ -65,14 +63,12 @@ a.prototype = {
              */
             a: function()
             {
-
             },
         /**
  * @return void
              */
             a: function()
             {
-
             },
             }
         );

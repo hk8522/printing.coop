@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Files\File;
 
 class DisallowNewWidgetSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -24,9 +22,7 @@ class DisallowNewWidgetSniff implements Sniff
     public function register()
     {
         return [T_NEW];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -52,8 +48,5 @@ class DisallowNewWidgetSniff implements Sniff
             $data       = [$widgetType];
             $phpcsFile->addError($error, $stackPtr, 'Found', $data);
         }
-
     }//end process()
-
-
 }//end class

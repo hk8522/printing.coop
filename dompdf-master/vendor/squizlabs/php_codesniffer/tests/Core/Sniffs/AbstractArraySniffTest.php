@@ -13,7 +13,6 @@ use PHP_CodeSniffer\Tests\Core\AbstractMethodUnitTest;
 
 class AbstractArraySniffTest extends AbstractMethodUnitTest
 {
-
     /**
      * The sniff objects we are testing.
      *
@@ -23,7 +22,6 @@ class AbstractArraySniffTest extends AbstractMethodUnitTest
      * @var \PHP_CodeSniffer\Sniffs\AbstractArraySniffTestable
      */
     protected static $sniff;
-
 
     /**
      * Initialize & tokenize \PHP_CodeSniffer\Files\File with code from the test case file.
@@ -37,9 +35,7 @@ class AbstractArraySniffTest extends AbstractMethodUnitTest
     {
         self::$sniff = new AbstractArraySniffTestable();
         parent::setUpBeforeClass();
-
     }//end setUpBeforeClass()
-
 
     /**
      * Test an array of simple values only.
@@ -58,9 +54,7 @@ class AbstractArraySniffTest extends AbstractMethodUnitTest
         ];
 
         $this->assertSame($expected, self::$sniff->indicies);
-
     }//end testSimpleValues()
-
 
     /**
      * Test an array of simple keys and values.
@@ -94,9 +88,7 @@ class AbstractArraySniffTest extends AbstractMethodUnitTest
         ];
 
         $this->assertSame($expected, self::$sniff->indicies);
-
     }//end testSimpleKeyValues()
-
 
     /**
      * Test an array of simple keys and values.
@@ -127,9 +119,7 @@ class AbstractArraySniffTest extends AbstractMethodUnitTest
         ];
 
         $this->assertSame($expected, self::$sniff->indicies);
-
     }//end testMissingKeys()
-
 
     /**
      * Test an array with keys that span multiple tokens.
@@ -157,9 +147,7 @@ class AbstractArraySniffTest extends AbstractMethodUnitTest
         ];
 
         $this->assertSame($expected, self::$sniff->indicies);
-
     }//end testMultiTokenKeys()
-
 
     /**
      * Test an array of simple keys and values.
@@ -187,9 +175,7 @@ class AbstractArraySniffTest extends AbstractMethodUnitTest
         ];
 
         $this->assertSame($expected, self::$sniff->indicies);
-
     }//end testMissingKeysCoalesceTernary()
-
 
     /**
      * Test an array of ternary values.
@@ -223,9 +209,7 @@ class AbstractArraySniffTest extends AbstractMethodUnitTest
         ];
 
         $this->assertSame($expected, self::$sniff->indicies);
-
     }//end testTernaryValues()
-
 
     /**
      * Test an array of heredocs.
@@ -247,9 +231,7 @@ class AbstractArraySniffTest extends AbstractMethodUnitTest
         ];
 
         $this->assertSame($expected, self::$sniff->indicies);
-
     }//end testHeredocValues()
-
 
     /**
      * Test an array of with an arrow function as a value.
@@ -283,8 +265,5 @@ class AbstractArraySniffTest extends AbstractMethodUnitTest
         ];
 
         $this->assertSame($expected, self::$sniff->indicies);
-
     }//end testArrowFunctionValue()
-
-
 }//end class

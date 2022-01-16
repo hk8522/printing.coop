@@ -8,7 +8,6 @@ use Flagship\Shipping\Exceptions\GetShipmentByIdException;
 use Flagship\Apis\Exceptions\ApiException;
 
 class GetShipmentByIdRequest extends ApiRequest{
-
     protected $responseCode;
     public function __construct(string $baseUrl,string $token,string $flagshipFor,string $version,int $id){
         $this->url = $baseUrl.'/ship/shipments/'.$id;

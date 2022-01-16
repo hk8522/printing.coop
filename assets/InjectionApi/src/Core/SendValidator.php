@@ -4,7 +4,6 @@ namespace Socketlabs\Core;
  * Used by the SocketLabsClient to conduct basic validation on the message before sending to the Injection API.
  */
 class SendValidator{
-
     /**
      * Maximum recipient threshold
      */
@@ -17,7 +16,6 @@ class SendValidator{
      * @return SendResponse with the validation results
      */
     public static function validateCredentials($serverId, $apiKey){
-
         $sendResponse = new \Socketlabs\SendResponse();
 
         if(!is_string($apiKey) || ctype_space($apiKey) || $apiKey == ""){
@@ -41,7 +39,6 @@ class SendValidator{
      * @return SendResponse with the validation results
      */
     public static function validateMessage($message){
-
         if(is_a($message, "Socketlabs\Message\BasicMessage")){
             return SendValidator::validateBasicMessage($message);
         }
@@ -71,7 +68,6 @@ class SendValidator{
             else if($count > SendValidator::$MaximumRecipientsPerMessage) $validationResult = new \Socketlabs\SendResponse(\Socketlabs\SendResult::RecipientValidationMaxExceeded);
 
             else $validationResult = SendValidator::validateRecipients($allRecipients);
-
         }
 
         if($validationResult->result == \Socketlabs\SendResult::Success) {
@@ -103,7 +99,6 @@ class SendValidator{
             else if($count > SendValidator::$MaximumRecipientsPerMessage) $validationResult = new \Socketlabs\SendResponse(\Socketlabs\SendResult::RecipientValidationMaxExceeded);
 
             else $validationResult = SendValidator::validateRecipients($allRecipients);
-
         }
 
         return $validationResult;
@@ -239,7 +234,6 @@ class SendValidator{
      * @return SendResponse with the validation results
      */
     private static function validateRecipients($recipients){
-
         $invalidRecipients = SendValidator::hasInvalidRecipients($recipients);
 
         if(count($invalidRecipients) >0){

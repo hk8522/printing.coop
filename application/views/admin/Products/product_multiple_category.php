@@ -143,7 +143,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 	<div class="attribute" id="quantity_attribute_id_div_<?php echo $category_id ?>" style="display:<?php echo array_key_exists($category_id,$ProductCategory) ? '' :'none'?>; padding: 10px 10px 10px 25px; background: #f5f5f5;">
         <?php
 		foreach($sub_categories as $key=>$val){
-
 			$sub_category_id=$val['id'];
             $sub_category_name=$val['name'];
         ?>
@@ -192,7 +191,6 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 <script>
 
 	function addActiveClass(id){
-
 		if($("#attribute_id_"+id).prop("checked") == true){
 			$("#attribute_id_div_"+id).addClass('active');
 		}else{
@@ -204,38 +202,25 @@ $ProductSubCategory=isset($ProductCategory[$category_id]) ?$ProductCategory[$cat
 		//alert(id);
 
 		if($("#"+id).prop("checked") == true){
-
 			$("#hidden_"+id).val($("#"+id).val());
 		}else{
-
 			$("#hidden_"+id).val('');
 		}
-
 	}
 
 	function addActiveSizeClass(id){
-
 		if($("#size_attribute_id_"+id).prop("checked") == true){
-
 			$("#size_attribute_id_div_"+id).addClass('active');
 		}else{
-
 			$("#size_attribute_id_div_"+id).removeClass('active');
 		}
-
 	}
 	function addActiveQuantitySizeClass(id){
-
 		if($("#category_id_"+id).prop("checked") == true){
-
-
 			$("#quantity_attribute_id_div_"+id).show();
-
 		}else{
-
 			$("#quantity_attribute_id_div_"+id).hide();
 		}
-
 	}
 
 </script>

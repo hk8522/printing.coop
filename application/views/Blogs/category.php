@@ -8,9 +8,7 @@
 						<?php
 			           if($blogs){
 					   foreach($blogs as $blog){
-
 					      $imageurl=getBlogImage($blog['image'],'large');
-
 
 			          ?>
                             <div class="col-md-12 col-lg-6 col-xl-4">
@@ -22,7 +20,6 @@
                                                <a href="<?php echo $BASE_URL?>Blogs/category/<?php echo base64_encode($blog['category_id'])?>"><span>
 									            <?php
 									    if($this->language_name=='French'){
-
 									         echo $blog['category_name_french'];
 									    }else{
 											 echo $blog['category_name'];
@@ -34,7 +31,6 @@
 													<a href="<?php echo $BASE_URL?>Blogs/singleview/<?php echo base64_encode($blog['id'])?>">
 													<?php
 													if($this->language_name=='French'){
-
 														echo $blog['title_french'];
 													}else{
 														echo $blog['title'];
@@ -47,7 +43,6 @@
                                             </div>
                                             <div class="universal-dark-info less-content">
                                                <span><?php if($this->language_name=='French'){
-
 									       echo $blog['content_french'];
 									    }else{
 											echo $blog['content'];

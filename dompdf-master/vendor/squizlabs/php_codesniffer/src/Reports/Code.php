@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Util;
 
 class Code implements Report
 {
-
-
     /**
      * Generate a partial report for a single processed file.
      *
@@ -315,9 +313,7 @@ class Code implements Report
         }
 
         return true;
-
     }//end generateFileReport()
-
 
     /**
      * Prints all errors and warnings for each file processed.
@@ -355,8 +351,5 @@ class Code implements Report
         if ($toScreen === true && $interactive === false) {
             Util\Timing::printRunTime();
         }
-
     }//end generate()
-
-
 }//end class

@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ShorthandSizeSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -37,7 +36,6 @@ class ShorthandSizeSniff implements Sniff
         '-ms-transform-origin'     => '-ms-transform-origin',
     ];
 
-
     /**
      * Returns the token types that this sniff is interested in.
      *
@@ -46,9 +44,7 @@ class ShorthandSizeSniff implements Sniff
     public function register()
     {
         return [T_STYLE];
-
     }//end register()
-
 
     /**
      * Processes the tokens that this sniff is interested in.
@@ -174,8 +170,5 @@ class ShorthandSizeSniff implements Sniff
 
             $phpcsFile->fixer->endChangeset();
         }
-
     }//end process()
-
-
 }//end class

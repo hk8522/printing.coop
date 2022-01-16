@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class LowercaseDeclarationSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -35,9 +33,7 @@ class LowercaseDeclarationSniff implements Sniff
             T_TRY,
             T_CATCH,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -67,8 +63,5 @@ class LowercaseDeclarationSniff implements Sniff
                 $phpcsFile->fixer->replaceToken($stackPtr, $contentLc);
             }
         }
-
     }//end process()
-
-
 }//end class

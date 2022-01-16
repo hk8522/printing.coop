@@ -85,12 +85,10 @@
 					                    }?>
 
                                       <?php foreach($states as $state){
-
 								      $selected='';
 									  $post_state= isset($postData['state']) ? $postData['state']:'';
 
 									  if($state['id'] == $post_state){
-
 										    $selected='selected="selected"';
 									  }
 								    ?>
@@ -113,12 +111,10 @@
 					                    }?>
 
 									  <?php foreach ($citys as $city) {
-
 										  $selected ='';
 										  $post_city = isset($postData['city']) ?     $postData['city']:'';
 
 										    if ($city['id'] == $post_city){
-
 											  $selected='selected="selected"';
 										    }
 										  ?>
@@ -182,7 +178,6 @@
 												$default_delivery_address=isset($postData['default_delivery_address']) ? $postData['default_delivery_address']:'';
 												$cehecked='';
 												if($default_delivery_address==1){
-
 													$cehecked='checked';
 												}
 									?>
@@ -217,7 +212,4 @@
         </div>
     </div>
 </div>
-
-
-
 

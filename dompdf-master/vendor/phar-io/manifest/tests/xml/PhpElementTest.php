@@ -44,5 +44,4 @@ class PhpElementTest extends \PHPUnit\Framework\TestCase {
             $this->dom->createElementNS('https://phar.io/xml/manifest/1.0', 'ext')
         );
     }
-
 }

@@ -1,7 +1,6 @@
 <?php
 
 Class Blog_Comment_Model extends MY_Model {
-
 		public $table = 'blog_comments';
 
 		public $rules = [

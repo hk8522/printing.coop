@@ -11,7 +11,6 @@ use Ups\NodeInterface;
  */
 class Product implements NodeInterface
 {
-
     /**
      * @var string
      */

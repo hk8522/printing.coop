@@ -8,7 +8,6 @@ use Sabberworm\CSS\Property\AtRule;
  * A BlockList constructed by an unknown @-rule. @media rules are rendered into AtRuleBlockList objects.
  */
 class AtRuleBlockList extends CSSBlockList implements AtRule {
-
 	private $sType;
 	private $sArgs;
 
@@ -46,5 +45,4 @@ class AtRuleBlockList extends CSSBlockList implements AtRule {
 	public function isRootList() {
 		return false;
 	}
-
 }

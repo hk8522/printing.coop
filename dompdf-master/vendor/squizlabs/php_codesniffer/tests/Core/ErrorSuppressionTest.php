@@ -16,8 +16,6 @@ use PHPUnit\Framework\TestCase;
 
 class ErrorSuppressionTest extends TestCase
 {
-
-
     /**
      * Test suppressing a single error.
      *
@@ -170,9 +168,7 @@ class ErrorSuppressionTest extends TestCase
         $numErrors = $file->getErrorCount();
         $this->assertEquals(0, $numErrors);
         $this->assertCount(0, $errors);
-
     }//end testSuppressError()
-
 
     /**
      * Test suppressing 1 out of 2 errors.
@@ -246,9 +242,7 @@ class ErrorSuppressionTest extends TestCase
         $numErrors = $file->getErrorCount();
         $this->assertEquals(1, $numErrors);
         $this->assertCount(1, $errors);
-
     }//end testSuppressSomeErrors()
-
 
     /**
      * Test suppressing a single warning.
@@ -322,9 +316,7 @@ class ErrorSuppressionTest extends TestCase
         $numWarnings = $file->getWarningCount();
         $this->assertEquals(0, $numWarnings);
         $this->assertCount(0, $warnings);
-
     }//end testSuppressWarning()
-
 
     /**
      * Test suppressing a single error using a single line ignore.
@@ -428,9 +420,7 @@ class ErrorSuppressionTest extends TestCase
         $numErrors = $file->getErrorCount();
         $this->assertEquals(1, $numErrors);
         $this->assertCount(1, $errors);
-
     }//end testSuppressLine()
-
 
     /**
      * Test that using a single line ignore does not interfere with other suppressions.
@@ -504,9 +494,7 @@ class ErrorSuppressionTest extends TestCase
         $numErrors = $file->getErrorCount();
         $this->assertEquals(0, $numErrors);
         $this->assertCount(0, $errors);
-
     }//end testNestedSuppressLine()
-
 
     /**
      * Test suppressing a scope opener.
@@ -587,9 +575,7 @@ class ErrorSuppressionTest extends TestCase
         $numErrors = $file->getErrorCount();
         $this->assertEquals(0, $numErrors);
         $this->assertCount(0, $errors);
-
     }//end testSuppressScope()
-
 
     /**
      * Test suppressing a whole file.
@@ -733,9 +719,7 @@ class ErrorSuppressionTest extends TestCase
         $numWarnings = $file->getWarningCount();
         $this->assertEquals(0, $numWarnings);
         $this->assertCount(0, $warnings);
-
     }//end testSuppressFile()
-
 
     /**
      * Test disabling specific sniffs.
@@ -880,9 +864,7 @@ class ErrorSuppressionTest extends TestCase
         $this->assertCount(0, $errors);
         $this->assertEquals(1, $numWarnings);
         $this->assertCount(1, $warnings);
-
     }//end testDisableSelected()
-
 
     /**
      * Test re-enabling specific sniffs that have been disabled.
@@ -1053,9 +1035,7 @@ class ErrorSuppressionTest extends TestCase
         $this->assertCount(1, $errors);
         $this->assertEquals(2, $numWarnings);
         $this->assertCount(2, $warnings);
-
     }//end testEnableSelected()
-
 
     /**
      * Test ignoring specific sniffs.
@@ -1156,9 +1136,7 @@ class ErrorSuppressionTest extends TestCase
         $this->assertCount(1, $errors);
         $this->assertEquals(1, $numWarnings);
         $this->assertCount(1, $warnings);
-
     }//end testIgnoreSelected()
-
 
     /**
      * Test ignoring specific sniffs.
@@ -1245,8 +1223,5 @@ class ErrorSuppressionTest extends TestCase
         $this->assertCount(0, $errors);
         $this->assertEquals(0, $numWarnings);
         $this->assertCount(0, $warnings);
-
     }//end testCommenting()
-
-
 }//end class

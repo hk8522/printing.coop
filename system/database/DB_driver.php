@@ -51,7 +51,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 abstract class CI_DB_driver {
-
 	/**
 	 * Data Source Name / Connect string
 	 *
@@ -1569,7 +1568,6 @@ abstract class CI_DB_driver {
 				'\s+LIKE\s+\S.*('.$_les.')?',    // LIKE 'expr'[ ESCAPE '%s']
 				'\s+NOT LIKE\s+\S.*('.$_les.')?' // NOT LIKE 'expr'[ ESCAPE '%s']
 			);
-
 		}
 
 		return preg_match('/'.implode('|', $_operators).'/i', $str, $match)
@@ -1981,5 +1979,4 @@ abstract class CI_DB_driver {
 	protected function _reset_select()
 	{
 	}
-
 }

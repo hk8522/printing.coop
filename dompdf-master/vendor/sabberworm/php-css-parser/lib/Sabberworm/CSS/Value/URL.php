@@ -5,7 +5,6 @@ namespace Sabberworm\CSS\Value;
 use Sabberworm\CSS\Parsing\ParserState;
 
 class URL extends PrimitiveValue {
-
 	private $oURL;
 
 	public function __construct(CSSString $oURL, $iLineNo = 0) {
@@ -29,7 +28,6 @@ class URL extends PrimitiveValue {
 		return $oResult;
 	}
 
-
 	public function setURL(CSSString $oURL) {
 		$this->oURL = $oURL;
 	}
@@ -45,5 +43,4 @@ class URL extends PrimitiveValue {
 	public function render(\Sabberworm\CSS\OutputFormat $oOutputFormat) {
 		return "url({$this->oURL->render($oOutputFormat)})";
 	}
-
 }

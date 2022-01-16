@@ -428,7 +428,6 @@ class HTML5_TreeBuilder {
                     $this->stack[] = $html;
 
                     $this->mode = self::BEFORE_HEAD;
-
                 } else {
                     /* Create an html element. Append it to the Document object. Put
                      * this element in the stack of open elements. */
@@ -500,7 +499,6 @@ class HTML5_TreeBuilder {
                 } elseif ($token['type'] === HTML5_Tokenizer::ENDTAG) {
                     /* Parse error. Ignore the token. */
                     $this->ignored = true;
-
                 } else {
                     /* Act as if a start tag token with the tag name "head" and no
                      * attributes had been seen, then reprocess the current token.
@@ -692,10 +690,8 @@ class HTML5_TreeBuilder {
                     /* Append a Comment node to the current node with the data attribute
                     set to the data given in the comment token. */
                     $this->insertComment($token['data']);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::DOCTYPE) {
                     // parse error
-
                 } elseif ($token['type'] === HTML5_Tokenizer::STARTTAG && $token['name'] === 'html') {
                     $this->processWithRulesFor($token, self::IN_BODY);
 
@@ -1049,7 +1045,6 @@ class HTML5_TreeBuilder {
                             for ($n = $leng - 1; $n >= 0; $n--) {
                                 if ($this->a_formatting[$n] === self::MARKER) {
                                     break;
-
                                 } elseif ($this->a_formatting[$n]->tagName === 'a') {
                                     $a = $this->a_formatting[$n];
                                     $this->emitToken([
@@ -1611,7 +1606,6 @@ class HTML5_TreeBuilder {
                                 do {
                                     $node = array_pop($this->stack);
                                 } while ($node->tagName !== 'p');
-
                             } else {
                                 // parse error
                                 $this->emitToken([
@@ -2063,7 +2057,6 @@ class HTML5_TreeBuilder {
                     /* Append a Comment node to the current node with the data
                     attribute set to the data given in the comment token. */
                     $this->insertComment($token['data']);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::DOCTYPE) {
                     // parse error
 
@@ -2166,11 +2159,9 @@ class HTML5_TreeBuilder {
                 ['body', 'caption', 'col', 'colgroup', 'html', 'tbody', 'td',
                 'tfoot', 'th', 'thead', 'tr'])) {
                     // Parse error. Ignore the token.
-
                 } elseif ($token['type'] === HTML5_Tokenizer::STARTTAG &&
                 ($token['name'] === 'style' || $token['name'] === 'script')) {
                     $this->processWithRulesFor($token, self::IN_HEAD);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::STARTTAG && $token['name'] === 'input' &&
                 // assignment is intentional
                 /* If the token does not have an attribute with the name "type", or
@@ -2663,10 +2654,8 @@ class HTML5_TreeBuilder {
                     /* Append a Comment node to the current node with the data
                     attribute set to the data given in the comment token. */
                     $this->insertComment($token['data']);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::DOCTYPE) {
                     // parse error
-
                 } elseif ($token['type'] === HTML5_Tokenizer::STARTTAG && $token['name'] === 'html') {
                     $this->processWithRulesFor($token, self::IN_BODY);
 
@@ -2779,7 +2768,6 @@ class HTML5_TreeBuilder {
                         'name' => 'select',
                         'type' => HTML5_Tokenizer::ENDTAG
                     ]);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::STARTTAG &&
                 ($token['name'] === 'input' || $token['name'] === 'keygen' ||  $token['name'] === 'textarea')) {
                     // parse error
@@ -2788,10 +2776,8 @@ class HTML5_TreeBuilder {
                         'type' => HTML5_Tokenizer::ENDTAG
                     ]);
                     $this->emitToken($token);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::STARTTAG && $token['name'] === 'script') {
                     $this->processWithRulesFor($token, self::IN_HEAD);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::EOF) {
                     // XERROR: If the current node is not the root html element, then this is a parse error.
                     /* Stop parsing */
@@ -3002,10 +2988,8 @@ class HTML5_TreeBuilder {
                     // XDOM
                     $comment = $this->dom->createComment($token['data']);
                     $this->stack[0]->appendChild($comment);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::DOCTYPE) {
                     // parse error
-
                 } elseif ($token['type'] === HTML5_Tokenizer::STARTTAG && $token['name'] === 'html') {
                     $this->processWithRulesFor($token, self::IN_BODY);
 
@@ -3018,7 +3002,6 @@ class HTML5_TreeBuilder {
                     // XERROR: implement this
 
                     $this->mode = self::AFTER_AFTER_BODY;
-
                 } elseif ($token['type'] === HTML5_Tokenizer::EOF) {
                     /* Stop parsing */
 
@@ -3046,7 +3029,6 @@ class HTML5_TreeBuilder {
                     /* Append a Comment node to the current node with the data
                     attribute set to the data given in the comment token. */
                     $this->insertComment($token['data']);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::DOCTYPE) {
                     // parse error
 
@@ -3063,7 +3045,6 @@ class HTML5_TreeBuilder {
                     if (end($this->stack)->tagName === 'html') {
                         $this->ignored = true;
                         // Parse error
-
                     } else {
                         /* Otherwise, pop the current node from the stack of open
                         elements. */
@@ -3092,7 +3073,6 @@ class HTML5_TreeBuilder {
                 $token['name'] === 'noframes') {
                     /* Process the token using the rules for the "in head" insertion mode. */
                     $this->processwithRulesFor($token, self::IN_HEAD);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::EOF) {
                     // XERROR: If the current node is not the root html element, then this is a parse error.
                     /* Stop parsing */
@@ -3118,10 +3098,8 @@ class HTML5_TreeBuilder {
                     /* Append a Comment node to the current node with the data
                     attribute set to the data given in the comment token. */
                     $this->insertComment($token['data']);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::DOCTYPE) {
                     // parse error
-
                 } elseif ($token['type'] === HTML5_Tokenizer::STARTTAG && $token['name'] === 'html') {
                     $this->processWithRulesFor($token, self::IN_BODY);
 
@@ -3134,7 +3112,6 @@ class HTML5_TreeBuilder {
                 } elseif ($token['type'] === HTML5_Tokenizer::STARTTAG &&
                 $token['name'] === 'noframes') {
                     $this->processWithRulesFor($token, self::IN_HEAD);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::EOF) {
                     /* Stop parsing */
 
@@ -3153,7 +3130,6 @@ class HTML5_TreeBuilder {
                     // XDOM
                     $comment = $this->dom->createComment($token['data']);
                     $this->dom->appendChild($comment);
-
                 } elseif ($token['type'] === HTML5_Tokenizer::DOCTYPE ||
                 $token['type'] === HTML5_Tokenizer::SPACECHARACTER ||
                 ($token['type'] === HTML5_Tokenizer::STARTTAG && $token['name'] === 'html')) {
@@ -3301,7 +3277,6 @@ class HTML5_TreeBuilder {
                 'th', 'button', 'marquee', 'object']) ||
                 $node->tagName === 'foreignObject' && $node->namespaceURI === self::NS_SVG)) {
                 return false;
-
 
             // these are valid for "in list item scope"
             } elseif ($scope === self::SCOPE_LISTITEM && in_array($node->tagName, ['ol', 'ul'])) {
@@ -3695,10 +3670,8 @@ class HTML5_TreeBuilder {
 
         if (isset($table) && $table->parentNode !== null) {
             return $table->parentNode;
-
         } elseif (!isset($table)) {
             return $this->stack[0];
-
         } elseif (isset($table) && ($table->parentNode === null ||
         $table->parentNode->nodeType !== XML_ELEMENT_NODE)) {
             return $this->stack[$n - 1];

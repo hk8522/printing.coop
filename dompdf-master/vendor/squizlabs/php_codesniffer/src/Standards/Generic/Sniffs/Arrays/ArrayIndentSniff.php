@@ -14,14 +14,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ArrayIndentSniff extends AbstractArraySniff
 {
-
     /**
      * The number of spaces each array key should be indented.
      *
      * @var integer
      */
     public $indent = 4;
-
 
     /**
      * Processes a single-line array definition.
@@ -38,9 +36,7 @@ class ArrayIndentSniff extends AbstractArraySniff
      */
     public function processSingleLineArray($phpcsFile, $stackPtr, $arrayStart, $arrayEnd, $indices)
     {
-
     }//end processSingleLineArray()
-
 
     /**
      * Processes a multi-line array definition.
@@ -136,8 +132,5 @@ class ArrayIndentSniff extends AbstractArraySniff
         } else {
             $phpcsFile->fixer->replaceToken(($arrayEnd - 1), $padding);
         }
-
     }//end processMultiLineArray()
-
-
 }//end class

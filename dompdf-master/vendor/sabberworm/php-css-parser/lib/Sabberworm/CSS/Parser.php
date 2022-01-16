@@ -37,5 +37,4 @@ class Parser {
 	public function parse() {
 		return Document::parse($this->oParserState);
 	}
-
 }

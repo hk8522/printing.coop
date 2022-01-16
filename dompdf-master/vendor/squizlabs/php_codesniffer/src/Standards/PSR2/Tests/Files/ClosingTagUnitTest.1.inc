@@ -3,10 +3,10 @@
 echo 'hi';
 
 ?>
-    
+
 <?php
 
 echo 'bye';
 
 ?>
-  
+

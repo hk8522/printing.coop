@@ -2,11 +2,8 @@
 //root path relative to this include
 include_once (__DIR__ . "../../DataSource\Customer.php");
 
-
 class CustomerRepository{
-
     public function GetData(){
-
         $customer1 = new Customer("Recipient", "One", "recipient1@example.com", "Green");
         $customer2 = new Customer("Recipient", "Two", "recipient2@example.com", "Red");
         $customer3 = new Customer("Recipient", "Three", "recipient3@example.com", "Blue");
@@ -18,5 +15,4 @@ class CustomerRepository{
 
         return $results;
     }
-
 }

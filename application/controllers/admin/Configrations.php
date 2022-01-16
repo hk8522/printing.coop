@@ -28,7 +28,6 @@ class Configrations extends Admin_Controller
 		$MainStoreList=$this->Store_Model->MainStoreList();
 		$this->data['MainStoreList']=$MainStoreList;
 		$this->render($this->class_name.'index');
-
     }
 
 	public function addEdit($id=null)
@@ -68,10 +67,8 @@ class Configrations extends Admin_Controller
 				$postData['log_alt_teg_french'] = $this->input->post('log_alt_teg_french');
 
                 if(isset($_FILES['logo_image'])) {
-
 						$Filename = $_FILES['logo_image']['name'];
 						if (!empty($Filename)) {
-
 							$config['upload_path'] = LOGO_IMAGE_BASE_PATH;
 							$config['allowed_types'] = FILE_ALLOWED_TYPES;
 							$config['max_size'] = FILE_MAX_SIZE;
@@ -95,10 +92,8 @@ class Configrations extends Admin_Controller
 				}
 
 				if (isset($_FILES['logo_image_french'])) {
-
 						$Filename = $_FILES['logo_image_french']['name'];
 						if (!empty($Filename)) {
-
 							$config['upload_path'] = LOGO_IMAGE_BASE_PATH;
 							$config['allowed_types'] = FILE_ALLOWED_TYPES;
 							$config['max_size'] = FILE_MAX_SIZE;
@@ -115,15 +110,12 @@ class Configrations extends Admin_Controller
 								}
 								 $uploadData = $this->upload->data();
 								 $postData['logo_image_french'] = $uploadData['file_name'];
-
 							}
 						}
 				}
 				if (isset($_FILES['favicon'])) {
-
 						$Filename = $_FILES['favicon']['name'];
 						if (!empty($Filename)) {
-
 							$config['upload_path'] = LOGO_IMAGE_BASE_PATH;
 							$config['allowed_types'] = FILE_ALLOWED_TYPES;
 							$config['max_size'] = FILE_MAX_SIZE;
@@ -140,15 +132,12 @@ class Configrations extends Admin_Controller
 								}
 								 $uploadData = $this->upload->data();
 								 $postData['favicon'] = $uploadData['file_name'];
-
 							}
 						}
 				}
 				if (isset($_FILES['french_favicon'])) {
-
 						$Filename = $_FILES['french_favicon']['name'];
 						if (!empty($Filename)) {
-
 							$config['upload_path'] = LOGO_IMAGE_BASE_PATH;
 							$config['allowed_types'] = FILE_ALLOWED_TYPES;
 							$config['max_size'] = FILE_MAX_SIZE;
@@ -165,21 +154,16 @@ class Configrations extends Admin_Controller
 								}
 								 $uploadData = $this->upload->data();
 								 $postData['french_favicon'] = $uploadData['file_name'];
-
 							}
 						}
 				}
 				$insert =  $this->Configration_Model->saveData($postData);
 				if ($insert) {
-
 						$this->session->set_flashdata('message_success',' Configrations Updated Successfully.');
 						redirect('admin/Configrations');
 				}else{
-
 					$this->session->set_flashdata('message_success',' Configrations Updated Unsuccessfully.');
 					redirect('admin/Configrations/addEdit/'.$id);
 				}
-
-
 		}
     }

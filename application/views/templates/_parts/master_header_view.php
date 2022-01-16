@@ -8,13 +8,11 @@
 		$favicon_url= $BASE_URL.'assets/images/favicon.png';
 		$favicon='';
 		if($language_name=='French'){
-
 			$favicon=$configrations['french_favicon'];
 		}else{
 			$favicon=$configrations['favicon'];
 		}
 		if(!empty($favicon)){
-
 			$favicon_url = getLogoImages($favicon);
 		}
 
@@ -24,9 +22,7 @@
 			$meta_keywords_content='';
 			$page_title=$MainStoreData['name'].'-'.$page_title;
 		}else{
-
 			if(!empty($meta_page_title)){
-
 			    $page_title=$meta_page_title;
 		    }else{
 				$page_title=$MainStoreData['name'].'-'.$page_title;
@@ -79,7 +75,6 @@
   gtag('config', 'UA-183856793-1');
 </script>
 
-
 <?php if($website_store_id==1){?>
 	<?php if($language_name=='French'){ ?>
 		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7V7YLFS15"></script>
@@ -128,7 +123,6 @@
 			   if($language_name=='French'){
 			        echo $configrations['announcement_french'] ?? 'Proudly involved in the community! 10% discount for Community organizations, co-operatives, not-for-profit organizations and print reselling companies will benefit.';
 			   }else{
-
 					 echo $configrations['announcement'] ?? 'Proudly involved in the community! 10% discount for Community organizations, co-operatives, not-for-profit organizations and print reselling companies will benefit.';
 				}
 

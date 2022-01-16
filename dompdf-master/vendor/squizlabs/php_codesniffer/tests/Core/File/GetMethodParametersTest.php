@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Core\AbstractMethodUnitTest;
 
 class GetMethodParametersTest extends AbstractMethodUnitTest
 {
-
-
     /**
      * Verify pass-by-reference parsing.
      *
@@ -33,9 +31,7 @@ class GetMethodParametersTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodParametersTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testPassByReference()
-
 
     /**
      * Verify array hint parsing.
@@ -55,9 +51,7 @@ class GetMethodParametersTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodParametersTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testArrayHint()
-
 
     /**
      * Verify type hint parsing.
@@ -86,9 +80,7 @@ class GetMethodParametersTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodParametersTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testTypeHint()
-
 
     /**
      * Verify self type hint parsing.
@@ -108,9 +100,7 @@ class GetMethodParametersTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodParametersTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testSelfTypeHint()
-
 
     /**
      * Verify nullable type hint parsing.
@@ -139,9 +129,7 @@ class GetMethodParametersTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodParametersTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testNullableTypeHint()
-
 
     /**
      * Verify variable.
@@ -161,9 +149,7 @@ class GetMethodParametersTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodParametersTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testVariable()
-
 
     /**
      * Verify default value parsing with a single function param.
@@ -184,9 +170,7 @@ class GetMethodParametersTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodParametersTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testSingleDefaultValue()
-
 
     /**
      * Verify default value parsing.
@@ -216,9 +200,7 @@ class GetMethodParametersTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodParametersTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testDefaultValues()
-
 
     /**
      * Verify "bitwise and" in default value !== pass-by-reference.
@@ -239,9 +221,7 @@ class GetMethodParametersTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodParametersTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testBitwiseAndConstantExpressionDefaultValue()
-
 
     /**
      * Verify that arrow functions are supported.
@@ -270,9 +250,7 @@ class GetMethodParametersTest extends AbstractMethodUnitTest
         ];
 
         $this->getMethodParametersTestHelper('/* '.__FUNCTION__.' */', $expected);
-
     }//end testArrowFunction()
-
 
     /**
      * Test helper.
@@ -288,8 +266,5 @@ class GetMethodParametersTest extends AbstractMethodUnitTest
         $found    = self::$phpcsFile->getMethodParameters($function);
 
         $this->assertArraySubset($expected, $found, true);
-
     }//end getMethodParametersTestHelper()
-
-
 }//end class

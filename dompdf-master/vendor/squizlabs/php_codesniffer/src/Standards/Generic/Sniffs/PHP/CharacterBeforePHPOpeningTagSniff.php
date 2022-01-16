@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class CharacterBeforePHPOpeningTagSniff implements Sniff
 {
-
     /**
      * List of supported BOM definitions.
      *
@@ -28,7 +27,6 @@ class CharacterBeforePHPOpeningTagSniff implements Sniff
         'UTF-16 (LE)' => 'fffe',
     ];
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -37,9 +35,7 @@ class CharacterBeforePHPOpeningTagSniff implements Sniff
     public function register()
     {
         return [T_OPEN_TAG];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -79,8 +75,5 @@ class CharacterBeforePHPOpeningTagSniff implements Sniff
         // Skip the rest of the file so we don't pick up additional
         // open tags, typically embedded in HTML.
         return $phpcsFile->numTokens;
-
     }//end process()
-
-
 }//end class

@@ -117,11 +117,9 @@
 								</tr>
 							</thead>
 
-
 							<tbody>
 							    <?php
 								if(count($lists) > 0){
-
 									foreach($lists as $key=>$list){
 									?>
 									<tr>
@@ -210,7 +208,6 @@
 
 									</tr>
 								<?php
-
 								    }
 								}else{?>
 								    <tr>
@@ -236,8 +233,6 @@
 					</div>
 				</div>
 
-
-
 				</div><!-- /.box-body -->
 			</div><!-- /.box -->
 		</div><!-- /.col -->
@@ -248,10 +243,8 @@
  </script>
 <script>
 $(document).ready(function(){
-
     $('#example2').DataTable({
 		"order": [[ 3, "asc" ]]
 	});
-
 });
 </script>

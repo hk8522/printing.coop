@@ -59,5 +59,4 @@ class BundledComponentCollectionTest extends TestCase {
             $this->assertEquals(0, $key);
         }
     }
-
 }

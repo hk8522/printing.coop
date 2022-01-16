@@ -7,7 +7,6 @@ use Flagship\Shipping\Objects\Shipment;
 use Flagship\Shipping\Exceptions\EditShipmentException;
 
 class EditShipmentRequest extends Apirequest{
-
     protected $responseCode;
 
     public function __construct(string $baseUrl,string $token,array $payload,string $shipmentId, string $flagshipFor, string $version){
@@ -37,5 +36,4 @@ class EditShipmentRequest extends Apirequest{
         }
         return NULL;
     }
-
 }

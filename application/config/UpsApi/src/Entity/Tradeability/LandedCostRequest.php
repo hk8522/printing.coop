@@ -4,7 +4,6 @@ namespace Ups\Entity\Tradeability;
 
 class LandedCostRequest
 {
-
     /**
      * @var QueryRequest
      */

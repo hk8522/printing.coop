@@ -203,17 +203,17 @@ if ($a === true || $a === true || $a === true || $a === true ||
 
 if ($true) {
     /* First comment line
-    * 
+    *
     * Comment test here
     * Comment test here
-    * 
+    *
     */
-    
+
     /* First comment line
-    * 
+    *
     * Comment test here
     * Comment test here
-    * 
+    *
     this si something */
 }
 

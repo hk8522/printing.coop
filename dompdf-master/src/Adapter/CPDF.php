@@ -36,7 +36,6 @@ use Dompdf\PhpEvaluator;
  */
 class CPDF implements Canvas
 {
-
     /**
      * Dimensions of paper sizes in points
      *

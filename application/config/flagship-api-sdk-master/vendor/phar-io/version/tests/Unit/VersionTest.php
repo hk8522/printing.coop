@@ -100,5 +100,4 @@ class VersionTest extends TestCase {
             ['1.0.0-x.7.z.92', '1', '0', '0', 'x.7.z.92']
         ];
     }
-
 }

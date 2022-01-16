@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ValidLogicalOperatorsSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -27,9 +25,7 @@ class ValidLogicalOperatorsSniff implements Sniff
             T_LOGICAL_AND,
             T_LOGICAL_OR,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -60,8 +56,5 @@ class ValidLogicalOperatorsSniff implements Sniff
             $replacements[$operator],
         ];
         $phpcsFile->addError($error, $stackPtr, 'NotAllowed', $data);
-
     }//end process()
-
-
 }//end class

@@ -4,7 +4,6 @@
 
 class HTML5_Data
 {
-
     // at some point this should be moved to a .ser file. Another
     // possible optimization is to give UTF-8 bytes, not Unicode
     // codepoints
@@ -119,5 +118,4 @@ class HTML5_Data
 
         return $ret;
     }
-
 }

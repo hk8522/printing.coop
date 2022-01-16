@@ -18,7 +18,6 @@ use Dompdf\Frame;
  */
 class ListBullet extends AbstractFrameDecorator
 {
-
     const BULLET_PADDING = 1; // Distance from bullet to text in pt
     // As fraction of font size (including descent). See also DECO_THICKNESS.
     const BULLET_THICKNESS = 0.04; // Thickness of bullet outline. Screen: 0.08, print: better less, e.g. 0.04

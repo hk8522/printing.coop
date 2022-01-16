@@ -956,7 +956,6 @@ class Frame
         return $this->_is_cache["table"] = in_array($display, Style::$TABLE_TYPES);
     }
 
-
     /**
      * Inserts a new child at the beginning of the Frame
      *
@@ -1181,7 +1180,6 @@ class Frame
 //     if ( $this->is_text_node() &&
 //          preg_replace("/\s/", "", $this->_node->data) === "" )
 //       return "";
-
 
         $str = "<b>" . $this->_node->nodeName . ":</b><br/>";
         //$str .= spl_object_hash($this->_node) . "<br/>";

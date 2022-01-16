@@ -59,7 +59,6 @@ if ( ! class_exists('CI_Xmlrpc', FALSE))
  * @link		https://codeigniter.com/user_guide/libraries/xmlrpc.html
  */
 class CI_Xmlrpcs extends CI_Xmlrpc {
-
 	/**
 	 * Array of methods mapped to function names and signatures
 	 *
@@ -615,5 +614,4 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 
 		return new XML_RPC_Values(array($result->value()), 'array');
 	}
-
 }

@@ -16,8 +16,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ValidVariableNameSniff extends AbstractVariableSniff
 {
-
-
     /**
      * Processes this test, when one of its tokens is encountered.
      *
@@ -87,9 +85,7 @@ class ValidVariableNameSniff extends AbstractVariableSniff
             $data  = [$originalVarName];
             $phpcsFile->addError($error, $stackPtr, 'NotCamelCaps', $data);
         }
-
     }//end processVariable()
-
 
     /**
      * Processes class member variables.
@@ -140,9 +136,7 @@ class ValidVariableNameSniff extends AbstractVariableSniff
             $error = 'Member variable "%s" is not in valid camel caps format';
             $phpcsFile->addError($error, $stackPtr, 'MemberNotCamelCaps', $errorData);
         }
-
     }//end processMemberVar()
-
 
     /**
      * Processes the variable found within a double quoted string.
@@ -171,8 +165,5 @@ class ValidVariableNameSniff extends AbstractVariableSniff
                 }
             }
         }
-
     }//end processVariableInString()
-
-
 }//end class

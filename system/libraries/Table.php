@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/table.html
  */
 class CI_Table {
-
 	/**
 	 * Data for table rows
 	 *
@@ -534,5 +533,4 @@ class CI_Table {
 			'table_close'		=> '</table>'
 		);
 	}
-
 }

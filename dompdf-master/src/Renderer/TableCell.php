@@ -17,7 +17,6 @@ use Dompdf\FrameDecorator\Table;
  */
 class TableCell extends Block
 {
-
     /**
      * @param Frame $frame
      */
@@ -36,7 +35,6 @@ class TableCell extends Block
 
         $this->_set_opacity($frame->get_opacity($style->opacity));
         list($x, $y, $w, $h) = $frame->get_border_box();
-
 
         $table = Table::find_parent_table($frame);
 

@@ -28,8 +28,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class UnnecessaryFinalModifierSniff implements Sniff
 {
-
-
     /**
      * Registers the tokens that this sniff wants to listen for.
      *
@@ -38,9 +36,7 @@ class UnnecessaryFinalModifierSniff implements Sniff
     public function register()
     {
         return [T_CLASS];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -78,8 +74,5 @@ class UnnecessaryFinalModifierSniff implements Sniff
                 $phpcsFile->addWarning($error, $next, 'Found');
             }
         }
-
     }//end process()
-
-
 }//end class

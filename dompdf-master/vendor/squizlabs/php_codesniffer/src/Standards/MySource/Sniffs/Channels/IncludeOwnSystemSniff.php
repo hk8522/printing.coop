@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Files\File;
 
 class IncludeOwnSystemSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -24,9 +22,7 @@ class IncludeOwnSystemSniff implements Sniff
     public function register()
     {
         return [T_DOUBLE_COLON];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -70,9 +66,7 @@ class IncludeOwnSystemSniff implements Sniff
             $data  = [$ownClass];
             $phpcsFile->addError($error, $stackPtr, 'NotRequired', $data);
         }
-
     }//end process()
-
 
     /**
      * Determines the included class name from given token.
@@ -89,10 +83,6 @@ class IncludeOwnSystemSniff implements Sniff
         array $tokens,
         $stackPtr
     ) {
-
         return false;
-
     }//end getIncludedClassFromToken()
-
-
 }//end class

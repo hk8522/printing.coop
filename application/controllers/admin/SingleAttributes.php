@@ -12,7 +12,6 @@ class SingleAttributes extends Admin_Controller
 	}
 
     public function index(){
-
         $this->load->model('Product_Model');
 		$this->data['page_title']                   = 'Product Attributes';
 		$this->data['sub_page_title']               = 'Add New Attribute';
@@ -44,7 +43,6 @@ class SingleAttributes extends Admin_Controller
 			$this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
 
 			if(!empty($id)){
-
 			   $postData['id']=$this->input->post('id');
 			}
 
@@ -60,11 +58,9 @@ class SingleAttributes extends Admin_Controller
 
 			if($this->form_validation->run()===TRUE)
 			{
-
 				$saveData=true;
 
 				if($saveData){
-
 					$insert_id=$this->Product_Model->saveAttributes($postData);
 
 					if ($insert_id > 0)
@@ -72,8 +68,6 @@ class SingleAttributes extends Admin_Controller
                                 $data = array();
 
 								foreach($attribute_item_name as $k=>$v) {
-
-
 									$sdata=array();
 									$sdata['id']=$attribute_item_id[$k];
 
@@ -95,9 +89,7 @@ class SingleAttributes extends Admin_Controller
 						$this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 					}
 				}
-
 			}else{
-
 				$this->session->set_flashdata('message_error','Missing information.');
 			}
 		}
@@ -107,15 +99,12 @@ class SingleAttributes extends Admin_Controller
     }
     public function activeInactiveAttribute($id=null,$status=null)
     {
-
         if(!empty($id) && ($status==1 || $status==0)){
-
 			    $postData['id']=$id;
 		        $postData['status']=$status;
 				$page_title='Attributes Active';
 				$this->load->model('Product_Model');
 				if($status==0){
-
 					$page_title='Attributes Inactive';
 				}
 				if ($this->Product_Model->saveAttributes($postData))
@@ -127,7 +116,6 @@ class SingleAttributes extends Admin_Controller
 				    $this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 				}
 		}else{
-
 			$this->session->set_flashdata('message_error','Missing information.');
 	    }
 		redirect('admin/SingleAttributes');
@@ -136,21 +124,17 @@ class SingleAttributes extends Admin_Controller
 	public function deleteAttribute($id=null)
     {
         if(!empty($id)){
-
-
 				$page_title='Attributes Delete';
 				$this->load->model('Product_Model');
 				if ($this->Product_Model->deleteAttributes($id))
 				{
 					$this->session->set_flashdata('message_success',$page_title.' Successfully.');
-
 				}
 				else
 				{
 				    $this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 				}
 		}else{
-
 			$this->session->set_flashdata('message_error','Missing information.');
 	    }
 		redirect('admin/SingleAttributes');

@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/file_uploading.html
  */
 class CI_Upload {
-
 	/**
 	 * Maximum file size
 	 *
@@ -1322,5 +1321,4 @@ class CI_Upload {
 
 		$this->file_type = $file['type'];
 	}
-
 }

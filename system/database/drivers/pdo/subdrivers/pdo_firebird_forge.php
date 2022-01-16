@@ -45,7 +45,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_pdo_firebird_forge extends CI_DB_pdo_forge {
-
 	/**
 	 * RENAME TABLE statement
 	 *
@@ -233,5 +232,4 @@ class CI_DB_pdo_firebird_forge extends CI_DB_pdo_forge {
 	{
 		// Not supported
 	}
-
 }

@@ -48,7 +48,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @deprecated	3.0.0	This was never a good idea in the first place.
  */
 class CI_Javascript {
-
 	/**
 	 * JavaScript location
 	 *
@@ -478,7 +477,6 @@ class CI_Javascript {
 	public function slideUp($element = 'this', $speed = '', $callback = '')
 	{
 		return $this->js->_slideUp($element, $speed, $callback);
-
 	}
 
 	// --------------------------------------------------------------------
@@ -529,7 +527,6 @@ class CI_Javascript {
 	public function slideToggle($element = 'this', $speed = '', $callback = '')
 	{
 		return $this->js->_slideToggle($element, $speed, $callback);
-
 	}
 
 	// --------------------------------------------------------------------
@@ -562,7 +559,6 @@ class CI_Javascript {
 	public function toggle($element = 'this')
 	{
 		return $this->js->_toggle($element);
-
 	}
 
 	// --------------------------------------------------------------------
@@ -796,7 +792,6 @@ class CI_Javascript {
 		$json = implode(',', $json);
 
 		return $_is_assoc ? '{'.$json.'}' : '['.$json.']';
-
 	}
 
 	// --------------------------------------------------------------------
@@ -852,5 +847,4 @@ class CI_Javascript {
 			return $result;
 		}
 	}
-
 }

@@ -20,7 +20,6 @@ function  blah()
 
 var object =
 {
-
     someFunctionWithAVeryLongName: function (firstParameter='something',
         secondParameter='booooo', third=null, fourthParameter=false,
         fifthParameter=123.12, sixthParam=true
@@ -31,7 +30,6 @@ var object =
         firstParameter='something', secondParameter='booooo', third=null
     ) {
     }
-
 }
 
 function getInstalledStandards(

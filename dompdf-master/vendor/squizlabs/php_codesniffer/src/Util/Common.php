@@ -11,7 +11,6 @@ namespace PHP_CodeSniffer\Util;
 
 class Common
 {
-
     /**
      * An array of variable types for param/var we will check.
      *
@@ -29,7 +28,6 @@ class Common
         'callable',
     ];
 
-
     /**
      * Return TRUE if the path is a PHAR file.
      *
@@ -44,9 +42,7 @@ class Common
         }
 
         return false;
-
     }//end isPharFile()
-
 
     /**
      * CodeSniffer alternative for realpath.
@@ -97,9 +93,7 @@ class Common
         }
 
         return false;
-
     }//end realpath()
-
 
     /**
      * Removes a base path from the front of a file path.
@@ -127,9 +121,7 @@ class Common
         }
 
         return $path;
-
     }//end stripBasepath()
-
 
     /**
      * Detects the EOL character being used in a string.
@@ -148,9 +140,7 @@ class Common
         }
 
         return $eolChar;
-
     }//end detectLineEndings()
-
 
     /**
      * Check if STDIN is a TTY.
@@ -207,9 +197,7 @@ class Common
         $isTTY = ($mode !== $type['S_IFIFO']);
 
         return $isTTY;
-
     }//end isStdinATTY()
-
 
     /**
      * Prepares token content for output to screen.
@@ -256,9 +244,7 @@ class Common
         }//end if
 
         return $content;
-
     }//end prepareForOutput()
-
 
     /**
      * Returns true if the specified string is in the camel caps format.
@@ -341,9 +327,7 @@ class Common
         }//end if
 
         return true;
-
     }//end isCamelCaps()
-
 
     /**
      * Returns true if the specified string is in the underscore caps format.
@@ -379,9 +363,7 @@ class Common
         }
 
         return $validName;
-
     }//end isUnderscoreName()
-
 
     /**
      * Returns a valid variable type for param/var tags.
@@ -453,9 +435,7 @@ class Common
                 return $varType;
             }//end if
         }//end if
-
     }//end suggestType()
-
 
     /**
      * Given a sniff class name, returns the code for the sniff.
@@ -482,9 +462,7 @@ class Common
         $standard = array_pop($parts);
         $code     = $standard.'.'.$category.'.'.$sniff;
         return $code;
-
     }//end getSniffCode()
-
 
     /**
      * Removes project-specific information from a sniff class name.
@@ -513,8 +491,5 @@ class Common
 
         $newName = substr($newName, ($start + 1));
         return $newName;
-
     }//end cleanSniffClass()
-
-
 }//end class

@@ -1,7 +1,5 @@
 
 
-
-
 /**
 *
 * 0Multi-line short description without full stop
@@ -30,7 +28,6 @@
 * @summary    An unknown summary tag
 *
 */
-
 
 /**
 * This bit here is not qualified as file comment

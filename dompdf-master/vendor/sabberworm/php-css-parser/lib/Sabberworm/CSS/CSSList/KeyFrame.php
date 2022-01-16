@@ -5,7 +5,6 @@ namespace Sabberworm\CSS\CSSList;
 use Sabberworm\CSS\Property\AtRule;
 
 class KeyFrame extends CSSList implements AtRule {
-
 	private $vendorKeyFrame;
 	private $animationName;
 

@@ -7,7 +7,6 @@ use Flagship\Shipping\Objects\Rate;
 use Flagship\Shipping\Exceptions\QuoteException;
 
 class RatesCollectionTest extends TestCase{
-
     public function testGetCheapest(){
         $this->assertNotEmpty($this->ratesCollection->getCheapest());
         $this->assertNotNull($this->ratesCollection->getCheapest());
@@ -44,7 +43,6 @@ class RatesCollectionTest extends TestCase{
     }
 
     public function testGetByCourierForException(){
-
         $this->expectException(QuoteException::class);
         $this->ratesCollection->getByCourier('fedex');
     }

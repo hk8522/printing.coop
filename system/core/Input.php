@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/input.html
  */
 class CI_Input {
-
 	/**
 	 * IP address of the current user
 	 *
@@ -891,5 +890,4 @@ class CI_Input {
 			return $this->ip_address;
 		}
 	}
-
 }

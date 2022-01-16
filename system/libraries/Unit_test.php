@@ -49,7 +49,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/unit_testing.html
  */
 class CI_Unit_test {
-
 	/**
 	 * Active flag
 	 *
@@ -380,7 +379,6 @@ class CI_Unit_test {
 		$this->_template_rows = $match[1];
 		$this->_template = str_replace($match[0], '{rows}', $this->_template);
 	}
-
 }
 
 /**

@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ForEachLoopDeclarationSniff implements Sniff
 {
-
     /**
      * How many spaces should follow the opening bracket.
      *
@@ -29,7 +28,6 @@ class ForEachLoopDeclarationSniff implements Sniff
      */
     public $requiredSpacesBeforeClose = 0;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -38,9 +36,7 @@ class ForEachLoopDeclarationSniff implements Sniff
     public function register()
     {
         return [T_FOREACH];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -229,8 +225,5 @@ class ForEachLoopDeclarationSniff implements Sniff
                 }
             }
         }
-
     }//end process()
-
-
 }//end class

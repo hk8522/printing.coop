@@ -8,7 +8,6 @@ use Flagship\Shipping\Exceptions\CreatePickupException;
 use Flagship\Shipping\Objects\Pickup;
 
 class CreatePickupTests extends TestCase{
-
     public function testGetId(){
         $this->assertNotNull($this->pickup->getId());
         $this->assertSame(1276084,$this->pickup->getId());
@@ -146,7 +145,6 @@ class CreatePickupTests extends TestCase{
     }
 
     protected function setUp(){
-
         $response = '{
                 "id": "1276084",
                 "confirmation": "3145714",

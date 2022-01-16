@@ -14,8 +14,6 @@ use PHPUnit\Framework\TestResult;
 
 class TestSuite extends PHPUnit_TestSuite
 {
-
-
     /**
      * Runs the tests and collects their result in a TestResult.
      *
@@ -28,8 +26,5 @@ class TestSuite extends PHPUnit_TestSuite
         $result = parent::run($result);
         printPHPCodeSnifferTestOutput();
         return $result;
-
     }//end run()
-
-
 }//end class

@@ -15,7 +15,6 @@ use Dompdf\Frame;
  */
 class FrameListIterator implements Iterator
 {
-
     /**
      * @var Frame
      */

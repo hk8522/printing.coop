@@ -35,7 +35,6 @@ $customers = $repo->GetData();
 
 // Merge in the customers from the datasource
 foreach($customers as $customer){
-
     $recipient = new BulkRecipient($customer->email);
 
     $recipient->addMergeData("FirstName", $customer->firstName);
@@ -44,6 +43,5 @@ foreach($customers as $customer){
 
     $message->addToAddress($recipient);
 }
-
 
 $response = $client->send($message);

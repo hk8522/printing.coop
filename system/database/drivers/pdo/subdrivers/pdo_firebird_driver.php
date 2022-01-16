@@ -51,7 +51,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_pdo_firebird_driver extends CI_DB_pdo_driver {
-
 	/**
 	 * Sub-driver
 	 *

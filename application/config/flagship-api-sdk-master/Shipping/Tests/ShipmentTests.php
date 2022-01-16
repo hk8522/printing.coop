@@ -5,7 +5,6 @@ use \PHPUnit\Framework\TestCase;
 use Flagship\Shipping\Objects\Shipment;
 
 class ShipmentTests extends TestCase{
-
     public function testGetId(){
        $this->assertNotNull($this->shipment->getId());
        $this->assertSame(2950191, $this->shipment->getId());
@@ -72,7 +71,6 @@ class ShipmentTests extends TestCase{
     }
 
     public function testGetCommercialInvoice(){
-
        $this->assertSame(NULL, $this->shipment->getCommercialInvoice());
     }
 

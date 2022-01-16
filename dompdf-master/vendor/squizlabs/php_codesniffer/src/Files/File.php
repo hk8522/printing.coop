@@ -18,7 +18,6 @@ use PHP_CodeSniffer\Exceptions\TokenizerException;
 
 class File
 {
-
     /**
      * The absolute path to the file associated with this object.
      *
@@ -221,7 +220,6 @@ class File
      */
     protected $configCache = [];
 
-
     /**
      * Constructs a file.
      *
@@ -255,9 +253,7 @@ class File
         $this->configCache['recordErrors']    = $this->config->recordErrors;
         $this->configCache['ignorePatterns']  = $this->ruleset->ignorePatterns;
         $this->configCache['includePatterns'] = $this->ruleset->includePatterns;
-
     }//end __construct()
-
 
     /**
      * Set the content of the file.
@@ -279,9 +275,7 @@ class File
             $this->addWarningOnLine($e->getMessage(), 1, 'Internal.DetectLineEndings');
             return;
         }
-
     }//end setContent()
-
 
     /**
      * Reloads the content of the file.
@@ -293,9 +287,7 @@ class File
      */
     public function reloadContent()
     {
-
     }//end reloadContent()
-
 
     /**
      * Disables caching of this file.
@@ -305,9 +297,7 @@ class File
     public function disableCaching()
     {
         $this->configCache['cache'] = false;
-
     }//end disableCaching()
-
 
     /**
      * Starts the stack traversal and tells listeners when tokens are found.
@@ -542,9 +532,7 @@ class File
         }
 
         $this->fixedCount += $this->fixer->getFixCount();
-
     }//end process()
-
 
     /**
      * Tokenizes the file and prepares it for the test run.
@@ -603,9 +591,7 @@ class File
                 echo PHP_EOL;
             }
         }
-
     }//end parse()
-
 
     /**
      * Returns the token stack for this file.
@@ -615,9 +601,7 @@ class File
     public function getTokens()
     {
         return $this->tokens;
-
     }//end getTokens()
-
 
     /**
      * Remove vars stored in this file that are no longer required.
@@ -634,9 +618,7 @@ class File
         $this->fixer         = null;
         $this->config        = null;
         $this->ruleset       = null;
-
     }//end cleanUp()
-
 
     /**
      * Records an error against a specific token in the file.
@@ -668,9 +650,7 @@ class File
         }
 
         return $this->addMessage(true, $error, $line, $column, $code, $data, $severity, $fixable);
-
     }//end addError()
-
 
     /**
      * Records a warning against a specific token in the file.
@@ -702,9 +682,7 @@ class File
         }
 
         return $this->addMessage(false, $warning, $line, $column, $code, $data, $severity, $fixable);
-
     }//end addWarning()
-
 
     /**
      * Records an error against a specific line in the file.
@@ -726,9 +704,7 @@ class File
         $severity=0
     ) {
         return $this->addMessage(true, $error, $line, 1, $code, $data, $severity, false);
-
     }//end addErrorOnLine()
-
 
     /**
      * Records a warning against a specific token in the file.
@@ -750,9 +726,7 @@ class File
         $severity=0
     ) {
         return $this->addMessage(false, $warning, $line, 1, $code, $data, $severity, false);
-
     }//end addWarningOnLine()
-
 
     /**
      * Records a fixable error against a specific token in the file.
@@ -781,9 +755,7 @@ class File
         }
 
         return false;
-
     }//end addFixableError()
-
 
     /**
      * Records a fixable warning against a specific token in the file.
@@ -812,9 +784,7 @@ class File
         }
 
         return false;
-
     }//end addFixableWarning()
-
 
     /**
      * Adds an error to the error stack.
@@ -1076,9 +1046,7 @@ class File
         }
 
         return true;
-
     }//end addMessage()
-
 
     /**
      * Record a metric about the file being examined.
@@ -1104,9 +1072,7 @@ class File
         }
 
         return true;
-
     }//end recordMetric()
-
 
     /**
      * Returns the number of errors raised.
@@ -1116,9 +1082,7 @@ class File
     public function getErrorCount()
     {
         return $this->errorCount;
-
     }//end getErrorCount()
-
 
     /**
      * Returns the number of warnings raised.
@@ -1128,9 +1092,7 @@ class File
     public function getWarningCount()
     {
         return $this->warningCount;
-
     }//end getWarningCount()
-
 
     /**
      * Returns the number of fixable errors/warnings raised.
@@ -1140,9 +1102,7 @@ class File
     public function getFixableCount()
     {
         return $this->fixableCount;
-
     }//end getFixableCount()
-
 
     /**
      * Returns the number of fixed errors/warnings.
@@ -1152,9 +1112,7 @@ class File
     public function getFixedCount()
     {
         return $this->fixedCount;
-
     }//end getFixedCount()
-
 
     /**
      * Returns the list of ignored lines.
@@ -1164,9 +1122,7 @@ class File
     public function getIgnoredLines()
     {
         return $this->tokenizer->ignoredLines;
-
     }//end getIgnoredLines()
-
 
     /**
      * Returns the errors raised from processing this file.
@@ -1176,9 +1132,7 @@ class File
     public function getErrors()
     {
         return $this->errors;
-
     }//end getErrors()
-
 
     /**
      * Returns the warnings raised from processing this file.
@@ -1188,9 +1142,7 @@ class File
     public function getWarnings()
     {
         return $this->warnings;
-
     }//end getWarnings()
-
 
     /**
      * Returns the metrics found while processing this file.
@@ -1200,9 +1152,7 @@ class File
     public function getMetrics()
     {
         return $this->metrics;
-
     }//end getMetrics()
-
 
     /**
      * Returns the absolute filename of this file.
@@ -1212,9 +1162,7 @@ class File
     public function getFilename()
     {
         return $this->path;
-
     }//end getFilename()
-
 
     /**
      * Returns the declaration names for classes, interfaces, traits, and functions.
@@ -1263,9 +1211,7 @@ class File
         }
 
         return $content;
-
     }//end getDeclarationName()
-
 
     /**
      * Returns the method parameters for the specified function token.
@@ -1519,9 +1465,7 @@ class File
         }//end for
 
         return $vars;
-
     }//end getMethodParameters()
-
 
     /**
      * Returns the visibility and implementation properties of a method.
@@ -1680,9 +1624,7 @@ class File
             'is_static'            => $isStatic,
             'has_body'             => $hasBody,
         ];
-
     }//end getMethodProperties()
-
 
     /**
      * Returns the visibility and implementation properties of a class member var.
@@ -1851,9 +1793,7 @@ class File
             'type_end_token'  => $typeEndToken,
             'nullable_type'   => $nullableType,
         ];
-
     }//end getMemberProperties()
-
 
     /**
      * Returns the visibility and implementation properties of a class.
@@ -1910,9 +1850,7 @@ class File
             'is_abstract' => $isAbstract,
             'is_final'    => $isFinal,
         ];
-
     }//end getClassProperties()
-
 
     /**
      * Determine if the passed token is a reference operator.
@@ -2045,9 +1983,7 @@ class File
         }//end if
 
         return false;
-
     }//end isReference()
-
 
     /**
      * Returns the content of the tokens from the specified start position in
@@ -2088,9 +2024,7 @@ class File
         }
 
         return $str;
-
     }//end getTokensAsString()
-
 
     /**
      * Returns the position of the previous specified token(s).
@@ -2169,9 +2103,7 @@ class File
         }//end for
 
         return false;
-
     }//end findPrevious()
-
 
     /**
      * Returns the position of the next specified token(s).
@@ -2236,9 +2168,7 @@ class File
         }//end for
 
         return false;
-
     }//end findNext()
-
 
     /**
      * Returns the position of the first non-whitespace token in a statement.
@@ -2299,9 +2229,7 @@ class File
         }//end for
 
         return 0;
-
     }//end findStartOfStatement()
-
 
     /**
      * Returns the position of the last non-whitespace token in a statement.
@@ -2387,9 +2315,7 @@ class File
         }//end for
 
         return ($this->numTokens - 1);
-
     }//end findEndOfStatement()
-
 
     /**
      * Returns the position of the first token on a line, matching given type.
@@ -2446,9 +2372,7 @@ class File
         }//end for
 
         return $foundToken;
-
     }//end findFirstOnLine()
-
 
     /**
      * Determine if the passed token has a condition of one of the passed types.
@@ -2481,9 +2405,7 @@ class File
         }
 
         return false;
-
     }//end hasCondition()
-
 
     /**
      * Return the position of the condition for the passed token.
@@ -2523,9 +2445,7 @@ class File
         }
 
         return false;
-
     }//end getCondition()
-
 
     /**
      * Returns the name of the class that the specified class extends.
@@ -2576,9 +2496,7 @@ class File
         }
 
         return $name;
-
     }//end findExtendedClassName()
-
 
     /**
      * Returns the names of the interfaces that the specified class implements.
@@ -2630,8 +2548,5 @@ class File
             $names = array_map('trim', $names);
             return $names;
         }
-
     }//end findImplementedInterfaceNames()
-
-
 }//end class

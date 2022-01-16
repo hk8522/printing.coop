@@ -82,12 +82,9 @@
 							<tbody>
 							    <?php
 								if(count($lists) > 0){
-
 									foreach($lists as $key=>$list){
-
 										$currency_id=$list['currency_id'];
 										if(empty($currency_id)){
-
 											$currency_id=1;
 										}
 										$OrderCurrencyData=$CurrencyList[$currency_id];
@@ -110,7 +107,6 @@
 											 <?php if(!empty($list['preffered_customer_discount']) && $list['preffered_customer_discount'] !="0.00"){
 											  echo $order_currency_currency_symbol.number_format($list['preffered_customer_discount'],2);
 											 }else{
-
 											    echo "-";
 											 }
 											  ?>
@@ -119,7 +115,6 @@
 											 <?php if(!empty($list['coupon_discount_amount']) && $list['coupon_discount_amount'] !="0.00"){
 											  echo $order_currency_currency_symbol.number_format($list['coupon_discount_amount'],2);
 											 }else{
-
 											    echo "-";
 											 }
 											  ?>
@@ -141,10 +136,8 @@
 									        <?php echo $salesTaxRatesProvinces_Data['type']?> <?php echo number_format($salesTaxRatesProvinces_Data['total_tax_rate'],2);?>%<br>
                                             <strong>
 
-
 	                                       <?php
 	                                       echo $product_price_currency_symbol.number_format($list['total_sales_tax'],2);?>
-
 
 										  </strong>
 										 </span>
@@ -201,36 +194,26 @@
 											   unset($status_array[1],$status_array[7],$status_array[8]);
 
 											    if(in_array($list['status'],array(3))){
-
 											        unset($status_array[2]);
-
 											    }
 
 												if(in_array($list['status'],array(4))){
-
 													   unset($status_array[2]);
 												       unset($status_array[3]);
 													    unset($status_array[9]);
-
-
 											    }
 												if(in_array($list['status'],array(9))){
-
 													   unset($status_array[2]);
 												       unset($status_array[3]);
 													   unset($status_array[4]);
-
-
 											    }
 												if(in_array($list['status'],array(5))){
-
 												       unset($status_array[2]);
 												       unset($status_array[3]);
 													   unset($status_array[4]);
 													   unset($status_array[5]);
 													   unset($status_array[6]);
 													   unset($status_array[9]);
-
 											    }
 
 												if(in_array($list['status'],array(6))){
@@ -240,12 +223,7 @@
 													   unset($status_array[5]);
 													   unset($status_array[6]);
 													   unset($status_array[9]);
-
-
-
 											    }
-
-
 
 											if(in_array($list['status'],array(2,3,4,9))){
 											?>
@@ -255,7 +233,6 @@
 									           Change Order Status
 											</option>-->
 											<?php
-
 
 											foreach($status_array as $k=>$v){
 											 $selected='';
@@ -284,9 +261,7 @@
 												 <i class="far fa-eye fa-lg"></i>
 												</a>
 
-
 											</td>
-
 
 											<td>
 											  <?php if(in_array($list['status'],array(5,6,7))){ ?>
@@ -296,7 +271,6 @@
 											  <?php
 											  } ?>
 											  <?php if(in_array($list['status'],array(4,5)) && !empty($list['shipment_id']) && !empty($list['tracking_number']) && !empty($list['labels_regular']) && !empty($list['labels_thermal'])){
-
 											  ?>
 
                                                <!--<label>Order shipment Id:<?php echo $list['shipment_id']?></label>
@@ -318,7 +292,6 @@
 											</td>
 										</tr>
 								<?php
-
 								    }
 								}else{?>
 								    <tr>
@@ -330,8 +303,6 @@
 						</table>
 					</div>
 				</div>
-
-
 
 				</div><!-- /.box-body -->
 			</div><!-- /.box -->
@@ -432,26 +403,18 @@
  </script>
 <script>
 	$(document).ready(function(){
-
 		$('#example1').DataTable({
-
 			"order": [[ 0, "desc" ]]
 		});
-
 	});
 
     function changeOrderStatus(order_id,status,page_status,order_id_new,payment_status) {
-
 		$("#btnSubmit").attr("disabled",true);
 		var orderStatus =$("#orderStatus-"+order_id).val();
 		if(status ==''){
-
 			return false;
-
 		}else if(orderStatus ==status ){
-
 		    return false;
-
 	    }else if((status == 3 || status == 4 || status == 5 || status == 8) && (payment_status ==1 || payment_status ==3)){
 		   alert("This order payment has been not done so you can't change status");
 		   return false;
@@ -470,16 +433,12 @@
 						$("#order_id_new").val(order_id_new);
 						$("#btnSubmit").attr("disabled",false);
 						$("#myModalBody").html(data);
-
 				    }
 			});
-
-
 		}
 	}
 
 	$("#commentform").submit(function(e) {
-
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 		var form = $(this);
 		var formsubmit=true;
@@ -499,80 +458,59 @@
 
 				   success: function(data)
 				   {
-
-
 						$("#loder-img").hide();
 						var json = JSON.parse(data);
 				        var res=json.status;
 					    var msg=json.msg;
 
-
 						if(res==1){
-
 							location.reload();
 
 							if(page_status=='all'){
-
 							  if(status=='3'){
-
 								$("#td-"+order_id).html('<?php echo getOrderSatusClass(3)?>');
-
 							  }else if(status=='4') {
-
 							      $("#td-"+order_id).html('<?php echo getOrderSatusClass(4)?>');
-
-
 						      }else if(status=='5'){
-
 								$("#td-"+order_id).html('<?php echo getOrderSatusClass(5)?>');
 							  }else if(status=='6'){
 								  $("#td-"+order_id).html('<?php echo getOrderSatusClass(6)?>');
 							  }
-
 						    }else{
-
 							   $("#row-"+order_id).remove();
 						    }
 
 							$("#MsgError").html('<label style="color:green">'+msg+'</label>');
 
 							setTimeout(function(){
-
 								$("#btnSubmit").attr("disabled",false);
 
 								$("#MsgError").html('');
 							    $("#myModal").modal('hide');
 								location.reload();
-
 							  }, 2000
 							);
-
 						}else{
 							$("#btnSubmit").attr("disabled",false);
 							$("#MsgError").html('<label style="color:red">'+msg+'</label>');
 						}
 				   },
 				   error: function (error) {
-
 					  $("#btnSubmit").attr("disabled",false);
 				   }
 			});
-
 		}else{
-
 			$("#btnSubmit").attr("disabled",false);
 		}
     });
 
 	function changeOrderPaymentStatus(order_id,payment_status){
-
 		$("#PMsgError").html('');
 		$("#payment_order_id").val(order_id);
 		$("#payment_status").val(payment_status);
 		$("#myPaymentModal").modal('show');
 
 		/*if(status !='' && order_id !=''){
-
 			$("#loder-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Orders/changeOrderPaymentStatus';
 				$.ajax({
@@ -587,27 +525,19 @@
 							var msg=json.msg;
 
 							if(status==1){
-
 								location.reload();
 								$("#PaymentStatus-"+order_id).html('<button type="button" class="btn btn-sm btn-warning  ">Pending</button>');
-
 							}else{
-
 								$("#PaymentStatus-"+order_id).html('<button type="button" class="btn btn-sm btn-info">Success</button>');
-
 							}
-
 					   },
 					   error: function (error) {
-
-
 					   }
 				});
 			}*/
 	}
 
 	$("#PaymentFrom").submit(function(e) {
-
 		e.preventDefault(); // avoid to execute the actual submit of the form.
 		var form = $(this);
 		var formsubmit=true;
@@ -618,7 +548,6 @@
 		var transition_id =$("#transition_id").val();
 
 		if(formsubmit==true){
-
 			$("#loder-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Orders/changeOrderPaymentStatus';
 			$.ajax({
@@ -636,13 +565,11 @@
 						if(res==1){
 							location.reload();
 						}else{
-
 							$("#PbtnSubmit").attr("disabled",false);
 							$("#PMsgError").html('<label style="color:red">'+msg+'</label>');
 						}
 				   },
 				   error: function (error) {
-
 					  $("#PbtnSubmit").attr("disabled",false);
 				   }
 			});
@@ -663,7 +590,6 @@
 				    success: function(data)
 				    {
 						$("#OrderTrackingModalBody").html(data);
-
 				    }
 			});
 		}

@@ -9,7 +9,6 @@ use Flagship\Shipping\Requests\GetShipmentListRequest;
 use Flagship\Shipping\Objects\Shipment;
 
 class GetShipmentListTests extends TestCase{
-
     public function testGetById(){
         $this->expectException(GetShipmentListException::class);
         $this->assertNotNull($this->shipmentList->getById(253858));
@@ -1049,6 +1048,5 @@ class GetShipmentListTests extends TestCase{
         $this->shipmentListRequest = $this->getShipmentListRequest->execute();
         $this->shipmentList = new GetShipmentListCollection();
         $this->shipmentList->importShipments(json_decode($response));
-
     }
 }

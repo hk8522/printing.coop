@@ -16,11 +16,10 @@ var displayData = function(fileNameOfExample) {
             fileNameOfExample : fileNameOfExample
         },
         success: function(data) {
-
             // // tab1 - Example Code
             // var exCode = data[0];
             // // remove all carriage returns so the <pre> tags work properly
-            // exCode = exCode.replace(/[\n\r]/g, ''); 
+            // exCode = exCode.replace(/[\n\r]/g, '');
             // document.getElementById("codeExample").innerHTML = '<pre>' + exCode + '</pre>';
 
             // // tab2 - Response JSON
@@ -42,7 +41,6 @@ var displayData = function(fileNameOfExample) {
             // // get rid of the path/file name in the output since we don't need to display it
             // variableValues = variableValues.replace(/<small>[\s\S]*?<\/small>/, '<small>' + '' + '<\/small>');
             // document.getElementById("variableValues").innerHTML = varValues; // <pre> tags are already added by php
-
         },
         error: function (jqXHR, exception) {
             alert("error: " + jqXHR.status);

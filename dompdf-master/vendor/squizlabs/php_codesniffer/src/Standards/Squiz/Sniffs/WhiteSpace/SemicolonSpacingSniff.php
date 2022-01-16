@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class SemicolonSpacingSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -26,7 +25,6 @@ class SemicolonSpacingSniff implements Sniff
         'JS',
     ];
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -35,9 +33,7 @@ class SemicolonSpacingSniff implements Sniff
     public function register()
     {
         return [T_SEMICOLON];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -107,8 +103,5 @@ class SemicolonSpacingSniff implements Sniff
 
             $phpcsFile->fixer->endChangeset();
         }
-
     }//end process()
-
-
 }//end class

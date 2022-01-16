@@ -140,7 +140,6 @@ class GD implements Canvas
      */
     public function __construct($size = 'letter', $orientation = "portrait", Dompdf $dompdf, $aa_factor = 1.0, $bg_color = [1, 1, 1, 0])
     {
-
         if (!is_array($size)) {
             $size = strtolower($size);
 
@@ -361,7 +360,6 @@ class GD implements Canvas
      */
     public function line($x1, $y1, $x2, $y2, $color, $width, $style = null)
     {
-
         // Scale by the AA factor and DPI
         $x1 = $this->_upscale($x1);
         $y1 = $this->_upscale($y1);
@@ -391,7 +389,6 @@ class GD implements Canvas
                         for ($i = 0; $i < $style[0] * $this->_aa_factor; $i++) {
                             $gd_style[] = $c;
                         }
-
                     } else {
                         // Off pattern
                         for ($i = 0; $i < $style[0] * $this->_aa_factor; $i++) {
@@ -446,7 +443,6 @@ class GD implements Canvas
      */
     public function rectangle($x1, $y1, $w, $h, $color, $width, $style = null)
     {
-
         // Scale by the AA factor and DPI
         $x1 = $this->_upscale($x1);
         $y1 = $this->_upscale($y1);
@@ -623,7 +619,6 @@ class GD implements Canvas
      */
     public function polygon($points, $color, $width = null, $style = null, $fill = false)
     {
-
         // Scale each point by the AA factor and DPI
         foreach (array_keys($points) as $i) {
             $points[$i] = $this->_upscale($points[$i]);

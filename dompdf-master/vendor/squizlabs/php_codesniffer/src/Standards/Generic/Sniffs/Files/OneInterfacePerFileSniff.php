@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class OneInterfacePerFileSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -24,9 +22,7 @@ class OneInterfacePerFileSniff implements Sniff
     public function register()
     {
         return [T_INTERFACE];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -44,8 +40,5 @@ class OneInterfacePerFileSniff implements Sniff
             $error = 'Only one interface is allowed in a file';
             $phpcsFile->addError($error, $nextInterface, 'MultipleFound');
         }
-
     }//end process()
-
-
 }//end class

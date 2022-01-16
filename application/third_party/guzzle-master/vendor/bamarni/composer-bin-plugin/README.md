@@ -97,7 +97,7 @@ This command creates the following directory structure :
 
 
 You can continue to run `vendor/bin/behat`, `vendor/bin/phpspec` and co. as before but they will be properly isolated.
-Also, `composer.json` and `composer.lock` files in each namespace will allow you to take advantage of automated dependency 
+Also, `composer.json` and `composer.lock` files in each namespace will allow you to take advantage of automated dependency
 management as normally provided by Composer.
 
 ### The `all` bin namespace
@@ -201,7 +201,7 @@ You can add following line to your `.gitignore` file in order to avoid committin
 /vendor-bin/**/vendor
 ```
 
-Updating each tool can create many not legible changes in `composer.lock` files. You can use `.gitattributes` file in order 
+Updating each tool can create many not legible changes in `composer.lock` files. You can use `.gitattributes` file in order
 to inform git that it shouldn't show diffs of `composer.lock` files.
 
 ```.gitattributes

@@ -8,7 +8,6 @@
 		$json=array();
 		$json['success'] = $hash;
     	echo json_encode($json);
-
 	}
 	exit(0);
 }
@@ -53,7 +52,6 @@ color="e34524" bolt-logo="http://boltiswatching.com/wp-content/uploads/2015/09/B
 		display:none;
 	}
 	.sbtn{
-
 		width: 150px;
         height: 33px;
         font-size: 15px;
@@ -116,7 +114,6 @@ color="e34524" bolt-logo="http://boltiswatching.com/wp-content/uploads/2015/09/B
     </div>
     <!--<div style="text-align:center;">
 	 <b>Total Pay Amount: <?php echo $paramList["TXN_AMOUNT"]; ?> </b><?php ?><input type="submit" value="Pay" class="sbtn" onclick="launchBOLT(); return false;"/></div>-=>
-
 
 	</form>
 
@@ -191,7 +188,6 @@ function launchBOLT()
 	}
 
 	if(BOLT.response.txnStatus = 'CANCEL'){
-
 		window.location="<?php echo $paramList['CALLBACK_URL']?>";
 	}
 },

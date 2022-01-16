@@ -19,7 +19,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class CyclomaticComplexitySniff implements Sniff
 {
-
     /**
      * A complexity higher than this value will throw a warning.
      *
@@ -34,7 +33,6 @@ class CyclomaticComplexitySniff implements Sniff
      */
     public $absoluteComplexity = 20;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -43,9 +41,7 @@ class CyclomaticComplexitySniff implements Sniff
     public function register()
     {
         return [T_FUNCTION];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -106,8 +102,5 @@ class CyclomaticComplexitySniff implements Sniff
             ];
             $phpcsFile->addWarning($warning, $stackPtr, 'TooHigh', $data);
         }
-
     }//end process()
-
-
 }//end class

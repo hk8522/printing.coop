@@ -66,7 +66,6 @@
 
 <script>
 setTimeout(function(){
-
 			window.location.href = "<?php echo $BASE_URL?>MyOrders";
 		  }, 2000
 

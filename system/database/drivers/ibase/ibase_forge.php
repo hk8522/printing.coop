@@ -45,7 +45,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_ibase_forge extends CI_DB_forge {
-
 	/**
 	 * CREATE TABLE IF statement
 	 *
@@ -247,5 +246,4 @@ class CI_DB_ibase_forge extends CI_DB_forge {
 	{
 		// Not supported
 	}
-
 }

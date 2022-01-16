@@ -78,7 +78,6 @@ class Document extends AbstractTag
     }
 
     public function __construct() {
-
     }
 
     /**
@@ -401,4 +400,4 @@ class Document extends AbstractTag
             $tag->handleEnd();
         }
     }
-} 
+}

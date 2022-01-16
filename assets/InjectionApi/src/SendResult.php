@@ -4,7 +4,6 @@
  */
 namespace Socketlabs;
 abstract class SendResult{
-
     /**
      * An error has occured that was unforeseen
      */

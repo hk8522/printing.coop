@@ -132,7 +132,6 @@ class glyf extends Table {
     return $s;
   }
 
-
   protected function _encode() {
     $font   = $this->getFont();
     $subset = $font->getSubset();

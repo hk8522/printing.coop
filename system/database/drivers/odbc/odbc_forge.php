@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/database/
  */
 class CI_DB_odbc_forge extends CI_DB_forge {
-
 	/**
 	 * CREATE TABLE IF statement
 	 *
@@ -82,5 +81,4 @@ class CI_DB_odbc_forge extends CI_DB_forge {
 	{
 		// Not supported (in most databases at least)
 	}
-
 }

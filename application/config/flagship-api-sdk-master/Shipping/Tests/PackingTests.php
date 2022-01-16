@@ -5,7 +5,6 @@ use \PHPUnit\Framework\TestCase;
 use Flagship\Shipping\Objects\Packing;
 
 class PackingTest extends TestCase{
-
     public function testGetBoxModel(){
         $this->assertNotNull($this->packing->getBoxModel());
         $this->assertSame("Le grande box", $this->packing->getBoxModel());
@@ -55,7 +54,5 @@ class PackingTest extends TestCase{
                           ->setConstructorArgs([json_decode($response)])
                           ->setMethods(['__construct'])
                           ->getMock();
-
     }
-
 }

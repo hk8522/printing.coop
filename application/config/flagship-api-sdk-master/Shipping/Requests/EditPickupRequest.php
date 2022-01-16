@@ -7,11 +7,9 @@ use Flagship\Shipping\Exceptions\EditPickupException;
 use Flagship\Shipping\Objects\Pickup;
 
 class EditPickupRequest extends ApiRequest{
-
     protected $responseCode;
 
     public function __construct(string $baseUrl,string $token,array $payload,string $id, string $flagshipFor, string $version){
-
         $this->url = $baseUrl.'/pickups/'.$id;
         $this->token = $token;
         $this->editPickupPayload = $payload;

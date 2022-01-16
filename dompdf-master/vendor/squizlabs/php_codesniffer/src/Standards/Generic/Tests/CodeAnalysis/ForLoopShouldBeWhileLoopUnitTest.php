@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class ForLoopShouldBeWhileLoopUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Returns the lines where errors should occur.
      *
@@ -26,9 +24,7 @@ class ForLoopShouldBeWhileLoopUnitTest extends AbstractSniffUnitTest
     public function getErrorList()
     {
         return [];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -44,8 +40,5 @@ class ForLoopShouldBeWhileLoopUnitTest extends AbstractSniffUnitTest
             6  => 1,
             10 => 1,
         ];
-
     }//end getWarningList()
-
-
 }//end class

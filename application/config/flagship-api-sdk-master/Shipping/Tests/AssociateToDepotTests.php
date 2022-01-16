@@ -5,7 +5,6 @@ use Flagship\Shipping\Requests\AssociateToDepotRequest;
 use \PHPUnit\Framework\TestCase;
 
 class AssociateToDepotTests extends TestCase{
-
     public function testGetResponseCode(){
         $this->assertNull($this->associateToDepotRequest->getResponseCode());
     }
@@ -14,7 +13,6 @@ class AssociateToDepotTests extends TestCase{
         $this->assertNotNull($this->associateToDepotRequest->execute());
         $this->assertSame(FALSE,$this->associateToDepotRequest->execute());
     }
-
 
     protected function setUp(){
         $this->associateToDepotRequest = $this->getMockBuilder(AssociateToDepotRequest::class)

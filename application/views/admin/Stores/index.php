@@ -49,7 +49,6 @@
 							    <?php
 
 								if(count($lists) > 0){
-
 									foreach($lists as $key=>$blog){
 									?>
 										<tr>
@@ -74,7 +73,6 @@
 											<!--<td>
 												<?php $currency_id=explode(',',$blog['currency_id']);
 												foreach($currency_id as $val){
-
 										echo $currency[$val]['currency_name']."<br>";
 												}
 
@@ -93,7 +91,6 @@
 											</td>
 										</tr>
 								<?php
-
 								    }
 								}else{?>
 								    <tr>
@@ -106,8 +103,6 @@
 					</div>
 				</div>
 
-
-
 				</div><!-- /.box-body -->
 			</div><!-- /.box -->
 		</div><!-- /.col -->
@@ -118,10 +113,8 @@
  </script>
 <script>
 $(document).ready(function(){
-
     $('#example1').DataTable({
 		"order": [[ 0, "asc" ]]
 	});
-
 });
 </script>

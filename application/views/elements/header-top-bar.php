@@ -19,7 +19,6 @@
 								    echo !empty($configrations['contact_no_french']) ? $configrations['contact_no_french']:'1-877-384-8043';
 								   }else{
                                     echo !empty($configrations['contact_no']) ? $configrations['contact_no']:'1-877-384-8043';
-
 								   }
 								?></strong></span></li>
                             <li><span><?php
@@ -27,7 +26,6 @@
 							    echo $configrations['office_timing_french'] ?? '
 Du lundi au vendredi: <strong>9:00-18:00</strong>';
 							}else{
-
 								  echo $configrations['office_timing'] ?? 'Monday-Friday: <strong>9:00-18:00</strong>';
 							}
 							?></span></li>
@@ -77,7 +75,6 @@ Du lundi au vendredi: <strong>9:00-18:00</strong>';
                                             <?php
 
                         foreach($CurrencyList as $key => $val) {
-
                                                         ?>
                         <a href="<?php echo $BASE_URL?>?currency_id=<?php echo $key;?>&REDIRECT_URL=<?php echo $_SERVER['REQUEST_URI'];?>">               <?php echo $val['currency_name']; ?>
 						</a>
@@ -92,7 +89,6 @@ Du lundi au vendredi: <strong>9:00-18:00</strong>';
 
                             <?php $totalWishListCount = 0;?>
                             <?php if(!empty($loginId)){
-
                                 $totalWishListCount=$this->User_Model->geWishlistCount($loginId);
                               }
                             ?>

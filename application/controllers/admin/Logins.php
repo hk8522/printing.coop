@@ -41,7 +41,6 @@ class Logins extends Adminlogin_Controller
                         if (empty($LoginUser['status'])) {
                             $this->session->set_flashdata('message_error', 'Your account has been inactive by the admin for more enquiry please contact the support');
                         } else {
-
                             $this->session->set_userdata(array(
                                 "adminLoginId" => $LoginUser['id'],
                                 "name" => $LoginUser['name'],
@@ -73,7 +72,6 @@ class Logins extends Adminlogin_Controller
     {
         $this->data['page_title'] = 'Forgot Password';
         if ($this->input->post()) {
-
             $this->load->library('form_validation');
             $this->load->model('Admin_Model');
 
@@ -83,10 +81,8 @@ class Logins extends Adminlogin_Controller
             $postData['email'] = $this->input->post('email');
 
             if ($this->form_validation->run() === true) {
-
                 $adminData = $this->Admin_Model->getDataByEmailId($postData['email']);
                 if (!empty($adminData)) {
-
                     $url = base_url() . 'pcoopadmin/reset-password/' . base64_encode($adminData['id']);
 
                     $toEmail = $postData['email'];
@@ -109,11 +105,8 @@ class Logins extends Adminlogin_Controller
                     $this->session->set_flashdata('message_success', 'Please check your mail reset password link send your email id.');
                     $this->data['success'] = true;
                 } else {
-
                     $this->session->set_flashdata('message_error', 'This email address does not exist in any account');
-
                 }
-
             } else {
                 $this->session->set_flashdata('message_error', 'Missing information.');
             }
@@ -124,19 +117,16 @@ class Logins extends Adminlogin_Controller
 
     public function ResetPassword($id = null)
     {
-
         $this->data['page_title'] = 'Reset Password';
         $this->load->model('Admin_Model');
         $id = base64_decode($id);
         $userData = $this->Admin_Model->getAdminDataById($id);
         if (empty($userData)) {
-
             $this->session->set_flashdata('message_error', 'invalid reset password token');
             redirect('pcoopadmin');
         }
 
         if ($this->input->post()) {
-
             $this->load->library('form_validation');
             $this->load->model('Admin_Model');
             $set_rules = $this->Admin_Model->config_reset_password;
@@ -150,10 +140,8 @@ class Logins extends Adminlogin_Controller
                     $this->session->set_flashdata('message_success', 'Your Password change has been successfully login new password.');
                     redirect('pcoopadmin');
                 } else {
-
                     $this->session->set_flashdata('message_error', 'Your Password change has been unsuccessfully.');
                 }
-
             } else {
                 $this->session->set_flashdata('message_error', 'Missing information.');
             }
@@ -161,5 +149,4 @@ class Logins extends Adminlogin_Controller
 
         $this->render($this->class_name . 'reset_password');
     }
-
 }

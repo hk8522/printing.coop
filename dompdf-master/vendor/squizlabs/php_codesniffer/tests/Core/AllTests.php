@@ -16,8 +16,6 @@ use PHPUnit\Framework\TestSuite;
 
 class AllTests
 {
-
-
     /**
      * Prepare the test runner.
      *
@@ -26,9 +24,7 @@ class AllTests
     public static function main()
     {
         TestRunner::run(self::suite());
-
     }//end main()
-
 
     /**
      * Add all core unit tests into a test suite.
@@ -56,8 +52,5 @@ class AllTests
         }
 
         return $suite;
-
     }//end suite()
-
-
 }//end class

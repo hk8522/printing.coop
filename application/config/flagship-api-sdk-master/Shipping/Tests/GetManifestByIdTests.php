@@ -11,7 +11,6 @@ use Flagship\Shipping\Collections\RatesCollection;
 use \PHPUnit\Framework\TestCase;
 
 class GetManifestByIdTests extends TestCase{
-
     public function testGetName(){
         $this->assertNotNull($this->manifest->getName());
         $this->assertSame('completeManifest',$this->manifest->getName());
@@ -112,9 +111,7 @@ class GetManifestByIdTests extends TestCase{
         $this->assertSame("https://www.flagshipcompany.com/ship/3372195/labels/e5a146e501b543fd6de1c7289ce511f78c6d960c?document=therm",$this->manifest->getToDepotThermalLabel());
     }
 
-
     protected function setUp(){
-
         $response = '{
             "id": "20",
             "name": "completeManifest",
@@ -306,7 +303,6 @@ class GetManifestByIdTests extends TestCase{
                 }
             }
         }';
-
 
         $this->getManifestByIdRequest = $this->getMockBuilder(GetManifestByIdRequest::class)
             ->setConstructorArgs(['testToken','localhost',20,'test','1.0.11'])

@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/sessions.html
  */
 class CI_Session {
-
 	/**
 	 * Userdata array
 	 *
@@ -979,5 +978,4 @@ class CI_Session {
 	{
 		$this->unmark_temp($key);
 	}
-
 }

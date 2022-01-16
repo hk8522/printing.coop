@@ -676,7 +676,7 @@ var datetimepickerFactory = function ($) {
 				parseDate: function (date, format) {
 					if(isFormatStandard(format)){
 						return defaultDateHelper.parseDate(date, format);
-					} 
+					}
 					var d = moment(date, format);
 					return d.isValid() ? d.toDate() : false;
 				},
@@ -684,7 +684,7 @@ var datetimepickerFactory = function ($) {
 				formatDate: function (date, format) {
 					if(isFormatStandard(format)){
 						return defaultDateHelper.formatDate(date, format);
-					} 
+					}
 					return moment(date).format(format);
 				},
 
@@ -717,7 +717,7 @@ var datetimepickerFactory = function ($) {
 			if(typeof dateFormatter === 'string' && dateFormatters.hasOwnProperty(dateFormatter)){
 				var df = dateFormatters[dateFormatter];
 				$.extend(default_options, df.default_options);
-				dateHelper = df.formatter; 
+				dateHelper = df.formatter;
 			}
 			else {
 				dateHelper = dateFormatter;
@@ -976,7 +976,6 @@ var datetimepickerFactory = function ($) {
 						}
 						clearTimeout(lazyInitTimer);
 						lazyInitTimer = setTimeout(function () {
-
 							if (!input.data('xdsoft_datetimepicker')) {
 								createDateTimePicker(input);
 							}
@@ -1421,7 +1420,6 @@ var datetimepickerFactory = function ($) {
 				};
 
 				_this.nextMonth = function () {
-
 					if (_this.currentTime === undefined || _this.currentTime === null) {
 						_this.currentTime = _this.now();
 					}
@@ -1456,7 +1454,6 @@ var datetimepickerFactory = function ($) {
 				};
 
 				_this.prevMonth = function () {
-
 					if (_this.currentTime === undefined || _this.currentTime === null) {
 						_this.currentTime = _this.now();
 					}
@@ -1666,7 +1663,6 @@ var datetimepickerFactory = function ($) {
 				.on('xchange.xdsoft', function (event) {
 					clearTimeout(xchangeTimer);
 					xchangeTimer = setTimeout(function () {
-
 						if (_xdsoft_datetime.currentTime === undefined || _xdsoft_datetime.currentTime === null) {
 							_xdsoft_datetime.currentTime = _xdsoft_datetime.now();
 						}
@@ -1760,26 +1756,26 @@ var datetimepickerFactory = function ($) {
 									classes.push('xdsoft_disabled');
 								}
 							}
-							
+
 							if(options.allowDates && options.allowDates.length>0){
 								if(options.allowDates.indexOf(dateHelper.formatDate(start, options.formatDate)) === -1){
 									classes.push('xdsoft_disabled');
 								}
 							}
-							
+
 							var currentDay = ((start.getFullYear() * 12) + start.getMonth()) * 31 + start.getDate();
 							if ((maxDate !== false && start > maxDate) || (minDateTime !== false && start < minDateTime)  || (minDate !== false && start < minDate) || (maxDateTime !== false && currentDay > maxDateTimeDay) || (customDateSettings && customDateSettings[0] === false)) {
 								classes.push('xdsoft_disabled');
 							}
-							
+
 							if (options.disabledDates.indexOf(dateHelper.formatDate(start, options.formatDate)) !== -1) {
 								classes.push('xdsoft_disabled');
 							}
-							
+
 							if (options.disabledWeekDays.indexOf(day) !== -1) {
 								classes.push('xdsoft_disabled');
 							}
-							
+
 							if (input.is('[disabled]')) {
 								classes.push('xdsoft_disabled');
 							}
@@ -2321,7 +2317,6 @@ var datetimepickerFactory = function ($) {
 			}
 
 			function setMask(options) {
-
 				var isValidValue = function (mask, value) {
 						var reg = mask
 							.replace(/([\[\]\/\{\}\(\)\-\.\+]{1})/g, '\\$1')
@@ -2407,7 +2402,7 @@ var datetimepickerFactory = function ($) {
 					    var valueBeforeCursor = val.substr(0, pos);
 					    var valueAfterPaste = val.substr(pos + pastedData.length);
 
-					    val = valueBeforeCursor + pastedData + valueAfterPaste;           
+					    val = valueBeforeCursor + pastedData + valueAfterPaste;
 					    pos += pastedData.length;
 
 					    if (isValidValue(options.mask, val)) {
@@ -2433,9 +2428,8 @@ var datetimepickerFactory = function ($) {
 
 					    // only alow these characters
 					    if (((key >=  KEY0 && key <=  KEY9)  ||
-						 (key >= _KEY0 && key <= _KEY9)) || 
+						 (key >= _KEY0 && key <= _KEY9)) ||
 						 (key === BACKSPACE || key === DEL)) {
-
 					      // get char to insert which is new character or placeholder ('_')
 					      digit = (key === BACKSPACE || key === DEL) ? '_' :
 							  String.fromCharCode((_KEY0 <= key && key <= _KEY9) ? key - KEY0 : key);
@@ -2462,9 +2456,8 @@ var datetimepickerFactory = function ($) {
 
 						  // hitting backspace in a selection, you can possibly go back any further - go forward
 						  pos += (key === BACKSPACE && !hasSel) ? -1 : 1;
-
                         }
-                        
+
                         if (event.metaKey) {    // cmd has been pressed
                             pos = 0;
                             hasSel = true;
@@ -2476,7 +2469,7 @@ var datetimepickerFactory = function ($) {
 
 						  // if we have a selection length we will wipe out entire selection and replace with default template for that range
 						  var defaultBlank = options.mask.replace(/[0-9]/g, '_');
-						  var defaultBlankSelectionReplacement = defaultBlank.substr(pos, selLength); 
+						  var defaultBlankSelectionReplacement = defaultBlank.substr(pos, selLength);
 						  var selReplacementRemainder = defaultBlankSelectionReplacement.substr(1) // might be empty
 
 						  var valueBeforeSel = val.substr(0, pos);
@@ -2484,7 +2477,6 @@ var datetimepickerFactory = function ($) {
 						  var charsAfterSelection = val.substr(pos + selLength);
 
 						  val = valueBeforeSel + insertChars + charsAfterSelection
-
 						} else {
 						  var valueBeforeCursor = val.substr(0, pos);
 						  var insertChar = digit;
@@ -2687,7 +2679,6 @@ var datetimepickerFactory = function ($) {
 	}
 }(datetimepickerFactory));
 
-
 /*!
  * jQuery Mousewheel 3.1.13
  *
@@ -2708,7 +2699,6 @@ var datetimepickerFactory = function ($) {
         factory(jQuery);
     }
 }(function ($) {
-
     var toFix  = ['wheel', 'mousewheel', 'DOMMouseScroll', 'MozMousePixelScroll'],
         toBind = ( 'onwheel' in document || document.documentMode >= 9 ) ?
                     ['wheel'] : ['mousewheel', 'DomMouseScroll', 'MozMousePixelScroll'],
@@ -2778,7 +2768,6 @@ var datetimepickerFactory = function ($) {
             return this.unbind('mousewheel', fn);
         }
     });
-
 
     function handler(event) {
         var orgEvent   = event || window.event,
@@ -2907,5 +2896,4 @@ var datetimepickerFactory = function ($) {
         // Turn this off by setting $.event.special.mousewheel.settings.adjustOldDeltas to false.
         return special.settings.adjustOldDeltas && orgEvent.type === 'mousewheel' && absDelta % 120 === 0;
     }
-
 }));

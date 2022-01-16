@@ -41,7 +41,6 @@
                                 </div>
                                 <div class="single-blog-inner-content">
                                     <?php if($this->language_name=='French'){
-
 									       echo $blog['content_french'];
 									    }else{
 											echo $blog['content'];
@@ -63,7 +62,6 @@
 										};?></a>
                                             <br>
 										   <?php
-
 											  }
 											}?>
 

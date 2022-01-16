@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class CyclomaticComplexityUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Returns the lines where errors should occur.
      *
@@ -26,9 +24,7 @@ class CyclomaticComplexityUnitTest extends AbstractSniffUnitTest
     public function getErrorList()
     {
         return [116 => 1];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -44,8 +40,5 @@ class CyclomaticComplexityUnitTest extends AbstractSniffUnitTest
             45 => 1,
             72 => 1,
         ];
-
     }//end getWarningList()
-
-
 }//end class

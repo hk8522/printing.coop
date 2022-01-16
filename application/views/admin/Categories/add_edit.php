@@ -196,7 +196,6 @@
 									    <?php
 
 										foreach($MainStoreList as $key=>$val){
-
 										    $categoryImageData=$CategoriesImageData[$key];
 									    ?>
 										<input type="hidden" name="<?php echo $key?>category_image_id" value="<?php echo $categoryImageData['id']?>">
@@ -222,7 +221,6 @@
 															<span>
 															Allowed image type  : <b> (jpg, png, gif)</b>
 															</span>
-
 
 															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 																<input class="btn btn-primary" name="<?php echo $key?>files" type="file" accept="image/x-png,image/gif,image/jpeg" id="<?php echo $key?>upload" onchange="Upload('<?php echo $key?>upload')"/>
@@ -261,7 +259,6 @@
 															<span>
 															Allowed image type  : <b> (jpg, png, gif)</b>
 															</span>
-
 
 															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 																<input class="btn btn-primary" name="<?php echo $key?>files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
@@ -303,7 +300,6 @@
 															Allowed image type  : <b> (jpg, png, gif)</b>
 															</span>
 
-
 															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 																<input class="btn btn-primary" name="files" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
 															</div>
@@ -342,7 +338,6 @@
 															Allowed image type  : <b> (jpg, png, gif)</b>
 															</span>
 
-
 															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
 																<input class="btn btn-primary" name="files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
 															</div>
@@ -357,8 +352,6 @@
                                                 </div>
                                             </div>
                                         </div>-->
-
-
 
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success">Submit</button>
@@ -381,13 +374,11 @@
 </div>
 <script>
  function Upload(imageId) {
-
       var fileUpload = document.getElementById(imageId);
       //Check whether the file is valid Image.
       var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(.jpg|jpge|.png|.gif)$");
       if (regex.test(fileUpload.value.toLowerCase())) {
           if (typeof (fileUpload.files) != "undefined") {
-
               //Initiate the FileReader object.
               var reader = new FileReader();
               //Read the contents of Image File.
@@ -403,10 +394,7 @@
                 var width = this.width;
     			var imagesize=fileUpload.files[0].size;
     			var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
-
-
                 };
-
               }
           }
       }
@@ -427,6 +415,5 @@
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });
  CKEDITOR.dtd.$removeEmpty.i = 0;
-
 
 </script>

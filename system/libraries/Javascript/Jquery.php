@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/javascript.html
  */
 class CI_Jquery extends CI_Javascript {
-
 	/**
 	 * JavaScript directory location
 	 *
@@ -1072,5 +1071,4 @@ class CI_Jquery extends CI_Javascript {
 
 		return $speed;
 	}
-
 }

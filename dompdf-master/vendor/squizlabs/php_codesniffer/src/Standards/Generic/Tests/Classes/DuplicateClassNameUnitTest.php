@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class DuplicateClassNameUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Returns the lines where errors should occur.
      *
@@ -26,9 +24,7 @@ class DuplicateClassNameUnitTest extends AbstractSniffUnitTest
     public function getErrorList()
     {
         return [];
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -70,8 +66,5 @@ class DuplicateClassNameUnitTest extends AbstractSniffUnitTest
             return [];
             break;
         }//end switch
-
     }//end getWarningList()
-
-
 }//end class

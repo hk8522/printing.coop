@@ -5,12 +5,12 @@ class Clover extends Public_Controller
   public $class_name='';
 
   function __construct()
-  {  
+  {
     parent::__construct();
 	  $this->class_name=ucfirst(strtolower($this->router->fetch_class())).'/';
   }
   public function webhook()
-  {    
+  {
     $ddd = json_encode($_REQUEST);
     $sql = "INSERT INTO settings(plain_key,plain_value) VALUES ('webhook_verification_code','".$ddd."'); ";
     if (!$this->db->query($sql)) {

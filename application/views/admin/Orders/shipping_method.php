@@ -14,7 +14,6 @@
 										      $upsServiceCode=upsServiceCode();
 										      //pr($total_charges_ups);
                                               foreach($total_charges_ups as $key=>$val){
-
 												$value='ups-'.$val->TotalCharges->MonetaryValue.'-'.$val->Service->Code;
 										  ?>
                                           <div class="shipping-metthod-single">
@@ -36,12 +35,10 @@
                                           </div>
 
 							           <?php
-
 									   }?>
 									   <?php
 
                                             foreach($CanedaPostShiping['list'] as $key=>$val){
-
 												$value='canadapost-'.$val['price'].'-'.$val['service_name'];
 										  ?>
                                           <div class="shipping-metthod-single">
@@ -65,11 +62,9 @@
                                           </div>
 
 							           <?php
-
 									    }?>
 										<?php
 									    foreach($PickupStoresList as $key=>$val){
-
 										   $value='pickupinstore-0.00-'.$val['id'];
 
 										?>

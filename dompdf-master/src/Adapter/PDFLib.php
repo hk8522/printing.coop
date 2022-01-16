@@ -33,7 +33,6 @@ use Dompdf\PhpEvaluator;
  */
 class PDFLib implements Canvas
 {
-
     /**
      * Dimensions of paper sizes in points
      *
@@ -54,7 +53,6 @@ class PDFLib implements Canvas
      * @var null|int
      */
     protected static $MAJOR_VERSION = null;
-
 
     /**
      * Transforms the list of native fonts into PDFLib compatible names (casesensitive)
@@ -299,7 +297,6 @@ class PDFLib implements Canvas
         $this->_pdf->end_document("");
     }
 
-
     /**
      * Returns the PDFLib instance
      *
@@ -396,7 +393,6 @@ class PDFLib implements Canvas
      */
     public function add_object($object, $where = 'all')
     {
-
         if (mb_strpos($where, "next") !== false) {
             $this->_objs[$object]["start_page"]++;
             $where = str_replace("next", "", $where);
@@ -418,7 +414,6 @@ class PDFLib implements Canvas
      */
     public function stop_object($object)
     {
-
         if (!isset($this->_objs[$object])) {
             return;
         }
@@ -444,7 +439,6 @@ class PDFLib implements Canvas
      */
     protected function _place_objects()
     {
-
         foreach ($this->_objs as $obj => $props) {
             $start = $props["start_page"];
             $where = $props["where"];
@@ -1458,7 +1452,6 @@ class PDFLib implements Canvas
                     case 'line':
                         $this->line( $x1, $y1, $x2, $y2, $color, $width, $style );
                         break;
-
                 }
             }
 

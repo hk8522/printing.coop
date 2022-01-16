@@ -12,7 +12,7 @@ class baz {
 }
 
 trait barTrait {
-    
+
 }
 
 interface barInterface {

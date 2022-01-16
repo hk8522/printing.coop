@@ -2,11 +2,8 @@
     <div class="container ">
 	<?php
 	if($language_name=='French'){
-
 	echo $pageData['description_france'];
-
 	}else{
-
 	echo $pageData['description'];
 	}
 	?>
@@ -77,12 +74,10 @@
                 								  <select name="province" id="stateiD">
                                       <option value="">-- Sélectionnez l'état --</option>
                                       <?php foreach($states as $state){
-
                 								      $selected='';
                   									  $post_state= isset($postData['state']) ? $postData['state']:'';
 
                   									  if($state['StateID'] == $post_state){
-
                   										    $selected='selected="selected"';
                   									  }
                   								    ?>
@@ -511,12 +506,10 @@
                                   <select name="province" id="stateiD">
                                       <option value="">-- Select State --</option>
                                       <?php foreach($states as $state){
-
                                       $selected='';
                                       $post_state= isset($postData['state']) ? $postData['state']:'';
 
                                       if($state['StateID'] == $post_state){
-
                                           $selected='selected="selected"';
                                       }
                                       ?>

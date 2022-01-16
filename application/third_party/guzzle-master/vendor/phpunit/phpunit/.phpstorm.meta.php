@@ -1,6 +1,5 @@
 <?php
 namespace PHPSTORM_META {
-
     override(
         \PHPUnit\Framework\TestCase::createMock(0),
         map([""=>"$0"])

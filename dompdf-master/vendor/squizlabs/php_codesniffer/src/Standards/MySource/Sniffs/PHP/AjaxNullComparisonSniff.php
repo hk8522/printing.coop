@@ -17,8 +17,6 @@ use PHP_CodeSniffer\Files\File;
 
 class AjaxNullComparisonSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -27,9 +25,7 @@ class AjaxNullComparisonSniff implements Sniff
     public function register()
     {
         return [T_FUNCTION];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -96,8 +92,5 @@ class AjaxNullComparisonSniff implements Sniff
             $error = 'Values submitted via Ajax requests should not be compared directly to NULL; use empty() instead';
             $phpcsFile->addWarning($error, $nullValue, 'Found');
         }//end for
-
     }//end process()
-
-
 }//end class

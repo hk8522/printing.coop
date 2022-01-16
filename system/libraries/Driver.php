@@ -50,7 +50,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link
  */
 class CI_Driver_Library {
-
 	/**
 	 * Array of drivers that are available to use with the driver class
 	 *
@@ -188,7 +187,6 @@ class CI_Driver_Library {
 		$this->$child = $obj;
 		return $this->$child;
 	}
-
 }
 
 // --------------------------------------------------------------------------
@@ -206,7 +204,6 @@ class CI_Driver_Library {
  * @link
  */
 class CI_Driver {
-
 	/**
 	 * Instance of the parent class
 	 *
@@ -338,5 +335,4 @@ class CI_Driver {
 			$this->_parent->$var = $val;
 		}
 	}
-
 }

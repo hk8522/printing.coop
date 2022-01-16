@@ -59,5 +59,4 @@ class ContainsElementTest extends \PHPUnit_Framework_TestCase {
         );
         $this->assertInstanceOf(ExtensionElement::class, $this->contains->getExtensionElement());
     }
-
 }

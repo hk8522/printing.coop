@@ -54,7 +54,6 @@ if ( ! function_exists('xml_parser_create'))
  * @link		https://codeigniter.com/user_guide/libraries/xmlrpc.html
  */
 class CI_Xmlrpc {
-
 	/**
 	 * Debug flag
 	 *
@@ -551,7 +550,6 @@ class CI_Xmlrpc {
 		// based on their data and type into a valid group of XML-RPC values
 		return new XML_RPC_Response($this->values_parsing($response));
 	}
-
 } // END XML_RPC Class
 
 /**
@@ -772,7 +770,6 @@ class XML_RPC_Client extends CI_Xmlrpc
 		fclose($fp);
 		return $resp;
 	}
-
 } // END XML_RPC_Client Class
 
 /**
@@ -784,7 +781,6 @@ class XML_RPC_Client extends CI_Xmlrpc
  */
 class XML_RPC_Response
 {
-
 	/**
 	 * Value
 	 *
@@ -1022,7 +1018,6 @@ class XML_RPC_Response
 		}
 		return $t;
 	}
-
 } // END XML_RPC_Response Class
 
 /**
@@ -1034,7 +1029,6 @@ class XML_RPC_Response
  */
 class XML_RPC_Message extends CI_Xmlrpc
 {
-
 	/**
 	 * Payload
 	 *
@@ -1641,7 +1635,6 @@ class XML_RPC_Message extends CI_Xmlrpc
 			return $arr;
 		}
 	}
-
 } // END XML_RPC_Message Class
 
 /**
@@ -1916,5 +1909,4 @@ class XML_RPC_Values extends CI_Xmlrpc
 	{
 		return ($utc) ? strftime('%Y%m%dT%H:%i:%s', $time) : gmstrftime('%Y%m%dT%H:%i:%s', $time);
 	}
-
 } // END XML_RPC_Values Class

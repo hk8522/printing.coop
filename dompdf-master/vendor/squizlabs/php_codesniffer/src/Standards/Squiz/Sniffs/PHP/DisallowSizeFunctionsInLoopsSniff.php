@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class DisallowSizeFunctionsInLoopsSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
@@ -39,7 +38,6 @@ class DisallowSizeFunctionsInLoopsSniff implements Sniff
         'JS'  => ['length' => true],
     ];
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -51,9 +49,7 @@ class DisallowSizeFunctionsInLoopsSniff implements Sniff
             T_WHILE,
             T_FOR,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -107,8 +103,5 @@ class DisallowSizeFunctionsInLoopsSniff implements Sniff
                 $phpcsFile->addError($error, $i, 'Found', $data);
             }//end if
         }//end for
-
     }//end process()
-
-
 }//end class

@@ -50,7 +50,6 @@ $(document).ready(function () {
         //$('#nav').slideToggle();
     }
     // END MODIFICATION ---
-
 });
 
 // Rufnex Cookie functions

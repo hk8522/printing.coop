@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util;
 
 class JS extends Tokenizer
 {
-
     /**
      * A list of tokens that are allowed to open a scope.
      *
@@ -245,7 +244,6 @@ class JS extends Tokenizer
         '/**' => '*/',
     ];
 
-
     /**
      * Initialise the tokenizer.
      *
@@ -265,9 +263,7 @@ class JS extends Tokenizer
         }
 
         parent::__construct($content, $config, $eolChar);
-
     }//end __construct()
-
 
     /**
      * Creates an array of tokens when given some JS code.
@@ -896,9 +892,7 @@ class JS extends Tokenizer
         }
 
         return $finalTokens;
-
     }//end tokenize()
-
 
     /**
      * Tokenizes a regular expression if one is found.
@@ -1038,9 +1032,7 @@ class JS extends Tokenizer
         ];
 
         return $token;
-
     }//end getRegexToken()
-
 
     /**
      * Performs additional processing after main tokenizing.
@@ -1249,8 +1241,5 @@ class JS extends Tokenizer
         if (PHP_CODESNIFFER_VERBOSITY > 1) {
             echo "\t*** END ADDITIONAL JS PROCESSING ***".PHP_EOL;
         }
-
     }//end processAdditional()
-
-
 }//end class

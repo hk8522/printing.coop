@@ -19,7 +19,6 @@ use Dompdf\Image\Cache;
  */
 class Image extends Block
 {
-
     /**
      * @param Frame $frame
      */

@@ -11,7 +11,6 @@ use Ups\NodeInterface;
  */
 class Quantity implements NodeInterface
 {
-
     /**
      * @var UnitOfMeasurement
      */

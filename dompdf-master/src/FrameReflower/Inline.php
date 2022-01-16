@@ -18,7 +18,6 @@ use Dompdf\FrameDecorator\Text as TextFrameDecorator;
  */
 class Inline extends AbstractFrameReflower
 {
-
     /**
      * Inline constructor.
      * @param Frame $frame

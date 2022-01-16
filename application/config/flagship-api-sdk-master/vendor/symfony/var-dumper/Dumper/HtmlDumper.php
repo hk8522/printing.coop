@@ -162,7 +162,6 @@ class HtmlDumper extends CliDumper
         $line = str_replace('{$options}', json_encode($this->displayOptions, \JSON_FORCE_OBJECT), <<<'EOHTML'
 <script>
 Sfdump = window.Sfdump || (function (doc) {
-
 var refStyle = doc.createElement('style'),
     rxEsc = /([.*+?^${}()|\[\]\/\\])/g,
     idRx = /\bsf-dump-\d+-ref[012]\w+\b/,
@@ -652,7 +651,6 @@ return function (root, x) {
     } catch (e) {
     }
 };
-
 })(document);
 </script><style>
 pre.sf-dump {

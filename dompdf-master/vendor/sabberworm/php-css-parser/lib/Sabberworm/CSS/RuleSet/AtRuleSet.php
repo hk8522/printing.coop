@@ -8,7 +8,6 @@ use Sabberworm\CSS\Property\AtRule;
  * A RuleSet constructed by an unknown @-rule. @font-face rules are rendered into AtRuleSet objects.
  */
 class AtRuleSet extends RuleSet implements AtRule {
-
 	private $sType;
 	private $sArgs;
 
@@ -40,5 +39,4 @@ class AtRuleSet extends RuleSet implements AtRule {
 		$sResult .= '}';
 		return $sResult;
 	}
-
 }

@@ -1,7 +1,6 @@
 <?php
 
 Class User_Model extends MY_Model {
-
 	public $table='users';
 
 	public $config = array(
@@ -228,12 +227,10 @@ Class User_Model extends MY_Model {
         )
     );
     public function checkUserLogin($data,$md5=true){
-
 		$LoginUser=array();
 		$password=$data['password'];
 		if($md5){
 			$password=md5($data['password']);
-
 		}
 
 		$condition=array('email'=>$data['email'],'password'=>$password);
@@ -248,7 +245,6 @@ Class User_Model extends MY_Model {
 	}
 
 	public function checkMobileNumber($mobile_number){
-
 		$LoginUser=array();
 		$condition=array('mobile'=>$mobile_number);
         $this->db->select(array('mobile'));
@@ -262,7 +258,6 @@ Class User_Model extends MY_Model {
 		}
 	}
 	public function checkEmailId($email){
-
 		$LoginUser=array();
 		$condition=array('email'=>$email);
         $this->db->select(array('email'));
@@ -272,16 +267,12 @@ Class User_Model extends MY_Model {
 		$data=(array)$query->row();
 		//pr($data);
         if($query->num_rows() > 0) {
-
            return true;
-
         }else{
-
 			false;
 		}
 	}
 	public function getUserDataByEmailId($email){
-
 		$LoginUser=array();
 		$condition=array('email'=>$email);
         $this->db->select('*');
@@ -292,9 +283,6 @@ Class User_Model extends MY_Model {
         return $data;
 	}
 	public function getUserList($status=null) {
-
-
-
         $this->db->select('*');
 		$condition=array();
 		if($status=='active'){
@@ -309,9 +297,6 @@ Class User_Model extends MY_Model {
 		return $data;
     }
 	public function getPreferredCustomerUserList($status=null) {
-
-
-
         $this->db->select('*');
 		$condition=array();
 		$condition['user_type']=2;
@@ -339,18 +324,12 @@ Class User_Model extends MY_Model {
 		return $data;
     }
 
-
-
 	public function getCountUser($status=null) {
-
-
-
         $this->db->select('id');
 		$condition=array();
 		if($status=='active'){
 			$condition['status']=1;
 		}else if($status=='inactive'){
-
 			$condition['status']=0;
 		}
 
@@ -361,7 +340,6 @@ Class User_Model extends MY_Model {
     }
 
 	public function getUserDataById($id) {
-
         $this->db->select('*');
         $this->db->from($this->table);
 		$this->db->where(array('id'=>$id));
@@ -371,7 +349,6 @@ Class User_Model extends MY_Model {
     }
 
 	public function deleteUser($id) {
-
 		$this->db->where('id',$id);
         $query = $this->db->delete($this->table);
 		if ($query) {
@@ -379,15 +356,12 @@ Class User_Model extends MY_Model {
 		} else {
 			return 0;
 		}
-
     }
 
 	public function saveUser($data) {
-
 		$id=isset($data['id']) ? $data['id']:'';
 
 		if(!empty($id)){
-
 			$data['updated']=date('Y-m-d H:i:s');
 			$this->db->where('id', $id);
 			$query = $this->db->update($this->table, $data);
@@ -405,16 +379,13 @@ Class User_Model extends MY_Model {
 			} else {
 				return 0;
 			}
-
 		}
     }
 
 	public function saveUserPassword($data) {
-
 		$email=isset($data['email']) ? $data['email']:'';
 
 		if(!empty($email)){
-
 			$data['updated']=date('Y-m-d H:i:s');
 			$this->db->where('email', $email);
 			$query = $this->db->update($this->table, $data);
@@ -424,14 +395,11 @@ Class User_Model extends MY_Model {
 				return false;
 			}
 		}else{
-
 			return false;
 		}
     }
 
-
 	public function getWishlistList($user_id) {
-
         $this->db->select(array('Wishlist.id as wishlist_id','Wishlist.user_id','Product.*'));
         $this->db->from('wishlists as Wishlist');
 		$condition=array();
@@ -445,31 +413,25 @@ Class User_Model extends MY_Model {
         $query = $this->db->get();
 		$data=$query->result_array();
 		return $data;
-
     }
 
 	public function geWishlistCount($user_id=null,$product_id=null) {
-
         $this->db->select('*');
 		$condition=array();
 		if(!empty($user_id)){
-
 			$condition['user_id']=$user_id;
 		}
 
 		if(!empty($product_id)){
-
 			$condition['product_id']=$product_id;
 		}
 		$this->db->where($condition);
         $this->db->from('wishlists');
         $query = $this->db->get();
 		return $query->num_rows();
-
     }
 
 	public function saveWishlist($data) {
-
 		$data['created']=date('Y-m-d H:i:s');
 		$data['updated']=date('Y-m-d H:i:s');
 		$query = $this->db->insert('wishlists', $data);
@@ -481,7 +443,6 @@ Class User_Model extends MY_Model {
     }
 
 	public function deleteWishlist($id) {
-
 		$this->db->where('id',$id);
         $query = $this->db->delete('wishlists');
 		if ($query) {
@@ -489,9 +450,7 @@ Class User_Model extends MY_Model {
 		} else {
 			return 0;
 		}
-
     }
-
 }
 
 ?>

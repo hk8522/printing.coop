@@ -11,24 +11,13 @@ class Discount extends Admin_Controller
 		$this->data['class_name']= $this->class_name;
 	}
 
-
     public function creatediscount()
     {
-
-
 		$this->render($this->class_name.'creatediscount');
-
-
     }
 
     public function managediscount()
     {
-
-
 		$this->render($this->class_name.'managediscount');
-
-
     }
-
-
 }

@@ -21,7 +21,6 @@ use Dompdf\Exception;
  */
 class Inline extends AbstractFrameDecorator
 {
-
     /**
      * Inline constructor.
      * @param Frame $frame
@@ -102,5 +101,4 @@ class Inline extends AbstractFrameDecorator
             $this->get_parent()->split($split, true);
         }
     }
-
 }

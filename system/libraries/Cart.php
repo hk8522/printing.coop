@@ -48,7 +48,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @deprecated	3.0.0	This class is too specific for CI.
  */
 class CI_Cart {
-
 	/**
 	 * These are the regular expression rules that we use to validate the product ID and product name
 	 * alpha-numeric, dashes, underscores, or periods
@@ -563,5 +562,4 @@ class CI_Cart {
 		$this->_cart_contents = array('cart_total' => 0, 'total_items' => 0);
 		$this->CI->session->unset_userdata('cart_contents');
 	}
-
 }

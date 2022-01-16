@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class EchoedStringsSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class EchoedStringsSniff implements Sniff
     public function register()
     {
         return [T_ECHO];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -81,8 +77,5 @@ class EchoedStringsSniff implements Sniff
                 $phpcsFile->fixer->endChangeset();
             }
         }
-
     }//end process()
-
-
 }//end class

@@ -7,7 +7,6 @@ use Flagship\Shipping\Exceptions\PackingException;
 use Flagship\Shipping\Collections\PackingCollection;
 
 class PackingRequest extends ApiRequest{
-
     protected $responseCode;
     public function __construct(string $baseUrl,string $token, array $payload, string $flagshipFor, string $version){
         $this->token = $token;

@@ -45,7 +45,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_pdo_sqlsrv_forge extends CI_DB_pdo_forge {
-
 	/**
 	 * CREATE TABLE IF statement
 	 *
@@ -145,5 +144,4 @@ class CI_DB_pdo_sqlsrv_forge extends CI_DB_pdo_forge {
 			$field['auto_increment'] = ' IDENTITY(1,1)';
 		}
 	}
-
 }

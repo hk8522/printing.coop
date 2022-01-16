@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ClassInstantiationSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class ClassInstantiationSniff implements Sniff
     public function register()
     {
         return [T_NEW];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -93,8 +89,5 @@ class ClassInstantiationSniff implements Sniff
             $prev = $phpcsFile->findPrevious(Tokens::$emptyTokens, ($classNameEnd - 1), null, true);
             $phpcsFile->fixer->addContent($prev, '()');
         }
-
     }//end process()
-
-
 }//end class

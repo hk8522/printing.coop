@@ -90,7 +90,7 @@ $bar = new stdClass(
     4,
     5,
     6
-   
+
 );
 
 $bar = new stdClass(
@@ -199,7 +199,7 @@ function foo()
     myFunction(
         'string'.
         // comment
-        // comment 
+        // comment
         'string'.
         /* comment
          * comment

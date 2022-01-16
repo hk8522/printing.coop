@@ -7,7 +7,6 @@ use PHPUnit\Framework\TestCase;
  * @covers \TheSeer\Tokenizer\NamespaceUri
  */
 class NamespaceUriTest extends TestCase {
-
     public function testCanBeConstructedWithValidNamespace() {
         $this->assertInstanceOf(
             NamespaceUri::class,

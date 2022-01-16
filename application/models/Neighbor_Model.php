@@ -89,15 +89,6 @@ class Neighbor_Model extends MY_Model
         return $result[0]['COUNT(*)'];
     }
 
-    public function sizesFull($neighbor_id) {
-        $this->db->select(array('sizes.*', 'product_multiple_attributes.id AS attribute_id', 'product_multiple_attributes.name AS attribute_name'));
-        $this->db->from('product_multiple_attributes');
-        $this->db->join('n_attributes', "n_attributes.neighbor_id=$neighbor_id AND n_attributes.attribute_id=product_multiple_attributes.id", 'left');
-        $this->db->order_by('product_multiple_attributes.name');
-        $result = $this->db->get()->result_array();
-        return $result;
-    }
-
     public function attributesFull($neighbor_id) {
         $this->db->select(array('n_attributes.*', 'product_multiple_attributes.id AS attribute_id', 'product_multiple_attributes.name AS attribute_name'));
         $this->db->from('product_multiple_attributes');
@@ -105,6 +96,17 @@ class Neighbor_Model extends MY_Model
         $this->db->order_by('product_multiple_attributes.name');
         $result = $this->db->get()->result_array();
         return $result;
+    }
+
+    public function sizesFull($neighbor_id) {
+        $this->db->select(array('n_attribute_items.*',
+            '0 AS attribute_id',
+            'sizes.id AS attribute_item_id',
+            'sizes.size_name AS attribute_item_name'));
+        $this->db->from('sizes');
+        $this->db->join('n_attribute_items', "n_attribute_items.neighbor_id=$neighbor_id AND n_attribute_items.attribute_id=0 AND n_attribute_items.attribute_item_id=sizes.id", 'left');
+        $this->db->order_by('sizes.size_name');
+        return $this->db->get()->result_array();
     }
 
     public function attributeItemsFull($neighbor_id) {
@@ -121,6 +123,7 @@ class Neighbor_Model extends MY_Model
         $this->db->order_by('product_multiple_attribute_items.item_name');
         $data = $this->db->get()->result_array();
         $result = [];
+        $result[0] = $this->sizesFull($neighbor_id);
         foreach ($data as $item) {
             $attribute_id = $item['attribute_id'];
             if (!array_key_exists($attribute_id, $result))

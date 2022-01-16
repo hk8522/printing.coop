@@ -66,12 +66,9 @@ class Sections extends Admin_Controller
 		  #$postData['main_store_id']=$this->input->post('main_store_id');
 
 					if ($this->form_validation->run()===TRUE) {
-
-
 						$Filename   = $_FILES['background_image']['name'];
 						$uploadData = array();
 						if (!empty($Filename)) {
-
 							$_FILES['file']['name']     = time().$_FILES['background_image']['name'];
 							$_FILES['file']['type']     = $_FILES['background_image']['type'];
 							$_FILES['file']['tmp_name'] = $_FILES['background_image']['tmp_name'];
@@ -86,17 +83,14 @@ class Sections extends Admin_Controller
 							$this->upload->initialize($config);
 
 							if ($this->upload->do_upload('file')) {
-
 								$uploadData = $this->upload->data();
 								$postData['background_image']=$uploadData['file_name'];
-
 							}
 						}
 
 						$Filename   = $_FILES['french_background_image']['name'];
 						$uploadData = array();
 						if (!empty($Filename)) {
-
 							$_FILES['file']['name']     = time().$_FILES['french_background_image']['name'];
 							$_FILES['file']['type']     = $_FILES['french_background_image']['type'];
 							$_FILES['file']['tmp_name'] = $_FILES['french_background_image']['tmp_name'];
@@ -111,10 +105,8 @@ class Sections extends Admin_Controller
 							$this->upload->initialize($config);
 
 							if ($this->upload->do_upload('file')) {
-
 								$uploadData = $this->upload->data();
 								$postData['french_background_image']=$uploadData['file_name'];
-
 							}
 						}
 
@@ -122,12 +114,9 @@ class Sections extends Admin_Controller
 								$this->session->set_flashdata('message_success',$page_title.' Successfully.');
 								redirect('admin/Sections');
 						} else {
-
 						    $this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
 						}
-
 					} else {
-
 							$this->session->set_flashdata('message_error','Missing information.');
 					}
 				}
@@ -158,6 +147,4 @@ class Sections extends Admin_Controller
 			      $this->session->set_flashdata('message_error','Missing information.');
 	     }
     }
-
-
 }

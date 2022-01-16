@@ -43,7 +43,6 @@
 							<tbody>
 							    <?php
 								if(count($lists) > 0){
-
 									foreach($lists as $key=>$list){
 									?>
 										<tr>
@@ -71,8 +70,6 @@
 											        <i class="far fa-edit fa-lg"></i>
 											   </a>
 
-
-
 											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $list['id'];?>" style="color:#d71b23;padding: 5px;" title="delete"  onclick="return confirm('Are you sure you want to delete this size?');">
 											         <i class="fa fa-trash fa-lg"></i>
 											   </a>
@@ -80,7 +77,6 @@
 											</td>
 										</tr>
 								<?php
-
 								    }
 								}else{?>
 								    <tr>
@@ -93,8 +89,6 @@
 					</div>
 				</div>
 
-
-
 				</div><!-- /.box-body -->
 			</div><!-- /.box -->
 		</div><!-- /.col -->
@@ -105,10 +99,8 @@
  </script>
 <script>
 $(document).ready(function(){
-
     $('#example1').DataTable({
 		"order": [[ 1, "asc" ]]
 	});
-
 });
 </script>

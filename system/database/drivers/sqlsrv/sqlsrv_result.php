@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/database/
  */
 class CI_DB_sqlsrv_result extends CI_DB_result {
-
 	/**
 	 * Scrollable flag
 	 *
@@ -189,5 +188,4 @@ class CI_DB_sqlsrv_result extends CI_DB_result {
 	{
 		return sqlsrv_fetch_object($this->result_id, $class_name);
 	}
-
 }

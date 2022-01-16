@@ -13,7 +13,6 @@ function testFunction()
 {
     // Callback methods which are added by external objects.
     this.callbacks = {};
-
 }//end testFunction()
 
 /**
@@ -21,7 +20,6 @@ function testFunction()
  * This is the second line.
  */
 myClass.prototype = {
-
     /**
      * This is the first line of a method comment.
      * This is the second line.
@@ -29,7 +27,6 @@ myClass.prototype = {
     load: function(url, callback)
     {
         // Some code here.
-
     }
 };
 
@@ -81,21 +78,16 @@ myClass.myFunction = function() {
 dfx.getIframeDocument = function(iframe)
 {
     return doc;
-
 };//end dfx.getIframeDocument()
 
 mig.Gallery.prototype = {
-
     init: function(cb)
     {
-
     },//end init()
 
     imageClicked: function(id)
     {
-
     }//end imageClicked()
-
 };
 
 // Here is some inline example code:
@@ -109,7 +101,6 @@ mig.Gallery.prototype = {
             -> One.One
         -> Two
 */
-
 
 var foo = 'foo'; // Var set to foo.
 

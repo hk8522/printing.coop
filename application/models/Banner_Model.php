@@ -1,7 +1,6 @@
 <?php
 
 Class Banner_Model extends MY_Model {
-
 	  public $table='banners';
 
     public $rules = [

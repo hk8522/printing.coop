@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Core\AbstractMethodUnitTest;
 
 class GetMemberPropertiesTest extends AbstractMethodUnitTest
 {
-
-
     /**
      * Test the getMemberProperties() method.
      *
@@ -31,9 +29,7 @@ class GetMemberPropertiesTest extends AbstractMethodUnitTest
         $result   = self::$phpcsFile->getMemberProperties($variable);
 
         $this->assertArraySubset($expected, $result, true);
-
     }//end testGetMemberProperties()
-
 
     /**
      * Data provider for the GetMemberProperties test.
@@ -460,9 +456,7 @@ class GetMemberPropertiesTest extends AbstractMethodUnitTest
                 ],
             ],
         ];
-
     }//end dataGetMemberProperties()
-
 
     /**
      * Test receiving an expected exception when a non property is passed.
@@ -480,9 +474,7 @@ class GetMemberPropertiesTest extends AbstractMethodUnitTest
     {
         $variable = $this->getTargetToken($identifier, T_VARIABLE);
         $result   = self::$phpcsFile->getMemberProperties($variable);
-
     }//end testNotClassPropertyException()
-
 
     /**
      * Data provider for the NotClassPropertyException test.
@@ -501,9 +493,7 @@ class GetMemberPropertiesTest extends AbstractMethodUnitTest
             ['/* testNestedMethodParam 1 */'],
             ['/* testNestedMethodParam 2 */'],
         ];
-
     }//end dataNotClassProperty()
-
 
     /**
      * Test receiving an expected exception when a non variable is passed.
@@ -517,8 +507,5 @@ class GetMemberPropertiesTest extends AbstractMethodUnitTest
     {
         $next   = $this->getTargetToken('/* testNotAVariable */', T_RETURN);
         $result = self::$phpcsFile->getMemberProperties($next);
-
     }//end testNotAVariableException()
-
-
 }//end class

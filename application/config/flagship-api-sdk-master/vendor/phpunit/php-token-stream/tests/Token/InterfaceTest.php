@@ -122,7 +122,6 @@ class PHP_Token_InterfaceTest extends TestCase
         }
     }
 
-
     public function provideFilesWithClassesWithinMultipleNamespaces()
     {
         return [

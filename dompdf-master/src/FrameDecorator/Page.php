@@ -21,7 +21,6 @@ use Dompdf\Renderer;
  */
 class Page extends AbstractFrameDecorator
 {
-
     /**
      * y value of bottom page margin
      *
@@ -288,7 +287,6 @@ class Page extends AbstractFrameDecorator
 
         // Block Frames (1):
         if (in_array($display, $block_types)) {
-
             // Avoid breaks within table-cells
             if ($this->_in_table > ($display === "table" ? 1 : 0)) {
                 Helpers::dompdf_debug("page-break", "In table: " . $this->_in_table);
@@ -349,11 +347,9 @@ class Page extends AbstractFrameDecorator
             Helpers::dompdf_debug("page-break", "block: break allowed");
 
             return true;
-
         } // Inline frames (2):
         else {
             if (in_array($display, Style::$INLINE_TYPES)) {
-
                 // Avoid breaks within table-cells
                 if ($this->_in_table) {
                     Helpers::dompdf_debug("page-break", "In table: " . $this->_in_table);
@@ -443,10 +439,8 @@ class Page extends AbstractFrameDecorator
                     return true;
                 } else {
                     if (in_array($display, Table::$ROW_GROUPS)) {
-
                         // Disallow breaks at row-groups: only split at row boundaries
                         return false;
-
                     } else {
                         Helpers::dompdf_debug("page-break", "? " . $frame->get_style()->display . "");
 

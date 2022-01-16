@@ -7,7 +7,6 @@ use Flagship\Shipping\Exceptions\GetManifestByIdException;
 use Flagship\Shipping\Objects\Manifest;
 
 class GetManifestByIdRequest extends ApiRequest {
-
     public function __construct(string $token, string $baseUrl, int $manifestId, string $flagshipFor, string $version){
         $this->apiToken = $token;
         $this->apiUrl = $baseUrl.'/ship/edhl/'.$manifestId;

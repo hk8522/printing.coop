@@ -5,7 +5,6 @@ namespace Socketlabs\Core\Serialization;
  * To be serialized into JSON string before sending to the Injection Api.
  */
 class MessageJson  {
-
     /**
      * Gets or sets the list of To recipients.
      */
@@ -75,7 +74,6 @@ class MessageJson  {
      * Gets or sets the list of attachments.
      */
     public $Attachments = array();
-
 
     /**
      * A list of custom message headers added to the message.

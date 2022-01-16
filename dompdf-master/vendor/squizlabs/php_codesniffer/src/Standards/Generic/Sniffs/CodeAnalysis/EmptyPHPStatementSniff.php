@@ -18,8 +18,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class EmptyPHPStatementSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -31,9 +29,7 @@ class EmptyPHPStatementSniff implements Sniff
             T_SEMICOLON,
             T_CLOSE_TAG,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -151,8 +147,5 @@ class EmptyPHPStatementSniff implements Sniff
             // Deliberately left empty.
             break;
         }//end switch
-
     }//end process()
-
-
 }//end class

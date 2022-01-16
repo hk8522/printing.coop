@@ -29,8 +29,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class EmptyStatementSniff implements Sniff
 {
-
-
     /**
      * Registers the tokens that this sniff wants to listen for.
      *
@@ -51,9 +49,7 @@ class EmptyStatementSniff implements Sniff
             T_SWITCH,
             T_WHILE,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -89,8 +85,5 @@ class EmptyStatementSniff implements Sniff
         $name  = strtoupper($token['content']);
         $error = 'Empty %s statement detected';
         $phpcsFile->addError($error, $stackPtr, 'Detected'.ucfirst(strtolower($name)), [$name]);
-
     }//end process()
-
-
 }//end class

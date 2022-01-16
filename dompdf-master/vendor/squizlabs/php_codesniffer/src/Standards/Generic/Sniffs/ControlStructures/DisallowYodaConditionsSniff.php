@@ -16,8 +16,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class DisallowYodaConditionsSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -26,9 +24,7 @@ class DisallowYodaConditionsSniff implements Sniff
     public function register()
     {
         return Tokens::$comparisonTokens;
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -125,9 +121,7 @@ class DisallowYodaConditionsSniff implements Sniff
             $stackPtr,
             'Found'
         );
-
     }//end process()
-
 
     /**
      * Determines if an array is a static definition.
@@ -181,8 +175,5 @@ class DisallowYodaConditionsSniff implements Sniff
         }
 
         return true;
-
     }//end isArrayStatic()
-
-
 }//end class

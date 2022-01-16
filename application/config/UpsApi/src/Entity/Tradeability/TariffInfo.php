@@ -11,7 +11,6 @@ use Ups\NodeInterface;
  */
 class TariffInfo implements NodeInterface
 {
-
     /**
      * @var string
      * @required

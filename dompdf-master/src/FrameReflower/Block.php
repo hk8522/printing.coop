@@ -138,7 +138,6 @@ class Block extends AbstractFrameReflower
 
                     $right = $diff;
                 }
-
             } else {
                 // Find auto properties and get them to take up the slack
                 if ($width === "auto") {
@@ -266,7 +265,6 @@ class Block extends AbstractFrameReflower
         $margin_bottom = $style->length_in_pt($style->margin_bottom, $cb["h"]);
 
         if ($frame->is_absolute()) {
-
             // see http://www.w3.org/TR/CSS21/visudet.html#abs-non-replaced-height
 
             $dims = [$top !== "auto" ? $top : 0,
@@ -372,7 +370,6 @@ class Block extends AbstractFrameReflower
                     // FIXME: overflow hidden
                 }
             }
-
         } else {
             // Expand the height if overflow is visible
             if ($height === "auto" && $content_height > $height /* && $style->overflow === "visible" */) {
@@ -558,7 +555,6 @@ class Block extends AbstractFrameReflower
         $canvas = null;
 
         foreach ($this->_frame->get_line_boxes() as $line) {
-
             $height = $line->h;
 
             foreach ($line->get_frames() as $frame) {
@@ -767,7 +763,6 @@ class Block extends AbstractFrameReflower
      */
     function reflow(BlockFrameDecorator $block = null)
     {
-
         // Check if a page break is forced
         $page = $this->_frame->get_root();
         $page->check_forced_page_break($this->_frame);
@@ -832,7 +827,6 @@ class Block extends AbstractFrameReflower
 
         // Set the containing blocks and reflow each child
         foreach ($this->_frame->get_children() as $child) {
-
             // Bail out if the page is full
             if ($page->is_full()) {
                 break;

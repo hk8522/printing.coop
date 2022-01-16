@@ -15,5 +15,4 @@ class ManifestDocumentLoadingExceptionTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertContainsOnlyInstancesOf(LibXMLError::class, $exception->getLibxmlErrors());
     }
-
 }

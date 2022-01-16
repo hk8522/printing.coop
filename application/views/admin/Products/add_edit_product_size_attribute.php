@@ -137,7 +137,6 @@
         						$displayminusbtn='';
         					}
                             else if($last==$subkey){
-
         				        $displayplusnbtn='';
             				    $displayminusbtn='';
             				}
@@ -166,7 +165,6 @@
         									<option value="">--Select--</option>
         									<?php
             									foreach($PaperQualityList as $list){
-
             										$selected='';
             									    if($list['name']==$subval['paper_quality']){
             										$selected='selected="selected"';
@@ -232,7 +230,6 @@
         									</option>
         									<?php
         									foreach($StockList as $list){
-
         									   $selected='';
         									   if($list['name']==$subval['stock']){
         										$selected='selected="selected"';
@@ -266,7 +263,6 @@
         									</option>
         									<?php
         									foreach($ColorList as $list){
-
         										$selected='';
         									   if($list['name']==$subval['color']){
         										$selected='selected="selected"';
@@ -617,7 +613,6 @@
 <script src="<?php echo $BASE_URL?>/assets/js/validation.js"></script>
 <script>
     function AddRow(cr){
-
 		    var controlForm = $('.SizeQuantity:first'),
 			currentEntry = cr.parents('.sqddata:first'),
 			newEntry = $(currentEntry.clone()).appendTo(controlForm);
@@ -636,7 +631,6 @@
 	}
 
 	function RemoveRow(cr,id){
-
 		    cr.parents('.sqddata:first').remove();
 			var numItems = $('.SizeQuantity .'+id+'sqddata').length;
 			var controlForm = $('.SizeQuantity .'+id+'sqddata').last();
@@ -653,13 +647,10 @@
 success='<?php echo $success?>';
 $('#AddEditProductAttribute').validate({
 	    rules: {
-
 		},
         messages: {
-
         },
         submitHandler: function(form) {
-
 			$("#loder-img").show();
 			var url  = '<?php echo $BASE_URL ?>admin/Products/AddEditProductAttribute';
 			$.ajax({
@@ -670,7 +661,6 @@ $('#AddEditProductAttribute').validate({
 				 $('button[type=submit]').attr('disabled', true);
 			  },
 			  success: function(data) {
-
 				$('button[type=submit]').attr('disabled', false);
 				$("#loder-img").hide();
 				$("#QualityModal .modal-body").html(data);

@@ -41,7 +41,6 @@
                   <tbody>
                     <?php
                     foreach ($this->cart->contents() as $rowid => $items) {
-
 						  $imageurl = getProductImage($items['options']['product_image']);
 						  $cart_images=$items['options']['cart_images'];
 						  $product_id=$items['options']['product_id'];
@@ -55,7 +54,6 @@
 
 						  $product_depth_length_width=$items['options']['product_depth_length_width'];
 
-
 						  /*$AttributesData=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);*/
 
 						  $votre_text=$items['options']['votre_text'];
@@ -64,7 +62,6 @@
 						  $recto_verso_french=$items['options']['recto_verso_french'];
 
 						  //pr($Product);
-
 
                       ?>
                       <tr class="<?php echo $rowid;?> mobile-hide">
@@ -82,7 +79,6 @@
 							    if($language_name=='French'){
 							       echo ucfirst($Product['name_french']);
 								}else{
-
 									echo ucfirst($Product['name']);
 								}
 							?>
@@ -113,10 +109,8 @@
 											<span><strong> <?php
 								       if($language_name=='French'){
 								                  echo 'Couleursv:'.$product_width_length['length_width_color_french'];
-
 								        }else{
 								            echo 'Colors:'.$product_width_length['length_width_color'];
-
 								        }?>
 										</strong> </span>
 									</div>
@@ -170,10 +164,8 @@
 											<span><strong> <?php
 								                 if($language_name=='French'){
 								                  echo 'Couleursv:'.$product_depth_length_width['depth_color_french'];
-
 								        }else{
 								            echo 'Colors:'.$product_depth_length_width['depth_color'];
-
 								        }?></strong> </span>
 									</div>
 							<?php
@@ -218,10 +210,8 @@
 
 									    if($language_name=='French'){
 								                  echo 'Couleursv:'.$page_product_width_length['page_length_width_color_french'];
-
 								        }else{
 								            echo 'Colors:'.$page_product_width_length['page_length_width_color'];
-
 								        }
 
 												?></strong> </span>
@@ -233,10 +223,8 @@
 											<span><strong><?php
 								                if($language_name=='French'){
 								                  echo 'Des pages:'.$page_product_width_length['page_product_total_page_french'];
-
 								                }else{
 								       echo 'Pages:'.$page_product_width_length['page_product_total_page'];
-
 								                }
 												?></strong> </span>
 									</div>
@@ -247,10 +235,8 @@
 											<span><strong><?php
 								                if($language_name=='French'){
 								                  echo ' Feuille par bloc:'.$page_product_width_length['page_product_total_sheets_french'];
-
 								                }else{
 								       echo 'Sheet Per Pad:'.$page_product_width_length['page_product_total_sheets'];
-
 								                }
 												?></strong> </span>
 									</div>
@@ -262,10 +248,8 @@
 											<span><strong><?php
 								                if($language_name=='French'){
 								                  echo 'Quantité:'.$page_product_width_length['page_product_total_quantity'];
-
 								                }else{
 								       echo 'Quantity:'.$page_product_width_length['page_product_total_quantity'];
-
 								                }
 												?></strong> </span>
 									</div>
@@ -275,21 +259,15 @@
 								}?>
 						    <?php
 							if(!empty($product_size)){
-
 								if($language_name=='French'){
-
 									$size_name= $product_size['product_size_french'];
 									$label_qty=$product_size['product_quantity_french'];
-
 								}else{
-
 									$size_name = $product_size['product_size'];
 									$label_qty=$product_size['product_quantity'];
 								}
 
 								$attribute=isset($product_size['attribute']) ? $product_size['attribute']:'';
-
-
 
 								?>
 							    <?php
@@ -320,21 +298,15 @@
 								<?php
 								}?>
 
-
-
 								<?php
 								if($attribute){
-
 								    foreach($attribute as $akey=>$aval){
-
 										$multiple_attribute_name=$aval['attributes_name'];
 									    $multiple_attribute_item_name=$aval['attributes_item_name'];
 
 										if($language_name=='French'){
-
 											$multiple_attribute_name=$aval['attributes_name_french'];
 									        $multiple_attribute_item_name=$aval['attributes_item_name_french'];
-
 										}
 								?>
 
@@ -352,7 +324,6 @@
 									}
 								}?>
 
-
 							<?php
 							}
 							?>
@@ -361,19 +332,12 @@
 
 							#pr($attribute_ids);
 							foreach($attribute_ids as $key=>$val){
-
-
-
 								if($language_name=='French'){
-
 									$attribute_name=$val['attribute_name_french'];
 									$item_name=$val['item_name_french'];
-
 								}else{
-
 									$attribute_name=$val['attribute_name'];
 									$item_name=$val['item_name'];
-
 								}
 								?>
 								<div class="col-md-12 col-lg-6 col-xl-6">
@@ -381,7 +345,6 @@
 								</div>
 
 								<?php
-
 						    }?>
 								 <?php
 							if(!empty($recto_verso)){?>
@@ -389,7 +352,6 @@
 										<span><strong>
 										<?php
 										if($language_name=='French'){
-
 											echo 'Recto verso:'.$recto_verso_french;
 										}else{
 											echo 'Recto/Verso:'.$recto_verso;
@@ -418,8 +380,6 @@
                             </div>
 							<div class="uploaded-file-detail" id="upload-file-data">
 								    <?php if(!empty($cart_images)){
-
-
 											   foreach($cart_images as $key=>$return_arr){
 												    #pr($return_arr);
 
@@ -440,9 +400,7 @@
 											</div>
 										</div>
                                     <?php
-
 											   }
-
 									     }
 
 									?>
@@ -543,7 +501,6 @@
 </div>
 <script>
      function isNumber(evt) {
-
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode
         if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
             return false;

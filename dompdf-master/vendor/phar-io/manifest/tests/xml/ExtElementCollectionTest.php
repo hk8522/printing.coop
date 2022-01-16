@@ -15,5 +15,4 @@ class ExtElementCollectionTest extends \PHPUnit\Framework\TestCase {
             $this->assertEquals(0, $position);
         }
     }
-
 }

@@ -136,7 +136,6 @@ class Table extends AbstractFrameDecorator
 
             // Insert copies of the table headers before $child
             foreach ($this->_headers as $header) {
-
                 $new_header = $header->deep_copy();
 
                 if (is_null($first_header)) {
@@ -147,14 +146,10 @@ class Table extends AbstractFrameDecorator
             }
 
             parent::split($first_header);
-
         } elseif (in_array($child->get_style()->display, self::$ROW_GROUPS)) {
-
             // Individual rows should have already been handled
             parent::split($child);
-
         } else {
-
             $iter = $child;
 
             while ($iter) {
@@ -273,7 +268,6 @@ class Table extends AbstractFrameDecorator
             $display = $child->get_style()->display;
 
             if ($anon_row) {
-
                 if ($display === "table-row") {
                     // Add the previous anonymous row
                     $this->insert_child_before($table_row, $child);
@@ -288,9 +282,7 @@ class Table extends AbstractFrameDecorator
                 // add the child to the anonymous row
                 $table_row->append_child($child);
                 continue;
-
             } else {
-
                 if ($display === "table-row") {
                     $child->normalise();
                     continue;

@@ -5,7 +5,6 @@ use \PHPUnit\Framework\TestCase;
 use Flagship\Shipping\Objects\Shipment;
 
 class EditShipmentTests extends TestCase{
-
     public function testGetId(){
         $this->assertNotEmpty($this->editShipment->getId());
         $this->assertNotNull($this->editShipment->getId());
@@ -112,13 +111,11 @@ class EditShipmentTests extends TestCase{
         $this->assertSame('Smith Associates',$this->editShipment->getReceiverCompany());
     }
 
-
     public function testGetReceiverName(){
         $this->assertNotEmpty($this->editShipment->getReceiverName());
         $this->assertNotNull($this->editShipment->getReceiverName());
         $this->assertSame('Adam Smith',$this->editShipment->getReceiverName());
     }
-
 
     public function testGetReceiverAddress(){
         $this->assertNotEmpty($this->editShipment->getReceiverAddress());
@@ -135,7 +132,6 @@ class EditShipmentTests extends TestCase{
     public function testGetReceiverDepartment(){
         $this->assertSame(" ",$this->editShipment->getReceiverDepartment());
     }
-
 
     public function testIsReceiverCommercial(){
         $this->assertNotNull($this->editShipment->IsReceiverCommercial());
@@ -231,11 +227,9 @@ class EditShipmentTests extends TestCase{
         $this->assertSame(NULL,$this->editShipment->getCodMethod());
     }
 
-
     public function testGetCodPayableTo(){
         $this->assertSame(NULL,$this->editShipment->getCodPayableTo());
     }
-
 
     public function testGetCodReceiverPhone(){
         $this->assertSame(NULL,$this->editShipment->getCodReceiverPhone());

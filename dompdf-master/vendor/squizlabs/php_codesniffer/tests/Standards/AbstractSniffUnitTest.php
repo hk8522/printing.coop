@@ -22,7 +22,6 @@ use PHPUnit\Framework\TestCase;
 
 abstract class AbstractSniffUnitTest extends TestCase
 {
-
     /**
      * Enable or disable the backup and restoration of the $GLOBALS array.
      * Overwrite this attribute in a child class of TestCase.
@@ -46,7 +45,6 @@ abstract class AbstractSniffUnitTest extends TestCase
      */
     public $testsDir = null;
 
-
     /**
      * Sets up this unit test.
      *
@@ -57,9 +55,7 @@ abstract class AbstractSniffUnitTest extends TestCase
         $class = get_class($this);
         $this->standardsDir = $GLOBALS['PHP_CODESNIFFER_STANDARD_DIRS'][$class];
         $this->testsDir     = $GLOBALS['PHP_CODESNIFFER_TEST_DIRS'][$class];
-
     }//end setUp()
-
 
     /**
      * Get a list of all test files to check.
@@ -91,9 +87,7 @@ abstract class AbstractSniffUnitTest extends TestCase
         sort($testFiles);
 
         return $testFiles;
-
     }//end getTestFiles()
-
 
     /**
      * Should this test be skipped for some reason.
@@ -103,9 +97,7 @@ abstract class AbstractSniffUnitTest extends TestCase
     protected function shouldSkipTest()
     {
         return false;
-
     }//end shouldSkipTest()
-
 
     /**
      * Tests the extending classes Sniff class.
@@ -205,9 +197,7 @@ abstract class AbstractSniffUnitTest extends TestCase
         if (empty($failureMessages) === false) {
             $this->fail(implode(PHP_EOL, $failureMessages));
         }
-
     }//end testSniff()
-
 
     /**
      * Generate a list of test failures for a given sniffed file.
@@ -406,9 +396,7 @@ abstract class AbstractSniffUnitTest extends TestCase
         }//end foreach
 
         return $failureMessages;
-
     }//end generateFailureMessages()
-
 
     /**
      * Get a list of CLI values to set before the file is tested.
@@ -421,9 +409,7 @@ abstract class AbstractSniffUnitTest extends TestCase
     public function setCliValues($filename, $config)
     {
         return;
-
     }//end setCliValues()
-
 
     /**
      * Returns the lines where errors should occur.
@@ -435,7 +421,6 @@ abstract class AbstractSniffUnitTest extends TestCase
      */
     abstract protected function getErrorList();
 
-
     /**
      * Returns the lines where warnings should occur.
      *
@@ -445,6 +430,4 @@ abstract class AbstractSniffUnitTest extends TestCase
      * @return array<int, int>
      */
     abstract protected function getWarningList();
-
-
 }//end class

@@ -14,8 +14,6 @@ use PHP_CodeSniffer\Util;
 
 class Summary implements Report
 {
-
-
     /**
      * Generate a partial report for a single processed file.
      *
@@ -42,9 +40,7 @@ class Summary implements Report
 
         echo $report['filename'].'>>'.$report['errors'].'>>'.$report['warnings'].PHP_EOL;
         return true;
-
     }//end generateFileReport()
-
 
     /**
      * Generates a summary of errors and warnings for each file processed.
@@ -176,8 +172,5 @@ class Summary implements Report
         if ($toScreen === true && $interactive === false) {
             Util\Timing::printRunTime();
         }
-
     }//end generate()
-
-
 }//end class

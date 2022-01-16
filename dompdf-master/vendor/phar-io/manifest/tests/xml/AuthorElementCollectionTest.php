@@ -14,5 +14,4 @@ class AuthorElementCollectionTest extends \PHPUnit\Framework\TestCase {
             $this->assertInstanceOf(AuthorElement::class, $authorElement);
         }
     }
-
 }

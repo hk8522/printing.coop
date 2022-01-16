@@ -14,7 +14,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class InlineHTMLSniff implements Sniff
 {
-
     /**
      * List of supported BOM definitions.
      *
@@ -28,7 +27,6 @@ class InlineHTMLSniff implements Sniff
         'UTF-16 (LE)' => 'fffe',
     ];
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -37,9 +35,7 @@ class InlineHTMLSniff implements Sniff
     public function register()
     {
         return [T_INLINE_HTML];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -72,8 +68,5 @@ class InlineHTMLSniff implements Sniff
         $phpcsFile->addError($error, $stackPtr, 'Found');
 
         return $phpcsFile->numTokens;
-
     }//end process()
-
-
 }//end class

@@ -8,7 +8,6 @@
 
 class CIDataTables
 {
-
     private $ci;
 
     private $db;
@@ -328,7 +327,6 @@ class CIDataTables
         return $this;
     }
 
-
     /**
      * Set Paging
      */
@@ -513,9 +511,7 @@ class CIDataTables
 
         $this->data_output[ 'data' ] = $output_array;
 
-
         return $this;
-
     }// mutateQueryResult()
 
     /**

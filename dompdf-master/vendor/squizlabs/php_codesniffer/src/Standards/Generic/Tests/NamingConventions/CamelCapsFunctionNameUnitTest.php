@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Tests\Standards\AbstractSniffUnitTest;
 
 class CamelCapsFunctionNameUnitTest extends AbstractSniffUnitTest
 {
-
-
     /**
      * Returns the lines where errors should occur.
      *
@@ -66,9 +64,7 @@ class CamelCapsFunctionNameUnitTest extends AbstractSniffUnitTest
         ];
 
         return $errors;
-
     }//end getErrorList()
-
 
     /**
      * Returns the lines where warnings should occur.
@@ -81,8 +77,5 @@ class CamelCapsFunctionNameUnitTest extends AbstractSniffUnitTest
     public function getWarningList()
     {
         return [];
-
     }//end getWarningList()
-
-
 }//end class

@@ -6,7 +6,6 @@ namespace Socketlabs\Message;
  * message does not support merge fields.
  */
 class BasicMessage extends BaseMessage{
-
     /**
      * Array of To recipients. When adding directly to array, EmailAddress type should be used.
      */
@@ -72,5 +71,4 @@ class BasicMessage extends BaseMessage{
             throw new \InvalidArgumentException("Socketlabs\\Message\\BaseMessage::addBccAddress() parameter must be type string or type EmailAddress.");
         }
     }
-
 }

@@ -55,7 +55,6 @@ class HTML5_InputStream {
      * @throws Exception
      */
     public function __construct($data) {
-
         /* Given an encoding, the bytes in the input stream must be
         converted to Unicode characters for the tokeniser, as
         described by the rules for that encoding, except that the

@@ -16,14 +16,12 @@ use PHP_CodeSniffer\Util\Common;
 
 class FunctionCommentSniff extends PEARFunctionCommentSniff
 {
-
     /**
      * The current PHP version.
      *
      * @var integer
      */
     private $phpVersion = null;
-
 
     /**
      * Process the return comment of this function comment.
@@ -171,9 +169,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
             $error = 'Missing @return tag in function comment';
             $phpcsFile->addError($error, $tokens[$commentStart]['comment_closer'], 'MissingReturn');
         }//end if
-
     }//end processReturn()
-
 
     /**
      * Process any throw tags that this function comment has.
@@ -239,9 +235,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                 }
             }//end if
         }//end foreach
-
     }//end processThrows()
-
 
     /**
      * Process the function parameter comments.
@@ -573,9 +567,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
             $data  = [$neededParam];
             $phpcsFile->addError($error, $commentStart, 'MissingParamTag', $data);
         }
-
     }//end processParams()
-
 
     /**
      * Check the spacing after the type of a parameter.
@@ -632,9 +624,7 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                 $phpcsFile->fixer->endChangeset();
             }//end if
         }//end if
-
     }//end checkSpacingAfterParamType()
-
 
     /**
      * Check the spacing after the name of a parameter.
@@ -691,8 +681,5 @@ class FunctionCommentSniff extends PEARFunctionCommentSniff
                 $phpcsFile->fixer->endChangeset();
             }//end if
         }//end if
-
     }//end checkSpacingAfterParamName()
-
-
 }//end class

@@ -9,13 +9,11 @@
  *
  */
 
-
-/* Non-minified version JS is _stemmer.js if file is provided */ 
+/* Non-minified version JS is _stemmer.js if file is provided */
 /**
  * Porter Stemmer
  */
 var Stemmer = function() {
-
   var step2list = {
     ational: 'ate',
     tional: 'tion',
@@ -193,8 +191,6 @@ var Stemmer = function() {
   }
 }
 
-
-
 /**
  * Simple result scoring code.
  */
@@ -224,10 +220,6 @@ var Scorer = {
   // query found in terms
   term: 5
 };
-
-
-
-
 
 var splitChars = (function() {
     var result = {};
@@ -323,14 +315,10 @@ function splitQuery(query) {
     return result;
 }
 
-
-
-
 /**
  * Search Module
  */
 var Search = {
-
   _index : null,
   _queued_query : null,
   _pulse_status : -1,

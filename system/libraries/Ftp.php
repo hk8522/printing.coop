@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/ftp.html
  */
 class CI_FTP {
-
 	/**
 	 * FTP Server hostname
 	 *
@@ -663,5 +662,4 @@ class CI_FTP {
 		$CI->lang->load('ftp');
 		show_error($CI->lang->line($line));
 	}
-
 }

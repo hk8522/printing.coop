@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ConcatenationSpacingSniff implements Sniff
 {
-
     /**
      * The number of spaces before and after a string concat.
      *
@@ -30,7 +29,6 @@ class ConcatenationSpacingSniff implements Sniff
      */
     public $ignoreNewlines = false;
 
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -39,9 +37,7 @@ class ConcatenationSpacingSniff implements Sniff
     public function register()
     {
         return [T_STRING_CONCAT];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -153,8 +149,5 @@ class ConcatenationSpacingSniff implements Sniff
                 }
             }
         }//end if
-
     }//end process()
-
-
 }//end class

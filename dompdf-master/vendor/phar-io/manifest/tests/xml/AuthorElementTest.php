@@ -21,5 +21,4 @@ class AuthorElementTest extends \PHPUnit\Framework\TestCase {
     public function testEmailCanBeRetrieved() {
         $this->assertEquals('reiner@zufall.de', $this->author->getEmail());
     }
-
 }

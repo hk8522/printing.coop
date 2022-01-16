@@ -5,7 +5,6 @@ use Flagship\Shipping\Objects\Service;
 use Flagship\Shipping\Exceptions\AvailableServicesException;
 
 class AvailableServicesCollection extends Collection{
-
     public function importServices(array $services){
         if(count($services) == 0){
             throw new AvailableServicesException('No services available');
@@ -101,6 +100,4 @@ class AvailableServicesCollection extends Collection{
 
         return $services;
     }
-
-
 }

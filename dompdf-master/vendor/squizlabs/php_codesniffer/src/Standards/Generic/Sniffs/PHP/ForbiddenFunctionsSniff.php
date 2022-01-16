@@ -17,7 +17,6 @@ use PHP_CodeSniffer\Sniffs\Sniff;
 
 class ForbiddenFunctionsSniff implements Sniff
 {
-
     /**
      * A list of forbidden functions with their alternatives.
      *
@@ -51,7 +50,6 @@ class ForbiddenFunctionsSniff implements Sniff
      * @var boolean
      */
     public $error = true;
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -102,9 +100,7 @@ class ForbiddenFunctionsSniff implements Sniff
         $this->forbiddenFunctions     = array_combine($this->forbiddenFunctionNames, $this->forbiddenFunctions);
 
         return array_unique($register);
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -188,9 +184,7 @@ class ForbiddenFunctionsSniff implements Sniff
         }//end if
 
         $this->addError($phpcsFile, $stackPtr, $tokens[$stackPtr]['content'], $pattern);
-
     }//end process()
-
 
     /**
      * Generates the error or warning for this sniff.
@@ -232,8 +226,5 @@ class ForbiddenFunctionsSniff implements Sniff
         } else {
             $phpcsFile->addWarning($error, $stackPtr, $type, $data);
         }
-
     }//end addError()
-
-
 }//end class

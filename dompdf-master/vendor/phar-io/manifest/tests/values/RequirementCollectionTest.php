@@ -59,5 +59,4 @@ class RequirementCollectionTest extends TestCase {
             $this->assertEquals(0, $key);
         }
     }
-
 }

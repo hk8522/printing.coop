@@ -44,7 +44,6 @@ class PHP_TimerTest extends TestCase
         );
     }
 
-
     /**
      * @covers PHP_Timer::resourceUsage
      */

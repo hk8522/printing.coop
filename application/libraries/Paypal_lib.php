@@ -17,7 +17,6 @@
 
 class Paypal_lib
 {
-
     var $last_error;            // holds the last error encountered
     var $ipn_log;                // bool: log IPN results to text file?
 
@@ -32,7 +31,6 @@ class Paypal_lib
     var $CI;
 
     function __construct(){
-
         $this->CI =& get_instance();
         $this->CI->load->helper('url');
         $this->CI->load->helper('form');
@@ -64,7 +62,6 @@ class Paypal_lib
         $this->add_field('currency_code', $this->CI->config->item('paypal_lib_currency_code'));
         $this->add_field('quantity', '1');
         $this->button('Pay Now!');
-
     }
 
     function button($value){
@@ -216,6 +213,5 @@ class Paypal_lib
 
         return $result;
     }
-
 }
 ?>

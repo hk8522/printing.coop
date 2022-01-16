@@ -18,7 +18,6 @@ use Dompdf\Helpers;
  */
 class Inline extends AbstractRenderer
 {
-
     /**
      * @param Frame $frame
      */

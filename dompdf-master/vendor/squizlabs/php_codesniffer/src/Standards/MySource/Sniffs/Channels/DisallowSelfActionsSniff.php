@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class DisallowSelfActionsSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class DisallowSelfActionsSniff implements Sniff
     public function register()
     {
         return [T_CLASS];
-
     }//end register()
-
 
     /**
      * Processes this sniff, when one of its tokens is encountered.
@@ -118,8 +114,5 @@ class DisallowSelfActionsSniff implements Sniff
                 $phpcsFile->addError($error, $token, 'Found'.ucfirst($funcData['type']), $data);
             }
         }
-
     }//end process()
-
-
 }//end class

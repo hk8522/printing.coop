@@ -13,8 +13,6 @@ use PHP_CodeSniffer\Util;
 
 class GitModified extends ExactMatch
 {
-
-
     /**
      * Get a list of blacklisted file paths.
      *
@@ -23,9 +21,7 @@ class GitModified extends ExactMatch
     protected function getBlacklist()
     {
         return [];
-
     }//end getBlacklist()
-
 
     /**
      * Get a list of whitelisted file paths.
@@ -59,8 +55,5 @@ class GitModified extends ExactMatch
         }
 
         return $modified;
-
     }//end getWhitelist()
-
-
 }//end class

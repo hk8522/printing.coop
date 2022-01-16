@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class UseDeclarationSniff implements Sniff
 {
-
-
     /**
      * Returns an array of tokens this test wants to listen for.
      *
@@ -25,9 +23,7 @@ class UseDeclarationSniff implements Sniff
     public function register()
     {
         return [T_USE];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -257,9 +253,7 @@ class UseDeclarationSniff implements Sniff
                 }
             }
         }//end if
-
     }//end process()
-
 
     /**
      * Check if this use statement is part of the namespace block.
@@ -286,8 +280,5 @@ class UseDeclarationSniff implements Sniff
         }
 
         return false;
-
     }//end shouldIgnoreUse()
-
-
 }//end class

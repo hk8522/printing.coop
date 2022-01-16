@@ -215,7 +215,6 @@ if ( ! function_exists('entities_to_ascii'))
 				if ($digits < 128)
 				{
 					$out .= chr($digits);
-
 				}
 				elseif ($digits < 2048)
 				{

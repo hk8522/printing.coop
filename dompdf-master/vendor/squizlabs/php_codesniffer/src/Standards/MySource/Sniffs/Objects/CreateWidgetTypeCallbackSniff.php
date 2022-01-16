@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class CreateWidgetTypeCallbackSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
      * @var array
      */
     public $supportedTokenizers = ['JS'];
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -32,9 +30,7 @@ class CreateWidgetTypeCallbackSniff implements Sniff
     public function register()
     {
         return [T_OBJECT];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -211,8 +207,5 @@ class CreateWidgetTypeCallbackSniff implements Sniff
             $error = 'The create() method of a widget type must call the callback function';
             $phpcsFile->addError($error, $create, 'CallbackNotCalled');
         }
-
     }//end process()
-
-
 }//end class

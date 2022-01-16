@@ -5,7 +5,6 @@ namespace Sabberworm\CSS\CSSList;
 use Sabberworm\CSS\Parser;
 
 class DocumentTest extends \PHPUnit_Framework_TestCase {
-
 	public function testOverrideContents() {
 		$sCss = '.thing { left: 10px; }';
 		$oParser = new Parser($sCss);
@@ -22,5 +21,4 @@ class DocumentTest extends \PHPUnit_Framework_TestCase {
 		$aFinalContents = $oDoc->getContents();
 		$this->assertCount(2, $aFinalContents);
 	}
-
 }

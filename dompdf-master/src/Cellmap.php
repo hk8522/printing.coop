@@ -566,7 +566,6 @@ class Cellmap
 
         $bp = $style->get_border_properties();
 
-
         // Add the frame to the cellmap
         $max_left = $max_right = 0;
 
@@ -658,7 +657,6 @@ class Cellmap
             $min = 0;
             $max = 0;
             for ($cs = 0; $cs < $colspan; $cs++) {
-
                 // Resolve the frame's width(s) with other cells
                 $col =& $this->get_column($this->__col + $cs);
 

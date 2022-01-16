@@ -15,17 +15,13 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class MethodDeclarationSniff extends AbstractScopeSniff
 {
-
-
     /**
      * Constructs a Squiz_Sniffs_Scope_MethodScopeSniff.
      */
     public function __construct()
     {
         parent::__construct(Tokens::$ooScopeTokens, [T_FUNCTION]);
-
     }//end __construct()
-
 
     /**
      * Processes the function tokens within the class.
@@ -139,9 +135,7 @@ class MethodDeclarationSniff extends AbstractScopeSniff
 
             $phpcsFile->fixer->endChangeset();
         }
-
     }//end processTokenWithinScope()
-
 
     /**
      * Processes a token that is found within the scope that this test is
@@ -155,8 +149,5 @@ class MethodDeclarationSniff extends AbstractScopeSniff
      */
     protected function processTokenOutsideScope(File $phpcsFile, $stackPtr)
     {
-
     }//end processTokenOutsideScope()
-
-
 }//end class

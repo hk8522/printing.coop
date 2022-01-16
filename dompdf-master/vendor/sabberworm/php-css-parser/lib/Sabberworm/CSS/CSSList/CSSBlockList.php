@@ -78,5 +78,4 @@ abstract class CSSBlockList extends CSSList {
 			}
 		}
 	}
-
 }

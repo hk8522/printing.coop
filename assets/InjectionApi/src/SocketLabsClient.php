@@ -15,7 +15,6 @@ namespace Socketlabs;
  *      }
  */
 class SocketLabsClient{
-
         private $serverId;
         private $apiKey;
 
@@ -58,7 +57,6 @@ class SocketLabsClient{
          * Sends a basic/bulk email message and returns the response from the Injection API.
          */
         public function send($message){
-
                 $validationResult = Core\SendValidator::validateCredentials($this->serverId, $this->apiKey);
                 if($validationResult->result != \Socketlabs\SendResult::Success) return $validationResult;
 
@@ -81,7 +79,6 @@ class SocketLabsClient{
          * Helper function to set the user agent
          */
         private function setUserAgent(){
-
                 $phpVersion = phpversion();
                 $userAgent = "SocketLabs-php/$this->version(php $phpVersion)";
 

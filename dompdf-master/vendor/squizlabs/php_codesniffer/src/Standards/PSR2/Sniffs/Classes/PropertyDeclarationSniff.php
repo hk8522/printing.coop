@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class PropertyDeclarationSniff extends AbstractVariableSniff
 {
-
-
     /**
      * Processes the function tokens within the class.
      *
@@ -143,9 +141,7 @@ class PropertyDeclarationSniff extends AbstractVariableSniff
                 $phpcsFile->fixer->endChangeset();
             }
         }//end if
-
     }//end processMemberVar()
-
 
     /**
      * Processes normal variables.
@@ -160,9 +156,7 @@ class PropertyDeclarationSniff extends AbstractVariableSniff
         /*
             We don't care about normal variables.
         */
-
     }//end processVariable()
-
 
     /**
      * Processes variables in double quoted strings.
@@ -177,8 +171,5 @@ class PropertyDeclarationSniff extends AbstractVariableSniff
         /*
             We don't care about normal variables.
         */
-
     }//end processVariableInString()
-
-
 }//end class

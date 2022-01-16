@@ -2,7 +2,6 @@
 namespace TheSeer\Tokenizer;
 
 class Token {
-
     /**
      * @var int
      */
@@ -51,5 +50,4 @@ class Token {
     public function getValue(): string {
         return $this->value;
     }
-
 }

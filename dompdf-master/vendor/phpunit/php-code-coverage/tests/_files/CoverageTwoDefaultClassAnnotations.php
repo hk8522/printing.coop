@@ -13,5 +13,4 @@ class CoverageTwoDefaultClassAnnotations
         $o = new Foo\CoveredClass;
         $o->publicMethod();
     }
-
 }

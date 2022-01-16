@@ -19,7 +19,6 @@ use Dompdf\FrameDecorator\Page as PageFrameDecorator;
  */
 class Page extends AbstractFrameReflower
 {
-
     /**
      * Cache of the callbacks array
      *

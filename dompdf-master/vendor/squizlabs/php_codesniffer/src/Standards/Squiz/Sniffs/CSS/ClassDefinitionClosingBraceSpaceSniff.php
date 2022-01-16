@@ -15,14 +15,12 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ClassDefinitionClosingBraceSpaceSniff implements Sniff
 {
-
     /**
      * A list of tokenizers this sniff supports.
      *
      * @var array
      */
     public $supportedTokenizers = ['CSS'];
-
 
     /**
      * Returns the token types that this sniff is interested in.
@@ -32,9 +30,7 @@ class ClassDefinitionClosingBraceSpaceSniff implements Sniff
     public function register()
     {
         return [T_CLOSE_CURLY_BRACKET];
-
     }//end register()
-
 
     /**
      * Processes the tokens that this sniff is interested in.
@@ -127,8 +123,5 @@ class ClassDefinitionClosingBraceSpaceSniff implements Sniff
                 $phpcsFile->fixer->addNewlineBefore($stackPtr);
             }
         }
-
     }//end process()
-
-
 }//end class

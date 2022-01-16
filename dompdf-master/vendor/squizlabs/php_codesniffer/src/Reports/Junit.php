@@ -15,8 +15,6 @@ use PHP_CodeSniffer\Files\File;
 
 class Junit implements Report
 {
-
-
     /**
      * Generate a partial report for a single processed file.
      *
@@ -78,9 +76,7 @@ class Junit implements Report
         $out->endElement();
         echo $out->flush();
         return true;
-
     }//end generateFileReport()
-
 
     /**
      * Prints all violations for processed files, in a proprietary XML format.
@@ -124,8 +120,5 @@ class Junit implements Report
         echo '<testsuites name="PHP_CodeSniffer '.Config::VERSION.'" errors="0" tests="'.$tests.'" failures="'.$failures.'">'.PHP_EOL;
         echo $cachedData;
         echo '</testsuites>'.PHP_EOL;
-
     }//end generate()
-
-
 }//end class

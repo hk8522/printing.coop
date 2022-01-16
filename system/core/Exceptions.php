@@ -47,7 +47,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @link		https://codeigniter.com/user_guide/libraries/exceptions.html
  */
 class CI_Exceptions {
-
 	/**
 	 * Nesting level of the output buffering mechanism
 	 *
@@ -270,5 +269,4 @@ class CI_Exceptions {
 		ob_end_clean();
 		echo $buffer;
 	}
-
 }

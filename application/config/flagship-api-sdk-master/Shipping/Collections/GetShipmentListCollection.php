@@ -7,7 +7,6 @@ use Flagship\Shipping\Objects\Shipment;
 use Illuminate\Support\Collection;
 
 class GetShipmentListCollection extends Collection{
-
     public function importShipments(array $shipments) : array {
         $allShipments = [];
         if(count($shipments) === 0){
@@ -136,7 +135,5 @@ class GetShipmentListCollection extends Collection{
             throw new GetShipmentListException('No shipments found for Receiver : '.$company);
         }
         return $result;
-
     }
-
 }

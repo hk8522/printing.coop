@@ -58,5 +58,4 @@ class CalcFunction extends CSSFunction {
 		$oParserState->consume(')');
 		return new CalcFunction($sFunction, $oList, ',', $oParserState->currentLine());
 	}
-
 }

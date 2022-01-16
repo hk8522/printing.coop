@@ -12,7 +12,7 @@ class Import implements AtRule {
 	private $sMediaQuery;
 	protected $iLineNo;
 	protected $aComments;
-	
+
 	public function __construct(URL $oLocation, $sMediaQuery, $iLineNo = 0) {
 		$this->oLocation = $oLocation;
 		$this->sMediaQuery = $sMediaQuery;
@@ -34,7 +34,7 @@ class Import implements AtRule {
 	public function getLocation() {
 			return $this->oLocation;
 	}
-	
+
 	public function __toString() {
 		return $this->render(new \Sabberworm\CSS\OutputFormat());
 	}

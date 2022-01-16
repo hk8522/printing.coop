@@ -15,7 +15,6 @@ use PHP_CodeSniffer\Util\Tokens;
 
 class ControlSignatureSniff implements Sniff
 {
-
     /**
      * How many spaces should precede the colon if using alternative syntax.
      *
@@ -32,7 +31,6 @@ class ControlSignatureSniff implements Sniff
         'PHP',
         'JS',
     ];
-
 
     /**
      * Returns an array of tokens this test wants to listen for.
@@ -54,9 +52,7 @@ class ControlSignatureSniff implements Sniff
             T_ELSEIF,
             T_SWITCH,
         ];
-
     }//end register()
-
 
     /**
      * Processes this test, when one of its tokens is encountered.
@@ -317,8 +313,5 @@ class ControlSignatureSniff implements Sniff
                 }
             }
         }
-
     }//end process()
-
-
 }//end class

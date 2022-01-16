@@ -39,7 +39,6 @@
 											<td>
 												<div class="action-btns">
 
-
 										  	 	<a href="<?php echo $BASE_URL.$class_name.$sub_page_view_url?>/<?php echo $row['id'];?>" style="color:#3c8dbc;padding: 5px;" title="view">
 											        <i class="far fa-eye fa-lg"></i>
 											   	</a>
@@ -67,10 +66,8 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script>
 $(document).ready(function(){
-
     /* $('#example1').DataTable({
 		"order": [[ 4, "desc" ]]
 	}); */
-
 });
 </script>
