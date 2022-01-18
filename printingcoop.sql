@@ -579,7 +579,7 @@ CREATE TABLE `n_attribute_items` (
   PRIMARY KEY (`id`),
   KEY `attribute` (`neighbor_id`,`attribute_id`,`attribute_item_id`,`name`),
   KEY `name` (`neighbor_id`,`attribute_id`,`name`,`attribute_item_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `n_attributes` */
 
@@ -595,7 +595,7 @@ CREATE TABLE `n_attributes` (
   PRIMARY KEY (`id`),
   KEY `attribute` (`neighbor_id`,`attribute_id`,`name`),
   KEY `name` (`neighbor_id`,`name`,`attribute_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 
 /*Table structure for table `n_neighbors` */
 
@@ -1421,20 +1421,6 @@ CREATE TABLE `sheets` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
-/*Table structure for table `sizes` */
-
-DROP TABLE IF EXISTS `sizes`;
-
-CREATE TABLE `sizes` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `size_name` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `size_name_french` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `status` tinyint(1) NOT NULL DEFAULT 1,
-  `set_order` int(11) DEFAULT 0,
-  PRIMARY KEY (`id`),
-  KEY `size_name` (`size_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=207 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 /*Table structure for table `size_multiple_attributes` */
 
 DROP TABLE IF EXISTS `size_multiple_attributes`;
@@ -1455,6 +1441,20 @@ CREATE TABLE `size_multiple_attributes` (
   KEY `created_at` (`created_at`),
   KEY `updated_at` (`updated_at`)
 ) ENGINE=InnoDB AUTO_INCREMENT=42715 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+/*Table structure for table `sizes` */
+
+DROP TABLE IF EXISTS `sizes`;
+
+CREATE TABLE `sizes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `size_name` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `size_name_french` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `set_order` int(11) DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `size_name` (`size_name`)
+) ENGINE=InnoDB AUTO_INCREMENT=207 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 /*Table structure for table `states` */
 
