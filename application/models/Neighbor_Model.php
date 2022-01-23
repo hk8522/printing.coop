@@ -89,6 +89,32 @@ class Neighbor_Model extends MY_Model
         return $result[0]['COUNT(*)'];
     }
 
+    public function attributes($neighbor_id) {
+        $this->db->select('*');
+        $this->db->from('n_attributes');
+        $this->db->where('neighbor_id', $neighbor_id);
+        $this->db->order_by('name', $order);
+        return $this->db->get()->result_array();
+    }
+
+    public function attributeItems($attribute_id) {
+        $this->db->select('*');
+        $this->db->from('n_attribute_items');
+        $this->db->where('attribute_id', $attribute_id);
+        $this->db->order_by('name', 'asc');
+        return $this->db->get()->result_array();
+    }
+
+    public function attributeItemsForNeighbor($neighbor_id) {
+        $this->db->select('n_attribute_items.*');
+        $this->db->from('n_attribute_items');
+        $this->db->join('n_attributes', 'n_attributes.id=n_attribute_items.attribute_id');
+        $this->db->where('n_attributes.neighbor_id', $neighbor_id);
+        $this->db->order_by('attribute_id', 'asc');
+        $this->db->order_by('name', 'asc');
+        return $this->db->get()->result_array();
+    }
+
     public function attributesFull($neighbor_id) {
         $this->db->select(array('n_attributes.*', 'product_multiple_attributes.id AS attribute_id', 'product_multiple_attributes.name AS attribute_name'));
         $this->db->from('product_multiple_attributes');

@@ -67,13 +67,6 @@
                                     <div class="text-center" style="color:red"><?= $this->session->flashdata('message_error')?></div>
     <div class="form-role-area"><div class="control-group info"><div class="row"><div class="col-md-12 col-lg-12 col-xl-12">
         <div class="controls small-controls">
-            <!-- <div class="attribute-info-inner">
-                <div class="all-vol-btn">
-                    <button type="button" onclick="addAttribute('')"><i class="fa fa-plus"></i>Add Attribute</button>
-                </div>
-            </div> -->
-
-            <?php /* Quantity */ ?>
             <div class="attribute">
                 <div class="attribute-items" id="attribute-container-<?=$id?>">
                     <div class="attribute-title">

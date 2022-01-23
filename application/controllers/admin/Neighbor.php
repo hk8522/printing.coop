@@ -143,13 +143,8 @@ class Neighbor extends Admin_Controller
         $this->data['neighbor_id'] = $neighbor_id;
         $this->data['order'] = $order;
 
-        $this->data['attributes'] = $this->Neighbor_Model->attributesFull($neighbor_id);
-        $this->data['attributes'][0] = [
-            'attribute_id' => 0,
-            'name' => 'Size',
-            'attribute_name' => 'Size',
-        ];
-        $this->data['attributeItems'] = $this->Neighbor_Model->attributeItemsFull($neighbor_id);
+        $this->data['attributes'] = $this->Neighbor_Model->attributes($neighbor_id);
+        $this->data['attributeItems'] = $this->Neighbor_Model->attributeItemsForNeighbor($neighbor_id);
 
         $this->render($this->class_name . 'edit');
     }
