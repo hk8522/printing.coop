@@ -9,7 +9,7 @@ class Neighbor_Model extends MY_Model
             'label' => 'Neighbor name',
             'rules' => 'required',
             'errors' => array(
-                'required' => 'Enter neighbor name',
+                'required' => 'Enter the neighbor name',
             ),
         ),
         array(
@@ -17,7 +17,7 @@ class Neighbor_Model extends MY_Model
             'label' => 'Neighbor url',
             'rules' => 'required',
             'errors' => array(
-                'required' => 'Enter neighbor url',
+                'required' => 'Enter the neighbor url',
             ),
         ),
     );
@@ -89,19 +89,41 @@ class Neighbor_Model extends MY_Model
         return $result[0]['COUNT(*)'];
     }
 
+    public function attribute($attribute_id) {
+        $this->db->select('*');
+        $this->db->from('n_attributes');
+        $this->db->where('id', $attribute_id);
+        $result = $this->db->get()->result_array();
+        if (count($result) > 0)
+            return $result[0];
+        return false;
+    }
+
     public function attributes($neighbor_id) {
         $this->db->select('*');
         $this->db->from('n_attributes');
         $this->db->where('neighbor_id', $neighbor_id);
-        $this->db->order_by('name', $order);
+        $this->db->order_by('index', 'asc');
+        $this->db->order_by('updated_at', 'desc');
         return $this->db->get()->result_array();
+    }
+
+    public function attributeItem($attribute_item_id) {
+        $this->db->select('*');
+        $this->db->from('n_attribute_items');
+        $this->db->where('id', $attribute_item_id);
+        $result = $this->db->get()->result_array();
+        if (count($result) > 0)
+            return $result[0];
+        return false;
     }
 
     public function attributeItems($attribute_id) {
         $this->db->select('*');
         $this->db->from('n_attribute_items');
         $this->db->where('attribute_id', $attribute_id);
-        $this->db->order_by('name', 'asc');
+        $this->db->order_by('index', 'asc');
+        $this->db->order_by('updated_at', 'desc');
         return $this->db->get()->result_array();
     }
 

@@ -9,7 +9,7 @@
         <link rel="shortcut icon" type="image/png" href="<?php echo $BASE_URL;?>assets/images/favicon.png"/>
         <link href="<?php echo $BASE_URL;?>assets/admin/css/bootstrap.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo $BASE_URL;?>assets/admin/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo $BASE_URL;?>assets/admin/css/font-awesome.css" rel="stylesheet" type="text/css" />
+        <link href="<?php echo $BASE_URL;?>assets/css/font-awesome.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo $BASE_URL;?>assets/admin/css/ionicons.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo $BASE_URL;?>assets/admin/css/morris.css" rel="stylesheet" type="text/css" />
         <link href="<?php echo $BASE_URL;?>assets/admin/css/blueAdminLTE.css" rel="stylesheet" type="text/css" />

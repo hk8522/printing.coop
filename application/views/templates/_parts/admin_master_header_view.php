@@ -8,17 +8,17 @@
         <title><?php echo WEBSITE_NAME.'-'.'Admin-'.$page_title;?></title>
         <?php echo $before_head;?>
         <link rel="shortcut icon" type="image/png" href="<?php echo $BASE_URL;?>assets/images/favicon.png"/>
-        <link href="<?php echo $BASE_URL;?>assets/admin/css/bootstrap.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo $BASE_URL;?>assets/admin/css/bootstrap-select.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo $BASE_URL;?>assets/admin/css/font-awesome.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo $BASE_URL;?>assets/admin/css/ionicons.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo $BASE_URL;?>assets/admin/css/morris.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo $BASE_URL;?>assets/admin/css/blueAdminLTE.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo $BASE_URL;?>assets/admin/css/_all-skins.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo $BASE_URL;?>assets/admin/css/custom.css" rel="stylesheet" type="text/css" />
-        <link href="<?php echo $BASE_URL;?>assets/admin/css/BsMultiSelect.min.css" rel="stylesheet" type="text/css" />
-        <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-        <link href="<?php echo $BASE_URL;?>assets/admin/css/jquery.datetimepicker.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/admin/css/bootstrap.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/admin/css/bootstrap-select.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/css/font-awesome.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/admin/css/ionicons.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/admin/css/morris.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/admin/css/blueAdminLTE.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/admin/css/_all-skins.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/admin/css/custom.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/admin/css/BsMultiSelect.min.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/admin/css/jquery.datetimepicker.min.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body class="skin-blue sidebar-mini">
