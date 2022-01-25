@@ -145,12 +145,22 @@ class Neighbor extends Admin_Controller
 
         $this->data['curNeighbor'] = $neighbor;
         $this->data['curAttribute'] = $this->Neighbor_Model->attribute($attribute_id);
-        $this->data['curAttributeItem'] = $this->Neighbor_Model->attribute($attribute_item_id);
+        $this->data['curAttributeItem'] = $this->Neighbor_Model->attributeItem($attribute_item_id);
 
         $this->data['attributes'] = $this->Neighbor_Model->attributes($neighbor_id);
-        $this->data['attributeItems'] = $this->Neighbor_Model->attributeItemsForNeighbor($neighbor_id);
+        $this->data['attributeItems'] = $this->Neighbor_Model->attributeItems($attribute_id);
+        $this->data['attributeItemsForNeighbor'] = $this->Neighbor_Model->attributeItemsForNeighbor($neighbor_id);
 
         $this->render($this->class_name . 'edit');
+    }
+
+    public function delete($neighbor_id)
+    {
+        if ($this->Neighbor_Model->delete($neighbor_id))
+            $this->session->set_flashdata('message_success', 'Deleted Successfully.');
+        else
+            $this->session->set_flashdata('message_error', 'Delete Unsuccessful.');
+        redirect('admin/Neighbor');
     }
 
     public function attribute_put($neighbor_id, $attribute_id = 0) {
@@ -187,13 +197,16 @@ class Neighbor extends Admin_Controller
         redirect("admin/Neighbor/edit/$neighbor_id");
     }
 
-    public function delete($neighbor_id)
+    public function attribute_up($neighbor_id, $attribute_id)
     {
-        if ($this->Neighbor_Model->delete($neighbor_id))
-            $this->session->set_flashdata('message_success', 'Deleted Successfully.');
-        else
-            $this->session->set_flashdata('message_error', 'Delete Unsuccessful.');
-        redirect('admin/Neighbor');
+        $this->Neighbor_Model->attributeUpDown($attribute_id, -3);
+        redirect("admin/Neighbor/edit/$neighbor_id");
+    }
+
+    public function attribute_down($neighbor_id, $attribute_id)
+    {
+        $this->Neighbor_Model->attributeUpDown($attribute_id, 3);
+        redirect("admin/Neighbor/edit/$neighbor_id");
     }
 
     public function attributeSort($neighbor_id = 0, $order = 'desc')
@@ -273,5 +286,51 @@ class Neighbor extends Admin_Controller
         else
             $this->session->set_flashdata('message_error', 'Delete Unsuccessful.');
         redirect("admin/Neighbor/attributeEdit/$neighbor_id");
+    }
+
+    public function attribute_item_put($neighbor_id, $attribute_id, $attribute_item_id = 0) {
+        if (!$this->input->post())
+            die('You have no access.');
+
+        $set_rules = array(
+            array(
+                'field' => 'name',
+                'label' => 'Attribute Item name',
+                'rules' => 'required',
+                'errors' => array(
+                    'required' => 'Enter the attribute item name',
+                ),
+            ),
+        );
+    
+        $data = [
+            'attribute_id' => $attribute_id,
+            'name'  => $this->input->post('name'),
+            'index' => $this->input->post('index'),
+        ];
+        if ($attribute_item_id)
+            $data['id'] = $attribute_item_id;
+
+        $this->form_validation->set_rules($set_rules);
+        $this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
+
+        if ($this->form_validation->run() === TRUE) {
+            $new_id = $this->Neighbor_Model->saveAttributeItem($data);
+        } else {
+            $this->session->set_flashdata('errors', ['Missing information.']);
+        }
+        redirect("admin/Neighbor/edit/$neighbor_id/$attribute_id");
+    }
+
+    public function attribute_item_up($neighbor_id, $attribute_id, $attribute_item_id)
+    {
+        $this->Neighbor_Model->attributeItemUpDown($attribute_item_id, -3);
+        redirect("admin/Neighbor/edit/$neighbor_id/$attribute_id");
+    }
+
+    public function attribute_item_down($neighbor_id, $attribute_id, $attribute_item_id)
+    {
+        $this->Neighbor_Model->attributeItemUpDown($attribute_item_id, 3);
+        redirect("admin/Neighbor/edit/$neighbor_id/$attribute_id");
     }
 }

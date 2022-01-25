@@ -185,7 +185,7 @@
     <script src="<?php echo $BASE_URL;?>assets/admin/js/chart.js" type="text/javascript"></script>
     <script src="<?php echo $BASE_URL;?>assets/admin/js/app.js" type="text/javascript"></script>
     <script src="<?php echo $BASE_URL;?>assets/admin/js/jquery.js" type="text/javascript"></script>
-	<!-- <script src="<?php echo $BASE_URL;?>assets/admin/js/font-awesome.js" type="text/javascript"></script> -->
+	<script src="<?php echo $BASE_URL;?>assets/admin/js/font-awesome.js" type="text/javascript"></script>
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
     </script>
 

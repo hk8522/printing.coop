@@ -50,7 +50,7 @@ class Neighbor_Model extends MY_Model
             $table = $this->table;
         if ($data['id'] > 0) {
             $this->db->where('id', $data['id']);
-            $query = $this->db->update($table, $data);
+            $this->db->update($table, $data);
             return $data['id'];
         } else {
             $query = $this->db->insert($table, $data);
@@ -62,6 +62,10 @@ class Neighbor_Model extends MY_Model
 
     public function saveAttribute($data) {
         return $this->save($data, 'n_attributes');
+    }
+
+    public function saveAttributeItem($data) {
+        return $this->save($data, 'n_attribute_items');
     }
 
     public function getAttributeData($neighbor_id, $data_id = null, $limit = null, $start = null, $order = 'desc') {
@@ -195,5 +199,35 @@ class Neighbor_Model extends MY_Model
             $this->db->update_batch('n_attribute_items', $itemsOrg, 'id');
         if (count($itemsNew) > 0)
             $this->db->insert_batch('n_attribute_items', $itemsNew);
+    }
+
+    public function attributeUpDown($attribute_id, $offset) {
+        $this->db->set('`index`', "`index`+($offset)", false);
+        $this->db->where('id', $attribute_id);
+        $this->db->update('n_attributes');
+        $this->db->query("UPDATE n_attributes target
+            JOIN
+            (
+                SELECT id, (@rownumber := @rownumber + 1) AS rownum
+                FROM n_attributes
+                CROSS JOIN (SELECT @rownumber := 0) r
+                ORDER BY `index` ASC, updated_at DESC
+            ) source ON target.id = source.id
+            SET `index` = rownum * 2");
+    }
+
+    public function attributeItemUpDown($attribute_item_id, $offset) {
+        $this->db->set('`index`', "`index`+($offset)", false);
+        $this->db->where('id', $attribute_item_id);
+        $this->db->update('n_attribute_items');
+        $this->db->query("UPDATE n_attribute_items target
+            JOIN
+            (
+                SELECT id, (@rownumber := @rownumber + 1) AS rownum
+                FROM n_attribute_items
+                CROSS JOIN (SELECT @rownumber := 0) r
+                ORDER BY `index` ASC, updated_at DESC
+            ) source ON target.id = source.id
+            SET `index` = rownum * 2");
     }
 }

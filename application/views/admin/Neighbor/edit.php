@@ -94,14 +94,14 @@
                                         <strong><?= $message ?></strong>
                                 </div>
                             <? } ?>
-                            <input type="hidden" name="index" value="<? $curAttribute ? $curAttribute['index'] : count($attributes) ?>">
+                            <input type="hidden" name="index" value="<?= $curAttribute ? $curAttribute['index'] : count($attributes) * 2 ?>">
                             <? if (count($attributes) > 0) {
                                 foreach ($attributes as $attribute) { ?>
                                     <div class="control-group info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6 offset-md-3"><?= $attribute['name'] ?></div>
                                             <div class="col-md-3" style="text-align: right;">
-                                                <a href="<?= $BASE_URL . $class_name . "edit/$neighbor_id/" . $attribute['id'] ?>"><i class="fa fa-pencil"></i></a>
+                                                <a href="<?= $BASE_URL . $class_name . "edit/$neighbor_id/" . $attribute['id'] ?>"><i class="fa fa-edit"></i></a>
                                                 <a href="<?= $BASE_URL . $class_name . "attribute_up/$neighbor_id/" . $attribute['id'] ?>"><i class="fa fa-arrow-up"></i></a>
                                                 <a href="<?= $BASE_URL . $class_name . "attribute_down/$neighbor_id/" . $attribute['id'] ?>"><i class="fa fa-arrow-down"></i></a>
                                             </div>
@@ -144,7 +144,7 @@
                             <h5 class="mb-4 text-center bg-success text-white">Add a new Attribute Item</h3>
                         <? } ?>
                         <form action="<?= $BASE_URL . $class_name . "attribute_item_put/$neighbor_id/" . $curAttribute['id'] . "/" . $curAttributeItem['id'] ?>" method="post">
-                            <input type="hidden" name="index" value="{{ $curItem ? $curItem->index : count($curAttribute->items) }}">
+                            <input type="hidden" name="index" value="<?= $curAttributeItem ? $curAttributeItem['index'] : count($attributeItems) * 2 ?>">
                             <!-- @if (count($errors->item->all()) > 0)
                                 <div class="alert alert-danger alert-dismissible">
                                     <button type="button" class="close" data-dismiss="alert">×</button>
@@ -159,15 +159,15 @@
                                         <strong><?= $message ?></strong>
                                 </div>
                             <? } ?>
-                            <? if (count($curAttributeItems) > 0) {
-                                foreach ($curAttributeItems as $item) { ?>
+                            <? if (count($attributeItems) > 0) {
+                                foreach ($attributeItems as $item) { ?>
                                     <div class="control-group info">
                                         <div class="row align-items-center">
                                             <div class="col-md-6 offset-md-3"><?= $item['name'] ?></div>
                                             <div class="col-md-3" style="text-align: right;">
-                                                <a href="<?= $BASE_URL . $class_name . "edit/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>"><i class="fa fa-pencil"></i></a>
-                                                <a href="<?= $BASE_URL . $class_name . "attribute_up/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>"><i class="fa fa-arrow-up"></i></a>
-                                                <a href="<?= $BASE_URL . $class_name . "attribute_down/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>"><i class="fa fa-arrow-down"></i></a>
+                                                <a href="<?= $BASE_URL . $class_name . "edit/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>"><i class="fa fa-edit"></i></a>
+                                                <a href="<?= $BASE_URL . $class_name . "attribute_item_up/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>"><i class="fa fa-arrow-up"></i></a>
+                                                <a href="<?= $BASE_URL . $class_name . "attribute_item_down/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>"><i class="fa fa-arrow-down"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -181,7 +181,7 @@
                                     </div>
                                     <div class="col-md-9">
                                         <div class="controls">
-                                            <input class="form-control" name="name" type="text" placeholder="Item Name" value="<?= $curItem ? $curItem['name'] : '' ?>" required>
+                                            <input class="form-control" name="name" type="text" placeholder="Item Name" value="<?= $curAttributeItem ? $curAttributeItem['name'] : '' ?>" required>
                                         </div>
                                     </div>
                                 </div>
