@@ -570,6 +570,22 @@ DROP TABLE IF EXISTS `n_attribute_items`;
 
 CREATE TABLE `n_attribute_items` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `attribute_id` int(10) unsigned DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `index` int(10) DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `attribute` (`attribute_id`,`name`),
+  KEY `attribute_id` (`attribute_id`,`index`)
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `n_attribute_items_old` */
+
+DROP TABLE IF EXISTS `n_attribute_items_old`;
+
+CREATE TABLE `n_attribute_items_old` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `neighbor_id` int(10) unsigned DEFAULT NULL,
   `attribute_id` int(10) unsigned DEFAULT NULL,
   `attribute_item_id` int(10) unsigned DEFAULT NULL,
@@ -586,6 +602,22 @@ CREATE TABLE `n_attribute_items` (
 DROP TABLE IF EXISTS `n_attributes`;
 
 CREATE TABLE `n_attributes` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `neighbor_id` int(10) unsigned DEFAULT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `index` int(10) DEFAULT 0,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  PRIMARY KEY (`id`),
+  KEY `attribute` (`neighbor_id`,`name`),
+  KEY `neighbor_id` (`neighbor_id`,`index`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+/*Table structure for table `n_attributes_old` */
+
+DROP TABLE IF EXISTS `n_attributes_old`;
+
+CREATE TABLE `n_attributes_old` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `neighbor_id` int(10) unsigned DEFAULT NULL,
   `attribute_id` int(10) unsigned DEFAULT NULL,

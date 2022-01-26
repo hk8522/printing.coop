@@ -177,7 +177,7 @@ class Neighbor extends Admin_Controller
                 ),
             ),
         );
-    
+
         $data = [
             'neighbor_id' => $neighbor_id,
             'name'  => $this->input->post('name'),
@@ -279,13 +279,15 @@ class Neighbor extends Admin_Controller
         $this->render($this->class_name . 'attribute_edit');
     }
 
-    public function attributeDelete($neighbor_id, $data_id)
+    public function attribute_delete($neighbor_id, $attribute_id)
     {
-        if ($this->Neighbor_Model->deleteAttribute($neighbor_id, $data_id))
+        if (!$this->input->post())
+            die('You have no access.');
+        if ($this->Neighbor_Model->deleteAttribute($neighbor_id, $attribute_id))
             $this->session->set_flashdata('message_success', 'Deleted Successfully.');
         else
             $this->session->set_flashdata('message_error', 'Delete Unsuccessful.');
-        redirect("admin/Neighbor/attributeEdit/$neighbor_id");
+        redirect($this->class_name . "edit/$neighbor_id");
     }
 
     public function attribute_item_put($neighbor_id, $attribute_id, $attribute_item_id = 0) {
@@ -332,5 +334,16 @@ class Neighbor extends Admin_Controller
     {
         $this->Neighbor_Model->attributeItemUpDown($attribute_item_id, 3);
         redirect("admin/Neighbor/edit/$neighbor_id/$attribute_id");
+    }
+
+    public function attribute_item_delete($neighbor_id, $attribute_id, $attribute_item_id)
+    {
+        if (!$this->input->post())
+            die('You have no access.');
+        if ($this->Neighbor_Model->deleteAttributeItem($neighbor_id, $attribute_id, $attribute_item_id))
+            $this->session->set_flashdata('message_success', 'Deleted Successfully.');
+        else
+            $this->session->set_flashdata('message_error', 'Delete Unsuccessful.');
+        redirect($this->class_name . "edit/$neighbor_id/$attribute_id");
     }
 }

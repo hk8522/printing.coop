@@ -3645,3 +3645,15 @@ ul.dropdown .open-dropdown {
   pointer-events: auto;
   cursor: pointer;
 }
+
+.right {
+    text-align: right;
+}
+.folding > * {
+    display: inline-block;
+    /* float: left; */
+}
+.btn-tight {
+    padding: 0px;
+    margin: 0px;
+}

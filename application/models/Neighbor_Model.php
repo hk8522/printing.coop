@@ -137,8 +137,16 @@ class Neighbor_Model extends MY_Model
         $this->db->join('n_attributes', 'n_attributes.id=n_attribute_items.attribute_id');
         $this->db->where('n_attributes.neighbor_id', $neighbor_id);
         $this->db->order_by('attribute_id', 'asc');
-        $this->db->order_by('name', 'asc');
-        return $this->db->get()->result_array();
+        $this->db->order_by('index', 'asc');
+        $data = $this->db->get()->result_array();
+        $result = [];
+        foreach ($data as $item) {
+            $attribute_id = $item['attribute_id'];
+            if (!array_key_exists($attribute_id, $result))
+                $result[$attribute_id] = [];
+            $result[$attribute_id][] = $item;
+        }
+        return $result;
     }
 
     public function attributesFull($neighbor_id) {
@@ -192,6 +200,17 @@ class Neighbor_Model extends MY_Model
             $this->db->update_batch('n_attributes', $attributesOrg, 'id');
         if (count($attributesNew) > 0)
             $this->db->insert_batch('n_attributes', $attributesNew);
+    }
+
+    public function deleteAttribute($neighbor_id, $attribute_id) {
+        $this->db->trans_start();
+        $this->db->delete('n_attribute_items', array('attribute_id' => $attribute_id));
+        $this->db->delete('n_attributes', array('id' => $attribute_id, 'neighbor_id' => $neighbor_id));
+        $this->db->trans_complete();
+    }
+
+    public function deleteAttributeItem($neighbor_id, $attribute_id, $attribute_item_id) {
+        $this->db->delete('n_attribute_items', array('id' => $attribute_item_id, 'attribute_id' => $attribute_id));
     }
 
     public function saveAttributeItems($itemsOrg, $itemsNew) {

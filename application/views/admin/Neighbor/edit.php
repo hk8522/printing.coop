@@ -21,7 +21,7 @@
                         <? if ($curNeighbor) { ?>
                             <h3 class="mb-4 text-center bg-success text-white"><?= $curNeighbor['name'] ?></h3>
                         <? } ?>
-                        <form action="<?= $BASE_URL . $class_name . "edit/$neighbor_id" ?>" method="post">
+                        <form method="post" action="<?= $BASE_URL . $class_name . "edit/$neighbor_id" ?>">
                             <? if (count($errors) > 0) { ?>
                                 <div class="alert alert-danger alert-dismissible">
                                     <button type="button" class="close" data-dismiss="alert">×</button>
@@ -60,7 +60,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12" style="text-align: right;">
+                                <div class="col-md-12 right">
                                     <button class="btn btn-primary" type="submit">Save</button>
                                     <? if ($curNeighbor) { ?>
                                         <a class="btn btn-success" href="<?= $BASE_URL . $class_name . "edit" ?>">Add a new Neighbor</a>
@@ -74,130 +74,135 @@
                 <? if ($curNeighbor) { ?>
                 <div class="card-body row">
                     <div class="col-md-12">
-                        <? if ($curAttribute) { ?>
-                            <h4 class="mb-4 text-center bg-success text-white"><?= $curAttribute['name'] ?></h3>
-                        <? } else { ?>
-                            <h4 class="mb-4 text-center bg-success text-white">Add a new Attribute</h3>
+                        <!-- @if (count($errors->attribute->all()) > 0)
+                            <div class="alert alert-danger alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">×</button>
+                                @foreach($errors->attribute->all() as $error)
+                                        {{ $error }}<br>
+                                @endforeach
+                            </div>
+                        @endif -->
+                        <? if ($message = $attribute_success) { ?>
+                            <div class="alert alert-success alert-dismissible">
+                                <button type="button" class="close" data-dismiss="alert">×</button>   
+                                    <strong><?= $message ?></strong>
+                            </div>
                         <? } ?>
-                        <form action="<?= $BASE_URL . $class_name . "attribute_put/$neighbor_id/" . $curAttribute['id'] ?>" method="post">
-                            <!-- @if (count($errors->attribute->all()) > 0)
-                                <div class="alert alert-danger alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert">×</button>
-                                    @foreach($errors->attribute->all() as $error)
-                                            {{ $error }}<br>
-                                    @endforeach
-                                </div>
-                            @endif -->
-                            <? if ($message = $attribute_success) { ?>
-                                <div class="alert alert-success alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert">×</button>   
-                                        <strong><?= $message ?></strong>
-                                </div>
-                            <? } ?>
-                            <input type="hidden" name="index" value="<?= $curAttribute ? $curAttribute['index'] : count($attributes) * 2 ?>">
-                            <? if (count($attributes) > 0) {
-                                foreach ($attributes as $attribute) { ?>
-                                    <div class="control-group info">
+                        <? if (count($attributes) > 0) {
+                            foreach ($attributes as $attribute) { ?>
+                                <div class="control-group info">
+                                    <div class="row align-items-center">
+                                        <div class="col-md-10">
+                                            <input type="checkbox" onclick="return false;" checked> <?= $attribute['name'] ?>
+                                        </div>
+                                        <div class="col-md-2 right folding">
+                                            <a href="<?= $BASE_URL . $class_name . "edit/$neighbor_id/" . $attribute['id'] ?>"><i class="fa fa-edit"></i></a>
+                                            <a href="<?= $BASE_URL . $class_name . "attribute_up/$neighbor_id/" . $attribute['id'] ?>"><i class="fa fa-arrow-up"></i></a>
+                                            <a href="<?= $BASE_URL . $class_name . "attribute_down/$neighbor_id/" . $attribute['id'] ?>"><i class="fa fa-arrow-down"></i></a>
+                                            <form method="post" onsubmit="return confirmDelete();" action="<?= $BASE_URL . $class_name . "attribute_delete/$neighbor_id/" . $attribute['id'] ?>">
+                                                <input type="hidden" name="id" value="<?= $attribute['id'] ?>">
+                                                <button type="submit" class="btn bg-transparent btn-tight"><i class="fa fa-trash"></i></button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                    <? if ($attribute['id'] == $attribute_id && empty($curAttributeItem)) { ?>
+                                        <form method="post" action="<?= $BASE_URL . $class_name . "attribute_put/$neighbor_id/" . $attribute['id'] ?>">
+                                            <input type="hidden" name="index" value="<?= $curAttribute['index'] ?>">
+                                            <div class="row">
+                                                <div class="col-md-2 right">
+                                                    <label class="span2" for="name">Edit</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="controls">
+                                                        <input class="form-control" name="name" type="text" placeholder="Attribute Name" value="<?= $attribute ? $attribute['name'] : '' ?>" required>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2 right">
+                                                    <button class="btn btn-primary" type="submit">Save</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    <? } ?>
+                                    <? foreach ($attributeItemsForNeighbor[$attribute['id']] as $item) { ?>
                                         <div class="row align-items-center">
-                                            <div class="col-md-6 offset-md-3"><?= $attribute['name'] ?></div>
-                                            <div class="col-md-3" style="text-align: right;">
-                                                <a href="<?= $BASE_URL . $class_name . "edit/$neighbor_id/" . $attribute['id'] ?>"><i class="fa fa-edit"></i></a>
-                                                <a href="<?= $BASE_URL . $class_name . "attribute_up/$neighbor_id/" . $attribute['id'] ?>"><i class="fa fa-arrow-up"></i></a>
-                                                <a href="<?= $BASE_URL . $class_name . "attribute_down/$neighbor_id/" . $attribute['id'] ?>"><i class="fa fa-arrow-down"></i></a>
+                                            <div class="col-md-8 offset-md-2">
+                                                <input type="checkbox" onclick="return false;" checked> <?= $item['name'] ?>
+                                            </div>
+                                            <div class="col-md-2 right folding">
+                                                <a href="<?= $BASE_URL . $class_name . "edit/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>"><i class="fa fa-edit"></i></a>
+                                                <a href="<?= $BASE_URL . $class_name . "attribute_item_up/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>"><i class="fa fa-arrow-up"></i></a>
+                                                <a href="<?= $BASE_URL . $class_name . "attribute_item_down/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>"><i class="fa fa-arrow-down"></i></a>
+                                                <form method="post" onsubmit="return confirmDelete();" action="<?= $BASE_URL . $class_name . "attribute_item_delete/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>">
+                                                    <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                                                    <button type="submit" class="btn bg-transparent btn-tight"><i class="fa fa-trash"></i></button>
+                                                </form>
                                             </div>
                                         </div>
-                                    </div>
-                                <? } ?>
-                                <hr>
+                                        <? if ($item['id'] == $attribute_item_id) { ?>
+                                            <form method="post" action="<?= $BASE_URL . $class_name . "attribute_item_put/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>">
+                                                <div class="row">
+                                                    <div class="col-md-8 offset-md-2">
+                                                        <div class="controls">
+                                                            <input class="form-control" name="name" type="text" placeholder="Attribute Item Name" value="<?= $item ? $item['name'] : '' ?>" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-2 right">
+                                                        <button class="btn btn-primary" type="submit">Save</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        <? } ?>
+                                    <? } ?>
+                                    <? if ($attribute['id'] == $attribute_id && empty($curAttributeItem)) { ?>
+                                        <div class="row">
+                                            <div class="col-md-10 offset-md-2">
+                                                <hr>
+                                                <form method="post" action="<?= $BASE_URL . $class_name . "attribute_item_put/$neighbor_id/" . $curAttribute['id'] ?>">
+                                                    <input type="hidden" name="index" value="<?= count($attributeItems) * 2 + 2 ?>">
+                                                    <div class="control-group info">
+                                                        <div class="row align-items-center">
+                                                            <div class="col-md-2">
+                                                                <label class="span2" for="name">New Item</label>
+                                                            </div>
+                                                            <div class="col-md-8">
+                                                                <div class="controls">
+                                                                    <input class="form-control" name="name" type="text" placeholder="Item Name" value="<?= $curAttributeItem ? $curAttributeItem['name'] : '' ?>" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-md-2 right">
+                                                                <button class="btn btn-primary" type="submit">Add</button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    <? } ?>
+                                </div>
                             <? } ?>
+                        <? } ?>
+                        <hr>
+                        <form id="test" method="post" action="<?= $BASE_URL . $class_name . "attribute_put/$neighbor_id" ?>">
+                            <input type="hidden" name="index" value="<?= count($attributes) * 2 + 2 ?>">
                             <div class="control-group info">
                                 <div class="row align-items-center">
-                                    <div class="col-md-3">
-                                        <label class="span2" for="name">Attribute Name</label>
+                                    <div class="col-md-2">
+                                        <label class="span2" for="name">New Attribute</label>
                                     </div>
-                                    <div class="col-md-9">
+                                    <div class="col-md-8">
                                         <div class="controls">
-                                            <input class="form-control" name="name" type="text" placeholder="Attribute Name" value="<?= $curAttribute ? $curAttribute['name'] : '' ?>" required>
+                                            <input class="form-control" name="name" type="text" placeholder="Attribute Name" value="" required>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12" style="text-align: right;">
-                                    <button class="btn btn-primary" type="submit">Save</button>
-                                    <? if ($curAttribute) { ?>
-                                        <a class="btn btn-success" href="<?= $BASE_URL . $class_name . "edit/$neighbor_id" ?>">Add a new Attribute</a>
-                                    <? } ?>
+                                    <div class="col-md-2 right">
+                                        <button class="btn btn-primary" type="submit">Add</button>
+                                    </div>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
                 <? } ?>
-
-                <? if ($curAttribute) { ?>
-                <div class="card-body row">
-                    <div class="col-md-12">
-                        <? if ($curAttributeItem) { ?>
-                            <h5 class="mb-4 text-center bg-success text-white"><?= $curAttributeItem['name'] ?></h3>
-                        <? } else { ?>
-                            <h5 class="mb-4 text-center bg-success text-white">Add a new Attribute Item</h3>
-                        <? } ?>
-                        <form action="<?= $BASE_URL . $class_name . "attribute_item_put/$neighbor_id/" . $curAttribute['id'] . "/" . $curAttributeItem['id'] ?>" method="post">
-                            <input type="hidden" name="index" value="<?= $curAttributeItem ? $curAttributeItem['index'] : count($attributeItems) * 2 ?>">
-                            <!-- @if (count($errors->item->all()) > 0)
-                                <div class="alert alert-danger alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert">×</button>
-                                    @foreach($errors->item->all() as $error)
-                                            {{ $error }}<br>
-                                    @endforeach
-                                </div>
-                            @endif -->
-                            <? if ($message = $item_success) { ?>
-                                <div class="alert alert-success alert-dismissible">
-                                    <button type="button" class="close" data-dismiss="alert">×</button>   
-                                        <strong><?= $message ?></strong>
-                                </div>
-                            <? } ?>
-                            <? if (count($attributeItems) > 0) {
-                                foreach ($attributeItems as $item) { ?>
-                                    <div class="control-group info">
-                                        <div class="row align-items-center">
-                                            <div class="col-md-6 offset-md-3"><?= $item['name'] ?></div>
-                                            <div class="col-md-3" style="text-align: right;">
-                                                <a href="<?= $BASE_URL . $class_name . "edit/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>"><i class="fa fa-edit"></i></a>
-                                                <a href="<?= $BASE_URL . $class_name . "attribute_item_up/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>"><i class="fa fa-arrow-up"></i></a>
-                                                <a href="<?= $BASE_URL . $class_name . "attribute_item_down/$neighbor_id/" . $attribute['id'] . "/" . $item['id'] ?>"><i class="fa fa-arrow-down"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                <? } ?>
-                                <hr>
-                            <? } ?>
-                            <div class="control-group info">
-                                <div class="row align-items-center">
-                                    <div class="col-md-3">
-                                        <label class="span2" for="name">Item Name</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <div class="controls">
-                                            <input class="form-control" name="name" type="text" placeholder="Item Name" value="<?= $curAttributeItem ? $curAttributeItem['name'] : '' ?>" required>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12" style="text-align: right;">
-                                    <button class="btn btn-primary" type="submit">Save</button>
-                                    <? if ($curAttributeItem) { ?>
-                                        <a class="btn btn-success" href="<?= $BASE_URL . $class_name . "edit/$neighbor_id" . "/" . $curAttribute['id'] ?>">Add a new Attribute Item</a>
-                                    <? } ?>
-                                </div>
-                            </div>
-                        </form>
-                        <? } ?>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -262,5 +267,9 @@ $("#select-all").click(function () {
         $(".attribute_ids").prop('checked', false);
     }
 });
-$('form').last().find('input:visible:first').focus();
+//$('form').last().find('input:visible:first').focus();
+
+function confirmDelete() {
+    return confirm('Do you really want to delete this?');
+}
 </script>
