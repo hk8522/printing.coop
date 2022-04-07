@@ -22,4 +22,5 @@ dompdf-master/composer.lock
 dompdf-master/vendor/
 google-translate-php-master/composer.lock
 google-translate-php-master/vendor/
-
+*/vendor/*
+!*/composer.lock
