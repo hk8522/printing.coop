@@ -15,7 +15,7 @@
 	$url='https://www.paypal.com/cgi-bin/webscr';
 
 	$paypal_email=!empty($paypal_business_email) ? $paypal_business_email:'imprimeur.coop@gmail.com';
-	if($paypal_payment_mode=='sendbox'){
+	if($paypal_payment_mode=='sandbox'){
 		$paypal_email=!empty($paypal_sandbox_business_email) ? $paypal_sandbox_business_email:'sb-ks2ro721209@business.example.com';
 		$url='https://www.sandbox.paypal.com/cgi-bin/webscr';
 	}

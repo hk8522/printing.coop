@@ -749,7 +749,9 @@ class Checkouts extends Public_Controller
 			 redirect('Homes');
 		}
 	}
-
+	function defaultPayPalIPNResponse(){
+		exit();
+	}
 	function PayPalIPNResponse($order_id=null){
 		$this->load->model('Store_Model');
 		$this->load->model('ProductOrder_Model');
@@ -758,8 +760,7 @@ class Checkouts extends Public_Controller
 		$postStoreData=$this->Store_Model->getStoreDataById($store_id);
 		$paypal_payment_mode=$postStoreData['paypal_payment_mode'];
 		$url='https://www.paypal.com/cgi-bin/webscr';
-
-		if($paypal_payment_mode=='sendbox'){
+		if($paypal_payment_mode=='sandbox'){
 			$url='https://www.sandbox.paypal.com/cgi-bin/webscr';
 		}
         $txn_id=$payment_status='';
@@ -876,6 +877,7 @@ class Checkouts extends Public_Controller
 		    $this->UpdateOrderStatus($orderData);
 			exit();
 		}
+		exit();
 	}
 
 	function PayPalCancelResponse($order_id=null){
