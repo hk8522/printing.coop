@@ -14,14 +14,5 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 application/logs/*
 !application/logs/index.html
 !application/logs/.htaccess
-/vendor/
-**/vendor
-**/composer.lock
-application/config/flagship-api-sdk-master/composer.lock
-**/application/config/flagship-api-sdk-master/vendor
-dompdf-master/composer.lock
-dompdf-master/vendor/
-google-translate-php-master/composer.lock
-google-translate-php-master/vendor/
-*/vendor/*
-!*/composer.lock
+
+vendor/
