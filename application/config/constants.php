@@ -671,13 +671,15 @@ function getRate($rate)
 	   }
     }
 
-	function emailTemplate($subject,$body){
+	function emailTemplate($subject,$body,$empty=false,$logo = false){
+		//<img src="'.FILE_BASE_URL.'assets/images/printing.coopLogo.png" width="60%">
+		$logo = $logo ? $logo : 'https://printing.coop/assets/images/printing.coopLogo.png'; 
 		$html ='<div class="top-section" style="width:100%;text-align:center; font-family: Raleway, sans-serif !important;display: flex;justify-content: center;align-items: center;">
-		<div class="top-mid-section" style="width:100%; max-width:600px; height:auto; text-align:center; padding:0px 0px 0px 0px; box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);background-image: url('.FILE_BASE_URL.'assets/images/bg-vector-img.jpg);">
+		<div class="top-mid-section" style="width:100%; max-width:600px; height:auto; text-align:center; padding:0px 0px 0px 0px; box-shadow: 0px 0px 10px -3px rgba(0,0,0,0.5);background-image: url(https://printing.coop/assets/images/bg-vector-img.jpg);">
 			<div style="background: rgba(255,255,255,0.9)">
 			<div class="top-inner-section" style="background: #fa762b; padding: 3px 0px 1px 0px; box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.5);">
 			</div>
-			<div style="padding: 20px 0px 10px 0px; text-align: center;"><img src="'.FILE_BASE_URL.'assets/images/printing.coopLogo.png" width="60%"></div>
+			<div style="padding: 20px 0px 10px 0px; text-align: center;"><img src="'.$logo.'" width="60%"></div>
 			<div class="tem-mid-section" style="text-align: center;">
 				<div class="tem-visibility" style="z-index: 99; padding: 20px;">
 					<div class="top-title" style="font-size: 22px; text-align: center;">
@@ -862,7 +864,7 @@ function getRate($rate)
 /* org send email functions end */
 
 /* socket lab mail functions */
-	function sendEmail($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){
+	function sendEmail($toEmail=null,$sub=null,$body=null,$from=null,$fromname=null,$files=array()){		
 		$from=!empty($from) ? $from:FROM_EMAIL;
 		$fromname=!empty($fromname) ? $fromname:WEBSITE_NAME;
 		$params = array('to' => trim($toEmail),'subject' => $sub,'html' => $body,'text' => $body,'from' => trim($from),'fromname'  => $fromname);
@@ -937,14 +939,18 @@ function getRate($rate)
 			];
 	}
 
-	function getLogoImages($imageName = null)
+	function getLogoImages($imageName = null,$mail=false)
 	{
-			$imageurl = '';
-
-	    if (file_exists(LOGO_IMAGE_BASE_PATH.$imageName)) {
-				 $imageurl = LOGO_IMAGE_BASE_URL.$imageName;
+			$imageurl = '';			
+	    if (file_exists(LOGO_IMAGE_BASE_PATH.$imageName)) {				 
+				 	if($mail)
+					{
+						$imageurl = "https://printing.coop/uploads/logo/".$imageName;
+					}else
+					{
+						$imageurl = LOGO_IMAGE_BASE_URL.$imageName;
+					}
 			}
-
 			return $imageurl;
 	}
 
@@ -1810,3 +1816,7 @@ function FlagShipTestConfirm(){
 		return $shiping_coust;
 	}
 
+	function addEmailItem($title,$data)
+	{
+		return '<b>'.$title.' </b> : '.ucfirst($data).'<br><br>';
+	}

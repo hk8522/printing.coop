@@ -2294,9 +2294,8 @@ function contactus_recaptcha(){
 				  required: true,
 				},
 				postal_code: {
-				  required: true,
-				  number: true,
-				  maxlength: 6,
+				  required: true,				  
+				  maxlength: 10,
 				  minlength: 6,
 				},
 				flat_size: {
@@ -2407,9 +2406,8 @@ function contactus_recaptcha(){
 				  required: true,
 				},
 				postal_code: {
-				  required: true,
-				  number: true,
-				  maxlength: 6,
+				  required: true,				  
+				  maxlength: 10,
 				  minlength: 6,
 				},
 				flat_size: {

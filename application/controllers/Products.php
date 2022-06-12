@@ -1283,11 +1283,44 @@ class Products extends Public_Controller
           $postData['notes'] = $this->input->post('notes');
 		  $postData['store_id'] = $this->main_store_id;
 
-          if ($this->Estimate_Model->saveEstimateData($postData)) {
+          if ($this->Estimate_Model->saveEstimateData($postData)) {						
+							$subject = 'Estimate Quote Request';
+							$postData['same_quote_request'] = $postData['same_quote_request'] == 0 ? "Nope" : "Yes";
+							$postData['no_of_sides'] = $postData['no_of_sides'] == 1 ? "1 side (inches)" : "Flat Format (2 Sides)";						
+							$body = '<div style="text-align:left;">'.
+							addEmailItem('Name Of The Contact',$postData['contact_name']).
+							addEmailItem('Company Name',$postData['company_name']).						
+							addEmailItem('Email Address',$postData['email']).
+							addEmailItem('Street',$postData['street']).
+							addEmailItem('City',$postData['city']).
+							addEmailItem('Country',$postData['country']).
+							addEmailItem('State',$postData['province']).
+							addEmailItem('Postal Code',$postData['postal_code']).
+							addEmailItem('Product Type (Postcards, Booklets)',$postData['product_type']).
+							addEmailItem('Product Name',$postData['product_name']).
+							addEmailItem('Ever Requested The Same Quote?',$postData['same_quote_request']).
+							addEmailItem('Qty1',$postData['qty_1']).
+							addEmailItem('Qty2',$postData['qty_2']).
+							addEmailItem('Qty3',$postData['qty_3']).
+							addEmailItem('More quantity',$postData['more_qty']).
+							addEmailItem('Flat Size (inches)',$postData['flat_size']).
+							addEmailItem('Finished Size (inches)',$postData['finish_size']).
+							addEmailItem('Paper / Stock',$postData['paper_stock']).
+							addEmailItem('Number Of Sides',$postData['no_of_sides']).
+							addEmailItem('Folding',$postData['folding']).
+							addEmailItem('Number of Versions',$postData['folding']).
+							addEmailItem('Shipping Method',$postData['shipping_methods']).
+							addEmailItem('Notes',$postData['notes']).
+							'</div>';							
+							
+							$logo = $this->data['language_name']=='French' ? getLogoImages($this->data['configrations']['logo_image_french'],true) : getLogoImages($this->data['configrations']['logo_image'],true);
+							$body = emailTemplate($subject,$body,false,$logo);
+							sendEmail( ADMIN_EMAIL,$subject,$body,FROM_EMAIL,'ADMIN',array() );
+
               $response['msg'] = 'Thank you for contacting printing coop we have received your estimation query our representative will get back to you within 24 hours';
-			  if($this->language_name=='French'){
-				 $response['msg'] = "Merci d'avoir contacté Imprimeur.coop nous avons reçu votre demande d'estimation notre représentant vous répondra dans les 24 heures";
-			  }
+							if($this->language_name=='French'){
+								$response['msg'] = "Merci d'avoir contacté Imprimeur.coop nous avons reçu votre demande d'estimation notre représentant vous répondra dans les 24 heures";
+							}
           } else {
               $response['status'] = 'error';
               $response['msg'] = 'Your Estimate Not Save Please Try Again.';

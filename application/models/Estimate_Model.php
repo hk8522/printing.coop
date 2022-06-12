@@ -47,12 +47,12 @@ Class Estimate_Model extends MY_Model {
         [
           'field' => 'phone_number',
           'label' => 'Phone Number',
-          'rules' => 'required|integer|max_length[10]|min_length[10]',
+          'rules' => 'required|max_length[15]|min_length[6]',
         ],
         [
           'field' => 'postal_code',
           'label' => 'Postal Code',
-          'rules' => 'required|integer|max_length[6]|min_length[6]',
+          'rules' => 'required|max_length[10]|min_length[6]',
         ],
   ];
   public $rulesFrench = [
@@ -99,12 +99,12 @@ Class Estimate_Model extends MY_Model {
         [
           'field' => 'phone_number',
           'label' => 'Phone Number',
-          'rules' => 'required|integer|max_length[10]|min_length[10]',
+          'rules' => 'required|max_length[15]|min_length[6]',
         ],
         [
           'field' => 'postal_code',
           'label' => 'Postal Code',
-          'rules' => 'required|integer|max_length[6]|min_length[6]',
+          'rules' => 'required|max_length[10]|min_length[6]',
         ],
   ];
   public function saveEstimateData($data)
