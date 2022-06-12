@@ -215,16 +215,16 @@ Class Admin_Model extends MY_Model {
 
 	public function saveAdminAttributesData($attributes_data,$attributes_item_data,$admin_id) {
         $this->db->where('admin_id', $admin_id);
-        $this->db->delete('admin_module');
+        $this->db->delete('admin_modules');
 		$this->db->where('admin_id', $admin_id);
-        $this->db->delete('admin_sub_module');
+        $this->db->delete('admin_sub_modules');
 		$query=false;
 		if(count($attributes_data) > 0){
-		   $query=$this->db->insert_batch('admin_module', $attributes_data);
+		   $query=$this->db->insert_batch('admin_modules', $attributes_data);
 		}
         if ($query) {
 			if(count($attributes_item_data) > 0){
-               $query=$this->db->insert_batch('admin_sub_module', $attributes_item_data);
+               $query=$this->db->insert_batch('admin_sub_modules', $attributes_item_data);
 			}
         } else {
             return false;

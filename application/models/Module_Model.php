@@ -2,13 +2,13 @@
 
 class Module_Model extends MY_Model
 {
-    public $table = 'module';
+    public $table = 'modules';
 
     public function getModuleList()
     {
         $query = "SELECT `m`.`id` as `module_id`, `m`.`module_name`,
                 `sm`.`id` as `sub_module_id`, `sm`.`sub_module_name`
-            FROM `module` AS `m` left join `sub_module` AS `sm` ON `m`.`id`=`sm`.`module_id` AND `m`.`status`=1 AND `sm`.`status`=1
+            FROM `modules` AS `m` left join `sub_modules` AS `sm` ON `m`.`id`=`sm`.`module_id` AND `m`.`status`=1 AND `sm`.`status`=1
             ORDER BY `m`.`order`, `m`.`module_name`, `sm`.`module_id`, `sm`.`order`, `sm`.`sub_module_name`";
         $data = $this->db->query($query)->result_array();
         // pr($data);
@@ -32,7 +32,7 @@ class Module_Model extends MY_Model
     public function getAdminModuleByAdminId($id = null)
     {
         $query = "SELECT *
-            FROM `admin_module` AS `m` left join `admin_sub_module` AS `sm` ON `m`.`admin_id`=`sm`.`admin_id` AND `m`.`module_id`=`sm`.`module_id`
+            FROM `admin_modules` AS `m` left join `admin_sub_modules` AS `sm` ON `m`.`admin_id`=`sm`.`admin_id` AND `m`.`module_id`=`sm`.`module_id`
             WHERE `m`.`admin_id`='$id'";
         $data = $this->db->query($query)->result_array();
         // pr($data);
@@ -66,7 +66,7 @@ class Module_Model extends MY_Model
         if ($role != 'admin') {
             if (!empty($id)) {
                 $this->db->select('*');
-                $this->db->from('admin_module');
+                $this->db->from('admin_modules');
                 $this->db->where('admin_id', $id);
                 $query = $this->db->get();
                 $data = $query->result_array();
@@ -94,7 +94,7 @@ class Module_Model extends MY_Model
         if ($role != 'admin') {
             if (!empty($id)) {
                 $this->db->select('*');
-                $this->db->from('admin_sub_module');
+                $this->db->from('admin_sub_modules');
                 $this->db->where('admin_id', $id);
                 $query = $this->db->get();
                 $data = $query->result_array();
@@ -105,7 +105,7 @@ class Module_Model extends MY_Model
             }
         } else {
             $this->db->select('*');
-            $this->db->from('sub_module');
+            $this->db->from('sub_modules');
             $query = $this->db->get();
             $data = $query->result_array();
             foreach ($data as $key => $val) {
@@ -120,7 +120,7 @@ class Module_Model extends MY_Model
     {
         $query = "SELECT `m`.`id` as `module_id`, `m`.`module_name`, `m`.`order` as `module_order`, `m`.`url` as `module_url`, `m`.`status` as `module_status`, `m`.`class` as `module_class`,
                 `sm`.`id` as `sub_module_id`, `sm`.`sub_module_name`, `sm`.`order` as `sub_module_order`, `sm`.`url` as `sub_module_url`, `sm`.`class` as `sub_module_class0`, `sm`.`action` AS `sub_module_action`, `sm`.`show_menu` AS `sub_module_show_menu`, `sm`.`status` AS `sub_module_status`, `sm`.`sub_module_class`
-            FROM `module` AS `m` left join `sub_module` AS `sm` ON `m`.`id`=`sm`.`module_id` AND `m`.`status`=1 AND `sm`.`status`=1
+            FROM `modules` AS `m` left join `sub_modules` AS `sm` ON `m`.`id`=`sm`.`module_id` AND `m`.`status`=1 AND `sm`.`status`=1
             ORDER BY `m`.`order`, `m`.`module_name`, `sm`.`module_id`, `sm`.`order`, `sm`.`sub_module_name`";
         $data = $this->db->query($query)->result_array();
         // pr($data);
@@ -137,12 +137,12 @@ class Module_Model extends MY_Model
                         'status' => $module['module_status'],
                         'class' => $module['module_class'],
                     ],
-                    'sub_module' => [],
+                    'sub_modules' => [],
                 ];
             }
 
             if ($module['sub_module_id'] != null) {
-                $modules[$module['module_id']]['sub_module'][$module['sub_module_id']] = [
+                $modules[$module['module_id']]['sub_modules'][$module['sub_module_id']] = [
                     'id' => $module['sub_module_id'],
                     'module_id' => $module['module_id'],
                     'sub_module_name' => $module['sub_module_name'],
@@ -173,7 +173,7 @@ class Module_Model extends MY_Model
                 $mainurl = $mainurl . "/" . $prem;
             }
             $this->db->select('*');
-            $this->db->from('sub_module');
+            $this->db->from('sub_modules');
             $this->db->where('url', $mainurl);
             $this->db->where('status', '1');
             $query = $this->db->get();
