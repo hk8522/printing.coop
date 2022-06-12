@@ -170,8 +170,8 @@ class Products extends Public_Controller
 		    $this->data['lists'][$key]['multipalCategory']=$multipalCategoryData;
         }
 
-      $this->render($this->class_name.'index');
-  }
+        $this->render($this->class_name.'index');
+    }
 
     public function view($id = null)
     {

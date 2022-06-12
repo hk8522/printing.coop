@@ -3,9 +3,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 require_once(APPPATH.'libraries/xlsxwriter.class.php');
 
-require_once(APPPATH.'../vendor/autoload.php');
-//require_once(APPPATH.'../vendor/phpoffice/phpspreadsheet/src/Bootstrap.php');
-
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 use PhpOffice\PhpSpreadsheet\IOFactory;
