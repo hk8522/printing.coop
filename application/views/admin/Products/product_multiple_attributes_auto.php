@@ -254,19 +254,19 @@
 </div>
 
 <div class="modal" tabindex="-1" role="dialog" id="ItemModal">
-  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+<div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
-      <div class="modal-header">
+    <div class="modal-header">
         <h5 class="modal-title">Add Quantity</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
+        <span aria-hidden="true">&times;</span>
         </button>
-      </div>
-      <div class="modal-body">
-        <p>loading... please wait</p>
-      </div>
     </div>
-  </div>
+    <div class="modal-body">
+        <p>loading... please wait</p>
+    </div>
+    </div>
+</div>
 </div>
 
 <script>

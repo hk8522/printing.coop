@@ -89,7 +89,7 @@ $autoload['drivers'] = array();
 |
 |	$autoload['helper'] = array('url', 'file');
 */
-$autoload['helper'] = array('url','translate','new');
+$autoload['helper'] = array('url', 'translate', 'auth', 'sina');
 
 /*
 | -------------------------------------------------------------------
@@ -103,7 +103,7 @@ $autoload['helper'] = array('url','translate','new');
 | config files.  Otherwise, leave it blank.
 |
 */
-$autoload['config'] = array();
+$autoload['config'] = array('sina');
 
 /*
 | -------------------------------------------------------------------

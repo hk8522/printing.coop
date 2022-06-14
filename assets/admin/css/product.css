@@ -73,6 +73,7 @@
     background: #fff;
     padding: 5px 5px;
     margin-bottom: 10px;
+    height: auto;
 }
 .attribute-info-inner {
 	padding: 0px 0px 0px 20px;
