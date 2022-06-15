@@ -62,7 +62,7 @@ class Module_Model extends MY_Model
 
     public function getMainModuleByAdminId($id = null, $role = 'admin')
     {
-        $module = array();
+        $modules = array();
         if ($role != 'admin') {
             if (!empty($id)) {
                 $this->db->select('*');
@@ -72,20 +72,20 @@ class Module_Model extends MY_Model
                 $data = $query->result_array();
                 foreach ($data as $key => $val) {
                     $module_id = $val['module_id'];
-                    $module[] = $module_id;
+                    $modules[] = $module_id;
                 }
             }
         } else {
             $this->db->select('*');
-            $this->db->from('module');
+            $this->db->from('modules');
             $query = $this->db->get();
             $data = $query->result_array();
             foreach ($data as $key => $val) {
                 $module_id = $val['id'];
-                $module[] = $module_id;
+                $modules[] = $module_id;
             }
         }
-        return $module;
+        return $modules;
     }
 
     public function getSubModuleByAdminId($id = null, $role = 'admin')

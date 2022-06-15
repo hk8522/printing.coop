@@ -259,37 +259,37 @@ class Products extends Public_Controller
                 $lists=$this->Product_Model->getProductSearchList($searchtext);
             }
             //pr($lists,1);
-            $search_reslut='';
+            $search_result='';
             if (!empty($lists)) {
                 foreach ($lists as $list) {
                     if ($list['status']==1) {
-                        $url=base_url()."Products/view/".base64_encode($list['id']);
-                        $name=$this->language_name=='French' ? $list['name_french']:$list['name'];
-                        $name=ucfirst($name);
+                        $url = base_url()."Products/view/".base64_encode($list['id']);
+                        $name = $this->language_name=='French' ? $list['name_french']:$list['name'];
+                        $name = ucfirst($name);
                         $imageurl = getProductImage($list['product_image'], 'medium');
 
                         if ($this->main_store_id==5) {
                             $category_id=13;
                             $multipalCategory=$this->Product_Model->getProductMultipalCategoriesAndSubCategories($list['id']);
                                 if (array_key_exists($category_id,$multipalCategory)) {
-                                    $search_reslut.='<li><img src="'.$imageurl.'" width="50"><a href="'.$url.'">'.$name.'</a></li>';
+                                    $search_result.='<li><img src="'.$imageurl.'" width="50"><a href="'.$url.'">'.$name.'</a></li>';
                                 }
                         } else {
-                                $search_reslut.='<li><img src="'.$imageurl.'" width="50"><a href="'.$url.'">'.$name.'</a></li>';
+                                $search_result.='<li><img src="'.$imageurl.'" width="50"><a href="'.$url.'">'.$name.'</a></li>';
                         }
                     }
                 }
             } else {
-                $search_reslut='<li><i class="fas fa-search"></i><a href="javascript:void(0)">product not found</a></li>';
+                $search_result='<li><i class="fas fa-search"></i><a href="javascript:void(0)">product not found</a></li>';
             }
         } else {
-            $search_reslut='<li><i class="fas fa-search"></i><a href="javascript:void(0)">product not found</a></li>';
+            $search_result='<li><i class="fas fa-search"></i><a href="javascript:void(0)">product not found</a></li>';
         }
-        if (empty($search_reslut)) {
-            $search_reslut='<li><i class="fas fa-search"></i><a href="javascript:void(0)">product not found</a></li>';
+        if (empty($search_result)) {
+            $search_result='<li><i class="fas fa-search"></i><a href="javascript:void(0)">product not found</a></li>';
         }
 
-        echo $search_reslut;
+        echo $search_result;
     }
 
     public function addRating()
@@ -1284,13 +1284,13 @@ class Products extends Public_Controller
             $postData['notes'] = $this->input->post('notes');
             $postData['store_id'] = $this->main_store_id;
 
-            if ($this->Estimate_Model->saveEstimateData($postData)) {						
+            if ($this->Estimate_Model->saveEstimateData($postData)) {
                 $subject = 'Estimate Quote Request';
                 $postData['same_quote_request'] = $postData['same_quote_request'] == 0 ? "Nope" : "Yes";
-                $postData['no_of_sides'] = $postData['no_of_sides'] == 1 ? "1 side (inches)" : "Flat Format (2 Sides)";						
+                $postData['no_of_sides'] = $postData['no_of_sides'] == 1 ? "1 side (inches)" : "Flat Format (2 Sides)";
                 $body = '<div style="text-align:left;">'.
                 addEmailItem('Name Of The Contact',$postData['contact_name']).
-                addEmailItem('Company Name',$postData['company_name']).						
+                addEmailItem('Company Name',$postData['company_name']).
                 addEmailItem('Email Address',$postData['email']).
                 addEmailItem('Street',$postData['street']).
                 addEmailItem('City',$postData['city']).
@@ -1312,8 +1312,8 @@ class Products extends Public_Controller
                 addEmailItem('Number of Versions',$postData['folding']).
                 addEmailItem('Shipping Method',$postData['shipping_methods']).
                 addEmailItem('Notes',$postData['notes']).
-                '</div>';							
-                
+                '</div>';
+
                 $logo = $this->data['language_name']=='French' ? getLogoImages($this->data['configrations']['logo_image_french'],true) : getLogoImages($this->data['configrations']['logo_image'],true);
                 $body = emailTemplate($subject,$body,false,$logo);
                 sendEmail( ADMIN_EMAIL,$subject,$body,FROM_EMAIL,'ADMIN',array() );

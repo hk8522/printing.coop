@@ -4,193 +4,193 @@
         <div class="col-xs-12 col-md-12">
             <div class="box">
                 <div class="box-body">
-                <div class="text-center" style="color:red">
-                    <?php echo $this->session->flashdata('message_error');?>
-                </div>
-                <div class="text-center" style="color:green">
-                    <?php echo $this->session->flashdata('message_success');?>
-                </div>
+                    <div class="text-center" style="color:red">
+                        <?php echo $this->session->flashdata('message_error');?>
+                    </div>
+                    <div class="text-center" style="color:green">
+                        <?php echo $this->session->flashdata('message_success');?>
+                    </div>
 
-                <div class="inner-head-section">
-                    <div class="row align-items-end">
-                        <div class="col-md-12 col-lg-12 col-xl-12 col-xs-12 text-left">
-                            <div class="inner-title" style="margin-bottom: 20px;">
-                                <span><?php echo ucfirst($page_title); ?></span>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-7 col-xl-4 col-xs-12 text-left">
-                            <!----Serach Product Html-->
-                            <div class="search-box-area">
-                                <div class="search-sugg">
-                                    <label class="span2">Search</label>
-                                    <input class="form-control" type="text" placeholder="Search Product"  onkeyup="searchProduct($(this).val())" id="searchSgedProductTextBox" name="searchSgedProductTextBox">
-                                    <!--<button type="button"><i class="fas fa-search"></i></button>-->
-                                </div>
-                                <div class="search-result" id="searchDiv" style="display:none"> <!-- Add "active" class to show -->
-                                    <a href="javascript:void(0)" onclick="hidesearchDiv()"><i class="fas fa-times" ></i></a>
-                                    <ul id="ProductListUl">
-
-                                    </ul>
+                    <div class="inner-head-section">
+                        <div class="row align-items-end">
+                            <div class="col-md-12 col-lg-12 col-xl-12 col-xs-12 text-left">
+                                <div class="inner-title" style="margin-bottom: 20px;">
+                                    <span><?php echo ucfirst($page_title); ?></span>
                                 </div>
                             </div>
-                        <!----End Serach Product Html-->
-                        </div>
-                        <div class="col-md-12 col-lg-5 col-xl-4 col-xs-12 text-left">
-                            <div class="select-options">
-                                <form action="<?php echo $BASE_URL?>admin/Products/index" method="post">
-                                    <div>
-                                        <label class="span2">Order By</label>
-                                        <select class="form-control" onchange="this.form.submit()" name="order">
-                                            <option value="desc" <?php echo $order=='desc' ? 'selected="selected"':'' ?>>Latest Product</option>
-                                            <option value="asc" <?php echo $order=='asc' ? 'selected="selected"':''?>>Oldest Product</option>
-                                        </select>
+                            <div class="col-md-12 col-lg-7 col-xl-4 col-xs-12 text-left">
+                                <!----Serach Product Html-->
+                                <div class="search-box-area">
+                                    <div class="search-sugg">
+                                        <label class="span2">Search</label>
+                                        <input class="form-control" type="text" placeholder="Search Product"  onkeyup="searchProduct($(this).val())" id="searchSgedProductTextBox" name="searchSgedProductTextBox">
+                                        <!--<button type="button"><i class="fas fa-search"></i></button>-->
                                     </div>
-                                    <div style="margin-left: 10px;">
-                                        <a href="<?php echo $BASE_URL.$class_name?>"><button type="button">Reset</button></a>
+                                    <div class="search-result" id="searchDiv" style="display:none"> <!-- Add "active" class to show -->
+                                        <a href="javascript:void(0)" onclick="hidesearchDiv()"><i class="fas fa-times" ></i></a>
+                                        <ul id="ProductListUl">
+
+                                        </ul>
                                     </div>
-                                </form>
+                                </div>
+                            <!----End Serach Product Html-->
                             </div>
-                        </div>
-                        <div class="col-md-12 col-lg-12 col-xl-4 col-xs-12 text-right">
-                            <div class="all-vol-btn">
-        <form action="<?php echo $BASE_URL?>admin/Products/deleteAllProduct" method="post">
-                                <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>" style="margin-right: 5px;">
-                                    <button type="button"><i class="fas fa-plus-circle"></i><?php echo $sub_page_title ?></button>
-                                </a>
-                                <button><i class="fas fa-trash fa-lg"></i>Delete All</button>
+                            <div class="col-md-12 col-lg-5 col-xl-4 col-xs-12 text-left">
+                                <div class="select-options">
+                                    <form action="<?php echo $BASE_URL?>admin/Products/index" method="post">
+                                        <div>
+                                            <label class="span2">Order By</label>
+                                            <select class="form-control" onchange="this.form.submit()" name="order">
+                                                <option value="desc" <?php echo $order=='desc' ? 'selected="selected"':'' ?>>Latest Product</option>
+                                                <option value="asc" <?php echo $order=='asc' ? 'selected="selected"':''?>>Oldest Product</option>
+                                            </select>
+                                        </div>
+                                        <div style="margin-left: 10px;">
+                                            <a href="<?php echo $BASE_URL.$class_name?>"><button type="button">Reset</button></a>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 col-xl-4 col-xs-12 text-right">
+                                <div class="all-vol-btn">
+                <form action="<?php echo $BASE_URL?>admin/Products/deleteAllProduct" method="post">
+                                    <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>" style="margin-right: 5px;">
+                                        <button type="button"><i class="fas fa-plus-circle"></i><?php echo $sub_page_title ?></button>
+                                    </a>
+                                    <button><i class="fas fa-trash fa-lg"></i>Delete All</button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-                    <div class="custom-mini-table">
-                        <table id="example3" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example3">
-                            <thead>
-                                <tr role="row">
-                                    <th><input type="checkbox" id="select-all"></th>
-                                    <th>Product Name</th>
-                                    <th>Image</th>
-                                    <th>List Price CAD</th>
-                                    <!--<th>List Price EURO</th>
-                                    <th>List Price GBP</th>
-                                    <th>List Price USD</th>-->
-                                    <th>Sub Category</th>
-                                    <th>Category</th>
-                                    <th>Stock</th>
-                                    <th>Code</th>
-                                    <th>Model</th>
-                                    <th>Updated On</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
+                    <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+                        <div class="custom-mini-table">
+                            <table id="example3" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example3">
+                                <thead>
+                                    <tr role="row">
+                                        <th><input type="checkbox" id="select-all"></th>
+                                        <th>Product Name</th>
+                                        <th>Image</th>
+                                        <th>List Price CAD</th>
+                                        <!--<th>List Price EURO</th>
+                                        <th>List Price GBP</th>
+                                        <th>List Price USD</th>-->
+                                        <th>Sub Category</th>
+                                        <th>Category</th>
+                                        <th>Stock</th>
+                                        <th>Code</th>
+                                        <th>Model</th>
+                                        <th>Updated On</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
 
-                            <tbody>
-                                <?php
-                                if(count($lists) > 0){
-                                    foreach($lists as $key=>$list){
-                                    ?>
-                                    <tr>
-                                         <td><input type="checkbox" name="product_ids[]" class="product_ids" value="<?php echo $list['id']?>">
-                                         </td>
-                                        <td>
-                                            <?php echo ucfirst($list['name']);?>
-                                        </td>
-                                         <td>
-                                              <?php $imageurl=getProductImage($list['product_image']);?>
-                                              <img src="<?php echo $imageurl?>" width="auto" height="80">
-                                         </td>
-                                         <td>
-                                             <?php echo number_format($list['price'],2);?>
-                                         </td>
-                                        <!--<td>
-                                             <?php echo number_format($list['price_euro'],2);?>
-                                         </td>
-                                        <td>
-                                             <?php echo number_format($list['price_gbp'],2);?>
-                                         </td>
-                                        <td>
-                                             <?php echo number_format($list['price_usd'],2);?>
-                                         </td>-->
-
-                                        <td>
-                                            <?php echo ucfirst($list['sub_category_name']);?>
-                                        </td>
-                                        <td>
-                                            <?php echo ucfirst($list['category_name']);?>
-                                        </td>
-                                        <td>
-                                             <?php if(empty($list['is_stock'])){
-                                             echo 'In Stock';
-                                            }else{
-                                            echo 'Out of Stock';
-                                            }
-
+                                <tbody>
+                                    <?php
+                                    if (count($lists) > 0) {
+                                        foreach($lists as $key=>$list) {
                                         ?>
-                                        </td>
-                                        <td>
-                                            <?php echo $list['code'];?>
-                                        </td>
-                                        <td>
-                                            <?php echo $list['model'];?>
-                                        </td>
-                                        <td>
-                                              <?php echo dateFormate($list['updated']);?>
-                                        </td>
+                                        <tr>
+                                            <td><input type="checkbox" name="product_ids[]" class="product_ids" value="<?php echo $list['id']?>">
+                                            </td>
+                                            <td>
+                                                <?php echo ucfirst($list['name']);?>
+                                            </td>
+                                            <td>
+                                                <?php $imageurl=getProductImage($list['product_image']);?>
+                                                <img src="<?php echo $imageurl?>" width="auto" height="80">
+                                            </td>
+                                            <td>
+                                                <?php echo number_format($list['price'],2);?>
+                                            </td>
+                                            <!--<td>
+                                                <?php echo number_format($list['price_euro'],2);?>
+                                            </td>
+                                            <td>
+                                                <?php echo number_format($list['price_gbp'],2);?>
+                                            </td>
+                                            <td>
+                                                <?php echo number_format($list['price_usd'],2);?>
+                                            </td>-->
 
-                                        <td>
-                                            <?php if($list['status']==1){?>
-                                            <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0">
-                                                 <button type="button" class="custon-active">Active</button>
-                                            </a>
-                                            <?php
-                                            }else{?>
-                                               <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1">
-                                                     <button type="button" class="custon-delete">Inactive</button>
-                                               </a>
-                                            <?php
-                                            }?>
-                                        </td>
-                                        <td>
-                                            <div class="action-btns">
-                                                   <a href="<?php echo $BASE_URL.$class_name.$sub_page_view_url?>/<?php echo $list['id'];?>" style="color:#3c8dbc;padding: 5px;" title="view">
-                                                    <i class="far fa-eye fa-lg"></i>
-                                                   </a>
-                                                   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>" style="color:green;padding: 5px;" title="edit">
-                                                    <i class="far fa-edit fa-lg"></i>
-                                                   </a>
+                                            <td>
+                                                <?php echo ucfirst($list['sub_category_name']);?>
+                                            </td>
+                                            <td>
+                                                <?php echo ucfirst($list['category_name']);?>
+                                            </td>
+                                            <td>
+                                                <?php if (empty($list['is_stock'])) {
+                                                echo 'In Stock';
+                                                } else {
+                                                echo 'Out of Stock';
+                                                }
 
-                                                   <a href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $list['id'];?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this product?');">
-                                                     <i class="fa fa-trash fa-lg"></i>
+                                            ?>
+                                            </td>
+                                            <td>
+                                                <?php echo $list['code'];?>
+                                            </td>
+                                            <td>
+                                                <?php echo $list['model'];?>
+                                            </td>
+                                            <td>
+                                                <?php echo dateFormate($list['updated']);?>
+                                            </td>
+
+                                            <td>
+                                                <?php if ($list['status']==1) {?>
+                                                <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0">
+                                                    <button type="button" class="custon-active">Active</button>
                                                 </a>
-                                                <a href="<?php echo $BASE_URL.$class_name?>SetMultipleAttributes/<?php echo $list['id'];?>" style="color:geen;padding: 5px;" title="Set Single Attribute">
-                                                    <button type="button" class="custon-active">Multiple Attribute</button>
+                                                <?php
+                                                } else {?>
+                                                <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1">
+                                                        <button type="button" class="custon-delete">Inactive</button>
                                                 </a>
-                                                <a href="<?php echo $BASE_URL.$class_name?>SetMultipleAttributesAuto/<?php echo $list['id'];?>" style="color:geen;padding: 5px;" title="Set Single Attribute">
-                                                    <button type="button" class="custon-active">Multiple Attribute (Automatic)</button>
-                                                </a>
-                                                <a href="<?php echo $BASE_URL.$class_name?>SetSingleAttributes/<?php echo $list['id'];?>" style="color:#geen;padding: 5px;" title="Set Single Attribute">
-                                                    <button type="button" class="custon-active">Single Attribute</button>
-                                                </a>
-                                           </div>
-                                        </td>
-                                    </tr>
-                                <?php
-                                    }
-                                } else {?>
-                                    <tr>
-                                    <td colspan="10" class="text-center">List Empty.</td>
-                                    </tr>
-                                <?php
-                                }?>
-                            </tbody>
-                        </table>
-                        <p><?php echo $links; ?></p>
+                                                <?php
+                                                }?>
+                                            </td>
+                                            <td>
+                                                <div class="action-btns">
+                                                    <a href="<?php echo $BASE_URL.$class_name.$sub_page_view_url?>/<?php echo $list['id'];?>" style="color:#3c8dbc;padding: 5px;" title="view">
+                                                        <i class="far fa-eye fa-lg"></i>
+                                                    </a>
+                                                    <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>" style="color:green;padding: 5px;" title="edit">
+                                                        <i class="far fa-edit fa-lg"></i>
+                                                    </a>
+
+                                                    <a href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $list['id'];?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this product?');">
+                                                        <i class="fa fa-trash fa-lg"></i>
+                                                    </a>
+                                                    <a href="<?php echo $BASE_URL.$class_name?>SetMultipleAttributes/<?php echo $list['id'];?>" style="color:geen;padding: 5px;" title="Set Single Attribute">
+                                                        <button type="button" class="custon-active">Multiple Attribute</button>
+                                                    </a>
+                                                    <a href="<?php echo $BASE_URL.$class_name?>SetMultipleAttributesAuto/<?php echo $list['id'];?>" style="color:geen;padding: 5px;" title="Set Single Attribute">
+                                                        <button type="button" class="custon-active">Multiple Attribute (Automatic)</button>
+                                                    </a>
+                                                    <a href="<?php echo $BASE_URL.$class_name?>SetSingleAttributes/<?php echo $list['id'];?>" style="color:#geen;padding: 5px;" title="Set Single Attribute">
+                                                        <button type="button" class="custon-active">Single Attribute</button>
+                                                    </a>
+                                            </div>
+                                            </td>
+                                        </tr>
+                                    <?php
+                                        }
+                                    } else {?>
+                                        <tr>
+                                        <td colspan="10" class="text-center">List Empty.</td>
+                                        </tr>
+                                    <?php
+                                    }?>
+                                </tbody>
+                            </table>
+                            <p><?php echo $links; ?></p>
+                        </div>
                     </div>
-                </div>
-                </div><!-- /.box-body -->
-            </form>
+                    </div><!-- /.box-body -->
+                </form>
             </div><!-- /.box -->
         </div><!-- /.col -->
     </div><!-- /.row -->
@@ -199,44 +199,45 @@
  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
  </script>
 <script>
-/*$(document).ready(function(){
-    $('#example1').DataTable({
-        //"order": [[ 3, "asc" ]]
-    });
-});*/
+    /*$(document).ready(function() {
+        $('#example1').DataTable({
+            //"order": [[ 3, "asc" ]]
+        });
+    });*/
 
-function searchProduct(searchtext){
-          if(searchtext !=''){
+    function searchProduct(searchtext) {
+        if (searchtext !='') {
             $("#loder-img").show();
             var url ='<?php echo $BASE_URL ?>admin/Products/searchProduct';
             $("#searchDiv").show();
             $("#ProductListUl").html('');
             $.ajax({
-                   type: "POST",
-                   url: url,
-                   data:{'searchtext':searchtext}, // serializes the form's elements.
-                    success: function(data)
-                    {   $("#loder-img").hide();
-                        $("#ProductListUl").html(data);
-                    },
-                    error: function (error) {
-                    }
+                type: "POST",
+                url: url,
+                data:{'searchtext':searchtext}, // serializes the form's elements.
+                success: function(data)
+                {
+                    $("#loder-img").hide();
+                    $("#ProductListUl").html(data);
+                },
+                error: function (error) {
+                }
             });
-        }else{
+        } else {
             $("#searchDiv").hide();
             $("#ProductListUl").html('');
             $("#searchSgedProductTextBox").val('');
         }
     }
-    function hidesearchDiv(){
+    function hidesearchDiv() {
         $("#searchDiv").hide();
         $("#ProductListUl").html('');
     }
 
     $("#select-all").click(function () {
-        if($(this).prop("checked") == true){
+        if ($(this).prop("checked") == true) {
             $(".product_ids").prop('checked', true);
-        }else{
+        } else {
             $(".product_ids").prop('checked',false);
         }
     });

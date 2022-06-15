@@ -36,11 +36,18 @@ class CronJob extends Admin_Controller
 
         $this->Provider_Model->updateProvider($provider, $this->session->sina_products);
 
+        header('Content-Type: text/event-stream');
+        // recommended to prevent caching of event data.
+        header('Cache-Control: no-cache');
         $products = $this->Provider_Model->getUpdatingProducts($provider);
         foreach ($products as $product) {
             $productInfo = sina_product_info($sina_access_token, $product->id);
             $this->Provider_Model->updateProductInfo($product, $productInfo);
-            echo '<p>' . $product->name . '</p>';
+            echo "id: $product->id" . PHP_EOL;
+            echo "name: " . $product->name . PHP_EOL;
+            echo PHP_EOL;
+            // echo '<p>' . $product->name . '</p>';
+            ob_flush();
             flush();
         }
     }

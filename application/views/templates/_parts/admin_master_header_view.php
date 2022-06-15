@@ -20,6 +20,36 @@
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"/>
         <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/admin/css/jquery.datetimepicker.min.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <?php $kendoVersion = "2021.3.914"; ?>
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/bootstrap/css/daterangepicker.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/build/css/font-awesome.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/simple-line-icons/simple-line-icons.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/magnific-popup/magnific-popup.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/summernote/summernote.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/jquery-ui-themes/smoothness/jquery-ui-1.10.3.custom.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/elfinder/css/elfinder.full.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/elfinder/css/theme.css" />
+
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/kendo/styles/<?=$kendoVersion?>/kendo.material.mobile.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/kendo/styles/<?=$kendoVersion?>/kendo.material.min.css" />
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/kendo/styles/<?=$kendoVersion?>/kendo.common-material.min.css" />
+
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/fineuploader/fineuploader-4.2.2.min.css" />
+
+        <script src="<?php echo $BASE_URL;?>assets/administration/build/js/jquery.min.js"></script>
+        <script src="<?php echo $BASE_URL;?>assets/administration/jquery-ui/jquery-ui.min.js"></script>
+        <script src="<?php echo $BASE_URL;?>assets/administration/build/js/moment.min.js"></script>
+        <script src="<?php echo $BASE_URL;?>assets/administration/bootstrap/js/daterangepicker.min.js"></script>
+        <script src="<?php echo $BASE_URL;?>assets/administration/typeahead.js"></script>
+        <script src="<?php echo $BASE_URL;?>assets/administration/admin.search.js"></script>
+        <script src="<?php echo $BASE_URL;?>assets/administration/jquery.validate.min.js"></script>
+        <script src="<?php echo $BASE_URL;?>assets/administration/jquery.validate.unobtrusive.min.js"></script>
+        <script src="<?php echo $BASE_URL;?>assets/administration/admin.common.js"></script>
+        <script src="<?php echo $BASE_URL;?>assets/administration/kendo/scripts/<?=$kendoVersion?>/kendo.ui.core.min.js"></script>
+        <script src="<?php echo $BASE_URL;?>assets/administration/kendo/scripts/<?=$kendoVersion?>/kendo.grid.js"></script>
+        <script src="<?php echo $BASE_URL;?>assets/administration/kendo/scripts/<?=$kendoVersion?>/cultures/kendo.culture.en-US.min.js"></script>
     </head>
     <body class="skin-blue sidebar-mini">
         <div class="wrapper">

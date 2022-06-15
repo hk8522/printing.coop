@@ -18,6 +18,7 @@ class Products extends Admin_Controller
         $this->data['class_name']= $this->class_name;
 
         $this->load->model('Product_Model');
+        $this->load->model('Provider_Model');
 
         $this->session->set_flashdata('message_success', '');
         $this->session->set_flashdata('message_error', '');
@@ -1451,16 +1452,14 @@ class Products extends Admin_Controller
             $search_result = '';
             if (!empty($lists)) {
                 foreach ($lists as $list) {
-                //pr($list);
-                $name=ucfirst($list['name']);
-                $imageurl=getProductImage($list['product_image']);
-
-                $product_id=$list['id'];
-
-                $search_result.='<li><a href="'.base_url(). 'admin/Products/index/'.$product_id.'"><img src="'.$imageurl.'" width=50><span></i>'.$name.'</span></li></a>';
+                    //pr($list);
+                    $name = ucfirst($list['name']);
+                    $imageurl = getProductImage($list['product_image']);
+                    $product_id = $list['id'];
+                    $search_result .= '<li><a href="'.base_url(). 'admin/Products/index/'.$product_id.'"><img src="'.$imageurl.'" width=50><span></i>'.$name.'</span></li></a>';
                 }
             } else {
-            $search_result='<li><i class="fas fa-search"></i> <span>product not found </span></li>';
+                $search_result='<li><i class="fas fa-search"></i> <span>product not found </span></li>';
             }
         } else {
             echo $search_result='<li><i class="fas fa-search"></i><a href="javascript:void(0)">product not found</a></li>';
@@ -2243,5 +2242,51 @@ Coating";
             echo json_encode(array('result' => 0));
 
         exit();
+    }
+
+    public function Provider($provider)
+    {
+        if ($this->input->server('REQUEST_METHOD') === 'GET') {
+            $this->render($this->class_name.'provider_sina');
+        } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
+            $provider = $this->Provider_Model->getProvider($provider);
+            // Prepare query
+            $page = $this->input->post('page');
+            $pageSize = $this->input->post('pageSize');
+            $take = $pageSize;
+            $skip = $pageSize * ($page - 1);
+            $this->Provider_Model->getProducts($provider, $take, $skip, $data, $total);
+
+            foreach ($data as $item) {
+                $item->product_image = getProductImage($item->product_image);
+            }
+
+            $gridModel = [
+                'extra_data' => null,
+                'data' => $data,
+                'errors' => null,
+                'total' => $total,
+            ];
+
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($gridModel));
+        }
+    }
+
+    /**
+     * Provider Product Bind
+     */
+    public function ProviderProductBind($id)
+    {
+        if ($this->input->server('REQUEST_METHOD') === 'GET') {
+            $this->load->view($this->class_name.'provider_product_bind');
+        } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
+            $product_id = $this->input->post('product_id');
+            $this->Provider_Model->bindProduct($id, $product_id);
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success' => true]));
+        }
     }
 }

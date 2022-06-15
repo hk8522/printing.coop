@@ -189,6 +189,16 @@
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
     </script>
 
+    <script src="<?php echo $BASE_URL;?>assets/administration/fineuploader/jquery.fineuploader-4.2.2.min.js"></script>
+    <script src="<?php echo $BASE_URL;?>assets/administration/bootstrap/js/popper.min.js"></script>
+    <script src="<?php echo $BASE_URL;?>assets/administration/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?php echo $BASE_URL;?>assets/administration/build/js/smartresize.js"></script>
+    <script src="<?php echo $BASE_URL;?>assets/administration/build/js/custom.js"></script>
+    <script src="<?php echo $BASE_URL;?>assets/administration/summernote/summernote.min.js"></script>
+    <script src="<?php echo $BASE_URL;?>assets/administration/elfinder/js/elfinder.min.js"></script>
+    <script src="<?php echo $BASE_URL;?>assets/administration/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="<?php echo $BASE_URL;?>assets/administration/jquery.tmpl.min.js"></script>
+
 <script>
 $(document).ready(function(){
     $("#a1").click(function(){

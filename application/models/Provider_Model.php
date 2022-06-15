@@ -165,4 +165,28 @@ Class Provider_Model extends MY_Model {
         $this->db->where('id', $product->id);
         $this->db->update('provider_products');
     }
+
+    public function getProducts($provider, $take, $skip, &$data, &$total)
+    {
+        $this->db->select('COUNT(*)');
+        $this->db->from('provider_products');
+        $this->db->where('provider_id', $provider->id);
+        $total = reset($this->db->get()->row());
+
+        $this->db->select('provider_products.*, products.name AS product_name, products.product_image');
+        $this->db->from('provider_products');
+        $this->db->join('products', 'products.id = provider_products.product_id', 'left');
+        $this->db->where('provider_id', $provider->id);
+        $take = $take > 0 ? $take : 0;
+        $skip = $skip > 0 ? $skip : 0;
+        $this->db->limit($take, $skip);
+        $data = $this->db->get()->result();
+    }
+
+    public function bindProduct($id, $product_id)
+    {
+        $this->db->where('id', $id);
+        $this->db->set('product_id', $product_id);
+        $this->db->update('provider_products');
+    }
 }
