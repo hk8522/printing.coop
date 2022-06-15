@@ -51,8 +51,8 @@ class Products extends Admin_Controller
         $this->pagination->initialize($config);
         $page = ($this->uri->segment(6)) ? $this->uri->segment(6) : 0;
         $this->data["links"] = $this->pagination->create_links();
-        $lists = $this->Product_Model->getProductList('', $product_id,$config["per_page"], $page,$order);
-        $this->data['lists'] = $lists;
+        $products = $this->Product_Model->getProductList('', $product_id,$config["per_page"], $page,$order);
+        $this->data['lists'] = $products;
         $this->data['order'] = $order;
         $this->render($this->class_name.'index');
     }
@@ -1446,24 +1446,35 @@ class Products extends Admin_Controller
     {
         $searchtext=$this->input->post('searchtext');
         if ($searchtext !='') {
-            $searchtext=trim($searchtext);
+            $searchtext = trim($searchtext);
             $this->load->model('Product_Model');
-            $lists=$this->Product_Model->getProductSearchAdminList($searchtext);
+            $products = $this->Product_Model->getProductSearchAdminList($searchtext);
             $search_result = '';
-            if (!empty($lists)) {
-                foreach ($lists as $list) {
-                    //pr($list);
-                    $name = ucfirst($list['name']);
-                    $imageurl = getProductImage($list['product_image']);
-                    $product_id = $list['id'];
+            if (!empty($products)) {
+                foreach ($products as &$product) {
+                    $product['name'] = ucfirst($product['name']);
+                    $product['product_image'] = getProductImage($product['product_image']);
+                }
+                $accept = array_map('trim', explode(',', $this->input->request_headers()['Accept']));
+                if (in_array('application/json', $accept))
+                    return $this->output
+                        ->set_content_type('application/json')
+                        ->set_output(json_encode($products));
+
+                foreach ($products as $product) {
+                    //pr($product);
+                    $name = $product['name'];
+                    $imageurl = $product['product_image'];
+                    $product_id = $product['id'];
                     $search_result .= '<li><a href="'.base_url(). 'admin/Products/index/'.$product_id.'"><img src="'.$imageurl.'" width=50><span></i>'.$name.'</span></li></a>';
                 }
             } else {
-                $search_result='<li><i class="fas fa-search"></i> <span>product not found </span></li>';
+                $search_result = '<li><i class="fas fa-search"></i> <span>product not found </span></li>';
             }
         } else {
-            echo $search_result='<li><i class="fas fa-search"></i><a href="javascript:void(0)">product not found</a></li>';
+            $search_result = '<li><i class="fas fa-search"></i><a href="javascript:void(0)">product not found</a></li>';
         }
+
         echo $search_result;
     }
 
@@ -1476,27 +1487,27 @@ class Products extends Admin_Controller
             $page_title=$title."Paper Quality";
             $sub_page_title=$sub_page_title."Paper Quality";
 
-            $lists=$this->Product_Model->sizeOptions($type);
+            $products = $this->Product_Model->sizeOptions($type);
         } else if ($type=="ncr_parts") {
             $page_title=$title."NCR Number of Parts";
             $sub_page_title=$sub_page_title."NCR Number of Part";
 
-            $lists=$this->Product_Model->sizeOptions($type);
+            $products = $this->Product_Model->sizeOptions($type);
         } else if ($type=="colors") {
             $page_title=$title."Printed Color";
             $sub_page_title=$sub_page_title."Printed Color";
 
-            $lists=$this->Product_Model->sizeOptions($type);
+            $products = $this->Product_Model->sizeOptions($type);
         } else if ($type=="stocks") {
             $page_title=$title."Background";
             $sub_page_title=$sub_page_title."Background";
 
-            $lists=$this->Product_Model->sizeOptions($type);
+            $products = $this->Product_Model->sizeOptions($type);
         } else if ($type=="diameter") {
             $page_title=$title."Diameter";
             $sub_page_title=$sub_page_title."Diameter";
 
-            $lists=$this->Product_Model->sizeOptions($type);
+            $products = $this->Product_Model->sizeOptions($type);
         }
         else if ($type=="shapepaper") {
             $page_title=$title."
@@ -1504,32 +1515,32 @@ Coating";
             $sub_page_title=$sub_page_title."
 Coating";
 
-            $lists=$this->Product_Model->sizeOptions($type);
+            $products = $this->Product_Model->sizeOptions($type);
         } else if ($type=="grommets") {
             $page_title=$title."Grommets";
             $sub_page_title=$sub_page_title."Grommets";
-            $lists=$this->Product_Model->sizeOptions($type);
+            $products = $this->Product_Model->sizeOptions($type);
         }
 
         else if ($type=="grommets") {
             $page_title=$title."Grommets";
             $sub_page_title=$sub_page_title."Grommets";
-            $lists=$this->Product_Model->sizeOptions($type);
+            $products = $this->Product_Model->sizeOptions($type);
         }
         else if ($type=="page_size") {
             $page_title=$title."Pages";
             $sub_page_title=$sub_page_title."Page";
-            $lists=$this->Product_Model->sizeOptions($type);
+            $products = $this->Product_Model->sizeOptions($type);
         }
         else if ($type=="page_quantity") {
             $page_title=$title."Quantity";
             $sub_page_title=$sub_page_title."Quantity";
-            $lists=$this->Product_Model->sizeOptions($type);
+            $products = $this->Product_Model->sizeOptions($type);
         }
         else if ($type=="sheets") {
             $page_title=$title."Sheets";
             $sub_page_title=$sub_page_title."Sheet";
-            $lists=$this->Product_Model->sizeOptions($type);
+            $products = $this->Product_Model->sizeOptions($type);
         }
 
         $this->data['page_title'] =$page_title;
@@ -1538,8 +1549,8 @@ Coating";
         $this->data['sub_page_view_url'] = '';
         $this->data['sub_page_delete_url'] = 'DeleteSizeOptions';
         $this->data['sub_page_url_active_inactive'] = 'activeInactiveSizeOptions';
-        $this->data['lists']=$lists;
-        $this->data['type']=$type;
+        $this->data['lists'] = $products;
+        $this->data['type'] = $type;
 
         $this->render($this->class_name.'size_options');
     }
@@ -1716,7 +1727,7 @@ Coating";
 
     public function exportCSV($category_id=13) {
         $this->load->model('Product_Model');
-        $lists = $this->Product_Model->getCSVProductList($category_id);
+        $products = $this->Product_Model->getCSVProductList($category_id);
         $filename = 'product-'.date('d').'-'.date('m').'-'.date('Y').'.csv';
         header("Content-Description: File Transfer");
         header("Content-Disposition: attachment; filename=$filename");
@@ -1726,14 +1737,14 @@ Coating";
 
         $header = array("Product Name","Code","Model");
         fputcsv($file, $header);
-        foreach ($lists as $key=>$list) {
+        foreach ($products as $key => $product) {
             $data=array();
-            $data['name']  = $list['name'];
-            //$data['sub_category_name']  = $list['sub_category_name'];
-            //$data['category_name']  = $list['category_name'];
-            $data['code']  = $list['code'];
-            $data['model'] = $list['model'];
-            fputcsv($file,$data);
+            $data['name']  = $product['name'];
+            //$data['sub_category_name']  = $product['sub_category_name'];
+            //$data['category_name']  = $product['category_name'];
+            $data['code']  = $product['code'];
+            $data['model'] = $product['model'];
+            fputcsv($file, $data);
         }
 
         fclose($file);
