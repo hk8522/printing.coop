@@ -96,7 +96,7 @@
 <script>
 function searchAttribute(searchtext){
     if(searchtext !=''){
-        $("#loder-img").show();
+        $("#loader-img").show();
         var url ='<?= $BASE_URL?>admin/Neighbor/searchAttribute/<?= $neighbor_id?>';
         $("#searchDiv").show();
         $("#AttributeListUl").html('');
@@ -105,7 +105,7 @@ function searchAttribute(searchtext){
             url: url,
             data:{'searchtext':searchtext}, // serializes the form's elements.
                 success: function(data)
-                {   $("#loder-img").hide();
+                {   $("#loader-img").hide();
                     $("#AttributeListUl").html(data);
                 },
                 error: function (error) {

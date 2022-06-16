@@ -121,7 +121,7 @@
 <script>
 function searchNeighbor(searchtext){
     if(searchtext !=''){
-        $("#loder-img").show();
+        $("#loader-img").show();
         var url ='<?= $BASE_URL?>admin/Neighbor/search';
         $("#searchDiv").show();
         $("#NeighborListUl").html('');
@@ -130,7 +130,7 @@ function searchNeighbor(searchtext){
             url: url,
             data:{'searchtext':searchtext}, // serializes the form's elements.
                 success: function(data)
-                {   $("#loder-img").hide();
+                {   $("#loader-img").hide();
                     $("#NeighborListUl").html(data);
                 },
                 error: function (error) {

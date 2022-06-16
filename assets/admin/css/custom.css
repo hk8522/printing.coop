@@ -2973,7 +2973,7 @@ ul.dropdown .open-dropdown {
 }
 
 
-#loder-img {
+#loader-img {
 	position: fixed;
 	background: rgba(255,255,255,0.5);
 	top: 0px;
@@ -2985,14 +2985,14 @@ ul.dropdown .open-dropdown {
 	height: 100vh;
 	display:none;
 }
-#loder-img-inner {
+#loader-img-inner {
 	width: 100%;
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-#loder-img img {
+#loader-img img {
 	height: 100px;
 	width: 100px;
 }

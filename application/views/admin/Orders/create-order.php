@@ -548,7 +548,7 @@
 <script>
 getSingleProduct();
 $('#category_id').on('change', function (e) {
-	    $("#loder-img").show();
+	    $("#loader-img").show();
         $("#sub_category_id").html('<option value="">Select Sub Category</option>');
 		$("#product_id").html('<option value="">Select Product</option>');
 		var category_id=$(this).val();
@@ -562,7 +562,7 @@ $('#category_id').on('change', function (e) {
 			url: '<?php echo $BASE_URL ?>admin/Ajax/getSubCategoryAndProductDropDownListByAjax/'+category_id,
 			success: function (data) {
 				    var json=JSON.parse(data);
-				    $("#loder-img").hide();
+				    $("#loader-img").hide();
 					$("#sub_category_id").html(json.sub_category);
 					$("#product_id").html(json.product_list);
 			}
@@ -570,7 +570,7 @@ $('#category_id').on('change', function (e) {
  });
 
  $('#sub_category_id').on('change', function (e) {
-	    $("#loder-img").show();
+	    $("#loader-img").show();
 
 		$("#product_id").html('<option value="">Select Product</option>');
 		var category_id=$("#category_id").val();
@@ -590,14 +590,14 @@ $('#category_id').on('change', function (e) {
 			url: url,
 			success: function (data) {
 				    var json=JSON.parse(data);
-				    $("#loder-img").hide();
+				    $("#loader-img").hide();
 					$("#product_id").html(json.product_list);
 			}
 		});
  });
 
  $('#coupon_code').on('change', function (e) {
-	    $("#loder-img").show();
+	    $("#loader-img").show();
 		$('input[type="submit"]').prop('disabled',true);
 	    $('input[type="button"]').prop('disabled',true);
 		$('#coupon_code_error').html('');
@@ -612,7 +612,7 @@ $('#category_id').on('change', function (e) {
 			url: '<?php echo $BASE_URL ?>admin/Orders/applyCode/'+coupon_code,
 			success: function (data) {
 				    var json=JSON.parse(data);
-				    $("#loder-img").hide();
+				    $("#loader-img").hide();
 					$('input[type="submit"]').prop('disabled',false);
 	                $('input[type="button"]').prop('disabled',false);
 
@@ -630,7 +630,7 @@ $('#category_id').on('change', function (e) {
  });
 
  $('#email').on('change', function (e) {
-	    $("#loder-img").show();
+	    $("#loader-img").show();
 		$('input[type="submit"]').prop('disabled',true);
 		var email=$("#email").val();
 
@@ -641,7 +641,7 @@ $('#category_id').on('change', function (e) {
 			data:{'email':email},
 			success: function (data) {
 				    var json=JSON.parse(data);
-				    $("#loder-img").hide();
+				    $("#loader-img").hide();
 					$('input[type="submit"]').prop('disabled',false);
 	                $('input[type="button"]').prop('disabled',false);
 
@@ -658,7 +658,7 @@ $('#category_id').on('change', function (e) {
  });
 
  $('.shipping_method_formate').on('change', function (e) {
-	    $("#loder-img").show();
+	    $("#loader-img").show();
 		$('input[type="submit"]').prop('disabled',true);
 		var shipping_method_formate=$(this).val();
 		//alert(shipping_method_formate);
@@ -670,7 +670,7 @@ $('#category_id').on('change', function (e) {
 			data:{'shipping_method_formate':shipping_method_formate},
 			success: function (data) {
 				    var json=JSON.parse(data);
-				    $("#loder-img").hide();
+				    $("#loader-img").hide();
 					$('input[type="submit"]').prop('disabled',false);
 	                $('input[type="button"]').prop('disabled',false);
 
@@ -699,7 +699,7 @@ $('#category_id').on('change', function (e) {
 		 return false;
 	 }
 
-	 $("#loder-img").show();
+	 $("#loader-img").show();
 	 $('input[type="submit"]').prop('disabled',true);
 	 $('input[type="button"]').prop('disabled',true);
 	 $.ajax({
@@ -710,7 +710,7 @@ $('#category_id').on('change', function (e) {
 				contentType: false,
 				processData: false,
 				success: function (data) {
-					$("#loder-img").hide();
+					$("#loader-img").hide();
 					$('input[type="submit"]').prop('disabled',false);
 	                $('input[type="button"]').prop('disabled',false);
 					$("#mainData").html(data);
@@ -719,7 +719,7 @@ $('#category_id').on('change', function (e) {
  }
 
  function getSingleProduct(){
-	 $("#loder-img").show();
+	 $("#loader-img").show();
 	 $('input[type="submit"]').prop('disabled',true);
 	 $('input[type="button"]').prop('disabled',true);
 	 $.ajax({
@@ -730,7 +730,7 @@ $('#category_id').on('change', function (e) {
 			contentType: false,
 			processData: false,
 			success: function (data) {
-				$("#loder-img").hide();
+				$("#loader-img").hide();
 				$('input[type="submit"]').prop('disabled',false);
 				$('input[type="button"]').prop('disabled',false);
 				$("#mainData").html(data);
@@ -742,7 +742,7 @@ $('#category_id').on('change', function (e) {
 	 if(product_id_key ==''){
 		 return false;
 	 }
-	 $("#loder-img").show();
+	 $("#loader-img").show();
 	 $('input[type="submit"]').prop('disabled',true);
 	 $('input[type="button"]').prop('disabled',true);
 	 $.ajax({
@@ -753,7 +753,7 @@ $('#category_id').on('change', function (e) {
 				contentType: false,
 				processData: false,
 				success: function (data) {
-					$("#loder-img").hide();
+					$("#loader-img").hide();
 					$('input[type="submit"]').prop('disabled',false);
 	                $('input[type="button"]').prop('disabled',false);
 					var json = JSON.parse(data);
@@ -794,7 +794,7 @@ function openCard(product_id_key){
 		}
 		var myForm = document.getElementById('cardFrom-'+product_id_key);
 		var formData = new FormData(myForm);
-		$("#loder-img").show();
+		$("#loader-img").show();
 		$.ajax({
 			type: 'POST',
 			dataType: 'html',
@@ -804,7 +804,7 @@ function openCard(product_id_key){
 			contentType: false,
 			processData: false,
 			success: function (data) {
-				$("#loder-img").hide();
+				$("#loader-img").hide();
 
 				var json = JSON.parse(data);
 				if(json.success==1){
@@ -815,7 +815,7 @@ function openCard(product_id_key){
   }
 
     function showAttribute(cid,nid,product_id_key){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
 	        var item_val=$("#attribute_id_"+cid).val();
 		    //alert('cardFrom-'+product_id_key);
 			var myForm = document.getElementById('cardFrom-'+product_id_key);
@@ -830,7 +830,7 @@ function openCard(product_id_key){
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
 
 					if(json.success==1){
 						$("#attribute_id_"+nid).attr("disabled", false);
@@ -853,7 +853,7 @@ function openCard(product_id_key){
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
 						$("#SiZeOPrions"+product_id_key).html(json.sizeoprions);
@@ -864,7 +864,7 @@ function openCard(product_id_key){
     }
 
 	function getQuantityPrice(nid,product_id_key){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
             $(".new-price-img").hide();
 
 			var myForm = document.getElementById('cardFrom-'+product_id_key);
@@ -880,7 +880,7 @@ function openCard(product_id_key){
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
 						$("#"+nid).attr("disabled", false);
@@ -892,7 +892,7 @@ function openCard(product_id_key){
     }
 
 	function getPaperPrice(nid,product_id_key){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
             $(".new-price-img").hide();
 
 			var myForm = document.getElementById('cardFrom-'+product_id_key);
@@ -908,7 +908,7 @@ function openCard(product_id_key){
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
 						$("#attribute_id_"+nid).attr("disabled", false);
@@ -920,7 +920,7 @@ function openCard(product_id_key){
     }
 
 	function getSizeOptions(product_id,make_a_default_qty_id,product_id_key){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
 			$.ajax({
 				type: 'GET',
 				dataType: 'html',
@@ -929,14 +929,14 @@ function openCard(product_id_key){
 				contentType: false,
 				processData: false,
 				success: function (data) {
-					$("#loder-img").hide();
+					$("#loader-img").hide();
 					$("#SiZeOPrions"+product_id_key).html(data);
 				}
             });
     }
 
  function showLoder(){
-	$("#loder-img").show();
+	$("#loader-img").show();
  }
 
 // Sending AJAX request and upload file
@@ -978,7 +978,7 @@ function convertSize(size) {
 }
 
 function update_cumment(skey,product_id,product_key_id){
-		    $("#loder-img").show();
+		    $("#loader-img").show();
 		    var cumment=$("#cumment-"+skey).val();
 			if(cumment ==''){ alert('Enter cumment'); return false}
 
@@ -990,7 +990,7 @@ function update_cumment(skey,product_id,product_key_id){
 				url: '<?php echo $BASE_URL?>admin/Orders/updateCumment',
 				data: ({'cumment':cumment,'product_id':product_id,'skey':skey,'product_key_id':product_key_id}),
 				success: function (data) {
-					$("#loder-img").hide();
+					$("#loader-img").hide();
 					$("#smc-"+skey).prop('disabled', false);
 					$("#smc-"+skey).html('Update Note');
 				}
@@ -1003,7 +1003,7 @@ function delete_image(skey,product_id,product_key_id){
 
 	$("#smd-"+skey).prop('disabled', true);
 	$("#smd-"+skey).html('<img src="<?php echo $BASE_URL?>/assets/images/loder.gif" width=20>');
-	$("#loder-img").show();
+	$("#loader-img").show();
 
 	$.ajax({
 			type: 'POST',
@@ -1011,13 +1011,13 @@ function delete_image(skey,product_id,product_key_id){
 			url: '<?php echo $BASE_URL?>admin/Orders/deleteImage',
 			data: ({'location':location,'product_id':product_id,'product_key_id':product_key_id,'skey':skey}),
 			success: function (data) {
-				 $("#loder-img").hide();
+				 $("#loader-img").hide();
 				 $("#upload-file-data"+product_key_id+" #teb-"+skey).remove();
 			}
      });
  }
         function getLengthWidthPrice(product_id_key){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
             $(".new-price-img").hide();
 			var myForm = document.getElementById('cardFrom-'+product_id_key);
 			var formData = new FormData(myForm);
@@ -1031,7 +1031,7 @@ function delete_image(skey,product_id,product_key_id){
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
 						$("#total-price-"+product_id_key).html(json.price);

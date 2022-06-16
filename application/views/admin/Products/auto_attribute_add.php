@@ -61,7 +61,7 @@ $('#auto_attribute_add_form').validate({
             },
         },
         submitHandler: function(form) {
-            $("#loder-img").show();
+            $("#loader-img").show();
             $.ajax({
             type: "POST",
             url: '<?=$BASE_URL?>admin/Products/AutoAttributeAdd',
@@ -71,7 +71,7 @@ $('#auto_attribute_add_form').validate({
             },
             success: function(data) {
                 $('button[type=submit]').attr('disabled', false);
-                $("#loder-img").hide();
+                $("#loader-img").hide();
                 $("#ItemModal .modal-body").html(data);
                 if (success == 1) {
                     location.reload();

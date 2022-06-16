@@ -651,7 +651,7 @@ $('#AddEditProductAttribute').validate({
         messages: {
         },
         submitHandler: function(form) {
-			$("#loder-img").show();
+			$("#loader-img").show();
 			var url  = '<?php echo $BASE_URL ?>admin/Products/AddEditProductAttribute';
 			$.ajax({
 			  type: "POST",
@@ -662,7 +662,7 @@ $('#AddEditProductAttribute').validate({
 			  },
 			  success: function(data) {
 				$('button[type=submit]').attr('disabled', false);
-				$("#loder-img").hide();
+				$("#loader-img").hide();
 				$("#QualityModal .modal-body").html(data);
 				    if(success==1){
 					  location.reload();

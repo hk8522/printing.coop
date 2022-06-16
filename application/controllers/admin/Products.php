@@ -1444,7 +1444,7 @@ class Products extends Admin_Controller
 
     public function searchProduct()
     {
-        $searchtext=$this->input->post('searchtext');
+        $searchtext = $this->input->post('searchtext');
         if ($searchtext !='') {
             $searchtext = trim($searchtext);
             $this->load->model('Product_Model');
@@ -1455,7 +1455,7 @@ class Products extends Admin_Controller
                     $product['name'] = ucfirst($product['name']);
                     $product['product_image'] = getProductImage($product['product_image']);
                 }
-                $accept = array_map('trim', explode(',', $this->input->request_headers()['Accept']));
+                $accept = array_map('trim', preg_split('/(,|;)/', $this->input->request_headers()['Accept']));
                 if (in_array('application/json', $accept))
                     return $this->output
                         ->set_content_type('application/json')
@@ -2291,7 +2291,7 @@ Coating";
     public function ProviderProductBind($id)
     {
         if ($this->input->server('REQUEST_METHOD') === 'GET') {
-            $this->load->view($this->class_name.'provider_product_bind');
+            $this->load->view($this->class_name.'provider_product_bind', ['id' => $id]);
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $product_id = $this->input->post('product_id');
             $this->Provider_Model->bindProduct($id, $product_id);

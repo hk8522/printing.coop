@@ -1430,7 +1430,7 @@
                                       </div>
                                   </div>
                               </div>
-							 <form action="<?php echo $BASE_URL?>Checkouts/index/<?php echo base64_encode($stap);?>/<?php echo $order_id;?>/<?php echo $product_id;?>/<?php echo $coupon_code; ?>" onsubmit="$('#loder-img').show()">
+							 <form action="<?php echo $BASE_URL?>Checkouts/index/<?php echo base64_encode($stap);?>/<?php echo $order_id;?>/<?php echo $product_id;?>/<?php echo $coupon_code; ?>" onsubmit="$('#loader-img').show()">
 							<div class="single-cart-total">
                                 <div class="row align-items-center">
                                    <div class="col-5 col-md-12 col-lg-12 col-xl-6">

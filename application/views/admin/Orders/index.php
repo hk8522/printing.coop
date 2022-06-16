@@ -426,7 +426,7 @@
 				   url: url,
 				    success: function(data)
 				    {
-					   	$("#loder-img").hide();
+					   	$("#loader-img").hide();
 						$("#order_id").val(order_id);
 						$("#status").val(status);
 						$("#page_status").val(page_status);
@@ -449,7 +449,7 @@
 		var order_id_new =$("#order_id_new").val();
 
 		if(formsubmit==true){
-			$("#loder-img").show();
+			$("#loader-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Orders/changeOrderStatus';
 			$.ajax({
 				   type: "POST",
@@ -458,7 +458,7 @@
 
 				   success: function(data)
 				   {
-						$("#loder-img").hide();
+						$("#loader-img").hide();
 						var json = JSON.parse(data);
 				        var res=json.status;
 					    var msg=json.msg;
@@ -511,7 +511,7 @@
 		$("#myPaymentModal").modal('show');
 
 		/*if(status !='' && order_id !=''){
-			$("#loder-img").show();
+			$("#loader-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Orders/changeOrderPaymentStatus';
 				$.ajax({
 					   type: "POST",
@@ -519,7 +519,7 @@
 					   data: {order_id:order_id,status:status}, // serializes the form's elements.
 
 					   success: function(data)
-						{   $("#loder-img").hide();
+						{   $("#loader-img").hide();
 							var json = JSON.parse(data);
 							var res=json.status;
 							var msg=json.msg;
@@ -548,7 +548,7 @@
 		var transition_id =$("#transition_id").val();
 
 		if(formsubmit==true){
-			$("#loder-img").show();
+			$("#loader-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Orders/changeOrderPaymentStatus';
 			$.ajax({
 				   type: "POST",
@@ -557,7 +557,7 @@
 
 				   success: function(data)
 				   {
-						$("#loder-img").hide();
+						$("#loader-img").hide();
 						var json = JSON.parse(data);
 				        var res=json.status;
 					    var msg=json.msg;

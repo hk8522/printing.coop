@@ -60,7 +60,6 @@ $provider = 'sina';
                 template: `
                     <a href="/admin/Products/ProviderProductBind/#=id#"
                         class="k-link bind-product product-thumbs #if (product_id) {# active #}#"
-                        onclick="bindProduct(#=id#, #=product_id#)"
                         >
                         <img class="thumbs" src="#=product_image#" alt="#=product_name#">
                         <div class="action">
@@ -80,11 +79,9 @@ $provider = 'sina';
                     midClick: true,
                     callbacks: {
                         parseAjax: function (mfpResponse) {
-                            console.log('test');
                             mfpResponse.data = $('<div></div>').html(mfpResponse.data);
                         },
                         ajaxContentAdded: function () {
-                            console.log('test 2');
                             $('.mfp-wrap').removeAttr('tabindex');
                         }
                     }
@@ -92,11 +89,4 @@ $provider = 'sina';
             },
         });
     });
-
-    function bindProduct(id, product_id)
-    {
-        // console.log(id, product_id);
-        // $('#product-grid').data('kendoGrid').refresh();
-        return false;
-    }
 </script>

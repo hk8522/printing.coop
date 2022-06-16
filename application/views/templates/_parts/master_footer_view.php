@@ -661,7 +661,7 @@ function openCity(evt, cityName) {
 				},
 			},
 			submitHandler: function(form) {
-			  $("#loder-img").show();
+			  $("#loader-img").show();
 			  var url ='<?php echo $BASE_URL ?>Logins/checkLoginByAjax';
 			  $("#login-msg").html('');
 			  $.ajax({
@@ -672,7 +672,7 @@ function openCity(evt, cityName) {
 				   $('button[type=submit]').attr('disabled', true);
 				},
 				success: function(data) {
-				  $("#loder-img").hide();
+				  $("#loader-img").hide();
 				  $('button[type=submit]').attr('disabled', false);
 				   let response = JSON.parse(data);
 				   let errors = response.errors;
@@ -719,7 +719,7 @@ function openCity(evt, cityName) {
 				},
 			},
 			submitHandler: function(form) {
-			  $("#loder-img").show();
+			  $("#loader-img").show();
 			  var url ='<?php echo $BASE_URL ?>Logins/checkLoginByAjax';
 			  $("#login-msg").html('');
 			  $.ajax({
@@ -730,7 +730,7 @@ function openCity(evt, cityName) {
 				   $('button[type=submit]').attr('disabled', true);
 				},
 				success: function(data) {
-				  $("#loder-img").hide();
+				  $("#loader-img").hide();
 				  $('button[type=submit]').attr('disabled', false);
 				   let response = JSON.parse(data);
 				   let errors = response.errors;
@@ -809,7 +809,7 @@ function openCity(evt, cityName) {
 			},
 
 			submitHandler: function(form) {
-			  $("#loder-img").show();
+			  $("#loader-img").show();
 			  var url ='<?php echo $BASE_URL ?>Logins/signup';
 			  $("#signup-msg").html('');
 			  $.ajax({
@@ -820,7 +820,7 @@ function openCity(evt, cityName) {
 					  $('button[type=submit]').attr('disabled', true);
 				   },
 				   success: function(data) {
-					  $("#loder-img").hide();
+					  $("#loader-img").hide();
 					  $('button[type=submit]').attr('disabled', false);
 					  let response = JSON.parse(data);
 					  let errors = response.errors;
@@ -892,7 +892,7 @@ function openCity(evt, cityName) {
 				},
 			},
 			submitHandler: function(form) {
-			  $("#loder-img").show();
+			  $("#loader-img").show();
 			  var url ='<?php echo $BASE_URL ?>Logins/signup';
 			  $("#signup-msg").html('');
 			  $.ajax({
@@ -903,7 +903,7 @@ function openCity(evt, cityName) {
 					  $('button[type=submit]').attr('disabled', true);
 				   },
 				   success: function(data) {
-					  $("#loder-img").hide();
+					  $("#loader-img").hide();
 					  $('button[type=submit]').attr('disabled', false);
 					  let response = JSON.parse(data);
 					  let errors = response.errors;
@@ -1017,7 +1017,7 @@ function openCity(evt, cityName) {
             },*/
         },
         submitHandler: function(form) {
-		   $("#loder-img").show();
+		   $("#loader-img").show();
           var url ='<?php echo $BASE_URL ?>Logins/preferred_customer_signup';
           $("#signup-msg").html('');
 
@@ -1029,7 +1029,7 @@ function openCity(evt, cityName) {
                   $('button[type=submit]').attr('disabled', true);
                },
                success: function(data) {
-				 $("#loder-img").hide();
+				 $("#loader-img").hide();
                  $('button[type=submit]').attr('disabled', false);
                   var response = JSON.parse(data);
                   var errors = response.errors;
@@ -1095,7 +1095,7 @@ function openCity(evt, cityName) {
             },*/
         },
         submitHandler: function(form) {
-		   $("#loder-img").show();
+		   $("#loader-img").show();
           var url ='<?php echo $BASE_URL ?>Logins/preferred_customer_signup';
           $("#signup-msg").html('');
 
@@ -1107,7 +1107,7 @@ function openCity(evt, cityName) {
                   $('button[type=submit]').attr('disabled', true);
                },
                success: function(data) {
-				 $("#loder-img").hide();
+				 $("#loader-img").hide();
                  $('button[type=submit]').attr('disabled', false);
                   var response = JSON.parse(data);
                   var errors = response.errors;
@@ -1369,14 +1369,14 @@ function openCity(evt, cityName) {
        formsubmit = false;
      }
     if (formsubmit == true) {
-	   $("#loder-img").show();
+	   $("#loader-img").show();
       var url ='<?php echo $BASE_URL ?>Logins/checkMobileByAjax';
       $.ajax({
            type: "POST",
            url: url,
            data: form.serialize(), // serializes the form's elements.
            success: function(data) {
-			   $("#loder-img").hide();
+			   $("#loader-img").hide();
              $("#checkoutContinue").attr("disabled",true);
              var json = JSON.parse(data);
              var status=json.status;
@@ -1487,7 +1487,7 @@ function openCity(evt, cityName) {
     }
 
     if (formsubmit==true) {
-	  $("#loder-img").show();
+	  $("#loader-img").show();
       var url ='<?php echo $BASE_URL ?>Logins/checkLoginByAjax';
       $.ajax({
            type: "POST",
@@ -1500,7 +1500,7 @@ function openCity(evt, cityName) {
            var errors = response.errors;
             $("#ck_login_password").val('');
             if (errors && Object.keys(errors).length) {
-			  $("#loder-img").hide();
+			  $("#loader-img").hide();
               $("#ck_login_mobile_error").html(errors.loginemail);
               $("#ck_login_password_error").html(errors.loginpassword);
               $("#ckloginSubmit").attr("disabled",false);
@@ -1508,7 +1508,7 @@ function openCity(evt, cityName) {
             } else if (status === 'success') {
                location.reload();
             }  else {
-			   $("#loder-img").hide();
+			   $("#loader-img").hide();
                $("#ck_login_msg").html('<label style="color:red;padding:0px;">'+msg+'</label>');
                $("#ckloginSubmit").attr("disabled",false);
             }
@@ -1568,14 +1568,14 @@ function openCity(evt, cityName) {
      }
 
      if(formsubmit == true) {
-	   $("#loder-img").show();
+	   $("#loader-img").show();
        var url ='<?php echo $BASE_URL ?>Logins/signup';
        $.ajax({
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-			 $("#loder-img").hide();
+			 $("#loader-img").hide();
              $("#cksignupSubmit").attr("disabled",false);
              $("#signup_password").val('');
              var response = JSON.parse(data);
@@ -1659,14 +1659,14 @@ function openCity(evt, cityName) {
       }
 
       if (formsubmit == true) {
-		$("#loder-img").show();
+		$("#loader-img").show();
         var url ='<?php echo $BASE_URL ?>MyAccounts/sendOtp';
         $.ajax({
              type: "POST",
              url: url,
              data: {'account_email': accountEmail, 'type':'Reset Password' }, // serializes the form's elements.
              success: function(data) {
-			  $("#loder-img").hide();
+			  $("#loader-img").hide();
               $("#login_password").val('');
               var response = JSON.parse(data);
               var status = response.status;
@@ -1733,7 +1733,7 @@ function openCity(evt, cityName) {
       }
 
     if(formsubmit==true) {
-		  $("#loder-img").show();
+		  $("#loader-img").show();
           var url ='<?php echo $BASE_URL ?>MyAccounts/saveChangePassword';
           $.ajax({
                type: "POST",
@@ -1752,7 +1752,7 @@ function openCity(evt, cityName) {
                   });
 
                   if (status == 1) {
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $("#forgot_msg").html('<label style="color:green">'+msg+'</label>');
                      if (loginId !='') {
                          setTimeout(function(){ window.location.href='<?php echo $BASE_URL?>MyAccounts/logout'}, 2000);
@@ -1809,7 +1809,7 @@ function openCity(evt, cityName) {
       }
 
       if (formsubmit==true) {
-		  $("#loder-img").show();
+		  $("#loader-img").show();
           var url ='<?php echo $BASE_URL ?>MyAccounts/saveChangePassword';
           $.ajax({
                type: "POST",
@@ -1828,7 +1828,7 @@ function openCity(evt, cityName) {
                   });
 
                   if (status == 1) {
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $("#forgot_msg").html('<label style="color:green">'+msg+'</label>');
                      if (loginId !='') {
                          setTimeout(function(){ window.location.href='<?php echo $BASE_URL?>MyAccounts/logout'}, 2000);
@@ -1866,14 +1866,14 @@ function openCity(evt, cityName) {
     }
 
     if (formsubmit==true) {
-	  $("#loder-img").show();
+	  $("#loader-img").show();
       var url ='<?php echo $BASE_URL ?>Logins/sendOtpSingup/';
       $.ajax({
            type: "POST",
            url: url,
            data:{'mobile':mobile,'type':'Signup'}, // serializes the form's elements.
            success: function(data) {
-			$("#loder-img").hide();
+			$("#loader-img").hide();
             $("#ck-signup-continue").attr("disabled",false);
             var json = JSON.parse(data);
             var status=json.status;
@@ -1956,7 +1956,7 @@ function openCity(evt, cityName) {
           },
       },
       submitHandler: function(form) {
-		 $("#loder-img").show();
+		 $("#loader-img").show();
         var url  = '<?php echo $BASE_URL ?>MyAccounts/addEditAddress';
         $.ajax({
           type: "POST",
@@ -1973,7 +1973,7 @@ function openCity(evt, cityName) {
              let msg = response.msg;
              let status = response.status;
              $("#login-password").val('');
-			  $("#loder-img").hide();
+			  $("#loader-img").hide();
              if (errors && Object.keys(errors).length) {
                var validator = $(form).validate();
                $.each(response.errors, function(key, value) {
@@ -2056,7 +2056,7 @@ function openCity(evt, cityName) {
           },
       },
       submitHandler: function(form) {
-		 $("#loder-img").show();
+		 $("#loader-img").show();
         var url  = '<?php echo $BASE_URL ?>MyAccounts/addEditAddress';
         $.ajax({
           type: "POST",
@@ -2073,7 +2073,7 @@ function openCity(evt, cityName) {
              let msg = response.msg;
              let status = response.status;
              $("#login-password").val('');
-			  $("#loder-img").hide();
+			  $("#loader-img").hide();
              if (errors && Object.keys(errors).length) {
                var validator = $(form).validate();
                $.each(response.errors, function(key, value) {
@@ -2140,7 +2140,7 @@ function openCity(evt, cityName) {
           },
       },
       submitHandler: function(form) {
-		 $("#loder-img").show();
+		 $("#loader-img").show();
         var url  = '<?php echo $BASE_URL ?>Pages/saveContactUs';
         $.ajax({
           type: "POST",
@@ -2150,7 +2150,7 @@ function openCity(evt, cityName) {
              $('button[type=submit]').attr('disabled', true);
           },
           success: function(data) {
-			      $("#loder-img").hide();
+			      $("#loader-img").hide();
             $('button[type=submit]').attr('disabled', false);
              let response = JSON.parse(data);
              let errors = response.errors;
@@ -2216,7 +2216,7 @@ function openCity(evt, cityName) {
           },
       },
       submitHandler: function(form) {
-		  $("#loder-img").show();
+		  $("#loader-img").show();
        var url  = '<?php echo $BASE_URL ?>Pages/saveContactUs';
 
        $.ajax({
@@ -2227,7 +2227,7 @@ function openCity(evt, cityName) {
              $('button[type=submit]').attr('disabled', true);
           },
           success: function(data) {
-			       $("#loder-img").hide();
+			       $("#loader-img").hide();
             $('button[type=submit]').attr('disabled', false);
                 let response = JSON.parse(data);
                 let errors = response.errors;
@@ -2294,7 +2294,7 @@ function contactus_recaptcha(){
 				  required: true,
 				},
 				postal_code: {
-				  required: true,				  
+				  required: true,
 				  maxlength: 10,
 				  minlength: 6,
 				},
@@ -2340,7 +2340,7 @@ function contactus_recaptcha(){
 			  },
 
 			  submitHandler: function(form) {
-				 $("#loder-img").show();
+				 $("#loader-img").show();
 				var url  = '<?php echo $BASE_URL ?>Products/saveEstimate';
 				$.ajax({
 				  type: "POST",
@@ -2350,7 +2350,7 @@ function contactus_recaptcha(){
 					 $('button[type=submit]').attr('disabled', true);
 				  },
 				  success: function(data) {
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
 					$('button[type=submit]').attr('disabled', false);
 					 let response = JSON.parse(data);
 					 let errors = response.errors;
@@ -2406,7 +2406,7 @@ function contactus_recaptcha(){
 				  required: true,
 				},
 				postal_code: {
-				  required: true,				  
+				  required: true,
 				  maxlength: 10,
 				  minlength: 6,
 				},
@@ -2450,7 +2450,7 @@ function contactus_recaptcha(){
 				  },
 			  },
 			  submitHandler: function(form) {
-				 $("#loder-img").show();
+				 $("#loader-img").show();
 				var url  = '<?php echo $BASE_URL ?>Products/saveEstimate';
 				$.ajax({
 				  type: "POST",
@@ -2460,7 +2460,7 @@ function contactus_recaptcha(){
 					 $('button[type=submit]').attr('disabled', true);
 				  },
 				  success: function(data) {
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
 					$('button[type=submit]').attr('disabled', false);
 					 let response = JSON.parse(data);
 					 let errors = response.errors;
@@ -2499,14 +2499,14 @@ function contactus_recaptcha(){
 			  return false;
 		}
 		if(loginId !='' && product_id !=''){
-			$("#loder-img").show();
+			$("#loader-img").show();
 			var url ='<?php echo $BASE_URL ?>Wishlists/addByAjax';
 			$.ajax({
 				   type: "POST",
 				   url: url,
 				   data:{'product_id':product_id}, // serializes the form's elements.
 				   success: function(data) {
-					   $("#loder-img").hide();
+					   $("#loader-img").hide();
 						var json = JSON.parse(data);
 						var status =  json.status;
 						var msg = json.msg;
@@ -2693,14 +2693,14 @@ function contactus_recaptcha(){
 	}?>
 
 	function COVIDMSGClose(){
-		$("#loder-img").show();
+		$("#loader-img").show();
 		var url ='<?php echo $BASE_URL ?>Homes/COVIDMSGClose';
 		$.ajax({
 			   type: "GET",
 			   url: url,
 				success: function(data)
 				{
-                   $("#loder-img").hide();
+                   $("#loader-img").hide();
 				   $("#WarningModal").modal('hide');
 				},
 				error: function (error) {

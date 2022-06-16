@@ -274,7 +274,7 @@
 		</form>
 		<script>
 		$('form#cardFrom-'+'<?php echo $product_id_key;?>').on('submit', function (e) {
-		        $("#loder-img").show();
+		        $("#loader-img").show();
 			    $('input[type="submit"]').prop('disabled',true);
 	            $('input[type="button"]').prop('disabled',true);
 				var formData = new FormData(this);
@@ -290,7 +290,7 @@
 				  contentType: false,
 				  processData: false,
 				  success: function(data) {
-					   $("#loder-img").hide();
+					   $("#loader-img").hide();
 					   $('input[type="submit"]').prop('disabled',true);
 	                   $('input[type="button"]').prop('disabled',true);
 					   var json = JSON.parse(data);

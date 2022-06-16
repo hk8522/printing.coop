@@ -540,7 +540,7 @@
 			}
 		    $("#QualityModal").modal('show');
 
-		    //$("#loder-img").show();
+		    //$("#loader-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/AddEditProductQuantity/'+product_id+'/'+quantity_id;
 			$.ajax({
 				   type: "GET",
@@ -556,7 +556,7 @@
 		var result = confirm("Are you sure you want to remove Quantity from this product ?");
 
 		if(result==true && quantity_id !=''){
-			$("#loder-img").show();
+			$("#loader-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/deleteProductQuantity/'+product_id+'/'+quantity_id;
 			$.ajax({
 					type: "GET",
@@ -575,7 +575,7 @@
 				$("#QualityModal .modal-title").html('Edit Size');
 			}
 		    $("#QualityModal").modal('show');
-		    //$("#loder-img").show();
+		    //$("#loader-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/AddEditProductSize/'+product_id+'/'+quantity_id+'/'+size_id;
 			$.ajax({
 				   type: "GET",
@@ -608,7 +608,7 @@
 		var result = confirm("Are you sure you want to remove Quantity from this product ?");
 
 		if(result==true && quantity_id !=''){
-			$("#loder-img").show();
+			$("#loader-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/deleteProductQuantity/'+product_id+'/'+quantity_id;
 			$.ajax({
 					type: "GET",
@@ -625,7 +625,7 @@
 		var result = confirm("Are you sure you want to remove Quantity from this product ?");
 
 		if(result==true && quantity_id !=''){
-			$("#loder-img").show();
+			$("#loader-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/deleteProductQuantity/'+product_id+'/'+quantity_id;
 			$.ajax({
 					type: "GET",
@@ -641,7 +641,7 @@
 		var result = confirm("Are you sure you want to remove size from this product & quantity ?");
 
 		if(result==true && quantity_id !=''){
-			$("#loder-img").show();
+			$("#loader-img").show();
 			var url ='<?php echo $BASE_URL ?>admin/Products/deleteProductSize/'+product_id+'/'+quantity_id+'/'+size_id;
 			$.ajax({
 					type: "GET",

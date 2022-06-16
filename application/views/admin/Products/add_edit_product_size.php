@@ -77,7 +77,7 @@ $('#AddEditProductSize').validate({
             },
         },
         submitHandler: function(form) {
-			$("#loder-img").show();
+			$("#loader-img").show();
 			var url  = '<?php echo $BASE_URL ?>admin/Products/AddEditProductSize';
 			$.ajax({
 			  type: "POST",
@@ -88,7 +88,7 @@ $('#AddEditProductSize').validate({
 			  },
 			  success: function(data) {
 				$('button[type=submit]').attr('disabled', false);
-				$("#loder-img").hide();
+				$("#loader-img").hide();
 				$("#QualityModal .modal-body").html(data);
 				    if(success==1){
 					  location.reload();

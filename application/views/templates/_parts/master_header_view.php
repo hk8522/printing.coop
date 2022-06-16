@@ -149,8 +149,8 @@
                   <?php
                   }?></span>
   </div>
-<div id="loder-img">
-	<div id="loder-img-inner">
+<div id="loader-img">
+	<div id="loader-img-inner">
 		<?php if($website_store_id==1){?>
 		<img src="<?php echo $BASE_URL;?>assets/images/loder.gif" width="100">
 		<?php }else if($website_store_id==3){?>

@@ -714,7 +714,7 @@ overflow: hidden;
                                     <div class="col-6 col-md-6">
                                         <div class="shop-product-price">
                                             <span>
-											  <img src="<?php echo $BASE_URL?>/assets/images/loder.gif" width="30" style="display:none" id="loder-img">
+											  <img src="<?php echo $BASE_URL?>/assets/images/loder.gif" width="30" style="display:none" id="loader-img">
                                               <font class="new-price">
 											  <?php
 
@@ -1007,7 +1007,7 @@ overflow: hidden;
 <script>
 
     function showAttribute(cid,nid){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
             $(".new-price-img").hide();
 	        var item_val=$("#attribute_id_"+cid).val();
 			var myForm = document.getElementById('cardFrom');
@@ -1022,7 +1022,7 @@ overflow: hidden;
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-                    $("#loder-img").hide();
+                    $("#loader-img").hide();
                     $(".new-price-img").show();
 					if(json.success==1){
 						$("#attribute_id_"+nid).attr("disabled", false);
@@ -1031,14 +1031,14 @@ overflow: hidden;
 				},
                 error: function (resp) {
                     console.log(resp);
-                    $("#loder-img").hide();
+                    $("#loader-img").hide();
                     $(".new-price-img").show();
                 }
           });
     }
 
 	function showQuantity(){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
             $(".new-price-img").hide();
 			$(".multipal_size").html('<option value="">Choose an option...</option>');
 			var myForm = document.getElementById('cardFrom');
@@ -1053,7 +1053,7 @@ overflow: hidden;
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
 						if(json.sizeoprions == '0'){
@@ -1069,7 +1069,7 @@ overflow: hidden;
     }
 
 	function showSizeQuantity(){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
             $(".new-price-img").hide();
 			$(".multipal_size_item").html('<option value="">Choose an option...</option>');
 			var myForm = document.getElementById('cardFrom');
@@ -1084,7 +1084,7 @@ overflow: hidden;
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
 						$("#SiZeOPrions").html(json.sizeoprions);
@@ -1099,7 +1099,7 @@ overflow: hidden;
 	    getSizeOptions('<?php echo $product_id?>','0');
 	}
 	function getSizeOptions(product_id,make_a_default_qty_id){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
 			$.ajax({
 				type: 'GET',
 				dataType: 'html',
@@ -1108,13 +1108,13 @@ overflow: hidden;
 				contentType: false,
 				processData: false,
 				success: function (data) {
-					$("#loder-img").hide();
+					$("#loader-img").hide();
 					$("#SiZeOPrions").html(data);
 				}
             });
     }
 	function getQuantityPrice(nid){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
             $(".new-price-img").hide();
 			var myForm = document.getElementById('cardFrom');
 			var formData = new FormData(myForm);
@@ -1128,7 +1128,7 @@ overflow: hidden;
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
 						$("#"+nid).attr("disabled", false);
@@ -1138,14 +1138,14 @@ overflow: hidden;
 				},
                 error: function (resp) {
                     console.log(resp);
-                    $("#loder-img").hide();
+                    $("#loader-img").hide();
                     $(".new-price-img").show();
                 }
             });
     }
 
 	function getPaperPrice(nid){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
             $(".new-price-img").hide();
 			var myForm = document.getElementById('cardFrom');
 			var formData = new FormData(myForm);
@@ -1159,7 +1159,7 @@ overflow: hidden;
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
 						$("#attribute_id_"+nid).attr("disabled", false);
@@ -1177,7 +1177,7 @@ overflow: hidden;
 			}
 			var myForm = document.getElementById('cardFrom');
 			var formData = new FormData(myForm);
-			 $("#loder-img").show();
+			 $("#loader-img").show();
             $(".new-price-img").hide();
 
 			$.ajax({
@@ -1189,7 +1189,7 @@ overflow: hidden;
 				contentType: false,
 				processData: false,
 				success: function (data) {
-					$("#loder-img").hide();
+					$("#loader-img").hide();
                      $(".new-price-img").show();
 					var json = JSON.parse(data);
 
@@ -1207,14 +1207,14 @@ overflow: hidden;
 
 			$("#smc-"+skey).prop('disabled', true);
 			$("#smc-"+skey).html('<img src="<?php echo $BASE_URL?>/assets/images/loder.gif" width=20>');
-			$("#loder-img").show();
+			$("#loader-img").show();
 			$.ajax({
 				type: 'POST',
 				dataType: 'html',
 				url: '<?php echo $BASE_URL?>Products/updateCumment',
 				data: ({'cumment':cumment,'product_id':product_id,'skey':skey}),
 				success: function (data) {
-					$("#loder-img").hide();
+					$("#loader-img").hide();
 					$("#smc-"+skey).prop('disabled', false);
 					$("#smc-"+skey).html('Update Note');
 				}
@@ -1228,14 +1228,14 @@ overflow: hidden;
 
 			$("#smd-"+skey).prop('disabled', true);
 			$("#smd-"+skey).html('<img src="<?php echo $BASE_URL?>/assets/images/loder.gif" width=20>');
-			$("#loder-img").show();
+			$("#loader-img").show();
 			$.ajax({
 				type: 'POST',
 				dataType: 'html',
 				url: '<?php echo $BASE_URL?>Products/deleteImage',
 				data: ({'location':location,'product_id':product_id,'skey':skey}),
 				success: function (data) {
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
 					 //$("#smd-"+skey).prop('disabled', false);
 					//$("#smd-"+skey).html('<i class="las la-trash"></i>');
 					 $("#upload-file-data #teb-"+skey).remove();
@@ -1252,7 +1252,7 @@ overflow: hidden;
 		}
 
 	    $('form#cardFrom').on('submit', function (e) {
-		      $("#loder-img").show();
+		      $("#loader-img").show();
 			   $("#btnsubmit").prop('disabled',true);
 				var formData = new FormData(this);
 				e.preventDefault();
@@ -1265,7 +1265,7 @@ overflow: hidden;
 				  contentType: false,
 				  processData: false,
 				  success: function(data) {
-					  $("#loder-img").hide();
+					  $("#loader-img").hide();
 					   var json = JSON.parse(data);
 					   var status = json.status;
 					   var msg = json.msg;
@@ -1295,7 +1295,7 @@ overflow: hidden;
 		});
 
 		function getLengthWidthPrice(){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
             $(".new-price-img").hide();
 			var myForm = document.getElementById('cardFrom');
 			var formData = new FormData(myForm);
@@ -1309,7 +1309,7 @@ overflow: hidden;
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
 						$("#total-price").html(json.price);
@@ -1327,7 +1327,7 @@ overflow: hidden;
             });
         }
 		function getDepthLengthWidthPrice(){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
             $(".new-price-img").hide();
 			var myForm = document.getElementById('cardFrom');
 			var formData = new FormData(myForm);
@@ -1341,7 +1341,7 @@ overflow: hidden;
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
 						$("#total-price").html(json.price);
@@ -1365,7 +1365,7 @@ overflow: hidden;
         }
 
 		function getPageLengthWidthPrice(){
-	        $("#loder-img").show();
+	        $("#loader-img").show();
             $(".new-price-img").hide();
 			var myForm = document.getElementById('cardFrom');
 			var formData = new FormData(myForm);
@@ -1379,7 +1379,7 @@ overflow: hidden;
 				processData: false,
 				success: function (data) {
 					var json = JSON.parse(data);
-					 $("#loder-img").hide();
+					 $("#loader-img").hide();
                      $(".new-price-img").show();
 
 					if(json.success==1){
