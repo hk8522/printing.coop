@@ -6982,6 +6982,9 @@ table.tableFixHead {
     -webkit-hyphens: auto;
     hyphens: auto;
 }
+.table > tbody > tr > td button, .table > tbody > tr > td .button {
+    white-space: nowrap;
+}
 
 @media (max-width: 575px) {
     .navbar-nav .dropdown-menu {

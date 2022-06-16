@@ -5037,7 +5037,7 @@ button[type="submit"]:disabled {
 	padding:0px;
 	margin:0px
 }
-#ProductListUl i {
+.search-result ul i {
 	border-left:none
 }
 .universal-dark-info.cat-top-text {

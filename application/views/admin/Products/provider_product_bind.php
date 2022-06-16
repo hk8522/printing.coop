@@ -9,16 +9,15 @@
 <div class="search-box-area">
     <div class="search-sugg">
         <label class="span2">Search</label>
-        <input class="form-control" type="text" placeholder="Search Product"  onkeyup="searchProduct($(this).val())" id="searchSgedProductTextBox" name="searchSgedProductTextBox">
+        <input class="form-control" type="text" placeholder="Search Product" onkeyup="searchProduct($(this).val())">
         <!--<button type="button"><i class="fas fa-search"></i></button>-->
     </div>
-    <div class="search-result" id="searchDiv" style="display:none"> <!-- Add "active" class to show -->
-        <a href="javascript:void(0)" onclick="hidesearchDiv()"><i class="fas fa-times" ></i></a>
-        <ul id="ProductListUl">
-        </ul>
+    <div class="search-result" style="display:none"> <!-- Add "active" class to show -->
+        <a href="javascript:void(0)" onclick="hideSearchResult()"><i class="fas fa-times" ></i></a>
+        <ul></ul>
     </div>
 </div>
-</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -31,13 +30,13 @@
     {
         if (searchtext !='') {
             $('#loader-img').show();
-            $('#searchDiv').show();
-            $('#ProductListUl').html('');
+            $('.search-result').show();
+            $('.search-result ul').html('');
             $.ajax({
                 type: 'POST',
                 url: '/admin/Products/searchProduct',
                 headers: { Accept: 'application/json; charset=utf-8' },
-                data: { 'searchtext':searchtext }, // serializes the form's elements.
+                data: { 'searchtext': searchtext }, // serializes the form's elements.
                 success: function(data)
                 {
                     $('#loader-img').hide();
@@ -46,21 +45,21 @@
                         html += `<li><a class="k-link product-thumbs" onclick="bindProduct(<?=$id?>, ${data[i].id})"><img src="${data[i].product_image}" width=50><span></i>${data[i].name}</span></li></a>`;
                     }
                     html += '</div>';
-                    $('#ProductListUl').html(html);
+                    $('.search-result ul').html(html);
                 },
                 error: function (error) {
                 }
             });
         } else {
-            $('#searchDiv').hide();
-            $('#ProductListUl').html('');
-            $('#searchSgedProductTextBox').val('');
+            $('.search-result').hide();
+            $('.search-result ul').html('');
+            $('.search-sugg input').val('');
         }
     }
-    function hidesearchDiv()
+    function hideSearchResult()
     {
-        $('#searchDiv').hide();
-        $('#ProductListUl').html('');
+        $('.search-result').hide();
+        $('.search-result ul').html('');
     }
     function bindProduct(id, product_id)
     {
@@ -72,12 +71,13 @@
             success: function(data)
             {
                 $('#loader-img').hide();
-                hidesearchDiv();
+                hideSearchResult();
                 if (data.success) {
                     var grid = $('#product-grid').data('kendoGrid');
                     grid.dataSource.read();
                     grid.refresh();
                 }
+                $.magnificPopup.close();
             },
             error: function (error) {
             }

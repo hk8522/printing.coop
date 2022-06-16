@@ -3116,12 +3116,12 @@ ul.dropdown .open-dropdown {
 	top: 10px;
 	color: #000;
 }
-#ProductListUl {
+.search-result ul {
 	margin: 0px;
 	list-style: none;
 	padding: 40px 0px 10px 0px;
 }
-#ProductListUl li a {
+.search-result ul li a {
 	width: 100%;
 	display: block;
 	color: #000;
@@ -3134,21 +3134,19 @@ ul.dropdown .open-dropdown {
 	display: flex;
 	align-items: center;
 }
-#ProductListUl li a:hover {
+.search-result ul li a:hover {
 	color: #ff9200;
 	background: #f3f3f3;
 }
-#ProductListUl li a img {
+.search-result ul li a img {
 	position: absolute;
 	left: 5px;
 	top: 5px;
 	width: 50px;
 }
-#ProductListUl li {
+.search-result ul li {
 	margin-bottom: 5px;
 }
-
-
 
 
 @media (max-width: 768px) {

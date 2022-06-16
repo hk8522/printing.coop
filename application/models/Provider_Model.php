@@ -1,8 +1,19 @@
 <?php
 
+require_once(APPPATH . 'common/ProductAttributeType.php');
+
+use App\Common\ProductAttributeType;
+
 Class Provider_Model extends MY_Model {
 
     public $table = 'providers';
+
+    public function getProviders()
+    {
+        $this->db->from('providers');
+        $this->db->order_by('name');
+        return $this->db->get()->result();
+    }
 
     public function getProvider($name)
     {
@@ -67,7 +78,6 @@ Class Provider_Model extends MY_Model {
             $this->db->select('COUNT(*)');
             $this->db->from('provider_products');
             $count = $this->db->get()->row();
-            var_dump(reset($count));
             if (reset($count) == 0)
                 return [];
 
@@ -92,11 +102,18 @@ Class Provider_Model extends MY_Model {
         $news = [];
         foreach ($productInfo[0] as $attribute) {
             if (!array_key_exists($attribute->group, $originals)) {
-                if (!array_key_exists($attribute->group, $news))
+                if (!array_key_exists($attribute->group, $news)) {
+                    $type = ProductAttributeType::Normal;
+                    if (strcasecmp($attribute->group, 'size') == 0)
+                        $type = ProductAttributeType::Size;
+                    if (strcasecmp($attribute->group, 'qty') == 0 || strcasecmp($attribute->group, 'quantity') == 0)
+                        $type = ProductAttributeType::Quantity;
                     $news[$attribute->group] = (object) [
                         'provider_id' => $product->provider_id,
                         'name' => $attribute->group,
+                        'type' => $type,
                     ];
+                }
             }
         }
 
@@ -179,7 +196,10 @@ Class Provider_Model extends MY_Model {
         $this->db->where('provider_id', $provider->id);
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
-        $this->db->limit($take, $skip);
+        if ($take > 0)
+            $this->db->limit($take, $skip);
+        else
+            $this->db->offset($skip);
         $data = $this->db->get()->result();
     }
 
@@ -188,5 +208,33 @@ Class Provider_Model extends MY_Model {
         $this->db->where('id', $id);
         $this->db->set('product_id', $product_id);
         $this->db->update('provider_products');
+    }
+
+    public function getAttributes($provider, $take, $skip, &$data, &$total)
+    {
+        $this->db->select('COUNT(*)');
+        $this->db->from('provider_attributes');
+        $this->db->where('provider_id', $provider->id);
+        $total = reset($this->db->get()->row());
+
+        $this->db->select('provider_attributes.*, product_attributes.name AS attribute_name');
+        $this->db->from('provider_attributes');
+        $this->db->join('product_attributes', 'product_attributes.id = provider_attributes.attribute_id', 'left');
+        $this->db->where('provider_id', $provider->id);
+        $take = $take > 0 ? $take : 0;
+        $skip = $skip > 0 ? $skip : 0;
+        if ($take > 0)
+            $this->db->limit($take, $skip);
+        else
+            $this->db->offset($skip);
+        $data = $this->db->get()->result();
+    }
+
+    public function updateAttribute($id, $type, $attribute_id)
+    {
+        $this->db->where('id', $id);
+        $this->db->set('type', $type);
+        $this->db->set('attribute_id', $attribute_id);
+        $this->db->update('provider_attributes');
     }
 }

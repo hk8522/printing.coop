@@ -36,6 +36,8 @@
         <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/kendo/styles/<?=$kendoVersion?>/kendo.material.min.css" />
         <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/kendo/styles/<?=$kendoVersion?>/kendo.common-material.min.css" />
 
+        <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/build/css/custom.css" />
+
         <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/administration/fineuploader/fineuploader-4.2.2.min.css" />
 
         <script src="<?php echo $BASE_URL;?>assets/administration/build/js/jquery.min.js"></script>

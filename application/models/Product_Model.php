@@ -2890,4 +2890,23 @@ Class Product_Model extends MY_Model {
             return 0;
         return $result[0]['SUM(extra_price)'];
     }
+
+    public function getAttributes($q, $take, $skip, &$data, &$total)
+    {
+        $this->db->select('COUNT(*)');
+        $this->db->from('product_attributes');
+        $this->db->like('name', $q);
+        $total = reset($this->db->get()->row());
+
+        $this->db->select('product_attributes.*');
+        $this->db->from('product_attributes');
+        $this->db->like('name', $q);
+        $take = $take > 0 ? $take : 0;
+        $skip = $skip > 0 ? $skip : 0;
+        if ($take > 0)
+            $this->db->limit($take, $skip);
+        else
+            $this->db->offset($skip);
+        $data = $this->db->get()->result();
+    }
 }

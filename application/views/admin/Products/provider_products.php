@@ -1,11 +1,8 @@
 <?php
-$provider = 'sina';
+$pageSize = 10;
+$pageSizes = [10, 15, 20, 50, 100];
 ?>
-<link rel="stylesheet" type="text/css" href="/assets/css/provider.css"/>
-<div class="content-wrapper dd">
-    <div id="product-grid"></div>
-</div>
-
+<div id="product-grid"></div>
 <script>
     var record = 0;
     $(document).ready(function () {
@@ -13,7 +10,7 @@ $provider = 'sina';
             dataSource: {
                 transport: {
                     read: {
-                        url: '/admin/Products/Provider/<?=$provider?>',
+                        url: '/admin/Products/ProviderProducts/<?=$provider?>',
                         type: 'POST',
                         dataType: 'json',
                         data: []
@@ -29,31 +26,32 @@ $provider = 'sina';
                     // Cancel the changes
                     this.cancelChanges();
                 },
-                pageSize: 10,
+                pageSize: <?=$pageSize?>,
                 serverPaging: true,
                 serverFiltering: true,
                 serverSorting: true
             },
             pageable: {
                 refresh: true,
-                pageSizes: [10, 15, 20, 50, 100]
+                pageSizes: <?=json_encode($pageSizes)?>
             },
             scrollable: false,
-                columns: [{
+            columns: [{
                 title: '#',
                 template: '#= ++record #',
             }, {
                 field: 'provider_product_id',
                 title: 'ID',
             }, {
-                field: 'sku',
-                title: 'SKU',
-            }, {
                 field: 'name',
                 title: 'Name',
+                template: `#if (product_id) {#<a class="product-bind-edit" href="/admin/Products/ProviderProductBindEdit/#=id#">#=name#</a>#} else {##=name##}#`,
             }, {
                 field: 'category',
                 title: 'Category',
+            }, {
+                field: 'sku',
+                title: 'SKU',
             }, {
                 field: 'product_id',
                 title: 'Product Binding',
@@ -73,7 +71,7 @@ $provider = 'sina';
                 record = this.dataSource.pageSize() * (this.dataSource.page() - 1);
             },
             dataBound: function() {
-                $('.bind-product').magnificPopup({
+                $('.bind-product, .product-bind-edit').magnificPopup({
                     type: 'ajax',
                     settings: { cache: false, async: false },
                     midClick: true,
