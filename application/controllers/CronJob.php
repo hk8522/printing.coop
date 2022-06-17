@@ -43,7 +43,7 @@ class CronJob extends Admin_Controller
         foreach ($products as $product) {
             $productInfo = sina_product_info($sina_access_token, $product->provider_product_id);
             $this->Provider_Model->updateProductInfo($product, $productInfo);
-            echo "id: $product->id" . PHP_EOL;
+            echo "id: $product->provider_product_id" . PHP_EOL;
             echo "name: " . $product->name . PHP_EOL;
             echo PHP_EOL;
             // echo '<p>' . $product->name . '</p>';

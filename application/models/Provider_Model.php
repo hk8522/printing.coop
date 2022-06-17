@@ -103,6 +103,12 @@ Class Provider_Model extends MY_Model {
         foreach ($productInfo[0] as $attribute) {
             if (!array_key_exists($attribute->group, $originals)) {
                 if (!array_key_exists($attribute->group, $news)) {
+                    if ($attribute->group == null) {
+                        echo "id: $product->provider_product_id Failed" . PHP_EOL;
+                        echo PHP_EOL;
+                        break;
+                    }
+
                     $type = ProductAttributeType::Normal;
                     if (strcasecmp($attribute->group, 'size') == 0)
                         $type = ProductAttributeType::Size;
@@ -156,16 +162,19 @@ Class Provider_Model extends MY_Model {
         }
 
         $news = [];
-        foreach ($productInfo[0] as $item) {
-            $attribute_id = $attributes_name[$item->group]->id;
-            if (array_key_exists($attribute_id, $originals) && array_key_exists($item->name, $originals[$attribute_id])) {
-                $originals[$attribute_id][$item->name]->deleted = 0;
+        foreach ($productInfo[0] as $attribute) {
+            if ($attribute->group == null)
+                break;
+
+            $attribute_id = $attributes_name[$attribute->group]->id;
+            if (array_key_exists($attribute_id, $originals) && array_key_exists($attribute->name, $originals[$attribute_id])) {
+                $originals[$attribute_id][$attribute->name]->deleted = 0;
             } else {
                 $news[] = (object) [
                     'provider_id' => $product->provider_id,
                     'provider_product_id' => $product->id,
                     'provider_attribute_id' => $attribute_id,
-                    'name' => $item->name,
+                    'name' => $attribute->name,
                 ];
             }
         }
