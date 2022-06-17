@@ -39,7 +39,7 @@ $pageSizes = [10, 15, 20, 50, 100];
 </script>
 <div id="attribute-grid"></div>
 <script>
-    var attributeNames = <?=json_encode(App\Common\ProductAttributeType::names)?>;
+    var attributeTypeNames = <?=json_encode(App\Common\ProductAttributeType::names)?>;
     var record = 0;
     $(document).ready(function () {
         $('#attribute-grid').kendoGrid({
@@ -108,10 +108,10 @@ $pageSizes = [10, 15, 20, 50, 100];
             }, {
                 field: 'type',
                 title: 'Type',
+                template: '#=attributeTypeNames[type]#',
             }, {
                 field: 'attribute_name',
                 title: 'Attribute',
-                // template: '#=attribute_name#',
             }, {
                 command: [{
                     name: 'edit',

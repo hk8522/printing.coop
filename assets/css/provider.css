@@ -28,3 +28,6 @@
     margin-left: auto;
     margin-right: auto;
 }
+.k-popup-edit-form.k-window-content {
+    overflow: visible;
+}

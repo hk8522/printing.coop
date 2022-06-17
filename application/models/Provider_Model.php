@@ -230,6 +230,7 @@ Class Provider_Model extends MY_Model {
         $this->db->from('provider_attributes');
         $this->db->join('product_attributes', 'product_attributes.id = provider_attributes.attribute_id', 'left');
         $this->db->where('provider_id', $provider->id);
+        $this->db->order_by('name');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
         if ($take > 0)
