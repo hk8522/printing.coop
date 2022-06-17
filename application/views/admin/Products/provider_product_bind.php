@@ -66,7 +66,7 @@
     }
     function bindProduct(id, product_id)
     {
-        $('#loader-img').show();
+        // $('#loader-img').show();
         $.ajax({
             type: 'POST',
             url: '/admin/Products/ProviderProductBind/<?=$id?>',
