@@ -59,7 +59,7 @@ Class Provider_Model extends MY_Model {
         }
 
         if ($originals)
-            $this->db->update_batch('provider_products', $originals, 'provider_product_id');
+            $this->db->update_batch('provider_products', $originals, 'id');
         if ($news)
             $this->db->insert_batch('provider_products', $news);
     }
@@ -124,7 +124,7 @@ Class Provider_Model extends MY_Model {
         }
 
         // if ($originals)
-        //     $this->db->update_batch('provider_products', $originals, 'provider_product_id');
+        //     $this->db->update_batch('provider_products', $originals, 'id');
         if ($news)
             $this->db->insert_batch('provider_attributes', $news);
 
@@ -157,6 +157,7 @@ Class Provider_Model extends MY_Model {
             // $name = $attribute_id[$item->provider_attribute_id]->name;
             if (!array_key_exists($item->provider_attribute_id, $originals))
                 $originals[$item->provider_attribute_id] = [];
+            $item->deleted = 0;
             $originals[$item->provider_attribute_id][$item->name] = $item;
             $original_items[] = $item;
         }
@@ -180,7 +181,7 @@ Class Provider_Model extends MY_Model {
         }
 
         if ($original_items)
-            $this->db->update_batch('provider_product_attributes', $original_items, 'product_attribute_option');
+            $this->db->update_batch('provider_product_attributes', $original_items, 'id');
         if ($news)
             $this->db->insert_batch('provider_product_attributes', $news);
 
