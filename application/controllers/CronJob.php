@@ -41,8 +41,6 @@ class CronJob extends Admin_Controller
         header('Cache-Control: no-cache');
         $products = $this->Provider_Model->getUpdatingProducts($provider);
         foreach ($products as $product) {
-            if ($product->provider_product_id != 154)
-                continue;
             $productInfo = sina_product_info($sina_access_token, $product->provider_product_id);
             $this->Provider_Model->updateProductInfo($product, $productInfo);
             echo "id: $product->provider_product_id" . PHP_EOL;
