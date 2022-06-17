@@ -16,25 +16,25 @@ function curl_helper(string $url, string $method = 'get', array $data = null, st
     if (strcasecmp($method, 'post') == 0)
         curl_setopt($curl, CURLOPT_POST, true);
     curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-    
+
     $headers = array(
        "Accept: application/json",
        "Content-Type: application/json",
     );
     if ($token)
-        $headers[] = "Bearer $token";
+        $headers[] = "Authorization: Bearer $token";
     curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
 
     if (strcasecmp($method, 'post') == 0 && $data)
         curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
-    
+
     // //for debug only!
     // curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
     // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
-    
+
     $resp = curl_exec($curl);
     curl_close($curl);
-    
+
     if ($resp === false)
         return false;
 
