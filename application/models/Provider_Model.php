@@ -172,9 +172,9 @@ Class Provider_Model extends MY_Model {
             } else {
                 $news[] = (object) [
                     'provider_id' => $product->provider_id,
-                    'provider_product_id' => $product->id,
+                    'provider_product_id' => $product->provider_product_id,
                     'provider_attribute_id' => $attribute_id,
-                    'name' => $attribute->name,
+                    'value' => $attribute->name,
                 ];
             }
         }
@@ -203,6 +203,7 @@ Class Provider_Model extends MY_Model {
         $this->db->from('provider_products');
         $this->db->join('products', 'products.id = provider_products.product_id', 'left');
         $this->db->where('provider_id', $provider->id);
+        $this->db->order_by('name');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
         if ($take > 0)
@@ -210,6 +211,13 @@ Class Provider_Model extends MY_Model {
         else
             $this->db->offset($skip);
         $data = $this->db->get()->result();
+    }
+
+    public function getProduct($id)
+    {
+        $this->db->from('provider_products');
+        $this->db->where('id', $id);
+        return $this->db->get()->row();
     }
 
     public function bindProduct($id, $product_id)
@@ -246,5 +254,29 @@ Class Provider_Model extends MY_Model {
         $this->db->set('type', $type);
         $this->db->set('attribute_id', $attribute_id);
         $this->db->update('provider_attributes');
+    }
+
+    public function getProductAttributes($provider, $provider_product_id, $take, $skip, &$data, &$total)
+    {
+        $this->db->select('COUNT(*)');
+        $this->db->from('provider_product_attributes');
+        $this->db->where('provider_id', $provider->id);
+        $this->db->where('provider_product_id', $provider_product_id);
+        $total = reset($this->db->get()->row());
+
+        $this->db->select('provider_product_attributes.*, provider_attributes.name, provider_attributes.type, product_attributes.name AS attribute_name');
+        $this->db->from('provider_product_attributes');
+        $this->db->join('provider_attributes', 'provider_attributes.id = provider_product_attributes.provider_attribute_id', 'left');
+        $this->db->join('product_attributes', 'product_attributes.id = provider_attributes.attribute_id', 'left');
+        $this->db->where('provider_product_attributes.provider_id', $provider->id);
+        $this->db->where('provider_product_attributes.provider_product_id', $provider_product_id);
+        $this->db->order_by('provider_product_attributes.id');
+        $take = $take > 0 ? $take : 0;
+        $skip = $skip > 0 ? $skip : 0;
+        if ($take > 0)
+            $this->db->limit($take, $skip);
+        else
+            $this->db->offset($skip);
+        $data = $this->db->get()->result();
     }
 }

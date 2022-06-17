@@ -2,6 +2,9 @@
     <div class="row">
         <div class="col-xs-12 col-md-12">
             <div class="box">
+                <div class="box-header">
+                    <h2><?=$product->name?></h2>
+                </div>
                 <div class="box-body">
                     <div class="inner-head-section">
                         <div class="row align-items-end">
@@ -63,6 +66,7 @@
     }
     function bindProduct(id, product_id)
     {
+        $('#loader-img').show();
         $.ajax({
             type: 'POST',
             url: '/admin/Products/ProviderProductBind/<?=$id?>',

@@ -37,16 +37,16 @@ $pageSizes = [10, 15, 20, 50, 100];
         </div>
     </div>
 </script>
-<div id="attribute-grid"></div>
+<div id="provider-product-attribute-grid"></div>
 <script>
     var attributeTypeNames = <?=json_encode(App\Common\ProductAttributeType::names)?>;
     var record = 0;
     $(document).ready(function () {
-        $('#attribute-grid').kendoGrid({
+        $('#provider-product-attribute-grid').kendoGrid({
             dataSource: {
                 transport: {
                     read: {
-                        url: '/admin/Products/ProviderAttributes/<?=$provider?>',
+                        url: '/admin/Products/ProviderProductAttributes/<?=$provider?>/<?=$provider_product_id?>',
                         type: 'POST',
                         dataType: 'json',
                         data: []
@@ -57,12 +57,6 @@ $pageSizes = [10, 15, 20, 50, 100];
                         dataType: 'json',
                         data: []
                     },
-                    destroy: {
-                        url: '',
-                        type: 'POST',
-                        dataType: 'json',
-                        data: []
-                    }
                 },
                 schema: {
                     data: 'data',
@@ -72,6 +66,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                         id: 'id',
                         fields: {
                             name: { editable: false, type: 'string'},
+                            value: { editable: false, type: 'string' },
                             type: { editable: true, type: 'number' },
                             attribute_id: { editable: true, type: 'number' },
                             attribute_name: { editable: true, type: 'string' },
@@ -106,6 +101,9 @@ $pageSizes = [10, 15, 20, 50, 100];
             }, {
                 field: 'name',
                 title: 'Name',
+            }, {
+                field: 'value',
+                title: 'Value',
             }, {
                 field: 'type',
                 title: 'Type',
@@ -172,6 +170,7 @@ $pageSizes = [10, 15, 20, 50, 100];
         $('#attribute-form input[name="attribute_name"]').val(name);
 
         var model = $('.k-popup-edit-form').data('kendoEditable').options.model;
+        model.id = model.provider_attribute_id;
         model.attribute_id = id;
         model.attribute_name = name;
         // model.dirty = true;

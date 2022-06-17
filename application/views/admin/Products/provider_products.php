@@ -45,7 +45,6 @@ $pageSizes = [10, 15, 20, 50, 100];
             }, {
                 field: 'name',
                 title: 'Name',
-                template: `#if (product_id) {#<a class="product-bind-edit" href="/admin/Products/ProviderProductBindEdit/#=id#">#=name#</a>#} else {##=name##}#`,
             }, {
                 field: 'category',
                 title: 'Category',
@@ -65,13 +64,27 @@ $pageSizes = [10, 15, 20, 50, 100];
                                 <use xlink:href="/assets/images/bootstrap-icons.svg\\#pencil-square"/>
                             </svg>
                         </div>
-                    </a>`,
+                    </a>
+                    #if (product_id) {#<p>#=product_name#</p>#}#`,
+            }, {
+                field: 'provider_product_id',
+                title: 'Attributes',
+                template: `
+                    #if (product_id) {#
+                        <a href="/admin/Products/ProviderProductAttributes/<?=$provider?>/#=provider_product_id#" class="k-link bind-product-attributes">
+                            <div class="action">
+                                <svg class="bi b-icon" width="2em" height="2em" fill="currentColor">
+                                    <use xlink:href="/assets/images/bootstrap-icons.svg\\#pencil-square"/>
+                                </svg>
+                            </div>
+                        </a>
+                    #}#`,
             }],
             dataBinding: function() {
                 record = this.dataSource.pageSize() * (this.dataSource.page() - 1);
             },
             dataBound: function() {
-                $('.bind-product, .product-bind-edit').magnificPopup({
+                $('.bind-product, .bind-product-attributes').magnificPopup({
                     type: 'ajax',
                     settings: { cache: false, async: false },
                     midClick: true,

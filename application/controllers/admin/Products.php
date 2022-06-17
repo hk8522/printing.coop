@@ -2313,13 +2313,46 @@ Coating";
     public function ProviderProductBind($id)
     {
         if ($this->input->server('REQUEST_METHOD') === 'GET') {
-            $this->load->view($this->class_name.'provider_product_bind', ['id' => $id]);
+            $product = $this->Provider_Model->getProduct($id);
+            $this->load->view($this->class_name.'provider_product_bind', ['id' => $id, 'product' => $product]);
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $product_id = $this->input->post('product_id');
             $this->Provider_Model->bindProduct($id, $product_id);
+
+            $product = $this->Provider_Model->getProduct($id);
+            $sina_access_token = $this->sina_access_token();
+            $productInfo = sina_product_info($sina_access_token, $product->provider_product_id);
+            $this->Provider_Model->updateProductInfo($product, $productInfo);
+
             return $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode(['success' => true]));
+        }
+    }
+
+    public function ProviderProductAttributes($provider, $provider_product_id)
+    {
+        if ($this->input->server('REQUEST_METHOD') === 'GET') {
+            $this->load->view('admin/Products/provider_product_attributes', ['provider' => $provider, 'provider_product_id' => $provider_product_id]);
+        } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
+            $provider = $this->Provider_Model->getProvider($provider);
+
+            $page = $this->input->post('page');
+            $pageSize = $this->input->post('pageSize');
+            $take = $pageSize;
+            $skip = $pageSize * ($page - 1);
+            $this->Provider_Model->getProductAttributes($provider, $provider_product_id, $take, $skip, $data, $total);
+
+            $gridModel = [
+                'extra_data' => null,
+                'data' => $data,
+                'errors' => null,
+                'total' => $total,
+            ];
+
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($gridModel));
         }
     }
 
@@ -2377,10 +2410,5 @@ Coating";
         return $this->output
             ->set_content_type('application/json')
             ->set_output(json_encode(['success' => true]));
-    }
-
-    public function ProviderProductBindEdit($id)
-    {
-        $this->load->view($this->class_name.'provider_product_bind_edit', ['id' => $id]);
     }
 }
