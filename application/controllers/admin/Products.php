@@ -2288,7 +2288,7 @@ Coating";
         $pageSize = $this->input->post('pageSize');
         $take = $pageSize;
         $skip = $pageSize * ($page - 1);
-        $this->Provider_Model->getProducts($provider, $take, $skip, $data, $total);
+        $this->Provider_Model->getProducts($provider->id, $take, $skip, $data, $total);
 
         foreach ($data as $item) {
             $item->product_image = getProductImage($item->product_image);
@@ -2341,7 +2341,7 @@ Coating";
             $pageSize = $this->input->post('pageSize');
             $take = $pageSize;
             $skip = $pageSize * ($page - 1);
-            $this->Provider_Model->getProductAttributes($provider, $provider_product_id, $take, $skip, $data, $total);
+            $this->Provider_Model->getProductAttributes($provider->id, $provider_product_id, $take, $skip, $data, $total);
 
             $gridModel = [
                 'extra_data' => null,
@@ -2364,7 +2364,7 @@ Coating";
         $pageSize = $this->input->post('pageSize');
         $take = $pageSize;
         $skip = $pageSize * ($page - 1);
-        $this->Provider_Model->getAttributes($provider, $take, $skip, $data, $total);
+        $this->Provider_Model->getAttributes($provider->id, $take, $skip, $data, $total);
 
         $gridModel = [
             'extra_data' => null,

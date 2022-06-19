@@ -99,7 +99,7 @@
 
 											</div>
 										</div>
-										<div id="SiZeOPrions<?php echo $product_id_key?>">
+										<div id="SizeOptions<?php echo $product_id_key?>">
 										</div>
 		<script>
 		getSizeOptions('<?php echo $product_id_key?>','<?php echo $product_id?>','0');

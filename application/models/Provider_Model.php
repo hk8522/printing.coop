@@ -22,14 +22,14 @@ Class Provider_Model extends MY_Model {
         return $this->db->get()->row();
     }
 
-    public function updateProvider($provider, $products)
+    public function updateProvider($provider_id, $products)
     {
         // Flag deleted
         $this->db->set('deleted', 1);
         $this->db->update('provider_products');
 
         $this->db->from('provider_products');
-        $this->db->where('provider_id', $provider->id);
+        $this->db->where('provider_id', $provider_id);
         $data = $this->db->get()->result();
         $originals = [];
         foreach ($data as $item) {
@@ -39,7 +39,7 @@ Class Provider_Model extends MY_Model {
         $news = [];
         foreach ($products as $product) {
             if (array_key_exists($product->id, $originals)) {
-                $originals[$product->id]->provider_id = $provider->id;
+                $originals[$product->id]->provider_id = $provider_id;
                 $originals[$product->id]->provider_product_id = $product->id;
                 $originals[$product->id]->sku = $product->sku;
                 $originals[$product->id]->name = $product->name;
@@ -48,7 +48,7 @@ Class Provider_Model extends MY_Model {
                 $originals[$product->id]->deleted = 0;
             } else {
                 $news[] = (object) [
-                    'provider_id' => $provider->id,
+                    'provider_id' => $provider_id,
                     'provider_product_id' => $product->id,
                     'sku' => $product->sku,
                     'name' => $product->name,
@@ -66,10 +66,10 @@ Class Provider_Model extends MY_Model {
         $this->db->trans_complete();
     }
 
-    public function getUpdatingProducts($provider)
+    public function getUpdatingProducts($provider_id)
     {
         $this->db->from('provider_products');
-        $this->db->where('provider_id', $provider->id);
+        $this->db->where('provider_id', $provider_id);
         $this->db->where('updating', 1);
         $products = $this->db->get()->result();
         if (count($products) == 0) {
@@ -83,7 +83,7 @@ Class Provider_Model extends MY_Model {
             if (reset($count) == 0)
                 return [];
 
-            return $this->getUpdatingProducts($provider);
+            return $this->getUpdatingProducts($provider_id);
         }
         return $products;
     }
@@ -106,8 +106,7 @@ Class Provider_Model extends MY_Model {
             if (!array_key_exists($attribute->group, $originals)) {
                 if (!array_key_exists($attribute->group, $news)) {
                     if ($attribute->group == null) {
-                        echo "id: $product->provider_product_id Failed" . PHP_EOL;
-                        echo PHP_EOL;
+                        echo "$product->provider_product_id: [Failed]" . PHP_EOL;
                         break;
                     }
 
@@ -198,17 +197,17 @@ Class Provider_Model extends MY_Model {
         $this->db->update('provider_products');
     }
 
-    public function getProducts($provider, $take, $skip, &$data, &$total)
+    public function getProducts($provider_id, $take, $skip, &$data, &$total)
     {
         $this->db->select('COUNT(*)');
         $this->db->from('provider_products');
-        $this->db->where('provider_id', $provider->id);
+        $this->db->where('provider_id', $provider_id);
         $total = reset($this->db->get()->row());
 
         $this->db->select('provider_products.*, products.name AS product_name, products.product_image');
         $this->db->from('provider_products');
         $this->db->join('products', 'products.id = provider_products.product_id', 'left');
-        $this->db->where('provider_id', $provider->id);
+        $this->db->where('provider_id', $provider_id);
         $this->db->order_by('name');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
@@ -226,6 +225,14 @@ Class Provider_Model extends MY_Model {
         return $this->db->get()->row();
     }
 
+    public function getProductByProductId($provider_id, $product_id)
+    {
+        $this->db->from('provider_products');
+        $this->db->where('provider_id', $provider_id);
+        $this->db->where('product_id', $product_id);
+        return $this->db->get()->row();
+    }
+
     public function bindProduct($id, $product_id)
     {
         $this->db->where('id', $id);
@@ -233,18 +240,18 @@ Class Provider_Model extends MY_Model {
         $this->db->update('provider_products');
     }
 
-    public function getAttributes($provider, $take, $skip, &$data, &$total)
+    public function getAttributes($provider_id, $take, $skip, &$data, &$total)
     {
         $this->db->select('COUNT(*)');
         $this->db->from('provider_attributes');
-        $this->db->where('provider_id', $provider->id);
+        $this->db->where('provider_id', $provider_id);
         $total = reset($this->db->get()->row());
 
         $this->db->select('provider_attributes.*, product_attributes.name AS attribute_name');
         $this->db->from('provider_attributes');
         $this->db->join('product_attributes', 'product_attributes.id = provider_attributes.attribute_id', 'left');
-        $this->db->where('provider_id', $provider->id);
-        $this->db->order_by('name');
+        $this->db->where('provider_id', $provider_id);
+        $this->db->order_by('type, name');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
         if ($take > 0)
@@ -262,11 +269,11 @@ Class Provider_Model extends MY_Model {
         $this->db->update('provider_attributes');
     }
 
-    public function getProductAttributes($provider, $provider_product_id, $take, $skip, &$data, &$total)
+    public function getProductAttributes($provider_id, $provider_product_id, $take, $skip, &$data, &$total)
     {
         $this->db->select('COUNT(*)');
         $this->db->from('provider_product_attributes');
-        $this->db->where('provider_id', $provider->id);
+        $this->db->where('provider_id', $provider_id);
         $this->db->where('provider_product_id', $provider_product_id);
         $total = reset($this->db->get()->row());
 
@@ -274,9 +281,9 @@ Class Provider_Model extends MY_Model {
         $this->db->from('provider_product_attributes');
         $this->db->join('provider_attributes', 'provider_attributes.id = provider_product_attributes.provider_attribute_id', 'left');
         $this->db->join('product_attributes', 'product_attributes.id = provider_attributes.attribute_id', 'left');
-        $this->db->where('provider_product_attributes.provider_id', $provider->id);
+        $this->db->where('provider_product_attributes.provider_id', $provider_id);
         $this->db->where('provider_product_attributes.provider_product_id', $provider_product_id);
-        $this->db->order_by('provider_product_attributes.id');
+        $this->db->order_by('provider_attributes.type, provider_product_attributes.id, provider_product_attributes.value');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
         if ($take > 0)
@@ -284,5 +291,29 @@ Class Provider_Model extends MY_Model {
         else
             $this->db->offset($skip);
         $data = $this->db->get()->result();
+    }
+
+    public function getProductAttributeValues($provider_id, $provider_product_id)
+    {
+        $this->db->select('provider_product_attributes.*');
+        $this->db->from('provider_product_attributes');
+        $this->db->join('provider_attributes', 'provider_attributes.id = provider_product_attributes.provider_attribute_id', 'left');
+        $this->db->where('provider_product_attributes.provider_id', $provider_id);
+        $this->db->where('provider_product_attributes.provider_product_id', $provider_product_id);
+        $this->db->order_by('provider_attributes.type, provider_product_attributes.id, provider_product_attributes.value');
+        return $this->db->get()->result();
+    }
+
+    public function getProductAttributeGroups($provider_id, $provider_product_id)
+    {
+        $this->db->select('provider_attributes.*, product_attributes.name AS attribute_name');
+        $this->db->from('provider_product_attributes');
+        $this->db->join('provider_attributes', 'provider_attributes.id = provider_product_attributes.provider_attribute_id');
+        $this->db->join('product_attributes', 'product_attributes.id = provider_attributes.attribute_id', 'left');
+        $this->db->where('provider_product_attributes.provider_id', $provider_id);
+        $this->db->where('provider_product_attributes.provider_product_id', $provider_product_id);
+        $this->db->group_by('provider_attributes.id');
+        $this->db->order_by('provider_attributes.type, provider_product_attributes.id');
+        return $this->db->get()->result();
     }
 }

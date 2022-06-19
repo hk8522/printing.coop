@@ -27,7 +27,7 @@ class Products extends Public_Controller
         $this->data['printer_series'] = '';
         $this->data['printer_models'] = '';
         $title = 'All Categories';
-        $title = $this->language_name == 'French' ? 'toutes catégories':'All Categories';
+        $title = $this->language_name == 'French' ? 'toutes catégories' : 'All Categories';
         $category_id =     !empty($category_id) ? base64_decode($category_id) : 0;
         $sub_category_id = !empty($sub_category_id) ? base64_decode($sub_category_id) : 0;
         $url = base_url()."Products/";
@@ -183,7 +183,10 @@ class Products extends Public_Controller
         $id = base64_decode($id);
         $this->load->model('Product_Model');
         $this->load->model('ProductImage_Model');
+        $this->load->model('Provider_Model');
+
         $this->data['page_title'] = 'Product Details';
+
         $Product = $this->Product_Model->getProductList($id);
         $ProductDescriptions = $this->Product_Model->getProductDescriptionById($id);
         $ProductTemplates = $this->Product_Model->getProductTemplatesById($id);
@@ -244,6 +247,27 @@ class Products extends Public_Controller
         }
         $this->data['productRowid'] = $productRowid;
         $this->data['productQty'] = $productQty;
+
+        $provider = $this->Provider_Model->getProvider('sina');
+        $providerProduct = $this->Provider_Model->getProductByProductId($provider->id, $id);
+        if ($providerProduct) {
+            $providerInfo = [];
+            $attributeGroups = $this->Provider_Model->getProductAttributeGroups($provider->id, $providerProduct->provider_product_id);
+            $attributes = [];
+            foreach ($attributeGroups as $item)
+                $attributes[$item->id] = $item;
+            // $providerInfo['attribute_groups'] = $attributeGroups;
+            $data = $this->Provider_Model->getProductAttributeValues($provider->id, $providerProduct->provider_product_id);
+            foreach ($data as $item) {
+                $attribute = $attributes[$item->provider_attribute_id];
+                if (!isset($attribute->values))
+                    $attribute->values = [];
+                $attribute->values[] = $item->value;
+            }
+            $this->data['provider'] = $attributes;
+        } else
+            $this->data['provider'] = false;
+
         $this->render($this->class_name.'view');
     }
 
@@ -264,7 +288,7 @@ class Products extends Public_Controller
                 foreach ($lists as $list) {
                     if ($list['status'] == 1) {
                         $url = base_url()."Products/view/".base64_encode($list['id']);
-                        $name = $this->language_name == 'French' ? $list['name_french']:$list['name'];
+                        $name = $this->language_name == 'French' ? $list['name_french'] : $list['name'];
                         $name = ucfirst($name);
                         $imageurl = getProductImage($list['product_image'], 'medium');
 
@@ -832,25 +856,25 @@ class Products extends Public_Controller
         $recto_verso = $this->input->post('recto_verso');
         $recto_verso_price = $this->input->post('recto_verso_price');
 
-        $quantity = !empty($quantity) ? $quantity:1;
+        $quantity = !empty($quantity) ? $quantity : 1;
 
         $ProductSizes = $this->Product_Model->ProductQuantitySizeDropDwon($product_id);
-        $quantityData = isset($ProductSizes[$product_quantity_id]) ? $ProductSizes[$product_quantity_id]:array();
+        $quantityData = isset($ProductSizes[$product_quantity_id]) ? $ProductSizes[$product_quantity_id] : array();
 
-        $qty_ext_price = isset($quantityData['price']) ? $quantityData['price']:0;
+        $qty_ext_price = isset($quantityData['price']) ? $quantityData['price'] : 0;
 
         $price = $price + $qty_ext_price;
 
-        $sizeData = isset($ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]) ? $ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]:array();
+        $sizeData = isset($ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]) ? $ProductSizes[$product_quantity_id]['sizeData'][$product_size_id] : array();
 
-        $extra_price = isset($sizeData['extra_price']) ? $sizeData['extra_price']:0;
+        $extra_price = isset($sizeData['extra_price']) ? $sizeData['extra_price'] : 0;
 
         $price = $price+$extra_price;
 
         $ProductAttributes = $this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
         foreach ($ProductAttributes as $key => $val) {
         $attribute_name = 'attribute_id_'.$key;
-        $attribute_item_id = isset($_POST[$attribute_name]) ? $this->input->post($attribute_name):'';
+        $attribute_item_id = isset($_POST[$attribute_name]) ? $this->input->post($attribute_name) : '';
         $items = $val['items'];
 
             if (!empty($attribute_item_id) && array_key_exists($attribute_item_id, $items)) {
@@ -1052,20 +1076,20 @@ class Products extends Public_Controller
         $MultipleAttributes = $this->Product_Model->getMultipleAttributesDropDwon();
         $response = array();
 
-        $options = $this->language_name == 'French' ? '<option value="">Choisis une option...</option>':'<option value="">Choose an option...</option>';
+        $options = $this->language_name == 'French' ? '<option value="">Choisis une option...</option>' : '<option value="">Choose an option...</option>';
         $options_size = '';
         $size_disebal = true;
         $AtirbuteProductSizes = array();
         if (!empty($product_quantity_id) && !empty($product_size_id)) {
             $quantityData = $ProductSizes[$product_quantity_id];
-            $sizeData = isset($quantityData['sizeData']) ? $quantityData['sizeData']:array();
-            $attribute = isset($sizeData[$product_size_id]['attribute']) ? $sizeData[$product_size_id]['attribute']:array();
+            $sizeData = isset($quantityData['sizeData']) ? $quantityData['sizeData'] : array();
+            $attribute = isset($sizeData[$product_size_id]['attribute']) ? $sizeData[$product_size_id]['attribute'] : array();
 
             if (!empty($sizeData)) {
                 $options_size = $options;
                 $size_disebal = false;
                 foreach ($sizeData as $key1 => $val1) {
-                    $label = $this->language_name == 'French' ? $val1['size_name_french']:$val1['size_name'];
+                    $label = $this->language_name == 'French' ? $val1['size_name_french'] : $val1['size_name'];
                     $selected = '';
                     if ($key1 == $product_size_id) {
                         $selected = 'selected="selected"';
@@ -1085,16 +1109,16 @@ class Products extends Public_Controller
             }
         } else if (!empty($product_quantity_id) && empty($product_size_id)) {
             $quantityData = $ProductSizes[$product_quantity_id];
-            $sizeData = isset($quantityData['sizeData']) ? $quantityData['sizeData']:array();
+            $sizeData = isset($quantityData['sizeData']) ? $quantityData['sizeData'] : array();
 
             if (!empty($sizeData)) {
                 $options_size = $options;
                 $size_disebal = false;
                 foreach ($sizeData as $key1 => $val1) {
-                    $label = $this->language_name == 'French' ? $val1['size_name_french']:$val1['size_name'];
+                    $label = $this->language_name == 'French' ? $val1['size_name_french'] : $val1['size_name'];
 
                     $options_size = $options_size."<option value='".$key1."'>".$label."</option>";
-                    $attribute = isset($val1['attribute']) ? $val1['attribute']:array();
+                    $attribute = isset($val1['attribute']) ? $val1['attribute'] : array();
                     if (!empty($attribute)) {
                         foreach ($MultipleAttributes as $mkey => $mval) {
                             if (array_key_exists($mkey, $attribute)) {
@@ -1108,11 +1132,11 @@ class Products extends Public_Controller
             }
         } else {
             foreach ($ProductSizes as $key => $val) {
-                $sizeData = isset($val['sizeData']) ? $val['sizeData']:array();
+                $sizeData = isset($val['sizeData']) ? $val['sizeData'] : array();
                 if (!empty($sizeData)) {
                     $options_size = $options;
                     foreach ($sizeData as $key1 => $val1) {
-                        $attribute = isset($val1['attribute']) ? $val1['attribute']:array();
+                        $attribute = isset($val1['attribute']) ? $val1['attribute'] : array();
 
                         if (!empty($attribute)) {
                             foreach ($MultipleAttributes as $mkey => $mval) {
@@ -1172,12 +1196,12 @@ class Products extends Public_Controller
 
         if ($filetype != 'application/pdf') {
             $return_arr['error'] = 1;
-            $return_arr['error_msg'] = $this->language_name == 'French' ? 'Type de fichier autorisé uniquement pdf' :'Allowed file type only pdf';
+            $return_arr['error_msg'] = $this->language_name == 'French' ? 'Type de fichier autorisé uniquement pdf' : 'Allowed file type only pdf';
         } else if ($filesize > 262144000) {  //250MB
 
             $return_arr['error'] = 1;
             $return_arr['error_msg'] = 'Maximum file size allowed for upload 250 MB';
-            $return_arr['error_msg'] = $this->language_name == 'French' ? 'Taille de fichier maximale autorisée pour le téléchargement 250 Mo' :'Maximum file size allowed for upload 250 MB';
+            $return_arr['error_msg'] = $this->language_name == 'French' ? 'Taille de fichier maximale autorisée pour le téléchargement 250 Mo' : 'Maximum file size allowed for upload 250 MB';
         } else if (move_uploaded_file($_FILES['file']['tmp_name'], $location)) {
             $src = DEFAULT_IMAGE_URL."pdf-icon.png";
 
@@ -1197,7 +1221,7 @@ class Products extends Public_Controller
             $data['return_arr'] = $return_arr;
         } else {
             $return_arr['error'] = 1;
-            $return_arr['error_msg'] = $this->language_name == 'French' ? 'Le téléchargement du fichier a échoué' :'File upload failed';
+            $return_arr['error_msg'] = $this->language_name == 'French' ? 'Le téléchargement du fichier a échoué' : 'File upload failed';
         }
 
         if (empty($return_arr['error'])) {
@@ -1352,7 +1376,7 @@ class Products extends Public_Controller
     }
 
     function PrinterSeries($name = null) {
-        $label = $this->language_name == 'French' ? "Sélectionnez une série d'imprimantes":'Select a Printer Series';
+        $label = $this->language_name == 'French' ? "Sélectionnez une série d'imprimantes" : 'Select a Printer Series';
         $this->load->model('Printer_Model');
         $options = '<option value="">'.$label.'</option>';
         $name = trim($name);
@@ -1372,7 +1396,7 @@ class Products extends Public_Controller
 
     function PrinterModel($printer_brand = null, $printer_series = null) {
         $this->load->model('Printer_Model');
-        $label = $this->language_name == 'French' ? "Sélectionnez un modèle d'imprimante":'Select a Printer Model';
+        $label = $this->language_name == 'French' ? "Sélectionnez un modèle d'imprimante" : 'Select a Printer Model';
         $options = '<option value="">'.$label.'</option>';
 
         $printer_series = trim($printer_series);

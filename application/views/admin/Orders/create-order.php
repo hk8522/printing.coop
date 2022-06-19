@@ -856,7 +856,7 @@ function openCard(product_id_key){
 					 $("#loader-img").hide();
                      $(".new-price-img").show();
 					if(json.success==1){
-						$("#SiZeOPrions"+product_id_key).html(json.sizeoprions);
+						$("#SizeOptions"+product_id_key).html(json.sizeoprions);
 						$("#total-price-"+product_id_key).html(json.price);
 					}
 				}
@@ -930,7 +930,7 @@ function openCard(product_id_key){
 				processData: false,
 				success: function (data) {
 					$("#loader-img").hide();
-					$("#SiZeOPrions"+product_id_key).html(data);
+					$("#SizeOptions"+product_id_key).html(data);
 				}
             });
     }
