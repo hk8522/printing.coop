@@ -177,6 +177,7 @@ Class Provider_Model extends MY_Model {
                     'provider_id' => $product->provider_id,
                     'provider_product_id' => $product->provider_product_id,
                     'provider_attribute_id' => $attribute_id,
+                    'value_id' => $attribute->id,
                     'value' => $attribute->name,
                 ];
             }
@@ -306,7 +307,7 @@ Class Provider_Model extends MY_Model {
 
     public function getProductAttributeGroups($provider_id, $provider_product_id)
     {
-        $this->db->select('provider_attributes.*, product_attributes.name AS attribute_name');
+        $this->db->select('provider_attributes.*, product_attributes.name AS attribute_name, product_attributes.name_french AS attribute_name_french');
         $this->db->from('provider_product_attributes');
         $this->db->join('provider_attributes', 'provider_attributes.id = provider_product_attributes.provider_attribute_id');
         $this->db->join('product_attributes', 'product_attributes.id = provider_attributes.attribute_id', 'left');
