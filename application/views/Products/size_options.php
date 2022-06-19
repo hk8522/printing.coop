@@ -66,7 +66,7 @@ foreach ($AtirbuteProductSizes as $mkey => $mval) {
     function getQuantityPrice(nid) {
         $("#loader-img").show();
         $(".new-price-img").hide();
-        var myForm = document.getElementById('cardForm');
+        var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
             type: 'POST',
@@ -97,7 +97,7 @@ foreach ($AtirbuteProductSizes as $mkey => $mval) {
     function getPaperPrice(nid) {
         $("#loader-img").show();
         $(".new-price-img").hide();
-        var myForm = document.getElementById('cardForm');
+        var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
             type: 'POST',

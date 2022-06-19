@@ -1392,7 +1392,7 @@ class Orders extends Admin_Controller
 	    exit(0);
 	}
 
-	function addToCard(){
+	function addToCart(){
 		$json=array('status'=>0,'msg'=>'');
 		$product_id=$this->input->post('product_id');
         $quantity=$this->input->post('quantity');

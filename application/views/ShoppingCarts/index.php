@@ -66,7 +66,7 @@
                       ?>
                       <tr class="<?php echo $rowid;?> mobile-hide">
                         <td class="product-remove">
-                            <a href="javascript:void(0)" onclick="removeCardItem('<?php echo $rowid;?>','<?php echo $items['id'];?>')" class="remove">×</a>
+                            <a href="javascript:void(0)" onclick="removeCartItem('<?php echo $rowid;?>','<?php echo $items['id'];?>')" class="remove">×</a>
                         </td>
                         <td class="product-thumbnail">
                             <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($items['id']);?>">
@@ -413,9 +413,9 @@
                         </td>
                         <td>
                             <div class="quant-cart">
-							  <input type="text" onchange="updateCardItem('<?php echo $items['id'];?>', '<?php echo $rowid;?>',$(this).val())" value="<?php echo $items['qty'];?>"  onkeypress="javascript:return isNumber(event)">
+							  <input type="text" onchange="updateCartItem('<?php echo $items['id'];?>', '<?php echo $rowid;?>',$(this).val())" value="<?php echo $items['qty'];?>"  onkeypress="javascript:return isNumber(event)">
 
-                              <!--<select onchange="updateCardItem('<?php echo $items['id'];?>', '<?php echo $rowid;?>',$(this).val())" class="<?php echo $rowid?>-cradquantity">
+                              <!--<select onchange="updateCartItem('<?php echo $items['id'];?>', '<?php echo $rowid;?>',$(this).val())" class="<?php echo $rowid?>-cradquantity">
                                 <?php
                                   $quantity = $items['qty'];
                                   $total_stock = $items['options']['stock'];

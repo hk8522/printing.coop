@@ -186,7 +186,7 @@ $k = 2;
     function getQuantityPrice(nid, product_id_key) {
         $("#loader-img").show();
         $(".new-price-img").hide();
-        var myForm = document.getElementById('cardForm-' + product_id_key);
+        var myForm = document.getElementById('cartForm-' + product_id_key);
         var formData = new FormData(myForm);
         $.ajax({
             type: 'POST',
@@ -201,7 +201,7 @@ $k = 2;
                     $("#loader-img").hide();
                     $(".new-price-img").show();
                 if (json.success == 1) {
-                    $("#"+nid).attr("disabled", false);
+                    $("#" + nid).attr("disabled", false);
 
                     $("#total-price-" + product_id_key).html(json.price);
                 }
@@ -213,7 +213,7 @@ $k = 2;
         $("#loader-img").show();
         $(".new-price-img").hide();
 
-        var myForm = document.getElementById('cardForm-'+product_id_key);
+        var myForm = document.getElementById('cartForm-' + product_id_key);
 
         var formData = new FormData(myForm);
         $.ajax({
@@ -229,9 +229,9 @@ $k = 2;
                     $("#loader-img").hide();
                     $(".new-price-img").show();
                 if (json.success==1) {
-                    $("#attribute_id_"+nid).attr("disabled", false);
+                    $("#attribute_id_" + nid).attr("disabled", false);
 
-                    $("#total-price-"+product_id_key).html(json.price);
+                    $("#total-price-" + product_id_key).html(json.price);
                 }
             }
         });

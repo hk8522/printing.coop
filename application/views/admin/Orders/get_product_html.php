@@ -20,7 +20,7 @@
 
 ?>
 
-		<form method="post" id="cardForm-<?php echo $product_id_key?>">
+		<form method="post" id="cartForm-<?php echo $product_id_key?>">
 			<input type="hidden" id="product_id-<?php echo $product_id_key?>" value="<?php echo $Product['id']?>" name="product_id">
 			<input type="hidden" id="product_price<?php echo $product_id_key?>" value="<?php echo $Product['price']?>" name="price">
 			<div class="custom-order-section">
@@ -33,14 +33,14 @@
 									<span><?php echo $Product['name'];?></span>
 									<div class="create-tab-action">
 
-										<a onClick="closeCard('<?php echo $product_id_key;?>')" href="javascript:void(0)" id="close-<?php echo $product_id_key;?>" >
+										<a onClick="closeCart('<?php echo $product_id_key;?>')" href="javascript:void(0)" id="close-<?php echo $product_id_key;?>" >
 										<span class="custom-close"><i class="fas fa-minus"></i>
 
 										</span>
 
 										</a>
 
-										<a onClick="openCard('<?php echo $product_id_key;?>')" href="javascript:void(0)" id="open-<?php echo $product_id_key;?>" style="display:none"><span class="custom-open">
+										<a onClick="openCart('<?php echo $product_id_key;?>')" href="javascript:void(0)" id="open-<?php echo $product_id_key;?>" style="display:none"><span class="custom-open">
 										<i class="fas fa-plus"></i>
 
 										</span>
@@ -135,7 +135,7 @@
 															   ?>
 																   <div class="controls">
 
-																		<select name="attribute_id_<?php echo $key;?>" required <?php if($i > 1){ echo $disabled;}?> onchange="showAttribute('<?php echo $i?>_<?php echo $product_id_key?>','<?php echo $i+1;?>_<?php echo $product_id_key?>','<?php echo $product_id_key?>')" id="attribute_id_<?php echo $i;?>_<?php echo $product_id_key?>"  class="form-control">
+																		<select name="attribute_id_<?php echo $key;?>" required <?php if($i > 1){ echo $disabled;}?> onchange="showAttribute('<?php echo $i?>_<?php echo $product_id_key?>','<?php echo $i + 1;?>_<?php echo $product_id_key?>','<?php echo $product_id_key?>')" id="attribute_id_<?php echo $i;?>_<?php echo $product_id_key?>"  class="form-control">
 																			<option value="">Choose an option...</option>
 																			<?php foreach($items as $subkey=>$subval){
 																			      $selected='';
@@ -273,14 +273,14 @@
 			<input type="hidden" name="product_id_key" value="<?php echo $product_id_key;?>">
 		</form>
 		<script>
-		$('form#cardForm-'+'<?php echo $product_id_key;?>').on('submit', function (e) {
+		$('form#cartForm-' + '<?php echo $product_id_key;?>').on('submit', function (e) {
 		        $("#loader-img").show();
 			    $('input[type="submit"]').prop('disabled',true);
 	            $('input[type="button"]').prop('disabled',true);
 				var formData = new FormData(this);
 				e.preventDefault();
 
-				var url ='<?php echo $BASE_URL ?>admin/Orders/addToCard';
+				var url ='<?php echo $BASE_URL ?>admin/Orders/addToCart';
 
 				$.ajax({
 				  type: "POST",
@@ -299,11 +299,11 @@
 					   var orderinformation = json.orderinformation;
 
 					   if (status == 1 ) {
-							 $('#addtocart-message<?php echo $product_id_key;?>').html('<div class="alert alert-success alert-dismissible fade show" role="alert">'+msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+							 $('#addtocart-message<?php echo $product_id_key;?>').html('<div class="alert alert-success alert-dismissible fade show" role="alert">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 							 $("#Order-Information").html(orderinformation);
 							 $("#confirmbtn").html(json.confirmbtn);
 					   } else {
-							 $('#addtocart-message<?php echo $product_id_key;?>').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">'+msg+'<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+							 $('#addtocart-message<?php echo $product_id_key;?>').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">' + msg + '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 					   }
 				  },
 				  error: function (error) {

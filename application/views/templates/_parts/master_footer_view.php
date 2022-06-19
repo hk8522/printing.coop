@@ -689,12 +689,12 @@ function openCity(evt, cityName) {
 						location.assign(url);
 						//location.assign("<?php echo $BASE_URL ?>MyOrders");
 				   } else {
-					   $("#login-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+					   $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
 				   }
 				},
 				error: function (error) {
 				   $('button[type=submit]').attr('disabled', false);
-				   $("#login-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+				   $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
 				},
 			  });
 			},
@@ -745,12 +745,12 @@ function openCity(evt, cityName) {
 				   } else if (status === 'success') {
 						location.assign("<?php echo $BASE_URL ?>MyOrders");
 				   } else {
-					   $("#login-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+					   $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
 				   }
 				},
 				error: function (error) {
 				   $('button[type=submit]').attr('disabled', false);
-				   $("#login-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+				   $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
 				},
 			  });
 			},
@@ -834,16 +834,16 @@ function openCity(evt, cityName) {
 							validator.showErrors({[key] : value });
 						});
 					  } else if (status === 'success') {
-						  $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
+						  $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
 						  $("#msg-modal").modal('show');
 						  setTimeout(function(){ location.reload(); }, 2000);
 					  } else {
-						  $("#signup-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+						  $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
 					  }
 				   },
 				   error: function (error) {
 					  $('button[type=submit]').attr('disabled', false);
-					  $("#signup-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+					  $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
 				   },
 			  });
 			},
@@ -917,16 +917,16 @@ function openCity(evt, cityName) {
 							validator.showErrors({[key] : value });
 						});
 					  } else if (status === 'success') {
-						  $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
+						  $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
 						  $("#msg-modal").modal('show');
 						  setTimeout(function(){ location.reload(); }, 2000);
 					  } else {
-						  $("#signup-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+						  $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
 					  }
 				   },
 				   error: function (error) {
 					  $('button[type=submit]').attr('disabled', false);
-					  $("#signup-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+					  $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
 				   },
 			  });
 			},
@@ -1038,11 +1038,11 @@ function openCity(evt, cityName) {
                   $("#signup-password").val('');
 				  //console.log(response);
 				  if (status == 'success') {
-                      $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
+                      $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
                       $("#msg-modal").modal('show');
                       setTimeout(function(){ location.reload(); }, 2000);
                   } else {
-                      $("#signup-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+                      $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
                   }
                },
                error: function (error) {
@@ -1116,11 +1116,11 @@ function openCity(evt, cityName) {
                   $("#signup-password").val('');
 				  //console.log(response);
 				  if (status == 'success') {
-                      $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
+                      $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
                       $("#msg-modal").modal('show');
                       setTimeout(function(){ location.reload(); }, 2000);
                   } else {
-                      $("#signup-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+                      $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
                   }
                },
                error: function (error) {
@@ -1167,15 +1167,15 @@ function openCity(evt, cityName) {
                         validator.showErrors({[key] : value });
                     });
                   } else if (status === 'success') {
-                      $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
+                      $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
                       $("#msg-modal").modal('show');
                   } else {
-                      $("#subscribe-message").html('<span class="text-light"><label class="mt-2">'+msg+'</label></span>');
+                      $("#subscribe-message").html('<span class="text-light"><label class="mt-2">' + msg + '</label></span>');
                   }
                },
                error: function (error) {
                   $('button[type=submit]').attr('disabled', false);
-                  $("#subscribe-message").html('<span class="text-light"><label class="mt-2">'+msg+'</label></span>');
+                  $("#subscribe-message").html('<span class="text-light"><label class="mt-2">' + msg + '</label></span>');
                },
           });
         },
@@ -1215,15 +1215,15 @@ function openCity(evt, cityName) {
                         validator.showErrors({[key] : value });
                     });
                   } else if (status === 'success') {
-                      $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
+                      $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
                       $("#msg-modal").modal('show');
                   } else {
-                      $("#subscribe-message").html('<span class="text-light"><label class="mt-2">'+msg+'</label></span>');
+                      $("#subscribe-message").html('<span class="text-light"><label class="mt-2">' + msg + '</label></span>');
                   }
                },
                error: function (error) {
                   $('button[type=submit]').attr('disabled', false);
-                  $("#subscribe-message").html('<span class="text-light"><label class="mt-2">'+msg+'</label></span>');
+                  $("#subscribe-message").html('<span class="text-light"><label class="mt-2">' + msg + '</label></span>');
                },
           });
         },
@@ -1281,28 +1281,28 @@ function openCity(evt, cityName) {
                         validator.showErrors({[key] : value });
                     });
                   } else if (status === 'success') {
-                      $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
+                      $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
                       $("#msg-modal").modal('show');
                       setTimeout(function(){
                           location.reload();
                       }, 2000);
                   } else {
-                    $("#msg-modal .modal-body").html('<span style="color:red">'+msg+'</span>');
+                    $("#msg-modal .modal-body").html('<span style="color:red">' + msg + '</span>');
                     $("#msg-modal").modal('show');
                   }
                },
                error: function (error) {
                   $('button[type=submit]').attr('disabled', false);
-                  $("#msg-modal .modal-body").html('<span style="color:red">'+msg+'</span>');
+                  $("#msg-modal .modal-body").html('<span style="color:red">' + msg + '</span>');
                   $("#msg-modal").modal('show');
                },
           });
         },
     });
 
-  function updateCardItem(product_id, rowId, quantity) {
+  function updateCartItem(product_id, rowId, quantity) {
 	  if(rowId !='' && quantity !='') {
-             var url ='<?php echo $BASE_URL ?>ShoppingCarts/updateCardItem';
+             var url ='<?php echo $BASE_URL ?>ShoppingCarts/updateCartItem';
 			$.ajax({
 				   type: "POST",
 				   url: url,
@@ -1318,16 +1318,16 @@ function openCity(evt, cityName) {
 			if (status ==1 ) {
               $(".cart-contents-count").html(json.total_item);
               $(".cart-sub-total").html(json.sub_total);
-              $("."+rowId+"-product-row-sub-total").html(json.row_sub_total);
-              getCardItem();
+              $("." + rowId + "-product-row-sub-total").html(json.row_sub_total);
+              getCartItem();
               //$(".after-click").show();
               //$(".before-click").hide();
-			    $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>'+msg+'.</span>').addClass("active");
+			    $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg + '.</span>').addClass("active");
 				 setTimeout(function() {
 					 $('.addtocart-message').removeClass("active");
 				 }, 2000);
 			      } else {
-                             $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>'+msg+'.</span>').addClass("active");
+                             $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg + '.</span>').addClass("active");
 				         setTimeout(function() {
 					       $('.addtocart-message').removeClass("active");
 				          }, 2000);
@@ -1339,8 +1339,8 @@ function openCity(evt, cityName) {
 		}
   }
 
-  function getCardItem() {
-      var url ='<?php echo $BASE_URL ?>ShoppingCarts/getCardItemByAjax';
+  function getCartItem() {
+      var url ='<?php echo $BASE_URL ?>ShoppingCarts/getCartItemByAjax';
       $.ajax({
             type: "GET",
             url: url,
@@ -1393,9 +1393,9 @@ function openCity(evt, cityName) {
                     $("#signupFormPanel").show();
                     $("#ck_signupOtp").val(json.otp);
                     $("#ck_signupOtpMobile").val(ck_moblie_number);
-                    $("#ck_signup_mobile_error").html('<label style="color:green">'+json.msg+'</label>');
+                    $("#ck_signup_mobile_error").html('<label style="color:green">' + json.msg + '</label>');
                   } else {
-                    $("#ck_moblie_number_error").html('<label style="color:red">'+json.msg+'</label>');
+                    $("#ck_moblie_number_error").html('<label style="color:red">' + json.msg + '</label>');
                   }
                }
             } else {
@@ -1411,14 +1411,14 @@ function openCity(evt, cityName) {
     }
    });
 
-   function removeCardItem(rowId,product_id) {
+   function removeCartItem(rowId,product_id) {
 	  if(language_name == 'French'){
 		 var result = confirm("Voulez-vous vraiment supprimer l'article du panier ?");
 	  }else{
 		  var result = confirm("Are you sure you want to delete cart item ?");
 	  }
       if(rowId !='' && result==true){
-      var url ='<?php echo $BASE_URL ?>ShoppingCarts/removeCardItem';
+      var url ='<?php echo $BASE_URL ?>ShoppingCarts/removeCartItem';
       $.ajax({
           type: "POST",
           url: url,
@@ -1439,16 +1439,16 @@ function openCity(evt, cityName) {
              }
              $(".cart-contents-count").html(json.total_item);
              $(".cart-sub-total").html(json.sub_total);
-             $("."+rowId).remove();
-             getCardItem();
+             $("." + rowId).remove();
+             getCartItem();
              $(".after-click").show();
              $(".before-click").hide();
-             $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>'+msg+'.</span>').addClass("active");
+             $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg + '.</span>').addClass("active");
              setTimeout(function() {
                  $('.addtocart-message').removeClass("active");
              }, 2000);
            } else {
-             $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>'+msg+'.</span>').addClass("active");
+             $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg + '.</span>').addClass("active");
              setTimeout(function() {
                  $('.addtocart-message').removeClass("active");
              }, 2000);
@@ -1509,7 +1509,7 @@ function openCity(evt, cityName) {
                location.reload();
             }  else {
 			   $("#loader-img").hide();
-               $("#ck_login_msg").html('<label style="color:red;padding:0px;">'+msg+'</label>');
+               $("#ck_login_msg").html('<label style="color:red;padding:0px;">' + msg + '</label>');
                $("#ckloginSubmit").attr("disabled",false);
             }
            },
@@ -1585,7 +1585,7 @@ function openCity(evt, cityName) {
              $("#ck_signup_confirm_password").val('');
              if (errors && Object.keys(errors).length) {
                $.each(errors, function(id, message) {
-                   $("#ck_signup_"+id+"_error").html(message);
+                   $("#ck_signup_" + id + "_error").html(message);
                });
              } else if (status === 'success') {
                var url ='<?php echo $BASE_URL ?>Logins/checkLoginByAjax';
@@ -1607,7 +1607,7 @@ function openCity(evt, cityName) {
                     } else if (status === 'success') {
                         setTimeout(function(){ location.reload(); }, 2000);
                     } else {
-                        $("#ck_signup_msg").html('<label style="color:red">'+msg+'</label>');
+                        $("#ck_signup_msg").html('<label style="color:red">' + msg + '</label>');
                         $("#cksignupSubmit").attr("disabled",false);
                     }
                   },
@@ -1615,7 +1615,7 @@ function openCity(evt, cityName) {
                   }
                  });
                } else {
-                 $("#ck_signup_msg").html('<label style="color:red">'+msg+'</label>');
+                 $("#ck_signup_msg").html('<label style="color:red">' + msg + '</label>');
              }
             },
             error: function (error) {
@@ -1677,12 +1677,12 @@ function openCity(evt, cityName) {
                   $('#account-email-error').html(errors['account-email-error']);
               } else if (status) {
 				    $('.g-recaptcha').hide();
-                    $("#account-email-error").html('<label style="color:green">'+msg+'</label>');
+                    $("#account-email-error").html('<label style="color:green">' + msg + '</label>');
                     $("#send-otp").val(response.otp);
                     $("#otp-container").show();
                     $("#account-change-pswd").text('Resend');
                 } else {
-                  $("#account-email-error").html('<label style="color:red">'+msg+'</label>');
+                  $("#account-email-error").html('<label style="color:red">' + msg + '</label>');
                }
               },
               error: function (error) {
@@ -1748,19 +1748,19 @@ function openCity(evt, cityName) {
                   var errors = response.errors;
 
                   $.each(errors, function(id, message) {
-                      $("#"+id).html(message);
+                      $("#" + id).html(message);
                   });
 
                   if (status == 1) {
 					 $("#loader-img").hide();
-                     $("#forgot_msg").html('<label style="color:green">'+msg+'</label>');
+                     $("#forgot_msg").html('<label style="color:green">' + msg + '</label>');
                      if (loginId !='') {
                          setTimeout(function(){ window.location.href='<?php echo $BASE_URL?>MyAccounts/logout'}, 2000);
                      } else{
                          setTimeout(function(){ window.location.href='<?php echo $BASE_URL?>/Logins' }, 2000);
                      }
                   } else {
-                      $("#forgot_msg").html('<label style="color:red">'+msg+'</label>');
+                      $("#forgot_msg").html('<label style="color:red">' + msg + '</label>');
                   }
               },
               error: function (error) {
@@ -1824,19 +1824,19 @@ function openCity(evt, cityName) {
                   var errors = response.errors;
 
                   $.each(errors, function(id, message) {
-                      $("#"+id).html(message);
+                      $("#" + id).html(message);
                   });
 
                   if (status == 1) {
 					 $("#loader-img").hide();
-                     $("#forgot_msg").html('<label style="color:green">'+msg+'</label>');
+                     $("#forgot_msg").html('<label style="color:green">' + msg + '</label>');
                      if (loginId !='') {
                          setTimeout(function(){ window.location.href='<?php echo $BASE_URL?>MyAccounts/logout'}, 2000);
                      } else{
                          setTimeout(function(){ window.location.href='<?php echo $BASE_URL?>/Logins' }, 2000);
                      }
                   } else {
-                      $("#forgot_msg").html('<label style="color:red">'+msg+'</label>');
+                      $("#forgot_msg").html('<label style="color:red">' + msg + '</label>');
                   }
               },
               error: function (error) {
@@ -1881,11 +1881,11 @@ function openCity(evt, cityName) {
 
               if (status == 1 ) {
                 var status=
-                $("#ck_signup_email_error").html('<label style="color:green">'+msg+'</label>');
+                $("#ck_signup_email_error").html('<label style="color:green">' + msg + '</label>');
                 $("#ck_signupOtp").val(json.otp);
                 $("#ck_signupOtpMobile").val(mobile);
                 } else {
-                  $("#ck_signup_email_error").html('<label style="color:red">'+msg+'</label>');
+                  $("#ck_signup_email_error").html('<label style="color:red">' + msg + '</label>');
               }
            },
            error: function (error) {
@@ -1986,12 +1986,12 @@ function openCity(evt, cityName) {
 				$('#checkout-new-address').hide();
 				location.reload();
              } else {
-                 $("#login-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+                 $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
              }
           },
           error: function (error) {
              $('button[type=submit]').attr('disabled', false);
-             $("#login-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+             $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
           },
         });
       },
@@ -2092,12 +2092,12 @@ function openCity(evt, cityName) {
 					location.assign(url);
 				}*/
              } else {
-                 $("#login-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+                 $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
              }
           },
           error: function (error) {
              $('button[type=submit]').attr('disabled', false);
-             $("#login-msg").html('<span><label style="color:red">'+msg+'</label></span>');
+             $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
           },
         });
       },
@@ -2166,16 +2166,16 @@ function openCity(evt, cityName) {
                       }
                });
              } else if (status === 'success') {
-                 $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
+                 $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
                  $("#msg-modal").modal('show');
 				         setTimeout(function(){ location.reload() }, 2000);
                  $("#contact-us")[0].reset();
              } else {
-                 $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">'+msg+'</label></span>');
+                 $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">' + msg + '</label></span>');
              }
           },
           error: function (error) {
-             $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">'+msg+'</label></span>');
+             $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">' + msg + '</label></span>');
              $('button[type=submit]').attr('disabled', false);
           },
         });
@@ -2243,16 +2243,16 @@ function openCity(evt, cityName) {
                       }
                   });
                 } else if (status === 'success') {
-                    $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
+                    $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
                     $("#msg-modal").modal('show');
                     $("#contact-us")[0].reset();
                   setTimeout(function(){ location.reload() }, 2000);
                 } else {
-                    $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">'+msg+'</label></span>');
+                    $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">' + msg + '</label></span>');
                 }
           },
           error: function (error) {
-             $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">'+msg+'</label></span>');
+             $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">' + msg + '</label></span>');
              $('button[type=submit]').attr('disabled', false);
           },
         });
@@ -2362,16 +2362,16 @@ function contactus_recaptcha(){
 						   validator.showErrors({[key] : value });
 					   });
 					 } else if (status === 'success') {
-						$("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
+						$("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
 						$("#msg-modal").modal('show');
 						setTimeout(function(){ location.reload() }, 2000);
 					 } else {
-						 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">'+msg+'</label></span>');
+						 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">' + msg + '</label></span>');
 					 }
 					 $("#estimate-form")[0].reset();
 				  },
 				  error: function (error) {
-					 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">'+msg+'</label></span>');
+					 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">' + msg + '</label></span>');
 					 $('button[type=submit]').attr('disabled', false);
 				  },
 				});
@@ -2472,16 +2472,16 @@ function contactus_recaptcha(){
 						   validator.showErrors({[key] : value });
 					   });
 					 } else if (status === 'success') {
-						 $("#msg-modal .modal-body").html('<span style="color:green">'+msg+'</span>');
+						 $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
 						 $("#msg-modal").modal('show');
 						 setTimeout(function(){ location.reload() }, 2000);
 					 } else {
-						 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">'+msg+'</label></span>');
+						 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">' + msg + '</label></span>');
 					 }
 					 $("#estimate-form")[0].reset();
 				  },
 				  error: function (error) {
-					 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">'+msg+'</label></span>');
+					 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">' + msg + '</label></span>');
 					 $('button[type=submit]').attr('disabled', false);
 				  },
 				});
@@ -2512,10 +2512,10 @@ function contactus_recaptcha(){
 						var msg = json.msg;
 						if (status == 1){
 							$("#WishlistsCount").html(json.count);
-							$("#msg-modal .modal-body").html('<label><i class="fas fa-check-circle"></i><span class="msg-modal-text">'+msg+'</span></label><div class="text-center msg-btn"><a href="<?php echo $BASE_URL ?>Products"><button class="btn btn-sm btn-success continue-shopping-btn">Continue Shopping</button></a>&nbsp;&nbsp;<a href="<?php echo $BASE_URL ?>Wishlists"><button class="btn btn-sm btn-success msg-cart-btn-clr">Go To Wishlist</button></div></a>');
+							$("#msg-modal .modal-body").html('<label><i class="fas fa-check-circle"></i><span class="msg-modal-text">' + msg + '</span></label><div class="text-center msg-btn"><a href="<?php echo $BASE_URL ?>Products"><button class="btn btn-sm btn-success continue-shopping-btn">Continue Shopping</button></a>&nbsp;&nbsp;<a href="<?php echo $BASE_URL ?>Wishlists"><button class="btn btn-sm btn-success msg-cart-btn-clr">Go To Wishlist</button></div></a>');
 							$("#msg-modal").modal('show');
 						} else{
-							$("#msg-modal .modal-body").html('<span style="color:red">'+msg+'</span>');
+							$("#msg-modal .modal-body").html('<span style="color:red">' + msg + '</span>');
 							$("#msg-modal").modal('show');
 						}
 					},
@@ -2542,14 +2542,14 @@ function contactus_recaptcha(){
 						var msg=json.msg;
 
 						if(status ==1 ){
-							$("#"+wishlist_id).remove();
+							$("#" + wishlist_id).remove();
 							$("#WishlistsCount").html(json.count);
 							if(json.count==0){
 								$("#tableWishList").html('<tr><td colspan="5" class="text-center">Wishlist empty</td></tr>');
 							}
 							location.reload();
 						}else{
-							$("#msg-modal .modal-body").html('<span style="color:red">'+msg+'</span>');
+							$("#msg-modal .modal-body").html('<span style="color:red">' + msg + '</span>');
 							$("#msg-modal").modal('show');
 						}
 					},
@@ -2564,7 +2564,7 @@ function contactus_recaptcha(){
 		$("#cityId").val('');
 		$("#stateiD").html('<option value="">Loding..</option>');
 		if(country_id !=''){
-			var url ='<?php echo $BASE_URL ?>MyAccounts/getStateDropDownListByAjax/'+country_id;
+			var url ='<?php echo $BASE_URL ?>MyAccounts/getStateDropDownListByAjax/' + country_id;
 			$.ajax({
 				   type: "GET",
 				   url: url,
@@ -2582,7 +2582,7 @@ function contactus_recaptcha(){
 		$("#cityId").val('');
 		$("#cityId").html('<option value="">Loding..</option>');
 		if(state_id !=''){
-			var url ='<?php echo $BASE_URL ?>MyAccounts/getCityDropDownListByAjax/'+state_id;
+			var url ='<?php echo $BASE_URL ?>MyAccounts/getCityDropDownListByAjax/' + state_id;
 			$.ajax({
 				   type: "GET",
 				   url: url,
@@ -2630,10 +2630,10 @@ function contactus_recaptcha(){
 							    location.reload();
 							  }, 2000
 						);
-						$("#MsgModal .modal-body").html('<span style="color:green">'+msg+'</span>');
+						$("#MsgModal .modal-body").html('<span style="color:green">' + msg + '</span>');
 						$("#MsgModal").modal('show');
 						}else{
-							$("#MsgModal .modal-body").html('<span style="color:red">'+msg+'</span>');
+							$("#MsgModal .modal-body").html('<span style="color:red">' + msg + '</span>');
 							$("#MsgModal").modal('show');
 						}
 				   },
@@ -2716,7 +2716,7 @@ function contactus_recaptcha(){
 		if(printer_brand !=''){
 			$("#printer_series").html('<option value="">Hébergement ..</option>');
 		   //$("#printer_models").html('<option value="">Loding..</option>');
-			var url ='<?php echo $BASE_URL ?>Products/PrinterSeries/'+printer_brand;
+			var url ='<?php echo $BASE_URL ?>Products/PrinterSeries/' + printer_brand;
 			$.ajax({
 				   type: "GET",
 				   url: url,
@@ -2735,7 +2735,7 @@ function contactus_recaptcha(){
 
 		if(printer_series !=''){
 			$("#printer_models").html('<option value="">Hébergement ..</option>');
-			var url ='<?php echo $BASE_URL ?>Products/PrinterModel/'+printer_brand+'/'+printer_series;
+			var url ='<?php echo $BASE_URL ?>Products/PrinterModel/' + printer_brand + '/' + printer_series;
 			$.ajax({
 				   type: "GET",
 				   url: url,
@@ -2757,7 +2757,7 @@ function contactus_recaptcha(){
 			if(printer_brand !=''){
 				$("#printer_series").html('<option value="">Loding..</option>');
 			   //$("#printer_models").html('<option value="">Loding..</option>');
-				var url ='<?php echo $BASE_URL ?>Products/PrinterSeries/'+printer_brand;
+				var url ='<?php echo $BASE_URL ?>Products/PrinterSeries/' + printer_brand;
 				$.ajax({
 					   type: "GET",
 					   url: url,
@@ -2776,7 +2776,7 @@ function contactus_recaptcha(){
 
 			if(printer_series !=''){
 				$("#printer_models").html('<option value="">Loding..</option>');
-				var url ='<?php echo $BASE_URL ?>Products/PrinterModel/'+printer_brand+'/'+printer_series;
+				var url ='<?php echo $BASE_URL ?>Products/PrinterModel/' + printer_brand + '/' + printer_series;
 				$.ajax({
 					   type: "GET",
 					   url: url,
@@ -2859,120 +2859,107 @@ function contactus_recaptcha(){
   }
 
 	function cardFormValidate(){
-    var cardValid = 1;
-    if($('#CardNumber').val().length < 14 || $('#CardNumber').val().length > 20 )
-    {
-      $("#CardNumber").addClass('is-invalid');
-      cardValid = 0;
-    }else
-    {
-      $("#CardNumber").removeClass('is-invalid');
-      cardValid = 1;
-    }
-    //card details validation
-    var expMonth = $("#ExpMonth").val();
-    var ExpDate = $("#ExpDate").val();
-    var ExpYear = $("#ExpYear").val();
-    var cvv = $("#cvv").val();
-    var regMonth = /^01|02|03|04|05|06|07|08|09|10|11|12$/;
-    var regYear = new RegExp("/^"+generateOfYears()+"$/");
-    var regcvv = /^[0-9]{3,3}$/;
-    if (!regMonth.test(expMonth) || !expMonth.length || !ExpDate.length) {
-        $("#ExpDate").addClass('is-invalid');
-        cardValid = 0;
-    }else
-    {
-        var date = new Date();
-        var month = parseInt(date.getMonth())+1
-        var year = date.getFullYear()
-        if(ExpYear.length && ExpYear == year && expMonth < month)
-        {
+        var cardValid = 1;
+        if ($('#CardNumber').val().length < 14 || $('#CardNumber').val().length > 20) {
+            $("#CardNumber").addClass('is-invalid');
+            cardValid = 0;
+        } else {
+            $("#CardNumber").removeClass('is-invalid');
+            cardValid = 1;
+        }
+        //card details validation
+        var expMonth = $("#ExpMonth").val();
+        var ExpDate = $("#ExpDate").val();
+        var ExpYear = $("#ExpYear").val();
+        var cvv = $("#cvv").val();
+        var regMonth = /^01|02|03|04|05|06|07|08|09|10|11|12$/;
+        var regYear = new RegExp("/^" + generateOfYears() + "$/");
+        var regcvv = /^[0-9]{3,3}$/;
+        if (!regMonth.test(expMonth) || !expMonth.length || !ExpDate.length) {
             $("#ExpDate").addClass('is-invalid');
             cardValid = 0;
-        }else
-        {
+        } else {
+            var date = new Date();
+            var month = parseInt(date.getMonth()) + 1
+            var year = date.getFullYear()
+            if(ExpYear.length && ExpYear == year && expMonth < month) {
+                $("#ExpDate").addClass('is-invalid');
+                cardValid = 0;
+            } else {
+                $("#ExpDate").removeClass('is-invalid');
+            }
+        }
+        var y = new Date().getFullYear();
+        if (!ExpDate.length || !ExpYear.length || !regYear.test(ExpYear)) {
+            if(y == ExpYear) {
+                $("#ExpDate").removeClass('is-invalid');
+            } else {
+                $("#ExpDate").addClass('is-invalid');
+                cardValid = 0;
+            }
+        } else {
             $("#ExpDate").removeClass('is-invalid');
         }
-    }
-    var y = new Date().getFullYear();
-    if (!ExpDate.length || !ExpYear.length || !regYear.test(ExpYear)) {
-        if(y == ExpYear)
-        {
-            $("#ExpDate").removeClass('is-invalid');
-        }else
-        {
-            $("#ExpDate").addClass('is-invalid');
+        if (!regcvv.test(cvv) || !cvv.length) {
+            $("#cvv").addClass('is-invalid');
             cardValid = 0;
+        } else {
+            $("#cvv").removeClass('is-invalid');
         }
-    }else
-    {
-        $("#ExpDate").removeClass('is-invalid');
+        if (cardValid == 1) {
+            return true;
+        } else {
+            return false;
+        }
     }
-    if (!regcvv.test(cvv) || !cvv.length) {
-        $("#cvv").addClass('is-invalid');
-        cardValid = 0;
-    }else
-    {
-        $("#cvv").removeClass('is-invalid');
+    function splitDate(value) {
+        var regExp = /(1[0-2]|0[1-9]|\d)\/(20\d{2}|19\d{2}|0(?!0)\d|[1-9]\d)/;
+        var matches = regExp.exec(value);
+        if (matches != null) {
+            $('#ExpMonth').val(matches[1]);
+            $('#ExpYear').val("20" + matches[2]);
+        }
     }
-    if(cardValid==1)
-    {
-      return true;
-    }else
-    {
-      return false;
+    function generateOfYears() {
+        var year = new Date().getFullYear()
+        var years = ''
+        for (var i = year; i < year + 10; i++) {
+            years = years + i + '|';
+        }
+        years = years.substring(0, years.length - 1);
+        return years
     }
-  }
-  function splitDate(value) {
-      var regExp = /(1[0-2]|0[1-9]|\d)\/(20\d{2}|19\d{2}|0(?!0)\d|[1-9]\d)/;
-      var matches = regExp.exec(value);
-      if(matches != null)
-      {
-          $('#ExpMonth').val(matches[1]);
-          $('#ExpYear').val("20"+matches[2]);
-      }
-  }
-  function generateOfYears() {
-    var year = new Date().getFullYear()
-    var years = ''
-    for (var i = year; i < year + 10; i++) {
-        years = years+i+'|';
-    }
-    years = years.substring(0, years.length - 1);
-    return years
-  }
 	$(document).ready(function() {
 		if(language_name=='French'){
 			$("#printer_brand").val('');
 			$("#printer_series").html("<option value=''>Sélectionnez une série d'imprimantes</option>");
-		  $("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
-		}else{
-      $("#printer_brand").val('');
-      $("#printer_series").html('<option value="">Select a Printer Series</option>');
-      $("#printer_models").html('<option value="">Select a Printer Model</option>');
+		    $("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
+		} else {
+            $("#printer_brand").val('');
+            $("#printer_series").html('<option value="">Select a Printer Series</option>');
+            $("#printer_models").html('<option value="">Select a Printer Model</option>');
 		}
-    $('#CardNumber').mask('0000 0000 0000 0000');
-    $(".pos input").keyup(function(){ cardFormValidate() })
-    $("#place-order-form").submit(function(e){
-      e.preventDefault()
-      if($('#4payment').is(":checked") && cardFormValidate() == true)
-      {
-        $("#place-order-form")[0].submit()
-      }else{
-        $("#place-order-form")[0].submit()
-      }
-    })
-    $(document).on('keyup change input paste','#ExpDate', function(){
-        if(expiryMask()){
-          var $this = $(this);
-          var val = $this.val();
-          var valLength = val.length;
-          if(valLength>5){
-            $this.val($this.val().substring(0,5));
-          }
-        };
+        $('#CardNumber').mask('0000 0000 0000 0000');
+        $(".pos input").keyup(function(){ cardFormValidate() })
+        $("#place-order-form").submit(function(e){
+            e.preventDefault()
+            if($('#4payment').is(":checked") && cardFormValidate() == true) {
+                $("#place-order-form")[0].submit()
+            } else {
+                $("#place-order-form")[0].submit()
+            }
+        })
+        $(document).on('keyup change input paste','#ExpDate', function(){
+            if (expiryMask()) {
+                var $this = $(this);
+                var val = $this.val();
+                var valLength = val.length;
+                if(valLength>5){
+                    $this.val($this.val().substring(0,5));
+                }
+            };
+        });
     });
-  });
 </script>
 
 </body>

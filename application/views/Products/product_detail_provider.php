@@ -26,9 +26,14 @@
     });
     function updatePrice()
     {
-        $("#loader-img").show();
-        $(".new-price-img").hide();
-        var form = $('#cardForm');
+        var emptyAttributes = $('[name="productOptions[]"]').filter(function(i, v) {
+            return $(this).val() == '';
+        }).toArray();
+        if (emptyAttributes.length == 0) {
+            $("#loader-img").show();
+            $(".new-price-img").hide();
+        }
+        var form = $('#cartForm');
         $.ajax({
             url: '/Products/ProviderPrice',
             type: 'POST',
@@ -37,9 +42,12 @@
             success: function(data) {
                 $("#loader-img").hide();
                 $(".new-price-img").show();
-                if (data.success)
-                    $('#total-price').html(data.price.price);
-                else
+                if (data.success) {
+                    if (data.price.price == NaN)
+                        data.price.price = 0;
+                    $('[name="price"]').val(data.price.price);
+                    $('#total-price').html(data.price.price * $("#quantity").val());
+                } else
                     alert(data.message);
             },
             error: function (resp) {

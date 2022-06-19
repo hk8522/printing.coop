@@ -75,19 +75,19 @@
 											<td>
 						                      <span>
             										<?php
-            										$addToCard=true;
+            										$addToCart = true;
             										if(empty($list['is_stock']) && !empty($list['total_stock'])){
             										    echo 'In Stock';
             										}else{
             											echo 'Out of Stock';
-            											$addToCard=false;
+            											$addToCart = false;
             										}
                                                     ?></span>
 											</td>
 										</tr>
 									<?php
 								    }
-								}else{?>
+								} else {?>
 								    <tr>
 									<td colspan="4" class="text-center">No Product In Wishlist</td>
 								    </tr>

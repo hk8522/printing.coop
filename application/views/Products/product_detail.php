@@ -262,7 +262,7 @@
         $("#loader-img").show();
         $(".new-price-img").hide();
         var item_val = $("#attribute_id_" + cid).val();
-        var myForm = document.getElementById('cardForm');
+        var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
             type: 'POST',
@@ -277,7 +277,7 @@
                 $("#loader-img").hide();
                 $(".new-price-img").show();
                 if (json.success == 1) {
-                    $("#attribute_id_"+nid).attr("disabled", false);
+                    $("#attribute_id_" + nid).attr("disabled", false);
                     $("#total-price").html(json.price);
                 }
             },
@@ -293,7 +293,7 @@
         $("#loader-img").show();
         $(".new-price-img").hide();
         $(".multipal_size").html('<option value="">Choose an option...</option>');
-        var myForm = document.getElementById('cardForm');
+        var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
             type: 'POST',
@@ -325,7 +325,7 @@
         $("#loader-img").show();
         $(".new-price-img").hide();
         $(".multipal_size_item").html('<option value="">Choose an option...</option>');
-        var myForm = document.getElementById('cardForm');
+        var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
             type: 'POST',
@@ -372,7 +372,7 @@
     function getLengthWidthPrice() {
         $("#loader-img").show();
         $(".new-price-img").hide();
-        var myForm = document.getElementById('cardForm');
+        var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
             type: 'POST',
@@ -404,7 +404,7 @@
     function getDepthLengthWidthPrice() {
         $("#loader-img").show();
         $(".new-price-img").hide();
-        var myForm = document.getElementById('cardForm');
+        var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
             type: 'POST',
@@ -442,7 +442,7 @@
     function getPageLengthWidthPrice() {
         $("#loader-img").show();
         $(".new-price-img").hide();
-        var myForm = document.getElementById('cardForm');
+        var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
             type: 'POST',

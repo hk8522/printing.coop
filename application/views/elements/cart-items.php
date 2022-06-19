@@ -41,7 +41,7 @@
 											</td>
 											<td>
 													<div class="cart-product-delete">
-															<a href="javascript:void(0)" onclick="removeCardItem('<?php echo $rowid;?>','<?php echo $items['id'];?>')"  class="remove">×</a>
+															<a href="javascript:void(0)" onclick="removeCartItem('<?php echo $rowid;?>','<?php echo $items['id'];?>')"  class="remove">×</a>
 													</div>
 											</td>
 									</tr>

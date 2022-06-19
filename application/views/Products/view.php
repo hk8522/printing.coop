@@ -132,7 +132,7 @@
 
                             if ($buyNow) {
                             ?>
-                            <form method="post" id="cardForm">
+                            <form method="post" id="cartForm">
                                 <input type="hidden" id="product_id" value="<?= $Product['id']?>" name="product_id">
                                 <input type="hidden" id="product_price" value="<?= $Product[$product_price_currency]?>" name="price">
                                 <div class="product-fields">
@@ -158,7 +158,7 @@
                                         <div class="col-6 col-md-6">
                                             <div class="quant-cart">
                                                 <label><?= $language_name == 'French' ? "Combien d'ensembles" : 'How many sets'?> </label>
-                                                <input type="text" value="1" id="quantity" name="quantity"  onkeypress="javascript:return isNumber(event)" onchange="setQuantity()">
+                                                <input type="text" value="1" id="quantity" name="quantity" onkeypress="javascript:return isNumber(event)" onchange="setQuantity()">
                                             </div>
                                         </div>
                                     </div>
@@ -320,29 +320,7 @@
         if (quantity == '' || quantity == 0) {
             $("#quantity").val('1');
         }
-        var myForm = document.getElementById('cardForm');
-        var formData = new FormData(myForm);
-            $("#loader-img").show();
-        $(".new-price-img").hide();
-
-        $.ajax({
-            type: 'POST',
-            dataType: 'html',
-            url: '<?= $BASE_URL?>Products/calculatePrice',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (data) {
-                $("#loader-img").hide();
-                    $(".new-price-img").show();
-                var json = JSON.parse(data);
-
-                if (json.success == 1) {
-                    $("#total-price").html(json.price);
-                }
-            }
-        });
+        $("#total-price").html($('[name="price"]').val() * $("#quantity").val());
      }
 
      function update_cumment(skey) {
@@ -395,12 +373,12 @@
         return true;
     }
 
-    $('form#cardForm').on('submit', function (e) {
+    $('form#cartForm').on('submit', function (e) {
         $("#loader-img").show();
         $("#btnsubmit").prop('disabled',true);
         var formData = new FormData(this);
         e.preventDefault();
-        var url ='<?= $BASE_URL ?>ShoppingCarts/addToCard';
+        var url ='<?= $BASE_URL ?>ShoppingCarts/addToCart';
         $.ajax({
             type: "POST",
             url: url,
@@ -416,7 +394,7 @@
                 $("#btnsubmit").prop('disabled',false);
                 if (status == 1 ) {
                         $(".cart-contents-count").html(json.total_item);
-                        getCardItem();
+                        getCartItem();
                         //$(".after-click").show();
                         //$(".before-click").hide();
                         $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>'+msg+'.</span>').addClass("active");
