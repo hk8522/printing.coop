@@ -106,6 +106,7 @@ Class Provider_Model extends MY_Model {
             if (!array_key_exists($attribute->group, $originals)) {
                 if (!array_key_exists($attribute->group, $news)) {
                     if ($attribute->group == null) {
+                        echo PHP_EOL;
                         echo "$product->provider_product_id: [Failed]" . PHP_EOL;
                         break;
                     }
@@ -284,7 +285,7 @@ Class Provider_Model extends MY_Model {
         $this->db->join('product_attributes', 'product_attributes.id = provider_attributes.attribute_id', 'left');
         $this->db->where('provider_product_attributes.provider_id', $provider_id);
         $this->db->where('provider_product_attributes.provider_product_id', $provider_product_id);
-        $this->db->order_by('provider_attributes.type, provider_product_attributes.id, provider_product_attributes.value');
+        $this->db->order_by('provider_attributes.type, provider_product_attributes.id, provider_product_attributes.value_id');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
         if ($take > 0)
@@ -301,7 +302,7 @@ Class Provider_Model extends MY_Model {
         $this->db->join('provider_attributes', 'provider_attributes.id = provider_product_attributes.provider_attribute_id', 'left');
         $this->db->where('provider_product_attributes.provider_id', $provider_id);
         $this->db->where('provider_product_attributes.provider_product_id', $provider_product_id);
-        $this->db->order_by('provider_attributes.type, provider_product_attributes.id, provider_product_attributes.value');
+        $this->db->order_by('provider_attributes.type, provider_product_attributes.id, provider_product_attributes.value_id');
         return $this->db->get()->result();
     }
 

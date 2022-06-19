@@ -20,7 +20,7 @@
 
 ?>
 
-		<form method="post" id="cardFrom-<?php echo $product_id_key?>">
+		<form method="post" id="cardForm-<?php echo $product_id_key?>">
 			<input type="hidden" id="product_id-<?php echo $product_id_key?>" value="<?php echo $Product['id']?>" name="product_id">
 			<input type="hidden" id="product_price<?php echo $product_id_key?>" value="<?php echo $Product['price']?>" name="price">
 			<div class="custom-order-section">
@@ -273,7 +273,7 @@
 			<input type="hidden" name="product_id_key" value="<?php echo $product_id_key;?>">
 		</form>
 		<script>
-		$('form#cardFrom-'+'<?php echo $product_id_key;?>').on('submit', function (e) {
+		$('form#cardForm-'+'<?php echo $product_id_key;?>').on('submit', function (e) {
 		        $("#loader-img").show();
 			    $('input[type="submit"]').prop('disabled',true);
 	            $('input[type="button"]').prop('disabled',true);

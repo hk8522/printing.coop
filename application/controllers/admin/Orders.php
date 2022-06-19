@@ -1039,7 +1039,7 @@ class Orders extends Admin_Controller
 
 		$options_size_show=$ncr_number_parts_show=$stock_show=$paper_quality_show=$color_show=$diameter_show=$shape_paper_show=$grommets_show=false;
 
-		$size_disebal=true;
+		$size_disabled=true;
 
 		if(!empty($product_quantity_id) && !empty($product_size_id)){
 			$items=$ProductSizes[$product_quantity_id][$product_size_id];
@@ -1047,7 +1047,7 @@ class Orders extends Admin_Controller
 
 			    if(!empty($val)){
 					$options_size_show=true;
-					$size_disebal=false;
+					$size_disabled=false;
 
 					foreach($val as $key1=>$val1){
 						$size_extra_price='';
@@ -1144,7 +1144,7 @@ class Orders extends Admin_Controller
 
 			    if(!empty($val)){
 					$options_size_show=true;
-					$size_disebal=false;
+					$size_disabled=false;
 
 					foreach($val as $key1=>$val1){
 						$size_extra_price='';
@@ -1286,7 +1286,7 @@ class Orders extends Admin_Controller
 		$response['grommets']=$grommets;
 
 		$response['last']=$last;
-		$response['size_disebal']=$size_disebal;
+		$response['size_disabled']=$size_disabled;
 		$response['product_size_id']=$product_size_id;
 
 		//pr($response);

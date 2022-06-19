@@ -248,6 +248,7 @@ class Products extends Public_Controller
         $this->data['productRowid'] = $productRowid;
         $this->data['productQty'] = $productQty;
 
+        // Check Provider binding
         $provider = $this->Provider_Model->getProvider('sina');
         $providerProduct = $this->Provider_Model->getProductByProductId($provider->id, $id);
         if ($providerProduct) {
@@ -262,9 +263,13 @@ class Products extends Public_Controller
                 $attribute = $attributes[$item->provider_attribute_id];
                 if (!isset($attribute->values))
                     $attribute->values = [];
-                $attribute->values[] = $item->value;
+                $attribute->values[] = (object) ['id' => $item->value_id, 'value' => $item->value];
             }
-            $this->data['provider'] = $attributes;
+            $this->data['provider'] = (object) [
+                'id' => $provider->id,
+                'product_id' => $id,
+                'attributes' => $attributes
+            ];
         } else
             $this->data['provider'] = false;
 
@@ -1061,7 +1066,7 @@ class Products extends Public_Controller
         $response['success'] = 1;
         $price = $price*$quantity;
         $response['price'] = number_format($price, 2);
-        $response['sizeoprions'] = $this->getSizeOptions($product_id, $product_quantity_id, $product_size_id, 1);
+        $response['sizeoptions'] = $this->getSizeOptions($product_id, $product_quantity_id, $product_size_id, 1);
         //pr($response, 1);
         echo json_encode($response);
         exit(0);
@@ -1078,7 +1083,7 @@ class Products extends Public_Controller
 
         $options = $this->language_name == 'French' ? '<option value="">Choisis une option...</option>' : '<option value="">Choose an option...</option>';
         $options_size = '';
-        $size_disebal = true;
+        $size_disabled = true;
         $AtirbuteProductSizes = array();
         if (!empty($product_quantity_id) && !empty($product_size_id)) {
             $quantityData = $ProductSizes[$product_quantity_id];
@@ -1087,7 +1092,7 @@ class Products extends Public_Controller
 
             if (!empty($sizeData)) {
                 $options_size = $options;
-                $size_disebal = false;
+                $size_disabled = false;
                 foreach ($sizeData as $key1 => $val1) {
                     $label = $this->language_name == 'French' ? $val1['size_name_french'] : $val1['size_name'];
                     $selected = '';
@@ -1113,7 +1118,7 @@ class Products extends Public_Controller
 
             if (!empty($sizeData)) {
                 $options_size = $options;
-                $size_disebal = false;
+                $size_disabled = false;
                 foreach ($sizeData as $key1 => $val1) {
                     $label = $this->language_name == 'French' ? $val1['size_name_french'] : $val1['size_name'];
 
@@ -1152,6 +1157,7 @@ class Products extends Public_Controller
             }
         }
 
+        $response = $this->data;
         $response['language_name'] = $this->language_name;
         $response['product_quantity_id'] = $product_quantity_id;
         $response['product_size_id'] = $product_size_id;
@@ -1160,7 +1166,7 @@ class Products extends Public_Controller
         $response['MultipleAttributes'] = $MultipleAttributes;
         $response['options'] = $options;
         $response['options_size'] = $options_size;
-        $response['size_disebal'] = $size_disebal;
+        $response['size_disabled'] = $size_disabled;
         $response['AtirbuteProductSizes'] = $AtirbuteProductSizes;
         if (empty($options_size)) {
             return 0;
@@ -1190,7 +1196,7 @@ class Products extends Public_Controller
         $return_arr = array();
         $session_data = array();
         /* Upload file */
-        $data = array();
+        $data = $this->data;
 
         $return_arr = array("name" => $filename, "size" => $filesize, "src" => $src, 'skey' => $key, 'product_id' => $product_id, 'location' => $location, 'cumment' => '', 'error' => '', 'error_msg' => '', 'file_base_url' => '');
 
@@ -1417,5 +1423,25 @@ class Products extends Public_Controller
         }
         echo $options;
         exit();
+    }
+
+    public function ProviderPrice()
+    {
+        $provider_id = $this->input->post('provider_id');
+        $product_id = $this->input->post('product_id');
+        $productOptions = array_filter($this->input->post('productOptions'));
+
+        $this->load->model('Provider_Model');
+        $providerProduct = $this->Provider_Model->getProductByProductId($provider_id, $product_id);
+        if ($providerProduct) {
+            $token = $this->sina_access_token();
+            $price = sina_price($token, $providerProduct->provider_product_id, $productOptions);
+            $result = ['success' => true, 'price' => $price];
+        } else
+            $result = ['success' => false, 'message' => "Can't find product info"];
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($result));
     }
 }

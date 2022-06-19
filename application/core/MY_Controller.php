@@ -112,8 +112,8 @@ class MY_Controller extends CI_Controller
         $this->data['meta_keywords_content'] = '';
         $this->data['before_head'] = '';
         $this->data['before_body'] ='';
-        $this->data['BASE_URL']= base_url();
-        $this->data['language_name']=$this->language_name;
+        $this->data['BASE_URL'] = base_url();
+        $this->data['language_name'] = $this->language_name;
         $this->data['BASE_URL_ADMIN']= base_url().'admin/';
         $this->data['errors']     = $this->session->flashdata('errors');
         $this->data['old_values'] = $this->session->flashdata('old_values');
@@ -412,11 +412,11 @@ class MY_Controller extends CI_Controller
 
     public function sina_access_token()
     {
-        $sina_access_token = $this->session->sina_access_token;
-        if (!$this->session->has_userdata('sina_products') || !$this->session->sina_products) {
-            $sina_products = sina_products($sina_access_token);
-            $this->session->set_userdata('sina_products', $sina_products);
+        if (!$this->session->has_userdata('sina_access_token') || !$this->session->sina_access_token) {
+            $sina_access_token = sina_access_token();
+            $this->session->set_userdata('sina_access_token', $sina_access_token);
         }
+        return $this->session->sina_access_token;
     }
 }
 

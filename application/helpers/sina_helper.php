@@ -58,14 +58,20 @@ function sina_access_token()
     return $resp->access_token;
 }
 
-function sina_products($token)
+function sina_products(string $token)
 {
     $url = "https://api.sinaliteuppy.com/product";
     return curl_helper($url, 'get', null, $token);
 }
 
-function sina_product_info($token, $product_id, $store = 'en_us')
+function sina_product_info(string $token, int $product_id, string $store = 'en_us')
 {
     $url = "https://api.sinaliteuppy.com/product/$product_id/$store";
     return curl_helper($url, 'get', null, $token);
+}
+
+function sina_price(string $token, int $product_id, array $options, string $store = 'en_us')
+{
+    $url = "https://api.sinaliteuppy.com/price/$product_id/$store";
+    return curl_helper($url, 'post', ['productOptions' => $options], $token);
 }
