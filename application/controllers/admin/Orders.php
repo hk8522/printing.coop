@@ -1419,7 +1419,7 @@ class Orders extends Admin_Controller
 				    $price = $price+(($price*RECTO_ATTRIBUTE_PERCENTAGE)/100);
 				}
 
-                $AttributeIds=array();
+                $productOptions = array();
 			    foreach($ProductAttributes as $key=>$val){
 				   $attribute_name='attribute_id_'.$key;
 				   $attribute_item_id=isset($_POST[$attribute_name]) ? $this->input->post($attribute_name):'';
@@ -1427,7 +1427,7 @@ class Orders extends Admin_Controller
 				   if(!empty($attribute_item_id) && array_key_exists($attribute_item_id,$items)){
 						$extra_price=$items[$attribute_item_id]['extra_price'];
 						$price += $extra_price;
-						$AttributeIds[$key]=$attribute_item_id;
+						$productOptions[$key]=$attribute_item_id;
 				   }
 		        }
 
@@ -1542,13 +1542,13 @@ class Orders extends Admin_Controller
 						$cart_images=$_SESSION['product_id'][$product_id_key][$product_id];
 					}
 
-					$data['options']=array(
-						'product_id'=>$productData['id'],
-						'product_image'=>$productData['product_image'],
-						'cart_images'=>$cart_images,
-						'attribute_ids'=>$AttributeIds,
-						'product_size' =>$product_size,
-						'product_width_length'=>$product_width_length
+					$data['options'] = array(
+						'product_id' => $productData['id'],
+						'product_image' => $productData['product_image'],
+						'cart_images' => $cart_images,
+						'attribute_ids' => $productOptions,
+						'product_size' => $product_size,
+						'product_width_length' => $product_width_length
 					);
 
 					$_SESSION['product_list'][$product_id_key]=$data;

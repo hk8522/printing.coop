@@ -40,8 +40,10 @@
             data: form.serialize(),
             headers: { accept: 'application/json' },
             success: function(data) {
-                $("#loader-img").hide();
-                $(".new-price-img").show();
+                if (emptyAttributes.length == 0) {
+                    $("#loader-img").hide();
+                    $(".new-price-img").show();
+                }
                 if (data.success) {
                     if (data.price.price == NaN)
                         data.price.price = 0;

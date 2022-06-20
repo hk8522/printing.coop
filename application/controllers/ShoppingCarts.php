@@ -52,26 +52,39 @@ class ShoppingCarts extends Public_Controller
         $recto_verso_price = $this->input->post('recto_verso_price');
         $votre_text = $this->input->post('votre_text');
 
+        // Provider
+        $provider_id = $this->input->post('provider_id');
+        $productOptions = $this->input->post('productOptions');
+
         $productData = $this->Product_Model->getProductDataById($product_id);
         $ProductAttributes = $this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
 
-        $AttributeIds = array();
-        //pr($ProductAttributes, 1);
-        foreach ($ProductAttributes as $key => $val) {
-            $attribute_name = 'attribute_id_'.$key;
-            $attribute_item_id = isset($_POST[$attribute_name]) ? $this->input->post($attribute_name):'';
-            $items = $val['items'];
-            $attribute_data = $val['data'];
-            if (!empty($attribute_item_id) && array_key_exists($attribute_item_id, $items)) {
-                $extra_price = $items[$attribute_item_id]['extra_price'];
-                $price += $extra_price;
-                $AttributeData = array();
-                $AttributeData['attribute_name'] = $attribute_data['attribute_name'];
-                $AttributeData['attribute_name_french'] = $attribute_data['attribute_name_french'];
-                $AttributeData['item_name'] = $items[$attribute_item_id]['item_name'];
-                $AttributeData['item_name_french'] = $items[$attribute_item_id]['item_name_french'];
-                $AttributeIds[] = $AttributeData;
-                //$AttributeIds[$key] = $attribute_item_id;
+        if ($provider_id) {
+            $providerProduct = $this->Provider_Model->getProductByProductId($provider_id, $product_id);
+            $productOptions = (object) [
+                'provider_id' => $provider_id,
+                'provider_product_id' => $providerProduct->provider_product_id,
+                'provider_attribute_ids' => $productOptions,
+            ];
+        } else {
+            $productOptions = array();
+            //pr($ProductAttributes, 1);
+            foreach ($ProductAttributes as $key => $val) {
+                $attribute_name = 'attribute_id_'.$key;
+                $attribute_item_id = isset($_POST[$attribute_name]) ? $this->input->post($attribute_name):'';
+                $items = $val['items'];
+                $attribute_data = $val['data'];
+                if (!empty($attribute_item_id) && array_key_exists($attribute_item_id, $items)) {
+                    $extra_price = $items[$attribute_item_id]['extra_price'];
+                    $price += $extra_price;
+                    $AttributeData = array();
+                    $AttributeData['attribute_name'] = $attribute_data['attribute_name'];
+                    $AttributeData['attribute_name_french'] = $attribute_data['attribute_name_french'];
+                    $AttributeData['item_name'] = $items[$attribute_item_id]['item_name'];
+                    $AttributeData['item_name_french'] = $items[$attribute_item_id]['item_name_french'];
+                    $productOptions[] = $AttributeData;
+                    //$productOptions[$key] = $attribute_item_id;
+                }
             }
         }
 
@@ -620,7 +633,7 @@ class ShoppingCarts extends Public_Controller
                 'product_id'       => $productData['id'],
                 'product_image'    => $productData['product_image'],
                 'cart_images'      => $cart_images,
-                'attribute_ids'    => $AttributeIds,
+                'attribute_ids'    => $productOptions,
                 'product_size'     => $product_size,
                 'product_width_length' => $product_width_length,
                 'product_depth_length_width' => $product_depth_length_width,
