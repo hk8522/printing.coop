@@ -2,12 +2,12 @@
         <div class="container">
             <div class="contact-section-inner">
                 <div class="contact-row">
-				   <?php  if($language_name=='French'){
-				       echo $pageData['description_france'];
-				   }else{
-				       echo $pageData['description'];
-				   }
-				   ?>
+                   <?php  if($language_name=='French'){
+                       echo $pageData['description_france'];
+                   }else{
+                       echo $pageData['description'];
+                   }
+                   ?>
                 </div>
             </div>
             <div class="contact-form">

@@ -89,14 +89,14 @@ class Logins extends Adminlogin_Controller
                     $subject = 'Reset Password';
                     $name = $adminData['name'];
                     $body = '<div class="top-info" style="margin-top: 25px;text-align: left;">
-					<span style="font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;">
-						Dear ' . $name . ',
-					<br>
-						You have successfully forgot password  your ' . WEBSITE_NAME . ' admin account. Please click on the link bellow to for reset password.
-					</span>
-				</div>
-				<div style="margin: 25px 0px;"><a style="font-size: 14px;text-transform: uppercase;color: #000;font-weight: 600;padding: 10px 30px;border-radius: 3px;border: none;background: #00a9d0;cursor: pointer;text-decoration: none;" href="' . $url . '">Visit Website</a>
-				</div>';
+                    <span style="font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;">
+                        Dear ' . $name . ',
+                    <br>
+                        You have successfully forgot password  your ' . WEBSITE_NAME . ' admin account. Please click on the link bellow to for reset password.
+                    </span>
+                </div>
+                <div style="margin: 25px 0px;"><a style="font-size: 14px;text-transform: uppercase;color: #000;font-weight: 600;padding: 10px 30px;border-radius: 3px;border: none;background: #00a9d0;cursor: pointer;text-decoration: none;" href="' . $url . '">Visit Website</a>
+                </div>';
 
                     $body = emailTemplate($subject, $body);
 

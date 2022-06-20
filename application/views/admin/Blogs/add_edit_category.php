@@ -19,31 +19,31 @@
                                     <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="id">
                                     <div class="form-role-area">
-									     <div class="control-group info">
+                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">WebSite</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <?php
-														$store_ids=$postData['store_id'];
-														if(!empty($store_ids)){
-															$store_ids=explode(',',$store_ids);
-														}else{
-															$store_ids=array();
-														}
+                                                        <?php
+                                                        $store_ids=$postData['store_id'];
+                                                        if(!empty($store_ids)){
+                                                            $store_ids=explode(',',$store_ids);
+                                                        }else{
+                                                            $store_ids=array();
+                                                        }
 
-														foreach($StoreList as $key=>$val){
-															$checked='';
-														    if(in_array($key,$store_ids)){
-																$checked='checked';
-															}
-														?>
+                                                        foreach($StoreList as $key=>$val){
+                                                            $checked='';
+                                                            if(in_array($key,$store_ids)){
+                                                                $checked='checked';
+                                                            }
+                                                        ?>
 
                                                             <input  name="store_id[]" type="checkbox" value="<?php echo $key?>" <?php echo $checked;?>><label style="margin-left:5px;"><?php echo $val['name']?></label>
-														<?php
-														}?>
+                                                        <?php
+                                                        }?>
 
                                                     </div>
                                                 </div>

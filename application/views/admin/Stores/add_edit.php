@@ -32,7 +32,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Store Phone</label>
@@ -45,7 +45,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Store Email</label>
@@ -58,7 +58,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Store Url</label>
@@ -71,66 +71,66 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">
-													Store Langue
-													</label>
+                                                    Store Langue
+                                                    </label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
 
-														<select class="form-control" name="langue_id">
-								<option value="">
-														Select Category
-								</option>
-														<?php
-			$langue_id= isset($postData['langue_id']) ? $postData['langue_id'] :0;
+                                                        <select class="form-control" name="langue_id">
+                                <option value="">
+                                                        Select Category
+                                </option>
+                                                        <?php
+            $langue_id= isset($postData['langue_id']) ? $postData['langue_id'] :0;
 
-														   foreach($language as $key=>$val){
-															   $selected='';
-															   if($key==$langue_id){
-																   $selected='selected="selected"';
-															   }
-														?>
-														   <option value="<?php echo $key;?>" <?php echo $selected;?>>
-														  <?php echo $val?>
-														</option>
-														  <?php
-														  }?>
-														</select>
+                                                           foreach($language as $key=>$val){
+                                                               $selected='';
+                                                               if($key==$langue_id){
+                                                                   $selected='selected="selected"';
+                                                               }
+                                                        ?>
+                                                           <option value="<?php echo $key;?>" <?php echo $selected;?>>
+                                                          <?php echo $val?>
+                                                        </option>
+                                                          <?php
+                                                          }?>
+                                                        </select>
                                                         <?php echo form_error('langue_id');?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-										<!--<div class="control-group info">
+                                        <!--<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">
-													Store Currency
-													</label>
+                                                    Store Currency
+                                                    </label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
 
-														<?php
-		$currency_id= isset($postData['currency_id']) ? explode(',',$postData['currency_id']) : array();
+                                                        <?php
+        $currency_id= isset($postData['currency_id']) ? explode(',',$postData['currency_id']) : array();
 
-														   foreach($currency as $key=>$val){
-															   $selected='';
-															   if(in_array($key,$currency_id)){
-																   $selected='checked';
-															   }
-														?>
-							<input type="checkbox" value="<?php echo $key;?>" <?php echo $selected;?> name="currency_id[]">&nbsp;
-														  <?php echo $val['currency_name'];
-														  ?>
+                                                           foreach($currency as $key=>$val){
+                                                               $selected='';
+                                                               if(in_array($key,$currency_id)){
+                                                                   $selected='checked';
+                                                               }
+                                                        ?>
+                            <input type="checkbox" value="<?php echo $key;?>" <?php echo $selected;?> name="currency_id[]">&nbsp;
+                                                          <?php echo $val['currency_name'];
+                                                          ?>
 
-														  <?php
-														  }?>
+                                                          <?php
+                                                          }?>
                                                         <?php echo form_error('currency_id[]');?>
                                                     </div>
                                                 </div>
@@ -151,7 +151,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Store Order Id Prefix</label>
@@ -173,15 +173,15 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <select name="show_language_translation" class="form-control">
-														<option value="1" <?php echo $postData['show_language_translation']==1 ? 'selected':'';?>>Yes</option>
-														<option value="0" <?php echo $postData['show_language_translation']==0 ? 'selected':'';?>>No</option>
-														</select>
+                                                        <option value="1" <?php echo $postData['show_language_translation']==1 ? 'selected':'';?>>Yes</option>
+                                                        <option value="0" <?php echo $postData['show_language_translation']==0 ? 'selected':'';?>>No</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Store Show All Categories</label>
@@ -189,15 +189,15 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <select name="show_all_categories" class="form-control">
-														<option value="1" <?php echo $postData['show_all_categories']==1 ? 'selected':'';?>>Yes</option>
-														<option value="0" <?php echo $postData['show_all_categories']==0 ? 'selected':'';?>>No</option>
-														</select>
+                                                        <option value="1" <?php echo $postData['show_all_categories']==1 ? 'selected':'';?>>Yes</option>
+                                                        <option value="0" <?php echo $postData['show_all_categories']==0 ? 'selected':'';?>>No</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Store From Email</label>
@@ -210,7 +210,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Store Admin Email-1</label>
@@ -223,7 +223,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Store Admin Email-2</label>
@@ -237,7 +237,7 @@
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Store Admin Email-3</label>
@@ -319,7 +319,7 @@
                                                 </div>
                                             </div>
                                         <!-- CLOVER POS END -->
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Paypal Payment Mode</label>
@@ -327,15 +327,15 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <select name="paypal_payment_mode" class="form-control">
-														<option value="sandbox" <?php echo $postData['paypal_payment_mode']=='sandbox' ? 'selected':'';?>>Sandbox</option>
-														<option value="live" <?php echo $postData['paypal_payment_mode']=='live' ? 'selected':'';?>>Live</option>
-														</select>
+                                                        <option value="sandbox" <?php echo $postData['paypal_payment_mode']=='sandbox' ? 'selected':'';?>>Sandbox</option>
+                                                        <option value="live" <?php echo $postData['paypal_payment_mode']=='live' ? 'selected':'';?>>Live</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Sandbox Payment Paypal Business Email</label>
@@ -349,7 +349,7 @@
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Live Payment Paypal Business Email</label>
@@ -362,7 +362,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Show Flagship </label>
@@ -370,15 +370,15 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <select name="flag_ship" class="form-control">
-														<option value="no" <?php echo $postData['flag_ship']=='no' ? 'selected':'';?>>No</option>
-	<option value="yes" <?php echo $postData['flag_ship']=='yes' ? 'selected':'';?>>Yes</option>
-														</select>
+                                                        <option value="no" <?php echo $postData['flag_ship']=='no' ? 'selected':'';?>>No</option>
+    <option value="yes" <?php echo $postData['flag_ship']=='yes' ? 'selected':'';?>>Yes</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Store Email Footer Line</label>
@@ -392,32 +392,32 @@
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 ">Store Email Template Logo</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                   <div class="controls">
-                            											  	<div class="col-xs-3" style="margin-bottom:15px;">
-                            												     <?php $old_image =isset($postData['email_template_logo']) ? $postData['email_template_logo'] : '';
-                            													 ?>
+                                                                              <div class="col-xs-3" style="margin-bottom:15px;">
+                                                                                 <?php $old_image =isset($postData['email_template_logo']) ? $postData['email_template_logo'] : '';
+                                                                                 ?>
 
-                            													 <?php
-                            													 if($old_image !='') {
-                            													     $imageurl = getLogoImages($old_image);?>
+                                                                                 <?php
+                                                                                 if($old_image !='') {
+                                                                                     $imageurl = getLogoImages($old_image);?>
                                                            <?php
                                                            if($imageurl) {
                                                              ?>
                                                              <img src="<?php echo $imageurl?>" width="100" height="80">
                                                              <?php
                                                            }?>
-                            													 <?php
-                            													   }
-                            													 ?>
-                            												  	<input name="old_image" value="<?php echo $old_image;?>" type="hidden">
-                            											  	</div>
-                            										    </div>
+                                                                                 <?php
+                                                                                   }
+                                                                                 ?>
+                                                                                  <input name="old_image" value="<?php echo $old_image;?>" type="hidden">
+                                                                              </div>
+                                                                        </div>
                                                   <div class="entry input-group col-xs-12" style="margin-bottom:15px;">
                                                       <input class="btn btn-primary" name="logo_image" type="file" accept="image/x-png,image/gif,image/jpeg" id="fileUpload-1">
                                                       &nbsp;&nbsp;
@@ -426,7 +426,7 @@
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Store Company Details For Invoice Pdf</label>
@@ -439,7 +439,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Store Company Details For Order Pdf</label>
@@ -453,33 +453,33 @@
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 ">Store Pdf Logo</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                   <div class="controls">
-                            											  	<div class="col-xs-3" style="margin-bottom:15px;">
-                            												     <?php
-									$old_image =isset($postData['pdf_template_logo']) ? $postData['pdf_template_logo'] : '';
-                            													 ?>
+                                                                              <div class="col-xs-3" style="margin-bottom:15px;">
+                                                                                 <?php
+                                    $old_image =isset($postData['pdf_template_logo']) ? $postData['pdf_template_logo'] : '';
+                                                                                 ?>
 
-                            													 <?php
-                            													 if($old_image !='') {
-                            													     $imageurl = getLogoImages($old_image);?>
+                                                                                 <?php
+                                                                                 if($old_image !='') {
+                                                                                     $imageurl = getLogoImages($old_image);?>
                                                            <?php
                                                            if($imageurl) {
                                                              ?>
                                                              <img src="<?php echo $imageurl?>" width="100" height="80">
                                                              <?php
                                                            }?>
-                            													 <?php
-                            													   }
-                            													 ?>
-                            												  	<input name="old_pdf_template_logo" value="<?php echo $old_image;?>" type="hidden">
-                            											  	</div>
-                            										    </div>
+                                                                                 <?php
+                                                                                   }
+                                                                                 ?>
+                                                                                  <input name="old_pdf_template_logo" value="<?php echo $old_image;?>" type="hidden">
+                                                                              </div>
+                                                                        </div>
                                                   <div class="entry input-group col-xs-12" style="margin-bottom:15px;">
                                                       <input class="btn btn-primary" name="pdf_template_logo" type="file" accept="image/x-png,image/gif,image/jpeg" id="fileUpload-2">
                                                       &nbsp;&nbsp;
@@ -488,10 +488,10 @@
                                             </div>
                                         </div>
 
-									    <div class="text-right">
-										  <button type="submit" class="btn btn-success" id="submitBtn" >Submit</button>
-										  <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
-									    </div>
+                                        <div class="text-right">
+                                          <button type="submit" class="btn btn-success" id="submitBtn" >Submit</button>
+                                          <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
+                                        </div>
 
                                          <?php echo form_close();?>
                                         </div>

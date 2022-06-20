@@ -2,7 +2,7 @@
 <div class="account-section  universal-spacing universal-bg-white">
     <div class="container">
         <div class="account-section-inner">
-		   <?php  if($loginId) $this->load->view('elements/my-account-menu');?>
+           <?php  if($loginId) $this->load->view('elements/my-account-menu');?>
             <div class="row">
                 <div class="col-md-6">
                     <div class="account-area">
@@ -32,7 +32,7 @@
                         </div>
                         <form id="password-form" method="post">
                           <div class="customer-fields pad-for-span" style="min-height: initial;">
-              				<div id="forgot_msg" class="col-md-12 text-center"></div>
+                              <div id="forgot_msg" class="col-md-12 text-center"></div>
                           </div>
                             <div class="shipping-form">
                                 <div class="single-review">
@@ -48,11 +48,11 @@
                                     <label id="account-email-error" style="color:red"></label>
                                     <input type="hidden" name="send_otp" id="send-otp" value="">
                                 </div>
-								 <div class="single-review">
-								     <div class="g-recaptcha" data-sitekey="6LcXjt4UAAAAAMf-gtro8dDUsHGFBOtpfePKAifa"></div>
-									 <label id="g-recaptcha-error" style="color:red"></label>
+                                 <div class="single-review">
+                                     <div class="g-recaptcha" data-sitekey="6LcXjt4UAAAAAMf-gtro8dDUsHGFBOtpfePKAifa"></div>
+                                     <label id="g-recaptcha-error" style="color:red"></label>
 
-								 </div>
+                                 </div>
                                 <div class="order-btn login-btn">
                                     <button type="button" class="login" id="account-change-pswd" onclick="sendOptToEmail()">
                                     <?php

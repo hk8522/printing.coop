@@ -20,31 +20,31 @@
                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="id">
                                     <div class="form-role-area">
 
-									    <div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">WebSite</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <?php
-														$store_ids=$postData['store_id'];
-														if(!empty($store_ids)){
-															$store_ids=explode(',',$store_ids);
-														}else{
-															$store_ids=array();
-														}
+                                                        <?php
+                                                        $store_ids=$postData['store_id'];
+                                                        if(!empty($store_ids)){
+                                                            $store_ids=explode(',',$store_ids);
+                                                        }else{
+                                                            $store_ids=array();
+                                                        }
 
-														foreach($StoreList as $key=>$val){
-															$checked='';
-														    if(in_array($key,$store_ids)){
-																$checked='checked';
-															}
-														?>
+                                                        foreach($StoreList as $key=>$val){
+                                                            $checked='';
+                                                            if(in_array($key,$store_ids)){
+                                                                $checked='checked';
+                                                            }
+                                                        ?>
 
                                                             <input  name="store_id[]" type="checkbox" value="<?php echo $key?>" <?php echo $checked;?>><label style="margin-left:5px;"><?php echo $val['name']?></label>
-														<?php
-														}?>
+                                                        <?php
+                                                        }?>
 
                                                     </div>
                                                 </div>
@@ -63,7 +63,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Blog Title</label>
@@ -76,7 +76,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Blog Category</label>
@@ -84,31 +84,31 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
 
-														<select class="form-control" name="category_id">
-														<option value="">
-														Select Category
-														</option>
-														<?php
-														   $category_id=$postData['category_id'] ? isset($postData['category_id']):0;
+                                                        <select class="form-control" name="category_id">
+                                                        <option value="">
+                                                        Select Category
+                                                        </option>
+                                                        <?php
+                                                           $category_id=$postData['category_id'] ? isset($postData['category_id']):0;
 
-														   foreach($categoryData as $key=>$val){
-															   $selected='';
-															   if($val['id']==$category_id){
-																   $selected='selected="selected"';
-															   }
-														?>
-														   <option value="<?php echo $val['id'];?>" <?php echo $selected;?>>
-														  <?php echo $val['category_name']?>
-														</option>
-														  <?php
-														  }?>
-														</select>
+                                                           foreach($categoryData as $key=>$val){
+                                                               $selected='';
+                                                               if($val['id']==$category_id){
+                                                                   $selected='selected="selected"';
+                                                               }
+                                                        ?>
+                                                           <option value="<?php echo $val['id'];?>" <?php echo $selected;?>>
+                                                          <?php echo $val['category_name']?>
+                                                        </option>
+                                                          <?php
+                                                          }?>
+                                                        </select>
                                                         <?php echo form_error('category_id');?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Populer</label>
@@ -138,7 +138,7 @@
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">French Blog Content</label>
@@ -170,7 +170,7 @@
                                                             if($old_image !=''){
                                                                $imageurl=getBlogImage($old_image,'large');
 
-															   ?>
+                                                               ?>
                                                         <img src="<?php echo $imageurl?>" width="100" height="80">
                                                         <?php
                                                             }
@@ -242,15 +242,15 @@
               image.onload = function () {
                       var height = this.height;
                       var width = this.width;
-    			var imagesize=fileUpload.files[0].size;
-    			var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
+                var imagesize=fileUpload.files[0].size;
+                var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
 
-    			//alert(imagesize);
-    			/*if(FILE_MAX_SIZE_JS < imagesize){
-    				$("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
-    			    $("#MsgModal").modal('show');
+                //alert(imagesize);
+                /*if(FILE_MAX_SIZE_JS < imagesize){
+                    $("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
+                    $("#MsgModal").modal('show');
                           return false;
-    			}*/
+                }*/
                   };
               }
           }

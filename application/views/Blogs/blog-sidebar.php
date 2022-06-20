@@ -1,9 +1,9 @@
 <div class="blog-sidebar">
     <div class="blog-search-bar">
-	    <form action="<?php echo $BASE_URL?>Blogs/search">
+        <form action="<?php echo $BASE_URL?>Blogs/search">
             <input type="text" placeholder="<?php echo $this->language_name=='French' ? 'Rechercher dans le blog ici ...':'Search blog here ...'?>" name="search" required value="<?php echo isset($_GET['search']) ? $_GET['search']:''?>">
             <button><i class="las la-search"></i></button>
-		</form>
+        </form>
     </div>
     <div class="blog-sidebar-posts">
         <ul class="nav nav-pills">
@@ -12,20 +12,20 @@
         </ul>
         <div class="tab-content">
             <div id="Popular" class="tab-pane fade active show">
-			   <?php foreach($popularblogs as $pblog){
-					$imageurl=getBlogImage($pblog['image'],'large');
-				 ?>
+               <?php foreach($popularblogs as $pblog){
+                    $imageurl=getBlogImage($pblog['image'],'large');
+                 ?>
                 <div class="blog-sidebar-single-post">
                     <a href="<?php echo $BASE_URL?>Blogs/singleview/<?php echo base64_encode($pblog['id'])?>">
                         <div class="blog-sidebar-single-post-img" style="background-image: url(<?php echo $imageurl?>)"></div>
                         <div class="blog-sidebar-single-detail">
                             <div class="single-blog-title">
                                 <span> <?php if($this->language_name=='French'){
-														echo $pblog['title_french'];
-													}else{
-														echo $pblog['title'];
-													}
-								?></span>
+                                                        echo $pblog['title_french'];
+                                                    }else{
+                                                        echo $pblog['title'];
+                                                    }
+                                ?></span>
                             </div>
                             <div class="single-blog-date">
                                 <span><?php echo date('F d Y',strtotime($pblog['created']));?></span>
@@ -33,24 +33,24 @@
                         </div>
                     </a>
                 </div>
-			   <?php
-			   }?>
+               <?php
+               }?>
             </div>
             <div id="Latest" class="tab-pane fade">
-			<?php foreach($latestblogs as $lblog){
-					$imageurl=getBlogImage($lblog['image'],'large');
-				 ?>
+            <?php foreach($latestblogs as $lblog){
+                    $imageurl=getBlogImage($lblog['image'],'large');
+                 ?>
                 <div class="blog-sidebar-single-post">
                     <a href="<?php echo $BASE_URL?>Blogs/singleview/<?php echo base64_encode($lblog['id'])?>">
                         <div class="blog-sidebar-single-post-img" style="background-image: url(<?php echo $imageurl?>)"></div>
                         <div class="blog-sidebar-single-detail">
                             <div class="single-blog-title">
                                 <span><?php if($this->language_name=='French'){
-														echo $lblog['title_french'];
-													}else{
-														echo $lblog['title'];
-													}
-								?></span>
+                                                        echo $lblog['title_french'];
+                                                    }else{
+                                                        echo $lblog['title'];
+                                                    }
+                                ?></span>
                             </div>
                             <div class="single-blog-date">
                                 <span><?php echo date('F d Y',strtotime($lblog['created']));?></span>
@@ -58,8 +58,8 @@
                         </div>
                     </a>
                 </div>
-			      <?php
-			    }?>
+                  <?php
+                }?>
             </div>
         </div>
     </div>
@@ -68,17 +68,17 @@
             <span><?php echo $this->language_name=='French'? 'Catégories':'Categories'?></span>
         </div>
         <div class="blog-category-list">
-		    <?php foreach($category as $cat){
-			?>
+            <?php foreach($category as $cat){
+            ?>
             <a href="<?php echo $BASE_URL?>Blogs/category/<?php echo base64_encode($cat['id'])?>"><i class="las la-folder-open"></i><?php
-			if($this->language_name=='French'){
-				echo $cat['category_name_french'];
-			}else{
-					echo $cat['category_name'];
-			} ?>
-			</a>
-			<?php
-			}?>
+            if($this->language_name=='French'){
+                echo $cat['category_name_french'];
+            }else{
+                    echo $cat['category_name'];
+            } ?>
+            </a>
+            <?php
+            }?>
         </div>
     </div>
     <!--<div class="blog-category-sidebar">
@@ -86,12 +86,12 @@
             <span>Monthly Archive</span>
         </div>
         <div class="blog-category-list">
-		     <?php
+             <?php
 
-			 ?>
+             ?>
             <a href="/Blogs/month10_2018">
-			<i class="las la-calendar"></i> October, 2018 (5)
-			</a>
+            <i class="las la-calendar"></i> October, 2018 (5)
+            </a>
         </div>
     </div>-->
 

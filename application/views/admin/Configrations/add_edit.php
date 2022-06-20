@@ -17,7 +17,7 @@
                                         <?php echo $this->session->flashdata('message_error');?>
                                     </div>
                                     <div class="text-center" style="color:green">
-                        						    <?php echo $this->session->flashdata('message_success');?>
+                                                    <?php echo $this->session->flashdata('message_success');?>
                                     </div>
                                     <?php echo form_open_multipart($BASE_URL.$class_name.'saveConfigrations' ,array('class'=>'form-horizontal'));?>
                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($configrations['id']) ? $configrations['id']:'';?>">
@@ -35,7 +35,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2" for="contact-no">French Contact No</label>
@@ -61,7 +61,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="office-timing">French Office Timing</label>
@@ -87,7 +87,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="announcement">French Announcement </label>
@@ -100,7 +100,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="announcement">Copy Right</label>
@@ -113,7 +113,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="announcement">French Copy Right</label>
@@ -126,7 +126,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="announcement">Address</label>
@@ -139,7 +139,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="announcement">French Address</label>
@@ -220,25 +220,25 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                   <div class="controls">
-                            											  	<div class="col-xs-3" style="margin-bottom:15px;">
-                            												     <?php $old_image =isset($configrations['logo_image']) ? $configrations['logo_image'] : '';
-                            													 ?>
+                                                                              <div class="col-xs-3" style="margin-bottom:15px;">
+                                                                                 <?php $old_image =isset($configrations['logo_image']) ? $configrations['logo_image'] : '';
+                                                                                 ?>
 
-                            													 <?php
-                            													 if($old_image !='') {
-                            													     $imageurl = getLogoImages($old_image);?>
+                                                                                 <?php
+                                                                                 if($old_image !='') {
+                                                                                     $imageurl = getLogoImages($old_image);?>
                                                            <?php
                                                            if($imageurl) {
                                                              ?>
                                                              <img src="<?php echo $imageurl?>" width="100" height="80">
                                                              <?php
                                                            }?>
-                            													 <?php
-                            													   }
-                            													 ?>
-                            												  	<input name="old_image" value="<?php echo $old_image;?>" type="hidden">
-                            											  	</div>
-                            										    </div>
+                                                                                 <?php
+                                                                                   }
+                                                                                 ?>
+                                                                                  <input name="old_image" value="<?php echo $old_image;?>" type="hidden">
+                                                                              </div>
+                                                                        </div>
                                                   <div class="entry input-group col-xs-12" style="margin-bottom:15px;">
                                                       <input class="btn btn-primary" name="logo_image" type="file" accept="image/x-png,image/gif,image/jpeg" id="fileUpload-1">
                                                       &nbsp;&nbsp;
@@ -246,7 +246,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="office-timing">Logo Alt Teg</label>
@@ -260,32 +260,32 @@
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 ">French Logo</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                   <div class="controls">
-                            											  	<div class="col-xs-3" style="margin-bottom:15px;">
-                            												     <?php $old_image =isset($configrations['logo_image_french']) ? $configrations['logo_image_french'] : '';
-                            													 ?>
+                                                                              <div class="col-xs-3" style="margin-bottom:15px;">
+                                                                                 <?php $old_image =isset($configrations['logo_image_french']) ? $configrations['logo_image_french'] : '';
+                                                                                 ?>
 
-                            													 <?php
-                            													 if($old_image !='') {
-                            													     $imageurl = getLogoImages($old_image);?>
+                                                                                 <?php
+                                                                                 if($old_image !='') {
+                                                                                     $imageurl = getLogoImages($old_image);?>
                                                            <?php
                                                            if($imageurl) {
                                                              ?>
                                                              <img src="<?php echo $imageurl?>" width="100" height="80">
                                                              <?php
                                                            }?>
-                            													 <?php
-                            													   }
-                            													 ?>
-                            												  	<input name="logo_image_french" value="<?php echo $old_image;?>" type="hidden">
-                            											  	</div>
-                            										    </div>
+                                                                                 <?php
+                                                                                   }
+                                                                                 ?>
+                                                                                  <input name="logo_image_french" value="<?php echo $old_image;?>" type="hidden">
+                                                                              </div>
+                                                                        </div>
                                                   <div class="entry input-group col-xs-12" style="margin-bottom:15px;">
                                                       <input class="btn btn-primary" name="logo_image_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="fileUpload-1">
                                                       &nbsp;&nbsp;
@@ -293,7 +293,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="office-timing">French Logo Alt Teg</label>
@@ -306,35 +306,35 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2">Favicon</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                   <div class="controls">
-                            											  	<div class="col-xs-3" style="margin-bottom:15px;">
+                                                                              <div class="col-xs-3" style="margin-bottom:15px;">
 
-						<?php
-						$old_favicon =isset($configrations['favicon']) ? $configrations['favicon'] : '';
+                        <?php
+                        $old_favicon =isset($configrations['favicon']) ? $configrations['favicon'] : '';
                          ?>
 
-                            								<?php
-                            								if($old_favicon !='') {
-                            						        $imageurl = getLogoImages($old_favicon);
-															?>
+                                                            <?php
+                                                            if($old_favicon !='') {
+                                                            $imageurl = getLogoImages($old_favicon);
+                                                            ?>
                                                            <?php
                                                            if($imageurl) {
                                                              ?>
                                                              <img src="<?php echo $imageurl?>" width="50" height="50">
                                                              <?php
                                                            }?>
-                            													 <?php
-                            													   }
-                            													 ?>
-                            												  	<input name="old_favicon" value="<?php echo $old_favicon;?>" type="hidden">
-                            											  	</div>
-                            										    </div>
+                                                                                 <?php
+                                                                                   }
+                                                                                 ?>
+                                                                                  <input name="old_favicon" value="<?php echo $old_favicon;?>" type="hidden">
+                                                                              </div>
+                                                                        </div>
                                                   <div class="entry input-group col-xs-12" style="margin-bottom:15px;">
                                                       <input class="btn btn-primary" name="favicon" type="file" accept="image/x-png,image/gif,image/jpeg">
                                                       &nbsp;&nbsp;
@@ -343,7 +343,7 @@
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 ">French Favicon</label>
@@ -351,25 +351,25 @@
                                                 <div class="col-md-8">
                                                   <div class="controls">
                 <div class="col-xs-3" style="margin-bottom:15px;">
-                            			<?php
-				$old_french_favicon =isset($configrations['french_favicon']) ? $configrations['french_favicon'] : '';
-                            													 ?>
+                                        <?php
+                $old_french_favicon =isset($configrations['french_favicon']) ? $configrations['french_favicon'] : '';
+                                                                                 ?>
 
-                            													 <?php
-                            													 if($old_french_favicon !='') {
-                            													     $imageurl = getLogoImages($old_french_favicon);?>
+                                                                                 <?php
+                                                                                 if($old_french_favicon !='') {
+                                                                                     $imageurl = getLogoImages($old_french_favicon);?>
                                                            <?php
                                                            if($imageurl) {
                                                              ?>
                                                              <img src="<?php echo $imageurl?>" width="100" height="80">
                                                              <?php
                                                            }?>
-                            													 <?php
-                            													   }
-                            													 ?>
-                            												  	<input name="old_french_favicon" value="<?php echo $old_french_favicon;?>" type="hidden">
-                            											  	</div>
-                            										    </div>
+                                                                                 <?php
+                                                                                   }
+                                                                                 ?>
+                                                                                  <input name="old_french_favicon" value="<?php echo $old_french_favicon;?>" type="hidden">
+                                                                              </div>
+                                                                        </div>
                                                   <div class="entry input-group col-xs-12" style="margin-bottom:15px;">
                                                       <input class="btn btn-primary" name="french_favicon" type="file" accept="image/x-png,image/gif,image/jpeg">
                                                       &nbsp;&nbsp;

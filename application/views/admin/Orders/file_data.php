@@ -10,8 +10,8 @@
                         <div class="upload-action-btn">
                             <button type="button" onclick="update_cumment('<?php echo $return_arr['skey']?>','<?php echo $return_arr['product_id']?>','<?php echo $return_arr['product_id_key']?>')" id="smc-<?php echo $return_arr['skey']?>">Update Note</button>
                             <button type="button" title="Delete" onclick="delete_image('<?php echo $return_arr['skey']?>','<?php echo $return_arr['product_id']?>','<?php echo $return_arr['product_id_key']?>')"  id="smd-<?php echo $return_arr['skey']?>"><i class="fas fa-trash"></i>
-							</button>
-							<input type="hidden" value="<?php echo $return_arr['location'];?>" id="location-<?php echo $return_arr['skey']?>">
+                            </button>
+                            <input type="hidden" value="<?php echo $return_arr['location'];?>" id="location-<?php echo $return_arr['skey']?>">
                         </div>
                     </div>
                 </div>

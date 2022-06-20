@@ -95,13 +95,13 @@
                               <span>
                                 <a href="<?php echo $url;?>" >
                                   <?php
-								    if($language_name=='French'){
-										echo ucfirst($page['title_france']);
-									}else{
-										echo ucfirst($page['title']);
-									}
+                                    if($language_name=='French'){
+                                        echo ucfirst($page['title_france']);
+                                    }else{
+                                        echo ucfirst($page['title']);
+                                    }
 
-								  ?>
+                                  ?>
                                 </a>
                               </span>
                               <?php
@@ -123,81 +123,81 @@
                                       }?></span>
                         </div>
                         <?php
-						if($website_store_id==1 || $website_store_id==3){?>
-							<div class="universal-dark-info">
-							  <div class="row">
+                        if($website_store_id==1 || $website_store_id==3){?>
+                            <div class="universal-dark-info">
+                              <div class="row">
 
-								<?php
-								foreach($footerCategory as $Category){
-								?>
+                                <?php
+                                foreach($footerCategory as $Category){
+                                ?>
 
-								  <div class="col-6 col-md-6">
-										<span>
-										  <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($Category['id']);?>">
-											<?php
-											if($language_name=='French'){
-											  echo ucfirst($Category['name_french']);
-											}else{
-												echo ucfirst($Category['name'] );
-											}
+                                  <div class="col-6 col-md-6">
+                                        <span>
+                                          <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($Category['id']);?>">
+                                            <?php
+                                            if($language_name=='French'){
+                                              echo ucfirst($Category['name_french']);
+                                            }else{
+                                                echo ucfirst($Category['name'] );
+                                            }
 
-											?>
-										  </a>
-										</span>
-								  </div>
-							  <?php } ?>
-							</div>
-						   </div>
-						<?php
-						}
-						if($website_store_id==5){
-						?>
-						<div class="universal-dark-info">
-							  <div class="row">
+                                            ?>
+                                          </a>
+                                        </span>
+                                  </div>
+                              <?php } ?>
+                            </div>
+                           </div>
+                        <?php
+                        }
+                        if($website_store_id==5){
+                        ?>
+                        <div class="universal-dark-info">
+                              <div class="row">
 
-								<?php
-								#pr($categories,1);
+                                <?php
+                                #pr($categories,1);
 
-								foreach($categories['categories'] as $Category){
-								?>
+                                foreach($categories['categories'] as $Category){
+                                ?>
 
-								  <div class="col-6 col-md-6">
-										<span>
-										  <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($Category['id']);?>">
-											<?php
-											if($language_name=='French'){
-											  echo ucfirst($Category['name_french']);
-											}else{
-												echo ucfirst($Category['name'] );
-											}
+                                  <div class="col-6 col-md-6">
+                                        <span>
+                                          <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($Category['id']);?>">
+                                            <?php
+                                            if($language_name=='French'){
+                                              echo ucfirst($Category['name_french']);
+                                            }else{
+                                                echo ucfirst($Category['name'] );
+                                            }
 
-											?>
-										  </a>
-										</span>
+                                            ?>
+                                          </a>
+                                        </span>
 
-									<?php
-									foreach($Category['sub_categories'] as $subCategory){
-									?>
-										<span style="margin-left: 20px;">
-										  <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($Category['id']);?>&sub_category_id<?php echo base64_encode($subCategory['id']);?>">
-											<?php
-											if($language_name=='French'){
-											  echo ucfirst($subCategory['name_french']);
-											}else{
-												echo ucfirst($subCategory['name'] );
-											}
+                                    <?php
+                                    foreach($Category['sub_categories'] as $subCategory){
+                                    ?>
+                                        <span style="margin-left: 20px;">
+                                          <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($Category['id']);?>&sub_category_id<?php echo base64_encode($subCategory['id']);?>">
+                                            <?php
+                                            if($language_name=='French'){
+                                              echo ucfirst($subCategory['name_french']);
+                                            }else{
+                                                echo ucfirst($subCategory['name'] );
+                                            }
 
-											?>
-										  </a>
-										</span>
-									<?php
-									}?>
-								  </div>
-							  <?php } ?>
-							</div>
-						   </div>
-						<?php
-						}?>
+                                            ?>
+                                          </a>
+                                        </span>
+                                    <?php
+                                    }?>
+                                  </div>
+                              <?php } ?>
+                            </div>
+                           </div>
+                        <?php
+                        }?>
                 </div>
               </div>
 
@@ -212,18 +212,18 @@
                                       <?php
                                       }?></span>
                         </div>
-						<?php
-						if($language_name=='French'){
-						echo $configrations['address_one_french'];
-						}else{
-							echo $configrations['address_one'];
-						}
-						?>
+                        <?php
+                        if($language_name=='French'){
+                        echo $configrations['address_one_french'];
+                        }else{
+                            echo $configrations['address_one'];
+                        }
+                        ?>
 
                     </div>
                     <?php
-					#
-					if($main_store_id==1){?>
+                    #
+                    if($main_store_id==1){?>
 
                           <div class="social-icons">
                             <div>
@@ -248,8 +248,8 @@
                             </div>
                           </div>
                         <?php
-					}?>
-					<?php if($main_store_id==2){?>
+                    }?>
+                    <?php if($main_store_id==2){?>
 
                           <div class="social-icons">
                             <div>
@@ -274,8 +274,8 @@
                             </div>
                           </div>
                         <?php
-					}?>
-					<?php if($main_store_id==3){?>
+                    }?>
+                    <?php if($main_store_id==3){?>
 
                           <div class="social-icons">
                             <div>
@@ -300,8 +300,8 @@
                             </div>
                           </div>
                         <?php
-					}?>
-					<?php if($main_store_id==4){?>
+                    }?>
+                    <?php if($main_store_id==4){?>
 
                           <div class="social-icons">
                             <div>
@@ -326,8 +326,8 @@
                             </div>
                           </div>
                         <?php
-					}?>
-					<?php if($main_store_id==5){?>
+                    }?>
+                    <?php if($main_store_id==5){?>
 
                           <div class="social-icons">
                             <div>
@@ -352,8 +352,8 @@
                             </div>
                           </div>
                         <?php
-					}?>
-					<?php if($main_store_id==6){?>
+                    }?>
+                    <?php if($main_store_id==6){?>
 
                           <div class="social-icons">
                             <div>
@@ -378,7 +378,7 @@
                             </div>
                           </div>
                         <?php
-					}?>
+                    }?>
                 </div>
             </div>
         </div>
@@ -394,11 +394,11 @@
                           <span>Copyright © <?php echo date('Y')?> <?php echo $language_name=='French' ? $configrations['copy_right_french']:$configrations['copy_right']; ?></span>
                         </div>
                         <div class="bottom-links">
-						   <?php
+                           <?php
 
                                 $pages = $this->Page_Model->getPageList(true,'','',1,$website_store_id);
                                 $pageSlugArray = pageSlug();
-								foreach ($pages as $key => $page) {
+                                foreach ($pages as $key => $page) {
                                   $slug = $page['slug'];
                                   $url = $BASE_URL.'Page/'.$slug;
                                   $datatoggle = $datatarget='';
@@ -409,16 +409,16 @@
                                ?>
 
                                  <a href="<?php echo $url?>">
-								 <?php if($language_name=='French'){
-										echo ucfirst($page['title_france']);
-									}else{
-										echo ucfirst($page['title']);
-									}
-									?></a>
-							<?php
-							}?>
+                                 <?php if($language_name=='French'){
+                                        echo ucfirst($page['title_france']);
+                                    }else{
+                                        echo ucfirst($page['title']);
+                                    }
+                                    ?></a>
+                            <?php
+                            }?>
 
-							<!--<a href="<?php echo $BASE_URL?>Privacy">Privacy</a>
+                            <!--<a href="<?php echo $BASE_URL?>Privacy">Privacy</a>
                             <a href="#">Sitemap</a>-->
 
                         </div>
@@ -640,304 +640,304 @@ function openCity(evt, cityName) {
 
 <script>
     if(language_name=='French'){
-		/*login code start*/
-		$('#login-form').validate({
-			rules: {
-			 loginemail: {
-				required: true,
-				email: true
-			  },
-			  loginpassword: {
-				required: true,
-			  }
-			},
-			messages: {
-				loginemail: {
-					required: 'Veuillez saisir un e-mail',
-					email:"S'il vous plaît, mettez une adresse email valide",
-				},
-				 loginpassword: {
-					required: 'Veuillez entrer le mot de passe',
-				},
-			},
-			submitHandler: function(form) {
-			  $("#loader-img").show();
-			  var url ='<?php echo $BASE_URL ?>Logins/checkLoginByAjax';
-			  $("#login-msg").html('');
-			  $.ajax({
-				type: "POST",
-				url: url,
-				data: $(form).serialize(), // serializes the form's elements.
-				beforeSend:function() {
-				   $('button[type=submit]').attr('disabled', true);
-				},
-				success: function(data) {
-				  $("#loader-img").hide();
-				  $('button[type=submit]').attr('disabled', false);
-				   let response = JSON.parse(data);
-				   let errors = response.errors;
-				   let msg = response.msg;
-				   let status = response.status;
-				   $("#login-password").val('');
-				   if (errors && Object.keys(errors).length) {
-					 var validator = $(form).validate();
-					 $.each(response.errors, function(key, value) {
-						 validator.showErrors({[key] : value });
-					 });
-				   } else if (status === 'success') {
-						let url=response.url;
-						location.assign(url);
-						//location.assign("<?php echo $BASE_URL ?>MyOrders");
-				   } else {
-					   $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
-				   }
-				},
-				error: function (error) {
-				   $('button[type=submit]').attr('disabled', false);
-				   $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
-				},
-			  });
-			},
-		});
-	}else{
-		$('#login-form').validate({
-			rules: {
-			 loginemail: {
-				required: true,
-				email: true
-			  },
-			  loginpassword: {
-				required: true,
-			  }
-			},
-			messages: {
-				loginemail: {
-					required: 'Please Enter Email',
-				},
-				 loginpassword: {
-					required: 'Please Enter Password',
-				},
-			},
-			submitHandler: function(form) {
-			  $("#loader-img").show();
-			  var url ='<?php echo $BASE_URL ?>Logins/checkLoginByAjax';
-			  $("#login-msg").html('');
-			  $.ajax({
-				type: "POST",
-				url: url,
-				data: $(form).serialize(), // serializes the form's elements.
-				beforeSend:function() {
-				   $('button[type=submit]').attr('disabled', true);
-				},
-				success: function(data) {
-				  $("#loader-img").hide();
-				  $('button[type=submit]').attr('disabled', false);
-				   let response = JSON.parse(data);
-				   let errors = response.errors;
-				   let msg = response.msg;
-				   let status = response.status;
-				   $("#login-password").val('');
-				   if (errors && Object.keys(errors).length) {
-					 var validator = $(form).validate();
-					 $.each(response.errors, function(key, value) {
-						 validator.showErrors({[key] : value });
-					 });
-				   } else if (status === 'success') {
-						location.assign("<?php echo $BASE_URL ?>MyOrders");
-				   } else {
-					   $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
-				   }
-				},
-				error: function (error) {
-				   $('button[type=submit]').attr('disabled', false);
-				   $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
-				},
-			  });
-			},
-		});
-	}
-	/*login code end*/
+        /*login code start*/
+        $('#login-form').validate({
+            rules: {
+             loginemail: {
+                required: true,
+                email: true
+              },
+              loginpassword: {
+                required: true,
+              }
+            },
+            messages: {
+                loginemail: {
+                    required: 'Veuillez saisir un e-mail',
+                    email:"S'il vous plaît, mettez une adresse email valide",
+                },
+                 loginpassword: {
+                    required: 'Veuillez entrer le mot de passe',
+                },
+            },
+            submitHandler: function(form) {
+              $("#loader-img").show();
+              var url ='<?php echo $BASE_URL ?>Logins/checkLoginByAjax';
+              $("#login-msg").html('');
+              $.ajax({
+                type: "POST",
+                url: url,
+                data: $(form).serialize(), // serializes the form's elements.
+                beforeSend:function() {
+                   $('button[type=submit]').attr('disabled', true);
+                },
+                success: function(data) {
+                  $("#loader-img").hide();
+                  $('button[type=submit]').attr('disabled', false);
+                   let response = JSON.parse(data);
+                   let errors = response.errors;
+                   let msg = response.msg;
+                   let status = response.status;
+                   $("#login-password").val('');
+                   if (errors && Object.keys(errors).length) {
+                     var validator = $(form).validate();
+                     $.each(response.errors, function(key, value) {
+                         validator.showErrors({[key] : value });
+                     });
+                   } else if (status === 'success') {
+                        let url=response.url;
+                        location.assign(url);
+                        //location.assign("<?php echo $BASE_URL ?>MyOrders");
+                   } else {
+                       $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
+                   }
+                },
+                error: function (error) {
+                   $('button[type=submit]').attr('disabled', false);
+                   $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
+                },
+              });
+            },
+        });
+    }else{
+        $('#login-form').validate({
+            rules: {
+             loginemail: {
+                required: true,
+                email: true
+              },
+              loginpassword: {
+                required: true,
+              }
+            },
+            messages: {
+                loginemail: {
+                    required: 'Please Enter Email',
+                },
+                 loginpassword: {
+                    required: 'Please Enter Password',
+                },
+            },
+            submitHandler: function(form) {
+              $("#loader-img").show();
+              var url ='<?php echo $BASE_URL ?>Logins/checkLoginByAjax';
+              $("#login-msg").html('');
+              $.ajax({
+                type: "POST",
+                url: url,
+                data: $(form).serialize(), // serializes the form's elements.
+                beforeSend:function() {
+                   $('button[type=submit]').attr('disabled', true);
+                },
+                success: function(data) {
+                  $("#loader-img").hide();
+                  $('button[type=submit]').attr('disabled', false);
+                   let response = JSON.parse(data);
+                   let errors = response.errors;
+                   let msg = response.msg;
+                   let status = response.status;
+                   $("#login-password").val('');
+                   if (errors && Object.keys(errors).length) {
+                     var validator = $(form).validate();
+                     $.each(response.errors, function(key, value) {
+                         validator.showErrors({[key] : value });
+                     });
+                   } else if (status === 'success') {
+                        location.assign("<?php echo $BASE_URL ?>MyOrders");
+                   } else {
+                       $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
+                   }
+                },
+                error: function (error) {
+                   $('button[type=submit]').attr('disabled', false);
+                   $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
+                },
+              });
+            },
+        });
+    }
+    /*login code end*/
 
-	/*signup code start*/
-	if(language_name=='French'){
-		$('#signup-form').validate({
-			rules: {
-			  fname: {
-				required: true,
-			  },
-			  lname: {
-				required: true,
-			  },
-			  email: {
-				required: true,
-				email: true,
-			  },
-			  password: {
-				required: true,
-				minlength: 8,
-				maxlength: 20,
-			  },
-			  confirm_password: {
-				required: true,
-				minlength: 8,
-				maxlength: 20,
-				equalTo : '#signup-password',
-			  },
-			},
-			messages: {
-				fname: {
-					required: 'Veuillez entrer le prénom',
-				},
-				lname: {
-					required: 'Veuillez saisir votre nom',
-				},
-				email: {
-					required: 'Veuillez saisir un e-mail',
-					email:"S'il vous plaît, mettez une adresse email valide",
-				},
-				password: {
-					required: 'Veuillez entrer le mot de passe',
-					minlength:'Veuillez saisir au moins 8 caractères.',
-					maxlength:'Veuillez ne pas saisir plus de 20 caractères'
-				},
-				confirm_password: {
-					required: 'Veuillez saisir le mot de passe',
-					equalTo: 'Le champ Confirmer le mot de passe ne correspond pas au champ Mot de passe',
-					minlength:'Veuillez saisir au moins 8 caractères.',
-					maxlength:'Veuillez ne pas saisir plus de 20 caractères'
-				},
-			},
+    /*signup code start*/
+    if(language_name=='French'){
+        $('#signup-form').validate({
+            rules: {
+              fname: {
+                required: true,
+              },
+              lname: {
+                required: true,
+              },
+              email: {
+                required: true,
+                email: true,
+              },
+              password: {
+                required: true,
+                minlength: 8,
+                maxlength: 20,
+              },
+              confirm_password: {
+                required: true,
+                minlength: 8,
+                maxlength: 20,
+                equalTo : '#signup-password',
+              },
+            },
+            messages: {
+                fname: {
+                    required: 'Veuillez entrer le prénom',
+                },
+                lname: {
+                    required: 'Veuillez saisir votre nom',
+                },
+                email: {
+                    required: 'Veuillez saisir un e-mail',
+                    email:"S'il vous plaît, mettez une adresse email valide",
+                },
+                password: {
+                    required: 'Veuillez entrer le mot de passe',
+                    minlength:'Veuillez saisir au moins 8 caractères.',
+                    maxlength:'Veuillez ne pas saisir plus de 20 caractères'
+                },
+                confirm_password: {
+                    required: 'Veuillez saisir le mot de passe',
+                    equalTo: 'Le champ Confirmer le mot de passe ne correspond pas au champ Mot de passe',
+                    minlength:'Veuillez saisir au moins 8 caractères.',
+                    maxlength:'Veuillez ne pas saisir plus de 20 caractères'
+                },
+            },
 
-			submitHandler: function(form) {
-			  $("#loader-img").show();
-			  var url ='<?php echo $BASE_URL ?>Logins/signup';
-			  $("#signup-msg").html('');
-			  $.ajax({
-				   type: "POST",
-				   url: url,
-				   data: $(form).serialize(), // serializes the form's elements.
-				   beforeSend:function() {
-					  $('button[type=submit]').attr('disabled', true);
-				   },
-				   success: function(data) {
-					  $("#loader-img").hide();
-					  $('button[type=submit]').attr('disabled', false);
-					  let response = JSON.parse(data);
-					  let errors = response.errors;
-					  let msg = response.msg;
-					  let status = response.status;
-					  $("#signup-password").val('');
-					  $("#confirm-password").val('');
-					  if (errors && Object.keys(errors).length) {
-						var validator = $(form).validate();
-						$.each(response.errors, function(key, value) {
-							validator.showErrors({[key] : value });
-						});
-					  } else if (status === 'success') {
-						  $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
-						  $("#msg-modal").modal('show');
-						  setTimeout(function(){ location.reload(); }, 2000);
-					  } else {
-						  $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
-					  }
-				   },
-				   error: function (error) {
-					  $('button[type=submit]').attr('disabled', false);
-					  $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
-				   },
-			  });
-			},
-		});
-	}else{
-		$('#signup-form').validate({
-			rules: {
-			  fname: {
-				required: true,
-			  },
-			  lname: {
-				required: true,
-			  },
-			  email: {
-				required: true,
-				email: true,
-			  },
-			  password: {
-				required: true,
-				minlength: 8,
-				maxlength: 20,
-			  },
-			  confirm_password: {
-				required: true,
-				minlength: 8,
-				maxlength: 20,
-				equalTo : '#signup-password',
-			  },
-			},
-			messages: {
-				fname: {
-					required: 'Please Enter First Name',
-				},
-				lname: {
-					required: 'Please Enter Last Name',
-				},
-				email: {
-					required: 'Please Enter Email',
-				},
-				password: {
-					required: 'Please Enter Password',
-				},
-				confirm_password: {
-					required: 'Please Enter Confirm Password',
-					equalTo: 'Confirm Password Field Does Not Match The Password Field'
-				},
-			},
-			submitHandler: function(form) {
-			  $("#loader-img").show();
-			  var url ='<?php echo $BASE_URL ?>Logins/signup';
-			  $("#signup-msg").html('');
-			  $.ajax({
-				   type: "POST",
-				   url: url,
-				   data: $(form).serialize(), // serializes the form's elements.
-				   beforeSend:function() {
-					  $('button[type=submit]').attr('disabled', true);
-				   },
-				   success: function(data) {
-					  $("#loader-img").hide();
-					  $('button[type=submit]').attr('disabled', false);
-					  let response = JSON.parse(data);
-					  let errors = response.errors;
-					  let msg = response.msg;
-					  let status = response.status;
-					  $("#signup-password").val('');
-					  $("#confirm-password").val('');
-					  if (errors && Object.keys(errors).length) {
-						var validator = $(form).validate();
-						$.each(response.errors, function(key, value) {
-							validator.showErrors({[key] : value });
-						});
-					  } else if (status === 'success') {
-						  $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
-						  $("#msg-modal").modal('show');
-						  setTimeout(function(){ location.reload(); }, 2000);
-					  } else {
-						  $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
-					  }
-				   },
-				   error: function (error) {
-					  $('button[type=submit]').attr('disabled', false);
-					  $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
-				   },
-			  });
-			},
-		});
-	}
+            submitHandler: function(form) {
+              $("#loader-img").show();
+              var url ='<?php echo $BASE_URL ?>Logins/signup';
+              $("#signup-msg").html('');
+              $.ajax({
+                   type: "POST",
+                   url: url,
+                   data: $(form).serialize(), // serializes the form's elements.
+                   beforeSend:function() {
+                      $('button[type=submit]').attr('disabled', true);
+                   },
+                   success: function(data) {
+                      $("#loader-img").hide();
+                      $('button[type=submit]').attr('disabled', false);
+                      let response = JSON.parse(data);
+                      let errors = response.errors;
+                      let msg = response.msg;
+                      let status = response.status;
+                      $("#signup-password").val('');
+                      $("#confirm-password").val('');
+                      if (errors && Object.keys(errors).length) {
+                        var validator = $(form).validate();
+                        $.each(response.errors, function(key, value) {
+                            validator.showErrors({[key] : value });
+                        });
+                      } else if (status === 'success') {
+                          $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
+                          $("#msg-modal").modal('show');
+                          setTimeout(function(){ location.reload(); }, 2000);
+                      } else {
+                          $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
+                      }
+                   },
+                   error: function (error) {
+                      $('button[type=submit]').attr('disabled', false);
+                      $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
+                   },
+              });
+            },
+        });
+    }else{
+        $('#signup-form').validate({
+            rules: {
+              fname: {
+                required: true,
+              },
+              lname: {
+                required: true,
+              },
+              email: {
+                required: true,
+                email: true,
+              },
+              password: {
+                required: true,
+                minlength: 8,
+                maxlength: 20,
+              },
+              confirm_password: {
+                required: true,
+                minlength: 8,
+                maxlength: 20,
+                equalTo : '#signup-password',
+              },
+            },
+            messages: {
+                fname: {
+                    required: 'Please Enter First Name',
+                },
+                lname: {
+                    required: 'Please Enter Last Name',
+                },
+                email: {
+                    required: 'Please Enter Email',
+                },
+                password: {
+                    required: 'Please Enter Password',
+                },
+                confirm_password: {
+                    required: 'Please Enter Confirm Password',
+                    equalTo: 'Confirm Password Field Does Not Match The Password Field'
+                },
+            },
+            submitHandler: function(form) {
+              $("#loader-img").show();
+              var url ='<?php echo $BASE_URL ?>Logins/signup';
+              $("#signup-msg").html('');
+              $.ajax({
+                   type: "POST",
+                   url: url,
+                   data: $(form).serialize(), // serializes the form's elements.
+                   beforeSend:function() {
+                      $('button[type=submit]').attr('disabled', true);
+                   },
+                   success: function(data) {
+                      $("#loader-img").hide();
+                      $('button[type=submit]').attr('disabled', false);
+                      let response = JSON.parse(data);
+                      let errors = response.errors;
+                      let msg = response.msg;
+                      let status = response.status;
+                      $("#signup-password").val('');
+                      $("#confirm-password").val('');
+                      if (errors && Object.keys(errors).length) {
+                        var validator = $(form).validate();
+                        $.each(response.errors, function(key, value) {
+                            validator.showErrors({[key] : value });
+                        });
+                      } else if (status === 'success') {
+                          $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
+                          $("#msg-modal").modal('show');
+                          setTimeout(function(){ location.reload(); }, 2000);
+                      } else {
+                          $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
+                      }
+                   },
+                   error: function (error) {
+                      $('button[type=submit]').attr('disabled', false);
+                      $("#signup-msg").html('<span><label style="color:red">' + msg + '</label></span>');
+                   },
+              });
+            },
+        });
+    }
 
-	/*signup code end*/
+    /*signup code end*/
 
-	/*Preferred code start*/
-	if(language_name=='French'){
-		$('#Preferred-Customer').validate({
+    /*Preferred code start*/
+    if(language_name=='French'){
+        $('#Preferred-Customer').validate({
         rules: {
           fname: {
             required: true,
@@ -970,46 +970,46 @@ function openCity(evt, cityName) {
             },
             email: {
                 required: 'Veuillez saisir un e-mail',
-				email:"S'il vous plaît, mettez une adresse email valide."
+                email:"S'il vous plaît, mettez une adresse email valide."
             },
             password: {
                 required: 'Veuillez entrer le mot de passe',
-				minlength:'Veuillez saisir au moins 8 caractères',
-				maxlength:'Veuillez ne pas saisir plus de 20 caractères.'
+                minlength:'Veuillez saisir au moins 8 caractères',
+                maxlength:'Veuillez ne pas saisir plus de 20 caractères.'
             },
-			company_name:{
-				 required: "veuillez entrer le nom de l'entreprise",
-			},
-			responsible_name:{
-				 required: "veuillez entrer le nom du responsable",
-			},
-			cp:{
-				 required: "veuillez entrer cp",
-			},
-			active_area:{
-				 required: "veuillez entrer dans la zone active",
-			},
-			address:{
-				required: "veuillez entrer l'adresse",
-			},
-			mobile:{
-				required: "veuillez entrer mobile",
-			},
-			country:{
-				required: "choisissez le pays",
-			},
-			region:{
-				required: "choisissez une région",
-			},
-			city:{
-				required: "entrer dans la ville",
-			},
-			zip_code:{
-				required: "entrer le code postal",
-			},
-			request:{
-				required: "entrer la demande",
-			}
+            company_name:{
+                 required: "veuillez entrer le nom de l'entreprise",
+            },
+            responsible_name:{
+                 required: "veuillez entrer le nom du responsable",
+            },
+            cp:{
+                 required: "veuillez entrer cp",
+            },
+            active_area:{
+                 required: "veuillez entrer dans la zone active",
+            },
+            address:{
+                required: "veuillez entrer l'adresse",
+            },
+            mobile:{
+                required: "veuillez entrer mobile",
+            },
+            country:{
+                required: "choisissez le pays",
+            },
+            region:{
+                required: "choisissez une région",
+            },
+            city:{
+                required: "entrer dans la ville",
+            },
+            zip_code:{
+                required: "entrer le code postal",
+            },
+            request:{
+                required: "entrer la demande",
+            }
 
             /*confirm_password: {
                 required: 'Please Enter Confirm Password',
@@ -1017,7 +1017,7 @@ function openCity(evt, cityName) {
             },*/
         },
         submitHandler: function(form) {
-		   $("#loader-img").show();
+           $("#loader-img").show();
           var url ='<?php echo $BASE_URL ?>Logins/preferred_customer_signup';
           $("#signup-msg").html('');
 
@@ -1029,15 +1029,15 @@ function openCity(evt, cityName) {
                   $('button[type=submit]').attr('disabled', true);
                },
                success: function(data) {
-				 $("#loader-img").hide();
+                 $("#loader-img").hide();
                  $('button[type=submit]').attr('disabled', false);
                   var response = JSON.parse(data);
                   var errors = response.errors;
                   var msg = response.msg;
                   var status = response.status;
                   $("#signup-password").val('');
-				  //console.log(response);
-				  if (status == 'success') {
+                  //console.log(response);
+                  if (status == 'success') {
                       $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
                       $("#msg-modal").modal('show');
                       setTimeout(function(){ location.reload(); }, 2000);
@@ -1051,8 +1051,8 @@ function openCity(evt, cityName) {
           });
         },
     });
-	}else{
-		$('#Preferred-Customer').validate({
+    }else{
+        $('#Preferred-Customer').validate({
         rules: {
           fname: {
             required: true,
@@ -1095,7 +1095,7 @@ function openCity(evt, cityName) {
             },*/
         },
         submitHandler: function(form) {
-		   $("#loader-img").show();
+           $("#loader-img").show();
           var url ='<?php echo $BASE_URL ?>Logins/preferred_customer_signup';
           $("#signup-msg").html('');
 
@@ -1107,15 +1107,15 @@ function openCity(evt, cityName) {
                   $('button[type=submit]').attr('disabled', true);
                },
                success: function(data) {
-				 $("#loader-img").hide();
+                 $("#loader-img").hide();
                  $('button[type=submit]').attr('disabled', false);
                   var response = JSON.parse(data);
                   var errors = response.errors;
                   var msg = response.msg;
                   var status = response.status;
                   $("#signup-password").val('');
-				  //console.log(response);
-				  if (status == 'success') {
+                  //console.log(response);
+                  if (status == 'success') {
                       $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
                       $("#msg-modal").modal('show');
                       setTimeout(function(){ location.reload(); }, 2000);
@@ -1129,10 +1129,10 @@ function openCity(evt, cityName) {
           });
         },
     });
-	}
-	/*Preferred code end*/
-	if(language_name=='French'){
-	   $('#email-subscribe').validate({
+    }
+    /*Preferred code end*/
+    if(language_name=='French'){
+       $('#email-subscribe').validate({
         rules: {
           email: {
             required: true,
@@ -1142,7 +1142,7 @@ function openCity(evt, cityName) {
         messages: {
             email: {
                 required: 'Veuillez saisir un e-mail',
-				email:"S'il vous plaît, mettez une adresse email valide."
+                email:"S'il vous plaît, mettez une adresse email valide."
             },
         },
         submitHandler: function(form) {
@@ -1180,8 +1180,8 @@ function openCity(evt, cityName) {
           });
         },
     });
-	}else{
-		$('#email-subscribe').validate({
+    }else{
+        $('#email-subscribe').validate({
         rules: {
           email: {
             required: true,
@@ -1228,7 +1228,7 @@ function openCity(evt, cityName) {
           });
         },
     });
-	}
+    }
 
     $('#product-sorter').change(function() {
         this.form.submit();
@@ -1301,42 +1301,42 @@ function openCity(evt, cityName) {
     });
 
   function updateCartItem(product_id, rowId, quantity) {
-	  if(rowId !='' && quantity !='') {
+      if(rowId !='' && quantity !='') {
              var url ='<?php echo $BASE_URL ?>ShoppingCarts/updateCartItem';
-			$.ajax({
-				   type: "POST",
-				   url: url,
-				   data:{'product_id': product_id, 'rowId':rowId,'quantity':quantity}, // serializes the form's elements.
-				   success: function(data) {
-						var json = JSON.parse(data);
-						var status=json.status;
-						var msg=json.msg;
+            $.ajax({
+                   type: "POST",
+                   url: url,
+                   data:{'product_id': product_id, 'rowId':rowId,'quantity':quantity}, // serializes the form's elements.
+                   success: function(data) {
+                        var json = JSON.parse(data);
+                        var status=json.status;
+                        var msg=json.msg;
             if (json.total_item == 0) {
                 $('#shoping-cart-container').html('<div class="text-center"><h4 class="lead">Shopping Cart Is Empty</h4></div>');
                 $('#shop-cart-table').html('');
             }
-			if (status ==1 ) {
+            if (status ==1 ) {
               $(".cart-contents-count").html(json.total_item);
               $(".cart-sub-total").html(json.sub_total);
               $("." + rowId + "-product-row-sub-total").html(json.row_sub_total);
               getCartItem();
               //$(".after-click").show();
               //$(".before-click").hide();
-			    $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg + '.</span>').addClass("active");
-				 setTimeout(function() {
-					 $('.addtocart-message').removeClass("active");
-				 }, 2000);
-			      } else {
+                $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg + '.</span>').addClass("active");
+                 setTimeout(function() {
+                     $('.addtocart-message').removeClass("active");
+                 }, 2000);
+                  } else {
                              $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg + '.</span>').addClass("active");
-				         setTimeout(function() {
-					       $('.addtocart-message').removeClass("active");
-				          }, 2000);
-						}
-					},
-					error: function (error) {
-					}
-			});
-		}
+                         setTimeout(function() {
+                           $('.addtocart-message').removeClass("active");
+                          }, 2000);
+                        }
+                    },
+                    error: function (error) {
+                    }
+            });
+        }
   }
 
   function getCartItem() {
@@ -1369,14 +1369,14 @@ function openCity(evt, cityName) {
        formsubmit = false;
      }
     if (formsubmit == true) {
-	   $("#loader-img").show();
+       $("#loader-img").show();
       var url ='<?php echo $BASE_URL ?>Logins/checkMobileByAjax';
       $.ajax({
            type: "POST",
            url: url,
            data: form.serialize(), // serializes the form's elements.
            success: function(data) {
-			   $("#loader-img").hide();
+               $("#loader-img").hide();
              $("#checkoutContinue").attr("disabled",true);
              var json = JSON.parse(data);
              var status=json.status;
@@ -1412,11 +1412,11 @@ function openCity(evt, cityName) {
    });
 
    function removeCartItem(rowId,product_id) {
-	  if(language_name == 'French'){
-		 var result = confirm("Voulez-vous vraiment supprimer l'article du panier ?");
-	  }else{
-		  var result = confirm("Are you sure you want to delete cart item ?");
-	  }
+      if(language_name == 'French'){
+         var result = confirm("Voulez-vous vraiment supprimer l'article du panier ?");
+      }else{
+          var result = confirm("Are you sure you want to delete cart item ?");
+      }
       if(rowId !='' && result==true){
       var url ='<?php echo $BASE_URL ?>ShoppingCarts/removeCartItem';
       $.ajax({
@@ -1429,11 +1429,11 @@ function openCity(evt, cityName) {
            var msg = json.msg;
            if (status == 1){
              if(json.total_item == 0) {
-			   if(language_name == 'French'){
-			       $('#shoping-cart-container').html("<div class='text-center'><h4 class='lead'>Le panier d'achat est vide</h4></div>");
-			   }else{
-				   $('#shoping-cart-container').html('<div class="text-center"><h4 class="lead">Shopping Cart Is Empty</h4></div>');
-			   }
+               if(language_name == 'French'){
+                   $('#shoping-cart-container').html("<div class='text-center'><h4 class='lead'>Le panier d'achat est vide</h4></div>");
+               }else{
+                   $('#shoping-cart-container').html('<div class="text-center"><h4 class="lead">Shopping Cart Is Empty</h4></div>');
+               }
 
                $('#shop-cart-table').html('');
              }
@@ -1457,7 +1457,7 @@ function openCity(evt, cityName) {
          error: function (error) {
          }
      });
- 		}
+         }
   }
   function ValidateEmail(email) {
     if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
@@ -1487,7 +1487,7 @@ function openCity(evt, cityName) {
     }
 
     if (formsubmit==true) {
-	  $("#loader-img").show();
+      $("#loader-img").show();
       var url ='<?php echo $BASE_URL ?>Logins/checkLoginByAjax';
       $.ajax({
            type: "POST",
@@ -1500,7 +1500,7 @@ function openCity(evt, cityName) {
            var errors = response.errors;
             $("#ck_login_password").val('');
             if (errors && Object.keys(errors).length) {
-			  $("#loader-img").hide();
+              $("#loader-img").hide();
               $("#ck_login_mobile_error").html(errors.loginemail);
               $("#ck_login_password_error").html(errors.loginpassword);
               $("#ckloginSubmit").attr("disabled",false);
@@ -1508,7 +1508,7 @@ function openCity(evt, cityName) {
             } else if (status === 'success') {
                location.reload();
             }  else {
-			   $("#loader-img").hide();
+               $("#loader-img").hide();
                $("#ck_login_msg").html('<label style="color:red;padding:0px;">' + msg + '</label>');
                $("#ckloginSubmit").attr("disabled",false);
             }
@@ -1568,14 +1568,14 @@ function openCity(evt, cityName) {
      }
 
      if(formsubmit == true) {
-	   $("#loader-img").show();
+       $("#loader-img").show();
        var url ='<?php echo $BASE_URL ?>Logins/signup';
        $.ajax({
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-			 $("#loader-img").hide();
+             $("#loader-img").hide();
              $("#cksignupSubmit").attr("disabled",false);
              $("#signup_password").val('');
              var response = JSON.parse(data);
@@ -1633,40 +1633,40 @@ function openCity(evt, cityName) {
       $("#account-email-error,#input-otp-error,#new-password-error,#g-recaptcha-error").html('');
 
       var accountEmail = $("#account-email").val();
-	  var g_recaptcha_response= $("#g-recaptcha-response").val();
+      var g_recaptcha_response= $("#g-recaptcha-response").val();
       formsubmit = true;
 
       if (accountEmail == '') {
-		        $("#account-email-error").html("Please enter email id.");
-		    if(language_name=='French'){
-			    $("#account-email-error").html("Veuillez saisir votre adresse e-mail.");
-		    }
+                $("#account-email-error").html("Please enter email id.");
+            if(language_name=='French'){
+                $("#account-email-error").html("Veuillez saisir votre adresse e-mail.");
+            }
 
           formsubmit = false;
       } else if (ValidateEmail(accountEmail)) {
            $("#account-email-error").html("Please enter valied email id.");
-		    if(language_name=='French'){
-			    $("#account-email-error").html("Veuillez saisir une adresse e-mail valide.");
-		    }
+            if(language_name=='French'){
+                $("#account-email-error").html("Veuillez saisir une adresse e-mail valide.");
+            }
           formsubmit = false;
       }
-	  if (g_recaptcha_response =='') {
+      if (g_recaptcha_response =='') {
           $("#g-recaptcha-error").html("Please select recaptcha");
-		  if(language_name=='French'){
-			    $("#g-recaptcha-error").html("Veuillez sélectionner recaptcha.");
-		    }
+          if(language_name=='French'){
+                $("#g-recaptcha-error").html("Veuillez sélectionner recaptcha.");
+            }
           formsubmit = false;
       }
 
       if (formsubmit == true) {
-		$("#loader-img").show();
+        $("#loader-img").show();
         var url ='<?php echo $BASE_URL ?>MyAccounts/sendOtp';
         $.ajax({
              type: "POST",
              url: url,
              data: {'account_email': accountEmail, 'type':'Reset Password' }, // serializes the form's elements.
              success: function(data) {
-			  $("#loader-img").hide();
+              $("#loader-img").hide();
               $("#login_password").val('');
               var response = JSON.parse(data);
               var status = response.status;
@@ -1676,7 +1676,7 @@ function openCity(evt, cityName) {
               if (errors && Object.keys(errors).length) {
                   $('#account-email-error').html(errors['account-email-error']);
               } else if (status) {
-				    $('.g-recaptcha').hide();
+                    $('.g-recaptcha').hide();
                     $("#account-email-error").html('<label style="color:green">' + msg + '</label>');
                     $("#send-otp").val(response.otp);
                     $("#otp-container").show();
@@ -1695,8 +1695,8 @@ function openCity(evt, cityName) {
     }
 
     //For password-form Code
-	if(language_name=='French'){
-	  $("#password-form").submit(function(e) {
+    if(language_name=='French'){
+      $("#password-form").submit(function(e) {
       e.preventDefault(); // avoid to execute the actual submit of the form.
       var form = $(this);
       $("#account-email-error, #input-otp-error, #new-password-error").html('');
@@ -1733,7 +1733,7 @@ function openCity(evt, cityName) {
       }
 
     if(formsubmit==true) {
-		  $("#loader-img").show();
+          $("#loader-img").show();
           var url ='<?php echo $BASE_URL ?>MyAccounts/saveChangePassword';
           $.ajax({
                type: "POST",
@@ -1752,7 +1752,7 @@ function openCity(evt, cityName) {
                   });
 
                   if (status == 1) {
-					 $("#loader-img").hide();
+                     $("#loader-img").hide();
                      $("#forgot_msg").html('<label style="color:green">' + msg + '</label>');
                      if (loginId !='') {
                          setTimeout(function(){ window.location.href='<?php echo $BASE_URL?>MyAccounts/logout'}, 2000);
@@ -1771,8 +1771,8 @@ function openCity(evt, cityName) {
         $("#Fsubmit").attr("disabled", false);
       }
     });
-	}else{
-	  $("#password-form").submit(function(e) {
+    }else{
+      $("#password-form").submit(function(e) {
       e.preventDefault(); // avoid to execute the actual submit of the form.
       var form = $(this);
       $("#account-email-error, #input-otp-error, #new-password-error").html('');
@@ -1809,7 +1809,7 @@ function openCity(evt, cityName) {
       }
 
       if (formsubmit==true) {
-		  $("#loader-img").show();
+          $("#loader-img").show();
           var url ='<?php echo $BASE_URL ?>MyAccounts/saveChangePassword';
           $.ajax({
                type: "POST",
@@ -1828,7 +1828,7 @@ function openCity(evt, cityName) {
                   });
 
                   if (status == 1) {
-					 $("#loader-img").hide();
+                     $("#loader-img").hide();
                      $("#forgot_msg").html('<label style="color:green">' + msg + '</label>');
                      if (loginId !='') {
                          setTimeout(function(){ window.location.href='<?php echo $BASE_URL?>MyAccounts/logout'}, 2000);
@@ -1847,7 +1847,7 @@ function openCity(evt, cityName) {
         $("#Fsubmit").attr("disabled", false);
       }
     });
-	}
+    }
     //For password-form Code end
 
   function cksendOptSignupMobile() {
@@ -1866,14 +1866,14 @@ function openCity(evt, cityName) {
     }
 
     if (formsubmit==true) {
-	  $("#loader-img").show();
+      $("#loader-img").show();
       var url ='<?php echo $BASE_URL ?>Logins/sendOtpSingup/';
       $.ajax({
            type: "POST",
            url: url,
            data:{'mobile':mobile,'type':'Signup'}, // serializes the form's elements.
            success: function(data) {
-			$("#loader-img").hide();
+            $("#loader-img").hide();
             $("#ck-signup-continue").attr("disabled",false);
             var json = JSON.parse(data);
             var status=json.status;
@@ -1956,7 +1956,7 @@ function openCity(evt, cityName) {
           },
       },
       submitHandler: function(form) {
-		 $("#loader-img").show();
+         $("#loader-img").show();
         var url  = '<?php echo $BASE_URL ?>MyAccounts/addEditAddress';
         $.ajax({
           type: "POST",
@@ -1973,18 +1973,18 @@ function openCity(evt, cityName) {
              let msg = response.msg;
              let status = response.status;
              $("#login-password").val('');
-			  $("#loader-img").hide();
+              $("#loader-img").hide();
              if (errors && Object.keys(errors).length) {
                var validator = $(form).validate();
                $.each(response.errors, function(key, value) {
                    validator.showErrors({[key] : value });
                });
              } else if (status === 'success') {
-				$('#checkout-address')[0].reset();
+                $('#checkout-address')[0].reset();
                 $('#address-list').append(response.data);
-				$('#Save-and-Deliver-here').show();
-				$('#checkout-new-address').hide();
-				location.reload();
+                $('#Save-and-Deliver-here').show();
+                $('#checkout-new-address').hide();
+                location.reload();
              } else {
                  $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
              }
@@ -2056,7 +2056,7 @@ function openCity(evt, cityName) {
           },
       },
       submitHandler: function(form) {
-		 $("#loader-img").show();
+         $("#loader-img").show();
         var url  = '<?php echo $BASE_URL ?>MyAccounts/addEditAddress';
         $.ajax({
           type: "POST",
@@ -2073,24 +2073,24 @@ function openCity(evt, cityName) {
              let msg = response.msg;
              let status = response.status;
              $("#login-password").val('');
-			  $("#loader-img").hide();
+              $("#loader-img").hide();
              if (errors && Object.keys(errors).length) {
                var validator = $(form).validate();
                $.each(response.errors, function(key, value) {
                    validator.showErrors({[key] : value });
                });
              } else if (status === 'success') {
-				$('#add-new-address')[0].reset();
+                $('#add-new-address')[0].reset();
                 $('#address-list').append(response.data);
-				$('#Save-and-Deliver-here').show();
-				$('#checkout-new-address').hide();
-				url='<?php echo $BASE_URL ?>MyAccounts/manageAddress';
-				location.assign(url);
+                $('#Save-and-Deliver-here').show();
+                $('#checkout-new-address').hide();
+                url='<?php echo $BASE_URL ?>MyAccounts/manageAddress';
+                location.assign(url);
 
-				/*if(response.updated=="1"){
-					url='<?php echo $BASE_URL ?>MyAccounts/manageAddress';
-					location.assign(url);
-				}*/
+                /*if(response.updated=="1"){
+                    url='<?php echo $BASE_URL ?>MyAccounts/manageAddress';
+                    location.assign(url);
+                }*/
              } else {
                  $("#login-msg").html('<span><label style="color:red">' + msg + '</label></span>');
              }
@@ -2124,13 +2124,13 @@ function openCity(evt, cityName) {
           required: true,
         },
       },
-	   messages: {
+       messages: {
           name: {
               required: 'Veuillez entrer le nom',
           },
           email: {
               required: 'Veuillez saisir un e-mail',
-			        email:"S'il vous plaît, mettez une adresse email valide."
+                    email:"S'il vous plaît, mettez une adresse email valide."
           },
           phone: {
               required: 'Veuillez entrer le numéro de téléphone',
@@ -2140,7 +2140,7 @@ function openCity(evt, cityName) {
           },
       },
       submitHandler: function(form) {
-		 $("#loader-img").show();
+         $("#loader-img").show();
         var url  = '<?php echo $BASE_URL ?>Pages/saveContactUs';
         $.ajax({
           type: "POST",
@@ -2150,7 +2150,7 @@ function openCity(evt, cityName) {
              $('button[type=submit]').attr('disabled', true);
           },
           success: function(data) {
-			      $("#loader-img").hide();
+                  $("#loader-img").hide();
             $('button[type=submit]').attr('disabled', false);
              let response = JSON.parse(data);
              let errors = response.errors;
@@ -2168,7 +2168,7 @@ function openCity(evt, cityName) {
              } else if (status === 'success') {
                  $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
                  $("#msg-modal").modal('show');
-				         setTimeout(function(){ location.reload() }, 2000);
+                         setTimeout(function(){ location.reload() }, 2000);
                  $("#contact-us")[0].reset();
              } else {
                  $("#contact-us-message").html('<span class="text-danger"><label class="mt-2">' + msg + '</label></span>');
@@ -2182,7 +2182,7 @@ function openCity(evt, cityName) {
       },
   });
   }else{
-	  $('#contact-us').validate({
+      $('#contact-us').validate({
       rules: {
         name: {
           required: true,
@@ -2216,7 +2216,7 @@ function openCity(evt, cityName) {
           },
       },
       submitHandler: function(form) {
-		  $("#loader-img").show();
+          $("#loader-img").show();
        var url  = '<?php echo $BASE_URL ?>Pages/saveContactUs';
 
        $.ajax({
@@ -2227,7 +2227,7 @@ function openCity(evt, cityName) {
              $('button[type=submit]').attr('disabled', true);
           },
           success: function(data) {
-			       $("#loader-img").hide();
+                   $("#loader-img").hide();
             $('button[type=submit]').attr('disabled', false);
                 let response = JSON.parse(data);
                 let errors = response.errors;
@@ -2266,530 +2266,530 @@ function contactus_recaptcha(){
 //contact code end
   //estimate code Start
  if(language_name=='French'){
-		$('#estimate-form').validate({
-			  rules: {
-				contact_name: {
-				  required: true,
-				},
-				company_name: {
-				  required: true,
-				},
-				email: {
-				  required: true,
-				  email: true,
-				},
-				phone_number: {
-				  required: true,
-				  number: true,
-				  maxlength: 10,
-				  minlength: 10,
-				},
-				street: {
-				  required: true,
-				},
-				city: {
-				  required: true,
-				},
-				country: {
-				  required: true,
-				},
-				postal_code: {
-				  required: true,
-				  maxlength: 10,
-				  minlength: 6,
-				},
-				flat_size: {
-				  required: true,
-				},
-				finish_size: {
-				  required: true,
-				},
-			  },
-			  messages: {
-				  contact_name: {
-					  required: 'Veuillez saisir le nom du contact',
-				  },
-				  company_name: {
-					  required: "Veuillez saisir le nom de l'entreprise",
-				  },
-				  email: {
-					  required: 'Veuillez saisir un e-mail',
-					  email:'Veuillez saisir une adresse email valide.'
-				  },
-				  phone_number: {
-					  required: 'Veuillez entrer le numéro de téléphone',
-				  },
-				  street: {
-					  required: 'Veuillez entrer la rue',
-				  },
-				  city: {
-					  required: 'Veuillez entrer la ville',
-				  },
-				  country: {
-					  required: 'Veuillez entrer le pays',
-				  },
-				  postal_code: {
-					  required: 'Veuillez entrer le code postal',
-				  },
-				  flat_size: {
-					  required: 'Veuillez saisir la taille à plat',
-				  },
-				  finish_size: {
-					  required: 'Veuillez saisir la taille finie',
-				  },
-			  },
+        $('#estimate-form').validate({
+              rules: {
+                contact_name: {
+                  required: true,
+                },
+                company_name: {
+                  required: true,
+                },
+                email: {
+                  required: true,
+                  email: true,
+                },
+                phone_number: {
+                  required: true,
+                  number: true,
+                  maxlength: 10,
+                  minlength: 10,
+                },
+                street: {
+                  required: true,
+                },
+                city: {
+                  required: true,
+                },
+                country: {
+                  required: true,
+                },
+                postal_code: {
+                  required: true,
+                  maxlength: 10,
+                  minlength: 6,
+                },
+                flat_size: {
+                  required: true,
+                },
+                finish_size: {
+                  required: true,
+                },
+              },
+              messages: {
+                  contact_name: {
+                      required: 'Veuillez saisir le nom du contact',
+                  },
+                  company_name: {
+                      required: "Veuillez saisir le nom de l'entreprise",
+                  },
+                  email: {
+                      required: 'Veuillez saisir un e-mail',
+                      email:'Veuillez saisir une adresse email valide.'
+                  },
+                  phone_number: {
+                      required: 'Veuillez entrer le numéro de téléphone',
+                  },
+                  street: {
+                      required: 'Veuillez entrer la rue',
+                  },
+                  city: {
+                      required: 'Veuillez entrer la ville',
+                  },
+                  country: {
+                      required: 'Veuillez entrer le pays',
+                  },
+                  postal_code: {
+                      required: 'Veuillez entrer le code postal',
+                  },
+                  flat_size: {
+                      required: 'Veuillez saisir la taille à plat',
+                  },
+                  finish_size: {
+                      required: 'Veuillez saisir la taille finie',
+                  },
+              },
 
-			  submitHandler: function(form) {
-				 $("#loader-img").show();
-				var url  = '<?php echo $BASE_URL ?>Products/saveEstimate';
-				$.ajax({
-				  type: "POST",
-				  url: url,
-				  data: $(form).serialize(), // serializes the form's elements.
-				  beforeSend:function() {
-					 $('button[type=submit]').attr('disabled', true);
-				  },
-				  success: function(data) {
-					 $("#loader-img").hide();
-					$('button[type=submit]').attr('disabled', false);
-					 let response = JSON.parse(data);
-					 let errors = response.errors;
-					 let msg = response.msg;
-					 let status = response.status;
-					 if (errors && Object.keys(errors).length) {
-					   var validator = $(form).validate();
-					   $.each(response.errors, function(key, value) {
-						   validator.showErrors({[key] : value });
-					   });
-					 } else if (status === 'success') {
-						$("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
-						$("#msg-modal").modal('show');
-						setTimeout(function(){ location.reload() }, 2000);
-					 } else {
-						 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">' + msg + '</label></span>');
-					 }
-					 $("#estimate-form")[0].reset();
-				  },
-				  error: function (error) {
-					 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">' + msg + '</label></span>');
-					 $('button[type=submit]').attr('disabled', false);
-				  },
-				});
-			  },
-		  });
+              submitHandler: function(form) {
+                 $("#loader-img").show();
+                var url  = '<?php echo $BASE_URL ?>Products/saveEstimate';
+                $.ajax({
+                  type: "POST",
+                  url: url,
+                  data: $(form).serialize(), // serializes the form's elements.
+                  beforeSend:function() {
+                     $('button[type=submit]').attr('disabled', true);
+                  },
+                  success: function(data) {
+                     $("#loader-img").hide();
+                    $('button[type=submit]').attr('disabled', false);
+                     let response = JSON.parse(data);
+                     let errors = response.errors;
+                     let msg = response.msg;
+                     let status = response.status;
+                     if (errors && Object.keys(errors).length) {
+                       var validator = $(form).validate();
+                       $.each(response.errors, function(key, value) {
+                           validator.showErrors({[key] : value });
+                       });
+                     } else if (status === 'success') {
+                        $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
+                        $("#msg-modal").modal('show');
+                        setTimeout(function(){ location.reload() }, 2000);
+                     } else {
+                         $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">' + msg + '</label></span>');
+                     }
+                     $("#estimate-form")[0].reset();
+                  },
+                  error: function (error) {
+                     $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">' + msg + '</label></span>');
+                     $('button[type=submit]').attr('disabled', false);
+                  },
+                });
+              },
+          });
     }else{
-	    $('#estimate-form').validate({
-			  rules: {
-				contact_name: {
-				  required: true,
-				},
-				company_name: {
-				  required: true,
-				},
-				email: {
-				  required: true,
-				  email: true,
-				},
-				phone_number: {
-				  required: true,
-				  number: true,
-				  maxlength: 10,
-				  minlength: 10,
-				},
-				street: {
-				  required: true,
-				},
-				city: {
-				  required: true,
-				},
-				country: {
-				  required: true,
-				},
-				postal_code: {
-				  required: true,
-				  maxlength: 10,
-				  minlength: 6,
-				},
-				flat_size: {
-				  required: true,
-				},
-				finish_size: {
-				  required: true,
-				},
-			  },
-			  messages: {
-				  contact_name: {
-					  required: 'Please Enter Contact Name',
-				  },
-				  company_name: {
-					  required: 'Please Enter Company Name',
-				  },
-				  email: {
-					  required: 'Please Enter Email',
-				  },
-				  phone_number: {
-					  required: 'Please Enter Phone Number',
-				  },
-				  street: {
-					  required: 'Please Enter Street',
-				  },
-				  city: {
-					  required: 'Please Enter City',
-				  },
-				  country: {
-					  required: 'Please Enter Country',
-				  },
-				  postal_code: {
-					  required: 'Please Enter Postal Code',
-				  },
-				  flat_size: {
-					  required: 'Please Enter Flat Size',
-				  },
-				  finish_size: {
-					  required: 'Please Enter Finished Size',
-				  },
-			  },
-			  submitHandler: function(form) {
-				 $("#loader-img").show();
-				var url  = '<?php echo $BASE_URL ?>Products/saveEstimate';
-				$.ajax({
-				  type: "POST",
-				  url: url,
-				  data: $(form).serialize(), // serializes the form's elements.
-				  beforeSend:function() {
-					 $('button[type=submit]').attr('disabled', true);
-				  },
-				  success: function(data) {
-					 $("#loader-img").hide();
-					$('button[type=submit]').attr('disabled', false);
-					 let response = JSON.parse(data);
-					 let errors = response.errors;
-					 let msg = response.msg;
-					 let status = response.status;
-					 if (errors && Object.keys(errors).length) {
-					   var validator = $(form).validate();
-					   $.each(response.errors, function(key, value) {
-						   validator.showErrors({[key] : value });
-					   });
-					 } else if (status === 'success') {
-						 $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
-						 $("#msg-modal").modal('show');
-						 setTimeout(function(){ location.reload() }, 2000);
-					 } else {
-						 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">' + msg + '</label></span>');
-					 }
-					 $("#estimate-form")[0].reset();
-				  },
-				  error: function (error) {
-					 $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">' + msg + '</label></span>');
-					 $('button[type=submit]').attr('disabled', false);
-				  },
-				});
-			  },
-		  });
+        $('#estimate-form').validate({
+              rules: {
+                contact_name: {
+                  required: true,
+                },
+                company_name: {
+                  required: true,
+                },
+                email: {
+                  required: true,
+                  email: true,
+                },
+                phone_number: {
+                  required: true,
+                  number: true,
+                  maxlength: 10,
+                  minlength: 10,
+                },
+                street: {
+                  required: true,
+                },
+                city: {
+                  required: true,
+                },
+                country: {
+                  required: true,
+                },
+                postal_code: {
+                  required: true,
+                  maxlength: 10,
+                  minlength: 6,
+                },
+                flat_size: {
+                  required: true,
+                },
+                finish_size: {
+                  required: true,
+                },
+              },
+              messages: {
+                  contact_name: {
+                      required: 'Please Enter Contact Name',
+                  },
+                  company_name: {
+                      required: 'Please Enter Company Name',
+                  },
+                  email: {
+                      required: 'Please Enter Email',
+                  },
+                  phone_number: {
+                      required: 'Please Enter Phone Number',
+                  },
+                  street: {
+                      required: 'Please Enter Street',
+                  },
+                  city: {
+                      required: 'Please Enter City',
+                  },
+                  country: {
+                      required: 'Please Enter Country',
+                  },
+                  postal_code: {
+                      required: 'Please Enter Postal Code',
+                  },
+                  flat_size: {
+                      required: 'Please Enter Flat Size',
+                  },
+                  finish_size: {
+                      required: 'Please Enter Finished Size',
+                  },
+              },
+              submitHandler: function(form) {
+                 $("#loader-img").show();
+                var url  = '<?php echo $BASE_URL ?>Products/saveEstimate';
+                $.ajax({
+                  type: "POST",
+                  url: url,
+                  data: $(form).serialize(), // serializes the form's elements.
+                  beforeSend:function() {
+                     $('button[type=submit]').attr('disabled', true);
+                  },
+                  success: function(data) {
+                     $("#loader-img").hide();
+                    $('button[type=submit]').attr('disabled', false);
+                     let response = JSON.parse(data);
+                     let errors = response.errors;
+                     let msg = response.msg;
+                     let status = response.status;
+                     if (errors && Object.keys(errors).length) {
+                       var validator = $(form).validate();
+                       $.each(response.errors, function(key, value) {
+                           validator.showErrors({[key] : value });
+                       });
+                     } else if (status === 'success') {
+                         $("#msg-modal .modal-body").html('<span style="color:green">' + msg + '</span>');
+                         $("#msg-modal").modal('show');
+                         setTimeout(function(){ location.reload() }, 2000);
+                     } else {
+                         $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">' + msg + '</label></span>');
+                     }
+                     $("#estimate-form")[0].reset();
+                  },
+                  error: function (error) {
+                     $("#estimate-message").html('<span class="text-danger mb-5"><label class="mt-2">' + msg + '</label></span>');
+                     $('button[type=submit]').attr('disabled', false);
+                  },
+                });
+              },
+          });
     }
 
   //estimate code end
 
   var loginId='<?php echo $loginId?>';
   function addProductWishList(product_id){
-		if(loginId ==''){
-			  var url  = '<?php echo $BASE_URL ?>Logins';
-			  location.assign(url);
-			  return false;
-		}
-		if(loginId !='' && product_id !=''){
-			$("#loader-img").show();
-			var url ='<?php echo $BASE_URL ?>Wishlists/addByAjax';
-			$.ajax({
-				   type: "POST",
-				   url: url,
-				   data:{'product_id':product_id}, // serializes the form's elements.
-				   success: function(data) {
-					   $("#loader-img").hide();
-						var json = JSON.parse(data);
-						var status =  json.status;
-						var msg = json.msg;
-						if (status == 1){
-							$("#WishlistsCount").html(json.count);
-							$("#msg-modal .modal-body").html('<label><i class="fas fa-check-circle"></i><span class="msg-modal-text">' + msg + '</span></label><div class="text-center msg-btn"><a href="<?php echo $BASE_URL ?>Products"><button class="btn btn-sm btn-success continue-shopping-btn">Continue Shopping</button></a>&nbsp;&nbsp;<a href="<?php echo $BASE_URL ?>Wishlists"><button class="btn btn-sm btn-success msg-cart-btn-clr">Go To Wishlist</button></div></a>');
-							$("#msg-modal").modal('show');
-						} else{
-							$("#msg-modal .modal-body").html('<span style="color:red">' + msg + '</span>');
-							$("#msg-modal").modal('show');
-						}
-					},
-					error: function (error) {
-					}
-			});
-		}
-	}
+        if(loginId ==''){
+              var url  = '<?php echo $BASE_URL ?>Logins';
+              location.assign(url);
+              return false;
+        }
+        if(loginId !='' && product_id !=''){
+            $("#loader-img").show();
+            var url ='<?php echo $BASE_URL ?>Wishlists/addByAjax';
+            $.ajax({
+                   type: "POST",
+                   url: url,
+                   data:{'product_id':product_id}, // serializes the form's elements.
+                   success: function(data) {
+                       $("#loader-img").hide();
+                        var json = JSON.parse(data);
+                        var status =  json.status;
+                        var msg = json.msg;
+                        if (status == 1){
+                            $("#WishlistsCount").html(json.count);
+                            $("#msg-modal .modal-body").html('<label><i class="fas fa-check-circle"></i><span class="msg-modal-text">' + msg + '</span></label><div class="text-center msg-btn"><a href="<?php echo $BASE_URL ?>Products"><button class="btn btn-sm btn-success continue-shopping-btn">Continue Shopping</button></a>&nbsp;&nbsp;<a href="<?php echo $BASE_URL ?>Wishlists"><button class="btn btn-sm btn-success msg-cart-btn-clr">Go To Wishlist</button></div></a>');
+                            $("#msg-modal").modal('show');
+                        } else{
+                            $("#msg-modal .modal-body").html('<span style="color:red">' + msg + '</span>');
+                            $("#msg-modal").modal('show');
+                        }
+                    },
+                    error: function (error) {
+                    }
+            });
+        }
+    }
   function deleteWishlist(wishlist_id,type){
-		var result=true;
-		if (type==1){
-		  var result = confirm("Are you sure you want to delete wishlist item ?");
-		}
-		if(wishlist_id !='' && result==true){
-			var url ='<?php echo $BASE_URL ?>Wishlists/deleteWishlist';
-			$.ajax({
-				   type: "POST",
-				   url: url,
-				   data:{'wishlist_id':wishlist_id}, // serializes the form's elements.
-				   success: function(data)
-				   {
-						var json = JSON.parse(data);
-						var status=json.status;
-						var msg=json.msg;
+        var result=true;
+        if (type==1){
+          var result = confirm("Are you sure you want to delete wishlist item ?");
+        }
+        if(wishlist_id !='' && result==true){
+            var url ='<?php echo $BASE_URL ?>Wishlists/deleteWishlist';
+            $.ajax({
+                   type: "POST",
+                   url: url,
+                   data:{'wishlist_id':wishlist_id}, // serializes the form's elements.
+                   success: function(data)
+                   {
+                        var json = JSON.parse(data);
+                        var status=json.status;
+                        var msg=json.msg;
 
-						if(status ==1 ){
-							$("#" + wishlist_id).remove();
-							$("#WishlistsCount").html(json.count);
-							if(json.count==0){
-								$("#tableWishList").html('<tr><td colspan="5" class="text-center">Wishlist empty</td></tr>');
-							}
-							location.reload();
-						}else{
-							$("#msg-modal .modal-body").html('<span style="color:red">' + msg + '</span>');
-							$("#msg-modal").modal('show');
-						}
-					},
-					error: function (error) {
-					}
-			});
-	    }
-	}
+                        if(status ==1 ){
+                            $("#" + wishlist_id).remove();
+                            $("#WishlistsCount").html(json.count);
+                            if(json.count==0){
+                                $("#tableWishList").html('<tr><td colspan="5" class="text-center">Wishlist empty</td></tr>');
+                            }
+                            location.reload();
+                        }else{
+                            $("#msg-modal .modal-body").html('<span style="color:red">' + msg + '</span>');
+                            $("#msg-modal").modal('show');
+                        }
+                    },
+                    error: function (error) {
+                    }
+            });
+        }
+    }
 
-	function getState(country_id){
-		$("#stateiD").val('');
-		$("#cityId").val('');
-		$("#stateiD").html('<option value="">Loding..</option>');
-		if(country_id !=''){
-			var url ='<?php echo $BASE_URL ?>MyAccounts/getStateDropDownListByAjax/' + country_id;
-			$.ajax({
-				   type: "GET",
-				   url: url,
-				   contentType:"html",
-				   //data:{'country_id':country_id}, // serializes the form's elements.
-				   success: function(data)
-				   {
-					   $("#stateiD").html(data);
-				   }
-			});
-	    }
-	}
+    function getState(country_id){
+        $("#stateiD").val('');
+        $("#cityId").val('');
+        $("#stateiD").html('<option value="">Loding..</option>');
+        if(country_id !=''){
+            var url ='<?php echo $BASE_URL ?>MyAccounts/getStateDropDownListByAjax/' + country_id;
+            $.ajax({
+                   type: "GET",
+                   url: url,
+                   contentType:"html",
+                   //data:{'country_id':country_id}, // serializes the form's elements.
+                   success: function(data)
+                   {
+                       $("#stateiD").html(data);
+                   }
+            });
+        }
+    }
 
-	function getCity(state_id){
-		$("#cityId").val('');
-		$("#cityId").html('<option value="">Loding..</option>');
-		if(state_id !=''){
-			var url ='<?php echo $BASE_URL ?>MyAccounts/getCityDropDownListByAjax/' + state_id;
-			$.ajax({
-				   type: "GET",
-				   url: url,
-				   contentType:"html",
-				   //data:{'country_id':country_id}, // serializes the form's elements.
-				   success: function(data)
-				   {
-					   $("#cityId").html(data);
-				   }
-			});
-	    }
-	}
+    function getCity(state_id){
+        $("#cityId").val('');
+        $("#cityId").html('<option value="">Loding..</option>');
+        if(state_id !=''){
+            var url ='<?php echo $BASE_URL ?>MyAccounts/getCityDropDownListByAjax/' + state_id;
+            $.ajax({
+                   type: "GET",
+                   url: url,
+                   contentType:"html",
+                   //data:{'country_id':country_id}, // serializes the form's elements.
+                   success: function(data)
+                   {
+                       $("#cityId").html(data);
+                   }
+            });
+        }
+    }
 
-	function changeOrderStatus(order_id,status) {
-			var mobileMsg='';
-			$("#mobileMsg").html(mobileMsg);
-			$("#cl_order_id").val(order_id);
-		    $("#cl_status").val(status);
-			$("#myModal").modal('show');
-	}
+    function changeOrderStatus(order_id,status) {
+            var mobileMsg='';
+            $("#mobileMsg").html(mobileMsg);
+            $("#cl_order_id").val(order_id);
+            $("#cl_status").val(status);
+            $("#myModal").modal('show');
+    }
 
-	$("#changeOrderStatusForm").submit(function(e) {
-		e.preventDefault(); // avoid to execute the actual submit of the form.
-		var form = $(this);
-		var formsubmit=true;
-		$("#btnSubmit").attr("disabled",true);
-		var order_id =$("#cl_order_id").val();
-		var status =$("#cl_status").val();
-		if(formsubmit==true){
-			var url ='<?php echo $BASE_URL ?>MyOrders/changeOrderStatus';
-			$.ajax({
-				   type: "POST",
-				   url: url,
-				   data: form.serialize(), // serializes the form's elements.
+    $("#changeOrderStatusForm").submit(function(e) {
+        e.preventDefault(); // avoid to execute the actual submit of the form.
+        var form = $(this);
+        var formsubmit=true;
+        $("#btnSubmit").attr("disabled",true);
+        var order_id =$("#cl_order_id").val();
+        var status =$("#cl_status").val();
+        if(formsubmit==true){
+            var url ='<?php echo $BASE_URL ?>MyOrders/changeOrderStatus';
+            $.ajax({
+                   type: "POST",
+                   url: url,
+                   data: form.serialize(), // serializes the form's elements.
 
-				   success: function(data)
-				   {
-				        $("#myModal").modal('hide');
-				        $("#btnSubmit").attr("disabled",false);
-						var json = JSON.parse(data);
-				        var res=json.status;
-					    var msg=json.msg;
-						if(res==1){
-						setTimeout(function(){
-							    location.reload();
-							  }, 2000
-						);
-						$("#MsgModal .modal-body").html('<span style="color:green">' + msg + '</span>');
-						$("#MsgModal").modal('show');
-						}else{
-							$("#MsgModal .modal-body").html('<span style="color:red">' + msg + '</span>');
-							$("#MsgModal").modal('show');
-						}
-				   },
-				   error: function (error) {
-					  $("#btnSubmit").attr("disabled",false);
-				   }
-			});
-		}else{
-			$("#btnSubmit").attr("disabled",false);
-		}
+                   success: function(data)
+                   {
+                        $("#myModal").modal('hide');
+                        $("#btnSubmit").attr("disabled",false);
+                        var json = JSON.parse(data);
+                        var res=json.status;
+                        var msg=json.msg;
+                        if(res==1){
+                        setTimeout(function(){
+                                location.reload();
+                              }, 2000
+                        );
+                        $("#MsgModal .modal-body").html('<span style="color:green">' + msg + '</span>');
+                        $("#MsgModal").modal('show');
+                        }else{
+                            $("#MsgModal .modal-body").html('<span style="color:red">' + msg + '</span>');
+                            $("#MsgModal").modal('show');
+                        }
+                   },
+                   error: function (error) {
+                      $("#btnSubmit").attr("disabled",false);
+                   }
+            });
+        }else{
+            $("#btnSubmit").attr("disabled",false);
+        }
     });
 
-	function searchProduct(searchtext){
-		$("#ProductListUl").html('');
-	  	if(searchtext !=''){
-			$("#searchDiv").show();
-			$("#coming-res-data").show();
+    function searchProduct(searchtext){
+        $("#ProductListUl").html('');
+          if(searchtext !=''){
+            $("#searchDiv").show();
+            $("#coming-res-data").show();
 
-			var url ='<?php echo $BASE_URL ?>Products/searchProduct';
-			$("#searchDiv").show();
-			$.ajax({
-				   type: "POST",
-				   url: url,
-				   data:{'searchtext':searchtext}, // serializes the form's elements.
-				    success: function(data)
-				    {
-					    $("#coming-res-data").hide();
-					    $("#ProductListUl").html(data);
-					},
-					error: function (error) {
-					}
-			});
-		}else{
-			$("#searchDiv").hide();
-			$("#coming-res-data").hide();
-		}
+            var url ='<?php echo $BASE_URL ?>Products/searchProduct';
+            $("#searchDiv").show();
+            $.ajax({
+                   type: "POST",
+                   url: url,
+                   data:{'searchtext':searchtext}, // serializes the form's elements.
+                    success: function(data)
+                    {
+                        $("#coming-res-data").hide();
+                        $("#ProductListUl").html(data);
+                    },
+                    error: function (error) {
+                    }
+            });
+        }else{
+            $("#searchDiv").hide();
+            $("#coming-res-data").hide();
+        }
     }
 
     function removeSerchProduct(){
-		$("#ToSeachBox").val('');
-		$("#ProductListUl").html('');
+        $("#ToSeachBox").val('');
+        $("#ProductListUl").html('');
         $("#searchDiv").hide();
- 	}
+     }
 
-	$(document).mouseup(function(e)
-	{
-		var container = $(".mid-search-bar");
-		// if the target of the click isn't the container nor a descendant of the container
-		if (!container.is(e.target) && container.has(e.target).length === 0)
-		{
-			removeSerchProduct();
-		}
-	});
-	<?php if($showCOVID19MSG){ ?>
-	    $("#WarningModal").modal('show');
-	<?php
-	}?>
+    $(document).mouseup(function(e)
+    {
+        var container = $(".mid-search-bar");
+        // if the target of the click isn't the container nor a descendant of the container
+        if (!container.is(e.target) && container.has(e.target).length === 0)
+        {
+            removeSerchProduct();
+        }
+    });
+    <?php if($showCOVID19MSG){ ?>
+        $("#WarningModal").modal('show');
+    <?php
+    }?>
 
-	function COVIDMSGClose(){
-		$("#loader-img").show();
-		var url ='<?php echo $BASE_URL ?>Homes/COVIDMSGClose';
-		$.ajax({
-			   type: "GET",
-			   url: url,
-				success: function(data)
-				{
+    function COVIDMSGClose(){
+        $("#loader-img").show();
+        var url ='<?php echo $BASE_URL ?>Homes/COVIDMSGClose';
+        $.ajax({
+               type: "GET",
+               url: url,
+                success: function(data)
+                {
                    $("#loader-img").hide();
-				   $("#WarningModal").modal('hide');
-				},
-				error: function (error) {
-				}
-		});
+                   $("#WarningModal").modal('hide');
+                },
+                error: function (error) {
+                }
+        });
     }
-	if(language_name=='French'){
-	function PrinterSeries(printer_brand){
-		//alert(printer_brand);
-		$("#printer_series").html("<option value=''>Sélectionnez une série d'imprimantes</option>");
-		$("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
+    if(language_name=='French'){
+    function PrinterSeries(printer_brand){
+        //alert(printer_brand);
+        $("#printer_series").html("<option value=''>Sélectionnez une série d'imprimantes</option>");
+        $("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
 
-		if(printer_brand !=''){
-			$("#printer_series").html('<option value="">Hébergement ..</option>');
-		   //$("#printer_models").html('<option value="">Loding..</option>');
-			var url ='<?php echo $BASE_URL ?>Products/PrinterSeries/' + printer_brand;
-			$.ajax({
-				   type: "GET",
-				   url: url,
-				   contentType:"html",
-				   success: function(data)
-				   {
-					   $("#printer_series").html(data);
-				   }
-			});
-	    }
-	}
+        if(printer_brand !=''){
+            $("#printer_series").html('<option value="">Hébergement ..</option>');
+           //$("#printer_models").html('<option value="">Loding..</option>');
+            var url ='<?php echo $BASE_URL ?>Products/PrinterSeries/' + printer_brand;
+            $.ajax({
+                   type: "GET",
+                   url: url,
+                   contentType:"html",
+                   success: function(data)
+                   {
+                       $("#printer_series").html(data);
+                   }
+            });
+        }
+    }
 
-	function PrinterModel(printer_series){
-		var printer_brand= $("#printer_brand").val();
-		$("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
+    function PrinterModel(printer_series){
+        var printer_brand= $("#printer_brand").val();
+        $("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
 
-		if(printer_series !=''){
-			$("#printer_models").html('<option value="">Hébergement ..</option>');
-			var url ='<?php echo $BASE_URL ?>Products/PrinterModel/' + printer_brand + '/' + printer_series;
-			$.ajax({
-				   type: "GET",
-				   url: url,
-				   contentType:"html",
-				   //data:{'country_id':country_id}, // serializes the form's elements.
-				   success: function(data)
-				   {
-					   $("#printer_models").html(data);
-				   }
-			});
-	    }
-	}
-	}else{
-		function PrinterSeries(printer_brand){
-			//alert(printer_brand);
-			$("#printer_series").html('<option value="">Select a Printer Series</option>');
-			$("#printer_models").html('<option value="">Select a Printer Model</option>');
+        if(printer_series !=''){
+            $("#printer_models").html('<option value="">Hébergement ..</option>');
+            var url ='<?php echo $BASE_URL ?>Products/PrinterModel/' + printer_brand + '/' + printer_series;
+            $.ajax({
+                   type: "GET",
+                   url: url,
+                   contentType:"html",
+                   //data:{'country_id':country_id}, // serializes the form's elements.
+                   success: function(data)
+                   {
+                       $("#printer_models").html(data);
+                   }
+            });
+        }
+    }
+    }else{
+        function PrinterSeries(printer_brand){
+            //alert(printer_brand);
+            $("#printer_series").html('<option value="">Select a Printer Series</option>');
+            $("#printer_models").html('<option value="">Select a Printer Model</option>');
 
-			if(printer_brand !=''){
-				$("#printer_series").html('<option value="">Loding..</option>');
-			   //$("#printer_models").html('<option value="">Loding..</option>');
-				var url ='<?php echo $BASE_URL ?>Products/PrinterSeries/' + printer_brand;
-				$.ajax({
-					   type: "GET",
-					   url: url,
-					   contentType:"html",
-					   success: function(data)
-					   {
-						   $("#printer_series").html(data);
-					   }
-				});
-			}
-		}
+            if(printer_brand !=''){
+                $("#printer_series").html('<option value="">Loding..</option>');
+               //$("#printer_models").html('<option value="">Loding..</option>');
+                var url ='<?php echo $BASE_URL ?>Products/PrinterSeries/' + printer_brand;
+                $.ajax({
+                       type: "GET",
+                       url: url,
+                       contentType:"html",
+                       success: function(data)
+                       {
+                           $("#printer_series").html(data);
+                       }
+                });
+            }
+        }
 
-		function PrinterModel(printer_series){
-			var printer_brand= $("#printer_brand").val();
-			$("#printer_models").html('<option value="">Select a Printer Model</option>');
+        function PrinterModel(printer_series){
+            var printer_brand= $("#printer_brand").val();
+            $("#printer_models").html('<option value="">Select a Printer Model</option>');
 
-			if(printer_series !=''){
-				$("#printer_models").html('<option value="">Loding..</option>');
-				var url ='<?php echo $BASE_URL ?>Products/PrinterModel/' + printer_brand + '/' + printer_series;
-				$.ajax({
-					   type: "GET",
-					   url: url,
-					   contentType:"html",
-					   //data:{'country_id':country_id}, // serializes the form's elements.
-					   success: function(data)
-					   {
-						   $("#printer_models").html(data);
-					   }
-				});
-			}
-		}
-	}
+            if(printer_series !=''){
+                $("#printer_models").html('<option value="">Loding..</option>');
+                var url ='<?php echo $BASE_URL ?>Products/PrinterModel/' + printer_brand + '/' + printer_series;
+                $.ajax({
+                       type: "GET",
+                       url: url,
+                       contentType:"html",
+                       //data:{'country_id':country_id}, // serializes the form's elements.
+                       success: function(data)
+                       {
+                           $("#printer_models").html(data);
+                       }
+                });
+            }
+        }
+    }
 
   function expiryMask() {
       var inputChar = String.fromCharCode(event.keyCode);
@@ -2858,7 +2858,7 @@ function contactus_recaptcha(){
       }
   }
 
-	function cardFormValidate(){
+    function cardFormValidate(){
         var cardValid = 1;
         if ($('#CardNumber').val().length < 14 || $('#CardNumber').val().length > 20) {
             $("#CardNumber").addClass('is-invalid');
@@ -2929,16 +2929,16 @@ function contactus_recaptcha(){
         years = years.substring(0, years.length - 1);
         return years
     }
-	$(document).ready(function() {
-		if(language_name=='French'){
-			$("#printer_brand").val('');
-			$("#printer_series").html("<option value=''>Sélectionnez une série d'imprimantes</option>");
-		    $("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
-		} else {
+    $(document).ready(function() {
+        if(language_name=='French'){
+            $("#printer_brand").val('');
+            $("#printer_series").html("<option value=''>Sélectionnez une série d'imprimantes</option>");
+            $("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
+        } else {
             $("#printer_brand").val('');
             $("#printer_series").html('<option value="">Select a Printer Series</option>');
             $("#printer_models").html('<option value="">Select a Printer Model</option>');
-		}
+        }
         $('#CardNumber').mask('0000 0000 0000 0000');
         $(".pos input").keyup(function(){ cardFormValidate() })
         $("#place-order-form").submit(function(e){

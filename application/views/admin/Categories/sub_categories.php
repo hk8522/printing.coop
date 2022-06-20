@@ -31,7 +31,7 @@
                                 <table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
                                     <thead>
                                         <tr role="row">
-										    <th class="hidden"></th>
+                                            <th class="hidden"></th>
                                             <th>Name</th>
                                             <th>Sub Category Order</th>
                                             <th>Parent Category</th>
@@ -44,10 +44,10 @@
                                     <tbody>
                                         <?php
                                             if ($lists) {
-											foreach($lists as $key => $list) {
-																						?>
+                                            foreach($lists as $key => $list) {
+                                                                                        ?>
                                         <tr>
-										    <td class="hidden"></td>
+                                            <td class="hidden"></td>
 
                                             <td>
                                                 <?php echo $list['name'];?>
@@ -59,20 +59,20 @@
                                                 <?php echo $list['category_name'];?>
                                             </td>
                                             <td>
-                      											<?php if($list['status']==1){?>
-                      											<a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0">
-                      											 <button type="submit" class="custon-active">Active
-                      											 </button>
-                      											</a>
-                      											<?php
-                      											}else{?>
-                      											   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1">
-                      											     <button type="submit" class="custon-delete">Inactive
-                      											      </button>
-                      											   </a>
-                      											<?php
-                      											}?>
-                      											</td>
+                                                                  <?php if($list['status']==1){?>
+                                                                  <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0">
+                                                                   <button type="submit" class="custon-active">Active
+                                                                   </button>
+                                                                  </a>
+                                                                  <?php
+                                                                  }else{?>
+                                                                     <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1">
+                                                                       <button type="submit" class="custon-delete">Inactive
+                                                                        </button>
+                                                                     </a>
+                                                                  <?php
+                                                                  }?>
+                                                                  </td>
                                             <td>
                                                 <?php echo dateFormate($list['created']);?>
                                             </td>

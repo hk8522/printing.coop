@@ -1,9 +1,9 @@
 <?php
 
 Class Estimate_Model extends MY_Model {
-	public $table='estimates';
+    public $table='estimates';
 
-	public $rules = [
+    public $rules = [
         [
           'field' => 'contact_name',
           'label' => 'Contact Name',
@@ -128,28 +128,28 @@ Class Estimate_Model extends MY_Model {
       return false;
   }
 
-	public function getAllEstimates()
-	{
-		return $this->db->select('*')->from($this->table)->get()->result_array();
-	}
+    public function getAllEstimates()
+    {
+        return $this->db->select('*')->from($this->table)->get()->result_array();
+    }
 
     public function getEstimateDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-		$this->db->where(array('id'=>$id));
+        $this->db->where(array('id'=>$id));
         $query = $this->db->get();
-		$data=(array)$query->row();
-		return $data;
+        $data=(array)$query->row();
+        return $data;
     }
 
-	public function deleteProductEstimates($id) {
-		$this->db->where('id',$id);
+    public function deleteProductEstimates($id) {
+        $this->db->where('id',$id);
         $query = $this->db->delete($this->table);
-		if ($query) {
+        if ($query) {
             return 1;
-		} else {
-			return 0;
-		}
+        } else {
+            return 0;
+        }
     }
 }
 ?>

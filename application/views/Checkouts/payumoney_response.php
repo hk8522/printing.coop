@@ -21,42 +21,42 @@
                 <div class="col-md-12">
                     <div class="checkout-section-box">
                         <div class="text-center" style="color:red">
-				           <?php echo $this->session->flashdata('message_error');?>
-		                </div>
-						<div class="text-center" style="color:green">
-				         <?php echo $this->session->flashdata('message_success');?>
-		                </div>
+                           <?php echo $this->session->flashdata('message_error');?>
+                        </div>
+                        <div class="text-center" style="color:green">
+                         <?php echo $this->session->flashdata('message_success');?>
+                        </div>
 
-						    <div class="shopping-product-display">
+                            <div class="shopping-product-display">
 
-								<table>
-								<tr>
-								   <td>Order Id</td>
-								   <td>
-								     <?php echo $orderData['order_id']?>
-								   </td>
-								</tr>
-								<!--<tr>
-								   <td>Order Amount </td>
-								   <td>
-								     <?php CURREBCY_SYMBOL.number_format($orderData['total_amount'],2)?>
-								   </td>
-								</tr>-->
+                                <table>
+                                <tr>
+                                   <td>Order Id</td>
+                                   <td>
+                                     <?php echo $orderData['order_id']?>
+                                   </td>
+                                </tr>
+                                <!--<tr>
+                                   <td>Order Amount </td>
+                                   <td>
+                                     <?php CURREBCY_SYMBOL.number_format($orderData['total_amount'],2)?>
+                                   </td>
+                                </tr>-->
 
-								<tr>
-								   <td>Payment Status </td>
-								   <td>
-								     <?php echo $_POST["status"]=='Success' ? 'success':'Failed';?>
-								   </td>
-								</tr>
-								<tr>
-								   <td>Payment Transition Id  </td>
-								   <td>
-								     <?php echo isset($_POST['payuMoneyId']) ? $_POST['payuMoneyId']:'';?>
-								   </td>
-								</tr>
-								</table>
-							 </div>
+                                <tr>
+                                   <td>Payment Status </td>
+                                   <td>
+                                     <?php echo $_POST["status"]=='Success' ? 'success':'Failed';?>
+                                   </td>
+                                </tr>
+                                <tr>
+                                   <td>Payment Transition Id  </td>
+                                   <td>
+                                     <?php echo isset($_POST['payuMoneyId']) ? $_POST['payuMoneyId']:'';?>
+                                   </td>
+                                </tr>
+                                </table>
+                             </div>
                     </div>
                 </div>
             </div>
@@ -66,8 +66,8 @@
 
 <script>
 setTimeout(function(){
-			window.location.href = "<?php echo $BASE_URL?>MyOrders";
-		  }, 2000
+            window.location.href = "<?php echo $BASE_URL?>MyOrders";
+          }, 2000
 
 );
 </script>

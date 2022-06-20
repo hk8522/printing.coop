@@ -4,71 +4,71 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Services extends Admin_Controller
 {
-	  public $class_name = '';
+      public $class_name = '';
 
-  	function __construct()
-  	{
-    		parent::__construct();
-    		$this->class_name = 'admin/'.ucfirst(strtolower($this->router->fetch_class())).'/';
-    		$this->data['class_name'] = $this->class_name;
-  	}
+      function __construct()
+      {
+            parent::__construct();
+            $this->class_name = 'admin/'.ucfirst(strtolower($this->router->fetch_class())).'/';
+            $this->data['class_name'] = $this->class_name;
+      }
 
     public function index()
     {
-				$this->load->model('Service_Model');
-				$this->load->model('Store_Model');
-				$this->load->helper('form');
-				$this->data['page_title'] = 'Services';
-				$this->data['sub_page_title'] = 'Add New Service';
-				$this->data['sub_page_url'] = 'addEdit';
-				$this->data['sub_page_url_active_inactive'] = 'activeInactive';
-				$this->data['sub_page_delete_url'] = 'deletePage';
-				$this->data['services'] = $this->Service_Model->getAllServices();
-				$MainStoreList=$this->Store_Model->MainStoreList();
-		        $this->data['MainStoreList']=$MainStoreList;
-				$this->render($this->class_name.'index');
+                $this->load->model('Service_Model');
+                $this->load->model('Store_Model');
+                $this->load->helper('form');
+                $this->data['page_title'] = 'Services';
+                $this->data['sub_page_title'] = 'Add New Service';
+                $this->data['sub_page_url'] = 'addEdit';
+                $this->data['sub_page_url_active_inactive'] = 'activeInactive';
+                $this->data['sub_page_delete_url'] = 'deletePage';
+                $this->data['services'] = $this->Service_Model->getAllServices();
+                $MainStoreList=$this->Store_Model->MainStoreList();
+                $this->data['MainStoreList']=$MainStoreList;
+                $this->render($this->class_name.'index');
     }
 
     public function addEdit($id = null)
     {
-		$this->load->model('Service_Model');
-		$this->load->helper('form');
-		$this->data['page_title'] = $page_title = 'Add New Service';
-		if($id) {
-		$this->data['page_title'] = $page_title = 'Edit Service';
-		}
+        $this->load->model('Service_Model');
+        $this->load->helper('form');
+        $this->data['page_title'] = $page_title = 'Add New Service';
+        if($id) {
+        $this->data['page_title'] = $page_title = 'Edit Service';
+        }
 
         $this->data['main_page_url'] = 'Services';
         $this->load->model('Menu_Model');
         $this->load->model('Banner_Model');
-		$this->load->model('Store_Model');
-		$MainStoreList=$this->Store_Model->MainStoreList();
-		$this->data['MainStoreList']=$MainStoreList;
+        $this->load->model('Store_Model');
+        $MainStoreList=$this->Store_Model->MainStoreList();
+        $this->data['MainStoreList']=$MainStoreList;
 
         $postData = [];
-		$postData = $this->Service_Model->getServiceById($id);
+        $postData = $this->Service_Model->getServiceById($id);
 
         if ($this->input->post()) {
             $this->load->library('form_validation');
-			$rules = $this->Service_Model->rules;
-			$this->form_validation->set_rules($rules);
-			$this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
+            $rules = $this->Service_Model->rules;
+            $this->form_validation->set_rules($rules);
+            $this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
 
-			if (!empty($id)) {
-				$postData['id'] = $this->input->post('id');
-			}
+            if (!empty($id)) {
+                $postData['id'] = $this->input->post('id');
+            }
              $postData['name'] = $this->input->post('name');
-		     $postData['description'] = $this->input->post('description');
+             $postData['description'] = $this->input->post('description');
 
-			$postData['name_french'] = $this->input->post('name_french');
-		    $postData['description_french'] = $this->input->post('description_french');
+            $postData['name_french'] = $this->input->post('name_french');
+            $postData['description_french'] = $this->input->post('description_french');
 
             $postData['main_store_id']=$this->input->post('main_store_id');
 
             if ($this->form_validation->run() === TRUE) {
                 $saveData   = true;
                 $Filename   = $_FILES['files']['name'];
-				$FileNamefrench   = $_FILES['files_french']['name'];
+                $FileNamefrench   = $_FILES['files_french']['name'];
                 $uploadData = array();
                 $uploadDatafrench = array();
 
@@ -96,7 +96,7 @@ class Services extends Admin_Controller
                         $saveData = false;
                     }
                 } else if(!empty($FileNamefrench)){
-					$_FILES['file']['name']     = $_FILES['files_french']['name'];
+                    $_FILES['file']['name']     = $_FILES['files_french']['name'];
                     $_FILES['file']['type']     = $_FILES['files_french']['type'];
                     $_FILES['file']['tmp_name'] = $_FILES['files_french']['tmp_name'];
                     $_FILES['file']['error']    = $_FILES['files_french']['error'];
@@ -118,7 +118,7 @@ class Services extends Admin_Controller
                         $this->session->set_flashdata('file_message_error_french', 'maximum banner image size allowed on only 1Mb');
                         $saveData = false;
                     }
-				}else {
+                }else {
                     if (empty($id)) {
                         $this->session->set_flashdata('file_message_error', 'Select service images of banner');
                         $saveData = false;
@@ -126,12 +126,12 @@ class Services extends Admin_Controller
                 }
 
                 if ($saveData) {
-					 $old_image_french= !empty($this->input->post('old_image_french')) ?
-					$this->input->post('old_image_french') : '';
+                     $old_image_french= !empty($this->input->post('old_image_french')) ?
+                    $this->input->post('old_image_french') : '';
 
-					if(!empty($FileNamefrench)){
-						$postData['service_image_french']=$uploadDatafrench['file_name'];
-					}
+                    if(!empty($FileNamefrench)){
+                        $postData['service_image_french']=$uploadDatafrench['file_name'];
+                    }
 
                     $old_image = !empty($this->input->post('old_image')) ? $this->input->post('old_image') : '';
                     if (!empty($Filename)) {
@@ -172,27 +172,27 @@ class Services extends Admin_Controller
     public function activeInactive($id=null,$status=null)
     {
         if (!empty($id) && ($status==1 || $status==0)) {
-  			    $postData['id'] = $id;
-  		      $postData['status'] = $status;
-  				  $page_title = 'Service Active';
-  				  $this->load->model('Service_Model');
+                  $postData['id'] = $id;
+                $postData['status'] = $status;
+                    $page_title = 'Service Active';
+                    $this->load->model('Service_Model');
 
-    				if (!$status) {
-    					 $page_title='Service Inactive';
-    				}
+                    if (!$status) {
+                         $page_title='Service Inactive';
+                    }
 
-    				if ($this->Service_Model->saveService($postData)) {
-      					$this->session->set_flashdata('message_success',$page_title.' Successfully.');
-      					redirect('admin/Services');
-    				} else {
-    				    $this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
-    				}
-		   } else {
-			      $this->session->set_flashdata('message_error','Missing information.');
-	     }
+                    if ($this->Service_Model->saveService($postData)) {
+                          $this->session->set_flashdata('message_success',$page_title.' Successfully.');
+                          redirect('admin/Services');
+                    } else {
+                        $this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
+                    }
+           } else {
+                  $this->session->set_flashdata('message_error','Missing information.');
+         }
     }
 
-	public function resizeImage($filename, $type = 'small', $widthlarge = 800, $heightlarge = 800, $section = 'product')
+    public function resizeImage($filename, $type = 'small', $widthlarge = 800, $heightlarge = 800, $section = 'product')
     {
         $source_path = PRODUCT_IMAGE_BASE_PATH . $filename;
         $target_path = PRODUCT_IMAGE_BASE_PATH . $type . '/' . $filename;

@@ -8,8 +8,8 @@
                 </marquee>
             </div>
         </div>
-		<?php if($this->session->flashdata('url_error')){?>
-		<div class="alert alert-danger" role="alert">
+        <?php if($this->session->flashdata('url_error')){?>
+        <div class="alert alert-danger" role="alert">
          <?php echo $this->session->flashdata('url_error');?>
         </div>
         <?php }?>
@@ -93,12 +93,12 @@
                             <h4 class="card-title">Support  Queries</h4>
 
                             <p class="card-category"> Unresolved tickets</p>
-							<div class="product-number">
+                            <div class="product-number">
                                 <span>100</span>
                             </div>
 
                         </div>-
-						<div class="card-body section-divide">
+                        <div class="card-body section-divide">
                             <div class="card-body-info">
                                 <h4 class="card-title">Support  Queries</h4>
                                 <p class="card-category">Unresolved tickets</p>
@@ -199,25 +199,25 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="profile">
                                     <table class="table">
-									   <thead class="text-warning">
+                                       <thead class="text-warning">
                                         <tr>
                                         <th>Order Id</th>
                                         <th>Customer Name</th>
                                         <th>Order Amount</th>
-										<th>Total Items</th>
+                                        <th>Total Items</th>
                                         <th>Created On</th>
                                         </tr>
                                         </thead>
                                         <tbody id="listOrderData">
                                             <tr>
                                                 <td class="text-center" colspan="4">
-                                      			Please wait	loading orders...
+                                                  Please wait	loading orders...
                                                 </td>
                                             </tr>
 
                                         </tbody>
                                     </table>
-									<div class="view-btn view-blue text-right">
+                                    <div class="view-btn view-blue text-right">
                                        <a href="<?php echo $BASE_URL_ADMIN ?>Orders/index/all"><button>View</button></a>
                                    </div>
                                 </div>
@@ -241,30 +241,30 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-								    <?php
-									if(!empty($userList)){
-									$i=1;
-									foreach($userList as $list){?>
-										<tr>
-											<td><?php echo $i;
-											$i++;?></td>
-											<td><?php echo $list['name'];
-											?></td>
-											<td><?php echo $list['email'];
-											?></td>
-											<td><?php echo dateFormate($list['created']);?></td>
-										</tr>
                                     <?php
-									}
-									}else{?>
-									   <tr>
-											<td colspan="4" class="text-center">List empty</td>
+                                    if(!empty($userList)){
+                                    $i=1;
+                                    foreach($userList as $list){?>
+                                        <tr>
+                                            <td><?php echo $i;
+                                            $i++;?></td>
+                                            <td><?php echo $list['name'];
+                                            ?></td>
+                                            <td><?php echo $list['email'];
+                                            ?></td>
+                                            <td><?php echo dateFormate($list['created']);?></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    }else{?>
+                                       <tr>
+                                            <td colspan="4" class="text-center">List empty</td>
 
-										</tr>
-									<?php }?>
+                                        </tr>
+                                    <?php }?>
                                 </tbody>
                             </table>
-							<div class="view-btn view-orange text-right">
+                            <div class="view-btn view-orange text-right">
                                 <a href="<?php echo $BASE_URL_ADMIN ?>Users"><button>View</button></a>
                             </div>
                         </div>
@@ -282,16 +282,16 @@ var status='<?php echo base64_encode(2);?>';
 getOrdersByStatus(status);
 
 function getOrdersByStatus(order_status){
-	    var url =BASE_URL+'Orders/getOrdersByStatus/'+order_status;
-		$.ajax({
-			    type: "GET",
-			    url: url,
-			    success: function(data)
-			    {
-			      $("#listOrderData").html(data);
-			    },
-			    error: function (error) {
-			    }
-		});
+        var url =BASE_URL+'Orders/getOrdersByStatus/'+order_status;
+        $.ajax({
+                type: "GET",
+                url: url,
+                success: function(data)
+                {
+                  $("#listOrderData").html(data);
+                },
+                error: function (error) {
+                }
+        });
 }
 </script>

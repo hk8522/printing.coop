@@ -32,7 +32,7 @@
                                     <thead>
                                         <tr role="row">
                                             <th>Section Name</th>
-											<th>Website</th>
+                                            <th>Website</th>
                                             <th>Created On</th>
                                             <th>Updated On</th>
                                             <th>Status</th>
@@ -42,11 +42,11 @@
                                     <tbody>
                                         <?php
                                             if ($sections){
-                                            	foreach($sections as $key=>$sections){
-                                            	?>
+                                                foreach($sections as $key=>$sections){
+                                                ?>
                                         <tr>
                                             <td><?php echo ucfirst($sections['name']);?></td>
-											<td>
+                                            <td>
                                                <?php echo $MainStoreList[$sections['main_store_id']]?>
                                             </td>
                                             <td>
@@ -98,7 +98,7 @@
 <script>
     $(document).ready(function(){
         $('#example1').DataTable({
-    		"order": [[ 0, "asc" ]]
-    	});
+            "order": [[ 0, "asc" ]]
+        });
     });
 </script>

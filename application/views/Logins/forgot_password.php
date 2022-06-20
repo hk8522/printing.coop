@@ -9,9 +9,9 @@
                         <div class="universal-dark-title">
                             <span>Récupérez votre mot de passe</span>
                         </div>
-						<div class="universal-dark-info">
-							<span>Saisissez votre email ci-dessous. Nous vous enverrons un lien pour réinitialiser votre mot de passe.</span>
-						</div>
+                        <div class="universal-dark-info">
+                            <span>Saisissez votre email ci-dessous. Nous vous enverrons un lien pour réinitialiser votre mot de passe.</span>
+                        </div>
                         <div class="shipping-form">
                             <div class="single-review">
                                 <label>Adresse électronique: </label>
@@ -41,9 +41,9 @@
                         <div class="universal-dark-title">
                             <span>Retrieve your password here</span>
                         </div>
-						<div class="universal-dark-info">
-							<span>Please enter your email address below. You will receive a link to reset your password.</span>
-						</div>
+                        <div class="universal-dark-info">
+                            <span>Please enter your email address below. You will receive a link to reset your password.</span>
+                        </div>
                         <div class="shipping-form">
                             <div class="single-review">
                                 <label>Email Address:</label>

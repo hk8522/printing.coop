@@ -1,10 +1,10 @@
 <?php
 
 Class Service_Model extends MY_Model {
-	public $table = 'services';
+    public $table = 'services';
 
     public $rules = [
-	     [
+         [
           'field' => 'main_store_id',
           'label' => 'Website',
           'rules' => 'required',
@@ -52,7 +52,7 @@ Class Service_Model extends MY_Model {
       return $this->db->select('*')->from($this->table)->where(array('id'=>$id, 'status'=> 1))->get()->row_array();
   }
 
-	public function getActiveServices($website_store_id=null)
+    public function getActiveServices($website_store_id=null)
   {
       return $this->db->select('*')->from($this->table)->where(array('status'=>1,'main_store_id'=>$website_store_id))->get()->result_array();
   }

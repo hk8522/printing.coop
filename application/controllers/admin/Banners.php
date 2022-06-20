@@ -15,7 +15,7 @@ class Banners extends Admin_Controller
     public function index()
     {
         $this->load->model('Banner_Model');
-		$this->load->model('Store_Model');
+        $this->load->model('Store_Model');
         $this->data['page_title']                   = 'Banners';
         $this->data['sub_page_title']               = 'Add New Banner';
         $this->data['sub_page_url']                 = 'addEditBanner';
@@ -23,8 +23,8 @@ class Banners extends Admin_Controller
         $this->data['sub_page_delete_url']          = 'deleteBanner';
         $this->data['sub_page_url_active_inactive'] = 'activeInactiveBanner';
         $lists                                      = $this->Banner_Model->getBannerList();
-		$MainStoreList=$this->Store_Model->MainStoreList();
-		$this->data['MainStoreList']=$MainStoreList;
+        $MainStoreList=$this->Store_Model->MainStoreList();
+        $this->data['MainStoreList']=$MainStoreList;
         $this->data['lists']                        = $lists;
         $this->render($this->class_name . 'index');
     }
@@ -42,8 +42,8 @@ class Banners extends Admin_Controller
         $this->load->model('Menu_Model');
         $this->load->model('Banner_Model');
         $this->load->model('Store_Model');
-		$MainStoreList=$this->Store_Model->MainStoreList();
-		$this->data['MainStoreList']=$MainStoreList;
+        $MainStoreList=$this->Store_Model->MainStoreList();
+        $this->data['MainStoreList']=$MainStoreList;
         $postData = array();
         if ($id) {
             $postData = $this->Banner_Model->getBannerDataById($id);
@@ -63,16 +63,16 @@ class Banners extends Admin_Controller
             $postData['short_description'] = $this->input->post('short_description');
             $postData['full_description']  = $this->input->post('full_description');
 
-		   $postData['name_french']          = $this->input->post('name_french');
+           $postData['name_french']          = $this->input->post('name_french');
             $postData['short_description_french'] = $this->input->post('short_description_french');
             $postData['full_description_french']  = $this->input->post('full_description_french');
 
-			$postData['main_store_id']=$this->input->post('main_store_id');
+            $postData['main_store_id']=$this->input->post('main_store_id');
 
             if ($this->form_validation->run() === TRUE) {
                 $saveData   = true;
                 $Filename   = $_FILES['files']['name'];
-				$FileNamefrench   = $_FILES['files_french']['name'];
+                $FileNamefrench   = $_FILES['files_french']['name'];
                 $uploadData = array();
                 $uploadDatafrench = array();
 
@@ -100,7 +100,7 @@ class Banners extends Admin_Controller
                         $saveData = false;
                     }
                 } else if(!empty($FileNamefrench)){
-					$_FILES['file']['name']     = $_FILES['files_french']['name'];
+                    $_FILES['file']['name']     = $_FILES['files_french']['name'];
                     $_FILES['file']['type']     = $_FILES['files_french']['type'];
                     $_FILES['file']['tmp_name'] = $_FILES['files_french']['tmp_name'];
                     $_FILES['file']['error']    = $_FILES['files_french']['error'];
@@ -122,7 +122,7 @@ class Banners extends Admin_Controller
                         $this->session->set_flashdata('file_message_error_french', 'maximum banner image size allowed on only 1Mb');
                         $saveData = false;
                     }
-			    }else {
+                }else {
                     if (empty($id)) {
                         $this->session->set_flashdata('file_message_error', 'Select  images of banner');
                         $saveData = false;
@@ -131,11 +131,11 @@ class Banners extends Admin_Controller
 
                 if ($saveData) {
                     $old_image_french= !empty($this->input->post('old_image_french')) ?
-					$this->input->post('old_image_french') : '';
+                    $this->input->post('old_image_french') : '';
 
-					if(!empty($FileNamefrench)){
-						$postData['banner_image_french']=$uploadDatafrench['file_name'];
-					}
+                    if(!empty($FileNamefrench)){
+                        $postData['banner_image_french']=$uploadDatafrench['file_name'];
+                    }
 
                     $old_image = !empty($this->input->post('old_image')) ? $this->input->post('old_image') : '';
 

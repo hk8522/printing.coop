@@ -7,16 +7,16 @@
                         <div class="menu-bar"><i class="las la-bars" data-toggle="dropdown" aria-expanded="false" onclick="openNav01()"></i></div>
                         <a href="<?php echo $BASE_URL;?>">
                             <?php
-							if($configrations['logo_image']) {
-								$alt='';
-							   if($language_name=='French'){
+                            if($configrations['logo_image']) {
+                                $alt='';
+                               if($language_name=='French'){
                                 $imageurl = getLogoImages($configrations['logo_image_french']);
-								$alt=$configrations['log_alt_teg_french'];
-							   }else{
-								$imageurl = getLogoImages($configrations['logo_image']);
-								$alt=$configrations['log_alt_teg'];
-							   }
-							  ?>
+                                $alt=$configrations['log_alt_teg_french'];
+                               }else{
+                                $imageurl = getLogoImages($configrations['logo_image']);
+                                $alt=$configrations['log_alt_teg'];
+                               }
+                              ?>
                               <?php
                               if ($imageurl) {
                                 ?>
@@ -37,11 +37,11 @@
                         <input type="text" placeholder="Search..." onkeyup="searchProduct($(this).val())"  id="ToSeachBox">
                             <i class="las la-search"></i>
                         </span>
-						<div class="open-search-dropdown" style="display:none" id="searchDiv">
+                        <div class="open-search-dropdown" style="display:none" id="searchDiv">
 
-							<div class="search-product-section">
-								<div class="search-product-section-title">
-									<span>
+                            <div class="search-product-section">
+                                <div class="search-product-section-title">
+                                    <span>
                                     <?php
                                       if($language_name=='French'){ ?>
                                         Résultats de recherche
@@ -49,9 +49,9 @@
                                         Search Results
                                       <?php
                                       }?></span>
-								</div>
-								<div class="search-product-result">
-								    <span style="color:black; border:0px;" id="coming-res-data">
+                                </div>
+                                <div class="search-product-result">
+                                    <span style="color:black; border:0px;" id="coming-res-data">
                                         <?php
                                     if($language_name=='French'){ ?>
                                         Le résultat de la recherche arrive ...
@@ -59,12 +59,12 @@
                                         Search result is coming...
                                       <?php
                                       }?> </span>
-									<ul id="ProductListUl">
+                                    <ul id="ProductListUl">
 
-									</ul>
-								</div>
-							</div>
-						</div>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-5 col-xl-4">
@@ -74,7 +74,7 @@
                                 <div class="mid-action-single">
                                     <a href="tel:18773848043">
                                         <div class="mid-action-single-inner">
-											<?php if($website_store_id==1){ ?>
+                                            <?php if($website_store_id==1){ ?>
                                             <div class="mid-action-icon">
                                                 <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                     <g>
@@ -90,8 +90,8 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                       		<?php }else if($website_store_id==3){?>
-											<div class="mid-action-icon">
+                                               <?php }else if($website_store_id==3){?>
+                                            <div class="mid-action-icon">
                                                 <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                     <g>
                                                         <path fill="#e72582" d="M26.2,19.9L26,20.7c-0.9,3-2.7,5.4-5.2,7c-0.2-1.2-1.3-2.1-2.5-2.1h-2c-1.4,0-2.6,1.2-2.6,2.6v0.4
@@ -106,8 +106,8 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                        	<?php }else if($website_store_id==5){?>
-											<div class="mid-action-icon">
+                                            <?php }else if($website_store_id==5){?>
+                                            <div class="mid-action-icon">
                                                 <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                     <g>
                                                         <path fill="#7aa93c" d="M26.2,19.9L26,20.7c-0.9,3-2.7,5.4-5.2,7c-0.2-1.2-1.3-2.1-2.5-2.1h-2c-1.4,0-2.6,1.2-2.6,2.6v0.4
@@ -122,7 +122,7 @@
                                                     </g>
                                                 </svg>
                                             </div>
-											<?php }?>
+                                            <?php }?>
                                             <div class="mid-action-content">
                                                 <span>
                                                     <strong>
@@ -145,7 +145,7 @@
                                 <div class="mid-action-single">
                                     <a href="<?php echo $BASE_URL?>MyAccounts">
                                         <div class="mid-action-single-inner">
-                                        	<?php if($website_store_id==1){ ?>
+                                            <?php if($website_store_id==1){ ?>
                                             <div class="mid-action-icon">
                                                 <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                     <g>
@@ -213,7 +213,7 @@
                             <li>
                                 <div class="mid-action-single">
                                     <div class="mid-action-single-inner">
-                                    	<?php if($website_store_id==1){ ?>
+                                        <?php if($website_store_id==1){ ?>
                                         <div class="mid-action-icon">
                                             <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                 <g>

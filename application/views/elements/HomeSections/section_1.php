@@ -3,10 +3,10 @@
 <?php
 #ABOUT US Section
 
-if($language_name=='French'){
- echo $section_1['content_france'];
-}else{
- echo $section_1['content'];
+if ($language_name == 'French') {
+    echo $section_1['content_france'];
+} else {
+    echo $section_1['content'];
 }
 ?>
 </div>

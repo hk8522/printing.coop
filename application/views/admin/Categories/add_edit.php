@@ -33,7 +33,7 @@
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">French Name</label>
@@ -60,294 +60,294 @@
                                                 </div>
                                             </div>
                                         </div>
-																                <div class="control-group info">
-											<div class="row">
-												<div class="col-md-4">
-													<label class="span2 " for="inputMame">Category Page Title</label>
-												</div>
-												<div class="col-md-8">
-													<div class="controls">
-													    <input class="form-control" name="page_title" id="page_title" type="text" placeholder="Page Title" value="<?php echo isset($postData['page_title']) ? $postData['page_title']:'';?>" maxlength="250">
-														<?php echo form_error('page_title');?>
-													</div>
-												</div>
-											</div>
-										</div>
+                                                                                <div class="control-group info">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="span2 " for="inputMame">Category Page Title</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="controls">
+                                                        <input class="form-control" name="page_title" id="page_title" type="text" placeholder="Page Title" value="<?php echo isset($postData['page_title']) ? $postData['page_title']:'';?>" maxlength="250">
+                                                        <?php echo form_error('page_title');?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
 
-										<div class="control-group info">
-											<div class="row">
-												<div class="col-md-4">
-													<label class="span2 " for="inputMame">French Category Page Title</label>
-												</div>
-												<div class="col-md-8">
-													<div class="controls">
-													    <input class="form-control" name="page_title_france" id="page_title_france" type="text" placeholder="French Page Title" value="<?php echo isset($postData['page_title_france']) ? $postData['page_title_france']:'';?>" maxlength="250">
-<?php echo form_error('page_title_france');?>
-													</div>
-												</div>
-											</div>
-										</div>
                                         <div class="control-group info">
-											<div class="row">
-												<div class="col-md-4">
-													<label class="span2 " for="inputMame">Category Page Meta Description Content</label>
-												</div>
-												<div class="col-md-8">
-													<div class="controls">
-		<textarea name="meta_description_content" id="meta_description_content" rows="100"><?php echo isset($postData['meta_description_content']) ? $postData['meta_description_content']:'';?></textarea>
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="span2 " for="inputMame">French Category Page Title</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="controls">
+                                                        <input class="form-control" name="page_title_france" id="page_title_france" type="text" placeholder="French Page Title" value="<?php echo isset($postData['page_title_france']) ? $postData['page_title_france']:'';?>" maxlength="250">
+<?php echo form_error('page_title_france');?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group info">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="span2 " for="inputMame">Category Page Meta Description Content</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="controls">
+        <textarea name="meta_description_content" id="meta_description_content" rows="100"><?php echo isset($postData['meta_description_content']) ? $postData['meta_description_content']:'';?></textarea>
 
-														<?php echo form_error('meta_description_content');?>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="control-group info">
-											<div class="row">
-												<div class="col-md-4">
-													<label class="span2 " for="inputMame">France Category Page Meta Description Content</label>
-												</div>
-												<div class="col-md-8">
-													<div class="controls">
-		<textarea name="meta_description_content_france" id="meta_description_content_france" rows="100"><?php echo isset($postData['meta_description_content_france']) ? $postData['meta_description_content_france']:'';?></textarea>
+                                                        <?php echo form_error('meta_description_content');?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group info">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="span2 " for="inputMame">France Category Page Meta Description Content</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="controls">
+        <textarea name="meta_description_content_france" id="meta_description_content_france" rows="100"><?php echo isset($postData['meta_description_content_france']) ? $postData['meta_description_content_france']:'';?></textarea>
 
-														<?php echo form_error('meta_description_content_france');?>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="control-group info">
-											<div class="row">
-												<div class="col-md-4">
-													<label class="span2 " for="inputMame">Category Page Meta Keywords Content</label>
-												</div>
-												<div class="col-md-8">
-													<div class="controls">
-		<textarea name="meta_keywords_content" id="meta_keywords_content" rows="100"><?php echo isset($postData['meta_keywords_content']) ? $postData['meta_keywords_content']:'';?></textarea>
+                                                        <?php echo form_error('meta_description_content_france');?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group info">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="span2 " for="inputMame">Category Page Meta Keywords Content</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="controls">
+        <textarea name="meta_keywords_content" id="meta_keywords_content" rows="100"><?php echo isset($postData['meta_keywords_content']) ? $postData['meta_keywords_content']:'';?></textarea>
 
-														<?php echo form_error('meta_keywords_content');?>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="control-group info">
-											<div class="row">
-												<div class="col-md-4">
-													<label class="span2 " for="inputMame">France Category Page Meta Keywords Content</label>
-												</div>
-												<div class="col-md-8">
-													<div class="controls">
-		<textarea name="meta_keywords_content_france" id="meta_keywords_content_france" rows="100"><?php echo isset($postData['meta_keywords_content_france']) ? $postData['meta_keywords_content_france']:'';?></textarea>
+                                                        <?php echo form_error('meta_keywords_content');?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group info">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="span2 " for="inputMame">France Category Page Meta Keywords Content</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="controls">
+        <textarea name="meta_keywords_content_france" id="meta_keywords_content_france" rows="100"><?php echo isset($postData['meta_keywords_content_france']) ? $postData['meta_keywords_content_france']:'';?></textarea>
 
-														<?php echo form_error('meta_keywords_content_france');?>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="control-group info">
+                                                        <?php echo form_error('meta_keywords_content_france');?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Category Dispersion</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <textarea class="form-control" name="category_dispersion" id="content"><?php echo isset($postData['category_dispersion']) ? $postData['category_dispersion']:'';?></textarea>
+                                                        <textarea class="form-control" name="category_dispersion" id="content"><?php echo isset($postData['category_dispersion']) ? $postData['category_dispersion']:'';?></textarea>
                                                         <?php echo form_error('category_dispersion');?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">French Category Dispersion</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <textarea class="form-control" name="category_dispersion_french" id="content1"><?php echo isset($postData['category_dispersion_french']) ? $postData['category_dispersion_french']:'';?></textarea>
+                                                        <textarea class="form-control" name="category_dispersion_french" id="content1"><?php echo isset($postData['category_dispersion_french']) ? $postData['category_dispersion_french']:'';?></textarea>
     <?php
-	    echo form_error('category_dispersion_french');
+        echo form_error('category_dispersion_french');
     ?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Show Category</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <input type="checkbox" name="show_our_printed_product" value="1" <?php echo !empty(    $postData['show_our_printed_product']) ? 'checked':''?>> Our Printed Product
+                                                        <input type="checkbox" name="show_our_printed_product" value="1" <?php echo !empty(    $postData['show_our_printed_product']) ? 'checked':''?>> Our Printed Product
                                                         <?php echo form_error('category_dispersion');
-														?>
-														<input type="checkbox" name="show_main_menu" value="1" <?php echo !empty(    $postData['show_main_menu']) ? 'checked':''?>> Show Main Menu
+                                                        ?>
+                                                        <input type="checkbox" name="show_main_menu" value="1" <?php echo !empty(    $postData['show_main_menu']) ? 'checked':''?>> Show Main Menu
                                                         <?php echo form_error('show_main_menu');
-														?>
+                                                        ?>
 <input type="checkbox" name="show_footer_menu" value="1" <?php echo !empty($postData['show_footer_menu']) ? 'checked':''?>> Show Footer Menu
                                                         <?php echo form_error('show_footer_menu');
-														?>
+                                                        ?>
 
                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-									    <?php
+                                        <?php
 
-										foreach($MainStoreList as $key=>$val){
-										    $categoryImageData=$CategoriesImageData[$key];
-									    ?>
-										<input type="hidden" name="<?php echo $key?>category_image_id" value="<?php echo $categoryImageData['id']?>">
-										<div class="control-group info">
+                                        foreach($MainStoreList as $key=>$val){
+                                            $categoryImageData=$CategoriesImageData[$key];
+                                        ?>
+                                        <input type="hidden" name="<?php echo $key?>category_image_id" value="<?php echo $categoryImageData['id']?>">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame"><?php echo $val?> Image</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <div tyle="margin-bottom:15px;">
-															<?php $old_image =isset($categoryImageData['image']) ? $categoryImageData['image']:'';?>
-															<?php
-																if($old_image !=''){
-																   $imageurl=geCategoryImage($old_image,'large');?>
-															       <img src="<?php echo $imageurl?>" width="100" height="80">
-															<?php
-																}
-																?>
-															<input name="<?php echo $key?>old_image" value="<?php echo $old_image;?>" type="hidden">
-														</div>
-													    <div class="image-info">
-															<span>
-															Allowed image type  : <b> (jpg, png, gif)</b>
-															</span>
+                                                        <div tyle="margin-bottom:15px;">
+                                                            <?php $old_image =isset($categoryImageData['image']) ? $categoryImageData['image']:'';?>
+                                                            <?php
+                                                                if($old_image !=''){
+                                                                   $imageurl=geCategoryImage($old_image,'large');?>
+                                                                   <img src="<?php echo $imageurl?>" width="100" height="80">
+                                                            <?php
+                                                                }
+                                                                ?>
+                                                            <input name="<?php echo $key?>old_image" value="<?php echo $old_image;?>" type="hidden">
+                                                        </div>
+                                                        <div class="image-info">
+                                                            <span>
+                                                            Allowed image type  : <b> (jpg, png, gif)</b>
+                                                            </span>
 
-															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
-																<input class="btn btn-primary" name="<?php echo $key?>files" type="file" accept="image/x-png,image/gif,image/jpeg" id="<?php echo $key?>upload" onchange="Upload('<?php echo $key?>upload')"/>
-															</div>
-															<div style="color:red">
-																<?php echo $this->session->flashdata("$keyfile_message_error");
-																	?>
-																<?php
-																	echo form_error('files');?>
-															</div>
-														</div>
+                                                            <div class="entry input-group col-xs-3" style="margin-bottom:15px;">
+                                                                <input class="btn btn-primary" name="<?php echo $key?>files" type="file" accept="image/x-png,image/gif,image/jpeg" id="<?php echo $key?>upload" onchange="Upload('<?php echo $key?>upload')"/>
+                                                            </div>
+                                                            <div style="color:red">
+                                                                <?php echo $this->session->flashdata("$keyfile_message_error");
+                                                                    ?>
+                                                                <?php
+                                                                    echo form_error('files');?>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-										<?php if($key !=5){?>
-										<div class="control-group info">
+                                        <?php if($key !=5){?>
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame"><?php echo $val?> Image French</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <div tyle="margin-bottom:15px;">
-															<?php $old_image_french =isset($categoryImageData['image_french']) ? $categoryImageData['image_french']:'';?>
-															<?php
-																if($old_image_french !=''){
-																   $imageurl=geCategoryImage($old_image_french,'large');?>
-															       <img src="<?php echo $imageurl?>" width="100" height="80">
-															<?php
-																}
-																?>
-															<input name="<?php echo $key?>old_image_french" value="<?php echo $old_image_french;?>" type="hidden">
-														</div>
-													    <div class="image-info">
-															<span>
-															Allowed image type  : <b> (jpg, png, gif)</b>
-															</span>
+                                                        <div tyle="margin-bottom:15px;">
+                                                            <?php $old_image_french =isset($categoryImageData['image_french']) ? $categoryImageData['image_french']:'';?>
+                                                            <?php
+                                                                if($old_image_french !=''){
+                                                                   $imageurl=geCategoryImage($old_image_french,'large');?>
+                                                                   <img src="<?php echo $imageurl?>" width="100" height="80">
+                                                            <?php
+                                                                }
+                                                                ?>
+                                                            <input name="<?php echo $key?>old_image_french" value="<?php echo $old_image_french;?>" type="hidden">
+                                                        </div>
+                                                        <div class="image-info">
+                                                            <span>
+                                                            Allowed image type  : <b> (jpg, png, gif)</b>
+                                                            </span>
 
-															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
-																<input class="btn btn-primary" name="<?php echo $key?>files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
-															</div>
-															<div style="color:red">
-																<?php echo $this->session->flashdata("$keyfile_message_error_french");
-																	?>
-																<?php
-																	echo form_error('files_french');?>
-															</div>
-														</div>
+                                                            <div class="entry input-group col-xs-3" style="margin-bottom:15px;">
+                                                                <input class="btn btn-primary" name="<?php echo $key?>files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
+                                                            </div>
+                                                            <div style="color:red">
+                                                                <?php echo $this->session->flashdata("$keyfile_message_error_french");
+                                                                    ?>
+                                                                <?php
+                                                                    echo form_error('files_french');?>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-										<?php }
-										}?>
-										<!--<div class="control-group info">
+                                        <?php }
+                                        }?>
+                                        <!--<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Category Image</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <div tyle="margin-bottom:15px;">
-															<?php $old_image =isset($postData['image']) ? $postData['image']:'';?>
-															<?php
-																if($old_image !=''){
-																   $imageurl=geCategoryImage($old_image,'large');?>
-															       <img src="<?php echo $imageurl?>" width="100" height="80">
-															<?php
-																}
-																?>
-															<input name="old_image" value="<?php echo $old_image;?>" type="hidden">
-														</div>
-													    <div class="image-info">
-															<span>
-															Allowed image type  : <b> (jpg, png, gif)</b>
-															</span>
+                                                        <div tyle="margin-bottom:15px;">
+                                                            <?php $old_image =isset($postData['image']) ? $postData['image']:'';?>
+                                                            <?php
+                                                                if($old_image !=''){
+                                                                   $imageurl=geCategoryImage($old_image,'large');?>
+                                                                   <img src="<?php echo $imageurl?>" width="100" height="80">
+                                                            <?php
+                                                                }
+                                                                ?>
+                                                            <input name="old_image" value="<?php echo $old_image;?>" type="hidden">
+                                                        </div>
+                                                        <div class="image-info">
+                                                            <span>
+                                                            Allowed image type  : <b> (jpg, png, gif)</b>
+                                                            </span>
 
-															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
-																<input class="btn btn-primary" name="files" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
-															</div>
-															<div style="color:red">
-																<?php echo $this->session->flashdata('file_message_error');
-																	?>
-																<?php
-																	echo form_error('files');?>
-															</div>
-														</div>
+                                                            <div class="entry input-group col-xs-3" style="margin-bottom:15px;">
+                                                                <input class="btn btn-primary" name="files" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
+                                                            </div>
+                                                            <div style="color:red">
+                                                                <?php echo $this->session->flashdata('file_message_error');
+                                                                    ?>
+                                                                <?php
+                                                                    echo form_error('files');?>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Category Image French</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <div tyle="margin-bottom:15px;">
-															<?php $old_image_french =isset($postData['image_french']) ? $postData['image_french']:'';?>
-															<?php
-																if($old_image_french !=''){
-																   $imageurl=geCategoryImage($old_image_french,'large');?>
-															       <img src="<?php echo $imageurl?>" width="100" height="80">
-															<?php
-																}
-																?>
-															<input name="old_image_french" value="<?php echo $old_image_french;?>" type="hidden">
-														</div>
-													    <div class="image-info">
-															<span>
-															Allowed image type  : <b> (jpg, png, gif)</b>
-															</span>
+                                                        <div tyle="margin-bottom:15px;">
+                                                            <?php $old_image_french =isset($postData['image_french']) ? $postData['image_french']:'';?>
+                                                            <?php
+                                                                if($old_image_french !=''){
+                                                                   $imageurl=geCategoryImage($old_image_french,'large');?>
+                                                                   <img src="<?php echo $imageurl?>" width="100" height="80">
+                                                            <?php
+                                                                }
+                                                                ?>
+                                                            <input name="old_image_french" value="<?php echo $old_image_french;?>" type="hidden">
+                                                        </div>
+                                                        <div class="image-info">
+                                                            <span>
+                                                            Allowed image type  : <b> (jpg, png, gif)</b>
+                                                            </span>
 
-															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
-																<input class="btn btn-primary" name="files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
-															</div>
-															<div style="color:red">
-																<?php echo $this->session->flashdata('file_message_error_french');
-																	?>
-																<?php
-																	echo form_error('files_french');?>
-															</div>
-														</div>
+                                                            <div class="entry input-group col-xs-3" style="margin-bottom:15px;">
+                                                                <input class="btn btn-primary" name="files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
+                                                            </div>
+                                                            <div style="color:red">
+                                                                <?php echo $this->session->flashdata('file_message_error_french');
+                                                                    ?>
+                                                                <?php
+                                                                    echo form_error('files_french');?>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -392,8 +392,8 @@
                image.onload = function () {
                 var height = this.height;
                 var width = this.width;
-    			var imagesize=fileUpload.files[0].size;
-    			var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
+                var imagesize=fileUpload.files[0].size;
+                var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
                 };
               }
           }

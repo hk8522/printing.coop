@@ -19,31 +19,31 @@
                                     <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>">
                                     <div class="form-role-area">
-									    <!--<div class="control-group info">
-											<div class="row">
-												<div class="col-md-4">
-													<label class="span2 " for="inputMame">WebSite</label>
-												</div>
-												<div class="col-md-8">
-													<div class="controls">
-													   <select name="main_store_id" class="form-control">
-													   <option value="">Select WebSite</option>
-													   <?php foreach($MainStoreList as $key=>$val){
-														$selected='';
+                                        <!--<div class="control-group info">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="span2 " for="inputMame">WebSite</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="controls">
+                                                       <select name="main_store_id" class="form-control">
+                                                       <option value="">Select WebSite</option>
+                                                       <?php foreach($MainStoreList as $key=>$val){
+                                                        $selected='';
                                                         if($postData['main_store_id'] == $key){
-														     $selected='selected="selected"';
-														}
-														?>
+                                                             $selected='selected="selected"';
+                                                        }
+                                                        ?>
 
-													    <option value="<?php echo $key?>" <?php echo $selected?>><?php echo $val;?></option>
-													   <?php
-													   }?>
-													   </select>
-													   <?php echo form_error('main_store_id');?>
-													</div>
-												</div>
-											</div>
-										</div>-->
+                                                        <option value="<?php echo $key?>" <?php echo $selected?>><?php echo $val;?></option>
+                                                       <?php
+                                                       }?>
+                                                       </select>
+                                                       <?php echo form_error('main_store_id');?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>-->
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
@@ -57,7 +57,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 "for="inputMame">French Section Name</label>
@@ -111,7 +111,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info mt-2">
+                                        <div class="control-group info mt-2">
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <label class="span2 " for="inputMame">French Section Content</label>
@@ -126,7 +126,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                               <div class="col-md-4">
                                                 <label class="span2 " for="inputMame">Section Background image </label>
@@ -140,7 +140,7 @@
                                                             if($old_background_image !=''){
                                                                $imageurl=getSectionImage($old_background_image);
 
-															   ?>
+                                                               ?>
                                                             <img src="<?php echo $imageurl?>" width="100" height="80">
                                                         <?php
                                                             }
@@ -161,14 +161,14 @@
 
                                                         <?php
                                                            echo form_error('background_image');
-														?>
+                                                        ?>
                                                     </div>
                                                 </div>
                                               </div>
                                             </div>
-										</div>
+                                        </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                               <div class="col-md-4">
                                                 <label class="span2 " for="inputMame">French Section Background Image </label>
@@ -182,7 +182,7 @@
                                                             if($old_french_background_image !=''){
                                                                $imageurl=getSectionImage($old_french_background_image);
 
-															   ?>
+                                                               ?>
                                                             <img src="<?php echo $imageurl?>" width="100" height="80">
                                                         <?php
                                                             }
@@ -203,12 +203,12 @@
 
                                                         <?php
                                                            echo form_error('french_background_image');
-														?>
+                                                        ?>
                                                     </div>
                                                 </div>
                                               </div>
                                             </div>
-										</div>
+                                        </div>
 
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success">Submit</button>

@@ -22,7 +22,7 @@
     </div>
     <div class="account-single-points">
         <ul>
-		    <li><a href="<?php echo $BASE_URL;?>MyOrders">
+            <li><a href="<?php echo $BASE_URL;?>MyOrders">
             <?php
             if($language_name=='French'){ ?>
               Historique des commandes

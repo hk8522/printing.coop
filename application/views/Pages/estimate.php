@@ -1,12 +1,12 @@
 <div class="estimate-section universal-spacing universal-bg-white">
     <div class="container ">
-	<?php
-	if($language_name=='French'){
-	echo $pageData['description_france'];
-	}else{
-	echo $pageData['description'];
-	}
-	?>
+    <?php
+    if($language_name=='French'){
+    echo $pageData['description_france'];
+    }else{
+    echo $pageData['description'];
+    }
+    ?>
       <div class="text-center" id="estimate-message"></div>
          <div class="estimate-section-inner">
           <?php
@@ -51,39 +51,39 @@
                                   <input type="text" name="city">
                               </div>
                           </div>
-						              <div class="col-md-2">
+                                      <div class="col-md-2">
                               <div class="single-review">
                                   <label>Pays <span class="text-danger">*</span></label>
-                								  <select name="country" onchange="getState($(this).val())">
-                									  <option value="">-- Choisissez le pays --</option>
-                									  <?php foreach ($countries as $country) {
-                										  $selected = '';
-                										  $post_country = isset($postData['country']) ? $postData['country']:'';
-                										  if ($country['id'] == $post_country){
-                											  $selected='selected="selected"';
-                										  }
-                										  ?>
-                									  <option value="<?php echo $country['id']?>" <?php echo $selected;?>><?php echo $country['name'];?></option>
-                									  <?php }?>
-                									</select>
+                                                  <select name="country" onchange="getState($(this).val())">
+                                                      <option value="">-- Choisissez le pays --</option>
+                                                      <?php foreach ($countries as $country) {
+                                                          $selected = '';
+                                                          $post_country = isset($postData['country']) ? $postData['country']:'';
+                                                          if ($country['id'] == $post_country){
+                                                              $selected='selected="selected"';
+                                                          }
+                                                          ?>
+                                                      <option value="<?php echo $country['id']?>" <?php echo $selected;?>><?php echo $country['name'];?></option>
+                                                      <?php }?>
+                                                    </select>
                               </div>
                           </div>
                           <div class="col-md-2">
                               <div class="single-review">
                                   <label>Etat</label>
-                								  <select name="province" id="stateiD">
+                                                  <select name="province" id="stateiD">
                                       <option value="">-- Sélectionnez l'état --</option>
                                       <?php foreach($states as $state){
-                								      $selected='';
-                  									  $post_state= isset($postData['state']) ? $postData['state']:'';
+                                                      $selected='';
+                                                        $post_state= isset($postData['state']) ? $postData['state']:'';
 
-                  									  if($state['StateID'] == $post_state){
-                  										    $selected='selected="selected"';
-                  									  }
-                  								    ?>
-              								        <option value="<?php echo $state['StateID']?>" <?php echo $selected;?>><?php echo $state['StateName'];?></option>
-                								      <?php }?>
-            								      </select>
+                                                        if($state['StateID'] == $post_state){
+                                                              $selected='selected="selected"';
+                                                        }
+                                                      ?>
+                                                      <option value="<?php echo $state['StateID']?>" <?php echo $selected;?>><?php echo $state['StateName'];?></option>
+                                                      <?php }?>
+                                                  </select>
                               </div>
                           </div>
                           <div class="col-md-2">

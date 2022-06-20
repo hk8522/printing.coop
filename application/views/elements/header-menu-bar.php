@@ -27,8 +27,8 @@
                                 <div class="menus-section">
                                   <div class="all-menus">
                                     <?php
-									//pr($categories);
-									foreach ($categories['categories'] as $key => $category) {
+                                    //pr($categories);
+                                    foreach ($categories['categories'] as $key => $category) {
                                           $count=count($category['sub_categories']);
                                         $url=$BASE_URL.'Products?category_id='.base64_encode($category['id']);
                                         $data_toggle='';
@@ -36,37 +36,37 @@
                                                      $url="Cat".$category['id'];
                                     $data_toggle='tab';
                                         }
-										$urlmain=$BASE_URL.'Products?category_id='.base64_encode($category['id']);
+                                        $urlmain=$BASE_URL.'Products?category_id='.base64_encode($category['id']);
 
                                       ?>
-									  <?php  if(!empty($count)){ ?>
-									  <a href="<?php echo $urlmain;?>">
+                                      <?php  if(!empty($count)){ ?>
+                                      <a href="<?php echo $urlmain;?>">
                                         <button class="drop-cat tablinks" onmouseover="openCity(event, '<?php echo $url?>')">
                                             <?php
-											if($language_name=='French'){
-										       echo ucfirst($category['name_french']);
-									    }else{
-										    echo ucfirst($category['name']);
-									    }
+                                            if($language_name=='French'){
+                                               echo ucfirst($category['name_french']);
+                                        }else{
+                                            echo ucfirst($category['name']);
+                                        }
 
-											?>
+                                            ?>
                                           <i class="las la-angle-right"></i>
                                         </button>
-									 </a>
-									  <?php
-									  }else{
-									?>
-									   <a href="<?php echo $urlmain;?>">
-										<button class="drop-cat tablinks" type="button" onmouseover="openCity(event, '<?php echo $url?>')">
+                                     </a>
+                                      <?php
+                                      }else{
+                                    ?>
+                                       <a href="<?php echo $urlmain;?>">
+                                        <button class="drop-cat tablinks" type="button" onmouseover="openCity(event, '<?php echo $url?>')">
                                             <?php if($language_name=='French'){
-										       echo ucfirst($category['name_french']);
-									    }else{
-										    echo ucfirst($category['name']);
-									    }?>
+                                               echo ucfirst($category['name_french']);
+                                        }else{
+                                            echo ucfirst($category['name']);
+                                        }?>
                                           <i class="las la-angle-right"></i>
                                         </button>
                                         </a>
-									  <?php }?>
+                                      <?php }?>
                                       <?php
                                       }
                                     ?>
@@ -86,15 +86,15 @@
                                                     <div class="menus-section">
                                                         <div class="menus-title">
                                                             <span><a href="<?php echo $url;?>">
-															<?php
+                                                            <?php
 
-												if($language_name=='French'){
-										       echo ucfirst($subCategory['name_french']);
-									    }else{
-										    echo ucfirst($subCategory['name']);
-									    }
+                                                if($language_name=='French'){
+                                               echo ucfirst($subCategory['name_french']);
+                                        }else{
+                                            echo ucfirst($subCategory['name']);
+                                        }
 
-														?></a></span>
+                                                        ?></a></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -116,7 +116,7 @@
                 $pageSlugArray = pageSlug();
             ?>
             <?php
-			      foreach ($pages as $key => $page) {
+                  foreach ($pages as $key => $page) {
                   $slug = $page['slug'];
                   $url = $BASE_URL.'Page/'.$slug;
                   $datatoggle = $datatarget='';
@@ -128,11 +128,11 @@
               <li>
                 <a href="<?php echo $url;?>" >
                   <?php if($language_name=='French'){
-										echo ucfirst($page['title_france']);
-									}else{
-										echo ucfirst($page['title']);
-									}
-									?>
+                                        echo ucfirst($page['title_france']);
+                                    }else{
+                                        echo ucfirst($page['title']);
+                                    }
+                                    ?>
                 </a>
               </li>
               <?php
@@ -237,7 +237,7 @@
                 $pageSlugArray = pageSlug();
             ?>
             <?php
-			      foreach ($pages as $key => $page) {
+                  foreach ($pages as $key => $page) {
                   $slug = $page['slug'];
                   $url = $BASE_URL.'Page/'.$slug;
                   $datatoggle = $datatarget='';
@@ -249,11 +249,11 @@
               <li>
                 <a href="<?php echo $url;?>" >
                   <?php if($language_name=='French'){
-										echo ucfirst($page['title_france']);
-									}else{
-										echo ucfirst($page['title']);
-									}
-									?>
+                                        echo ucfirst($page['title_france']);
+                                    }else{
+                                        echo ucfirst($page['title']);
+                                    }
+                                    ?>
                 </a>
               </li>
               <?php

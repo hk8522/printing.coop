@@ -5,67 +5,67 @@
     }
 
 .entrynew.input-group .form-control {
-	width: 100px;
+    width: 100px;
 }
 .attribute-inner, .attribute-info-inner {
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 .attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
-	justify-content: flex-start;
+    justify-content: flex-start;
 }
 .attribute-inner label, .attribute-info-inner label {
-	margin: 0px !important;
-	padding-right: 5px;
+    margin: 0px !important;
+    padding-right: 5px;
 }
 .attribute-inner input, .attribute-info-inner input {
-	height: 30px;
-	padding: 5px 5px !important;
-	color: #000;
-	background-color: rgb(255, 255, 255);
-	background-image: none;
-	border: 1px solid #ccc !important;
-	border-radius: 4px !important;
-	font-size: 13px;
-	width: 80px;
-	text-align: center;
+    height: 30px;
+    padding: 5px 5px !important;
+    color: #000;
+    background-color: rgb(255, 255, 255);
+    background-image: none;
+    border: 1px solid #ccc !important;
+    border-radius: 4px !important;
+    font-size: 13px;
+    width: 80px;
+    text-align: center;
 }
 .attribute-row {
-	padding: 0px;
-	background: #f9f9f9;
-	height: 0px;
-	overflow: hidden;
-	margin-bottom: 0px;
+    padding: 0px;
+    background: #f9f9f9;
+    height: 0px;
+    overflow: hidden;
+    margin-bottom: 0px;
 }
 .attribute.active .attribute-row {
-	padding: 10px 10px 10px 25px;
-	background: #f9f9f9;
-	height: auto;
-	margin-bottom: 10px;
+    padding: 10px 10px 10px 25px;
+    background: #f9f9f9;
+    height: auto;
+    margin-bottom: 10px;
 }
 .attribute-info {
-	background: #fff;
-	padding: 10px 10px;
-	margin-bottom: 10px;
+    background: #fff;
+    padding: 10px 10px;
+    margin-bottom: 10px;
 }
 .attribute-info-inner {
-	padding: 0px 0px 0px 20px;
+    padding: 0px 0px 0px 20px;
 }
 .attribute-title {
-	background: #f1f1f1;
-	padding: 5px 10px;
+    background: #f1f1f1;
+    padding: 5px 10px;
 }
 .attribute {
-	padding-bottom: 10px;
+    padding-bottom: 10px;
 }
 .controls.small-controls .attribute:last-child {
-	margin: 0px;
-	padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 .control-group .controls.small-controls .attribute-title .span2 {
-	margin-bottom: 0px !important;
+    margin-bottom: 0px !important;
 }
 </style>
 <div class="content-wrapper" style="min-height: 687px;">
@@ -100,17 +100,17 @@
 
                             <?php
                             $store_ids = isset($postData['store_ids']) ? explode(',',$postData['store_ids']):'';
-																																																						foreach ($StoreList as $key=>$val){
-																																																							$selected = '';
-																																																	if (in_array($val['id'],$store_ids)){
-																																																									$selected='checked';
-																																																							}
-																																																						?>
-																																									         <input type="checkbox" value="<?php echo $val['id'];?>" <?php echo $selected;?> name="store_ids[]">&nbsp;
-														  <?php echo $val['name'];
-														  ?>
+                                                                                                                                                                                                                        foreach ($StoreList as $key=>$val){
+                                                                                                                                                                                                                            $selected = '';
+                                                                                                                                                                                                    if (in_array($val['id'],$store_ids)){
+                                                                                                                                                                                                                                    $selected='checked';
+                                                                                                                                                                                                                            }
+                                                                                                                                                                                                                        ?>
+                                                                                                                                                                             <input type="checkbox" value="<?php echo $val['id'];?>" <?php echo $selected;?> name="store_ids[]">&nbsp;
+                                                          <?php echo $val['name'];
+                                                          ?>
 
-																	<?php
+                                                                    <?php
                                                                         }
                                                                         ?>
 
@@ -135,7 +135,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
                                                     <label class="span2 " for="inputMame">Email</label>
@@ -148,7 +148,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
                                                     <label class="span2 " for="inputMame">Mobile</label>
@@ -161,7 +161,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
                                                     <label class="span2 " for="inputMame">User Name</label>
@@ -175,7 +175,7 @@
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
                                                     <label class="span2 " for="inputMame">Password</label>
@@ -203,54 +203,54 @@
                                             </div>
                                         </div>
 
-										 <div class="control-group info">
-	<div class="row">
-		<div class="col-md-3" style="">
-		<label class="span2 " for="inputMame">Module Access Permission</label>
-		</div>
-		<div class="col-md-9">
-			<div class="controls small-controls">
-				<?php //pr($ProductAttributes); ?>
-				<?php
-				 foreach($AttributesList as $key=>$val){  //pr($AttributesList); die('OK');?>
+                                         <div class="control-group info">
+    <div class="row">
+        <div class="col-md-3" style="">
+        <label class="span2 " for="inputMame">Module Access Permission</label>
+        </div>
+        <div class="col-md-9">
+            <div class="controls small-controls">
+                <?php //pr($ProductAttributes); ?>
+                <?php
+                 foreach($AttributesList as $key=>$val){  //pr($AttributesList); die('OK');?>
 
-					<div class="attribute <?php if(array_key_exists($key,$ProductAttributes)) echo "active"?>" id="attribute_id_div_<?php echo $key?>"> <!-- Toggle "active" class when clicked on input(checkbox) below -->
-						<div class="attribute-title">
-							<div class="row align-items-center">
-							<div class="col-md-12">
-								<label class="span2">
-								<input type="checkbox" value="<?php echo $key?>" name="attribute_id_<?php echo $key?>"  id="attribute_id_<?php echo $key?>"  <?php if(array_key_exists($key,$ProductAttributes)) echo "checked"?> onchange="addActiveClass('<?php echo $key;?>')">
-								<?php echo $val['name'];?>
-								</label>
-							</div>
-							</div>
-						</div>
-						<div class="attribute-row">
-						<div class="row">
-						<?php
-						foreach($val['items'] as $subkey=>$subval){ ?>
-						<div class="col-md-6">
-							<div class="attribute-info">
-								<div class="row">
-									<div class="col-md-12">
-									<label class="span2">
-										<input type="checkbox" value="<?php echo $subkey?>" name="attribute_item_id_<?php echo $key?>[]" <?php if(isset($ProductAttributes[$key]['items']) && array_key_exists($subkey,$ProductAttributes[$key]['items'])) echo "checked"?>>
-										<?php echo $subval?>
-									</label>
-									</div>
-								</div>
-							</div>
-						</div>
-					      <?php
-						}?>
-					</div>
-					</div>
-				</div>
+                    <div class="attribute <?php if(array_key_exists($key,$ProductAttributes)) echo "active"?>" id="attribute_id_div_<?php echo $key?>"> <!-- Toggle "active" class when clicked on input(checkbox) below -->
+                        <div class="attribute-title">
+                            <div class="row align-items-center">
+                            <div class="col-md-12">
+                                <label class="span2">
+                                <input type="checkbox" value="<?php echo $key?>" name="attribute_id_<?php echo $key?>"  id="attribute_id_<?php echo $key?>"  <?php if(array_key_exists($key,$ProductAttributes)) echo "checked"?> onchange="addActiveClass('<?php echo $key;?>')">
+                                <?php echo $val['name'];?>
+                                </label>
+                            </div>
+                            </div>
+                        </div>
+                        <div class="attribute-row">
+                        <div class="row">
+                        <?php
+                        foreach($val['items'] as $subkey=>$subval){ ?>
+                        <div class="col-md-6">
+                            <div class="attribute-info">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                    <label class="span2">
+                                        <input type="checkbox" value="<?php echo $subkey?>" name="attribute_item_id_<?php echo $key?>[]" <?php if(isset($ProductAttributes[$key]['items']) && array_key_exists($subkey,$ProductAttributes[$key]['items'])) echo "checked"?>>
+                                        <?php echo $subval?>
+                                    </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <?php
+                        }?>
+                    </div>
+                    </div>
+                </div>
 
-				<?php }?>
-			</div>
-		</div>
-	</div>
+                <?php }?>
+            </div>
+        </div>
+    </div>
 </div>
 
                                         <div class="product-actions-btn text-right">
@@ -273,19 +273,19 @@
     <!-- /.content -->
 </div>
 <script>
-	function isNumber(evt) {
+    function isNumber(evt) {
         var iKeyCode = (evt.which) ? evt.which : evt.keyCode
         if (iKeyCode != 46 && iKeyCode > 31 && (iKeyCode < 48 || iKeyCode > 57))
             return false;
 
         return true;
     }
-	function addActiveClass(id){
-		if($("#attribute_id_"+id).prop("checked") == true){
-			$("#attribute_id_div_"+id).addClass('active');
-		}else{
-			$("#attribute_id_div_"+id).removeClass('active');
-		}
-	}
+    function addActiveClass(id){
+        if($("#attribute_id_"+id).prop("checked") == true){
+            $("#attribute_id_div_"+id).addClass('active');
+        }else{
+            $("#attribute_id_div_"+id).removeClass('active');
+        }
+    }
 </script>
 

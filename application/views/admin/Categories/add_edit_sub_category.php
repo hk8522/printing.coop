@@ -19,7 +19,7 @@
                                     <?php echo form_open('',array('class'=>'form-horizontal'));?>
                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>">
                                     <div class="form-role-area">
-									    <div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Parent Category</label>
@@ -37,11 +37,11 @@
                                                                 }
                                                                 ?>
                                                                   <option value="<?php echo  $key?>" <?php echo $selected ?>><?php echo $category;?></option>
-		                                                            <?php
-		                                                            }
-		                                                            ?>
+                                                                    <?php
+                                                                    }
+                                                                    ?>
                                                         </select>
-																												<label class="mt-2 text-danger"><?php echo $errors['category_id'] ?? '';?></label>
+                                                                                                                <label class="mt-2 text-danger"><?php echo $errors['category_id'] ?? '';?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -54,13 +54,13 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="<?php echo isset($postData['name']) ? $postData['name']:$old_values['name'] ?? '';?>" maxlength="50">
-																												<label class="mt-2 text-danger"><?php echo $errors['name'] ?? '';?></label>
+                                                                                                                <label class="mt-2 text-danger"><?php echo $errors['name'] ?? '';?></label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">French Name</label>
@@ -68,7 +68,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <input class="form-control" name="name_french" id="name_french" type="text" placeholder="Name" value="<?php echo isset($postData['name_french']) ? $postData['name_french']:$old_values['name_french'] ?? '';?>" maxlength="50">
-																												<label class="mt-2 text-danger"><?php echo $errors['name_french'] ?? '';?></label>
+                                                                                                                <label class="mt-2 text-danger"><?php echo $errors['name_french'] ?? '';?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,36 +94,36 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <textarea class="form-control" name="sub_category_dispersion" id="content"><?php echo isset($postData['sub_category_dispersion']) ? $postData['sub_category_dispersion']:'';?></textarea>
+                                                        <textarea class="form-control" name="sub_category_dispersion" id="content"><?php echo isset($postData['sub_category_dispersion']) ? $postData['sub_category_dispersion']:'';?></textarea>
                                                         <?php echo form_error('sub_category_dispersion');?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">French Sub Category Dispersion</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <textarea class="form-control" name="sub_category_dispersion_french" id="content1"><?php echo isset($postData['sub_category_dispersion_french']) ? $postData['sub_category_dispersion_french']:'';?></textarea>
+                                                        <textarea class="form-control" name="sub_category_dispersion_french" id="content1"><?php echo isset($postData['sub_category_dispersion_french']) ? $postData['sub_category_dispersion_french']:'';?></textarea>
                                                         <?php echo form_error('sub_category_dispersion_french');?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Show Sub Category</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-														<input type="checkbox" name="show_main_menu" value="1" <?php echo !empty(    $postData['show_main_menu']) ? 'checked':''?>> Show Main Menu
+                                                        <input type="checkbox" name="show_main_menu" value="1" <?php echo !empty(    $postData['show_main_menu']) ? 'checked':''?>> Show Main Menu
                                                         <?php echo form_error('show_main_menu');
-														?>
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>

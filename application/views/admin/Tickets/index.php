@@ -1,46 +1,46 @@
 
 <div class="content-wrapper" style="min-height: 687px;">
-	<section class="content">
-		<div class="row" style="display: flex;justify-content: center;align-items: center;">
-			<div class="col-md-12 col-xs-12">
-				<div class="box box-success box-solid">
-					<div class="box-body">
-						<div class="inner-head-section">
-							<div class="row">
-								<div class="col-md-6 col-xs-12 text-left">
-									<div class="inner-title">
-										<span><?php echo ucfirst($page_title).' List'; ?></span>
-									</div>
-								</div>
+    <section class="content">
+        <div class="row" style="display: flex;justify-content: center;align-items: center;">
+            <div class="col-md-12 col-xs-12">
+                <div class="box box-success box-solid">
+                    <div class="box-body">
+                        <div class="inner-head-section">
+                            <div class="row">
+                                <div class="col-md-6 col-xs-12 text-left">
+                                    <div class="inner-title">
+                                        <span><?php echo ucfirst($page_title).' List'; ?></span>
+                                    </div>
+                                </div>
 
-							   <div class="col-md-6 col-xs-12 text-right">
-									<div class="all-vol-btn">
+                               <div class="col-md-6 col-xs-12 text-right">
+                                    <div class="all-vol-btn">
 
-										    <?php if($status_ticket==0){
-											$url=$BASE_URL.'admin/Tickets/index/'.base64_encode(1);
-											$text='Resolved Ticket';
-										}else{
-											$url=$BASE_URL.'admin/Tickets/index/';
-											$text='Unresolved Ticket';
-										}?>
-											<div class="upload-area">
-											   <a href="<?php echo $url;?>"><button><?php echo $text;?></button>
-												</a>
-											</div>
-									</div>
-								</div>
-							</div>
-						</div>
+                                            <?php if($status_ticket==0){
+                                            $url=$BASE_URL.'admin/Tickets/index/'.base64_encode(1);
+                                            $text='Resolved Ticket';
+                                        }else{
+                                            $url=$BASE_URL.'admin/Tickets/index/';
+                                            $text='Unresolved Ticket';
+                                        }?>
+                                            <div class="upload-area">
+                                               <a href="<?php echo $url;?>"><button><?php echo $text;?></button>
+                                                </a>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-							<div class="custom-mini-table" id="TicketData">
-							    <h6 class="text-center">Please wait loading...</h6>
-							</div>
-						</div>
-					</div>
-				</div><!-- /.box -->
-			</div><!-- /.col-->
-		</div><!-- ./row -->
-	</section><!-- /.content -->
+                            <div class="custom-mini-table" id="TicketData">
+                                <h6 class="text-center">Please wait loading...</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.box -->
+            </div><!-- /.col-->
+        </div><!-- ./row -->
+    </section><!-- /.content -->
  </div>
 
 <div class="modal fade message-view-modal" id="message-view-modal" role="dialog" aria-labelledby="message-modalTitle" aria-hidden="true">
@@ -48,21 +48,21 @@
         <div class="modal-content">
             <div class="modal-body">
                 <div class="chat-module-section">
-					<div class="message-section">
-			  			<div class="message-chat-field">
-			      			<div class="message-chat-title">
-			      				<span>Support</span>
-			      				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-				                    <i class="fas fa-times"></i>
-				                </button>
-			      			</div>
-			      			<div class="message-chat-box" id="TicketChatData">
-							     			      					                    <h6 class="text-center">Please wait loading...</h6>
+                    <div class="message-section">
+                          <div class="message-chat-field">
+                              <div class="message-chat-title">
+                                  <span>Support</span>
+                                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                              </div>
+                              <div class="message-chat-box" id="TicketChatData">
+                                                                                           <h6 class="text-center">Please wait loading...</h6>
 
-			          		</div>
-			          	</div>
-			      	</div>
-				</div>
+                              </div>
+                          </div>
+                      </div>
+                </div>
             </div>
         </div>
     </div>
@@ -81,7 +81,7 @@
                     </div>
 
                     <div class="new-ticket-section-fields" id="createTicketFromData">
-					   <h6 class="text-center">Please wait loading...<h6>
+                       <h6 class="text-center">Please wait loading...<h6>
 
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 <?php
 
 Class Section_Model extends MY_Model {
-	public $table = 'sections';
+    public $table = 'sections';
 
   public $rules = [
         /*[
@@ -9,7 +9,7 @@ Class Section_Model extends MY_Model {
           'label' => 'Website',
           'rules' => 'required',
         ],*/
-		[
+        [
           'field' => 'name',
           'label' => 'Name',
           'rules' => 'required',

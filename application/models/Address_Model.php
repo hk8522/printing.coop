@@ -1,9 +1,9 @@
 <?php
 
 Class Address_Model extends MY_Model {
-	public $table='addresses';
+    public $table='addresses';
 
-	public $config = array(
+    public $config = array(
         array(
                 'field' => 'first_name',
                 'label' => 'First Name',
@@ -13,7 +13,7 @@ Class Address_Model extends MY_Model {
                 ),
         ),
 
-				array(
+                array(
                 'field' => 'last_name',
                 'label' => 'Last Name',
                 'rules' => 'required|max_length[50]',
@@ -22,7 +22,7 @@ Class Address_Model extends MY_Model {
                 ),
         ),
 
-	    array(
+        array(
                 'field' => 'mobile',
                 'label' => 'phone number',
                 'rules' => 'max_length[14]|min_length[6]',
@@ -30,7 +30,7 @@ Class Address_Model extends MY_Model {
                         'required' => 'Enter phone number',
                 ),
         ),
-		array(
+        array(
                 'field' => 'alternate_phone',
                 'label' => 'alternate phone',
                 'rules' => 'max_length[14]|min_length[6]',
@@ -38,7 +38,7 @@ Class Address_Model extends MY_Model {
 
                 ),
         ),
-		array(
+        array(
                 'field' => 'pin_code',
                 'label' => 'pincode',
                 'rules' => 'required',
@@ -46,7 +46,7 @@ Class Address_Model extends MY_Model {
                         'required' => 'Enter pincode',
                 ),
         ),
-		array(
+        array(
                 'field' => 'address',
                 'label' => 'address',
                 'rules' => 'required|max_length[150]',
@@ -54,7 +54,7 @@ Class Address_Model extends MY_Model {
                         'required' => 'Enter Address',
                 ),
         ),
-		array(
+        array(
                 'field' => 'city',
                 'label' => 'city',
                 'rules' => 'required|max_length[50]',
@@ -62,7 +62,7 @@ Class Address_Model extends MY_Model {
                         'required' => 'Enter city',
                 ),
         ),
-		array(
+        array(
                 'field' => 'state',
                 'label' => 'state',
                 'rules' => 'required',
@@ -72,169 +72,169 @@ Class Address_Model extends MY_Model {
         )
     );
 
-	public function getAddressListByUserId($user_id) {
+    public function getAddressListByUserId($user_id) {
         $this->db->select('*');
-		$this->db->select(array('Address.*','State.name as StateName','city.name as cityName','Country.iso2 as CountryName'));
-		$this->db->where(array('user_id'=>$user_id));
+        $this->db->select(array('Address.*','State.name as StateName','city.name as cityName','Country.iso2 as CountryName'));
+        $this->db->where(array('user_id'=>$user_id));
         $this->db->from($this->table.' as Address');
-		$this->db->join('states as State', 'State.id=Address.state', 'left');
-		$this->db->join('cities as city', 'city.id=Address.city', 'left');
-		$this->db->join('countries as Country', 'Country.id=Address.country', 'left');
-		$this->db->order_by('Address.default_delivery_address','desc');
+        $this->db->join('states as State', 'State.id=Address.state', 'left');
+        $this->db->join('cities as city', 'city.id=Address.city', 'left');
+        $this->db->join('countries as Country', 'Country.id=Address.country', 'left');
+        $this->db->order_by('Address.default_delivery_address','desc');
         $query = $this->db->get();
-		$data=$query->result_array();
-		return $data;
+        $data=$query->result_array();
+        return $data;
     }
 
-	public function getAddressDataById($id) {
+    public function getAddressDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-		$this->db->where(array('id'=>$id));
+        $this->db->where(array('id'=>$id));
         $query = $this->db->get();
-		$data=(array)$query->row();
-		return $data;
+        $data=(array)$query->row();
+        return $data;
     }
 
-	public function deleteAddress($id) {
-		$this->db->where('id',$id);
+    public function deleteAddress($id) {
+        $this->db->where('id',$id);
         $query = $this->db->delete($this->table);
-		if ($query) {
+        if ($query) {
             return 1;
-		} else {
-			return 0;
-		}
+        } else {
+            return 0;
+        }
     }
 
-	public function saveAddress($data) {
-		$id=isset($data['id']) ? $data['id']:'';
+    public function saveAddress($data) {
+        $id=isset($data['id']) ? $data['id']:'';
 
-		if(!empty($id)){
-			$data['updated']=date('Y-m-d H:i:s');
-			$this->db->where('id', $id);
-			$query = $this->db->update($this->table, $data);
-			if ($query) {
+        if(!empty($id)){
+            $data['updated']=date('Y-m-d H:i:s');
+            $this->db->where('id', $id);
+            $query = $this->db->update($this->table, $data);
+            if ($query) {
                return $id;
-			} else {
-				return 0;
-			}
-		}else{
-			$data['created']=date('Y-m-d H:i:s');
-			$data['updated']=date('Y-m-d H:i:s');
-			$query = $this->db->insert($this->table, $data);
-			if ($query) {
+            } else {
+                return 0;
+            }
+        }else{
+            $data['created']=date('Y-m-d H:i:s');
+            $data['updated']=date('Y-m-d H:i:s');
+            $query = $this->db->insert($this->table, $data);
+            if ($query) {
                return $insert_id = $this->db->insert_id();
-			} else {
-				return 0;
-			}
-		}
+            } else {
+                return 0;
+            }
+        }
     }
 
-	public function CheckDeliveryAddress($id,$data) {
+    public function CheckDeliveryAddress($id,$data) {
         $this->db->select('*');
         $this->db->from($this->table);
-		 $this->db->where(array('default_delivery_address'=>'1','user_id'=>$data['user_id']));
-		$query = $this->db->get();
+         $this->db->where(array('default_delivery_address'=>'1','user_id'=>$data['user_id']));
+        $query = $this->db->get();
 
-		if(empty($data['default_delivery_address'])){
-			if($query->num_rows() == 0) {
-				$sdata['id']=$id;
-				$sdata['default_delivery_address']=1;
-		        $this->saveAddress($sdata);
-			}
-		}else{
-			if($query->num_rows() > 0) {
-				$datas=$query->result_array();
+        if(empty($data['default_delivery_address'])){
+            if($query->num_rows() == 0) {
+                $sdata['id']=$id;
+                $sdata['default_delivery_address']=1;
+                $this->saveAddress($sdata);
+            }
+        }else{
+            if($query->num_rows() > 0) {
+                $datas=$query->result_array();
                 foreach($datas as $v){
-				    if($v['id'] !=$id){
-					   $sndata['id']=$v['id'];
-					   $sndata['default_delivery_address']=0;
-					   $this->saveAddress($sndata);
-				    }
+                    if($v['id'] !=$id){
+                       $sndata['id']=$v['id'];
+                       $sndata['default_delivery_address']=0;
+                       $this->saveAddress($sndata);
+                    }
                 }
-			}
-		}
+            }
+        }
     }
 
-	function getState($country_id=null)
-	{
-	    $data=array();
+    function getState($country_id=null)
+    {
+        $data=array();
         if($country_id){
-		$this->db->select('*');
+        $this->db->select('*');
         $this->db->from('states');
-		   $this->db->where('country_id',$country_id);
+           $this->db->where('country_id',$country_id);
 
-		$this->db->order_by('name','asc');
+        $this->db->order_by('name','asc');
         $query = $this->db->get();
-		$data=$query->result_array();
-		}
-		return $data;
-	}
-	function getCity($state_id=null)
-	{
-	    $data=array();
+        $data=$query->result_array();
+        }
+        return $data;
+    }
+    function getCity($state_id=null)
+    {
+        $data=array();
         if($state_id){
-		$this->db->select('*');
+        $this->db->select('*');
         $this->db->from('cities');
-		$this->db->where('state_id',$state_id);
+        $this->db->where('state_id',$state_id);
 
-		$this->db->order_by('name','asc');
+        $this->db->order_by('name','asc');
         $query = $this->db->get();
-		$data=$query->result_array();
-		}
-		return $data;
-	}
+        $data=$query->result_array();
+        }
+        return $data;
+    }
 
-	function getCountries($country_id="39")
-	{
-		$this->db->select('*');
-		$this->db->from('countries');
-		$this->db->order_by('name','asc');
-		if(!empty($country_id)){
-			$this->db->where('id',$country_id);
-		}
-		$query = $this->db->get();
-		$data=$query->result_array();
-		return $data;
-	}
-	function getStateById($id)
-	{
-		$this->db->select('*');
-        $this->db->from('states');
-		$this->db->where('id',$id);
-		$this->db->order_by('name','asc');
-        $query = $this->db->get();
-		$data=(array)$query->row();
-		return $data;
-	}
-	function getCityById($id)
-	{
-		$this->db->select('*');
-        $this->db->from('cities');
-		$this->db->where('id',$id);
-		$this->db->order_by('name','asc');
-        $query = $this->db->get();
-		$data=(array)$query->row();
-		return $data;
-	}
-	function getCountryById($id)
-	{
-		$this->db->select('*','name as CountryName');
+    function getCountries($country_id="39")
+    {
+        $this->db->select('*');
         $this->db->from('countries');
-		$this->db->where('id',$id);
-		$this->db->order_by('name','asc');
+        $this->db->order_by('name','asc');
+        if(!empty($country_id)){
+            $this->db->where('id',$country_id);
+        }
         $query = $this->db->get();
-		$data=(array)$query->row();
-		return $data;
-	}
-	function salesTaxRatesProvincesById($id)
-	{
-		$this->db->select('*');
+        $data=$query->result_array();
+        return $data;
+    }
+    function getStateById($id)
+    {
+        $this->db->select('*');
+        $this->db->from('states');
+        $this->db->where('id',$id);
+        $this->db->order_by('name','asc');
+        $query = $this->db->get();
+        $data=(array)$query->row();
+        return $data;
+    }
+    function getCityById($id)
+    {
+        $this->db->select('*');
+        $this->db->from('cities');
+        $this->db->where('id',$id);
+        $this->db->order_by('name','asc');
+        $query = $this->db->get();
+        $data=(array)$query->row();
+        return $data;
+    }
+    function getCountryById($id)
+    {
+        $this->db->select('*','name as CountryName');
+        $this->db->from('countries');
+        $this->db->where('id',$id);
+        $this->db->order_by('name','asc');
+        $query = $this->db->get();
+        $data=(array)$query->row();
+        return $data;
+    }
+    function salesTaxRatesProvincesById($id)
+    {
+        $this->db->select('*');
         $this->db->from('sales-tax-rates-provinces');
-		$this->db->where('state_id',$id);
+        $this->db->where('state_id',$id);
         $query = $this->db->get();
-		$data=(array)$query->row();
-		return $data;
-	}
+        $data=(array)$query->row();
+        return $data;
+    }
 }
 
 ?>

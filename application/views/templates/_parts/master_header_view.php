@@ -5,29 +5,29 @@
 <html lang="en">
 <head>
    <?php
-		$favicon_url= $BASE_URL.'assets/images/favicon.png';
-		$favicon='';
-		if($language_name=='French'){
-			$favicon=$configrations['french_favicon'];
-		}else{
-			$favicon=$configrations['favicon'];
-		}
-		if(!empty($favicon)){
-			$favicon_url = getLogoImages($favicon);
-		}
+        $favicon_url= $BASE_URL.'assets/images/favicon.png';
+        $favicon='';
+        if($language_name=='French'){
+            $favicon=$configrations['french_favicon'];
+        }else{
+            $favicon=$configrations['favicon'];
+        }
+        if(!empty($favicon)){
+            $favicon_url = getLogoImages($favicon);
+        }
 
-		if($website_store_id ==3 || $website_store_id ==5){  #Show only PrintCoop & Franch
+        if($website_store_id ==3 || $website_store_id ==5){  #Show only PrintCoop & Franch
 
-			$meta_description_content='';
-			$meta_keywords_content='';
-			$page_title=$MainStoreData['name'].'-'.$page_title;
-		}else{
-			if(!empty($meta_page_title)){
-			    $page_title=$meta_page_title;
-		    }else{
-				$page_title=$MainStoreData['name'].'-'.$page_title;
-			}
-		}
+            $meta_description_content='';
+            $meta_keywords_content='';
+            $page_title=$MainStoreData['name'].'-'.$page_title;
+        }else{
+            if(!empty($meta_page_title)){
+                $page_title=$meta_page_title;
+            }else{
+                $page_title=$MainStoreData['name'].'-'.$page_title;
+            }
+        }
 
     ?>
 
@@ -40,7 +40,7 @@
        <meta name="description" content="<?php echo $meta_description_content?>">
     <?php
     }?>
-	<?php
+    <?php
     if($meta_keywords_content){?>
        <meta name="keywords" content="<?php echo $meta_keywords_content?>">
     <?php
@@ -64,7 +64,7 @@
 
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ec9dc85b92c741879c76713f0ada873b"}'></script><!-- End Cloudflare Web Analytics -->
 
-	<!-- Global site tag (gtag.js) - Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-183856793-1">
 </script>
 <script>
@@ -76,25 +76,25 @@
 </script>
 
 <?php if($website_store_id==1){?>
-	<?php if($language_name=='French'){ ?>
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7V7YLFS15"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
+    <?php if($language_name=='French'){ ?>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7V7YLFS15"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-		  gtag('config', 'G-L7V7YLFS15');
-		</script>
-	<?php }else{ ?>
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-S5JX3QGBRH"></script>
-		<script>
-		  window.dataLayer = window.dataLayer || [];
-		  function gtag(){dataLayer.push(arguments);}
-		  gtag('js', new Date());
+          gtag('config', 'G-L7V7YLFS15');
+        </script>
+    <?php }else{ ?>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-S5JX3QGBRH"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
 
-		  gtag('config', 'G-S5JX3QGBRH');
-		</script>
-	<?php }?>
+          gtag('config', 'G-S5JX3QGBRH');
+        </script>
+    <?php }?>
 <?php }else if($website_store_id==3){?>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X71XTPM7CL"></script>
 <script>
@@ -120,13 +120,13 @@
       <div class="container">
           <span>
               <?php
-			   if($language_name=='French'){
-			        echo $configrations['announcement_french'] ?? 'Proudly involved in the community! 10% discount for Community organizations, co-operatives, not-for-profit organizations and print reselling companies will benefit.';
-			   }else{
-					 echo $configrations['announcement'] ?? 'Proudly involved in the community! 10% discount for Community organizations, co-operatives, not-for-profit organizations and print reselling companies will benefit.';
-				}
+               if($language_name=='French'){
+                    echo $configrations['announcement_french'] ?? 'Proudly involved in the community! 10% discount for Community organizations, co-operatives, not-for-profit organizations and print reselling companies will benefit.';
+               }else{
+                     echo $configrations['announcement'] ?? 'Proudly involved in the community! 10% discount for Community organizations, co-operatives, not-for-profit organizations and print reselling companies will benefit.';
+                }
 
-			  ?>
+              ?>
           </span>
           <i class="la la-times"></i>
       </div>
@@ -150,13 +150,13 @@
                   }?></span>
   </div>
 <div id="loader-img">
-	<div id="loader-img-inner">
-		<?php if($website_store_id==1){?>
-		<img src="<?php echo $BASE_URL;?>assets/images/loder.gif" width="100">
-		<?php }else if($website_store_id==3){?>
-		<img src="<?php echo $BASE_URL;?>assets/images/loader-pink.gif" width="100">
-		<?php }else if($website_store_id==5){?>
-		<img src="<?php echo $BASE_URL;?>assets/images/loader-green.gif" width="100">
-		<?php }?>
-	</div>
+    <div id="loader-img-inner">
+        <?php if($website_store_id==1){?>
+        <img src="<?php echo $BASE_URL;?>assets/images/loder.gif" width="100">
+        <?php }else if($website_store_id==3){?>
+        <img src="<?php echo $BASE_URL;?>assets/images/loader-pink.gif" width="100">
+        <?php }else if($website_store_id==5){?>
+        <img src="<?php echo $BASE_URL;?>assets/images/loader-green.gif" width="100">
+        <?php }?>
+    </div>
 </div>

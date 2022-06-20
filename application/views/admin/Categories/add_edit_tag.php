@@ -28,12 +28,12 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="<?php echo isset($postData['name']) ? $postData['name']:$old_values['name'] ?? '';?>" maxlength="50">
-																												<label class="mt-2 text-danger"><?php echo $errors['name'] ?? '';?></label>
+                                                                                                                <label class="mt-2 text-danger"><?php echo $errors['name'] ?? '';?></label>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">French Name</label>
@@ -41,7 +41,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <input class="form-control" name="name_french" id="name_french" type="text" placeholder="name french" value="<?php echo isset($postData['name_french']) ? $postData['name_french']:$old_values['name_french'] ?? '';?>" maxlength="50">
-																												<label class="mt-2 text-danger"><?php echo $errors['name_french'] ?? '';?></label>
+                                                                                                                <label class="mt-2 text-danger"><?php echo $errors['name_french'] ?? '';?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -60,7 +60,7 @@
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Tag Font Awesome Class</label>
@@ -81,105 +81,105 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <input type="checkbox" name="proudly_display_your_brand" value="1" <?php echo !empty($postData['proudly_display_your_brand']) ? 'checked':''?>> Proudly Display Your Brand
+                                                        <input type="checkbox" name="proudly_display_your_brand" value="1" <?php echo !empty($postData['proudly_display_your_brand']) ? 'checked':''?>> Proudly Display Your Brand
                                                         <?php echo form_error('category_dispersion');
-														?>
-														<input type="checkbox" name="montreal_book_printing" value="1" <?php echo !empty(    $postData['montreal_book_printing']) ? 'checked':''?>> Montreal Book Printing
+                                                        ?>
+                                                        <input type="checkbox" name="montreal_book_printing" value="1" <?php echo !empty(    $postData['montreal_book_printing']) ? 'checked':''?>> Montreal Book Printing
                                                         <?php echo form_error('montreal_book_printing');
-														?>
-														<input type="checkbox" name="footer" value="1" <?php echo !empty($postData['footer']) ? 'checked':''?>> Show  Footer
+                                                        ?>
+                                                        <input type="checkbox" name="footer" value="1" <?php echo !empty($postData['footer']) ? 'checked':''?>> Show  Footer
                                                         <?php echo form_error('footer');
-														?>
+                                                        ?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Tag Image</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <div tyle="margin-bottom:15px;">
-															<?php $old_image =isset($postData['image']) ? $postData['image']:'';?>
-															<?php
-																if($old_image !=''){
-																   $imageurl=geCategoryImage($old_image,'large');?>
-															       <img src="<?php echo $imageurl?>" width="100" height="80">
-															<?php
-																}
-																?>
-															<input name="old_image" value="<?php echo $old_image;?>" type="hidden">
-														</div>
-													    <div class="image-info">
-															<span>
-															Allowed image type  : <b> (jpg, png, gif)</b>
-															</span>
-															<!--<br>
-															<span>
-															Allowed image size maximum  : <b> (1Mb)</b>
-															</span>
-															<br>
-															<!--<span>
-															Allowed image in only  dimensions(WXH) 1920pxX428px
-															</span>-->
+                                                        <div tyle="margin-bottom:15px;">
+                                                            <?php $old_image =isset($postData['image']) ? $postData['image']:'';?>
+                                                            <?php
+                                                                if($old_image !=''){
+                                                                   $imageurl=geCategoryImage($old_image,'large');?>
+                                                                   <img src="<?php echo $imageurl?>" width="100" height="80">
+                                                            <?php
+                                                                }
+                                                                ?>
+                                                            <input name="old_image" value="<?php echo $old_image;?>" type="hidden">
+                                                        </div>
+                                                        <div class="image-info">
+                                                            <span>
+                                                            Allowed image type  : <b> (jpg, png, gif)</b>
+                                                            </span>
+                                                            <!--<br>
+                                                            <span>
+                                                            Allowed image size maximum  : <b> (1Mb)</b>
+                                                            </span>
+                                                            <br>
+                                                            <!--<span>
+                                                            Allowed image in only  dimensions(WXH) 1920pxX428px
+                                                            </span>-->
 
-															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
-																<input class="btn btn-primary" name="files" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
-															</div>
-															<div style="color:red">
-																<?php echo $this->session->flashdata('file_message_error');
-																	?>
-																<?php
-																	echo form_error('files');?>
-															</div>
-														</div>
+                                                            <div class="entry input-group col-xs-3" style="margin-bottom:15px;">
+                                                                <input class="btn btn-primary" name="files" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
+                                                            </div>
+                                                            <div style="color:red">
+                                                                <?php echo $this->session->flashdata('file_message_error');
+                                                                    ?>
+                                                                <?php
+                                                                    echo form_error('files');?>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">Tag Image French</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-													    <div tyle="margin-bottom:15px;">
-															<?php $old_image_french =isset($postData['image_french']) ? $postData['image_french']:'';?>
-															<?php
-																if($old_image_french !=''){
-																   $imageurl=geCategoryImage($old_image_french,'large');?>
-															       <img src="<?php echo $imageurl?>" width="100" height="80">
-															<?php
-																}
-																?>
-															<input name="old_image_french" value="<?php echo $old_image_french;?>" type="hidden">
-														</div>
-													    <div class="image-info">
-															<span>
-															Allowed image type  : <b> (jpg, png, gif)</b>
-															</span>
-															<!--<br>
-															<span>
-															Allowed image size maximum  : <b> (1Mb)</b>
-															</span>
-															<br>
-															<!--<span>
-															Allowed image in only  dimensions(WXH) 1920pxX428px
-															</span>-->
+                                                        <div tyle="margin-bottom:15px;">
+                                                            <?php $old_image_french =isset($postData['image_french']) ? $postData['image_french']:'';?>
+                                                            <?php
+                                                                if($old_image_french !=''){
+                                                                   $imageurl=geCategoryImage($old_image_french,'large');?>
+                                                                   <img src="<?php echo $imageurl?>" width="100" height="80">
+                                                            <?php
+                                                                }
+                                                                ?>
+                                                            <input name="old_image_french" value="<?php echo $old_image_french;?>" type="hidden">
+                                                        </div>
+                                                        <div class="image-info">
+                                                            <span>
+                                                            Allowed image type  : <b> (jpg, png, gif)</b>
+                                                            </span>
+                                                            <!--<br>
+                                                            <span>
+                                                            Allowed image size maximum  : <b> (1Mb)</b>
+                                                            </span>
+                                                            <br>
+                                                            <!--<span>
+                                                            Allowed image in only  dimensions(WXH) 1920pxX428px
+                                                            </span>-->
 
-															<div class="entry input-group col-xs-3" style="margin-bottom:15px;">
-																<input class="btn btn-primary" name="files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
-															</div>
-															<div style="color:red">
-																<?php echo $this->session->flashdata('file_message_error_french');
-																	?>
-																<?php
-																	echo form_error('files_french');?>
-															</div>
-														</div>
+                                                            <div class="entry input-group col-xs-3" style="margin-bottom:15px;">
+                                                                <input class="btn btn-primary" name="files_french" type="file" accept="image/x-png,image/gif,image/jpeg" id="upload" onchange="Upload('upload')"/>
+                                                            </div>
+                                                            <div style="color:red">
+                                                                <?php echo $this->session->flashdata('file_message_error_french');
+                                                                    ?>
+                                                                <?php
+                                                                    echo form_error('files_french');?>
+                                                            </div>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -224,19 +224,19 @@
               image.onload = function () {
                       var height = this.height;
                       var width = this.width;
-    			var imagesize=fileUpload.files[0].size;
-    			var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
+                var imagesize=fileUpload.files[0].size;
+                var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
 
-    			//alert(imagesize);
-    			if(FILE_MAX_SIZE_JS < imagesize){
-    				$("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
-    			    $("#MsgModal").modal('show');
+                //alert(imagesize);
+                if(FILE_MAX_SIZE_JS < imagesize){
+                    $("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
+                    $("#MsgModal").modal('show');
                           return false;
-    			}
-				 /*else if (height  =< 400 || width !=1920) {
-    				document.getElementById(imageId).value='';
-    				$("#MsgModal .modal-body").html('<span style="color:red"> Allowed image in only  dimensions(WXH) 1920pxX428px</b></span>');
-    			    $("#MsgModal").modal('show');
+                }
+                 /*else if (height  =< 400 || width !=1920) {
+                    document.getElementById(imageId).value='';
+                    $("#MsgModal .modal-body").html('<span style="color:red"> Allowed image in only  dimensions(WXH) 1920pxX428px</b></span>');
+                    $("#MsgModal").modal('show');
                           return false;
                   }*/
                   };

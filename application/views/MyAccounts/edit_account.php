@@ -7,7 +7,7 @@
                     <span>Your Personal Details</span>
                     <?php if($postData['email_verification']==0){?>
                               <div class="verify">
-              			               <span class="verify-email mt-5" style="color:red"><small>
+                                         <span class="verify-email mt-5" style="color:red"><small>
                                        <?php
                                         if($language_name=='French'){ ?>
                                           Vérifiez votre e-mail
@@ -16,17 +16,17 @@
                                         <?php
                                         }?></p></small>
                               </div>
-              			<?php
-              			}?>
+                          <?php
+                          }?>
 
                       </div>
                 </div>
-            		<div class="text-center" style="color:red">
-            				<?php echo $this->session->flashdata('message_error');?>
-            		</div>
-            		<div class="text-center" style="color:green">
-            				<?php echo $this->session->flashdata('message_success');?>
-            		</div>
+                    <div class="text-center" style="color:red">
+                            <?php echo $this->session->flashdata('message_error');?>
+                    </div>
+                    <div class="text-center" style="color:green">
+                            <?php echo $this->session->flashdata('message_success');?>
+                    </div>
                 <div class="shipping-form">
                   <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
                     <div class="row">

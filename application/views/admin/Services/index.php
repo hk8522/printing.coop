@@ -31,9 +31,9 @@
                                 <table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
                                     <thead>
                                         <tr role="row">
-										    <th>Service Image</th>
+                                            <th>Service Image</th>
                                             <th>Service Name</th>
-											<th>Website</th>
+                                            <th>Website</th>
                                             <th>Created On</th>
                                             <th>Updated On</th>
                                             <th>Status</th>
@@ -43,16 +43,16 @@
                                     <tbody>
                                         <?php
                                             if ($services){
-                                            	foreach($services as $key=>$service){
-													//pr($service);
-                                            	?>
+                                                foreach($services as $key=>$service){
+                                                    //pr($service);
+                                                ?>
                                         <tr>
-										    <td>
-											  <?php $imageurl=getBannerImage($service['service_image'],'small');?>
-											  <img src="<?php echo $imageurl?>" width="auto" height="80">
-											 </td>
+                                            <td>
+                                              <?php $imageurl=getBannerImage($service['service_image'],'small');?>
+                                              <img src="<?php echo $imageurl?>" width="auto" height="80">
+                                             </td>
                                             <td><?php echo ucfirst($service['name']);?></td>
-											<td><?php echo $MainStoreList[$service['main_store_id']]?></td>
+                                            <td><?php echo $MainStoreList[$service['main_store_id']]?></td>
                                             <td>
                                                 <?php echo dateFormate($service['created']);?>
                                             </td>
@@ -102,7 +102,7 @@
 <script>
     $(document).ready(function(){
         $('#example1').DataTable({
-    		"order": [[ 2, "asc" ]]
-    	});
+            "order": [[ 2, "asc" ]]
+        });
     });
 </script>

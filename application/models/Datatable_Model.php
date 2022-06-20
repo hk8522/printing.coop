@@ -2,10 +2,10 @@
 
 Class Datatable_Model extends MY_Model {
     public $table='';
-	public $column_order='';
-	public $column_search='';
+    public $column_order='';
+    public $column_search='';
 
-	/*function __construct() {
+    /*function __construct() {
         /// Set table name
         $this->table = 'members';
         // Set orderable column fields

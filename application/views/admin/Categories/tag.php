@@ -31,7 +31,7 @@
                                 <table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
                                     <thead>
                                         <tr role="row">
-										   <th class="hidden"></th>
+                                           <th class="hidden"></th>
                                             <th>Name</th>
                                             <th>Tag Order</th>
                                             <th>Status</th>
@@ -46,7 +46,7 @@
                                             foreach($lists as $key => $list) {
                                             ?>
                                         <tr>
-										    <td class="hidden"></td>
+                                            <td class="hidden"></td>
                                             <td><?php echo $list['name'];?></td>
                                             <td><?php echo $list['tag_order'];?></td>
                                             <td>
@@ -63,7 +63,7 @@
                                                  </a>
                                               <?php
                                               }?>
-                      											</td>
+                                                                  </td>
                                             <td>
                                                 <?php echo dateFormate($list['created']);?>
                                             </td>

@@ -4,83 +4,83 @@
             <div class="universal-dark-title">
               <span><?php
                    #Proudly Display Your Brand  Section
-			       if($language_name=='French'){
-					 echo $section_2['name_france'] ?? '';
-					}else{
-					  echo $section_2['name'] ?? '';
-					}
+                   if($language_name=='French'){
+                     echo $section_2['name_france'] ?? '';
+                    }else{
+                      echo $section_2['name'] ?? '';
+                    }
 
-				?>
-			  </span>
+                ?>
+              </span>
             </div>
             <div class="universal-dark-info">
               <span><?php
 
-			    if($language_name=='French'){
-					 echo $section_2['description_france'] ?? '';
-					}else{
-					  echo $section_2['description'] ?? '';
-				}
+                if($language_name=='French'){
+                     echo $section_2['description_france'] ?? '';
+                    }else{
+                      echo $section_2['description'] ?? '';
+                }
 
-			  ?></span>
+              ?></span>
             </div>
 
-			<div class="universal-dark-info">
+            <div class="universal-dark-info">
               <span>
-				  <?php
-				  if($language_name=='French'){
-					 echo $section_2['content_france'] ?? '';
-					}else{
-					  echo $section_2['content'] ?? '';
-				}
-				  ?>
-				</span>
+                  <?php
+                  if($language_name=='French'){
+                     echo $section_2['content_france'] ?? '';
+                    }else{
+                      echo $section_2['content'] ?? '';
+                }
+                  ?>
+                </span>
             </div>
             <div class="trend-tabs">
                 <ul class="nav nav-pills">
-				   <?php
-				foreach($proudly_display_your_brand_tags as $key=>$val){
-				    $active='';
-					if($key==0){
-						$active='active';
-					}
-				    $href="#Process".$val['id'];
-					$label=ucwords($val['name']);
+                   <?php
+                foreach($proudly_display_your_brand_tags as $key=>$val){
+                    $active='';
+                    if($key==0){
+                        $active='active';
+                    }
+                    $href="#Process".$val['id'];
+                    $label=ucwords($val['name']);
 
-					if($language_name=='French'){
-						$label=ucwords($val['name_french']);
-					}
-				   ?>
+                    if($language_name=='French'){
+                        $label=ucwords($val['name_french']);
+                    }
+                   ?>
                     <li><a class="<?php echo $active;?>" data-toggle="pill" href="<?php echo $href;?>"><?php echo $label;?></a></li>
 
-				   <?php
-				}?>
+                   <?php
+                }?>
 
                 </ul>
             </div>
             <div class="trend-tabs-content tab-content">
-			    <?php foreach($proudly_display_your_brand_tags as $key=>$val){
-				    $active='';
+                <?php foreach($proudly_display_your_brand_tags as $key=>$val){
+                    $active='';
 
-					if($key==0){
-						$active='active show';
-					}
+                    if($key==0){
+                        $active='active show';
+                    }
 
-				    $div_id="Process".$val['id'];
-					$label=ucwords($val['name']);
+                    $div_id="Process".$val['id'];
+                    $label=ucwords($val['name']);
 
-					if($language_name=='French'){
-						$label=ucwords($val['name_french']);
-					}
-					$tag_id=$val['id'];
+                    if($language_name=='French'){
+                        $label=ucwords($val['name_french']);
+                    }
+                    $tag_id=$val['id'];
 
-				?>
+                ?>
                 <div id="<?php echo $div_id?>" class="tab-pane fade  <?php echo $active;?>">
                     <div class="trend-all-products">
                         <div class="row">
                           <?php
 
-						    $posterAndPlansProducts=$this->Product_Model->getProductByTagId($tag_id);
+                            $posterAndPlansProducts=$this->Product_Model->getProductByTagId($tag_id);
                             if ($posterAndPlansProducts) {
                               foreach ($posterAndPlansProducts as  $index=> $posterAndPlansProduct) {
                                 ?>
@@ -148,8 +148,8 @@
                         </div>
                     </div>
                 </div>
-				<?php
-				}?>
+                <?php
+                }?>
             </div>
         </div>
     </div>

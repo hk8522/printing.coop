@@ -6,17 +6,17 @@
             </div>
             <div class="login-field-section">
                 <div class="text-center" style="color:red">
-				<?php echo $this->session->flashdata('message_error');?></div>
-				<div class="text-center" style="color:green">
-				<?php echo $this->session->flashdata('message_success');?>
-				</div>
+                <?php echo $this->session->flashdata('message_error');?></div>
+                <div class="text-center" style="color:green">
+                <?php echo $this->session->flashdata('message_success');?>
+                </div>
 
-				<?php echo form_open('',array());?>
+                <?php echo form_open('',array());?>
                     <div class="login-fields">
                         <input type="text" placeholder="Username" name="username">
-						<?php echo form_error('username');?>
+                        <?php echo form_error('username');?>
                         <input type="password" placeholder="Password" name="password">
-						<?php echo form_error('password');?>
+                        <?php echo form_error('password');?>
                         <div class="login-btn">
                             <button type="submit" name="login">Login</button>
                         </div>

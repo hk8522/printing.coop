@@ -303,7 +303,7 @@ class Neighbor extends Admin_Controller
                 ),
             ),
         );
-    
+
         $data = [
             'attribute_id' => $attribute_id,
             'name'  => $this->input->post('name'),

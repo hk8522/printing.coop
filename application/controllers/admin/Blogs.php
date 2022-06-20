@@ -28,7 +28,7 @@ class Blogs extends Admin_Controller
 
     public function addEdit($id = null)
     {
-		$this->load->model('Blog_Model');
+        $this->load->model('Blog_Model');
         $this->load->helper('form');
         $this->data['page_title'] = $page_title = 'Add New Blog';
 
@@ -39,11 +39,11 @@ class Blogs extends Admin_Controller
         $this->data['main_page_url'] = '';
 
         $categoryData=$this->Blog_Model->getBlogsCategoryList();
-		$this->data['categoryData']=$categoryData;
+        $this->data['categoryData']=$categoryData;
 
-		$this->load->model('Store_Model');
-		$StoreList=$this->Store_Model->getAllStoreList();
-		$this->data['StoreList']=$StoreList;
+        $this->load->model('Store_Model');
+        $StoreList=$this->Store_Model->getAllStoreList();
+        $this->data['StoreList']=$StoreList;
         $postData = array();
         if ($id) {
             $postData = $this->Blog_Model->getBlogDataById($id);
@@ -59,10 +59,10 @@ class Blogs extends Admin_Controller
             }
             $postData['title']              = $this->input->post('title');
             $postData['content']            = $this->input->post('content');
-			$postData['title_french']       = $this->input->post('title_french');
+            $postData['title_french']       = $this->input->post('title_french');
             $postData['content_french']     = $this->input->post('content_french');
-			$postData['populer']            = $this->input->post('populer');
-			$postData['category_id']        = $this->input->post('category_id');
+            $postData['populer']            = $this->input->post('populer');
+            $postData['category_id']        = $this->input->post('category_id');
             $postData['store_id']           = implode(',',$this->input->post('store_id'));
 
             if ($this->form_validation->run() === TRUE) {
@@ -235,9 +235,9 @@ class Blogs extends Admin_Controller
         $this->data['main_page_url'] = '';
         $this->load->model('ProductImage_Model');
 
-		$this->load->model('Store_Model');
-		$StoreList=$this->Store_Model->getAllStoreList();
-		$this->data['StoreList']=$StoreList;
+        $this->load->model('Store_Model');
+        $StoreList=$this->Store_Model->getAllStoreList();
+        $this->data['StoreList']=$StoreList;
 
         $blog                       = $this->Blog_Model->getBlogDataById($id);
         $blogComments               = $this->Blog_Comment_Model->getCommentsByBlogId($id);
@@ -246,7 +246,7 @@ class Blogs extends Admin_Controller
         $this->render($this->class_name . 'view');
     }
 
-	public function Category()
+    public function Category()
     {
         $this->load->model('Blog_Model');
         $this->load->helper('form');
@@ -260,7 +260,7 @@ class Blogs extends Admin_Controller
         $this->render($this->class_name . 'category');
     }
 
-	public function addEditCategory($id = null)
+    public function addEditCategory($id = null)
     {
         $this->load->helper('form');
         $this->data['page_title'] = $page_title = 'Add New Category';
@@ -271,9 +271,9 @@ class Blogs extends Admin_Controller
 
         $this->data['main_page_url'] = 'Category';
         $this->load->model('Blog_Model');
-		$this->load->model('Store_Model');
-		$StoreList=$this->Store_Model->getAllStoreList();
-		$this->data['StoreList']=$StoreList;
+        $this->load->model('Store_Model');
+        $StoreList=$this->Store_Model->getAllStoreList();
+        $this->data['StoreList']=$StoreList;
 
         $postData = array();
         if ($id) {
@@ -292,17 +292,17 @@ class Blogs extends Admin_Controller
 
             $postData['category_name']   = $this->input->post('category_name');
             $postData['category_name_french']   = $this->input->post('category_name_french');
-			$postData['store_id']           = implode(',',$this->input->post('store_id'));
+            $postData['store_id']           = implode(',',$this->input->post('store_id'));
 
             if ($this->form_validation->run() === TRUE) {
-				$insert_id = $this->Blog_Model->saveBlogCategory($postData);
+                $insert_id = $this->Blog_Model->saveBlogCategory($postData);
 
-				if ($insert_id > 0) {
-					$this->session->set_flashdata('message_success', $page_title . ' Successfully.');
-					redirect('admin/Blogs/Category');
-				} else {
-					$this->session->set_flashdata('message_error', $page_title . ' Unsuccessfully.');
-				}
+                if ($insert_id > 0) {
+                    $this->session->set_flashdata('message_success', $page_title . ' Successfully.');
+                    redirect('admin/Blogs/Category');
+                } else {
+                    $this->session->set_flashdata('message_error', $page_title . ' Unsuccessfully.');
+                }
             } else {
                 $this->session->set_flashdata('message_error', 'Missing information.');
             }
@@ -311,7 +311,7 @@ class Blogs extends Admin_Controller
         $this->render($this->class_name . 'add_edit_category');
     }
 
-	public function deleteCategory($id = null, $imageName = null)
+    public function deleteCategory($id = null, $imageName = null)
     {
         if (!empty($id)) {
             $page_title = 'Blog Delete';
@@ -328,7 +328,7 @@ class Blogs extends Admin_Controller
         redirect('admin/Blogs/Category');
     }
 
-	public function activeInactiveCategory($id = null, $status = null)
+    public function activeInactiveCategory($id = null, $status = null)
     {
         if (!empty($id) && ($status == 1 || $status == 0)) {
             $postData['id']     = $id;

@@ -11,44 +11,44 @@
                 <div class="col-md-12">
                     <div class="checkout-section-box">
                         <div class="text-center" style="color:red">
-				           <?php echo $this->session->flashdata('message_error');?>
-		                </div>
-						<div class="text-center" style="color:green">
-				         <?php echo $this->session->flashdata('message_success');?>
-		                </div>
+                           <?php echo $this->session->flashdata('message_error');?>
+                        </div>
+                        <div class="text-center" style="color:green">
+                         <?php echo $this->session->flashdata('message_success');?>
+                        </div>
 
-						    <div class="shopping-product-display">
+                            <div class="shopping-product-display">
 
-								<table>
-								<tr>
-								   <td>Order Id</td>
-								   <td>
-								     <?php
-									 //pr($orderData);
-									 echo $orderData['order_id']?>
-								   </td>
-								</tr>
-								<!--<tr>
-								   <td>Order Amount </td>
-								   <td>
-								     <?php CURREBCY_SYMBOL.number_format($orderData['total_amount'],2)?>
-								   </td>
-								</tr>-->
+                                <table>
+                                <tr>
+                                   <td>Order Id</td>
+                                   <td>
+                                     <?php
+                                     //pr($orderData);
+                                     echo $orderData['order_id']?>
+                                   </td>
+                                </tr>
+                                <!--<tr>
+                                   <td>Order Amount </td>
+                                   <td>
+                                     <?php CURREBCY_SYMBOL.number_format($orderData['total_amount'],2)?>
+                                   </td>
+                                </tr>-->
 
-								<tr>
-								   <td>Payment Status </td>
-								   <td>
-								     <?php echo $orderData["payment_status"]=='2' ? 'Success':'Failed';?>
-								   </td>
-								</tr>
-								<tr>
-								   <td>Payment Transition Id  </td>
-								   <td>
-								     <?php echo isset($orderData['transition_id']) ? $orderData['transition_id']:'';?>
-								   </td>
-								</tr>
-								</table>
-							 </div>
+                                <tr>
+                                   <td>Payment Status </td>
+                                   <td>
+                                     <?php echo $orderData["payment_status"]=='2' ? 'Success':'Failed';?>
+                                   </td>
+                                </tr>
+                                <tr>
+                                   <td>Payment Transition Id  </td>
+                                   <td>
+                                     <?php echo isset($orderData['transition_id']) ? $orderData['transition_id']:'';?>
+                                   </td>
+                                </tr>
+                                </table>
+                             </div>
                     </div>
                 </div>
             </div>
@@ -58,8 +58,8 @@
 
 <script>
 setTimeout(function(){
-			window.location.href = "<?php echo $BASE_URL?>MyOrders";
-		  }, 5000
+            window.location.href = "<?php echo $BASE_URL?>MyOrders";
+          }, 5000
 
 );
 

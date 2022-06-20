@@ -3,13 +3,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class PrefferedCustomer extends Public_Controller
 {
-	  public $class_name = '';
+      public $class_name = '';
 
-  	function __construct()
-  	{
-  		  parent::__construct();
-  		  $this->class_name='PrefferedCustomer/';
-  	}
+      function __construct()
+      {
+            parent::__construct();
+            $this->class_name='PrefferedCustomer/';
+      }
 
     public function index()
     {

@@ -1,10 +1,10 @@
 <div class="content-wrapper" style="min-height: 687px;">
-	<section class="content">
-		<div class="row" style="display: flex;justify-content: center;align-items: center;">
-			<div class="col-md-12 col-xs-12">
-				<div class="box box-success box-solid">
-					<div class="box-body">
-						<div class="inner-head-section">
+    <section class="content">
+        <div class="row" style="display: flex;justify-content: center;align-items: center;">
+            <div class="col-md-12 col-xs-12">
+                <div class="box box-success box-solid">
+                    <div class="box-body">
+                        <div class="inner-head-section">
                             <div class="inner-title">
                                 <span>Create Discount</span>
                             </div>
@@ -12,70 +12,70 @@
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-7">
-                                	<div class="form-role-area">
-										<div class="control-group info">
-											<div class="row align-items-center">
+                                    <div class="form-role-area">
+                                        <div class="control-group info">
+                                            <div class="row align-items-center">
                                                 <div class="col-md-4">
-													<label class="span2 " for="inputMame"> Generate Code</label>
-												</div>
+                                                    <label class="span2 " for="inputMame"> Generate Code</label>
+                                                </div>
                                                 <div class="col-md-8">
-													<div class="controls">
-														<input class="form-control" type="text">
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="control-group info">
-											<div class="row">
+                                                    <div class="controls">
+                                                        <input class="form-control" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group info">
+                                            <div class="row">
                                                 <div class="col-md-4">
-													<label class="span2 " for="inputMame">Select Fields</label>
-												</div>
+                                                    <label class="span2 " for="inputMame">Select Fields</label>
+                                                </div>
                                                 <div class="col-md-8">
-													<div class="controls">
-													    <div class="row">
-													        <div class="col-md-12">
-													            <select id="multiple-category" class="form-control selectpicker" multiple="" data-live-search="true">
-													                <option>--Select Category--</option>
-													                <option>abc</option>
-													                <option>abc</option>
-													                <option>abc</option>
-													                <option>abc</option>
-													                <option>abc</option>
-													            </select>
+                                                    <div class="controls">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <select id="multiple-category" class="form-control selectpicker" multiple="" data-live-search="true">
+                                                                    <option>--Select Category--</option>
+                                                                    <option>abc</option>
+                                                                    <option>abc</option>
+                                                                    <option>abc</option>
+                                                                    <option>abc</option>
+                                                                    <option>abc</option>
+                                                                </select>
                                                                 <label class="form-inner-label">Select Category</label>
-													        </div>
-													        <div class="col-md-12">
-													            <select id="multiple-brand" class="form-control selectpicker" multiple="" data-live-search="true">
-													                <option>--Select Brands--</option>
-													                <option>abc</option>
-													                <option>abc</option>
-													                <option>abc</option>
-													                <option>abc</option>
-													                <option>abc</option>
-													            </select>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <select id="multiple-brand" class="form-control selectpicker" multiple="" data-live-search="true">
+                                                                    <option>--Select Brands--</option>
+                                                                    <option>abc</option>
+                                                                    <option>abc</option>
+                                                                    <option>abc</option>
+                                                                    <option>abc</option>
+                                                                    <option>abc</option>
+                                                                </select>
                                                                 <label class="form-inner-label">Select Brands</label>
-													        </div>
-													        <div class="col-md-12">
-													            <select id="multiple-products" class="form-control selectpicker" multiple="" data-live-search="true">
-													                <option>--Select Products--</option>
-													                <option>abc</option>
-													                <option>abc</option>
-													                <option>abc</option>
-													                <option>abc</option>
-													                <option>abc</option>
-													            </select>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <select id="multiple-products" class="form-control selectpicker" multiple="" data-live-search="true">
+                                                                    <option>--Select Products--</option>
+                                                                    <option>abc</option>
+                                                                    <option>abc</option>
+                                                                    <option>abc</option>
+                                                                    <option>abc</option>
+                                                                    <option>abc</option>
+                                                                </select>
                                                                 <label class="form-inner-label">Select Products</label>
-													        </div>
-													    </div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="control-group info">
-											<div class="row">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group info">
+                                            <div class="row">
                                                 <div class="col-md-4">
-													<label class="span2 " for="inputMame"> Discount Type</label>
-												</div>
+                                                    <label class="span2 " for="inputMame"> Discount Type</label>
+                                                </div>
                                                 <div class="col-md-8">
                                                     <div class="row">
                                                         <div class="col-md-6">
@@ -96,48 +96,48 @@
                                                         </div>
                                                     </div>
                                                 </div>
-											</div>
-										</div>
-										<div class="control-group info">
-											<div class="row">
+                                            </div>
+                                        </div>
+                                        <div class="control-group info">
+                                            <div class="row">
                                                 <div class="col-md-4">
-													<label class="span2 " for="inputMame"> Discount Valid</label>
-												</div>
+                                                    <label class="span2 " for="inputMame"> Discount Valid</label>
+                                                </div>
                                                 <div class="col-md-8">
-													<div class="controls">
-													    <div class="row">
-													        <div class="col-md-12">
-													            <div class="row">
-													                <div class="col-md-6">
-							<input class="form-control" type="text" id="DiscountValid">
-													                </div>
-													                <div class="col-md-6">
-													                    <input class="form-control" type="time">
-													                </div>
-													            </div>
+                                                    <div class="controls">
+                                                        <div class="row">
+                                                            <div class="col-md-12">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                            <input class="form-control" type="text" id="DiscountValid">
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input class="form-control" type="time">
+                                                                    </div>
+                                                                </div>
                                                                 <label class="form-inner-label">Valid From</label>
-													        </div>
-													        <div class="col-md-12">
-													            <div class="row">
-													                <div class="col-md-6">
-													                    <input class="form-control" type="date">
-													                </div>
-													                <div class="col-md-6">
-													                    <input class="form-control" type="time">
-													                </div>
-													            </div>
+                                                            </div>
+                                                            <div class="col-md-12">
+                                                                <div class="row">
+                                                                    <div class="col-md-6">
+                                                                        <input class="form-control" type="date">
+                                                                    </div>
+                                                                    <div class="col-md-6">
+                                                                        <input class="form-control" type="time">
+                                                                    </div>
+                                                                </div>
                                                                 <label class="form-inner-label">Valid Till</label>
-													        </div>
-													    </div>
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="control-group info">
-											<div class="row">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="control-group info">
+                                            <div class="row">
                                                 <div class="col-md-4">
-													<label class="span2 " for="inputMame"> Discount Requirements</label>
-												</div>
+                                                    <label class="span2 " for="inputMame"> Discount Requirements</label>
+                                                </div>
                                                 <div class="col-md-8">
                                                     <div class="row">
                                                         <div class="col-md-6">
@@ -158,32 +158,32 @@
                                                         </div>
                                                     </div>
                                                 </div>
-											</div>
-										</div>
-										<div class="control-group info">
-											<div class="row align-items-center">
+                                            </div>
+                                        </div>
+                                        <div class="control-group info">
+                                            <div class="row align-items-center">
                                                 <div class="col-md-4">
-													<label class="span2 " for="inputMame">Discount Code Limit</label>
-												</div>
+                                                    <label class="span2 " for="inputMame">Discount Code Limit</label>
+                                                </div>
                                                 <div class="col-md-8">
-													<div class="controls">
-														<input class="form-control" type="number">
-													</div>
-												</div>
-											</div>
-										</div>
-										<div class="text-right">
-											<button type="submit" class="btn btn-success">Submit</button>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div><!-- /.box -->
-			</div><!-- /.col-->
-		</div><!-- ./row -->
-	</section><!-- /.content -->
+                                                    <div class="controls">
+                                                        <input class="form-control" type="number">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="text-right">
+                                            <button type="submit" class="btn btn-success">Submit</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><!-- /.box -->
+            </div><!-- /.col-->
+        </div><!-- ./row -->
+    </section><!-- /.content -->
  </div>
 
  <script src="<?php echo $BASE_URL;?>assets/admin/js/jquery.datetimepicker.full.js"></script>
@@ -211,7 +211,7 @@ $(document).ready(function(){
     $('#multiple-brand').selectpicker2();
     $('#multiple-products').selectpicker3();*/
 
-	$('#DiscountValid').datetimepicker();
+    $('#DiscountValid').datetimepicker();
 });
 /*jQuery(document).ready(function () {
                 'use strict';

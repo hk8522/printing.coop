@@ -14,37 +14,37 @@
                                   Call Us
                                 <?php
                                 }?>: <strong>
-								<?php
-								   if($language_name=='French'){
-								    echo !empty($configrations['contact_no_french']) ? $configrations['contact_no_french']:'1-877-384-8043';
-								   }else{
+                                <?php
+                                   if($language_name=='French'){
+                                    echo !empty($configrations['contact_no_french']) ? $configrations['contact_no_french']:'1-877-384-8043';
+                                   }else{
                                     echo !empty($configrations['contact_no']) ? $configrations['contact_no']:'1-877-384-8043';
-								   }
-								?></strong></span></li>
+                                   }
+                                ?></strong></span></li>
                             <li><span><?php
-							if($language_name=='French'){
-							    echo $configrations['office_timing_french'] ?? '
+                            if($language_name=='French'){
+                                echo $configrations['office_timing_french'] ?? '
 Du lundi au vendredi: <strong>9:00-18:00</strong>';
-							}else{
-								  echo $configrations['office_timing'] ?? 'Monday-Friday: <strong>9:00-18:00</strong>';
-							}
-							?></span></li>
+                            }else{
+                                  echo $configrations['office_timing'] ?? 'Monday-Friday: <strong>9:00-18:00</strong>';
+                            }
+                            ?></span></li>
                         </ul>
                     </div>
                 </div>
-				<?php
+                <?php
 
-				//pr($_SERVER);
-				?>
+                //pr($_SERVER);
+                ?>
                 <div class="col-md-7">
                     <div class="top-bar-menu right-menu">
                         <ul>
-						<?php if($MainStoreData['show_language_translation']){?>
+                        <?php if($MainStoreData['show_language_translation']){?>
                             <li>
                                 <div class="language-selector">
                                     <div class="language-selector-box">
                                         <a href="javascript:void(0)"><?php echo $MainStoreData['language_name'];?><i class="las la-angle-down"></i>
-										</a>
+                                        </a>
                                         <div class="language-selector-content">
                                             <div class="upward-arrow">
                                                 <div></div>
@@ -53,7 +53,7 @@ Du lundi au vendredi: <strong>9:00-18:00</strong>';
                                 foreach ($StoreListData as $key => $language) {
                                                   ?>
                                <a href="<?php echo $language['url'];?>"><?php echo $language['language_name'];?>
-													</a>
+                                                    </a>
                                                   <?php
                                                 }
                                             ?>
@@ -61,8 +61,8 @@ Du lundi au vendredi: <strong>9:00-18:00</strong>';
                                     </div>
                                 </div>
                             </li>
-						<?php
-						}?>
+                        <?php
+                        }?>
                             <!--<li>
 
                                 <div class="language-selector">
@@ -77,7 +77,7 @@ Du lundi au vendredi: <strong>9:00-18:00</strong>';
                         foreach($CurrencyList as $key => $val) {
                                                         ?>
                         <a href="<?php echo $BASE_URL?>?currency_id=<?php echo $key;?>&REDIRECT_URL=<?php echo $_SERVER['REQUEST_URI'];?>">               <?php echo $val['currency_name']; ?>
-						</a>
+                        </a>
 
                                                   <?php
                                                 }
@@ -112,7 +112,7 @@ Du lundi au vendredi: <strong>9:00-18:00</strong>';
                                 }?></a></li>
                               <?php
                             }else{?>
-							   <li><a href="<?php echo $BASE_URL?>MyAccounts/logout">
+                               <li><a href="<?php echo $BASE_URL?>MyAccounts/logout">
                                <?php
                                 if($language_name=='French'){ ?>
                                   Se déconnecter
@@ -120,7 +120,7 @@ Du lundi au vendredi: <strong>9:00-18:00</strong>';
                                   Logout
                                 <?php
                                 }?></a></li>
-							<?php }?>
+                            <?php }?>
                         </ul>
                     </div>
                 </div>

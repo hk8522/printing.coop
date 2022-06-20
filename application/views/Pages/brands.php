@@ -24,17 +24,17 @@
                 <div class="blog-main-section">
                     <!--
                     <div class="row">
-					    <?php foreach($Brands as $list){?>
+                        <?php foreach($Brands as $list){?>
                         <div class="col-md-3">
-						     <?php $imageurl=getBrandImage($list['brand_image'],'large');?>
+                             <?php $imageurl=getBrandImage($list['brand_image'],'large');?>
 
                              <div class="brand-name">
-							    <img src="<?php echo $imageurl;?>"><br>
+                                <img src="<?php echo $imageurl;?>"><br>
                                 <span><?php echo ucfirst($list['name'])?></span>
                              </div>
                         </div>
-						<?php
-						}?>
+                        <?php
+                        }?>
                     </div>
                     -->
                     <div class="row">

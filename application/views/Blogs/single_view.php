@@ -8,15 +8,15 @@
                         <div class="single-blog-area">
                             <div class="universal-dark-title">
                                 <span><?php
-								        if($this->language_name=='French'){
-									       echo $blog['title_french'];
-									    }else{
-											echo $blog['title'];
-										} ?></span>
+                                        if($this->language_name=='French'){
+                                           echo $blog['title_french'];
+                                        }else{
+                                            echo $blog['title'];
+                                        } ?></span>
                             </div>
-							<?php
-							  $imageurl=getBlogImage($blog['image'],'large');
-							?>
+                            <?php
+                              $imageurl=getBlogImage($blog['image'],'large');
+                            ?>
                             <div class="single-blog-img">
                                 <img src="<?php echo $imageurl;?>">
                             </div>
@@ -25,12 +25,12 @@
                                     <div class="col-md-6">
                                         <div class="single-blog-category">
                                            <a href="<?php echo $BASE_URL?>Blogs/category/<?php echo base64_encode($blog['category_id'])?>"><span>
-									       <?php  if($this->language_name=='French'){
-									       echo $blog['category_name_french'];
-									    }else{
-											 echo $blog['category_name'];
-										}  ?></span>
-										   </a>
+                                           <?php  if($this->language_name=='French'){
+                                           echo $blog['category_name_french'];
+                                        }else{
+                                             echo $blog['category_name'];
+                                        }  ?></span>
+                                           </a>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -41,29 +41,29 @@
                                 </div>
                                 <div class="single-blog-inner-content">
                                     <?php if($this->language_name=='French'){
-									       echo $blog['content_french'];
-									    }else{
-											echo $blog['content'];
-										} ?>
+                                           echo $blog['content_french'];
+                                        }else{
+                                            echo $blog['content'];
+                                        } ?>
                                     <div class="universal-small-dark-title">
                                         <span><?php echo $this->language_name=='French' ? 'Articles Liés:':'Related Articles:'?></span>
                                     </div>
                                     <div class="universal-dark-info">
                                         <span>
-										<?php
-										   foreach($releted_blog as $val){
-											   if($val['id'] !=$blog['id']){
-										   ?>
+                                        <?php
+                                           foreach($releted_blog as $val){
+                                               if($val['id'] !=$blog['id']){
+                                           ?>
                                             <a href="<?php echo $BASE_URL?>Blogs/singleview/<?php echo base64_encode($val['id'])?>"><?php
-											if($this->language_name=='French'){
-									       echo $val['title_french'];
-									    }else{
-											echo $val['title'];
-										};?></a>
+                                            if($this->language_name=='French'){
+                                           echo $val['title_french'];
+                                        }else{
+                                            echo $val['title'];
+                                        };?></a>
                                             <br>
-										   <?php
-											  }
-											}?>
+                                           <?php
+                                              }
+                                            }?>
 
                                         </span>
                                     </div>

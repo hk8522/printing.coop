@@ -18,30 +18,30 @@
                                     <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="id">
                                     <div class="form-role-area">
-									   <div class="control-group info">
-											<div class="row">
-												<div class="col-md-4">
-													<label class="span2 " for="inputMame">WebSite</label>
-												</div>
-												<div class="col-md-8">
-													<div class="controls">
-													   <select name="main_store_id" class="form-control">
-													   <option value="">Select WebSite</option>
-													   <?php foreach($MainStoreList as $key=>$val){
-														$selected='';
+                                       <div class="control-group info">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label class="span2 " for="inputMame">WebSite</label>
+                                                </div>
+                                                <div class="col-md-8">
+                                                    <div class="controls">
+                                                       <select name="main_store_id" class="form-control">
+                                                       <option value="">Select WebSite</option>
+                                                       <?php foreach($MainStoreList as $key=>$val){
+                                                        $selected='';
                                                         if($postData['main_store_id'] == $key){
-														     $selected='selected="selected"';
-														}
-														?>
-													    <option value="<?php echo $key?>" <?php echo $selected?>><?php echo $val;?></option>
-													   <?php
-													   }?>
-													   </select>
-													   <?php echo form_error('main_store_id');?>
-													</div>
-												</div>
-											</div>
-										</div>
+                                                             $selected='selected="selected"';
+                                                        }
+                                                        ?>
+                                                        <option value="<?php echo $key?>" <?php echo $selected?>><?php echo $val;?></option>
+                                                       <?php
+                                                       }?>
+                                                       </select>
+                                                       <?php echo form_error('main_store_id');?>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -55,7 +55,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame"> French Banner Name</label>
@@ -82,7 +82,7 @@
                                             </div>
                                         </div>
 
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
                                                     <label class="span2 " for="inputMame">French Banner Description</label>
@@ -136,7 +136,7 @@
                                                 </div>
                                             </div>
                                         </div>
-										<div class="control-group info">
+                                        <div class="control-group info">
                                             <div class="controls">
                                                 <div class="col-xs-3" style="margin-bottom:15px;">
                                                     <?php $old_image_french =isset($postData['banner_image_french']) ? $postData['banner_image_french']:'';
@@ -218,21 +218,21 @@
               image.onload = function () {
                       var height = this.height;
                       var width = this.width;
-					  //alert(height);
-					 // alert(width);
-    			var imagesize=fileUpload.files[0].size;
-    			var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
+                      //alert(height);
+                     // alert(width);
+                var imagesize=fileUpload.files[0].size;
+                var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
 
-    			//alert(imagesize);
-    			/*if(FILE_MAX_SIZE_JS < imagesize){
-    				$("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
-    			    $("#MsgModal").modal('show');
+                //alert(imagesize);
+                /*if(FILE_MAX_SIZE_JS < imagesize){
+                    $("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
+                    $("#MsgModal").modal('show');
                           return false;
-    			}
+                }
                 else if (height != 428 || width !=1920) {
-    				document.getElementById(imageId).value='';
-    				$("#MsgModal .modal-body").html('<span style="color:red"> Allowed image in only  dimensions(WXH) 1920pxX428px</b></span>');
-    			    $("#MsgModal").modal('show');
+                    document.getElementById(imageId).value='';
+                    $("#MsgModal .modal-body").html('<span style="color:red"> Allowed image in only  dimensions(WXH) 1920pxX428px</b></span>');
+                    $("#MsgModal").modal('show');
                           return false;
                 }*/
                 };

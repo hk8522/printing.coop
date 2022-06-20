@@ -21,51 +21,51 @@
                 <div class="col-md-12">
                     <div class="checkout-section-box">
                         <div class="text-center" style="color:red">
-				           <?php echo $this->session->flashdata('message_error');?>
-		                </div>
-						<div class="text-center" style="color:green">
-				         <?php echo $this->session->flashdata('message_success');?>
-		                </div>
-						    <div class="shopping-product-display">
-								<table>
-								<tr>
-									<td>
-										<div class="cart-product-price">
-											<span> Order Id</span>
-										</div>
-									</td>
-									<td>
-										<div class="cart-product-price">
-											<span> <?php echo $ProductOrder['order_id'];?></span>
-									</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="cart-product-price">
-											<span> Order Amount</span>
-										</div>
-									</td>
-									<td>
-										<div class="cart-product-price">
-											<span> <?php echo $ProductOrder['total_amount'];?></span>
-									</div>
-									</td>
-								</tr>
-								<tr>
-									<td>
-										<div class="cart-product-price">
-											<span>Payment Type</span>
-										</div>
-									</td>
-									<td>
-										<div class="cart-product-price">
-											<span> <?php echo $ProductOrder['payment_type'];?></span>
-									</div>
-									</td>
-								</tr>
-								</table>
-							</div>
+                           <?php echo $this->session->flashdata('message_error');?>
+                        </div>
+                        <div class="text-center" style="color:green">
+                         <?php echo $this->session->flashdata('message_success');?>
+                        </div>
+                            <div class="shopping-product-display">
+                                <table>
+                                <tr>
+                                    <td>
+                                        <div class="cart-product-price">
+                                            <span> Order Id</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="cart-product-price">
+                                            <span> <?php echo $ProductOrder['order_id'];?></span>
+                                    </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cart-product-price">
+                                            <span> Order Amount</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="cart-product-price">
+                                            <span> <?php echo $ProductOrder['total_amount'];?></span>
+                                    </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="cart-product-price">
+                                            <span>Payment Type</span>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="cart-product-price">
+                                            <span> <?php echo $ProductOrder['payment_type'];?></span>
+                                    </div>
+                                    </td>
+                                </tr>
+                                </table>
+                            </div>
                     </div>
 
                 </div>

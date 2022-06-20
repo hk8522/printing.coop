@@ -10,7 +10,7 @@
                         <div class="upload-action-btn">
                             <button type="button" onclick="update_cumment('<?php echo $return_arr['skey']?>')" id="smc-<?php echo $return_arr['skey']?>">Update Note</button>
                             <button type="button" title="Delete" onclick="delete_image('<?php echo $return_arr['skey']?>')"  id="smd-<?php echo $return_arr['skey']?>"><i class="las la-trash"></i></button>
-							<input type="hidden" value="<?php echo $return_arr['location'];?>" id="location-<?php echo $return_arr['skey']?>">
+                            <input type="hidden" value="<?php echo $return_arr['location'];?>" id="location-<?php echo $return_arr['skey']?>">
                         </div>
                     </div>
                 </div>

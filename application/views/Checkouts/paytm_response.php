@@ -21,40 +21,40 @@
                 <div class="col-md-12">
                     <div class="checkout-section-box">
                         <div class="text-center" style="color:red">
-				           <?php echo $this->session->flashdata('message_error');?>
-		                </div>
-						<div class="text-center" style="color:green">
-				         <?php echo $this->session->flashdata('message_success');?>
-		                </div>
-						    <?php //pr($PostData);?>
-						    <div class="shopping-product-display">
-								<table>
-								<tr>
-								   <td>Order Id</td>
-								   <td>
-								     <?php echo $orderData['order_id']?>
-								   </td>
-								</tr>
-								<!---<tr>
-								   <td>Order Amount </td>
-								   <td>
-								     <?php CURREBCY_SYMBOL.number_format($orderData['total_amount'],2)?>
-								   </td>
-								</tr>-->
-								<tr>
-								   <td>Payment Status </td>
-								   <td>
-								     <?php echo $PostData['STATUS'];?>
-								   </td>
-								</tr>
-								<tr>
-								   <td>Payment Transition Id  </td>
-								   <td>
-								     <?php echo isset($PostData['TXNID']) ? $PostData['TXNID']:'';?>
-								   </td>
-								</tr>
-								</table>
-							 </div>
+                           <?php echo $this->session->flashdata('message_error');?>
+                        </div>
+                        <div class="text-center" style="color:green">
+                         <?php echo $this->session->flashdata('message_success');?>
+                        </div>
+                            <?php //pr($PostData);?>
+                            <div class="shopping-product-display">
+                                <table>
+                                <tr>
+                                   <td>Order Id</td>
+                                   <td>
+                                     <?php echo $orderData['order_id']?>
+                                   </td>
+                                </tr>
+                                <!---<tr>
+                                   <td>Order Amount </td>
+                                   <td>
+                                     <?php CURREBCY_SYMBOL.number_format($orderData['total_amount'],2)?>
+                                   </td>
+                                </tr>-->
+                                <tr>
+                                   <td>Payment Status </td>
+                                   <td>
+                                     <?php echo $PostData['STATUS'];?>
+                                   </td>
+                                </tr>
+                                <tr>
+                                   <td>Payment Transition Id  </td>
+                                   <td>
+                                     <?php echo isset($PostData['TXNID']) ? $PostData['TXNID']:'';?>
+                                   </td>
+                                </tr>
+                                </table>
+                             </div>
                     </div>
                 </div>
             </div>
@@ -63,8 +63,8 @@
 </div>
 <script>
         setTimeout(function(){
-			window.location.href = "<?php echo $BASE_URL?>MyOrders";
-		  }, 2000
+            window.location.href = "<?php echo $BASE_URL?>MyOrders";
+          }, 2000
 
         );
 </script>

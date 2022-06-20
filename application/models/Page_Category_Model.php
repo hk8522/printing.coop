@@ -1,8 +1,8 @@
 <?php
 
 Class Page_Category_Model extends MY_Model {
-	public $table='page_categories';
-	public $config = array(
+    public $table='page_categories';
+    public $config = array(
         array(
                 'field' => 'name',
                 'label' => 'Name',
@@ -11,11 +11,11 @@ Class Page_Category_Model extends MY_Model {
                         'required' => 'Enter category name',
                 ),
         ),
-		array(
+        array(
                 'field' => 'category_order',
                 'label' => 'Category Order',
                 'rules' => 'integer',
-				'errors' => array(
+                'errors' => array(
                         'integer' => 'Category order value allowed only number',
                 ),
         )
@@ -24,58 +24,58 @@ Class Page_Category_Model extends MY_Model {
     public function getCategoryList() {
         $this->db->select(array('page_categories.*'));
         $this->db->from($this->table);
-		$this->db->order_by('category_order','asc');
+        $this->db->order_by('category_order','asc');
         $query = $this->db->get();
-		$data=$query->result_array();
-		return $data;
+        $data=$query->result_array();
+        return $data;
     }
 
-	public function getActiveCategoryList() {
+    public function getActiveCategoryList() {
         $this->db->select(array('page_categories.*'));
         $this->db->from($this->table);
-		$this->db->where(array('status'=>1));
-		$this->db->order_by('category_order','asc');
+        $this->db->where(array('status'=>1));
+        $this->db->order_by('category_order','asc');
         $query = $this->db->get();
-		$data=$query->result_array();
-		return $data;
+        $data=$query->result_array();
+        return $data;
     }
 
-	public function getCategoryDataById($id) {
+    public function getCategoryDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-		$this->db->where(array('id'=>$id));
+        $this->db->where(array('id'=>$id));
         $query = $this->db->get();
-		$data=(array)$query->row();
-		return $data;
+        $data=(array)$query->row();
+        return $data;
     }
 
-	public function getCategoryDropDownList() {
-		$lists=array();
+    public function getCategoryDropDownList() {
+        $lists=array();
 
-			$this->db->select(array('id','name'));
-			$this->db->where(array('status'=>'1'));
-			$this->db->from($this->table);
-			$this->db->order_by('category_order','asc');
-			$query = $this->db->get();
-			$data=$query->result_array();
-			foreach($data as $val){
-				$lists[$val['id']]=ucfirst($val['name']);
-			}
-		return $lists;
+            $this->db->select(array('id','name'));
+            $this->db->where(array('status'=>'1'));
+            $this->db->from($this->table);
+            $this->db->order_by('category_order','asc');
+            $query = $this->db->get();
+            $data=$query->result_array();
+            foreach($data as $val){
+                $lists[$val['id']]=ucfirst($val['name']);
+            }
+        return $lists;
     }
 
-	public function saveCategory($data) {
-		$id=isset($data['id']) ? $data['id']:'';
+    public function saveCategory($data) {
+        $id=isset($data['id']) ? $data['id']:'';
 
-		if(!empty($id)){
-			$data['updated']=date('Y-m-d H:i:s');
-			$this->db->where('id', $id);
-			$query = $this->db->update($this->table, $data);
-		}else{
-			$data['created']=date('Y-m-d H:i:s');
-			$data['updated']=date('Y-m-d H:i:s');
-			$query = $this->db->insert($this->table, $data);
-		}
+        if(!empty($id)){
+            $data['updated']=date('Y-m-d H:i:s');
+            $this->db->where('id', $id);
+            $query = $this->db->update($this->table, $data);
+        }else{
+            $data['created']=date('Y-m-d H:i:s');
+            $data['updated']=date('Y-m-d H:i:s');
+            $query = $this->db->insert($this->table, $data);
+        }
 
         if ($query) {
             return true;
@@ -84,14 +84,14 @@ Class Page_Category_Model extends MY_Model {
         }
     }
 
-	public function deletePageCategory($id) {
-		$this->db->where('id',$id);
+    public function deletePageCategory($id) {
+        $this->db->where('id',$id);
         $query = $this->db->delete($this->table);
-		if ($query) {
+        if ($query) {
             return 1;
-		} else {
-			return 0;
-		}
+        } else {
+            return 0;
+        }
     }
 }
 ?>

@@ -1,18 +1,18 @@
 <?php
 
 Class Discount_Model extends MY_Model {
-	public $table='discounts';
-	public $config = array(
+    public $table='discounts';
+    public $config = array(
         array(
                 'field' => 'code',
                 'label' => 'code',
                 'rules' => 'required|is_unique[discounts.code]',
                 'errors' => array(
                         'required' => 'Enter discount code',
-						'is_unique'=>'This code already generated'
+                        'is_unique'=>'This code already generated'
                 ),
         ),
-		array(
+        array(
                 'field' => 'discount_type',
                 'label' => 'discount type',
                 'rules' => 'required',
@@ -20,99 +20,99 @@ Class Discount_Model extends MY_Model {
                         'required' => 'select discount type',
                 ),
         ),
-		array(
+        array(
                 'field' => 'discount',
                 'label' => 'discount',
                 'rules' => 'required|numeric',
-				'errors' => array(
-				        'required' => 'Enter discount',
+                'errors' => array(
+                        'required' => 'Enter discount',
                         'integer' => 'discount value allowed only numeric',
                 ),
         ),
-		array(
+        array(
                 'field' => 'discount_valid_from',
                 'label' => 'discount valid from',
                 'rules' => 'required',
-				'errors' => array(
-				        'required' => 'select discount valid from',
+                'errors' => array(
+                        'required' => 'select discount valid from',
                 ),
         ),
-		array(
+        array(
                 'field' => 'discount_valid_to',
                 'label' => 'discount_valid_to',
                 'rules' => 'required',
-				'errors' => array(
-				        'required' => 'select discount valid till',
+                'errors' => array(
+                        'required' => 'select discount valid till',
                 ),
         ),
-		/*array(
+        /*array(
                 'field' => 'discount_requirement_quantity',
                 'label' => 'discount requirement quantity',
                 'rules' => 'required|integer',
-				'errors' => array(
-				        'required' => 'Enter discount requirement quantity',
+                'errors' => array(
+                        'required' => 'Enter discount requirement quantity',
                 ),
         ),
-		array(
+        array(
                 'field' => 'discount_code_limit',
                 'label' => 'discount code limit',
                 'rules' => 'required|integer',
-				'errors' => array(
-				        'required' => 'Enter discount code limit',
+                'errors' => array(
+                        'required' => 'Enter discount code limit',
                 ),
         )*/
     );
 
     public function getDiscountsList() {
         $this->db->select(array('*'));
-		$this->db->from($this->table);
-		//$this->db->where(array('Page_Category.status'=>1));
-		$this->db->order_by('id','desc');
+        $this->db->from($this->table);
+        //$this->db->where(array('Page_Category.status'=>1));
+        $this->db->order_by('id','desc');
         $query = $this->db->get();
-		$data=$query->result_array();
-		return $data;
+        $data=$query->result_array();
+        return $data;
     }
 
-	public function getActiveDiscountsList() {
+    public function getActiveDiscountsList() {
         $this->db->select(array('*'));
-		$this->db->from($this->table);
-		$this->db->where(array('status'=>1));
-		$this->db->order_by('id','desc');
+        $this->db->from($this->table);
+        $this->db->where(array('status'=>1));
+        $this->db->order_by('id','desc');
         $query = $this->db->get();
-		$data=$query->result_array();
-		return $data;
+        $data=$query->result_array();
+        return $data;
     }
 
-	public function getDiscountDataById($id) {
+    public function getDiscountDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-		$this->db->where(array('id'=>$id));
+        $this->db->where(array('id'=>$id));
         $query = $this->db->get();
-		$data=(array)$query->row();
-		return $data;
+        $data=(array)$query->row();
+        return $data;
     }
 
-	public function getDiscountDataByCode($code) {
+    public function getDiscountDataByCode($code) {
         $this->db->select('*');
         $this->db->from($this->table);
-		$this->db->where(array('code'=>$code));
+        $this->db->where(array('code'=>$code));
         $query = $this->db->get();
-		$data=(array)$query->row();
-		return $data;
+        $data=(array)$query->row();
+        return $data;
     }
 
-	public function saveDiscount($data) {
-		$id=isset($data['id']) ? $data['id']:'';
+    public function saveDiscount($data) {
+        $id=isset($data['id']) ? $data['id']:'';
 
-		if(!empty($id)){
-			$data['updated']=date('Y-m-d H:i:s');
-			$this->db->where('id', $id);
-			$query = $this->db->update($this->table, $data);
-		}else{
-			$data['created']=date('Y-m-d H:i:s');
-			$data['updated']=date('Y-m-d H:i:s');
-			$query = $this->db->insert($this->table, $data);
-		}
+        if(!empty($id)){
+            $data['updated']=date('Y-m-d H:i:s');
+            $this->db->where('id', $id);
+            $query = $this->db->update($this->table, $data);
+        }else{
+            $data['created']=date('Y-m-d H:i:s');
+            $data['updated']=date('Y-m-d H:i:s');
+            $query = $this->db->insert($this->table, $data);
+        }
 
         if ($query) {
             return true;
@@ -121,14 +121,14 @@ Class Discount_Model extends MY_Model {
         }
     }
 
-	public function deleteDiscount($id) {
-		$this->db->where('id',$id);
+    public function deleteDiscount($id) {
+        $this->db->where('id',$id);
         $query = $this->db->delete($this->table);
-		if ($query) {
+        if ($query) {
             return 1;
-		} else {
-			return 0;
-		}
+        } else {
+            return 0;
+        }
     }
 }
 ?>

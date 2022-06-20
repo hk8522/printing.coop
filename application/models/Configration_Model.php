@@ -1,7 +1,7 @@
 <?php
 
 Class Configration_Model extends MY_Model {
-	public $table = 'configurations';
+    public $table = 'configurations';
 
   public function saveData($data){
       $id = isset($data['id']) ? $data['id'] : '';
@@ -22,34 +22,34 @@ Class Configration_Model extends MY_Model {
 
       return false;
     }
-	public function getConfigrations($website_store_id=1)
-	{
-		if(empty($website_store_id)){
-			$website_store_id=1;
-		}
-		$this->db->select('*');
-		$this->db->from($this->table);
-		$this->db->where('main_store_id',$website_store_id);
-		$this->db->order_by('main_store_id','asc');
-		$query = $this->db->get();
-		return $query->row_array();
-	}
+    public function getConfigrations($website_store_id=1)
+    {
+        if(empty($website_store_id)){
+            $website_store_id=1;
+        }
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('main_store_id',$website_store_id);
+        $this->db->order_by('main_store_id','asc');
+        $query = $this->db->get();
+        return $query->row_array();
+    }
     public function getConfigrationsList()
     {
-		$this->db->select('*');
-		$this->db->from($this->table);
-		$this->db->order_by('main_store_id','asc');
-		$query = $this->db->get();
-		return $query->result_array();
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->order_by('main_store_id','asc');
+        $query = $this->db->get();
+        return $query->result_array();
     }
-	public function getConfigrationsDataById($id)
+    public function getConfigrationsDataById($id)
     {
-		$this->db->select('*');
-		$this->db->from($this->table);
-		$this->db->where('id',$id);
-		$this->db->order_by('main_store_id','asc');
-		$query = $this->db->get();
-		return $query->row_array();
+        $this->db->select('*');
+        $this->db->from($this->table);
+        $this->db->where('id',$id);
+        $this->db->order_by('main_store_id','asc');
+        $query = $this->db->get();
+        return $query->row_array();
     }
 }
 ?>

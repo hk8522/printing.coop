@@ -17,13 +17,13 @@
                   <div class="row justify-content-center">
                     <?php
                     foreach ($our_printed_products_category as $key => $category) {
-						    $categoryImages=$category['categoryImages'];
-							$categoryImage=$categoryImages[$website_store_id];
-							$src=geCategoryImage($categoryImage['image']);
+                            $categoryImages=$category['categoryImages'];
+                            $categoryImage=$categoryImages[$website_store_id];
+                            $src=geCategoryImage($categoryImage['image']);
 
-						    if($language_name=='French'){
-								$src=geCategoryImage($categoryImage['image_french']);
-							}
+                            if($language_name=='French'){
+                                $src=geCategoryImage($categoryImage['image_french']);
+                            }
                       ?>
                           <div class="col-6 col-md-3 col-lg-2 col-xl-2">
                               <div class="all-services">
@@ -37,15 +37,15 @@
 
                                           <div class="single-service-content">
                                               <div class="universal-small-dark-title">
-											      <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($category['id'])?>">
-										            <img src="<?php echo $src; ?>">
+                                                  <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($category['id'])?>">
+                                                    <img src="<?php echo $src; ?>">
                                                     <span><?php
-										if($language_name=='French'){
-										       echo ucfirst($category['name_french']);
-									    }else{
-										    echo ucfirst($category['name']);
-									    }?>
-										</span>
+                                        if($language_name=='French'){
+                                               echo ucfirst($category['name_french']);
+                                        }else{
+                                            echo ucfirst($category['name']);
+                                        }?>
+                                        </span>
                                                   </a>
                                               </div>
                                               <!--<div class="universal-dark-info">-->

@@ -3,13 +3,13 @@
     position: relative;
     }
 .entrynew.input-group .form-control {
-	width: 100px;
+    width: 100px;
 }
 .attribute-inner, .attribute-info-inner {
-	text-align: center;
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 .attribute-info .row .col-md-6:nth-child(2) .attribute-info-inner {
     justify-content: flex-start;
@@ -25,8 +25,8 @@
     margin-top: 5px;
 }
 .attribute-inner label, .attribute-info-inner label {
-	margin: 0px !important;
-	padding-right: 5px;
+    margin: 0px !important;
+    padding-right: 5px;
 }
 .control-group .attribute-inner input, .control-group .attribute-info-inner input {
     height: 30px !important;
@@ -53,11 +53,11 @@
     text-align: left;
 }
 .attribute-row {
-	padding: 0px;
-	background: #f9f9f9;
-	height: 0px;
-	overflow: hidden;
-	margin-bottom: 0px;
+    padding: 0px;
+    background: #f9f9f9;
+    height: 0px;
+    overflow: hidden;
+    margin-bottom: 0px;
 }
 .attribute-row.field-area {
     padding: 10px 10px 10px 10px;
@@ -65,10 +65,10 @@
     height: auto;
 }
 .attribute.active .attribute-row {
-	padding: 10px 10px 10px 25px;
-	background: #f9f9f9;
-	height: auto;
-	margin-bottom: 10px;
+    padding: 10px 10px 10px 25px;
+    background: #f9f9f9;
+    height: auto;
+    margin-bottom: 10px;
 }
 .attribute-info {
     background: #fff;
@@ -76,73 +76,73 @@
     margin-bottom: 10px;
 }
 .attribute-info-inner {
-	padding: 0px 0px 0px 20px;
+    padding: 0px 0px 0px 20px;
 }
 .attribute-title {
-	background: #f1f1f1;
-	padding: 5px 10px;
+    background: #f1f1f1;
+    padding: 5px 10px;
 }
 .attribute {
-	padding-bottom: 10px;
+    padding-bottom: 10px;
 }
 .controls.small-controls .attribute:last-child {
-	margin: 0px;
-	padding: 0px;
+    margin: 0px;
+    padding: 0px;
 }
 .control-group .controls.small-controls .attribute-title .span2 {
-	margin-bottom: 0px !important;
+    margin-bottom: 0px !important;
 }
 </style>
 <div class="inner-content-area">
-	<div class="row justify-content-center">
-		<div class="col-md-12">
-			<div class="text-center" style="color:red">
-				<?php echo $this->session->flashdata('message_error');?>
-			</div>
-			<div class="text-center" style="color:green">
-				<?php
-				echo $this->session->flashdata('message_success');
-				?>
-			</div>
-			<?php
-			    echo form_open_multipart('',array('class'=>'form-horizontal','id'=>'AddEditProductAttribute'));
-			?>
-			<input class="form-control" type="hidden"
-			value="<?php echo $product_id?>" id="product_id" name="product_id">
-			<input class="form-control" type="hidden"
-			value="<?php echo $quantity_id?>" id="quantity_id" name="quantity_id">
-			<input class="form-control" name="size_id" type="hidden"  value="<?php echo $size_id?>" id="size_id">
-
-			<div class="form-role-area">
-				<div class="control-group info">
-					<div class="row align-items-center">
-						<div class="col-md-12">
-
-			<div class="attribute active">
-
-		    <div class="for-att-multi attribute-row SizeQuantity">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="text-center" style="color:red">
+                <?php echo $this->session->flashdata('message_error');?>
+            </div>
+            <div class="text-center" style="color:green">
                 <?php
-				//pr($NCRNumberPartsList,1);
-    			if(!empty($attribute)){
+                echo $this->session->flashdata('message_success');
+                ?>
+            </div>
+            <?php
+                echo form_open_multipart('',array('class'=>'form-horizontal','id'=>'AddEditProductAttribute'));
+            ?>
+            <input class="form-control" type="hidden"
+            value="<?php echo $product_id?>" id="product_id" name="product_id">
+            <input class="form-control" type="hidden"
+            value="<?php echo $quantity_id?>" id="quantity_id" name="quantity_id">
+            <input class="form-control" name="size_id" type="hidden"  value="<?php echo $size_id?>" id="size_id">
+
+            <div class="form-role-area">
+                <div class="control-group info">
+                    <div class="row align-items-center">
+                        <div class="col-md-12">
+
+            <div class="attribute active">
+
+            <div class="for-att-multi attribute-row SizeQuantity">
+                <?php
+                //pr($NCRNumberPartsList,1);
+                if(!empty($attribute)){
                     $last=count($attribute)-1;
-    		        foreach($attribute as $subkey=>$subval){ #pr($subval);
-		        ?>
+                    foreach($attribute as $subkey=>$subval){ #pr($subval);
+                ?>
                 <div class="row sqddata">
-            		<div class="col-md-12">
-            			<?php
-							$displayplusnbtn='none';
-						    $displayminusbtn='';
-            				if($last==0){
-        						$displayplusnbtn='';
-        						$displayminusbtn='';
-        					}
+                    <div class="col-md-12">
+                        <?php
+                            $displayplusnbtn='none';
+                            $displayminusbtn='';
+                            if($last==0){
+                                $displayplusnbtn='';
+                                $displayminusbtn='';
+                            }
                             else if($last==$subkey){
-        				        $displayplusnbtn='';
-            				    $displayminusbtn='';
-            				}
+                                $displayplusnbtn='';
+                                $displayminusbtn='';
+                            }
                         ?>
 
-                    	    <div class="add-new-btn">
+                            <div class="add-new-btn">
                                 <button class="btn-danger sqbtn-remove" type="button" style="display:<?php echo $displayminusbtn;?>" onclick="RemoveRow($(this))"><span class="fa fa-minus"></span></button>
                                 <button class="btn-success sqbtn-add" type="button" onclick="AddRow($(this))" style="display:<?php echo $displayplusnbtn;?>"><span class="fa fa-plus"></span></button>
                             </div>
@@ -161,24 +161,24 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
-									    <select name="paper_quality[]" class="form-control">
-        									<option value="">--Select--</option>
-        									<?php
-            									foreach($PaperQualityList as $list){
-            										$selected='';
-            									    if($list['name']==$subval['paper_quality']){
-            										$selected='selected="selected"';
-    									        }
-        									?>
-        									<option value='<?php echo $list['name'].'@'.$list['name_french']?>' <?php  echo $selected?>><?php echo $list['name']?></option>
-        									<?php }?>
-    									</select>
+                                        <select name="paper_quality[]" class="form-control">
+                                            <option value="">--Select--</option>
+                                            <?php
+                                                foreach($PaperQualityList as $list){
+                                                    $selected='';
+                                                    if($list['name']==$subval['paper_quality']){
+                                                    $selected='selected="selected"';
+                                                }
+                                            ?>
+                                            <option value='<?php echo $list['name'].'@'.$list['name_french']?>' <?php  echo $selected?>><?php echo $list['name']?></option>
+                                            <?php }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
-					<div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -192,26 +192,26 @@
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
                                         <select name="ncr_number_parts[]" class="form-control">
-        									<option value="">
-        									--Select--
-        									</option>
-        									<?php
-        									foreach($NCRNumberPartsList as $list){
-                        							$selected='';
-                        							if($subval['ncr_number_parts']==$list['name']){
-        											$selected='selected="selected"';
-        										}
-        									?>
-        									<option value='<?php echo $list['name'].'@'.$list['name_french']?>' <?php echo $selected?>><?php echo $list['name']?>
-        									</option>
-    									<?php }?>
-    									</select>
+                                            <option value="">
+                                            --Select--
+                                            </option>
+                                            <?php
+                                            foreach($NCRNumberPartsList as $list){
+                                                    $selected='';
+                                                    if($subval['ncr_number_parts']==$list['name']){
+                                                    $selected='selected="selected"';
+                                                }
+                                            ?>
+                                            <option value='<?php echo $list['name'].'@'.$list['name_french']?>' <?php echo $selected?>><?php echo $list['name']?>
+                                            </option>
+                                        <?php }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-    				</div>
-				<div class="col-md-6">
+                    </div>
+                <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -224,27 +224,27 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
-    									<select name="stock[]" class="form-control">
-        									<option value="">
-        									 --Select--
-        									</option>
-        									<?php
-        									foreach($StockList as $list){
-        									   $selected='';
-        									   if($list['name']==$subval['stock']){
-        										$selected='selected="selected"';
-        									   }
-        									?>
-        									<option value='<?php echo $list['name'].'@'.$list['name_french']?>'  <?php echo $selected?>><?php echo $list['name']?>
-        									</option>
-    									<?php }?>
-    									</select>
+                                        <select name="stock[]" class="form-control">
+                                            <option value="">
+                                             --Select--
+                                            </option>
+                                            <?php
+                                            foreach($StockList as $list){
+                                               $selected='';
+                                               if($list['name']==$subval['stock']){
+                                                $selected='selected="selected"';
+                                               }
+                                            ?>
+                                            <option value='<?php echo $list['name'].'@'.$list['name_french']?>'  <?php echo $selected?>><?php echo $list['name']?>
+                                            </option>
+                                        <?php }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
-					<div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -257,26 +257,26 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
-    									<select name="color[]" class="form-control">
-        									<option value="">
-        									 --Select--
-        									</option>
-        									<?php
-        									foreach($ColorList as $list){
-        										$selected='';
-        									   if($list['name']==$subval['color']){
-        										$selected='selected="selected"';
-        									   }
-        									?>
-        									<option value='<?php echo $list['name'].'@'.$list['name_french']?>'  <?php echo $selected?>><?php echo $list['name']?></option>
-        									<?php }?>
-    									</select>
+                                        <select name="color[]" class="form-control">
+                                            <option value="">
+                                             --Select--
+                                            </option>
+                                            <?php
+                                            foreach($ColorList as $list){
+                                                $selected='';
+                                               if($list['name']==$subval['color']){
+                                                $selected='selected="selected"';
+                                               }
+                                            ?>
+                                            <option value='<?php echo $list['name'].'@'.$list['name_french']?>'  <?php echo $selected?>><?php echo $list['name']?></option>
+                                            <?php }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
-					<div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -289,27 +289,27 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
-    									<select name="diameter[]" class="form-control">
-        									<option value="">
-        									 --Select--
-        									</option>
-        									<?php
-        									foreach($DiameterList as $list){
-        									   $selected='';
-        									   if($list['name']==$subval['diameter']){
-        										$selected='selected="selected"';
-        									   }
-        									?>
-        									<option value='<?php echo $list['name'].'@'.$list['name_french']?>'  <?php echo $selected?>><?php echo $list['name']?>
-        									</option>
-        									<?php }?>
-    									</select>
+                                        <select name="diameter[]" class="form-control">
+                                            <option value="">
+                                             --Select--
+                                            </option>
+                                            <?php
+                                            foreach($DiameterList as $list){
+                                               $selected='';
+                                               if($list['name']==$subval['diameter']){
+                                                $selected='selected="selected"';
+                                               }
+                                            ?>
+                                            <option value='<?php echo $list['name'].'@'.$list['name_french']?>'  <?php echo $selected?>><?php echo $list['name']?>
+                                            </option>
+                                            <?php }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
-					<div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -322,27 +322,27 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
-    									<select name="shape_paper[]" class="form-control">
-        									<option value="">
-        									 --Select--
-        									</option>
-        									<?php
-                        						foreach($ShapePaperList as $list){
-                        								$selected='';
-                        								if($list['name']== $subval['shape_paper']){
-        										$selected='selected="selected"';
-        									   }
-        									?>
-        									<option value='<?php echo $list['name'].'@'.$list['name_french']?>'  <?php echo $selected?>><?php echo $list['name']?>
-        									</option>
-        									<?php }?>
-    									</select>
+                                        <select name="shape_paper[]" class="form-control">
+                                            <option value="">
+                                             --Select--
+                                            </option>
+                                            <?php
+                                                foreach($ShapePaperList as $list){
+                                                        $selected='';
+                                                        if($list['name']== $subval['shape_paper']){
+                                                $selected='selected="selected"';
+                                               }
+                                            ?>
+                                            <option value='<?php echo $list['name'].'@'.$list['name_french']?>'  <?php echo $selected?>><?php echo $list['name']?>
+                                            </option>
+                                            <?php }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
-					<div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -355,40 +355,40 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
-    									<select name="grommets[]" class="form-control">
-        									<option value="">
-        									 --Select--
-        									</option>
-        									<?php
-                        						foreach($Grommets as $list){
-                        								$selected='';
-                        								if($list['name']== $subval['grommets']){
-        										$selected='selected="selected"';
-        									   }
-        									?>
-        									<option value='<?php echo $list['name'].'@'.$list['name_french']?>'  <?php echo $selected?>><?php echo $list['name']?>
-        									</option>
-        									<?php }?>
-    									</select>
+                                        <select name="grommets[]" class="form-control">
+                                            <option value="">
+                                             --Select--
+                                            </option>
+                                            <?php
+                                                foreach($Grommets as $list){
+                                                        $selected='';
+                                                        if($list['name']== $subval['grommets']){
+                                                $selected='selected="selected"';
+                                               }
+                                            ?>
+                                            <option value='<?php echo $list['name'].'@'.$list['name_french']?>'  <?php echo $selected?>><?php echo $list['name']?>
+                                            </option>
+                                            <?php }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
-				</div>
-        		<?php }
-        		}else{?>
+                    </div>
+                </div>
+                <?php }
+                }else{?>
 
                 <div class="row sqddata">
                     <div class="col-md-12">
-            			<div class="attribute-info-inner">
-                			<span class="input-group-btn">
+                        <div class="attribute-info-inner">
+                            <span class="input-group-btn">
                                 <button class="btn btn-danger sqbtn-remove" type="button" style="display:none" onclick="RemoveRow($(this))"><span class="fa fa-minus"></span></button>
                                 <button class="btn btn-success sqbtn-add" type="button" onclick="AddRow($(this))"><span class="fa fa-plus"></span></button>
                             </span>
-	                    </div>
+                        </div>
                     </div>
-    				<div class="col-md-6">
+                    <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -401,23 +401,23 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
-									<select name="paper_quality[]" class="form-control">
-									<option value="">
-									 --Select--
-									</option>
-									<?php
-									foreach($PaperQualityList as $list){
-									?>
-									<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
-									</option>
-									<?php }?>
-									</select>
+                                    <select name="paper_quality[]" class="form-control">
+                                    <option value="">
+                                     --Select--
+                                    </option>
+                                    <?php
+                                    foreach($PaperQualityList as $list){
+                                    ?>
+                                    <option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
+                                    </option>
+                                    <?php }?>
+                                    </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
-					<div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -431,23 +431,23 @@
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
                                         <select name="ncr_number_parts[]" class="form-control">
-										<option value="">
-										--Select--
-										</option>
-										<?php
-										foreach($NCRNumberPartsList as $list){
-										?>
-										<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
-										</option>
-										<?php
-										}?>
-										</select>
+                                        <option value="">
+                                        --Select--
+                                        </option>
+                                        <?php
+                                        foreach($NCRNumberPartsList as $list){
+                                        ?>
+                                        <option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
+                                        </option>
+                                        <?php
+                                        }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
-				<div class="col-md-6">
+                    </div>
+                <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -460,23 +460,23 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
-										<select name="stock[]" class="form-control">
-										<option value="">
-										 --Select--
-										</option>
-										<?php
-										foreach($StockList as $list){
-										?>
-										<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
-										</option>
-										<?php }?>
-										</select>
+                                        <select name="stock[]" class="form-control">
+                                        <option value="">
+                                         --Select--
+                                        </option>
+                                        <?php
+                                        foreach($StockList as $list){
+                                        ?>
+                                        <option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
+                                        </option>
+                                        <?php }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
-					<div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -489,23 +489,23 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
-										<select name="color[]" class="form-control">
-										<option value="">
-										 --Select--
-										</option>
-										<?php
-										foreach($ColorList as $list){
-										?>
-										<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
-										</option>
-										<?php }?>
-										</select>
+                                        <select name="color[]" class="form-control">
+                                        <option value="">
+                                         --Select--
+                                        </option>
+                                        <?php
+                                        foreach($ColorList as $list){
+                                        ?>
+                                        <option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
+                                        </option>
+                                        <?php }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
-					<div class="col-md-6">
+                    </div>
+                    <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -518,24 +518,24 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
-										<select name="diameter[]" class="form-control">
-										<option value="">
-										 --Select--
-										</option>
-										<?php
-										foreach($DiameterList as $list){
-										?>
-										<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
-										</option>
-										<?php }?>
-										</select>
+                                        <select name="diameter[]" class="form-control">
+                                        <option value="">
+                                         --Select--
+                                        </option>
+                                        <?php
+                                        foreach($DiameterList as $list){
+                                        ?>
+                                        <option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
+                                        </option>
+                                        <?php }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
+                    </div>
 
-					<div class="col-md-6">
+                    <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -548,24 +548,24 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
-										<select name="shape_paper[]" class="form-control">
-										<option value="">
-										 --Select--
-										</option>
-										<?php
-										foreach($ShapePaperList as $list){
-										?>
-										<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
-										</option>
-										<?php }?>
-										</select>
+                                        <select name="shape_paper[]" class="form-control">
+                                        <option value="">
+                                         --Select--
+                                        </option>
+                                        <?php
+                                        foreach($ShapePaperList as $list){
+                                        ?>
+                                        <option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
+                                        </option>
+                                        <?php }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
+                    </div>
 
-					<div class="col-md-6">
+                    <div class="col-md-6">
                         <div class="attribute-info">
                             <div class="row align-items-center">
                                 <div class="col-8 col-md-6">
@@ -578,97 +578,97 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="attribute-info-inner">
-										<select name="grommets[]" class="form-control">
-										<option value="">
-										 --Select--
-										</option>
-										<?php
-										foreach($Grommets as $list){
-										?>
-										<option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
-										</option>
-										<?php }?>
-										</select>
+                                        <select name="grommets[]" class="form-control">
+                                        <option value="">
+                                         --Select--
+                                        </option>
+                                        <?php
+                                        foreach($Grommets as $list){
+                                        ?>
+                                        <option value='<?php echo $list['name'].'@'.$list['name_french']?>'><?php echo $list['name']?>
+                                        </option>
+                                        <?php }?>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
                         </div>
-					</div>
-				</div>
+                    </div>
+                </div>
 
-        		<?php }?>
-    		</div>
-	    </div>
-						</div>
-					</div>
-				</div>
-				<div class="text-right">
-					<button type="submit" class="btn btn-success" id="submitBtn" >Submit</button>
-				</div>
-			</div>
-			<?php echo form_close();?>
-		</div>
-	</div>
+                <?php }?>
+            </div>
+        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <button type="submit" class="btn btn-success" id="submitBtn" >Submit</button>
+                </div>
+            </div>
+            <?php echo form_close();?>
+        </div>
+    </div>
 </div>
 <script src="<?php echo $BASE_URL?>/assets/js/validation.js"></script>
 <script>
     function AddRow(cr){
-		    var controlForm = $('.SizeQuantity:first'),
-			currentEntry = cr.parents('.sqddata:first'),
-			newEntry = $(currentEntry.clone()).appendTo(controlForm);
+            var controlForm = $('.SizeQuantity:first'),
+            currentEntry = cr.parents('.sqddata:first'),
+            newEntry = $(currentEntry.clone()).appendTo(controlForm);
 
-			newEntry.find('input').val('');
-			newEntry.find('textarea').val('');
-			newEntry.find('select').val('');
+            newEntry.find('input').val('');
+            newEntry.find('textarea').val('');
+            newEntry.find('select').val('');
 
-			var timestamp = new Date().getUTCMilliseconds();
-			newEntry.find('input').attr('id',timestamp);
+            var timestamp = new Date().getUTCMilliseconds();
+            newEntry.find('input').attr('id',timestamp);
 
-			newEntry.find('.sqbtn-remove').show();
-			controlForm.find('.sqbtn-remove').show();
-			controlForm.find('.sqbtn-add').hide();
-			newEntry.find('.sqbtn-add').show();
-	}
+            newEntry.find('.sqbtn-remove').show();
+            controlForm.find('.sqbtn-remove').show();
+            controlForm.find('.sqbtn-add').hide();
+            newEntry.find('.sqbtn-add').show();
+    }
 
-	function RemoveRow(cr,id){
-		    cr.parents('.sqddata:first').remove();
-			var numItems = $('.SizeQuantity .'+id+'sqddata').length;
-			var controlForm = $('.SizeQuantity .'+id+'sqddata').last();
-			if(numItems==1){
-			controlForm.find('.sqbtn-remove').hide();
-			controlForm.find('.sqbtn-add').show();
-			}else{
-			    controlForm.find('.sqbtn-remove').show();
-			    controlForm.find('.sqbtn-add').show();
-			}
-			return false;
-	}
+    function RemoveRow(cr,id){
+            cr.parents('.sqddata:first').remove();
+            var numItems = $('.SizeQuantity .'+id+'sqddata').length;
+            var controlForm = $('.SizeQuantity .'+id+'sqddata').last();
+            if(numItems==1){
+            controlForm.find('.sqbtn-remove').hide();
+            controlForm.find('.sqbtn-add').show();
+            }else{
+                controlForm.find('.sqbtn-remove').show();
+                controlForm.find('.sqbtn-add').show();
+            }
+            return false;
+    }
 
 success='<?php echo $success?>';
 $('#AddEditProductAttribute').validate({
-	    rules: {
-		},
+        rules: {
+        },
         messages: {
         },
         submitHandler: function(form) {
-			$("#loader-img").show();
-			var url  = '<?php echo $BASE_URL ?>admin/Products/AddEditProductAttribute';
-			$.ajax({
-			  type: "POST",
-			  url: url,
-			  data: $(form).serialize(), // serializes the form's elements.
-			  beforeSend:function() {
-				 $('button[type=submit]').attr('disabled', true);
-			  },
-			  success: function(data) {
-				$('button[type=submit]').attr('disabled', false);
-				$("#loader-img").hide();
-				$("#QualityModal .modal-body").html(data);
-				    if(success==1){
-					  location.reload();
-				    }
-			  }
-			});
+            $("#loader-img").show();
+            var url  = '<?php echo $BASE_URL ?>admin/Products/AddEditProductAttribute';
+            $.ajax({
+              type: "POST",
+              url: url,
+              data: $(form).serialize(), // serializes the form's elements.
+              beforeSend:function() {
+                 $('button[type=submit]').attr('disabled', true);
+              },
+              success: function(data) {
+                $('button[type=submit]').attr('disabled', false);
+                $("#loader-img").hide();
+                $("#QualityModal .modal-body").html(data);
+                    if(success==1){
+                      location.reload();
+                    }
+              }
+            });
         },
     });
 </script>

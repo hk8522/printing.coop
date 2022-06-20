@@ -30,7 +30,7 @@
                                         </a>
                                     </td>
                                    <td class="product-name">
-                                        	<a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($list['id']);?>">  <span><?php echo ucfirst($list['name'])?></span></a>
+                                            <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($list['id']);?>">  <span><?php echo ucfirst($list['name'])?></span></a>
                                     </td>
                                     <td class="product-price1">
                                         <span class="new-price"><?php echo CURREBCY_SYMBOL.number_format($list['price'],2);?></span>
@@ -43,7 +43,7 @@
                               <td colspan="2" class="actions">
                                   <div class="coupon">
                                       <a href="<?php echo $BASE_URL?>Products"><button type="button">Update Wishlist</button>
-									  </a>
+                                      </a>
                                   </div>
                               </td>
                               <td colspan="4">

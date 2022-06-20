@@ -1,10 +1,10 @@
 <style>
 .shopping-product-display table {
-	border-left: 1px solid #ccc;
-	border-right: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
 }
 .shopping-product-display table tr {
-	border-bottom: none;
+    border-bottom: none;
 }
 </style>
 <div class="container-fluid my-account-main-section">
