@@ -43,8 +43,8 @@ function curl_helper(string $url, string $method = 'get', array $data = null, st
 
 function sina_access_token()
 {
-    $url = "https://api.sinaliteuppy.com/auth/token";
     $sina = config_item('sina');
+    $url = $sina['endpoint'] . "/auth/token";
     $data = [
         'client_id' => $sina['client_id'],
         'client_secret' => $sina['client_secret'],
@@ -60,18 +60,21 @@ function sina_access_token()
 
 function sina_products(string $token)
 {
-    $url = "https://api.sinaliteuppy.com/product";
+    $sina = config_item('sina');
+    $url = $sina['endpoint'] . "/product";
     return curl_helper($url, 'get', null, $token);
 }
 
 function sina_product_info(string $token, int $product_id, string $store = 'en_us')
 {
-    $url = "https://api.sinaliteuppy.com/product/$product_id/$store";
+    $sina = config_item('sina');
+    $url = $sina['endpoint'] . "/product/$product_id/$store";
     return curl_helper($url, 'get', null, $token);
 }
 
 function sina_price(string $token, int $product_id, array $options, string $store = 'en_us')
 {
-    $url = "https://api.sinaliteuppy.com/price/$product_id/$store";
+    $sina = config_item('sina');
+    $url = $sina['endpoint'] . "/price/$product_id/$store";
     return curl_helper($url, 'post', ['productOptions' => $options], $token);
 }
