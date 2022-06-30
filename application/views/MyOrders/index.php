@@ -38,7 +38,7 @@
                                     <div class="order-id">
                                         <button type="submit">
                                         <?php
-                                        //echo $language_name =='French' ? ORDER_ID_PREFIX_FRENCH.$list['id']:$list['order_id'];
+                                        //echo $language_name == 'French' ? ORDER_ID_PREFIX_FRENCH.$list['id']:$list['order_id'];
                                         echo $list['order_id'];
                                         ?></button>
                                     </div>
@@ -46,7 +46,7 @@
                                 <div class="col-5 col-md-3 col-lg-3 col-xl-3">
                                     <div class="status-btn">
                                         <?php
-                                        echo $language_name =='French' ? getOrderSatusClassFrench($list['status']):getOrderSatusClass($list['status']);
+                                        echo $language_name == 'French' ? getOrderSatusClassFrench($list['status']):getOrderSatusClass($list['status']);
                                         ;?>
                                     </div>
                                 </div>
@@ -79,10 +79,10 @@
                                         <?php
                                         }?>
                                         <a href="<?php echo $BASE_URL?>MyOrders/view/<?php echo base64_encode($list['id'])?>"><button class="view-details-btn" type="button"> <?php
-                                        echo $language_name =='French' ? "Voir l'ordre":'View Order';
+                                        echo $language_name == 'French' ? "Voir l'ordre":'View Order';
                                         ;?></button></a>
                                         <?php
-                                        if($language_name  == 'French'){
+                                        if($language_name == 'French'){
                                            $file_name=$list['order_id']."-fr-invoice.pdf";
                                            $file_name=strtolower($file_name);
                                            $location=FILE_BASE_PATH.'pdf/'.$file_name;
@@ -102,7 +102,7 @@
                                         <?php echo $InvoiceText;
                                         ?></button></a>
                                         <?php
-                                           if($language_name  == 'French'){
+                                           if($language_name == 'French'){
                                                $file_name=$list['order_id']."-fr-order.pdf";
                                                $file_name=strtolower($file_name);
                                                $location=FILE_BASE_PATH.'pdf/'.$file_name;

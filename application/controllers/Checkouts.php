@@ -58,8 +58,8 @@ class Checkouts extends Public_Controller
                 $discount_valid_to = $couponData['discount_valid_to'];
                 $cdate = date('Y-m-d H:i:s');
                 if (strtotime($discount_valid_from) > strtotime($cdate)) {
-                $this->session->set_flashdata('code_error', 'This coupon code that time not apply');
-                $coupon_code = '';
+                    $this->session->set_flashdata('code_error', 'This coupon code that time not apply');
+                    $coupon_code = '';
                 } else if (strtotime($discount_valid_to) < strtotime($cdate)) {
                     $this->session->set_flashdata('code_error', 'coupon code expired');
                     $coupon_code = '';
@@ -76,11 +76,11 @@ class Checkouts extends Public_Controller
                         $discount_valid_to = $couponData['discount_valid_to'];
                         $cdate = date('Y-m-d H:i:s');
                         if (strtotime($discount_valid_from) <= strtotime($cdate) && strtotime($discount_valid_to) >= strtotime($cdate)) {
-                        if ($discount_type == 'discount_percent') {
-                            $coupon_discount_amount = ($ProductOrder['sub_total_amount']*$discount)/100;
-                        } else {
-                            $coupon_discount_amount = $discount;
-                        }
+                            if ($discount_type == 'discount_percent') {
+                                $coupon_discount_amount = ($ProductOrder['sub_total_amount']*$discount)/100;
+                            } else {
+                                $coupon_discount_amount = $discount;
+                            }
                         } else {
                             $coupon_code = '';
                         }
@@ -557,31 +557,29 @@ class Checkouts extends Public_Controller
                             $orderData['id'] = $ProductOrder['id'];
                             if ($response['status'])
                             {
-                                    $this->session->set_flashdata('message_success', $response['msg']);
+                                $this->session->set_flashdata('message_success', $response['msg']);
                                 /* payment response */
-                                    $paymentRes =  json_decode($response['paymentData']);
-                                    $this->load->model('ProductOrder_Model');
-                                    $this->data['page_title'] = 'Order Details';
-                                    $orderData['status'] = 2;
-                                    $orderData['payment_status'] = 2;
-                                    $orderData['transition_remark'] = 'payment success';
-                                    $orderData['payment_method'] = 'POS';
-                                    $orderData['transition_id'] = $paymentRes->id;
-                                    $orderData['paypal_responce'] = $response['paymentData'];
-                                    $this->UpdateOrderStatus($orderData);
-                                    $this->data['orderData'] = $this->ProductOrder_Model->getProductOrderDataById($orderData['id']);
-                                    $this->session->set_flashdata('message_success', $response['msg']);
-                                    redirect('MyOrders/view/'.base64_encode($orderData['id']));
+                                $paymentRes =  json_decode($response['paymentData']);
+                                $this->load->model('ProductOrder_Model');
+                                $this->data['page_title'] = 'Order Details';
+                                $orderData['status'] = 2;
+                                $orderData['payment_status'] = 2;
+                                $orderData['transition_remark'] = 'payment success';
+                                $orderData['payment_method'] = 'POS';
+                                $orderData['transition_id'] = $paymentRes->id;
+                                $orderData['paypal_responce'] = $response['paymentData'];
+                                $this->UpdateOrderStatus($orderData);
+                                $this->data['orderData'] = $this->ProductOrder_Model->getProductOrderDataById($orderData['id']);
+                                $this->session->set_flashdata('message_success', $response['msg']);
+                                redirect('MyOrders/view/'.base64_encode($orderData['id']));
                                 /* payment response */
-                            } else
-                            {
+                            } else {
                                 $orderData['payment_status'] = 3;
                                 $orderData['transition_remark'] = 'payment Failed';
                                 $this->ProductOrder_Model->saveProductOrder($orderData);
                                 $this->session->set_flashdata('message_error', $response['msg']);
                             }
-                        } else
-                        {
+                        } else {
                             $this->session->set_flashdata('message_error', $card['msg']);
                             $orderData['payment_status'] = 2;
                             $orderData['transition_remark'] = 'Pending';
@@ -594,8 +592,7 @@ class Checkouts extends Public_Controller
                             }
                             return redirect($referer);
                         }
-                    } else
-                    {
+                    } else {
                         $this->session->set_flashdata('message_error', 'Missing Information.');
                     }
                     redirect('MyOrders/view/'.base64_encode($postData['id']));
@@ -607,7 +604,7 @@ class Checkouts extends Public_Controller
                 redirect('Homes');
             }
         } else {
-               redirect('Homes');
+            redirect('Homes');
         }
     }
 

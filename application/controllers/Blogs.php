@@ -12,7 +12,7 @@ class Blogs extends Public_Controller
   public function index()
   {
     $this->load->model('Blog_Model');
-    $this->data['page_title']=$this->language_name=='French' ? 'Blogs':'Blogs';
+    $this->data['page_title']=$this->language_name == 'French' ? 'Blogs':'Blogs';
     $this->data['blogs']=$this->Blog_Model->getBlogsFrontEndList(0,0,0,'blogs.created','desc',0,0,$this->main_store_id);
     $this->render($this->class_name.'index');
     #pr($this->data['blogs'],1);
@@ -23,7 +23,7 @@ class Blogs extends Public_Controller
      $category_id=base64_decode($category_id);
     }
     $this->load->model('Blog_Model');
-    $this->data['page_title']=$this->language_name=='French' ? 'Blog de la catégorie':'Category Blog';
+    $this->data['page_title']=$this->language_name == 'French' ? 'Blog de la catégorie':'Category Blog';
     $this->data['blogs']=$this->Blog_Model->getBlogsFrontEndList($category_id,0,0,'blogs.created','desc',0,0,$this->main_store_id);
     $this->sideBarData();
     $this->render($this->class_name.'category');
@@ -33,7 +33,7 @@ class Blogs extends Public_Controller
   {
     $search=$_GET['search'];
     $this->load->model('Blog_Model');
-    $this->data['page_title']=$this->language_name=='French' ? 'Rechercher dans le blog':'Search Blog';
+    $this->data['page_title']=$this->language_name == 'French' ? 'Rechercher dans le blog':'Search Blog';
     $this->data['blogs']=$this->Blog_Model->getBlogsFrontEndList(null,null,$search,$order_by='blogs.title',$type='asc',0,0,$this->main_store_id);
     $this->sideBarData();
     $this->render($this->class_name.'category');
@@ -51,7 +51,7 @@ class Blogs extends Public_Controller
     $category_id=$this->data['blog']['category_id'];
     $this->data['releted_blog']= $this->Blog_Model->getBlogsFrontEndList($category_id,null,null,'blogs.created','desc',$start=0,$limit=5,$this->main_store_id);
 
-    $this->data['page_title']=$this->language_name=='French' ? $this->data['blog']['title_french']:$this->data['blog']['title'];
+    $this->data['page_title']=$this->language_name == 'French' ? $this->data['blog']['title_french']:$this->data['blog']['title'];
     $this->sideBarData(2);
     $this->render($this->class_name.'single_view');
   }
@@ -65,7 +65,7 @@ class Blogs extends Public_Controller
     $this->data['popularblogs']=$this->Blog_Model->getBlogsFrontEndList(null,1,null,'blogs.created','desc',$start=0,$limit=10,$this->main_store_id);
     $this->data['category']= $this->Blog_Model->getBlogsCategoryList(1,$this->main_store_id);
     if($fl==2){
-        $this->data['page_title']=$this->language_name=='French' ? $this->data['blog']['title_french']:$this->data['blog']['title'];
+        $this->data['page_title']=$this->language_name == 'French' ? $this->data['blog']['title_french']:$this->data['blog']['title'];
     }
   }
 

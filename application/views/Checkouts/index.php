@@ -691,8 +691,7 @@
                                           </div>
                                       </div>
                                       <div class="order-btn text-right">
-                                          <button type="submit">
-                                          <?= ($language_name == 'French') ? 'Passer la commande' : 'Place Order'?></button>
+                                          <button type="submit"><?= ($language_name == 'French') ? 'Passer la commande' : 'Place Order'?></button>
                                       </div>
                                   </div>
                               </div>

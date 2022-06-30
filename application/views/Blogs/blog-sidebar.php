@@ -1,14 +1,14 @@
 <div class="blog-sidebar">
     <div class="blog-search-bar">
         <form action="<?php echo $BASE_URL?>Blogs/search">
-            <input type="text" placeholder="<?php echo $this->language_name=='French' ? 'Rechercher dans le blog ici ...':'Search blog here ...'?>" name="search" required value="<?php echo isset($_GET['search']) ? $_GET['search']:''?>">
+            <input type="text" placeholder="<?php echo $this->language_name == 'French' ? 'Rechercher dans le blog ici ...':'Search blog here ...'?>" name="search" required value="<?php echo isset($_GET['search']) ? $_GET['search']:''?>">
             <button><i class="las la-search"></i></button>
         </form>
     </div>
     <div class="blog-sidebar-posts">
         <ul class="nav nav-pills">
-            <li><a class="active" data-toggle="pill" href="#Popular"><?php echo $this->language_name=='French'? 'Populaire':'Popular'?></a></li>
-            <li><a class="" data-toggle="pill" href="#Latest"><?php echo $this->language_name=='French'? 'dernière':'Latest'?></a></li>
+            <li><a class="active" data-toggle="pill" href="#Popular"><?php echo $this->language_name == 'French'? 'Populaire':'Popular'?></a></li>
+            <li><a class="" data-toggle="pill" href="#Latest"><?php echo $this->language_name == 'French'? 'dernière':'Latest'?></a></li>
         </ul>
         <div class="tab-content">
             <div id="Popular" class="tab-pane fade active show">
@@ -65,7 +65,7 @@
     </div>
     <div class="blog-category-sidebar">
         <div class="universal-dark-title">
-            <span><?php echo $this->language_name=='French'? 'Catégories':'Categories'?></span>
+            <span><?php echo $this->language_name == 'French'? 'Catégories':'Categories'?></span>
         </div>
         <div class="blog-category-list">
             <?php foreach($category as $cat){

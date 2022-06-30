@@ -46,7 +46,7 @@
                                             echo $blog['content'];
                                         } ?>
                                     <div class="universal-small-dark-title">
-                                        <span><?php echo $this->language_name=='French' ? 'Articles Liés:':'Related Articles:'?></span>
+                                        <span><?php echo $this->language_name == 'French' ? 'Articles Liés:':'Related Articles:'?></span>
                                     </div>
                                     <div class="universal-dark-info">
                                         <span>
@@ -75,7 +75,7 @@
                                     <div class="row align-items-center">
                                         <div class="col-md-5">
                                             <div class="blog-share-title">
-                                                <span><?php echo $this->language_name=='French' ? 'Partager cette publication':'Share this post'?></span>
+                                                <span><?php echo $this->language_name == 'French' ? 'Partager cette publication':'Share this post'?></span>
                                             </div>
                                         </div>
                                         <div class="col-md-7">

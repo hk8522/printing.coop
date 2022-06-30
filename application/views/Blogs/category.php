@@ -49,7 +49,7 @@
                                         } ?></span>
                                             </div>
                                             <div class="single-blog-more universal-dark-info ">
-                                                <a href="<?php echo $BASE_URL?>Blogs/singleview/<?php echo base64_encode($blog['id'])?>"><button class="checkout-view" type="submit"><?php echo $this->language_name=='French'? 'Lire la suite':'Read more'?></button></a>
+                                                <a href="<?php echo $BASE_URL?>Blogs/singleview/<?php echo base64_encode($blog['id'])?>"><button class="checkout-view" type="submit"><?php echo $this->language_name == 'French'? 'Lire la suite':'Read more'?></button></a>
                                             </div>
                                         </div>
                                     </div>

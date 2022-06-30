@@ -31,7 +31,7 @@
                     <div id="subscribe-message">
                     </div>
                     <div class="newsletter-fields">
-                        <input type="email" placeholder="<?php echo $language_name=='French' ? 'Entrez votre adresse email':'Enter your email address'?>" name="email" id="subscribe-email">
+                        <input type="email" placeholder="<?php echo $language_name == 'French' ? 'Entrez votre adresse email':'Enter your email address'?>" name="email" id="subscribe-email">
                         <button type="submit"><?php
                                       if ($language_name == 'French'){ ?>
                                         Souscrire
@@ -391,7 +391,7 @@
                 <div class="col-md-7">
                     <div class="bootom-footer-single">
                         <div class="copywrite-text">
-                          <span>Copyright © <?php echo date('Y')?> <?php echo $language_name=='French' ? $configrations['copy_right_french']:$configrations['copy_right']; ?></span>
+                          <span>Copyright © <?php echo date('Y')?> <?php echo $language_name == 'French' ? $configrations['copy_right_french']:$configrations['copy_right']; ?></span>
                         </div>
                         <div class="bottom-links">
                            <?php

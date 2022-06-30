@@ -52,10 +52,10 @@ class Logins extends Public_Controller
 
                         if (!$email_verification) {
                                 $response['status'] = 'error';
-                                $response['msg'] = $this->language_name=='French' ? 'Votre e-mail de vérification est en attente. veuillez vérifier votre adresse e-mail après ce compte de connexion.':'Your email verification is pending. please verify your email after that login account.';
+                                $response['msg'] = $this->language_name == 'French' ? 'Votre e-mail de vérification est en attente. veuillez vérifier votre adresse e-mail après ce compte de connexion.':'Your email verification is pending. please verify your email after that login account.';
                         } else if (!$status) {
                                 $response['status'] = 'error';
-                                $response['msg'] = $this->language_name=='French' ? "Votre compte a été inactif par l'administrateur pour plus d'informations, veuillez contacter le support":'Your account has been inactive by the admin for more enquiry please contact the support';
+                                $response['msg'] = $this->language_name == 'French' ? "Votre compte a été inactif par l'administrateur pour plus d'informations, veuillez contacter le support":'Your account has been inactive by the admin for more enquiry please contact the support';
                         } else {
                             $this->session->set_userdata([
                                     "loginId" 				=> $loginUser['id'],
@@ -81,7 +81,7 @@ class Logins extends Public_Controller
                         }
                     } else {
                             $response['status'] = 'error';
-                            $response['msg'] = $this->language_name=='French' ? "E-mail ou mot de passe incorrect":'Email or password is incorrect';
+                            $response['msg'] = $this->language_name == 'French' ? "E-mail ou mot de passe incorrect":'Email or password is incorrect';
                     }
             }
 
@@ -149,7 +149,7 @@ class Logins extends Public_Controller
             }
             $this->load->model('User_Model');
             $this->load->library('form_validation');
-            $set_rules = $this->language_name=='French' ? $this->User_Model->configFranch:$this->User_Model->config;
+            $set_rules = $this->language_name == 'French' ? $this->User_Model->configFranch:$this->User_Model->config;
             $this->form_validation->set_rules($set_rules);
 
             $response = [
@@ -169,7 +169,7 @@ class Logins extends Public_Controller
                   $email_verification= $this->input->post('email_verification');
 
                     if ($this->User_Model->checkEmailId($email)) {
-                            $response['msg'] = $this->language_name=='French' ? "Identifiant de messagerie déjà enregistré":'Email id already registered1';
+                            $response['msg'] = $this->language_name == 'French' ? "Identifiant de messagerie déjà enregistré":'Email id already registered1';
                     } else {
                             $postData = array();
                             $postData['fname'] = $fname;
@@ -187,7 +187,7 @@ class Logins extends Public_Controller
                             $insert_id = $this->User_Model->saveUser($postData);
 
                             if ($insert_id) {
-                                $response['msg'] = $this->language_name=='French' ? "Votre compte a été créé avec succès. Veuillez vérifier votre messagerie et vérifier votre identifiant de messagerie.":'Your account has been created successfully. Please check your mail and verify email id.';
+                                $response['msg'] = $this->language_name == 'French' ? "Votre compte a été créé avec succès. Veuillez vérifier votre messagerie et vérifier votre identifiant de messagerie.":'Your account has been created successfully. Please check your mail and verify email id.';
 
                                 $toEmail = $email;
 
@@ -251,7 +251,7 @@ class Logins extends Public_Controller
                                 }
                             } else {
                                     $response['status'] = 'error';
-                                    $response['msg'] = $this->language_name=='French' ? "Problème technique, veuillez essayer après un certain temps":'Technical problem please try after some time';
+                                    $response['msg'] = $this->language_name == 'French' ? "Problème technique, veuillez essayer après un certain temps":'Technical problem please try after some time';
                             }
                     }
          }
@@ -266,7 +266,7 @@ class Logins extends Public_Controller
             $this->load->library('form_validation');
             $set_rules =
 
-            $set_rules = $this->language_name=='French' ? $this->User_Model->prefconfigFranch:$this->User_Model->prefconfig;
+            $set_rules = $this->language_name == 'French' ? $this->User_Model->prefconfigFranch:$this->User_Model->prefconfig;
             $this->form_validation->set_rules($set_rules);
             $response = [
                     'status' => 'success',
@@ -286,7 +286,7 @@ class Logins extends Public_Controller
 
                     if ($this->User_Model->checkEmailId($email)) {
                             $response['status'] = 'error';
-                            $response['msg'] = $this->language_name=='French' ? 'Identifiant de messagerie déjà enregistré':'Email id already registered';
+                            $response['msg'] = $this->language_name == 'French' ? 'Identifiant de messagerie déjà enregistré':'Email id already registered';
                     } else {
                             $postData = array();
                             $postData['fname'] = $fname;
@@ -464,7 +464,7 @@ closed on Saturday and Sunday.<br><br>
                                 }
                             } else {
                                     $response['status'] = 'error';
-                                    $response['msg'] = $this->language_name=='French' ? 'Problème technique, veuillez essayer après un certain temps':'Technical problem please try after some time';
+                                    $response['msg'] = $this->language_name == 'French' ? 'Problème technique, veuillez essayer après un certain temps':'Technical problem please try after some time';
                             }
                     }
          }

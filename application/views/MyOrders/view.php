@@ -54,7 +54,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                         </div>
                                                         <div class="col-md-6">
                                                             <strong><?php
-                                        //echo $language_name =='French' ? ORDER_ID_PREFIX_FRENCH.$orderData['id']:$orderData['order_id'];
+                                        //echo $language_name == 'French' ? ORDER_ID_PREFIX_FRENCH.$orderData['id']:$orderData['order_id'];
                                         echo $orderData['order_id'];
                                         ?></strong>
                                                         </div>
@@ -160,7 +160,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                         </div>
                                                         <div class="col-md-6">
                                                             <strong><?php
-                                        echo $language_name =='French' ? getOrderSatusClassFrench($orderData['status']):getOrderSatusClass($orderData['status']);
+                                        echo $language_name == 'French' ? getOrderSatusClassFrench($orderData['status']):getOrderSatusClass($orderData['status']);
                                         ;?></strong>
                                                         </div>
                                                     </div>
@@ -294,7 +294,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                         </div>
                                                         <div class="col-md-6">
                                                             <strong>
-                                                            <?php echo $language_name=='French' ? getOrderPaymentStatusFrench($orderData['payment_status']):getOrderPaymentStatus($orderData['payment_status']);
+                                                            <?php echo $language_name == 'French' ? getOrderPaymentStatusFrench($orderData['payment_status']):getOrderPaymentStatus($orderData['payment_status']);
                                                             ?>
                                                             </strong>
                                                         </div>

@@ -193,7 +193,7 @@
                                                       }
                                                     ?>
                                                 <option value="<?php echo $sortByOption['order_by']?>" <?php echo $selected;?>>
-                                                    <?php echo $language_name=='French' ?  $sortByOption['label_french']:$sortByOption['label']?>
+                                                    <?php echo $language_name == 'French' ?  $sortByOption['label_french']:$sortByOption['label']?>
                                                 </option>
                                                 <?php
                                                     }
