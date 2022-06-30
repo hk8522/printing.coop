@@ -9,7 +9,7 @@
             <div class="row">
                 <div class="col-md-5">
                     <?php
-                    if($language_name=='French'){ ?>
+                    if ($language_name == 'French'){ ?>
                         <div class="login-area">
                             <div class="universal-dark-title">
                                 <span>Clients enregistrés</span>
@@ -93,7 +93,7 @@
                         <div class="universal-dark-title">
                             <span>
                             <?php
-                            if($language_name=='French'){ ?>
+                            if ($language_name == 'French'){ ?>
                                 Nouveaux clients
                             <?php }else{ ?>
                                 New Customers
@@ -104,7 +104,7 @@
                         <div class="universal-dark-info">
                             <span>
                             <?php
-                            if($language_name=='French'){ ?>
+                            if ($language_name == 'French'){ ?>
                                 En créant un compte sur notre boutique, vous pourrez passer vos commandes plus rapidement, enregistrer plusieurs adresses de livraison, consulter et suivre vos commandes, et plein d'autres choses encore.
                             <?php }else{ ?>
                                 By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.
@@ -114,7 +114,7 @@
                         <div class="universal-dark-info" id="signup-msg">
                         </div>
                         <?php
-                        if($language_name=='French'){ ?>
+                        if ($language_name == 'French'){ ?>
                             <form id="signup-form" method="post" autocomplete="off">
                                 <div class="shipping-form">
                                     <div class="row">

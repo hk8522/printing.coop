@@ -9,28 +9,28 @@
                           <th></th>
                           <th></th>
                           <th><?php
-                            if($language_name=='French'){ ?>
+                            if ($language_name == 'French'){ ?>
                               Produit
                             <?php }else{ ?>
                               Product
                             <?php
                             }?></th>
                           <th><?php
-                            if($language_name=='French'){ ?>
+                            if ($language_name == 'French'){ ?>
                               Prix
                             <?php }else{ ?>
                               Price
                             <?php
                             }?></th>
                           <th><?php
-                            if($language_name=='French'){ ?>
+                            if ($language_name == 'French'){ ?>
                               Combien d'ensembles
                             <?php }else{ ?>
                               How many sets
                             <?php
                             }?></th>
                           <th><?php
-                            if($language_name=='French'){ ?>
+                            if ($language_name == 'French'){ ?>
                               Total
                             <?php }else{ ?>
                               Total
@@ -76,7 +76,7 @@
                         <td class="product-name">
                             <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($items['id']);?>">
                             <?php
-                                if($language_name=='French'){
+                                if ($language_name == 'French'){
                                    echo ucfirst($Product['name_french']);
                                 }else{
                                     echo ucfirst($Product['name']);
@@ -88,7 +88,7 @@
     <?php if(!empty($product_width_length)){?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Longueur(pouces)
                                                 <?php }else{ ?>
                                                   Length(Inch)
@@ -97,7 +97,7 @@
                                     </div>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong> <?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Largeur (pouces)
                                                 <?php }else{ ?>
                                                   Width(Inch)
@@ -107,7 +107,7 @@
                             <?php if(!empty($product_width_length['length_width_color_show'])){?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong> <?php
-                                       if($language_name=='French'){
+                                       if ($language_name == 'French'){
                                                   echo 'Couleursv:'.$product_width_length['length_width_color_french'];
                                         }else{
                                             echo 'Colors:'.$product_width_length['length_width_color'];
@@ -119,7 +119,7 @@
                             <?php if(!empty($product_width_length['product_total_page'])){?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong> <?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Quantité
                                                 <?php }else{ ?>
                                                   Quantity
@@ -134,7 +134,7 @@
                                 <?php if(!empty($product_depth_length_width)){?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Longueur (pouces)
                                                 <?php }else{ ?>
                                                   Length(Inch)
@@ -143,7 +143,7 @@
                                     </div>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong> <?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                  Largeur (pouces)
                                                 <?php }else{ ?>
                                                   Width(Inch)
@@ -152,7 +152,7 @@
                                     </div>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong> <?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Profondeur (pouces)
                                                 <?php }else{ ?>
                                                   Depth(Inch)
@@ -162,7 +162,7 @@
                             <?php if(!empty($product_depth_length_width['depth_color_show'])){?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong> <?php
-                                                 if($language_name=='French'){
+                                                 if ($language_name == 'French'){
                                                   echo 'Couleursv:'.$product_depth_length_width['depth_color_french'];
                                         }else{
                                             echo 'Colors:'.$product_depth_length_width['depth_color'];
@@ -173,7 +173,7 @@
                             <?php if(!empty($product_depth_length_width['product_depth_total_page'])){?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong> <?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Quantité
                                                 <?php }else{ ?>
                                                   Quantity
@@ -187,7 +187,7 @@
                                 <?php if(!empty($page_product_width_length)){?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Longueur(pouces)
                                                 <?php }else{ ?>
                                                   Length(Inch)
@@ -196,7 +196,7 @@
                                     </div>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Largeur(pouces)
                                                 <?php }else{ ?>
                                                   Width(Inch)
@@ -208,7 +208,7 @@
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong> <?php
 
-                                        if($language_name=='French'){
+                                        if ($language_name == 'French'){
                                                   echo 'Couleursv:'.$page_product_width_length['page_length_width_color_french'];
                                         }else{
                                             echo 'Colors:'.$page_product_width_length['page_length_width_color'];
@@ -221,7 +221,7 @@
                                 <?php if(!empty($page_product_width_length['page_product_total_page'])){?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){
+                                                if ($language_name == 'French'){
                                                   echo 'Des pages:'.$page_product_width_length['page_product_total_page_french'];
                                                 }else{
                                        echo 'Pages:'.$page_product_width_length['page_product_total_page'];
@@ -233,7 +233,7 @@
                                 <?php if(!empty($page_product_width_length['page_product_total_sheets'])){?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){
+                                                if ($language_name == 'French'){
                                                   echo ' Feuille par bloc:'.$page_product_width_length['page_product_total_sheets_french'];
                                                 }else{
                                        echo 'Sheet Per Pad:'.$page_product_width_length['page_product_total_sheets'];
@@ -246,7 +246,7 @@
                                 if(!empty($page_product_width_length['page_product_total_quantity'])){ ?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){
+                                                if ($language_name == 'French'){
                                                   echo 'Quantité:'.$page_product_width_length['page_product_total_quantity'];
                                                 }else{
                                        echo 'Quantity:'.$page_product_width_length['page_product_total_quantity'];
@@ -259,7 +259,7 @@
                                 }?>
                             <?php
                             if(!empty($product_size)){
-                                if($language_name=='French'){
+                                if ($language_name == 'French'){
                                     $size_name= $product_size['product_size_french'];
                                     $label_qty=$product_size['product_quantity_french'];
                                 }else{
@@ -274,7 +274,7 @@
                                 if($label_qty){ ?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Quantité
                                                 <?php }else{ ?>
                                                   Quantity
@@ -288,7 +288,7 @@
                                 if($size_name){ ?>
                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                         <span><strong><?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Taille
                                             <?php }else{ ?>
                                               Size
@@ -304,7 +304,7 @@
                                         $multiple_attribute_name=$aval['attributes_name'];
                                         $multiple_attribute_item_name=$aval['attributes_item_name'];
 
-                                        if($language_name=='French'){
+                                        if ($language_name == 'French'){
                                             $multiple_attribute_name=$aval['attributes_name_french'];
                                             $multiple_attribute_item_name=$aval['attributes_item_name_french'];
                                         }
@@ -332,7 +332,7 @@
 
                             #pr($attribute_ids);
                             foreach($attribute_ids as $key=>$val){
-                                if($language_name=='French'){
+                                if ($language_name == 'French'){
                                     $attribute_name=$val['attribute_name_french'];
                                     $item_name=$val['item_name_french'];
                                 }else{
@@ -351,7 +351,7 @@
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                         <span><strong>
                                         <?php
-                                        if($language_name=='French'){
+                                        if ($language_name == 'French'){
                                             echo 'Recto verso:'.$recto_verso_french;
                                         }else{
                                             echo 'Recto/Verso:'.$recto_verso;
@@ -366,7 +366,7 @@
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong>
                                                 <?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Votre TEXTE - Votre TEXTE
                                                 <?php }else{ ?>
                                                   Your TEXT - Votre TEXT
@@ -446,7 +446,7 @@
                           <td colspan="2" class="actions">
                               <div class="coupon">
                                   <a href="<?php echo $BASE_URL?>Products"><button type="submit"><?php
-                                    if($language_name=='French'){ ?>
+                                    if ($language_name == 'French'){ ?>
                                       Continuer vos achats
                                     <?php }else{ ?>
                                       Continue Shopping
@@ -458,7 +458,7 @@
                               <div class="checkout">
                                   <div class="cart-total">
                                       <span><?php
-                    if($language_name=='French'){ ?>
+                    if ($language_name == 'French'){ ?>
                       Sous-total
                     <?php }else{ ?>
                       Sub Total
@@ -468,7 +468,7 @@
                                   <div class="coupon">
                                       <a href="<?php echo $BASE_URL?>Checkouts"><button type="submit">
                                       <?php
-                    if($language_name=='French'){ ?>
+                    if ($language_name == 'French'){ ?>
                      Passer à la caisse
                     <?php }else{ ?>
                       Proceed to Checkout
@@ -486,7 +486,7 @@
                 ?>
                 <div class="text-center">
                     <h4 class="lead"><?php
-                    if($language_name=='French'){ ?>
+                    if ($language_name == 'French'){ ?>
                       Le panier d'achat est vide
                     <?php }else{ ?>
                       Shopping Cart Is Empty

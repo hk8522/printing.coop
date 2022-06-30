@@ -18,7 +18,7 @@ class MyAccounts extends Public_Controller
     {
         $this->load->helper('form');
         $this->data['page_title']='My Account';
-        if($this->language_name=='French'){
+        if($this->language_name == 'French'){
             $this->data['page_title']="Mon compte";
         }
         $page_title="My Account Information";
@@ -36,7 +36,7 @@ class MyAccounts extends Public_Controller
     {
     $this->load->helper('form');
     $this->data['page_title']='Edit My  Account';
-    if($this->language_name=='French'){
+    if($this->language_name == 'French'){
             $this->data['page_title']="Modifier mon compte";
     }
     $page_title="My Account Information";
@@ -94,7 +94,7 @@ class MyAccounts extends Public_Controller
     public function changePassword()
     {
         $this->data['page_title']='Change Password';
-        if($this->language_name=='French'){
+        if($this->language_name == 'French'){
             $this->data['page_title']="Changer le mot de passe";
         }
 
@@ -115,18 +115,18 @@ class MyAccounts extends Public_Controller
             if($this->User_Model->saveUserPassword($data)){
                 $json['status']=1;
                 $json['msg']='Your password has been updated successfully.';
-                if($this->language_name=='French'){
+                if($this->language_name == 'French'){
                   $json['msg']='Votre mot de passe a été mis à jour avec succès.';
                 }
             }else{
                 $json['msg']='Technical problem please try after some time';
-                if($this->language_name=='French'){
+                if($this->language_name == 'French'){
                   $json['msg']='Problème technique, veuillez essayer après un certain temps.';
                 }
             }
         }else{
             $json['msg']='Email id does not exist';
-            if($this->language_name=='French'){
+            if($this->language_name == 'French'){
                  $json['msg']="L'identifiant de messagerie n'existe pas.";
             }
         }
@@ -137,7 +137,7 @@ class MyAccounts extends Public_Controller
   {
     $this->load->model('Address_Model');
     $this->data['page_title']='Manage Address';
-    if($this->language_name=='French'){
+    if($this->language_name == 'French'){
         $this->data['page_title']="Gérer l'adresse";
     }
     $address=$this->Address_Model->getAddressListByUserId($this->loginId);
@@ -156,7 +156,7 @@ class MyAccounts extends Public_Controller
           $id=base64_decode($id);
           if (!empty($id)) {
                      $this->data['page_title']=$page_title='Edit Address';
-                     if($this->language_name=='French'){
+                     if($this->language_name == 'French'){
                         $this->data['page_title']="Modifier l'adresse";
                     }
               } else {
@@ -166,7 +166,7 @@ class MyAccounts extends Public_Controller
 
       if(!empty($id)) {
             $this->data['page_title']='Edit Address';
-            if($this->language_name=='French'){
+            if($this->language_name == 'French'){
               $this->data['page_title']="Modifier l'adresse";
             }
           $page_title='Address updated successfully';
@@ -238,7 +238,7 @@ class MyAccounts extends Public_Controller
     {
         if(!empty($id)){
                 $page_title='Address delete';
-                if($this->language_name=='French'){
+                if($this->language_name == 'French'){
                        $page_title="Suppression d'adresse";
                 }
                 $this->load->model('Address_Model');
@@ -266,7 +266,7 @@ class MyAccounts extends Public_Controller
   public function  notification()
     {
     $this->data['page_title']='Notification';
-    if($this->language_name=='French'){
+    if($this->language_name == 'French'){
         $page_title="Notification";
     }
     $this->render($this->class_name.'notification');

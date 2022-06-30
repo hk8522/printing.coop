@@ -21,7 +21,7 @@ class MyOrders extends Public_Controller
         $this->load->model('Address_Model');
         $this->load->model('Store_Model');
         $this->data['page_title']='Order History';
-        if($this->language_name=='French'){
+        if($this->language_name == 'French'){
             $this->data['page_title']="Historique des commandes";
         }
         $orderData=$this->ProductOrder_Model->getProductOrderList($this->loginId);
@@ -55,7 +55,7 @@ class MyOrders extends Public_Controller
         $salesTaxRatesProvinces_Data=$this->Address_Model->salesTaxRatesProvincesById($orderData['billing_state']);
 
         $this->data['page_title']='Order details';
-        if($this->language_name=='French'){
+        if($this->language_name == 'French'){
             $this->data['page_title']="Détails de la commande";
         }
         $this->data['orderData']=$orderData;
@@ -73,7 +73,7 @@ class MyOrders extends Public_Controller
         $this->load->model('ProductOrder_Model');
         if(!empty($id)){
                 $page_title='Order has been deleted';
-                if($this->language_name=='French'){
+                if($this->language_name == 'French'){
                     $page_title="La commande a été supprimée";
                 }
                 if ($this->ProductOrder_Model->deleteProductOrder(base64_decode($id)))

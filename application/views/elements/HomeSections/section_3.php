@@ -1,6 +1,6 @@
 <?php
     #OUR SERVICES Section
-    if($language_name=='French'){
+    if ($language_name == 'French'){
         $background_image = $section_3['french_background_image'];
     }else{
         $background_image = $section_3['background_image'];
@@ -16,14 +16,14 @@
         <div class="trend-section-inner">
             <div class="universal-light-title">
               <span><?php
-                if($language_name=='French'){
+                if ($language_name == 'French'){
                     echo $section_3['name_france'] ?? '';
                 }else{
                     echo $section_3['name'] ?? '';
                 } ?></span>
             </div>
             <div class="universal-light-info">
-              <span><?php if($language_name=='French'){
+              <span><?php if ($language_name == 'French'){
                     echo $section_3['description_france'] ?? '';
                 }else{
                     echo $section_3['description'] ?? '';
@@ -31,7 +31,7 @@
             </div>
                    <div class="universal-light-info">
               <span><?php
-                if($language_name=='French'){
+                if ($language_name == 'French'){
                     echo $section_3['content_france'] ?? '';
                 }else{
                     echo $section_3['content'] ?? '';
@@ -48,7 +48,7 @@
                           <div class="col-6 col-md-4 col-lg-2 col-xl-2">
                                 <?php
                                 $imageurl=getBannerImage($service['service_image'],'small');
-                                if($language_name=='French'){
+                                if ($language_name == 'French'){
                                     $imageurl=getBannerImage($service['service_image_french'],'small');
                                 }
                                 ?>
@@ -56,7 +56,7 @@
                                   <div class="single-service-content-inner">
                                       <div class="universal-small-light-title">
                                           <span><a href="javascript:void(0)"><?php
-                    if($language_name=='French'){
+                    if ($language_name == 'French'){
                         echo $service['name_french'] ?? '';
                     }else{
                         echo $service['name'] ?? '';

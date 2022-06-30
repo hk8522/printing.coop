@@ -10,7 +10,7 @@
                             <?php if ($loginId) { ?>
                                 <span>
                                 <?php
-                                if($language_name=='French'){ ?>
+                                if ($language_name == 'French'){ ?>
                                   Changez votre mot de passe
                                 <?php }else{ ?>
                                   Change Your Password
@@ -20,7 +20,7 @@
                             } else { ?>
                                 <span>
                                     <?php
-                                    if($language_name=='French'){ ?>
+                                    if ($language_name == 'French'){ ?>
                                       Mot de passe oublié
                                     <?php }else{ ?>
                                       Forget Password
@@ -38,7 +38,7 @@
                                 <div class="single-review">
                                     <label>
                                     <?php
-                                    if($language_name=='French'){ ?>
+                                    if ($language_name == 'French'){ ?>
                                       Adresse électronique:
                                     <?php }else{ ?>
                                       Email Address:
@@ -56,7 +56,7 @@
                                 <div class="order-btn login-btn">
                                     <button type="button" class="login" id="account-change-pswd" onclick="sendOptToEmail()">
                                     <?php
-                                    if($language_name=='French'){ ?>
+                                    if ($language_name == 'French'){ ?>
                                       Continuer
                                     <?php }else{ ?>
                                       Continue
@@ -68,7 +68,7 @@
                                     <div class="single-review">
                                         <label>
                                             <?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Entrez OTP
                                             <?php }else{ ?>
                                               Enter OTP
@@ -80,7 +80,7 @@
                                     <div class="single-review">
                                         <label>
                                             <?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Definir un nouveau mot de passe
                                             <?php }else{ ?>
                                               Set New Password
@@ -92,7 +92,7 @@
                                     <div class="order-btn">
                                         <button type="submit" id="Fsubmit">
                                         <?php
-                                        if($language_name=='French'){ ?>
+                                        if ($language_name == 'French'){ ?>
                                           Soumettre
                                         <?php }else{ ?>
                                           Submit

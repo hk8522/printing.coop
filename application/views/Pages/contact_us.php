@@ -2,7 +2,7 @@
         <div class="container">
             <div class="contact-section-inner">
                 <div class="contact-row">
-                   <?php  if($language_name=='French'){
+                   <?php  if ($language_name == 'French'){
                        echo $pageData['description_france'];
                    }else{
                        echo $pageData['description'];
@@ -12,7 +12,7 @@
             </div>
             <div class="contact-form">
                 <?php
-                if($language_name=='French'){ ?>
+                if ($language_name == 'French'){ ?>
                 <form method="post" id="contact-us">
                   <div id="contact-us-message">
                   </div>

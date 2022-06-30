@@ -1,7 +1,7 @@
 <div class="contact-section-detail universal-bg-white">
     <div class="container ">
 <?php
-if($language_name=='French'){
+if ($language_name == 'French'){
 echo $pageData['description_france'];
 }else{
 echo $pageData['description'];
@@ -12,7 +12,7 @@ echo $pageData['description'];
             <div class="universal-dark-title">
                 <span>
                 <?php
-                if($language_name=='French'){ ?>
+                if ($language_name == 'French'){ ?>
                     Devenez un membre Privilège:
                 <?php }else{ ?>
                     Become a Preferred Customer:
@@ -24,7 +24,7 @@ echo $pageData['description'];
             </div>
             <div class="contact-form">
                <?php
-                if($language_name=='French'){ ?>
+                if ($language_name == 'French'){ ?>
                 <form action="" method="post" id="Preferred-Customer">
                     <div class="row">
                         <div class="col-md-4">

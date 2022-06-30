@@ -18,7 +18,7 @@
                 $this->data['meta_page_title'] = $pageData['page_title'];
                 $this->data['meta_description_content'] = $pageData['meta_description_content'];
                 $this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
-                if($this->language_name=='French'){
+                if($this->language_name == 'French'){
                     $this->data['page_title']=$pageData['title_france'];
                     $this->data['meta_page_title'] = $pageData['page_title_france'];
                     $this->data['meta_description_content'] = $pageData['meta_description_content_france'];
@@ -42,7 +42,7 @@
                 $this->data['meta_page_title'] = $pageData['page_title'];
                 $this->data['meta_description_content'] = $pageData['meta_description_content'];
                 $this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
-                if($this->language_name=='French'){
+                if($this->language_name == 'French'){
                     $this->data['page_title']=$pageData['title_france'];
                     $this->data['meta_page_title'] = $pageData['page_title_france'];
                     $this->data['meta_description_content'] = $pageData['meta_description_content_france'];
@@ -69,7 +69,7 @@
                 $this->data['meta_page_title'] = $pageData['page_title'];
                 $this->data['meta_description_content'] = $pageData['meta_description_content'];
                 $this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
-                if($this->language_name=='French'){
+                if($this->language_name == 'French'){
                     $this->data['page_title']=$pageData['title_france'];
                     $this->data['meta_page_title'] = $pageData['page_title_france'];
                     $this->data['meta_description_content'] = $pageData['meta_description_content_france'];
@@ -95,7 +95,7 @@
                 $this->data['meta_page_title'] = $pageData['page_title'];
                 $this->data['meta_description_content'] = $pageData['meta_description_content'];
                 $this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
-                if($this->language_name=='French'){
+                if($this->language_name == 'French'){
                     $this->data['page_title']=$pageData['title_france'];
                     $this->data['meta_page_title'] = $pageData['page_title_france'];
                     $this->data['meta_description_content'] = $pageData['meta_description_content_france'];
@@ -115,7 +115,7 @@
                 $this->data['meta_page_title'] = $pageData['page_title'];
                 $this->data['meta_description_content'] = $pageData['meta_description_content'];
                 $this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
-                if($this->language_name=='French'){
+                if($this->language_name == 'French'){
                     $this->data['page_title']=$pageData['title_france'];
                     $this->data['meta_page_title'] = $pageData['page_title_france'];
                     $this->data['meta_description_content'] = $pageData['meta_description_content_france'];
@@ -167,7 +167,7 @@
 
                                     sendEmail( ADMIN_EMAIL,$subject,$body,FROM_EMAIL,'ADMIN',array() );
 
-                                    if($this->language_name=='French'){
+                                    if($this->language_name == 'French'){
                                      $response['msg'] = "Merci d'avoir contacté $from_name nous avons reçu votre demande notre représentant vous répondra dans les 24 heures";
                                     }
                             }

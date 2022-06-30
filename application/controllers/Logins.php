@@ -17,7 +17,7 @@ class Logins extends Public_Controller
     {
             $this->data['page_title']='Login/Register';
 
-            if($this->language_name=='French'){
+            if($this->language_name == 'French'){
             $this->data['page_title']="S'identifier S'enregistrer";
             }
             $this->render($this->class_name.'index');

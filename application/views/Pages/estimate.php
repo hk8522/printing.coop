@@ -1,7 +1,7 @@
 <div class="estimate-section universal-spacing universal-bg-white">
     <div class="container ">
     <?php
-    if($language_name=='French'){
+    if ($language_name == 'French'){
     echo $pageData['description_france'];
     }else{
     echo $pageData['description'];
@@ -10,7 +10,7 @@
       <div class="text-center" id="estimate-message"></div>
          <div class="estimate-section-inner">
           <?php
-            if($language_name=='French'){ ?>
+            if ($language_name == 'French'){ ?>
             <form method="post" id="estimate-form">
               <div class="contact-form">
                   <div class="estimate-inner1">

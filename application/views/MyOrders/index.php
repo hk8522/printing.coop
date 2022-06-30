@@ -6,7 +6,7 @@
                 <div class="universal-dark-title">
                     <span>
                     <?php
-                    if($language_name=='French'){ ?>
+                    if ($language_name == 'French'){ ?>
                       Vos commandes
                     <?php }else{ ?>
                       Your Orders
@@ -57,7 +57,7 @@
                                         <a href="<?php echo $BASE_URL?>MyOrders/deleteOrder/<?php echo base64_encode($list['id'])?>" onclick="return confirm('Are you sure you want to delete this order?');">
                                            <button type="button">
                                            <?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               supprimer
                                             <?php }else{ ?>
                                               delete
@@ -70,7 +70,7 @@
                                          <a href="javascript:void(0)" onclick="changeOrderStatus('<?php echo $list['id']?>',6)">
                                         <button  type="submit">
                                         <?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Annuler
                                             <?php }else{ ?>
                                               cancel
@@ -82,7 +82,7 @@
                                         echo $language_name =='French' ? "Voir l'ordre":'View Order';
                                         ;?></button></a>
                                         <?php
-                                        if($language_name =='French'){
+                                        if($language_name  == 'French'){
                                            $file_name=$list['order_id']."-fr-invoice.pdf";
                                            $file_name=strtolower($file_name);
                                            $location=FILE_BASE_PATH.'pdf/'.$file_name;
@@ -102,7 +102,7 @@
                                         <?php echo $InvoiceText;
                                         ?></button></a>
                                         <?php
-                                           if($language_name =='French'){
+                                           if($language_name  == 'French'){
                                                $file_name=$list['order_id']."-fr-order.pdf";
                                                $file_name=strtolower($file_name);
                                                $location=FILE_BASE_PATH.'pdf/'.$file_name;
@@ -119,7 +119,7 @@
                                         <a href="<?php echo $linkOrder;?>">
                                         <button class="view-details-btn" type="button"><i class="fas fa-file-download"></i>
                                         <?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Commander Pdf
                                             <?php }else{ ?>
                                               Order Pdf
@@ -155,7 +155,7 @@
                                         <td>
                                             <div class="cart-product-desc">
                                                 <div class="cart-product-title">
-                                                    <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($items['product_id']);?>"><span><?php if($language_name=='French'){
+                                                    <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($items['product_id']);?>"><span><?php if ($language_name == 'French'){
                                                      echo $items['name_french'];
                                                     }else{
                                                     echo $items['name'];
@@ -189,7 +189,7 @@
                                     <div class="order-id">
                                         <span>
                                             <?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Commandé le
                                             <?php }else{ ?>
                                               Ordered On
@@ -201,7 +201,7 @@
                                     <div class="order-id">
                                        <span>
                                        <?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Sous-total:
                                             <?php }else{ ?>
                                               Sub Total:
@@ -216,7 +216,7 @@
                                     <div class="order-id">
                                          <span>
                                            <?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Remise client privilégiée:
                                             <?php }else{ ?>
                                               Preffered Customer Discount:
@@ -233,7 +233,7 @@
                                     <div class="order-id">
                                          <span>
                                            <?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Remise du coupon:
                                             <?php }else{ ?>
                                               Coupon Discount:
@@ -249,7 +249,7 @@
                                         <div class="order-id">
                                          <span>
                                            <?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Frais d'expédition
                                             <?php }else{ ?>
                                               Shipping Fee
@@ -281,7 +281,7 @@
 
                                         <div class="order-id">
                                         <span><?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Total de la commande
                                             <?php }else{ ?>
                                               Order Total
@@ -302,7 +302,7 @@
                     } else { ?>
                     <div class="text-center">
                         <h2 class="lead"><?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               L'historique des commandes est vide
                                             <?php }else{ ?>
                                               Order History Is Empty
@@ -321,7 +321,7 @@
     <div class="modal-content">
       <div class="modal-header">
          <h4 class="modal-title"><?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Raison de l'annulation
                                             <?php }else{ ?>
                                              Cancellation Reason
@@ -339,7 +339,7 @@
             <div class="col-xs-12">
                 <div class="form-group">
                     <label for="InputMessage" class="col-lg-12 control-label"><?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Raison
                                             <?php }else{ ?>
                                               Reason
@@ -353,7 +353,7 @@
       </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-success" id="btnSubmit"><?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Soumettre
                                             <?php }else{ ?>
                                               Submit

@@ -7,7 +7,7 @@
                         <div class="newsletter-content">
                             <div class="universal-light-title">
                                 <span><?php
-                                      if($language_name=='French'){ ?>
+                                      if ($language_name == 'French'){ ?>
                                         Bulletin
                                       <?php }else{ ?>
                                         Newsletter
@@ -16,7 +16,7 @@
                             </div>
                             <div class="universal-light-info">
                                 <span><?php
-                                      if($language_name=='French'){ ?>
+                                      if ($language_name == 'French'){ ?>
                                         Reste en contact
                                       <?php }else{ ?>
                                         Stay in Touch
@@ -33,7 +33,7 @@
                     <div class="newsletter-fields">
                         <input type="email" placeholder="<?php echo $language_name=='French' ? 'Entrez votre adresse email':'Enter your email address'?>" name="email" id="subscribe-email">
                         <button type="submit"><?php
-                                      if($language_name=='French'){ ?>
+                                      if ($language_name == 'French'){ ?>
                                         Souscrire
                                       <?php }else{ ?>
                                         Subscribe
@@ -55,7 +55,7 @@
                     <div class="fotter-single">
                         <div class="universal-small-dark-title">
                             <span><?php
-                                      if($language_name=='French'){ ?>
+                                      if ($language_name == 'French'){ ?>
                                         Souscrire
                                       <?php }else{ ?>
                                         NAVIGATION
@@ -64,14 +64,14 @@
                         </div>
                         <div class="universal-dark-info">
                             <span><a href="<?php echo $BASE_URL?>"><?php
-                                      if($language_name=='French'){ ?>
+                                      if ($language_name == 'French'){ ?>
                                         Accueil
                                       <?php }else{ ?>
                                         Home
                                       <?php
                                       }?></a></span>
                             <span><a href="<?php echo $BASE_URL?>Products"><?php
-                                      if($language_name=='French'){ ?>
+                                      if ($language_name == 'French'){ ?>
                                         Des produits
                                       <?php }else{ ?>
                                         Products
@@ -95,7 +95,7 @@
                               <span>
                                 <a href="<?php echo $url;?>" >
                                   <?php
-                                    if($language_name=='French'){
+                                    if ($language_name == 'French'){
                                         echo ucfirst($page['title_france']);
                                     }else{
                                         echo ucfirst($page['title']);
@@ -115,7 +115,7 @@
                     <div class="fotter-single">
                         <div class="universal-small-dark-title">
                             <span><?php
-                                      if($language_name=='French'){ ?>
+                                      if ($language_name == 'French'){ ?>
                                         Catégorie
                                       <?php }else{ ?>
                                         Category
@@ -135,7 +135,7 @@
                                         <span>
                                           <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($Category['id']);?>">
                                             <?php
-                                            if($language_name=='French'){
+                                            if ($language_name == 'French'){
                                               echo ucfirst($Category['name_french']);
                                             }else{
                                                 echo ucfirst($Category['name'] );
@@ -165,7 +165,7 @@
                                         <span>
                                           <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($Category['id']);?>">
                                             <?php
-                                            if($language_name=='French'){
+                                            if ($language_name == 'French'){
                                               echo ucfirst($Category['name_french']);
                                             }else{
                                                 echo ucfirst($Category['name'] );
@@ -181,7 +181,7 @@
                                         <span style="margin-left: 20px;">
                                           <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($Category['id']);?>&sub_category_id<?php echo base64_encode($subCategory['id']);?>">
                                             <?php
-                                            if($language_name=='French'){
+                                            if ($language_name == 'French'){
                                               echo ucfirst($subCategory['name_french']);
                                             }else{
                                                 echo ucfirst($subCategory['name'] );
@@ -205,7 +205,7 @@
                     <div class="fotter-single">
                         <div class="universal-small-dark-title">
                             <span><?php
-                                      if($language_name=='French'){ ?>
+                                      if ($language_name == 'French'){ ?>
                                         ENTRER EN CONTACT
                                       <?php }else{ ?>
                                         GET IN TOUCH
@@ -213,7 +213,7 @@
                                       }?></span>
                         </div>
                         <?php
-                        if($language_name=='French'){
+                        if ($language_name == 'French'){
                         echo $configrations['address_one_french'];
                         }else{
                             echo $configrations['address_one'];
@@ -409,7 +409,7 @@
                                ?>
 
                                  <a href="<?php echo $url?>">
-                                 <?php if($language_name=='French'){
+                                 <?php if ($language_name == 'French'){
                                         echo ucfirst($page['title_france']);
                                     }else{
                                         echo ucfirst($page['title']);
@@ -471,7 +471,7 @@ $(document).ready(function(){
 });
 </script>
 
-<?php if($language_name=='French'){ ?>
+<?php if ($language_name == 'French'){ ?>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7V7YLFS15"></script>
   <script>
@@ -639,7 +639,7 @@ function openCity(evt, cityName) {
 </script>
 
 <script>
-    if(language_name=='French'){
+    if(language_name == 'French'){
         /*login code start*/
         $('#login-form').validate({
             rules: {
@@ -759,7 +759,7 @@ function openCity(evt, cityName) {
     /*login code end*/
 
     /*signup code start*/
-    if(language_name=='French'){
+    if(language_name == 'French'){
         $('#signup-form').validate({
             rules: {
               fname: {
@@ -936,7 +936,7 @@ function openCity(evt, cityName) {
     /*signup code end*/
 
     /*Preferred code start*/
-    if(language_name=='French'){
+    if(language_name == 'French'){
         $('#Preferred-Customer').validate({
         rules: {
           fname: {
@@ -1131,7 +1131,7 @@ function openCity(evt, cityName) {
     });
     }
     /*Preferred code end*/
-    if(language_name=='French'){
+    if(language_name == 'French'){
        $('#email-subscribe').validate({
         rules: {
           email: {
@@ -1638,21 +1638,21 @@ function openCity(evt, cityName) {
 
       if (accountEmail == '') {
                 $("#account-email-error").html("Please enter email id.");
-            if(language_name=='French'){
+            if(language_name == 'French'){
                 $("#account-email-error").html("Veuillez saisir votre adresse e-mail.");
             }
 
           formsubmit = false;
       } else if (ValidateEmail(accountEmail)) {
            $("#account-email-error").html("Please enter valied email id.");
-            if(language_name=='French'){
+            if(language_name == 'French'){
                 $("#account-email-error").html("Veuillez saisir une adresse e-mail valide.");
             }
           formsubmit = false;
       }
       if (g_recaptcha_response =='') {
           $("#g-recaptcha-error").html("Please select recaptcha");
-          if(language_name=='French'){
+          if(language_name == 'French'){
                 $("#g-recaptcha-error").html("Veuillez sélectionner recaptcha.");
             }
           formsubmit = false;
@@ -1695,7 +1695,7 @@ function openCity(evt, cityName) {
     }
 
     //For password-form Code
-    if(language_name=='French'){
+    if(language_name == 'French'){
       $("#password-form").submit(function(e) {
       e.preventDefault(); // avoid to execute the actual submit of the form.
       var form = $(this);
@@ -2104,7 +2104,7 @@ function openCity(evt, cityName) {
   });
 
   //contact code start
-  if(language_name=='French'){
+  if(language_name == 'French'){
   $('#contact-us').validate({
       rules: {
         name: {
@@ -2265,7 +2265,7 @@ function contactus_recaptcha(){
 }
 //contact code end
   //estimate code Start
- if(language_name=='French'){
+ if(language_name == 'French'){
         $('#estimate-form').validate({
               rules: {
                 contact_name: {
@@ -2707,7 +2707,7 @@ function contactus_recaptcha(){
                 }
         });
     }
-    if(language_name=='French'){
+    if(language_name == 'French'){
     function PrinterSeries(printer_brand){
         //alert(printer_brand);
         $("#printer_series").html("<option value=''>Sélectionnez une série d'imprimantes</option>");
@@ -2930,7 +2930,7 @@ function contactus_recaptcha(){
         return years
     }
     $(document).ready(function() {
-        if(language_name=='French'){
+        if(language_name == 'French'){
             $("#printer_brand").val('');
             $("#printer_series").html("<option value=''>Sélectionnez une série d'imprimantes</option>");
             $("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");

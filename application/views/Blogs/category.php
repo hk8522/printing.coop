@@ -19,7 +19,7 @@
                                             <div class="single-blog-category">
                                                <a href="<?php echo $BASE_URL?>Blogs/category/<?php echo base64_encode($blog['category_id'])?>"><span>
                                                 <?php
-                                        if($this->language_name=='French'){
+                                        if($this->language_name == 'French'){
                                              echo $blog['category_name_french'];
                                         }else{
                                              echo $blog['category_name'];
@@ -30,7 +30,7 @@
                                                 <span>
                                                     <a href="<?php echo $BASE_URL?>Blogs/singleview/<?php echo base64_encode($blog['id'])?>">
                                                     <?php
-                                                    if($this->language_name=='French'){
+                                                    if($this->language_name == 'French'){
                                                         echo $blog['title_french'];
                                                     }else{
                                                         echo $blog['title'];
@@ -42,7 +42,7 @@
                                                 <span><?php echo date('F d Y',strtotime($blog['created']));?></span>
                                             </div>
                                             <div class="universal-dark-info less-content">
-                                               <span><?php if($this->language_name=='French'){
+                                               <span><?php if($this->language_name == 'French'){
                                            echo $blog['content_french'];
                                         }else{
                                             echo $blog['content'];

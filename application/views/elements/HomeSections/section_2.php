@@ -4,7 +4,7 @@
             <div class="universal-dark-title">
               <span><?php
                    #Proudly Display Your Brand  Section
-                   if($language_name=='French'){
+                   if ($language_name == 'French'){
                      echo $section_2['name_france'] ?? '';
                     }else{
                       echo $section_2['name'] ?? '';
@@ -15,7 +15,7 @@
             </div>
             <div class="universal-dark-info">
               <span><?php
-                if($language_name=='French'){
+                if ($language_name == 'French'){
                      echo $section_2['description_france'] ?? '';
                     }else{
                       echo $section_2['description'] ?? '';
@@ -27,7 +27,7 @@
             <div class="universal-dark-info">
               <span>
                   <?php
-                  if($language_name=='French'){
+                  if ($language_name == 'French'){
                      echo $section_2['content_france'] ?? '';
                     }else{
                       echo $section_2['content'] ?? '';
@@ -46,7 +46,7 @@
                     $href="#Process".$val['id'];
                     $label=ucwords($val['name']);
 
-                    if($language_name=='French'){
+                    if ($language_name == 'French'){
                         $label=ucwords($val['name_french']);
                     }
                    ?>
@@ -68,7 +68,7 @@
                     $div_id="Process".$val['id'];
                     $label=ucwords($val['name']);
 
-                    if($language_name=='French'){
+                    if ($language_name == 'French'){
                         $label=ucwords($val['name_french']);
                     }
                     $tag_id=$val['id'];

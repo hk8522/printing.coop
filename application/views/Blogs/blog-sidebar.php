@@ -20,7 +20,7 @@
                         <div class="blog-sidebar-single-post-img" style="background-image: url(<?php echo $imageurl?>)"></div>
                         <div class="blog-sidebar-single-detail">
                             <div class="single-blog-title">
-                                <span> <?php if($this->language_name=='French'){
+                                <span> <?php if($this->language_name == 'French'){
                                                         echo $pblog['title_french'];
                                                     }else{
                                                         echo $pblog['title'];
@@ -45,7 +45,7 @@
                         <div class="blog-sidebar-single-post-img" style="background-image: url(<?php echo $imageurl?>)"></div>
                         <div class="blog-sidebar-single-detail">
                             <div class="single-blog-title">
-                                <span><?php if($this->language_name=='French'){
+                                <span><?php if($this->language_name == 'French'){
                                                         echo $lblog['title_french'];
                                                     }else{
                                                         echo $lblog['title'];
@@ -71,7 +71,7 @@
             <?php foreach($category as $cat){
             ?>
             <a href="<?php echo $BASE_URL?>Blogs/category/<?php echo base64_encode($cat['id'])?>"><i class="las la-folder-open"></i><?php
-            if($this->language_name=='French'){
+            if($this->language_name == 'French'){
                 echo $cat['category_name_french'];
             }else{
                     echo $cat['category_name'];

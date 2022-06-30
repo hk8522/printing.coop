@@ -1,6 +1,6 @@
 <?php
     #Montreal book printing Section
-    if($language_name=='French'){
+    if ($language_name == 'French'){
        $background_image=$section_4['french_background_image'];
     }else{
       $background_image=$section_4['background_image'];
@@ -16,14 +16,14 @@
         <div class="tab-products-section-inner">
             <div class="universal-light-title">
               <span><?php
-                if($language_name=='French'){
+                if ($language_name == 'French'){
                      echo $section_4['name_france'] ?? '';
                     }else{
                       echo $section_4['name'] ?? '';
                     } ?></span>
             </div>
             <div class="universal-light-info">
-              <span><?php if($language_name=='French'){
+              <span><?php if ($language_name == 'French'){
                      echo $section_4['description_france'] ?? '';
                     }else{
                       echo $section_4['description'] ?? '';
@@ -31,7 +31,7 @@
             </div>
             <div class="universal-light-info">
               <span><?php
-                    if($language_name=='French'){
+                    if ($language_name == 'French'){
                         echo $section_4['content_france'] ?? '';
                     }else{
                         echo $section_4['content'] ?? '';
@@ -50,7 +50,7 @@
                     $href="#Product1".$val['id'];
                     $label=ucwords($val['name']);
 
-                    if($language_name=='French'){
+                    if ($language_name == 'French'){
                         $label=ucwords($val['name_french']);
                     }
 
@@ -82,7 +82,7 @@
 
                     $div_id="Product1".$val['id'];
                     $label=ucwords($val['name']);
-                    if($language_name=='French'){
+                    if ($language_name == 'French'){
                         $label=ucwords($val['name_french']);
                     }
                     $tag_id=$val['id'];
@@ -124,7 +124,7 @@
                                     <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($cartNameProduct['id']);?>" class="cart-btn">
                                       <i class="las la-search"></i>
                                       <span><?php
-                                              if($language_name=='French'){ ?>
+                                              if ($language_name == 'French'){ ?>
                                               Aperçu rapide
                                             <?php }else{ ?>
                                               Quick View
@@ -146,7 +146,7 @@
                           <div class="text-center col-md-12">
                               <p class="lead font-weight-bold text-white">
                               <?php
-                                if($language_name=='French'){ ?>
+                                if ($language_name == 'French'){ ?>
                                 Aucun produit trouvé
                               <?php }else{ ?>
                                 No Product Found

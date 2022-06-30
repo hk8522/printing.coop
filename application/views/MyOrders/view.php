@@ -30,7 +30,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                     <div class="universal-small-dark-title">
                                         <span>
                                         <?php
-                                        if($language_name=='French'){ ?>
+                                        if ($language_name == 'French'){ ?>
                                           Informations sur la commande
                                         <?php }else{ ?>
                                           Order Information
@@ -45,7 +45,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                         <div class="col-md-6">
                                                             <span>
                                                             <?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Numéro de commande
                                                             <?php }else{ ?>
                                                              Order Id
@@ -65,7 +65,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                         <div class="col-md-6">
                                                                             <span>
                                                                             <?php
-                                                                            if($language_name=='French'){ ?>
+                                                                            if ($language_name == 'French'){ ?>
                                                                               Code client
                                                                             <?php }else{ ?>
                                                                               Customer Code
@@ -87,7 +87,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                         <div class="col-md-6">
                                                             <span>
                                                             <?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Nom du client
                                                             <?php }else{ ?>
                                                               Customer Name
@@ -103,7 +103,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Mobile client
                                                             <?php }else{ ?>
                                                               Customer Mobile
@@ -119,7 +119,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Email client:
                                                             <?php }else{ ?>
                                                               Customer Email:
@@ -135,7 +135,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Remise client privilégiée:
                                                             <?php }else{ ?>
                                                               Preffered Customer Discount:
@@ -151,7 +151,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Statut de la commande:
                                                             <?php }else{ ?>
                                                               Order Status:
@@ -169,7 +169,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Date de commande
                                                             <?php }else{ ?>
                                                               Order Date
@@ -186,7 +186,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Mode de livraison
                                                             <?php }else{ ?>
                                                               Shipping Method
@@ -219,7 +219,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                             Commentaire de commande
 
                                                             <?php }else{ ?>
@@ -239,7 +239,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                 <div class="account-area-inner-box-single">
                                     <div class="universal-small-dark-title">
                                         <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Informations de paiement
                                                             <?php }else{ ?>
                                                               Payment Information
@@ -253,7 +253,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Remise client privilégiée:
                                                             <?php }else{ ?>
                                                               Preffered Customer Discount:
@@ -269,7 +269,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Mode de paiement:
                                                             <?php }else{ ?>
                                                               Payment Method:
@@ -285,7 +285,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Statut de paiement:
                                                             <?php }else{ ?>
                                                               Payment Status:
@@ -304,7 +304,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               ID de transition de paiement:
                                                             <?php }else{ ?>
                                                               Payment Transition Id:
@@ -325,7 +325,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                 <div class="account-area-inner-box-single">
                                     <div class="universal-small-dark-title">
                                         <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               détails de facturation
                                                             <?php }else{ ?>
                                                               Billing Information
@@ -339,7 +339,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Adresse de facturation:
                                                             <?php }else{ ?>
                                                               Billing Address:
@@ -373,7 +373,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                 <div class="account-area-inner-box-single">
                                     <div class="universal-small-dark-title">
                                         <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                              Informations sur la livraison
                                                             <?php }else{ ?>
                                                               Shipping Information
@@ -387,7 +387,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Adresse de livraison:
                                                             <?php }else{ ?>
                                                               Shipping Address:
@@ -421,7 +421,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                 <div class="account-area-inner-box-single">
                                     <div class="universal-small-dark-title">
                                         <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Facture PDF
                                                             <?php }else{ ?>
                                                               Invoice PDF
@@ -435,7 +435,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Facture PDF
                                                             <?php }else{ ?>
                                                               Invoice PDF
@@ -445,7 +445,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                         <div class="col-md-6">
                                                             <strong>
                                                              <?php
-        if($language_name=='French'){
+        if ($language_name == 'French'){
            $file_name=$orderData['order_id']."-fr-invoice.pdf";
            $file_name=strtolower($file_name);
            $location=FILE_BASE_PATH.'pdf/'.$file_name;
@@ -460,7 +460,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
         ?>
                                                                 <a href="<?php echo $linkInvoice?>">
                                                                     <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-file-download"></i> <?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                              Télécharger
                                                             <?php }else{ ?>
                                                               Download
@@ -475,7 +475,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     <div class="row">
                                                         <div class="col-md-6">
                                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Commander le PDF
                                                             <?php }else{ ?>
                                                               Order PDF
@@ -485,7 +485,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                         <div class="col-md-6">
                                                             <strong>
                                                                 <?php
-        if($language_name=='French'){
+        if ($language_name == 'French'){
            $file_name=$orderData['order_id']."-fr-order.pdf";
            $file_name=strtolower($file_name);
            $location=FILE_BASE_PATH.'pdf/'.$file_name;
@@ -501,7 +501,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
         ?>
                                                                 <a href="<?php echo $linkOrder?>">
                                                                     <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-file-download"></i> <?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Télécharger
                                                             <?php }else{ ?>
                                                               Download
@@ -527,28 +527,28 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                         <tr>
                                             <th></th>
                                             <th><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                              Détails des articles
                                                             <?php }else{ ?>
                                                               Items Details
                                                             <?php
                                                             }?></th>
                                             <th><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Prix
                                                             <?php }else{ ?>
                                                               Price
                                                             <?php
                                                             }?></th>
                                             <th><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Quantité
                                                             <?php }else{ ?>
                                                               Quantity
                                                             <?php
                                                             }?></th>
                                             <th><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Total
                                                             <?php }else{ ?>
                                                              Subtotal
@@ -594,7 +594,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                             </td>
                                             <td class="product-name">
                                                 <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($items['id']);?>"><?php
-                                                if($language_name=='French'){
+                                                if ($language_name == 'French'){
                                                 echo ucfirst($items['name_french']);
                                                 }else{
                                                     echo ucfirst($items['name']);
@@ -606,7 +606,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
     <?php if(!empty($product_width_length)){?>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Longueur(pouces)
                                                 <?php }else{ ?>
                                                   Length(Inch)
@@ -615,7 +615,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                     </div>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong> <?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Largeur (pouces)
                                                 <?php }else{ ?>
                                                   Width(Inch)
@@ -625,7 +625,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             <?php if(!empty($product_width_length['length_width_color_show'])){?>
                                     <div class="col-md-6">
                                             <span><strong> <?php
-                                       if($language_name=='French'){
+                                       if ($language_name == 'French'){
                                                   echo 'Couleursv:'.$product_width_length['length_width_color_french'];
                                         }else{
                                             echo 'Colors:'.$product_width_length['length_width_color'];
@@ -637,7 +637,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             <?php if(!empty($product_width_length['product_total_page'])){?>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong> <?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Quantité
                                                 <?php }else{ ?>
                                                   Quantity
@@ -652,7 +652,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                 <?php if(!empty($product_depth_length_width)){?>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Longueur (pouces)
                                                 <?php }else{ ?>
                                                   Length(Inch)
@@ -661,7 +661,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                     </div>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong> <?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                  Largeur (pouces)
                                                 <?php }else{ ?>
                                                   Width(Inch)
@@ -670,7 +670,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                     </div>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong> <?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Profondeur (pouces)
                                                 <?php }else{ ?>
                                                   Depth(Inch)
@@ -680,7 +680,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             <?php if(!empty($product_depth_length_width['depth_color_show'])){?>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong> <?php
-                                                 if($language_name=='French'){
+                                                 if ($language_name == 'French'){
                                                   echo 'Couleursv:'.$product_depth_length_width['depth_color_french'];
                                         }else{
                                             echo 'Colors:'.$product_depth_length_width['depth_color'];
@@ -691,7 +691,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             <?php if(!empty($product_depth_length_width['product_depth_total_page'])){?>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong> <?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Quantité
                                                 <?php }else{ ?>
                                                   Quantity
@@ -705,7 +705,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                 <?php if(!empty($page_product_width_length)){?>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Longueur (pouces)
                                                 <?php }else{ ?>
                                                   Length(Inch)
@@ -714,7 +714,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                     </div>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Largeur(pouces)
                                                 <?php }else{ ?>
                                                   Width(Inch)
@@ -726,7 +726,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong> <?php
 
-                                        if($language_name=='French'){
+                                        if ($language_name == 'French'){
                                                   echo 'Couleursv:'.$page_product_width_length['page_length_width_color_french'];
                                         }else{
                                             echo 'Colors:'.$page_product_width_length['page_length_width_color'];
@@ -739,7 +739,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                 <?php if(!empty($page_product_width_length['page_product_total_page'])){?>
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){
+                                                if ($language_name == 'French'){
                                                   echo 'Des pages:'.$page_product_width_length['page_product_total_page_french'];
                                                 }else{
                                        echo 'Pages:'.$page_product_width_length['page_product_total_page'];
@@ -751,7 +751,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                 <?php if(!empty($page_product_width_length['page_product_total_sheets'])){?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){
+                                                if ($language_name == 'French'){
                                                   echo ' Feuille par bloc:'.$page_product_width_length['page_product_total_sheets_french'];
                                                 }else{
                                        echo 'Sheet Per Pad:'.$page_product_width_length['page_product_total_sheets'];
@@ -764,7 +764,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                 if(!empty($page_product_width_length['page_product_total_quantity'])){ ?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){
+                                                if ($language_name == 'French'){
                                                   echo 'Quantité:'.$page_product_width_length['page_product_total_quantity'];
                                                 }else{
                                        echo 'Quantity:'.$page_product_width_length['page_product_total_quantity'];
@@ -777,7 +777,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             }?>
                             <?php
                             if(!empty($product_size)){
-                                if($language_name=='French'){
+                                if ($language_name == 'French'){
                                     $size_name= $product_size['product_size_french'];
                                     $label_qty=$product_size['product_quantity_french'];
                                 }else{
@@ -792,7 +792,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                 if($label_qty){ ?>
                                    <div class="col-md-12 col-lg-6 col-xl-6">
                                             <span><strong><?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Quantité
                                                 <?php }else{ ?>
                                                   Quantity
@@ -806,7 +806,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                 if($size_name){ ?>
                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                         <span><strong><?php
-                                            if($language_name=='French'){ ?>
+                                            if ($language_name == 'French'){ ?>
                                               Taille
                                             <?php }else{ ?>
                                               Size
@@ -822,7 +822,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                         $multiple_attribute_name=$aval['attributes_name'];
                                         $multiple_attribute_item_name=$aval['attributes_item_name'];
 
-                                        if($language_name=='French'){
+                                        if ($language_name == 'French'){
                                             $multiple_attribute_name=$aval['attributes_name_french'];
                                             $multiple_attribute_item_name=$aval['attributes_item_name_french'];
                                         }
@@ -849,7 +849,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             <?php
                             #pr($attribute_ids);
                             foreach($attribute_ids as $key=>$val){
-                                if($language_name=='French'){
+                                if ($language_name == 'French'){
                                     $attribute_name=$val['attribute_name_french'];
                                     $item_name=$val['item_name_french'];
                                 }else{
@@ -868,7 +868,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong>
                                                 <?php
-                        if($language_name=='French'){
+                        if ($language_name == 'French'){
                         echo 'Recto verso:'.$recto_verso_french;
                                                 }else{
                         echo 'Recto/Verso:'.$recto_verso;
@@ -882,7 +882,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                    <div class="col-md-12 col-lg-12 col-xl-6">
                                             <span><strong>
                                                 <?php
-                                                if($language_name=='French'){ ?>
+                                                if ($language_name == 'French'){ ?>
                                                   Votre TEXTE - Votre TEXTE
                                                 <?php }else{ ?>
                                                   Your TEXT - Votre TEXT
@@ -917,7 +917,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                 <div class="uploaded-file-info">
      <a href="<?php echo $link?>">
                                                                         <i class="fas fa-file-download"></i> <?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Télécharger
                                                             <?php }else{ ?>
                                                               Download
@@ -930,7 +930,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                     if(!empty($return_arr['cumment'])){?>
                                                                         <div class="upload-field">
                                                                             <?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Commentaire
                                                             <?php }else{ ?>
                                                               Comment
@@ -983,7 +983,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 
                                                 <div class="cart-total">
                                                     <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Montant sous-total
                                                             <?php }else{ ?>
                                                               Subtotal Amount
@@ -994,7 +994,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                         <?php if(!empty($orderData['preffered_customer_discount']) && $orderData['preffered_customer_discount'] !="0.00"){?>
                                                 <div class="cart-total">
                                                     <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Remise client privilégiée:
                                                             <?php }else{ ?>
                                                               Preffered Customer Discount:
@@ -1009,7 +1009,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                         <?php if(!empty($orderData['coupon_discount_amount']) && $orderData['coupon_discount_amount'] !="0.00"){?>
                                                 <div class="cart-total">
                                                     <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Remise de coupon
                                                             <?php }else{ ?>
                                                               Coupon Discount
@@ -1023,7 +1023,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 
                                         <div class="cart-total">
                                             <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                              Frais d'expédition
                                                             <?php }else{ ?>
                                                               Shipping Fee
@@ -1047,7 +1047,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
 
                                                 <div class="cart-total">
                                                     <span><?php
-                                                            if($language_name=='French'){ ?>
+                                                            if ($language_name == 'French'){ ?>
                                                               Montant total de la commande
                                                             <?php }else{ ?>
                                                               Order Total Amount

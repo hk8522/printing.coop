@@ -1,6 +1,6 @@
 <?php
     #Our Promise To You Section
-    if($language_name=='French'){
+    if ($language_name == 'French'){
        $background_image=$section_5['french_background_image'];
     }else{
       $background_image=$section_5['background_image'];
@@ -16,14 +16,14 @@
         <div class="tab-products-section-inner">
             <div class="universal-light-title">
               <span><?php
-                if($language_name=='French'){
+                if ($language_name == 'French'){
                      echo $section_5['name_france'] ?? '';
                     }else{
                       echo $section_5['name'] ?? '';
                     } ?></span>
             </div>
             <div class="universal-light-info">
-              <span><?php if($language_name=='French'){
+              <span><?php if ($language_name == 'French'){
                      echo $section_5['description_france'] ?? '';
                     }else{
                       echo $section_5['description'] ?? '';
@@ -31,7 +31,7 @@
             </div>
             <div class="universal-light-info">
               <span><?php
-                    if($language_name=='French'){
+                    if ($language_name == 'French'){
                         echo $section_5['content_france'] ?? '';
                     }else{
                         echo $section_5['content'] ?? '';

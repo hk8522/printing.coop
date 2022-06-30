@@ -7,7 +7,7 @@
                         <div class="shop-filter-single">
                             <div class="universal-small-dark-title">
                                 <span><?php
-                                      if($language_name=='French'){ ?>
+                                      if ($language_name == 'French'){ ?>
                                         Catégories
                                       <?php }else{ ?>
                                         Categories
@@ -27,7 +27,7 @@
                                   ?>
                                   <a href="<?php echo $BASE_URL?>Products" class="<?php echo $selected?>">
                                   <?php
-                                  if($language_name=='French'){
+                                  if ($language_name == 'French'){
                                     echo 'Toutes catégories';
                                   }else{
                                     echo 'All categories';
@@ -44,7 +44,7 @@
                                         <div class="single-filter-tab">
                                             <a href="<?php echo $BASE_URL?>Products?category_id=<?php echo base64_encode($category['id'])?>" class="<?php echo $selected == $category['id'] ? 'selected' : ''?>">
                                               <?php
-                                        if($language_name=='French'){
+                                        if ($language_name == 'French'){
                                         echo ucfirst($category['name_french']);
                                         }else{
                                         echo ucfirst($category['name']);
@@ -63,7 +63,7 @@
 
                                                         <?php
 
-                                                        if($language_name=='French'){
+                                                        if ($language_name == 'French'){
                                         echo $subcategory['name_french'];
                                                        }else{
                                        echo $subcategory['name'];
@@ -105,7 +105,7 @@
                                 ?>
                                 <div class="shop-filter-info">
                                   <?php
-                                  if($language_name=='French'){ ?>
+                                  if ($language_name == 'French'){ ?>
                                     Aucune catégorie trouvée
                                   <?php }else{ ?>
                                     No Category Found
@@ -131,14 +131,14 @@
                                 if(empty($sub_category_data) && !empty($category_data)){
                                                                                                                $cat_title=$category_data['name'];
                                                                                                             $cat_des=$category_data['category_dispersion'];
-                                if($language_name=='French'){
+                                if ($language_name == 'French'){
                                              $cat_title=$category_data['name_french'];
                                              $cat_des=$category_data['category_dispersion_french'];
                                 }
                                 } else if(!empty($sub_category_data) && !empty($category_data)){
                                     $cat_title=$sub_category_data['name'];
                                     $cat_des=$sub_category_data['sub_category_dispersion'];
-                                    if($language_name=='French'){
+                                    if ($language_name == 'French'){
                                         $cat_title=$sub_category_data['name_french'];
                                         $cat_des=$sub_category_data['sub_category_dispersion_french'];
                                     }
@@ -173,7 +173,7 @@
                                             <form action="">
                                               <span>
                                                   <?php
-                                                  if($language_name=='French'){ ?>
+                                                  if ($language_name == 'French'){ ?>
                                                     Trier par
                                                   <?php }else{ ?>
                                                     Sort by
@@ -224,7 +224,7 @@
                                                               <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($list['id']);?>">
 
                                                                 <?php
-                                                                if($language_name=='French'){
+                                                                if ($language_name == 'French'){
                                                                 echo $list['name_french'];
                                                                 }else{
                                                                 echo $list['name'];
@@ -245,7 +245,7 @@ $multipalCategory = $list['multipalCategory'];
                                                                 <?php
 
 /*echo $productCategory['name'];*/
-if($language_name=='French'){
+if ($language_name == 'French'){
 echo empty($category_id) ? $productCategory['name_french']:$multipalCategory[$category_id]['name_french'];
 }else{
 echo empty($category_id) ? $productCategory['name']:$multipalCategory[$category_id]['name'];
@@ -258,7 +258,7 @@ echo empty($category_id) ? $productCategory['name']:$multipalCategory[$category_
                                                             <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($list['id']);?>" class="cart-btn">
                                                               <i class="las la-search"></i>
                                                               <span><?php
-                                                                    if($language_name=='French'){ ?>
+                                                                    if ($language_name == 'French'){ ?>
                                                                       Aperçu rapide
                                                                     <?php }else{ ?>
                                                                       Quick View
@@ -302,7 +302,7 @@ echo empty($category_id) ? $productCategory['name']:$multipalCategory[$category_
                                                               <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($list['id']);?>">
 
                                                                 <?php
-                                                                if($language_name=='French'){
+                                                                if ($language_name == 'French'){
                                                                 echo$list['name_french'];
                                                                 }else{
                                                                     echo $list['name'];
@@ -322,7 +322,7 @@ echo empty($category_id) ? $productCategory['name']:$multipalCategory[$category_
 $category_id=isset($_GET['category_id']) ? base64_decode($_GET['category_id']) : '';
 $productCategory  = $list['category'];
 $multipalCategory = $list['multipalCategory'];
-if($language_name=='French'){
+if ($language_name == 'French'){
 echo empty($category_id) ? $productCategory['name_french']:$multipalCategory[$category_id]['name_french'];
 }else{
 echo empty($category_id) ? $productCategory['name']:$multipalCategory[$category_id]['name'];
@@ -338,7 +338,7 @@ echo empty($category_id) ? $productCategory['name']:$multipalCategory[$category_
                                                             <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($list['id']);?>" class="cart-btn">
                                                               <i class="las la-search"></i>
                                                               <span><?php
-                                                                    if($language_name=='French'){ ?>
+                                                                    if ($language_name == 'French'){ ?>
                                                                       Aperçu rapide
                                                                     <?php }else{ ?>
                                                                       Quick View
@@ -368,7 +368,7 @@ echo empty($category_id) ? $productCategory['name']:$multipalCategory[$category_
                                            if(!empty($prevPage)){?>
 
                                             <a href="<?php echo $url;?>&pageno=<?php echo $prevPage;?>"><button type="button"><?php
-                  if($language_name=='French'){ ?>
+                  if ($language_name == 'French'){ ?>
                     Précédent
                   <?php }else{ ?>
                     Previous
@@ -382,7 +382,7 @@ echo empty($category_id) ? $productCategory['name']:$multipalCategory[$category_
                                     <div class="text-right">
                                             <?php if(!empty($NextPage)){?>
                                              <a href="<?php echo $url;?>&pageno=<?php echo $NextPage;?>"><button type="button"><?php
-                  if($language_name=='French'){ ?>
+                  if ($language_name == 'French'){ ?>
                     Prochain
                   <?php }else{ ?>
                     Next
@@ -404,11 +404,11 @@ echo empty($category_id) ? $productCategory['name']:$multipalCategory[$category_
                                 $categoryImages=$this->Category_Model->getCategoriesImagesDataBy($category_data['id']);
                                 $categoryImage=$categoryImages[$website_store_id];
                                 $src=geCategoryImage($categoryImage['image']);
-                                if($language_name=='French'){
+                                if ($language_name == 'French'){
                                     $src=geCategoryImage($categoryImage['image_french']);
                                 }
                                 /*$src=geCategoryImage($category_data['image']);
-                                if($language_name=='French'){
+                                if ($language_name == 'French'){
                                     $src=geCategoryImage($category_data['image_french']);
                                 }*/
                             }
@@ -425,7 +425,7 @@ echo empty($category_id) ? $productCategory['name']:$multipalCategory[$category_
                       ?>
                       <div class="col-md-9 text-center">
                           <h3><?php
-                  if($language_name=='French'){ ?>
+                  if ($language_name == 'French'){ ?>
                     Aucun produit trouvé
                   <?php }else{ ?>
                     No Product Found

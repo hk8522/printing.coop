@@ -6,7 +6,7 @@
                 <div class="universal-dark-title">
                     <span>
                     <?php
-                    if($language_name=='French'){ ?>
+                    if ($language_name == 'French'){ ?>
                       Vos informations personnelles
                     <?php }else{ ?>
                       Your Personal Details
@@ -16,7 +16,7 @@
                               <div class="verify">
                                          <span class="verify-email mt-5" style="color:red"><small>
                                        <?php
-                                        if($language_name=='French'){ ?>
+                                        if ($language_name == 'French'){ ?>
                                           Vérifiez votre e-mail
                                         <?php }else{ ?>
                                           Verify your email
@@ -29,7 +29,7 @@
                         <div class="verify">
                                <span class="verify-email mt-5" style="color:green"><small>
                              <?php
-                            if($language_name=='French'){ ?>
+                            if ($language_name == 'French'){ ?>
                               Custome préféré
                             <?php }else{ ?>
                               Preferred Custome
@@ -53,7 +53,7 @@
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if($language_name=='French'){ ?>
+                                if ($language_name == 'French'){ ?>
                                   Code client
                                 <?php }else{ ?>
                                   Customer Code
@@ -67,7 +67,7 @@
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if($language_name=='French'){ ?>
+                                if ($language_name == 'French'){ ?>
                                   votre nom
                                 <?php }else{ ?>
                                   Your Name
@@ -81,7 +81,7 @@
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if($language_name=='French'){ ?>
+                                if ($language_name == 'French'){ ?>
                                   Votre nom de famille
                                 <?php }else{ ?>
                                   Your Last Name
@@ -97,7 +97,7 @@
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if($language_name=='French'){ ?>
+                                if ($language_name == 'French'){ ?>
                                   Votre adresse email
                                 <?php }else{ ?>
                                   Your Email Address
@@ -111,7 +111,7 @@
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if($language_name=='French'){ ?>
+                                if ($language_name == 'French'){ ?>
                                   Ton téléphone
                                 <?php }else{ ?>
                                   Your Phone
@@ -125,7 +125,7 @@
                     <div class="order-btn">
                        <a href="<?php echo $BASE_URL;?>MyAccounts/EditAccount"><button type="button">
                        <?php
-                        if($language_name=='French'){ ?>
+                        if ($language_name == 'French'){ ?>
                           Éditer
                         <?php }else{ ?>
                           Edit

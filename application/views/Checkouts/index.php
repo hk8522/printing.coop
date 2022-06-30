@@ -1152,23 +1152,21 @@
                                   </div>
                               </div>
                              <form action="<?php echo $BASE_URL?>Checkouts/index/<?php echo base64_encode($stap);?>/<?php echo $order_id;?>/<?php echo $product_id;?>/<?php echo $coupon_code; ?>" onsubmit="$('#loader-img').show()">
-                            <div class="single-cart-total">
-                                <div class="row align-items-center">
-                                   <div class="col-5 col-md-12 col-lg-12 col-xl-6">
-                                        <strong>
-                                        <?= ($language_name == 'French') ? 'Appliquer Coupon' : 'Apply Coupon'?></strong>
-                                    </div>
-                                   <div class="col-7 col-md-12 col-lg-12 col-xl-6">
-                                        <div class="for-coupon">
-                                            <span style="color:red"><?php echo $this->session->flashdata('code_error');?></span>
-                                            <span style="color:green"><?php echo $this->session->flashdata('code_success');?></span>
-                                            <input type="text" name="coupon_code" placeholder="Enter Coupon Code" required>
-                                            <button type="submit" name="apply_code" value="apply"><?= ($language_name == 'French') ? 'Appliquer' : 'Apply'?></button>
+                                <div class="single-cart-total">
+                                    <div class="row align-items-center">
+                                        <div class="col-5 col-md-12 col-lg-12 col-xl-6">
+                                            <strong><?= ($language_name == 'French') ? 'Appliquer Coupon' : 'Apply Coupon'?></strong>
+                                        </div>
+                                        <div class="col-7 col-md-12 col-lg-12 col-xl-6">
+                                            <div class="for-coupon">
+                                                <span style="color:red"><?php echo $this->session->flashdata('code_error');?></span>
+                                                <span style="color:green"><?php echo $this->session->flashdata('code_success');?></span>
+                                                <input type="text" name="coupon_code" placeholder="Enter Coupon Code" required>
+                                                <button type="submit" name="apply_code" value="apply"><?= ($language_name == 'French') ? 'Appliquer' : 'Apply'?></button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-
                             </form>
 
                             <?php if (!empty($ProductOrder['total_sales_tax']) &&  $ProductOrder['total_sales_tax'] !='0.00') {

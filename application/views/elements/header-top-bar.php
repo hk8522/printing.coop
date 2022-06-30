@@ -9,14 +9,14 @@
                             <li><span>
                                 <?= ($language_name == 'French') ? 'Appelez-nous' : 'Call Us'?>: <strong>
                                 <?php
-                                   if($language_name=='French'){
+                                   if ($language_name == 'French'){
                                     echo !empty($configrations['contact_no_french']) ? $configrations['contact_no_french']:'1-877-384-8043';
                                    }else{
                                     echo !empty($configrations['contact_no']) ? $configrations['contact_no']:'1-877-384-8043';
                                    }
                                 ?></strong></span></li>
                             <li><span><?php
-                            if($language_name=='French'){
+                            if ($language_name == 'French'){
                                 echo $configrations['office_timing_french'] ?? 'Du lundi au vendredi: <strong>9:00-18:00</strong>';
                             }else{
                                 echo $configrations['office_timing'] ?? 'Monday-Friday: <strong>9:00-18:00</strong>';

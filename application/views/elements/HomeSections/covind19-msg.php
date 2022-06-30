@@ -18,7 +18,7 @@
                 <div class="universal-dark-info">
                       <?php if($website_store_id==1){?>
                           <span>
-                            <?php if($language_name=='French'){ ?>
+                            <?php if ($language_name == 'French'){ ?>
                                 Suite à l'annonce du gouvernement concernant les commerces essentiels et non essentiels, nous prenons le temps de vous aviser que nos services se poursuivent puisque nos activités manufacturières apparaissent sur la liste des services essentiels.
                                 <br>
                                 Nous offrirons un service restreint d'impressions en ligne pour les entreprises qui sont considérées essentielles. Tel que les restaurateurs et les services alimentaires.
@@ -60,7 +60,7 @@
                         </span>
                       <?php }else if($website_store_id==3){?>
                           <span>
-                            <?php if($language_name=='French'){ ?>
+                            <?php if ($language_name == 'French'){ ?>
                                 Suite à l'annonce du gouvernement concernant les commerces essentiels et non essentiels, nous prenons le temps de vous aviser que nos services se poursuivent puisque nos activités manufacturières apparaissent sur la liste des services essentiels.
                                 <br>
                                 Nous offrirons un service restreint d'impressions en ligne pour les entreprises qui sont considérées essentielles. Tel que les restaurateurs et les services alimentaires.
@@ -102,7 +102,7 @@
                         </span>
                       <?php }else if($website_store_id==5){?>
                         <span>
-                            <?php if($language_name=='French'){ ?>
+                            <?php if ($language_name == 'French'){ ?>
                                 Suite à l'annonce du gouvernement concernant les commerces essentiels et non essentiels, nous prenons le temps de vous aviser que nos services se poursuivent puisque nos activités manufacturières apparaissent sur la liste des services essentiels.
                                 <br>
                                 Nous offrirons un service restreint d'impressions en ligne pour les entreprises qui sont considérées essentielles. Tel que les restaurateurs et les services alimentaires.

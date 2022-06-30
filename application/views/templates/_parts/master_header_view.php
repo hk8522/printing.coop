@@ -7,7 +7,7 @@
    <?php
         $favicon_url= $BASE_URL.'assets/images/favicon.png';
         $favicon='';
-        if($language_name=='French'){
+        if ($language_name == 'French'){
             $favicon=$configrations['french_favicon'];
         }else{
             $favicon=$configrations['favicon'];
@@ -76,7 +76,7 @@
 </script>
 
 <?php if($website_store_id==1){?>
-    <?php if($language_name=='French'){ ?>
+    <?php if ($language_name == 'French'){ ?>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7V7YLFS15"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
@@ -120,7 +120,7 @@
       <div class="container">
           <span>
               <?php
-               if($language_name=='French'){
+               if ($language_name == 'French'){
                     echo $configrations['announcement_french'] ?? 'Proudly involved in the community! 10% discount for Community organizations, co-operatives, not-for-profit organizations and print reselling companies will benefit.';
                }else{
                      echo $configrations['announcement'] ?? 'Proudly involved in the community! 10% discount for Community organizations, co-operatives, not-for-profit organizations and print reselling companies will benefit.';
@@ -142,7 +142,7 @@
   <!-- add a "active" class to show -->
   <div class="addwishlist-message">
       <span><i class="la la-heart-o"></i> <?php
-                  if($language_name=='French'){ ?>
+                  if ($language_name == 'French'){ ?>
                     "Produit" a été ajouté à votre liste de souhaits.
                   <?php }else{ ?>
                     "Product" has been added to your wishlist.

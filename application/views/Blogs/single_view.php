@@ -8,7 +8,7 @@
                         <div class="single-blog-area">
                             <div class="universal-dark-title">
                                 <span><?php
-                                        if($this->language_name=='French'){
+                                        if($this->language_name == 'French'){
                                            echo $blog['title_french'];
                                         }else{
                                             echo $blog['title'];
@@ -25,7 +25,7 @@
                                     <div class="col-md-6">
                                         <div class="single-blog-category">
                                            <a href="<?php echo $BASE_URL?>Blogs/category/<?php echo base64_encode($blog['category_id'])?>"><span>
-                                           <?php  if($this->language_name=='French'){
+                                           <?php  if($this->language_name == 'French'){
                                            echo $blog['category_name_french'];
                                         }else{
                                              echo $blog['category_name'];
@@ -40,7 +40,7 @@
                                     </div>
                                 </div>
                                 <div class="single-blog-inner-content">
-                                    <?php if($this->language_name=='French'){
+                                    <?php if($this->language_name == 'French'){
                                            echo $blog['content_french'];
                                         }else{
                                             echo $blog['content'];
@@ -55,7 +55,7 @@
                                                if($val['id'] !=$blog['id']){
                                            ?>
                                             <a href="<?php echo $BASE_URL?>Blogs/singleview/<?php echo base64_encode($val['id'])?>"><?php
-                                            if($this->language_name=='French'){
+                                            if($this->language_name == 'French'){
                                            echo $val['title_french'];
                                         }else{
                                             echo $val['title'];

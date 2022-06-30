@@ -9,7 +9,7 @@
                               <div class="verify">
                                          <span class="verify-email mt-5" style="color:red"><small>
                                        <?php
-                                        if($language_name=='French'){ ?>
+                                        if ($language_name == 'French'){ ?>
                                           Vérifiez votre e-mail
                                         <?php }else{ ?>
                                           Verify your email
@@ -34,7 +34,7 @@
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if($language_name=='French'){ ?>
+                                if ($language_name == 'French'){ ?>
                                   Votre nom *
                                 <?php }else{ ?>
                                   Your Name *
@@ -48,7 +48,7 @@
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if($language_name=='French'){ ?>
+                                if ($language_name == 'French'){ ?>
                                   Votre nom de famille *
                                 <?php }else{ ?>
                                   Your Last Name *
@@ -64,7 +64,7 @@
                             <div class="single-review">
                                 <label>
                                  <?php
-                                if($language_name=='French'){ ?>
+                                if ($language_name == 'French'){ ?>
                                   Votre adresse email *
                                 <?php }else{ ?>
                                   Your Email Address *
@@ -78,7 +78,7 @@
                             <div class="single-review">
                                 <label>
                                  <?php
-                                if($language_name=='French'){ ?>
+                                if ($language_name == 'French'){ ?>
                                   Ton téléphone *
                                 <?php }else{ ?>
                                   Your Phone *
@@ -92,7 +92,7 @@
                     <div class="order-btn">
                         <button type="submit">
                          <?php
-                        if($language_name=='French'){ ?>
+                        if ($language_name == 'French'){ ?>
                           sauver
                         <?php }else{ ?>
                           Save

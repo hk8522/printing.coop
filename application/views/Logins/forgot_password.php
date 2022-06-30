@@ -4,7 +4,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-5">
                     <?php
-                    if($language_name=='French'){ ?>
+                    if ($language_name == 'French'){ ?>
                     <div class="login-area">
                         <div class="universal-dark-title">
                             <span>Récupérez votre mot de passe</span>

@@ -53,7 +53,7 @@
                                     <div class="single-review">
                                       <select name="country" onchange="getState($(this).val())">
                                           <?php
-                                        if($language_name=='French'){ ?>
+                                        if ($language_name == 'French'){ ?>
                                           <option value="">-- Choisissez le pays --</option>
                                         <?php }else{ ?>
                                          <option value="">-- Select Country --</option>
@@ -77,7 +77,7 @@
                                     <div class="single-review">
                                       <select name="state" id="stateiD"  onchange="getCity($(this).val())">
                                           <?php
-                                        if($language_name=='French'){ ?>
+                                        if ($language_name == 'French'){ ?>
                                           <option value="">-- Sélectionnez l'état --</option>
                                         <?php }else{ ?>
                                          <option value="">-- Select State --</option>
@@ -103,7 +103,7 @@
                                     <div class="single-review">
                                       <select name="city" id="cityId">
                                           <?php
-                                        if($language_name=='French'){ ?>
+                                        if ($language_name == 'French'){ ?>
                                           <option value="">-- Sélectionnez une ville --</option>
                                         <?php }else{ ?>
                                          <option value="">-- Select City --</option>
@@ -139,7 +139,7 @@
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if($language_name=='French'){ ?>
+                                if ($language_name == 'French'){ ?>
                                   Type d'adresse
                                 <?php }else{ ?>
                                  Address Type
@@ -156,7 +156,7 @@
 
                                     <?php if($address_type==''){echo 'checked';} else if($address_type=='home'){ echo 'checked';}?>>
                                         <?php
-                                        if($language_name=='French'){ ?>
+                                        if ($language_name == 'French'){ ?>
                                           Accueil (livraison toute la journée
                                         <?php }else{ ?>
                                          Home (All day delivery
@@ -166,7 +166,7 @@
                                 <div class="col-md-6">
                                     <label id="work"><input name="address_type" value="work" for="work" type="radio"  <?php if($address_type=='work'){ echo 'checked';}?>>
                                     <?php
-                                        if($language_name=='French'){ ?>
+                                        if ($language_name == 'French'){ ?>
                                           Travail (livraison entre 10h et 17h)
                                         <?php }else{ ?>
                                          Work (Delivery between 10AM - 5PM)
@@ -185,7 +185,7 @@
                                     <input name="default_delivery_address" value="1" for="default_delivery_address" type="checkbox"
                                     <?php echo $cehecked;?> style="width: auto;height: 0px;">
                                         <?php
-                                        if($language_name=='French'){ ?>
+                                        if ($language_name == 'French'){ ?>
                                           Créer une adresse de livraison par défaut
                                         <?php }else{ ?>
                                          Make a Default Delivery Address
@@ -198,7 +198,7 @@
                             <button class="save">Save</button>
                             <a href="<?php echo $BASE_URL;?>MyAccounts/manageAddress">
                             <?php
-                            if($language_name=='French'){ ?>
+                            if ($language_name == 'French'){ ?>
                               Annuler
                             <?php }else{ ?>
                              Cancel

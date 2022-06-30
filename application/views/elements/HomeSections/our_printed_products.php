@@ -15,7 +15,7 @@
                             $categoryImage=$categoryImages[$website_store_id];
                             $src=geCategoryImage($categoryImage['image']);
 
-                            if($language_name=='French'){
+                            if ($language_name == 'French'){
                                 $src=geCategoryImage($categoryImage['image_french']);
                             }
                       ?>
