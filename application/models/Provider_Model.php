@@ -199,13 +199,17 @@ Class Provider_Model extends MY_Model {
         $this->db->update('provider_products');
     }
 
-    public function getProducts($provider_id, $take, $skip, &$data, &$total)
+    public function getProducts($provider_id, $q, $take, $skip, &$data, &$total)
     {
+        if (strlen($q) > 0)
+            $this->db->like('provider_products.name', $q);
         $this->db->select('COUNT(*)');
         $this->db->from('provider_products');
         $this->db->where('provider_id', $provider_id);
         $total = reset($this->db->get()->row());
 
+        if (strlen($q) > 0)
+            $this->db->like('provider_products.name', $q);
         $this->db->select('provider_products.*, products.name AS product_name, products.product_image');
         $this->db->from('provider_products');
         $this->db->join('products', 'products.id = provider_products.product_id', 'left');
@@ -242,13 +246,17 @@ Class Provider_Model extends MY_Model {
         $this->db->update('provider_products');
     }
 
-    public function getAttributes($provider_id, $take, $skip, &$data, &$total)
+    public function getAttributes($provider_id, $q, $take, $skip, &$data, &$total)
     {
+        if (strlen($q) > 0)
+            $this->db->like('provider_attributes.name', $q);
         $this->db->select('COUNT(*)');
         $this->db->from('provider_attributes');
         $this->db->where('provider_id', $provider_id);
         $total = reset($this->db->get()->row());
 
+        if (strlen($q) > 0)
+            $this->db->like('provider_attributes.name', $q);
         $this->db->select('provider_attributes.*, product_attributes.name AS attribute_name');
         $this->db->from('provider_attributes');
         $this->db->join('product_attributes', 'product_attributes.id = provider_attributes.attribute_id', 'left');

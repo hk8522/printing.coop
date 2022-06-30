@@ -2,18 +2,53 @@
 $pageSize = 10;
 $pageSizes = [10, 15, 20, 50, 100];
 ?>
-<div id="product-grid"></div>
+<form id="product-search-form" method="post" action="/admin/Products/ProviderProducts/<?=$provider?>">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel light form-fit popup-window">
+                <div class="x_content form">
+                    <div class="form-horizontal">
+                        <div class="form-body">
+                            <div class="col-12 px-0">
+                                <div class="row align-items-end">
+                                    <div class="col-md-8 col-ms-12 col-12">
+                                        <div class="form-group mb-0">
+                                            <label class="control-label" for="q">Product Name</label>
+                                            <input class="form-control k-input text-box single-line" id="q" name="q" type="text" value="<?=$this->input->get('q', '')?>" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12 col-12">
+                                        <div class="form-actions">
+                                            <div class="btn-group">
+                                                <button class="btn btn-success filter-submit" id="search-products">
+                                                    <i class="fa fa-search"></i> Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="x_content">
+                            <div id="products-grid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 <script>
     var record = 0;
     $(document).ready(function () {
-        $('#product-grid').kendoGrid({
+        $('#products-grid').kendoGrid({
             dataSource: {
                 transport: {
                     read: {
                         url: '/admin/Products/ProviderProducts/<?=$provider?>',
                         type: 'POST',
                         dataType: 'json',
-                        data: []
+                        data: additionalData
                     }
                 },
                 schema: {
@@ -33,7 +68,12 @@ $pageSizes = [10, 15, 20, 50, 100];
             },
             pageable: {
                 refresh: true,
-                pageSizes: <?=json_encode($pageSizes)?>
+                pageSizes: <?=json_encode($pageSizes)?>,
+                change: function(e) {
+                    var stateurl = new URL(location.href);
+                    stateurl.searchParams.set('page', e.index);
+                    window.history.replaceState({ path: stateurl.href }, '', stateurl.href);
+                }
             },
             scrollable: false,
             columns: [{
@@ -99,5 +139,34 @@ $pageSizes = [10, 15, 20, 50, 100];
                 });
             },
         });
+
+        //search button
+        $('#search-products').click(function () {
+            //search
+            var grid = $('#products-grid').data('kendoGrid');
+            grid.dataSource.page(1);
+
+            var params = additionalData();
+            var stateurl = new URL(location.href);
+            stateurl.searchParams.set('page', 1);
+            for (const item of Object.entries(params)) {
+                if (item[0] != '_token') {
+                    if (item[1] != undefined && item[1] != '')
+                        stateurl.searchParams.set(item[0], item[1]);
+                    else {
+                        stateurl.searchParams.delete(item[0]);
+                    }
+                }
+            }
+            stateurl.searchParams.delete('timestamp');
+            window.history.replaceState({ path: stateurl.href }, '', stateurl.href);
+            return false;
+        });
     });
+
+    function additionalData() {
+        return {
+            q: $('#product-search-form #q').val(),
+        };
+    }
 </script>

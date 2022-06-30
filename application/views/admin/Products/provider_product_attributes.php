@@ -37,12 +37,12 @@ $pageSizes = [10, 15, 20, 50, 100];
         </div>
     </div>
 </script>
-<div id="provider-product-attribute-grid"></div>
+<div id="provider-product-attributes-grid"></div>
 <script>
     var attributeTypeNames = <?=json_encode(App\Common\ProductAttributeType::names)?>;
     var record = 0;
     $(document).ready(function () {
-        $('#provider-product-attribute-grid').kendoGrid({
+        $('#provider-product-attributes-grid').kendoGrid({
             dataSource: {
                 transport: {
                     read: {

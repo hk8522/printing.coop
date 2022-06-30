@@ -37,19 +37,54 @@ $pageSizes = [10, 15, 20, 50, 100];
         </div>
     </div>
 </script>
-<div id="attribute-grid"></div>
+<form id="attribute-search-form" method="post" action="/admin/Products/ProviderAttributes/<?=$provider?>">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel light form-fit popup-window">
+                <div class="x_content form">
+                    <div class="form-horizontal">
+                        <div class="form-body">
+                            <div class="col-12 px-0">
+                                <div class="row align-items-end">
+                                    <div class="col-md-8 col-ms-12 col-12">
+                                        <div class="form-group mb-0">
+                                            <label class="control-label" for="q">Attribute Name</label>
+                                            <input class="form-control k-input text-box single-line" id="q" name="q" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-12 col-12">
+                                        <div class="form-actions">
+                                            <div class="btn-group">
+                                                <button class="btn btn-success filter-submit" id="search-attributes">
+                                                    <i class="fa fa-search"></i> Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="x_content">
+                            <div id="attributes-grid"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
 <script>
     var attributeTypeNames = <?=json_encode(App\Common\ProductAttributeType::names)?>;
     var record = 0;
     $(document).ready(function () {
-        $('#attribute-grid').kendoGrid({
+        $('#attributes-grid').kendoGrid({
             dataSource: {
                 transport: {
                     read: {
                         url: '/admin/Products/ProviderAttributes/<?=$provider?>',
                         type: 'POST',
                         dataType: 'json',
-                        data: []
+                        data: additionalDataAttribute
                     },
                     update: {
                         url:'/admin/Products/ProviderAttributeUpdate',
@@ -128,7 +163,21 @@ $pageSizes = [10, 15, 20, 50, 100];
                 record = this.dataSource.pageSize() * (this.dataSource.page() - 1);
             },
         });
+
+        //search button
+        $('#search-attributes').click(function () {
+            //search
+            var grid = $('#attributes-grid').data('kendoGrid');
+            grid.dataSource.page(1);
+            return false;
+        });
     });
+
+    function additionalDataAttribute() {
+        return {
+            q: $('#attribute-search-form #q').val(),
+        };
+    }
 
     function searchAttribute(q)
     {
