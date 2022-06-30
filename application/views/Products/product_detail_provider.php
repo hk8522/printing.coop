@@ -45,10 +45,9 @@
                     $(".new-price-img").show();
                 }
                 if (data.success) {
-                    if (data.price.price == NaN)
-                        data.price.price = 0;
-                    $('[name="price"]').val(data.price.price);
-                    $('#total-price').html(data.price.price * $("#quantity").val());
+                    var price = data.price.price == NaN ? 0 : data.price.price * 1.5;
+                    $('[name="price"]').val(price);
+                    $('#total-price').html(price * $("#quantity").val());
                 } else
                     alert(data.message);
             },
