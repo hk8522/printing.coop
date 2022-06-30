@@ -3,13 +3,7 @@
         <div class="trend-section-inner">
             <div class="universal-dark-title">
               <span>
-              <?php
-                if($language_name=='French'){ ?>
-                    Nos produits d'encre
-              <?php }else{ ?>
-                    Our Ink Products
-              <?php
-              }?>
+              <?= ($language_name == 'French') ? 'Nos produits d\'encre' : 'Our Ink Products'?>
               </span>
             </div>
             <?php
@@ -35,12 +29,7 @@
                                                     <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($list['id'])?>">
                                                         <img src="<?php echo $src;?>">
                                                         <span>
-                                                            <?php
-                                                            if($language_name=='French'){
-                                                                echo ucfirst($list['name_french']);
-                                                            }else{
-                                                                echo ucfirst($list['name']);
-                                                            }?>
+                                                            <?= ($language_name == 'French') ? ucfirst($list['name_french']) : ucfirst($list['name'])?>
                                                         </span>
                                                       </a>
                                                 </div>
@@ -59,13 +48,7 @@
             }?>
             <div class="universal-dark-info" style="text-align: center; margin: 0px;">
                 <a href="<?php echo $BASE_URL;?>Products"><button style="margin: 0px;" type="text" class="checkout-view">
-                <?php
-                if($language_name=='French'){ ?>
-                  Voir tout
-                <?php }else{ ?>
-                  View All
-                <?php
-                }?></button></a>
+                <?= ($language_name == 'French') ? 'Voir tout' : 'View All'?></button></a>
             </div>
         </div>
     </div>

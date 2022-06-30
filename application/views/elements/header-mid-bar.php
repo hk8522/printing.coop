@@ -11,10 +11,10 @@
                                 $alt='';
                                if($language_name=='French'){
                                 $imageurl = getLogoImages($configrations['logo_image_french']);
-                                $alt=$configrations['log_alt_teg_french'];
+                                $alt = $configrations['log_alt_teg_french'];
                                }else{
                                 $imageurl = getLogoImages($configrations['logo_image']);
-                                $alt=$configrations['log_alt_teg'];
+                                $alt = $configrations['log_alt_teg'];
                                }
                               ?>
                               <?php
@@ -42,23 +42,11 @@
                             <div class="search-product-section">
                                 <div class="search-product-section-title">
                                     <span>
-                                    <?php
-                                      if($language_name=='French'){ ?>
-                                        Résultats de recherche
-                                      <?php }else{ ?>
-                                        Search Results
-                                      <?php
-                                      }?></span>
+                                    <?= ($language_name == 'French') ? 'Résultats de recherche' : 'Search Results'?></span>
                                 </div>
                                 <div class="search-product-result">
                                     <span style="color:black; border:0px;" id="coming-res-data">
-                                        <?php
-                                    if($language_name=='French'){ ?>
-                                        Le résultat de la recherche arrive ...
-                                      <?php }else{ ?>
-                                        Search result is coming...
-                                      <?php
-                                      }?> </span>
+                                        <?= ($language_name == 'French') ? 'Le résultat de la recherche arrive ...' : 'Search result is coming...'?> </span>
                                     <ul id="ProductListUl">
 
                                     </ul>
@@ -126,13 +114,7 @@
                                             <div class="mid-action-content">
                                                 <span>
                                                     <strong>
-                                                    <?php
-                                                    if($language_name=='French'){ ?>
-                                                        L'aide est là.
-                                                      <?php }else{ ?>
-                                                        Help is here.
-                                                      <?php
-                                                      }?></strong>
+                                                    <?= ($language_name == 'French') ? 'L\'aide est là.' : 'Help is here.'?></strong>
                                                     <?php echo $configrations['contact_no'] ?? '1-877-384-8043';?>
                                                 </span>
                                             </div>
@@ -195,13 +177,7 @@
                                                   <span>
                                                   <!-- Replace "Sign In" text with "User name" after login -->
                                                   <strong><?php echo $loginName?></strong>
-                                                  <?php
-                                                    if($language_name=='French'){ ?>
-                                                        Mon compte
-                                                      <?php }else{ ?>
-                                                        My account
-                                                      <?php
-                                                      }?>
+                                                  <?= ($language_name == 'French') ? 'Mon compte' : 'My account'?>
                                                   </span>
                                             </div>
                                         </div>
@@ -280,13 +256,7 @@
                                         <div class="mid-action-content">
                                             <span>
                                                 <strong>
-                                                <?php
-                                                if($language_name=='French'){ ?>
-                                                    Chariot
-                                                  <?php }else{ ?>
-                                                    Cart
-                                                  <?php
-                                                  }?></strong>
+                                                <?= ($language_name == 'French') ? 'Chariot' : 'Cart'?></strong>
                                             </span>
                                         </div>
                                     </div>

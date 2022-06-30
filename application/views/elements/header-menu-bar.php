@@ -3,23 +3,11 @@
         <ul class="all-menu">
             <li>
                 <a href="<?php echo $BASE_URL ?>">
-                <?php
-                if($language_name=='French'){ ?>
-                  Accueil
-                <?php }else{ ?>
-                  Home
-                <?php
-                }?></a>
+                <?= ($language_name == 'French') ? 'Accueil' : 'Home'?></a>
             </li>
             <li>
                 <a href="<?php echo $BASE_URL?>Products" id="products">
-                <?php
-                if($language_name=='French'){ ?>
-                  Des produits
-                <?php }else{ ?>
-                  Products
-                <?php
-                }?></a>
+                <?= ($language_name == 'French') ? 'Des produits' : 'Products'?></a>
                 <div class="product-dropdown">
                     <div class="container">
                         <div class="row">
@@ -42,14 +30,7 @@
                                       <?php  if(!empty($count)){ ?>
                                       <a href="<?php echo $urlmain;?>">
                                         <button class="drop-cat tablinks" onmouseover="openCity(event, '<?php echo $url?>')">
-                                            <?php
-                                            if($language_name=='French'){
-                                               echo ucfirst($category['name_french']);
-                                        }else{
-                                            echo ucfirst($category['name']);
-                                        }
-
-                                            ?>
+                                            <?= ($language_name == 'French') ? ucfirst($category['name_french']) : ucfirst($category['name'])?>
                                           <i class="las la-angle-right"></i>
                                         </button>
                                      </a>
@@ -58,11 +39,7 @@
                                     ?>
                                        <a href="<?php echo $urlmain;?>">
                                         <button class="drop-cat tablinks" type="button" onmouseover="openCity(event, '<?php echo $url?>')">
-                                            <?php if($language_name=='French'){
-                                               echo ucfirst($category['name_french']);
-                                        }else{
-                                            echo ucfirst($category['name']);
-                                        }?>
+                                            <?= ($language_name == 'French') ? ucfirst($category['name_french']) : ucfirst($category['name'])?>
                                           <i class="las la-angle-right"></i>
                                         </button>
                                         </a>
@@ -86,15 +63,7 @@
                                                     <div class="menus-section">
                                                         <div class="menus-title">
                                                             <span><a href="<?php echo $url;?>">
-                                                            <?php
-
-                                                if($language_name=='French'){
-                                               echo ucfirst($subCategory['name_french']);
-                                        }else{
-                                            echo ucfirst($subCategory['name']);
-                                        }
-
-                                                        ?></a></span>
+                                                            <?= ($language_name == 'French') ? ucfirst($subCategory['name_french']) : ucfirst($subCategory['name'])?></a></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -127,12 +96,7 @@
                ?>
               <li>
                 <a href="<?php echo $url;?>" >
-                  <?php if($language_name=='French'){
-                                        echo ucfirst($page['title_france']);
-                                    }else{
-                                        echo ucfirst($page['title']);
-                                    }
-                                    ?>
+                  <?= ($language_name == 'French') ? ucfirst($page['title_france']) : ucfirst($page['title'])?>
                 </a>
               </li>
               <?php
@@ -151,24 +115,12 @@
       <ul class="mobile-menu">
         <li>
           <a href="<?php echo $BASE_URL ?>">
-            <?php
-              if($language_name=='French'){ ?>
-                Accueil
-              <?php }else{ ?>
-                Home
-              <?php
-            }?>
+            <?= ($language_name == 'French') ? 'Accueil' : 'Home'?>
           </a>
         </li>
         <li class="mobile-drop">
           <a href="<?php echo $BASE_URL?>Products" id="products">
-            <?php
-              if($language_name=='French'){ ?>
-                Des produits
-              <?php }else{ ?>
-                Products
-              <?php
-            }?>
+            <?= ($language_name == 'French') ? 'Des produits' : 'Products'?>
           </a>
           <span class="mob-drop-icon"><i class="las la-angle-down"></i></span>
           <div class="mob-drop-cat" style="display: none;">
@@ -180,35 +132,19 @@
                     $sub_category_selected=isset($_GET['sub_category_id']) ? base64_decode($_GET['sub_category_id']) : 'selected';
                   ?>
                   <a href="<?php echo $BASE_URL?>Products" class="<?php echo $selected?>">
-                    <?php if($language_name=='French'){
-                      echo 'Toutes catégories';
-                    } else {
-                      echo 'All categories';
-                    } ?>
+                    <?= ($language_name == 'French') ? 'Toutes catégories' : 'All categories'?>
                   </a>
                   <?php foreach ($categories['categories'] as $key => $category) { ?>
                     <div class="single-filter-tab">
                       <a href="<?php echo $BASE_URL?>Products?category_id=<?php echo base64_encode($category['id'])?>" class="<?php echo $selected == $category['id'] ? 'selected' : ''?>">
-                        <?php
-                          if($language_name=='French'){
-                            echo ucfirst($category['name_french']);
-                          } else {
-                            echo ucfirst($category['name']);
-                          }
-                        ?>
+                        <?= ($language_name == 'French') ? ucfirst($category['name_french']) : ucfirst($category['name'])?>
                       </a>
                       <div class="single-filter-hover">
                         <?php $sub_categories=$category['sub_categories'];
                           if($sub_categories){ foreach ($sub_categories as $skey => $subcategory) { ?>
                           <div class="single-filter-hover-inner">
                             <a href="<?php echo $BASE_URL?>Products?category_id=<?php echo base64_encode($category['id'])?>&sub_category_id=<?php echo base64_encode($subcategory['id'])?>" class="<?php echo $sub_category_selected == $subcategory['id'] ? 'selected' : ''?>">
-                              <?php
-                                if($language_name=='French'){
-                                  echo $subcategory['name_french'];
-                                } else {
-                                  echo $subcategory['name'];
-                                }
-                              ?>
+                              <?= ($language_name == 'French') ? $subcategory['name_french'] : $subcategory['name']?>
                             </a>
                           </div>
                         <?php }
@@ -219,13 +155,7 @@
                 </div>
               <?php } else { ?>
               <div class="shop-filter-info">
-                <?php
-                  if($language_name=='French'){ ?>
-                    Aucune catégorie trouvée
-                  <?php }else{ ?>
-                    No Category Found
-                  <?php
-                }?>
+                <?= ($language_name == 'French') ? 'Aucune catégorie trouvée' : 'No Category Found'?>
               </div>
               <?php
               } ?>
@@ -248,12 +178,7 @@
                ?>
               <li>
                 <a href="<?php echo $url;?>" >
-                  <?php if($language_name=='French'){
-                                        echo ucfirst($page['title_france']);
-                                    }else{
-                                        echo ucfirst($page['title']);
-                                    }
-                                    ?>
+                  <?= ($language_name == 'French') ? ucfirst($page['title_france']) : ucfirst($page['title'])?>
                 </a>
               </li>
               <?php

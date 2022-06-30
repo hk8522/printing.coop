@@ -3,13 +3,7 @@
         <div class="trend-section-inner">
             <div class="universal-dark-title">
               <span>
-              <?php
-                if($language_name=='French'){ ?>
-                NOS PRODUITS IMPRIMÉS
-              <?php }else{ ?>
-                Our Printed Products
-              <?php
-              }?>
+              <?= ($language_name == 'French') ? 'NOS PRODUITS IMPRIMÉS' : 'Our Printed Products'?>
               </span>
             </div>
             <?php if($our_printed_products_category) { ?>
@@ -39,12 +33,7 @@
                                               <div class="universal-small-dark-title">
                                                   <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($category['id'])?>">
                                                     <img src="<?php echo $src; ?>">
-                                                    <span><?php
-                                        if($language_name=='French'){
-                                               echo ucfirst($category['name_french']);
-                                        }else{
-                                            echo ucfirst($category['name']);
-                                        }?>
+                                                    <span><?= ($language_name == 'French') ? ucfirst($category['name_french']) : ucfirst($category['name'])?>
                                         </span>
                                                   </a>
                                               </div>
@@ -65,13 +54,7 @@
             }?>
             <div class="universal-dark-info" style="text-align: center; margin: 0px;">
                 <a href="<?php echo $BASE_URL;?>Products"><button style="margin: 0px;" type="text" class="checkout-view">
-                <?php
-                if($language_name=='French'){ ?>
-                  Voir tout
-                <?php }else{ ?>
-                  View All
-                <?php
-                }?></button></a>
+                <?= ($language_name == 'French') ? 'Voir tout' : 'View All'?></button></a>
             </div>
         </div>
     </div>

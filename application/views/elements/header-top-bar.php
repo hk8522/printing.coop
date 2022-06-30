@@ -7,13 +7,7 @@
                     <div class="top-bar-menu left-menu">
                         <ul>
                             <li><span>
-                                <?php
-                                if($language_name=='French'){ ?>
-                                  Appelez-nous
-                                <?php }else{ ?>
-                                  Call Us
-                                <?php
-                                }?>: <strong>
+                                <?= ($language_name == 'French') ? 'Appelez-nous' : 'Call Us'?>: <strong>
                                 <?php
                                    if($language_name=='French'){
                                     echo !empty($configrations['contact_no_french']) ? $configrations['contact_no_french']:'1-877-384-8043';
@@ -23,10 +17,9 @@
                                 ?></strong></span></li>
                             <li><span><?php
                             if($language_name=='French'){
-                                echo $configrations['office_timing_french'] ?? '
-Du lundi au vendredi: <strong>9:00-18:00</strong>';
+                                echo $configrations['office_timing_french'] ?? 'Du lundi au vendredi: <strong>9:00-18:00</strong>';
                             }else{
-                                  echo $configrations['office_timing'] ?? 'Monday-Friday: <strong>9:00-18:00</strong>';
+                                echo $configrations['office_timing'] ?? 'Monday-Friday: <strong>9:00-18:00</strong>';
                             }
                             ?></span></li>
                         </ul>
@@ -93,33 +86,15 @@ Du lundi au vendredi: <strong>9:00-18:00</strong>';
                               }
                             ?>
                             <li><a href="<?php echo $BASE_URL?>Wishlists">
-                                <?php
-                                if($language_name=='French'){ ?>
-                                  Ma liste d'envies
-                                <?php }else{ ?>
-                                  My Wish List
-                                <?php
-                                }?> (<strong id="WishlistsCount"><?php echo $totalWishListCount?></strong>)</a></li>
+                                <?= ($language_name == 'French') ? 'Ma liste d\'envies' : 'My Wish List'?> (<strong id="WishlistsCount"><?php echo $totalWishListCount?></strong>)</a></li>
 
                             <?php if (!$loginId) { ?>
                               <li><a href="<?php echo $BASE_URL?>Logins">
-                              <?php
-                                if($language_name=='French'){ ?>
-                                  S'identifier S'enregistrer
-                                <?php }else{ ?>
-                                  Login/Register
-                                <?php
-                                }?></a></li>
+                              <?= ($language_name == 'French') ? 'S\'identifier S\'enregistrer' : 'Login/Register'?></a></li>
                               <?php
                             }else{?>
                                <li><a href="<?php echo $BASE_URL?>MyAccounts/logout">
-                               <?php
-                                if($language_name=='French'){ ?>
-                                  Se déconnecter
-                                <?php }else{ ?>
-                                  Logout
-                                <?php
-                                }?></a></li>
+                               <?= ($language_name == 'French') ? 'Se déconnecter' : 'Logout'?></a></li>
                             <?php }?>
                         </ul>
                     </div>

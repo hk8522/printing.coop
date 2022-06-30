@@ -15,7 +15,6 @@
             </div>
             <div class="universal-dark-info">
               <span><?php
-
                 if($language_name=='French'){
                      echo $section_2['description_france'] ?? '';
                     }else{
@@ -112,13 +111,7 @@
                                           <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($posterAndPlansProduct['id']);?>" class="cart-btn">
                                             <i class="las la-search"></i>
                                             <span>
-                                            <?php
-                                              if($language_name=='French'){ ?>
-                                              Aperçu rapide
-                                            <?php }else{ ?>
-                                              Quick View
-                                            <?php
-                                            }?></span>
+                                            <?= ($language_name == 'French') ? 'Aperçu rapide' : 'Quick View'?></span>
                                           </a>
                                           <div class="product-price">
                                             <span><?php echo $product_price_currency_symbol.number_format($posterAndPlansProduct[$product_price_currency],2);?></span>
@@ -134,13 +127,7 @@
                               ?>
                                 <div class="text-center col-md-12">
                                     <p class="lead font-weight-bold">
-                                    <?php
-                                      if($language_name=='French'){ ?>
-                                      Aucun produit trouvé
-                                    <?php }else{ ?>
-                                      No Product Found
-                                    <?php
-                                    }?></p>
+                                    <?= ($language_name == 'French') ? 'Aucun produit trouvé' : 'No Product Found'?></p>
                                 </div>
                               <?php
                             }

@@ -65,21 +65,9 @@
                     </div>
                     <div class="cart-product-button">
                             <a href="<?php echo $BASE_URL?>ShoppingCarts"><button type="text" class="cart-view">
-                            <?php
-                              if($language_name=='French'){ ?>
-                                Voir le panier
-                              <?php }else{ ?>
-                                View cart
-                              <?php
-                              }?> </button></a>
+                            <?= ($language_name == 'French') ? 'Voir le panier' : 'View cart'?> </button></a>
                             <a href="<?php echo $BASE_URL?>Checkouts"><button type="text" class="cart-checkout">
-                            <?php
-                              if($language_name=='French'){ ?>
-                                Check-out
-                              <?php }else{ ?>
-                                Checkout
-                              <?php
-                              }?> </button></a>
+                            <?= ($language_name == 'French') ? 'Check-out' : 'Checkout'?> </button></a>
                     </div>
             </div>
     </div>
@@ -90,23 +78,11 @@
         <div class="container m-2">
             <div class="universal-small-dark-title text-center">
                 <span>
-                <?php
-                              if($language_name=='French'){ ?>
-                               Vous n'avez aucun article dans votre panier.
-                              <?php }else{ ?>
-                                You have no items in your shopping cart.
-                              <?php
-                              }?></span>
+                <?= ($language_name == 'French') ? 'Vous n\'avez aucun article dans votre panier.' : 'You have no items in your shopping cart.'?></span>
             </div>
             <div class="cart-product-button text-center">
                 <a href="<?php echo $BASE_URL?>Products"><button type="text" class="cart-checkout">
-                <?php
-                              if($language_name=='French'){ ?>
-                                Continuer vos achats
-                              <?php }else{ ?>
-                                Continue Shopping
-                              <?php
-                              }?></button></a>
+                <?= ($language_name == 'French') ? 'Continuer vos achats' : 'Continue Shopping'?></button></a>
             </div>
         </div>
     </div>
