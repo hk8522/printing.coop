@@ -1,313 +1,341 @@
 <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
-<div class="content-wrapper" style="min-height: 687px;">
+<div class="content-wrapper dd">
+<?php
+$pageSize = 10;
+$pageSizes = [10, 15, 20, 50, 100];
+?>
 <section class="content">
+<form id="order-search-form" method="post" action="/admin/Orders/List">
     <div class="row">
-        <div class="col-xs-12 col-md-12">
-            <div class="box">
-                <div class="box-body">
-                <div class="text-center" style="color:red">
-                    <?php echo $this->session->flashdata('message_error');?>
+        <div class="col-md-12">
+            <div class="x_panel light form-fit popup-window">
+                <?php if ($this->session->has_userdata('message_error')) {?>
+                    <div class="alert alert-danger">
+                        <?=$this->session->flashdata('message_error')?>
+                    </div>
+                <?php } ?>
+                <?php if ($this->session->has_userdata('message_success')) {?>
+                    <div class="alert alert-success">
+                        <?=$this->session->flashdata('message_success')?>
+                    </div>
+                <?php } ?>
+                <div class="x_title">
+                    <div class="caption">
+                        <i class="fa fa-shopping-cart"></i>
+                        All Orders List
+                    </div>
+                    <div class="actions btn-group btn-group-devided util-btn-margin-bottom-5">
+                        <a href="/admin/Orders/exportCSV/<?=$status?>/<?=$user_id?>/<?=$fromDate?>/<?=$toDate?>" class="btn btn-primary">
+                            <i class="fa fa-download"></i> Export CSV
+                        </a>
+                    </div>
                 </div>
-                <div class="text-center" style="color:green">
-                    <?php echo $this->session->flashdata('message_success');?>
-                </div>
-                <div class="inner-head-section">
-                    <div class="row">
-                        <div class="col-md-6 col-xs-12 text-left">
-                            <div class="inner-title">
-                                <span><?php echo ucfirst($page_title).' List'; ?></span>
-                            </div>
-                        </div>
-                       <div class="col-md-6 col-xs-12 text-right">
-                            <div class="all-vol-btn">
-                                <div class="upload-area">
-                                    <a href="<?php echo $BASE_URL?>admin/Orders/exportCSV/<?php echo $status;?>/<?php echo $user_id;?>/<?php echo $fromDate;?>/<?php echo $toDate;?>"/>
-                                    <button><i class="fas fa-file-csv"></i> Export CSV</button>
-                                    </a>
-                                </div>
-                                <?php if(!empty($user_id)){?>
-                                    <div class="upload-area">
-                                        <a href="<?php echo $BASE_URL?>admin/Users"><button><i class="fas fa-arrow-left"></i> Back</button>
-                                        </a>
+                <div class="x_content form">
+                    <div class="form-horizontal">
+                        <div class="form-body">
+                            <div class="col-12 px-0">
+                                <div class="row align-items-end">
+                                    <div class="col-md-4 col-ms-6 col-6">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="from">From Date</label>
+                                            <div class="col-md-9 col-sm-9">
+                                                <?php $this->load->view('admin/shared/date_nullable', ['name' => 'from', 'value' => $this->input->get('from')]); ?>
+                                            </div>
+                                        </div>
                                     </div>
-                                <?php
-                                }?>
+                                    <div class="col-md-4 col-ms-6 col-6">
+                                        <div class="form-group">
+                                            <label class="col-sm-3 control-label" for="to">From Date</label>
+                                            <div class="col-md-9 col-sm-9">
+                                                <?php $this->load->view('admin/shared/date_nullable', ['name' => 'to', 'value' => $this->input->get('to')]); ?>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-sm-4 col-4">
+                                        <div class="form-actions">
+                                            <div class="form-group">
+                                                <button class="btn btn-success filter-submit" id="search-orders">
+                                                    <i class="fa fa-search"></i> Search
+                                                </button>
+                                                <button class="btn btn-info" type="button" data-toggle="collapse" data-target="#filterCollapse" aria-expanded="false" aria-controls="filterCollapse">
+                                                    <i class="fa fa-filter"></i>&nbsp; Filters
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-
-                <div class="inner-head-section">
-                    <div class="row">
-                        <div class="col-md-12 col-xs-12 text-left">
-                            <form action="" method="post">
-                                <div class="inner-title">
-                                   From Date <input type="date" name="fromDate" value="<?php echo $fromDate?>"> &nbsp;&nbsp;To Date <input type="date" value="<?php echo $toDate?>" name="toDate"> &nbsp;&nbsp;<button class="upload-area">Search</button>
+                        <div class="collapse" id="filterCollapse">
+                            <div class="drop-filters-container w-100">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="status">Order Status</label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <?php $this->load->view('admin/shared/multi_select', ['name' => 'status', 'items' => App\Common\OrderStatus::names, 'value' => $this->input->get('status'), 'index' => true]); ?>
+                                    </div>
                                 </div>
-                            </form>
+                            </div>
+                        </div>
+                        <div class="x_content">
+                            <div id="orders-grid"></div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</form>
+<script>
+    function ucwords(str) {
+        if (str)
+            return str.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+                return letter.toUpperCase();
+            });
+        else
+            return '';
+    }
+    function ucfirst(str) {
+        if (str)
+            return str.charAt(0).toUpperCase() + str.slice(1);;
+        return '';
+    }
+    var currencies = <?=json_encode($CurrencyList)?>;
+    var stores = <?=json_encode($StoreList)?>;
+    var paymentStatus = {
+        1: '<button type="button" class="btn btn-sm btn-warning">Pending</button>',
+        2: '<button type="button" class="btn btn-sm btn-info">Success</button>',
+        3: '<button type="button" class="btn btn-sm btn-danger ">Failed</button>',
+    };
+    var orderStatus = {
+        1 : '<button type="button" class="btn btn-sm">Incomplete</button>',
+        2 : '<button type="button" class="btn btn-sm btn-primary">New Order</button>',
+        3 : '<button type="button" class="btn btn-warning btn-sm">Processing</button>',
+        4 : '<button type="button" class="btn btn-sm" style="background-color: #17a2b8; border-color: #17a2b8;">Shipped</button>',
+        5 : '<button type="button" class="btn btn-info btn-sm">Delivered</button>',
+        6 : '<button type="button" class="btn btn-dark btn-sm">Cancelled</button>',
+        7 : '<button type="button" class="btn btn-danger btn-sm">Failed</button>',
+        8 : '<button type="button" class="btn btn-info btn-sm">Complete</button>',
+        9 : '<button type="button" class="btn btn-sm" style="background-color: #17a2b8; border-color: #17a2b8;">Ready for pickup</button>',
+    };
+    $(document).ready(function () {
+        $('#orders-grid').kendoGrid({
+            dataSource: {
+                transport: {
+                    read: {
+                        url: '/admin/Orders/list',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: additionalData
+                    }
+                },
+                schema: {
+                    data: 'data',
+                    total: 'total',
+                    errors: 'errors'
+                },
+                error: function(e) {
+                    display_kendoui_grid_error(e);
+                    // Cancel the changes
+                    this.cancelChanges();
+                },
+                pageSize: <?=$pageSize?>,
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true
+            },
+            pageable: {
+                refresh: true,
+                pageSizes: <?=json_encode($pageSizes)?>,
+                change: function(e) {
+                    var stateurl = new URL(location.href);
+                    stateurl.searchParams.set('page', e.index);
+                    window.history.replaceState({ path: stateurl.href }, '', stateurl.href);
+                }
+            },
+            scrollable: false,
+            columns: [{
+                field: 'order_id',
+                title: '#',
+            }, {
+                title: 'Store Name',
+                template: '#=stores[store_id].name#',
+            }, {
+                title: 'Customer Name',
+                template: '#=ucwords(name)#',
+            }, {
+                title: 'Subtotal Amount',
+                template: '#=currencies[currency_id].symbols + Number(sub_total_amount).toFixed(2)#',
+            }, {
+                title: 'Preffered Customer Discount',
+                template: '#=preffered_customer_discount == 0 ? "-" : currencies[currency_id].symbols + Number(preffered_customer_discount).toFixed(2)#',
+            }, {
+                title: 'Coupon Discount',
+                template: '#=coupon_discount_amount == 0 ? "-" : currencies[currency_id].symbols + Number(coupon_discount_amount).toFixed(2)#',
+            }, {
+                title: 'Shipping Fee',
+                template: '#=delivery_charge == 0 ? "-" : "<?=$product_price_currency_symbol?>" + Number(delivery_charge).toFixed(2)#',
+            }, {
+                field: 'total_sales_tax',
+                title: 'Total Sales Tax',
+            }, {
+                title: 'Order Amount',
+                template: '#=currencies[currency_id].symbols + Number(total_amount).toFixed(2)#',
+            }, {
+                title: 'Total Items',
+                template: '#=ucfirst(total_items)#',
+            }, {
+                title: 'Payment Method',
+                template: '#=ucfirst(payment_type)#',
+            }, {
+                title: 'Payment Status',
+                template: '#=paymentStatus[payment_status]#',
+            }, {
+                title: 'Change Payment Status',
+                template: `
+                #if (payment_status != 2) {#
+                    <select class="form-control" onChange="changeOrderPaymentStatus(#=id#, $(this).val())" style="width: 150px">
+                        <option value="">Change Payment Status</option>
+                        #if (payment_status != 3) {#
+                        <option value="1" #= payment_status == 1 ? 'selected="selected"' : ''#>Pending</option>-->
+                        #}#
+                        <option value="2" #= payment_status == 2 ? 'selected="selected"' : ''#>Success</option>
+                    </select>
+                #}#
+                `,
+            }, {
+                field: 'transition_id',
+                title: 'Transition Id',
+            }, {
+                field: 'created',
+                title: 'Created On',
+            }, {
+                field: 'updated',
+                title: 'Updated On',
+            }, {
+                title: 'Status',
+                template: '#=orderStatus[status]#',
+            }, {
+                title: 'Change Order Status',
+                template: '#=orderStatusChangeOptions(id, order_id, payment_status, status)#',
+            }, {
+                title: 'View Orders',
+                template: `<a class="view-btn" href="/<?=$class_name.$sub_page_view_url?>/#=id#">
+                    <i class="far fa-eye fa-lg"></i></a>`,
+            }, {
+                title: 'Action',
+                template: '#=itemActions(id, status, shipment_id, tracking_number, labels_regular, labels_thermal)#',
+            }],
+        });
 
-                <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
-                    <div class="col-sm-12 col-md-12 custom-mini-table">
-                        <table id="example1" class="table table-bordered table-striped dataTable no-footer" role="grid" aria-describedby="example1">
-                            <thead>
-                                <tr role="row">
-                                    <th class="hide"></th>
-                                    <th width="20%">Order Id</th>
-                                    <th width="20%">Store Name</th>
-                                    <th width="15%">Customer Name</th>
-                                    <th width="15%">Subtotal Amount</th>
-                                    <th width="15%">Preffered Customer Discount</th>
-                                    <th width="15%">Coupon Discount</th>
-                                    <th width="15%">Shipping Fee</th>
-                                    <th width="15%">Total Sales Tax</th>
+        //search button
+        $('#search-orders').click(function () {
+            //search
+            var grid = $('#orders-grid').data('kendoGrid');
+            grid.dataSource.page(1);
 
-                                    <th width="15%">Order Amount</th>
-                                    <th width="5%">Total Items</th>
-                                    <th width="5%">Payment Method </th>
-                                    <th width="5%">Payment Status</th>
-                                    <th width="5%">Change Payment Status</th>
-                                    <th width="3%">Transition Id</th>
-                                    <th width="5%">Created On</th>
-                                    <th width="5%">Updated On</th>
-                                    <th width="3%">Status</th>
-                                    <th width="10%">Change Order Status</th>
-                                    <th width="3%">View Orders</th>
-                                    <th width="20%">Action</th>
-                                </tr>
-                            </thead>
+            var params = additionalData();
+            var stateurl = new URL(location.href);
+            stateurl.searchParams.set('page', 1);
+            for (const item of Object.entries(params)) {
+                if (item[0] != '_token') {
+                    if (item[1] != undefined && item[1] != '')
+                        stateurl.searchParams.set(item[0], item[1]);
+                    else {
+                        stateurl.searchParams.delete(item[0]);
+                    }
+                }
+            }
+            stateurl.searchParams.delete('timestamp');
+            window.history.replaceState({ path: stateurl.href }, '', stateurl.href);
+            return false;
+        });
+    });
 
-                            <tbody>
-                                <?php
-                                if(count($lists) > 0){
-                                    foreach($lists as $key=>$list){
-                                        $currency_id=$list['currency_id'];
-                                        if(empty($currency_id)){
-                                            $currency_id=1;
-                                        }
-                                        $OrderCurrencyData=$CurrencyList[$currency_id];
-                                        $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
+    function additionalData() {
+        return {
+            from: $('#order-search-form #from').val(),
+            to: $('#order-search-form #to').val(),
+            status: $('#status').data('kendoMultiSelect').value(),
+        };
+    }
 
-                                    ?>
-                                        <tr id="row-<?php echo $list['id'];?>">
-                                            <th class="hide"><?php echo $list['id']?></th>
-                                            <td>
-                                             <?php echo ucfirst($list['order_id']);?>
-                                            </td>
-                                            <td>
-                                              <?php echo $StoreList[$list['store_id']]['name'];?>
-                                            </td>
-                                            <td>
-                                              <?php echo ucwords($list['name']);?>
-                                             </td>
-                                             <td><?php echo $order_currency_currency_symbol.number_format($list['sub_total_amount'],2);?></td>
-                                             <td>
-                                             <?php if(!empty($list['preffered_customer_discount']) && $list['preffered_customer_discount'] !="0.00"){
-                                              echo $order_currency_currency_symbol.number_format($list['preffered_customer_discount'],2);
-                                             }else{
-                                                echo "-";
-                                             }
-                                              ?>
-                                             </td>
-                                             <td>
-                                             <?php if(!empty($list['coupon_discount_amount']) && $list['coupon_discount_amount'] !="0.00"){
-                                              echo $order_currency_currency_symbol.number_format($list['coupon_discount_amount'],2);
-                                             }else{
-                                                echo "-";
-                                             }
-                                              ?>
-                                             </td>
-                                             <td>
+    function orderStatusChangeOptions(id, order_id, payment_status, status) {
+        var availables = <?=json_encode(App\Common\OrderStatus::names)?>;
+        delete availables[<?=App\Common\OrderStatus::Incomplete?>];
+        delete availables[<?=App\Common\OrderStatus::Failed?>];
+        delete availables[<?=App\Common\OrderStatus::Complete?>];
 
-                                             <?php if(!empty($list['delivery_charge']) && $list['delivery_charge'] !="0.00"){
-                                              echo $product_price_currency_symbol.number_format($list['delivery_charge'],2);
-                                             }else{
-                                                echo "-";
-                                             }
-                                            ?>
-                                            </td>
-                                            <td>
-                                             <?php if(!empty($list['total_sales_tax']) && $list['total_sales_tax'] !="0.00"){
-                                             $salesTaxRatesProvinces_Data=$this->Address_Model->salesTaxRatesProvincesById($list['billing_state']);
-                                             ?>
-                                             <span>
-                                            <?php echo $salesTaxRatesProvinces_Data['type']?> <?php echo number_format($salesTaxRatesProvinces_Data['total_tax_rate'],2);?>%<br>
-                                            <strong>
-
-                                           <?php
-                                           echo $product_price_currency_symbol.number_format($list['total_sales_tax'],2);?>
-
-                                          </strong>
-                                         </span>
-                                             <?php
-                                             }else{
-                                                echo "-";
-                                             }
-                                              ?>
-                                            </td>
-
-                                             <td><?php echo $order_currency_currency_symbol.number_format($list['total_amount'],2);?></td>
-                                            <td><?php echo ucfirst($list['total_items']);?></td>
-                                            <td><?php echo ucfirst($list['payment_type']);?></td>
-                                            <td>
-                                            <label id="PaymentStatus-<?php echo $list['id']?>">
-                                            <?php echo getOrderPaymentStatus($list['payment_status']);?></label>
-                                            </td>
-                                            <td>
-                                            <?php if($list['payment_status'] !=2 ){?>
-                                            <select class="form-control" onChange="changeOrderPaymentStatus('<?php echo $list['id']?>',$(this).val())">
-                                                <option value="">
-                                                 Change Payment Status
-                                                </option>
-                                                <?php if($list['payment_status'] !=2 && $list['payment_status'] !=3){?>
-                                                <!--<option value="1" <?php echo $list['payment_status']==1 ? 'selected="selected"':''?>>
-                                                 Pending
-                                                </option>-->
-
-                                                <?php }?>
-                                                <option value="2" <?php echo $list['payment_status']==2 ? 'selected="selected"':''?>>
-                                                 Success
-                                                </option>
-
-                                            </select>
-                                            <?php }?>
-                                            </td>
-                                            <td>
-                                            <?php echo $list['transition_id'];?>
-                                            </td>
-                                            <td>
-                                              <?php echo dateFormate($list['created']);?>
-                                            </td>
-
-                                            <td>
-                                              <?php echo dateFormate($list['updated']);?>
-                                            </td>
-                                            <td id="td-<?php echo $list['id']?>">
-                                            <?php echo getOrderSatusClass($list['status']);?>
-                                            </td>
-                                            <td>
-                                            <input type="hidden" id="orderStatus-<?php echo $list['id'];?>" value="<?php echo $list['status']?>">
-                                            <?php
-                                               $status_array=getOrderSatus();
-                                               unset($status_array[1],$status_array[7],$status_array[8]);
-
-                                                if(in_array($list['status'],array(3))){
-                                                    unset($status_array[2]);
-                                                }
-
-                                                if(in_array($list['status'],array(4))){
-                                                       unset($status_array[2]);
-                                                       unset($status_array[3]);
-                                                        unset($status_array[9]);
-                                                }
-                                                if(in_array($list['status'],array(9))){
-                                                       unset($status_array[2]);
-                                                       unset($status_array[3]);
-                                                       unset($status_array[4]);
-                                                }
-                                                if(in_array($list['status'],array(5))){
-                                                       unset($status_array[2]);
-                                                       unset($status_array[3]);
-                                                       unset($status_array[4]);
-                                                       unset($status_array[5]);
-                                                       unset($status_array[6]);
-                                                       unset($status_array[9]);
-                                                }
-
-                                                if(in_array($list['status'],array(6))){
-                                                       unset($status_array[2]);
-                                                       unset($status_array[3]);
-                                                       unset($status_array[4]);
-                                                       unset($status_array[5]);
-                                                       unset($status_array[6]);
-                                                       unset($status_array[9]);
-                                                }
-
-                                            if(in_array($list['status'],array(2,3,4,9))){
-                                            ?>
-
-                                            <select class="form-control" onChange="changeOrderStatus('<?php echo $list['id']?>',$(this).val(),'<?php echo $page_status?>','<?php echo $list['order_id']?>','<?php echo $list['payment_status']?>')" id="select-<?php echo $list['id'];?>">
-                                            <!--<option value="">
-                                               Change Order Status
-                                            </option>-->
-                                            <?php
-
-                                            foreach($status_array as $k=>$v){
-                                             $selected='';
-                                             if($list['status']==$k){
-                                                 $selected='selected="selected"';
-                                             }
-
-                                            ?>
-
-                                            <option value="<?php echo $k;?>" <?php echo $selected;?>>
-                                               <?php echo $v;?>
-                                            </option>
-                                            <?php
-                                            }?>
-                                            <select>
-                                            <?php
-                                            }?>
-                                            </td>
-                                            <td>
-
-                                                <!--<a class="view-btn" href="<?php echo $BASE_URL.$class_name.$sub_page_view_url?>/<?php echo $list['id'];?>" data-toggle="modal" data-target="#view-details-modal-<?php echo $list['id'];?>">
-                                                 <i class="far fa-eye fa-lg"></i>
-                                                </a>-->
-
-                                                <a class="view-btn" href="<?php echo $BASE_URL.$class_name.$sub_page_view_url?>/<?php echo $list['id'];?>">
-                                                 <i class="far fa-eye fa-lg"></i>
-                                                </a>
-
-                                            </td>
-
-                                            <td>
-                                              <?php if(in_array($list['status'],array(5,6,7))){ ?>
-                                               <a class="view-btn" href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $list['id'];?>/<?php echo $page_status?>" style="color:#d71b23" title="delete" onclick="return confirm('Are you sure you want to delete this order?');">
-                                                    <i class="fa fa-trash fa-lg"></i>
-                                               </a>
-                                              <?php
-                                              } ?>
-                                              <?php if(in_array($list['status'],array(4,5)) && !empty($list['shipment_id']) && !empty($list['tracking_number']) && !empty($list['labels_regular']) && !empty($list['labels_thermal'])){
-                                              ?>
-
-                                               <!--<label>Order shipment Id:<?php echo $list['shipment_id']?></label>
-                                               <label>Order Tracking Number:<?php echo $list['shipment_id']?></label>-->
-
-                                               <a  href="<?php echo $list['labels_regular']?>" target="_blank" title="Shipping  Label (Regular)" style="margin-right:4px;">
-                                              <i class="fa fa-image fa-lg"></i>
-                                               </a>
-                                               <a  href="<?php echo $list['labels_thermal']?>" target="_blank" title="Shipping   Label (Thermal)" style="margin-right:4px;">
-                                               <i class="fa fa-image fa-lg"></i>
-
-                                               </a>
-                                                <a  href="javascript:void(0)" title="Tracking Order" style="margin-right:4px;" onclick="OrderTracking('<?php echo $list['id'];?>')">
-                                                <i class="fa fa-shipping-fast fa-lg"></i>
-
-                                               </a>
-                                              <?php
-                                              } ?>
-                                            </td>
-                                        </tr>
-                                <?php
-                                    }
-                                }else{?>
-                                    <tr>
-                                    <td colspan="14" class="text-center">List Empty.</td>
-                                    </tr>
-                                <?php
-                                }?>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                </div><!-- /.box-body -->
-            </div><!-- /.box -->
-        </div><!-- /.col -->
-    </div><!-- /.row -->
+        if (status == <?=App\Common\OrderStatus::Processing?>)
+            delete availables[<?=App\Common\OrderStatus::New?>];
+        if (status == <?=App\Common\OrderStatus::Shipped?>) {
+            delete availables[<?=App\Common\OrderStatus::New?>];
+            delete availables[<?=App\Common\OrderStatus::Processing?>];
+            delete availables[<?=App\Common\OrderStatus::ReadyForPickup?>];
+        }
+        if (status == <?=App\Common\OrderStatus::ReadyForPickup?>) {
+            delete availables[<?=App\Common\OrderStatus::New?>];
+            delete availables[<?=App\Common\OrderStatus::Processing?>];
+            delete availables[<?=App\Common\OrderStatus::Shipped?>];
+        }
+        if (status == <?=App\Common\OrderStatus::Delivered?>) {
+            delete availables[<?=App\Common\OrderStatus::New?>];
+            delete availables[<?=App\Common\OrderStatus::Processing?>];
+            delete availables[<?=App\Common\OrderStatus::Shipped?>];
+            delete availables[<?=App\Common\OrderStatus::Delivered?>];
+            delete availables[<?=App\Common\OrderStatus::Cancelled?>];
+            delete availables[<?=App\Common\OrderStatus::ReadyForPickup?>];
+        }
+        if (status == <?=App\Common\OrderStatus::Cancelled?>) {
+            delete availables[<?=App\Common\OrderStatus::New?>];
+            delete availables[<?=App\Common\OrderStatus::Processing?>];
+            delete availables[<?=App\Common\OrderStatus::Shipped?>];
+            delete availables[<?=App\Common\OrderStatus::Delivered?>];
+            delete availables[<?=App\Common\OrderStatus::Cancelled?>];
+            delete availables[<?=App\Common\OrderStatus::ReadyForPickup?>];
+        }
+        var result = '';
+        if ([<?=App\Common\OrderStatus::New?>,
+            <?=App\Common\OrderStatus::Processing?>,
+            <?=App\Common\OrderStatus::Shipped?>,
+            <?=App\Common\OrderStatus::ReadyForPickup?>
+        ].indexOf(Number(status)) >= 0) {
+            result += `<select class="form-control" onChange="changeOrderStatus(${id}, $(this).val(), '<?=$page_status?>', '${order_id}','${payment_status}')" id="select-${id}" style="width: 150px">
+                <!--<option value="">Change Order Status</option>-->`;
+            for (const [key, value] of Object.entries(availables)) {
+                var selected = '';
+                if (status == key)
+                    selected = 'selected="selected"';
+                result += `<option value="${key}" ${selected}>${value}</option>`;
+            }
+            result += '</select>';
+        }
+        return result;
+    }
+    function itemActions(id, status, shipment_id, tracking_number, labels_regular, labels_thermal)
+    {
+        var result = '';
+        if (status == <?=App\Common\OrderStatus::Delivered?> || status == <?=App\Common\OrderStatus::Cancelled?> || status == <?=App\Common\OrderStatus::Failed?>) {
+            result += `<a class="view-btn" href="/<?=$class_name.$sub_page_delete_url?>/${id}/<?=$page_status?>" style="color:#d71b23" title="delete" onclick="return confirm('Are you sure you want to delete this order?');">
+                <i class="fa fa-trash fa-lg"></i>
+            </a>`;
+        }
+        if ((status == <?=App\Common\OrderStatus::Shipped?> || status == <?=App\Common\OrderStatus::Delivered?>) &&
+            shipment_id != null && tracking_number != null && labels_regular != null && labels_thermal != null)
+        {
+            result += `<!--<label>Order shipment Id: ${shipment_id}</label><label>Order Tracking Number: ${shipment_id}</label>-->
+                <a  href="${labels_regular}" target="_blank" title="Shipping Label (Regular)" style="margin-right:4px;">
+                    <i class="fa fa-image fa-lg"></i>
+                </a>
+                <a  href="${labels_thermal}" target="_blank" title="Shipping Label (Thermal)" style="margin-right:4px;">
+                    <i class="fa fa-image fa-lg"></i>
+                </a>
+                <a  href="javascript:void(0)" title="Tracking Order" style="margin-right:4px;" onclick="OrderTracking('${id}')">
+                    <i class="fa fa-shipping-fast fa-lg"></i>
+                </a>`;
+        }
+        return result;
+    }
+</script>
 </section><!-- /.content -->
 
 <div id="myModal" class="modal fade" role="dialog">
@@ -402,23 +430,23 @@
  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
  </script>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $('#example1').DataTable({
             "order": [[ 0, "desc" ]]
         });
     });
 
-    function changeOrderStatus(order_id,status,page_status,order_id_new,payment_status) {
+    function changeOrderStatus(order_id, status, page_status, order_id_new, payment_status) {
         $("#btnSubmit").attr("disabled",true);
         var orderStatus =$("#orderStatus-"+order_id).val();
-        if(status ==''){
+        if (status =='') {
             return false;
-        }else if(orderStatus ==status ){
+        } else if (orderStatus ==status ) {
             return false;
-        }else if((status == 3 || status == 4 || status == 5 || status == 8) && (payment_status ==1 || payment_status ==3)){
+        } else if ((status == 3 || status == 4 || status == 5 || status == 8) && (payment_status ==1 || payment_status ==3)) {
            alert("This order payment has been not done so you can't change status");
            return false;
-        }else{
+        } else {
             $("#myModal").modal('show');
             var url ='<?php echo $BASE_URL ?>admin/Orders/getOrderData/'+order_id+'/'+status;
             $.ajax({
@@ -448,93 +476,69 @@
         var page_status =$("#page_status").val();
         var order_id_new =$("#order_id_new").val();
 
-        if(formsubmit==true){
+        if (formsubmit==true) {
             $("#loader-img").show();
             var url ='<?php echo $BASE_URL ?>admin/Orders/changeOrderStatus';
             $.ajax({
-                   type: "POST",
-                   url: url,
-                   data: form.serialize(), // serializes the form's elements.
+                type: "POST",
+                url: url,
+                data: form.serialize(), // serializes the form's elements.
 
-                   success: function(data)
-                   {
-                        $("#loader-img").hide();
-                        var json = JSON.parse(data);
-                        var res=json.status;
-                        var msg=json.msg;
+                success: function(data)
+                {
+                    $("#loader-img").hide();
+                    var json = JSON.parse(data);
+                    var res = json.status;
+                    var msg = json.msg;
 
-                        if(res==1){
-                            location.reload();
+                    if (res == 1) {
+                        var grid = $('#orders-grid').data('kendoGrid');
+                        grid.dataSource.page(grid.dataSource.page());
 
-                            if(page_status=='all'){
-                              if(status=='3'){
-                                $("#td-"+order_id).html('<?php echo getOrderSatusClass(3)?>');
-                              }else if(status=='4') {
-                                  $("#td-"+order_id).html('<?php echo getOrderSatusClass(4)?>');
-                              }else if(status=='5'){
-                                $("#td-"+order_id).html('<?php echo getOrderSatusClass(5)?>');
-                              }else if(status=='6'){
-                                  $("#td-"+order_id).html('<?php echo getOrderSatusClass(6)?>');
-                              }
-                            }else{
-                               $("#row-"+order_id).remove();
+                        if (page_status == 'all') {
+                            if (status == '3') {
+                            $("#td-" + order_id).html('<?php echo getOrderSatusClass(3)?>');
+                            } else if (status == '4') {
+                                $("#td-"+order_id).html('<?php echo getOrderSatusClass(4)?>');
+                            } else if (status == '5') {
+                            $("#td-"+order_id).html('<?php echo getOrderSatusClass(5)?>');
+                            } else if (status == '6') {
+                                $("#td-"+order_id).html('<?php echo getOrderSatusClass(6)?>');
                             }
+                        } else {
+                            $("#row-"+order_id).remove();
+                        }
 
-                            $("#MsgError").html('<label style="color:green">'+msg+'</label>');
+                        $("#MsgError").html('<label style="color:green">'+msg+'</label>');
 
-                            setTimeout(function(){
+                        setTimeout(function() {
                                 $("#btnSubmit").attr("disabled",false);
 
                                 $("#MsgError").html('');
                                 $("#myModal").modal('hide');
-                                location.reload();
-                              }, 2000
-                            );
-                        }else{
-                            $("#btnSubmit").attr("disabled",false);
-                            $("#MsgError").html('<label style="color:red">'+msg+'</label>');
-                        }
-                   },
-                   error: function (error) {
-                      $("#btnSubmit").attr("disabled",false);
-                   }
+                                var grid = $('#orders-grid').data('kendoGrid');
+                                grid.dataSource.page(grid.dataSource.page());
+                            }, 2000
+                        );
+                    } else {
+                        $("#btnSubmit").attr("disabled",false);
+                        $("#MsgError").html('<label style="color:red">'+msg+'</label>');
+                    }
+                },
+                error: function (error) {
+                    $("#btnSubmit").attr("disabled",false);
+                }
             });
-        }else{
+        } else {
             $("#btnSubmit").attr("disabled",false);
         }
     });
 
-    function changeOrderPaymentStatus(order_id,payment_status){
+    function changeOrderPaymentStatus(order_id, payment_status) {
         $("#PMsgError").html('');
         $("#payment_order_id").val(order_id);
         $("#payment_status").val(payment_status);
         $("#myPaymentModal").modal('show');
-
-        /*if(status !='' && order_id !=''){
-            $("#loader-img").show();
-            var url ='<?php echo $BASE_URL ?>admin/Orders/changeOrderPaymentStatus';
-                $.ajax({
-                       type: "POST",
-                       url: url,
-                       data: {order_id:order_id,status:status}, // serializes the form's elements.
-
-                       success: function(data)
-                        {   $("#loader-img").hide();
-                            var json = JSON.parse(data);
-                            var res=json.status;
-                            var msg=json.msg;
-
-                            if(status==1){
-                                location.reload();
-                                $("#PaymentStatus-"+order_id).html('<button type="button" class="btn btn-sm btn-warning  ">Pending</button>');
-                            }else{
-                                $("#PaymentStatus-"+order_id).html('<button type="button" class="btn btn-sm btn-info">Success</button>');
-                            }
-                       },
-                       error: function (error) {
-                       }
-                });
-            }*/
     }
 
     $("#PaymentFrom").submit(function(e) {
@@ -547,7 +551,7 @@
         var payment_type =$("#payment_type").val();
         var transition_id =$("#transition_id").val();
 
-        if(formsubmit==true){
+        if (formsubmit==true) {
             $("#loader-img").show();
             var url ='<?php echo $BASE_URL ?>admin/Orders/changeOrderPaymentStatus';
             $.ajax({
@@ -561,27 +565,27 @@
                         var json = JSON.parse(data);
                         var res=json.status;
                         var msg=json.msg;
-                        location.reload();
-                        if(res==1){
-                            location.reload();
-                        }else{
+                        if (res == 1) {
+                            var grid = $('#orders-grid').data('kendoGrid');
+                            grid.dataSource.page(grid.dataSource.page());
+                        } else {
                             $("#PbtnSubmit").attr("disabled",false);
-                            $("#PMsgError").html('<label style="color:red">'+msg+'</label>');
+                            $("#PMsgError").html('<label style="color:red">' + msg + '</label>');
                         }
                    },
                    error: function (error) {
                       $("#PbtnSubmit").attr("disabled",false);
                    }
             });
-        }else{
+        } else {
             $("#PbtnSubmit").attr("disabled",false);
         }
     });
 
     function OrderTracking(order_id) {
-        if(order_id ==''){
+        if (order_id =='') {
             return false;
-        }else{
+        } else {
             $("#OrderTracking").modal('show');
             var url ='<?php echo $BASE_URL ?>admin/Orders/OrderTracking/'+order_id;;
             $.ajax({
