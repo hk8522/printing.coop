@@ -7712,3 +7712,11 @@ ul.k-list .btn {
 .k-grid tr td {
     text-align: center;
 }
+.tight.k-grid .k-grid-header .k-header {
+    padding-left: 0.286em;
+    padding-right: 0.286em;
+}
+.tight.k-grid td {
+    padding-left: 0.286em;
+    padding-right: 0.286em;
+}

@@ -1,8 +1,10 @@
 <?php
 
 require_once(APPPATH . 'common/OrderStatus.php');
+require_once(APPPATH . 'common/PaymentStatus.php');
 
 use App\Common\OrderStatus;
+use App\Common\PaymentStatus;
 
 Class ProductOrder_Model extends MY_Model {
     public $table = 'product_orders';
@@ -294,6 +296,21 @@ Class ProductOrder_Model extends MY_Model {
         }
     }
 
+    public function getOrder($id)
+    {
+        $this->db->select('*');
+        $this->db->from('product_orders');
+        $this->db->where('id', $id);
+        $order = $this->db->get()->row();
+        if ($order) {
+            $this->db->select('*');
+            $this->db->from('product_order_items');
+            $this->db->where('order_id', $id);
+            $order->items = $this->db->get()->result();
+        }
+        return $order;
+    }
+
     public function getOrders($status, $user_id, $from, $to, $take, $skip, &$data, &$total)
     {
         $where = array('admin_delete' => 1);
@@ -315,8 +332,9 @@ Class ProductOrder_Model extends MY_Model {
         $this->db->where($where);
         $total = reset($this->db->get()->row());
 
-        $this->db->select('*');
+        $this->db->select('product_orders.*, provider_orders.provider_order_id');
         $this->db->from($this->table);
+        $this->db->join('provider_orders', 'provider_orders.order_id=product_orders.id', 'left');
         $this->db->where($where);
         $this->db->order_by('created', 'desc');
         $take = $take > 0 ? $take : 0;

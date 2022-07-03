@@ -15,7 +15,7 @@ class OrderStatus {
 
     public const names = [
         self::Incomplete => 'Incomplete',
-        self::New => 'New',
+        self::New => 'New Order',
         self::Processing => 'Processing',
         self::Shipped => 'Shipped',
         self::Delivered => 'Delivered',

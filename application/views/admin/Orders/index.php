@@ -77,7 +77,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                             </div>
                         </div>
                         <div class="x_content">
-                            <div id="orders-grid"></div>
+                            <div id="orders-grid" class="tight"></div>
                         </div>
                     </div>
                 </div>
@@ -85,6 +85,23 @@ $pageSizes = [10, 15, 20, 50, 100];
         </div>
     </div>
 </form>
+<div id="sina_ship_methods" style="display:none;">
+    <form method="post" action="/admin/Orders/sendToSina">
+        <input type="hidden" name="id">
+        <!-- <input type="hidden" name="ship_method"> -->
+        <div class="card">
+            <div class="card-body">
+                <div id="ship-methods-grid"></div>
+            </div>
+            <div class="card-footer">
+                <div class="form-actions pull-right">
+                    <input type="submit" class="k-button" value="Ok" />
+                    <span class="k-button" onclick="$('#sina_ship_methods').data('kendoWindow').close();">Cancel</span>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
 <script>
     function ucwords(str) {
         if (str)
@@ -99,12 +116,16 @@ $pageSizes = [10, 15, 20, 50, 100];
             return str.charAt(0).toUpperCase() + str.slice(1);;
         return '';
     }
+    function refreshGrid(id) {
+        var grid = $(`#${id}`).data('kendoGrid');
+        grid.dataSource.page(grid.dataSource.page());
+    }
     var currencies = <?=json_encode($CurrencyList)?>;
     var stores = <?=json_encode($StoreList)?>;
     var paymentStatus = {
-        1: '<button type="button" class="btn btn-sm btn-warning">Pending</button>',
-        2: '<button type="button" class="btn btn-sm btn-info">Success</button>',
-        3: '<button type="button" class="btn btn-sm btn-danger ">Failed</button>',
+        <?=App\Common\PaymentStatus::Pending?>: '<button type="button" class="btn btn-sm btn-warning">Pending</button>',
+        <?=App\Common\PaymentStatus::Success?>: '<button type="button" class="btn btn-sm btn-info">Success</button>',
+        <?=App\Common\PaymentStatus::Failed?>: '<button type="button" class="btn btn-sm btn-danger ">Failed</button>',
     };
     var orderStatus = {
         1 : '<button type="button" class="btn btn-sm">Incomplete</button>',
@@ -117,6 +138,7 @@ $pageSizes = [10, 15, 20, 50, 100];
         8 : '<button type="button" class="btn btn-info btn-sm">Complete</button>',
         9 : '<button type="button" class="btn btn-sm" style="background-color: #17a2b8; border-color: #17a2b8;">Ready for pickup</button>',
     };
+    var salesTaxRatesProvinces = <?=json_encode($this->Address_Model->salesTaxRatesProvinces())?>;
     $(document).ready(function () {
         $('#orders-grid').kendoGrid({
             dataSource: {
@@ -131,7 +153,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 schema: {
                     data: 'data',
                     total: 'total',
-                    errors: 'errors'
+                    errors: 'errors',
                 },
                 error: function(e) {
                     display_kendoui_grid_error(e);
@@ -154,8 +176,21 @@ $pageSizes = [10, 15, 20, 50, 100];
             },
             scrollable: false,
             columns: [{
-                field: 'order_id',
                 title: '#',
+                template: '#=ucfirst(order_id)#',
+            }, {
+                title: 'Order Provider',
+                template: `
+                    #if (provider_order_id) {#
+                        <a href="/admin/Orders/provider/#=provider_order_id#">#=provider_order_id#</a>
+                    #} else {#
+                        <select class="form-control" onchange="if (this.value == 'sina') sendToSina(#=id#);">
+                            <option></option>
+                            <option value="sina">Send to Sina</option>
+                        </select>
+                    #}#
+                `,
+                // template: '<button type="button" class="btn btn-sm btn-info" onClick="sendToSina(#=id#)">Send to Sina</button>',
             }, {
                 title: 'Store Name',
                 template: '#=stores[store_id].name#',
@@ -167,16 +202,19 @@ $pageSizes = [10, 15, 20, 50, 100];
                 template: '#=currencies[currency_id].symbols + Number(sub_total_amount).toFixed(2)#',
             }, {
                 title: 'Preffered Customer Discount',
-                template: '#=preffered_customer_discount == 0 ? "-" : currencies[currency_id].symbols + Number(preffered_customer_discount).toFixed(2)#',
+                template: '#=preffered_customer_discount == 0 ? "-" : (currencies[currency_id].symbols + Number(preffered_customer_discount).toFixed(2))#',
             }, {
                 title: 'Coupon Discount',
-                template: '#=coupon_discount_amount == 0 ? "-" : currencies[currency_id].symbols + Number(coupon_discount_amount).toFixed(2)#',
+                template: '#=coupon_discount_amount == 0 ? "-" : (currencies[currency_id].symbols + Number(coupon_discount_amount).toFixed(2))#',
             }, {
                 title: 'Shipping Fee',
-                template: '#=delivery_charge == 0 ? "-" : "<?=$product_price_currency_symbol?>" + Number(delivery_charge).toFixed(2)#',
+                template: '#=delivery_charge == 0 ? "-" : ("<?=$product_price_currency_symbol?>" + Number(delivery_charge).toFixed(2))#',
             }, {
                 field: 'total_sales_tax',
                 title: 'Total Sales Tax',
+                template: `#if (total_sales_tax == 0) {#-#} else {#
+                    <span>#=salesTaxRatesProvinces[billing_state].Province# #=Number(salesTaxRatesProvinces[billing_state].total_tax_rate).toFixed(2)#%<br><strong><?=$product_price_currency_symbol?>#=Number(total_sales_tax).toFixed(2)#</strong></span>
+                    #}#`,
             }, {
                 title: 'Order Amount',
                 template: '#=currencies[currency_id].symbols + Number(total_amount).toFixed(2)#',
@@ -188,20 +226,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 template: '#=ucfirst(payment_type)#',
             }, {
                 title: 'Payment Status',
-                template: '#=paymentStatus[payment_status]#',
-            }, {
-                title: 'Change Payment Status',
-                template: `
-                #if (payment_status != 2) {#
-                    <select class="form-control" onChange="changeOrderPaymentStatus(#=id#, $(this).val())" style="width: 150px">
-                        <option value="">Change Payment Status</option>
-                        #if (payment_status != 3) {#
-                        <option value="1" #= payment_status == 1 ? 'selected="selected"' : ''#>Pending</option>-->
-                        #}#
-                        <option value="2" #= payment_status == 2 ? 'selected="selected"' : ''#>Success</option>
-                    </select>
-                #}#
-                `,
+                template: '#=paymentStatusChangeOptions(id, payment_status)#',
             }, {
                 field: 'transition_id',
                 title: 'Transition Id',
@@ -212,10 +237,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 field: 'updated',
                 title: 'Updated On',
             }, {
-                title: 'Status',
-                template: '#=orderStatus[status]#',
-            }, {
-                title: 'Change Order Status',
+                title: 'Order Status',
                 template: '#=orderStatusChangeOptions(id, order_id, payment_status, status)#',
             }, {
                 title: 'View Orders',
@@ -249,7 +271,94 @@ $pageSizes = [10, 15, 20, 50, 100];
             window.history.replaceState({ path: stateurl.href }, '', stateurl.href);
             return false;
         });
+
+        $('#sina_ship_methods form').submit(function(e) {
+            e.preventDefault();
+            $("#loader-img").show();
+
+            $.post('/admin/Orders/sendToSina', $(this).serialize())
+            .done(function (response) {
+                if (!response)
+                    kendo.alert('Error occurred.');
+                else if (!response.success)
+                    kendo.alert(response.message);
+                $('#sina_ship_methods').data('kendoWindow').close();
+                refreshGrid('orders-grid');
+                $("#loader-img").hide();
+            }).fail(function (error) {
+                kendo.alert(error);
+                refreshGrid('orders-grid');
+                $("#loader-img").hide();
+            });
+            return false;
+        });
     });
+
+    function sendToSina(id) {
+        var window = $('#sina_ship_methods');
+        if (!window.data('kendoWindow')) {
+            window.kendoWindow({
+                modal: true,
+                title: 'Select a Shipment Method',
+                actions: ['Close'],
+                width: '70%',
+                height: '80%',
+            });
+        }
+        window.data('kendoWindow').center().open();
+
+        $("#loader-img").show();
+
+        $('#sina_ship_methods [name="id"]').val(id);
+
+        $('#ship-methods-grid').kendoGrid({
+            dataSource: {
+                transport: {
+                    read: {
+                        url: '/admin/Orders/sinaShipMethods',
+                        type: 'POST',
+                        dataType: 'json',
+                        data: {id: id}
+                    }
+                },
+                schema: {
+                    data: 'data',
+                    total: 'total',
+                    errors: 'errors'
+                },
+                error: function(e) {
+                    display_kendoui_grid_error(e);
+                    // Cancel the changes
+                    this.cancelChanges();
+                    $("#loader-img").hide();
+                },
+                serverPaging: true,
+                serverFiltering: true,
+                serverSorting: true
+            },
+            scrollable: false,
+            dataBound: function() {
+                $("#loader-img").hide();
+            },
+            columns: [{
+                field: 'name',
+                title: 'Select',
+                template: `<input type='radio' class='k-radio k-radio-md' name="ship_method" value="#=name#"/>`,
+            }, {
+                field: 'type',
+                title: 'Type',
+            }, {
+                field: 'name',
+                title: 'Ship Method',
+            }, {
+                field: 'price',
+                title: 'Price',
+            }, {
+                field: 'quantity',
+                title: 'Quantity',
+            }],
+        });
+    }
 
     function additionalData() {
         return {
@@ -259,6 +368,20 @@ $pageSizes = [10, 15, 20, 50, 100];
         };
     }
 
+    function paymentStatusChangeOptions(id, payment_status) {
+        if (payment_status != <?=App\Common\PaymentStatus::Success?>) {
+            var result = `<select class="form-control" onChange="changeOrderPaymentStatus(${id}, $(this).val())" style="width: 150px">
+                <option value="">Change Payment Status</option>`;
+            if (payment_status != <?=App\Common\PaymentStatus::Failed?>) {
+                result += '<option value="<?=App\Common\PaymentStatus::Pending?>" ' + (payment_status == <?=App\Common\PaymentStatus::Pending?> ? 'selected="selected"' : '') + '>Pending</option>';
+            }
+            result += '<option value="<?=App\Common\PaymentStatus::Success?>" ' + (payment_status == <?=App\Common\PaymentStatus::Success?> ? 'selected="selected"' : '') + '>Success</option>';
+            result += '</select>';
+            return result;
+        } else {
+            return paymentStatus[payment_status];
+        }
+    }
     function orderStatusChangeOptions(id, order_id, payment_status, status) {
         var availables = <?=json_encode(App\Common\OrderStatus::names)?>;
         delete availables[<?=App\Common\OrderStatus::Incomplete?>];
@@ -308,7 +431,8 @@ $pageSizes = [10, 15, 20, 50, 100];
                 result += `<option value="${key}" ${selected}>${value}</option>`;
             }
             result += '</select>';
-        }
+        } else
+            result = orderStatus[status];
         return result;
     }
     function itemActions(id, status, shipment_id, tracking_number, labels_regular, labels_thermal)
@@ -438,10 +562,10 @@ $pageSizes = [10, 15, 20, 50, 100];
 
     function changeOrderStatus(order_id, status, page_status, order_id_new, payment_status) {
         $("#btnSubmit").attr("disabled",true);
-        var orderStatus =$("#orderStatus-"+order_id).val();
-        if (status =='') {
+        var orderStatus = $("#orderStatus-" + order_id).val();
+        if (status == '') {
             return false;
-        } else if (orderStatus ==status ) {
+        } else if (orderStatus == status ) {
             return false;
         } else if ((status == 3 || status == 4 || status == 5 || status == 8) && (payment_status ==1 || payment_status ==3)) {
            alert("This order payment has been not done so you can't change status");
@@ -450,18 +574,18 @@ $pageSizes = [10, 15, 20, 50, 100];
             $("#myModal").modal('show');
             var url ='<?php echo $BASE_URL ?>admin/Orders/getOrderData/'+order_id+'/'+status;
             $.ajax({
-                   type: "GET",
-                   url: url,
-                    success: function(data)
-                    {
-                           $("#loader-img").hide();
-                        $("#order_id").val(order_id);
-                        $("#status").val(status);
-                        $("#page_status").val(page_status);
-                        $("#order_id_new").val(order_id_new);
-                        $("#btnSubmit").attr("disabled",false);
-                        $("#myModalBody").html(data);
-                    }
+                type: "GET",
+                url: url,
+                success: function(data)
+                {
+                    $("#loader-img").hide();
+                    $("#order_id").val(order_id);
+                    $("#status").val(status);
+                    $("#page_status").val(page_status);
+                    $("#order_id_new").val(order_id_new);
+                    $("#btnSubmit").attr("disabled",false);
+                    $("#myModalBody").html(data);
+                }
             });
         }
     }
@@ -471,19 +595,18 @@ $pageSizes = [10, 15, 20, 50, 100];
         var form = $(this);
         var formsubmit=true;
         $("#btnSubmit").attr("disabled",true);
-        var order_id =$("#order_id").val();
-        var status =$("#status").val();
-        var page_status =$("#page_status").val();
-        var order_id_new =$("#order_id_new").val();
+        var order_id = $("#order_id").val();
+        var status = $("#status").val();
+        var page_status = $("#page_status").val();
+        var order_id_new = $("#order_id_new").val();
 
-        if (formsubmit==true) {
+        if (formsubmit == true) {
             $("#loader-img").show();
             var url ='<?php echo $BASE_URL ?>admin/Orders/changeOrderStatus';
             $.ajax({
                 type: "POST",
                 url: url,
                 data: form.serialize(), // serializes the form's elements.
-
                 success: function(data)
                 {
                     $("#loader-img").hide();
@@ -492,9 +615,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                     var msg = json.msg;
 
                     if (res == 1) {
-                        var grid = $('#orders-grid').data('kendoGrid');
-                        grid.dataSource.page(grid.dataSource.page());
-
+                        refreshGrid('orders-grid');
                         if (page_status == 'all') {
                             if (status == '3') {
                             $("#td-" + order_id).html('<?php echo getOrderSatusClass(3)?>');
@@ -512,14 +633,12 @@ $pageSizes = [10, 15, 20, 50, 100];
                         $("#MsgError").html('<label style="color:green">'+msg+'</label>');
 
                         setTimeout(function() {
-                                $("#btnSubmit").attr("disabled",false);
+                            $("#btnSubmit").attr("disabled",false);
 
-                                $("#MsgError").html('');
-                                $("#myModal").modal('hide');
-                                var grid = $('#orders-grid').data('kendoGrid');
-                                grid.dataSource.page(grid.dataSource.page());
-                            }, 2000
-                        );
+                            $("#MsgError").html('');
+                            $("#myModal").modal('hide');
+                            refreshGrid('orders-grid');
+                        }, 2000);
                     } else {
                         $("#btnSubmit").attr("disabled",false);
                         $("#MsgError").html('<label style="color:red">'+msg+'</label>');
@@ -546,36 +665,35 @@ $pageSizes = [10, 15, 20, 50, 100];
         var form = $(this);
         var formsubmit=true;
         $("#btnSubmit").attr("disabled",true);
-        var order_id =$("#payment_order_id").val();
-        var payment_status =$("#payment_status").val();
-        var payment_type =$("#payment_type").val();
-        var transition_id =$("#transition_id").val();
+        var order_id = $("#payment_order_id").val();
+        var payment_status = $("#payment_status").val();
+        var payment_type = $("#payment_type").val();
+        var transition_id = $("#transition_id").val();
 
-        if (formsubmit==true) {
+        if (formsubmit == true) {
             $("#loader-img").show();
             var url ='<?php echo $BASE_URL ?>admin/Orders/changeOrderPaymentStatus';
             $.ajax({
-                   type: "POST",
-                   url: url,
-                   data: form.serialize(), // serializes the form's elements.
+                type: "POST",
+                url: url,
+                data: form.serialize(), // serializes the form's elements.
 
-                   success: function(data)
-                   {
-                        $("#loader-img").hide();
-                        var json = JSON.parse(data);
-                        var res=json.status;
-                        var msg=json.msg;
-                        if (res == 1) {
-                            var grid = $('#orders-grid').data('kendoGrid');
-                            grid.dataSource.page(grid.dataSource.page());
-                        } else {
-                            $("#PbtnSubmit").attr("disabled",false);
-                            $("#PMsgError").html('<label style="color:red">' + msg + '</label>');
-                        }
-                   },
-                   error: function (error) {
-                      $("#PbtnSubmit").attr("disabled",false);
-                   }
+                success: function(data)
+                {
+                    $("#loader-img").hide();
+                    var json = JSON.parse(data);
+                    var res=json.status;
+                    var msg=json.msg;
+                    if (res == 1) {
+                        refreshGrid('orders-grid');
+                    } else {
+                        $("#PbtnSubmit").attr("disabled",false);
+                        $("#PMsgError").html('<label style="color:red">' + msg + '</label>');
+                    }
+                },
+                error: function (error) {
+                    $("#PbtnSubmit").attr("disabled",false);
+                }
             });
         } else {
             $("#PbtnSubmit").attr("disabled",false);
@@ -583,18 +701,18 @@ $pageSizes = [10, 15, 20, 50, 100];
     });
 
     function OrderTracking(order_id) {
-        if (order_id =='') {
+        if (order_id == '') {
             return false;
         } else {
             $("#OrderTracking").modal('show');
             var url ='<?php echo $BASE_URL ?>admin/Orders/OrderTracking/'+order_id;;
             $.ajax({
-                   type: "GET",
-                   url: url,
-                    success: function(data)
-                    {
-                        $("#OrderTrackingModalBody").html(data);
-                    }
+                type: "GET",
+                url: url,
+                success: function(data)
+                {
+                    $("#OrderTrackingModalBody").html(data);
+                }
             });
         }
     }

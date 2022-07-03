@@ -78,3 +78,24 @@ function sina_price(string $token, int $product_id, array $options, string $stor
     $url = $sina['endpoint'] . "/price/$product_id/$store";
     return curl_helper($url, 'post', ['productOptions' => $options], $token);
 }
+
+function sina_order_shippingEstimate($items, $shippingInfo, $token)
+{
+    $sina = config_item('sina');
+    $url = $sina['endpoint'] . "/order/shippingEstimate";
+    return curl_helper($url, 'post', [
+        'items' => $items,
+        'shippingInfo' => $shippingInfo,
+        ], $token);
+}
+
+function sina_order_new($items, $shippingInfo, $billingInfo, $token)
+{
+    $sina = config_item('sina');
+    $url = $sina['endpoint'] . "/order/new";
+    return curl_helper($url, 'post', [
+        'items' => $items,
+        'shippingInfo' => $shippingInfo,
+        'billingInfo' => $billingInfo,
+        ], $token);
+}

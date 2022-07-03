@@ -9,13 +9,16 @@ class Orders extends Admin_Controller
         parent::__construct();
         $this->class_name = 'admin/'.ucfirst(strtolower($this->router->fetch_class())).'/';
         $this->data['class_name'] = $this->class_name;
+
+        $this->load->model('Address_Model');
+        $this->load->model('Product_Model');
+        $this->load->model('ProductOrder_Model');
+        $this->load->model('Provider_Model');
+        $this->load->model('Store_Model');
     }
 
     public function index($status = null, $user_id = null)
     {
-        $this->load->model('ProductOrder_Model');
-        $this->load->model('Address_Model');
-
         $this->data['page_title'] =ucfirst($status).' Orders';
         $this->data['page_status']  = $status;
         $this->data['sub_page_view_url'] = 'viewOrder';
@@ -28,7 +31,6 @@ class Orders extends Admin_Controller
 
         $lists = $this->ProductOrder_Model->getOrderList($status, $user_id, $fromDate, $toDate);
 
-        $this->load->model('Store_Model');
         $StoreList = $this->Store_Model->getAllStoreList();
         $this->data['StoreList'] = $StoreList;
         #pr($StoreList, 1);
@@ -43,7 +45,6 @@ class Orders extends Admin_Controller
     }
 
     public function personaliseDetail() {
-        $this->load->model('ProductOrder_Model');
         $id = $this->input->post('id');
         $data = $this->ProductOrder_Model->personaliseDetail($id);
         echo json_encode($data);
@@ -51,7 +52,6 @@ class Orders extends Admin_Controller
 
     public function changeOrderStatus($id = null, $status = null)
     {
-        $this->load->model('Address_Model');
         $id = $this->input->post('order_id');
         $status = $this->input->post('status');
         $emailMsg = $this->input->post('emailMsg');
@@ -61,8 +61,6 @@ class Orders extends Admin_Controller
                  if ($status != 4) {
                     $postData['status'] = $status;
                 }
-                $this->load->model('ProductOrder_Model');
-                $this->load->model('Store_Model');
                 if ($this->ProductOrder_Model->saveProductOrder($postData))
                 {
                     $orderData = $this->ProductOrder_Model->getProductOrderDataById($id);
@@ -316,9 +314,6 @@ class Orders extends Admin_Controller
                 $postData['payment_type'] = $payment_type;
                 $postData['transition_id'] = $transition_id;
 
-                $this->load->model('ProductOrder_Model');
-                $this->load->model('Store_Model');
-
                 if ($this->ProductOrder_Model->saveProductOrder($postData))
                 {
                     $json['status'] = 1;
@@ -415,18 +410,16 @@ class Orders extends Admin_Controller
 
     public function deleteOrder($id = null, $page_status)
     {
-        $this->load->model('ProductOrder_Model');
-
-         if (!empty($id)) {
-                $page_title = 'Order Delete';
-                if ($this->ProductOrder_Model->deleteProductOrder($id, 2))
-                {
-                    $this->session->set_flashdata('message_success', $page_title.' Successfully.');
-                }
-                else
-                {
-                    $this->session->set_flashdata('message_error', $page_title.' Unsuccessfully.');
-                }
+        if (!empty($id)) {
+            $page_title = 'Order Delete';
+            if ($this->ProductOrder_Model->deleteProductOrder($id, 2))
+            {
+                $this->session->set_flashdata('message_success', $page_title.' Successfully.');
+            }
+            else
+            {
+                $this->session->set_flashdata('message_error', $page_title.' Unsuccessfully.');
+            }
         } else {
             $this->session->set_flashdata('message_error', 'Missing information.');
         }
@@ -437,7 +430,6 @@ class Orders extends Admin_Controller
     public function getOrdersByStatus($status = null)
     {
         $status = base64_decode($status);
-        $this->load->model('ProductOrder_Model');
         $lists = $this->ProductOrder_Model->getOrdersByStatus($status);
         $data['lists'] = $lists;
         $data['BASE_URL'] = base_url();
@@ -448,96 +440,92 @@ class Orders extends Admin_Controller
 
     public function getOrderData($id, $status)
     {
-            $this->load->model('ProductOrder_Model');
-            $this->load->model('Store_Model');
-            $orderData = $this->ProductOrder_Model->getProductOrderDataById($id);
-            $order_id = $orderData['order_id'];
-            $toEmail = $orderData['email'];
-            $name = $orderData['name'];
+        $orderData = $this->ProductOrder_Model->getProductOrderDataById($id);
+        $order_id = $orderData['order_id'];
+        $toEmail = $orderData['email'];
+        $name = $orderData['name'];
 
-            $store_id = $orderData['store_id'];
-            $StoreData = $this->Store_Model->getStoreDataById($store_id);
+        $store_id = $orderData['store_id'];
+        $StoreData = $this->Store_Model->getStoreDataById($store_id);
 
-            $store_url    = $StoreData['url'];
-            $store_phone  = $StoreData['phone'];
-            $store_email  = $StoreData['email'];
-            $from_name    = $StoreData['name'];
-            $from_email   = $StoreData['from_email'];
-            $admin_email1 = $StoreData['admin_email1'];
-            $admin_email2 = $StoreData['admin_email2'];
-            $admin_email3 = $StoreData['admin_email3'];
-            $order_id = $orderData['order_id'];
+        $store_url    = $StoreData['url'];
+        $store_phone  = $StoreData['phone'];
+        $store_email  = $StoreData['email'];
+        $from_name    = $StoreData['name'];
+        $from_email   = $StoreData['from_email'];
+        $admin_email1 = $StoreData['admin_email1'];
+        $admin_email2 = $StoreData['admin_email2'];
+        $admin_email3 = $StoreData['admin_email3'];
+        $order_id = $orderData['order_id'];
 
-            if ($status == 3) {
-                $webMsg = "Your order $order_id is being processed. We will let you know when your items are on their way";
-            } else  if ($status == 4) {
-                $webMsg = "Great news your order $order_id  is on the way! If you have any questions, please contact us or call us at ($store_phone, $from_email) Please do not reply to this email as it does not accommodate replies.For more details contact us on $store_phone";
-            } else  if ($status == 9) {
-                $webMsg = "Great news your order $order_id  is Ready for pickup! If you have any questions, please contact us or call us at ($store_phone, $from_email) Please do not reply to this email as it does not accommodate replies.For more details contact us on $store_phone";
-            } else  if ($status == 5) {
-                $webMsg = "We are pleased to inform you that Your Order $order_id items has been delivered sucessfully. I hope you’re enjoying your shopping with $from_name. We hope you have a lovely day! For today s deal: $store_url";
-            } else  if ($status == 6) {
-                $webMsg = "Sorry to inform you that we have cancelled your order $order_id The reason Indicated below. Cancellation Reason :  If you have any questions, please contact us or call us at ($store_phone, $store_email) Please do not reply to this email as it does not accommodate replies.";
-            }
+        if ($status == 3) {
+            $webMsg = "Your order $order_id is being processed. We will let you know when your items are on their way";
+        } else  if ($status == 4) {
+            $webMsg = "Great news your order $order_id  is on the way! If you have any questions, please contact us or call us at ($store_phone, $from_email) Please do not reply to this email as it does not accommodate replies.For more details contact us on $store_phone";
+        } else  if ($status == 9) {
+            $webMsg = "Great news your order $order_id  is Ready for pickup! If you have any questions, please contact us or call us at ($store_phone, $from_email) Please do not reply to this email as it does not accommodate replies.For more details contact us on $store_phone";
+        } else  if ($status == 5) {
+            $webMsg = "We are pleased to inform you that Your Order $order_id items has been delivered sucessfully. I hope you’re enjoying your shopping with $from_name. We hope you have a lovely day! For today s deal: $store_url";
+        } else  if ($status == 6) {
+            $webMsg = "Sorry to inform you that we have cancelled your order $order_id The reason Indicated below. Cancellation Reason :  If you have any questions, please contact us or call us at ($store_phone, $store_email) Please do not reply to this email as it does not accommodate replies.";
+        }
 
-            $html = '<div id="MsgError"></div>
-            <div class="col-xs-12">
-                <div class="form-group">
-                    <label for="InputMessage" class="col-lg-12 control-label">Email Message</label>
-                    <div class="col-lg-12">
-                        <textarea name="emailMsg" id="webMsg" class="form-control" rows="5" required>'.$webMsg.'</textarea>
-                    </div>
+        $html = '<div id="MsgError"></div>
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label for="InputMessage" class="col-lg-12 control-label">Email Message</label>
+                <div class="col-lg-12">
+                    <textarea name="emailMsg" id="webMsg" class="form-control" rows="5" required>'.$webMsg.'</textarea>
                 </div>
-            </div>';
-            echo $html;
-            exit();
+            </div>
+        </div>';
+        echo $html;
+        exit();
     }
 
     public function OrderTracking($id)
     {
-            $this->load->model('ProductOrder_Model');
-            $orderData = $this->ProductOrder_Model->getProductOrderDataById($id);
-            $order_id = $orderData['order_id'];
-            $store_id = $orderData['store_id'];
-            $StoreData = $this->Store_Model->getStoreDataById($store_id);
-            $flagShipTrackingData = FlagShipTracking($orderData, $StoreData);
-             if ($flagShipTrackingData['status'] == 1) {
-                $data = $flagShipTrackingData['data'];
-                $shipment = $data->shipment;
+        $orderData = $this->ProductOrder_Model->getProductOrderDataById($id);
+        $order_id = $orderData['order_id'];
+        $store_id = $orderData['store_id'];
+        $StoreData = $this->Store_Model->getStoreDataById($store_id);
+        $flagShipTrackingData = FlagShipTracking($orderData, $StoreData);
+        if ($flagShipTrackingData['status'] == 1) {
+            $data = $flagShipTrackingData['data'];
+            $shipment = $data->shipment;
 
-                $html = '<div id="MsgError"></div>
-                <div class="col-xs-12">
-                    <div class="form-group">
-                        <div class="col-lg-12">
-                        <p>Shipment Date:'.$shipment->options->shipping_date.'</p>
-                        </hr>';
-                        if (!empty($shipment->service->estimated_delivery_date)) {
-                           $html.'<p>Estimated Delivery Date:'.$shipment->options->shipping_date.'</p></hr>';
-                        }
-                        $html .= '<p>Tracking Status</p>';
-                        $transit_details = $shipment->transit_details;
-                        foreach ($transit_details as $val) {
-                            $html .= '<p>'.$val->last_update.' '.FlagShipTrackingStatus($val->status).' '.$val->message.'</p>';
-                        }
-                        $html .= '</div>
+            $html = '<div id="MsgError"></div>
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <div class="col-lg-12">
+                    <p>Shipment Date:'.$shipment->options->shipping_date.'</p>
+                    </hr>';
+                    if (!empty($shipment->service->estimated_delivery_date)) {
+                        $html.'<p>Estimated Delivery Date:'.$shipment->options->shipping_date.'</p></hr>';
+                    }
+                    $html .= '<p>Tracking Status</p>';
+                    $transit_details = $shipment->transit_details;
+                    foreach ($transit_details as $val) {
+                        $html .= '<p>'.$val->last_update.' '.FlagShipTrackingStatus($val->status).' '.$val->message.'</p>';
+                    }
+                    $html .= '</div>
+                </div>
+            </div>';
+        } else {
+            $html = '<div id="MsgError"></div>
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <div class="col-lg-12">
+                    '.$flagShipTrackingData['msg'].'
                     </div>
-                </div>';
-            } else {
-                $html = '<div id="MsgError"></div>
-                <div class="col-xs-12">
-                    <div class="form-group">
-                        <div class="col-lg-12">
-                        '.$flagShipTrackingData['msg'].'
-                        </div>
-                    </div>
-                </div>';
-            }
-            echo $html;
-            exit();
+                </div>
+            </div>';
+        }
+        echo $html;
+        exit();
     }
 
     public function exportCSV($status = null, $user_id = null, $fromDate = null, $toDate = null) {
-        $this->load->model('ProductOrder_Model');
         // file name
         $filename = 'order-'.date('d').'-'.date('m').'-'.date('Y').'.csv';
         header("Content-Description: File Transfer");
@@ -581,9 +569,6 @@ class Orders extends Admin_Controller
 
     public function viewOrder($id)
     {
-        $this->load->model('Product_Model');
-        $this->load->model('ProductOrder_Model');
-        $this->load->model('Address_Model');
         $orderData = $this->ProductOrder_Model->getProductOrderDataById($id);
         $OrderItemData = $this->ProductOrder_Model->getProductOrderItemDataById($id);
 
@@ -592,7 +577,6 @@ class Orders extends Admin_Controller
         $cityData = $this->Address_Model->getCityById($orderData['billing_city']);
         $salesTaxRatesProvinces_Data = $this->Address_Model->salesTaxRatesProvincesById($orderData['billing_state']);
 
-        $this->load->model('Store_Model');
         $StoreList = $this->Store_Model->getAllStoreList();
         $this->data['StoreList'] = $StoreList;
 
@@ -883,7 +867,6 @@ class Orders extends Admin_Controller
     }
 
     function getProductList($fl = false) {
-        $this->load->model('Product_Model');
         $data['BASE_URL'] =  base_url();
          if ($fl) {
             return $this->load->view($this->class_name.'get_product_html', $data, true);
@@ -894,8 +877,6 @@ class Orders extends Admin_Controller
     }
 
     function calculatePrice() {
-       $this->load->model('Product_Model');
-
        $response = array();
        $product_id = $this->input->post('product_id');
        $price = $this->input->post('price');
@@ -1028,15 +1009,10 @@ class Orders extends Admin_Controller
     }
 
     function getSizeOptions($product_id_key, $product_id, $product_quantity_id = null, $product_size_id = null, $fl = 0) {
-        $this->load->model('Product_Model');
         $ProductSizes = $this->Product_Model->ProductSizeListDropDwon($product_id);
-
         $options_size_first = $options_ncr_number_parts_first  = $stock_first  = $paper_quality_first  = $diameter_first = $shape_paper_first = $color_first  = $grommets_first = '<option value="">Choose an option...</option>';
-
         $options_size = $options_ncr_number_parts = $stock = $paper_quality = $diameter = $shape_paper = $color = $grommets = '';
-
         $options_size_show = $ncr_number_parts_show = $stock_show = $paper_quality_show = $color_show = $diameter_show = $shape_paper_show = $grommets_show = false;
-
         $size_disabled = true;
 
          if (!empty($product_quantity_id) && !empty($product_size_id)) {
@@ -1299,7 +1275,6 @@ class Orders extends Admin_Controller
 
     function GetQuantity()
     {
-        $this->load->model('Product_Model');
         $product_id = $this->input->post('product_id');
         $price = $this->input->post('price');
         $quantity = $this->input->post('quantity');
@@ -1396,15 +1371,14 @@ class Orders extends Admin_Controller
         $quantity = $this->input->post('quantity');
         $price = $this->input->post('price');
 
-           $product_size_id = $this->input->post('product_size_id');
-           $add_length_width = $this->input->post('add_length_width');
-           $product_size_quantity = $this->input->post('product_size_quantity');
-           $product_size_ncr_number_parts = $this->input->post('product_size_ncr_number_parts');
+        $product_size_id = $this->input->post('product_size_id');
+        $add_length_width = $this->input->post('add_length_width');
+        $product_size_quantity = $this->input->post('product_size_quantity');
+        $product_size_ncr_number_parts = $this->input->post('product_size_ncr_number_parts');
 
-           $product_size_paper_size = $this->input->post('product_size_paper_size');
+        $product_size_paper_size = $this->input->post('product_size_paper_size');
 
         $product_id_key = $this->input->post('product_id_key');
-        $this->load->model('Product_Model');
 
          if (isset($_SESSION['product_list'][$product_id_key])) {
               $productData = $this->Product_Model->getProductDataById($product_id);
@@ -1655,7 +1629,6 @@ class Orders extends Admin_Controller
     }
 
     function orderinformation() {
-        $this->load->model('Address_Model');
         $data = array();
         $sub_total        = isset($_SESSION['sub_total']) ? $_SESSION['sub_total']:0;
         $shipping_fee     = isset($_SESSION['shipping_fee']) ? $_SESSION['shipping_fee']:0;
@@ -1711,7 +1684,6 @@ class Orders extends Admin_Controller
     }
 
     function getCityDropDownListByAjax($state_id) {
-        $this->load->model('Address_Model');
         $options = '<option value="">--Select City--</option>';
          if (!empty($state_id)) {
             $stateList = $this->Address_Model->getCity($state_id);
@@ -1836,7 +1808,6 @@ class Orders extends Admin_Controller
                 force_download (urldecode($name), $data);
                 exit();
             } else {
-                $this->load->model('ProductOrder_Model');
                 $orderData = $this->ProductOrder_Model->getProductOrderDataById($id);
                 $this->getOrderInvoicePdf($id, $orderData['store_id']);
                 $this->getOrderPdf($id, $orderData['store_id']);
@@ -1850,10 +1821,7 @@ class Orders extends Admin_Controller
     }
 
     function UpdateOrderStatus($orderData = array()) {
-        $this->load->model('ProductOrder_Model');
-        $this->load->model('Product_Model');
         $this->load->model('User_Model');
-        $this->load->model('Address_Model');
 
         $id = str_replace(ORDER_ID_PREFIX, '', $orderData['order_id']);
         $orderData['id'] = (int)$id;
@@ -1959,7 +1927,6 @@ class Orders extends Admin_Controller
         $pageSize = $this->input->post('pageSize');
         $take = $pageSize;
         $skip = $pageSize * ($page - 1);
-        $this->load->model('ProductOrder_Model');
         $this->ProductOrder_Model->getOrders($status, $user_id, $from, $to, $take, $skip, $data, $total);
 
         $gridModel = [
@@ -1972,5 +1939,140 @@ class Orders extends Admin_Controller
         return $this->output
             ->set_content_type('application/json')
             ->set_output(json_encode($gridModel));
+    }
+
+    public function sinaShipMethods()
+    {
+        $id = $this->input->post('id');
+
+        $order = $this->ProductOrder_Model->getOrder($id);
+        $token = $this->sina_access_token();
+
+        $provider = $this->Provider_Model->getProvider('sina');
+        $items = [];
+        foreach ($order->items as $item) {
+            $itemInfo = json_decode($item->attribute_ids);
+            $attributes = $this->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_attribute_ids);
+            $options = [];
+            foreach ($attributes as $attribute)
+                $options[$attribute->name] = $attribute->value_id;
+            $items[] = [
+                'productId' => $itemInfo->provider_product_id,
+                'options' => $options,
+            ];
+        }
+
+        $country = (object) $this->Address_Model->getCountryById($order->shipping_country);
+        $state = (object) $this->Address_Model->getStateById($order->shipping_state);
+
+        $name = $order->shipping_name ? $order->shipping_name : $order->name;
+        $names = $name ? explode(' ', $name) : [];
+        $shippingInfo = [
+            'ShipState' => $state ? $state->iso2 : '',
+            'ShipZip' => $order->shipping_pin_code,
+            'ShipCountry' => $country ? $country->iso2 : null,
+        ];
+        $response = sina_order_shippingEstimate(
+            $items, $shippingInfo, $token
+        );
+
+        if ($response->statusCode == 200) {
+            $data = [];
+            foreach ($response->body as $item) {
+                $data[] = [
+                    'type' => $item[0],
+                    'name' => $item[1],
+                    'price' => $item[2],
+                    'quantity' => $item[3],
+                ];
+            }
+            $gridModel = [
+                'extra_data' => null,
+                'data' => $data,
+                'errors' => null,
+                'total' => count($data),
+            ];
+        } else {
+            $gridModel = [
+                'extra_data' => null,
+                'data' => [],
+                'errors' => $response->body,
+                'total' => 0,
+            ];
+        }
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($gridModel));
+    }
+
+    public function sendToSina()
+    {
+        $id = $this->input->post('id');
+        $ship_method = $this->input->post('ship_method');
+
+        $order = $this->ProductOrder_Model->getOrder($id);
+        $token = $this->sina_access_token();
+
+        $provider = $this->Provider_Model->getProvider('sina');
+        $items = [];
+        foreach ($order->items as $item) {
+            $itemInfo = json_decode($item->attribute_ids);
+            $attributes = $this->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_attribute_ids);
+            $options = [];
+            foreach ($attributes as $attribute)
+                $options[$attribute->name] = $attribute->value_id;
+            $items[] = [
+                'productId' => $itemInfo->provider_product_id,
+                'options' => $options,
+            ];
+        }
+
+        $country = (object) $this->Address_Model->getCountryById($order->shipping_country);
+        $state = (object) $this->Address_Model->getStateById($order->shipping_state);
+        $city = (object) $this->Address_Model->getCityById($order->shipping_city);
+
+        $name = $order->shipping_name ? $order->shipping_name : $order->name;
+        $names = $name ? explode(' ', $name) : [];
+        $shippingInfo = [
+            'ShipFName' => count($names) > 0 ? $names[0] : null,
+            'ShipLName' => count($names) > 1 ? implode(' ', array_slice($names, 1)) : null,
+            'ShipEmail' => $order->email,
+            'ShipAddr' => $order->shipping_address,
+            'ShipAddr2' => null,
+            'ShipCity' => $city ? $city->name : null,
+            'ShipState' => $state ? $state->iso2 : '',
+            'ShipZip' => $order->shipping_pin_code,
+            'ShipCountry' => $country ? $country->iso2 : null,
+            'ShipPhone' => $order->shipping_mobile ? $order->shipping_mobile : $order->mobile,
+            'ShipMethod' => $ship_method,
+        ];
+
+        $country = (object) $this->Address_Model->getCountryById($order->billing_country);
+        $state = (object) $this->Address_Model->getStateById($order->billing_state);
+        $city = (object) $this->Address_Model->getCityById($order->billing_city);
+
+        $name = $order->billing_name ? $order->billing_name : $order->name;
+        $names = $name ? explode(' ', $name) : [];
+        $billingInfo = [
+            'BillFName' => count($names) > 0 ? $names[0] : null,
+            'BillLName' => count($names) > 1 ? implode(' ', array_slice($names, 1)) : null,
+            'BillEmail' => $order->email,
+            'BillAddr' => $order->billing_address,
+            'BillAddr2' => null,
+            'BillCity' => $city ? $city->name : null,
+            'BillState' => $state ? $state->iso2 : '',
+            'BillZip' => $order->billing_pin_code,
+            'BillCountry' => $country ? $country->iso2 : null,
+            'BillPhone' => $order->billing_mobile ? $order->billing_mobile : $order->mobile,
+        ];
+
+        $response = sina_order_new(
+            $items, $shippingInfo, $billingInfo, $token
+        );
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($response));
     }
 }

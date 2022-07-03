@@ -326,4 +326,15 @@ Class Provider_Model extends MY_Model {
         $this->db->order_by('provider_attributes.type, provider_product_attributes.id');
         return $this->db->get()->result();
     }
+
+    public function getAttributesByValueIds($provider_id, $provider_product_id, $value_ids)
+    {
+        $this->db->select('provider_attributes.*, provider_product_attributes.value_id');
+        $this->db->from('provider_product_attributes');
+        $this->db->join('provider_attributes', 'provider_attributes.id = provider_product_attributes.provider_attribute_id');
+        $this->db->where('provider_product_attributes.provider_id', $provider_id);
+        $this->db->where('provider_product_attributes.provider_product_id', $provider_product_id);
+        $this->db->where_in('provider_product_attributes.value_id', $value_ids);
+        return $this->db->get()->result();
+    }
 }
