@@ -382,7 +382,7 @@ $pageSizes = [10, 15, 20, 50, 100];
             to_no: $('#order-search-form #to_no').val(),
             from: $('#order-search-form #from').val(),
             to: $('#order-search-form #to').val(),
-            status: $('#status').data('kendoMultiSelect').value(),
+            status: $('#order-search-form #status').data('kendoMultiSelect').value(),
         };
     }
 
@@ -590,19 +590,19 @@ $pageSizes = [10, 15, 20, 50, 100];
            return false;
         } else {
             $("#myModal").modal('show');
-            var url ='<?php echo $BASE_URL ?>admin/Orders/getOrderData/'+order_id+'/'+status;
+            var url ='<?=$BASE_URL?>admin/Orders/getOrderData/' + order_id + '/' + status;
             $.ajax({
                 type: "GET",
                 url: url,
                 success: function(data)
                 {
                     $("#loader-img").hide();
-                    $("#order_id").val(order_id);
-                    $("#status").val(status);
-                    $("#page_status").val(page_status);
-                    $("#order_id_new").val(order_id_new);
-                    $("#btnSubmit").attr("disabled",false);
-                    $("#myModalBody").html(data);
+                    $("#myModal #order_id").val(order_id);
+                    $("#myModal #status").val(status);
+                    $("#myModal #page_status").val(page_status);
+                    $("#myModal #order_id_new").val(order_id_new);
+                    $("#myModal #btnSubmit").attr("disabled",false);
+                    $("#myModal #myModalBody").html(data);
                 }
             });
         }
@@ -613,14 +613,14 @@ $pageSizes = [10, 15, 20, 50, 100];
         var form = $(this);
         var formsubmit=true;
         $("#btnSubmit").attr("disabled",true);
-        var order_id = $("#order_id").val();
-        var status = $("#status").val();
-        var page_status = $("#page_status").val();
-        var order_id_new = $("#order_id_new").val();
+        var order_id = $("#myModal #order_id").val();
+        var status = $("#myModal #status").val();
+        var page_status = $("#myModal #page_status").val();
+        var order_id_new = $("#myModal #order_id_new").val();
 
         if (formsubmit == true) {
             $("#loader-img").show();
-            var url ='<?php echo $BASE_URL ?>admin/Orders/changeOrderStatus';
+            var url ='<?=$BASE_URL?>admin/Orders/changeOrderStatus';
             $.ajax({
                 type: "POST",
                 url: url,
@@ -636,16 +636,16 @@ $pageSizes = [10, 15, 20, 50, 100];
                         refreshGrid('orders-grid');
                         if (page_status == 'all') {
                             if (status == '3') {
-                            $("#td-" + order_id).html('<?php echo getOrderSatusClass(3)?>');
+                            $("#td-" + order_id).html('<?=getOrderSatusClass(3)?>');
                             } else if (status == '4') {
-                                $("#td-"+order_id).html('<?php echo getOrderSatusClass(4)?>');
+                                $("#td-" + order_id).html('<?=getOrderSatusClass(4)?>');
                             } else if (status == '5') {
-                            $("#td-"+order_id).html('<?php echo getOrderSatusClass(5)?>');
+                            $("#td-" + order_id).html('<?=getOrderSatusClass(5)?>');
                             } else if (status == '6') {
-                                $("#td-"+order_id).html('<?php echo getOrderSatusClass(6)?>');
+                                $("#td-" + order_id).html('<?=getOrderSatusClass(6)?>');
                             }
                         } else {
-                            $("#row-"+order_id).remove();
+                            $("#row-" + order_id).remove();
                         }
 
                         $("#MsgError").html('<label style="color:green">'+msg+'</label>');
@@ -690,7 +690,7 @@ $pageSizes = [10, 15, 20, 50, 100];
 
         if (formsubmit == true) {
             $("#loader-img").show();
-            var url ='<?php echo $BASE_URL ?>admin/Orders/changeOrderPaymentStatus';
+            var url ='<?=$BASE_URL?>admin/Orders/changeOrderPaymentStatus';
             $.ajax({
                 type: "POST",
                 url: url,
@@ -723,7 +723,7 @@ $pageSizes = [10, 15, 20, 50, 100];
             return false;
         } else {
             $("#OrderTracking").modal('show');
-            var url ='<?php echo $BASE_URL ?>admin/Orders/OrderTracking/'+order_id;;
+            var url ='<?=$BASE_URL?>admin/Orders/OrderTracking/'+order_id;;
             $.ajax({
                 type: "GET",
                 url: url,
