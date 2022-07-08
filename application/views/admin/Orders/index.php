@@ -37,17 +37,17 @@ $pageSizes = [10, 15, 20, 50, 100];
                                 <div class="row align-items-end">
                                     <div class="col-md-4 col-ms-6 col-6">
                                         <div class="form-group">
-                                            <label class="col-sm-3 control-label" for="from">From Date</label>
+                                            <label class="col-sm-3 control-label" for="from">From #</label>
                                             <div class="col-md-9 col-sm-9">
-                                                <?php $this->load->view('admin/shared/date_nullable', ['name' => 'from', 'value' => $this->input->get('from')]); ?>
+                                                <input class="form-control" type="text" value="<?=$this->input->get('from_no')?>" id="from_no" name="from_no">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-ms-6 col-6">
                                         <div class="form-group">
-                                            <label class="col-sm-3 control-label" for="to">From Date</label>
+                                            <label class="col-sm-3 control-label" for="to">To #</label>
                                             <div class="col-md-9 col-sm-9">
-                                                <?php $this->load->view('admin/shared/date_nullable', ['name' => 'to', 'value' => $this->input->get('to')]); ?>
+                                                <input class="form-control" type="text" value="<?=$this->input->get('to_no')?>" id="to_no" name="to_no">
                                             </div>
                                         </div>
                                     </div>
@@ -67,6 +67,22 @@ $pageSizes = [10, 15, 20, 50, 100];
                             </div>
                         </div>
                         <div class="collapse" id="filterCollapse">
+                            <div class="drop-filters-container w-100">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="from">From Date</label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <?php $this->load->view('admin/shared/date_nullable', ['name' => 'from', 'value' => $this->input->get('from')]); ?>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="drop-filters-container w-100">
+                                <div class="form-group">
+                                    <label class="col-sm-3 control-label" for="to">To Date</label>
+                                    <div class="col-md-9 col-sm-9">
+                                        <?php $this->load->view('admin/shared/date_nullable', ['name' => 'to', 'value' => $this->input->get('to')]); ?>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="drop-filters-container w-100">
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="status">Order Status</label>
@@ -362,6 +378,8 @@ $pageSizes = [10, 15, 20, 50, 100];
 
     function additionalData() {
         return {
+            from_no: $('#order-search-form #from_no').val(),
+            to_no: $('#order-search-form #to_no').val(),
             from: $('#order-search-form #from').val(),
             to: $('#order-search-form #to').val(),
             status: $('#status').data('kendoMultiSelect').value(),

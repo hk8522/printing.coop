@@ -1921,13 +1921,15 @@ class Orders extends Admin_Controller
     public function list()
     {
         $status = $this->input->post('status');
+        $from_no = $this->input->post('from_no');
+        $to_no = $this->input->post('to_no');
         $from = $this->input->post('from');
         $to = $this->input->post('to');
         $page = $this->input->post('page');
         $pageSize = $this->input->post('pageSize');
         $take = $pageSize;
         $skip = $pageSize * ($page - 1);
-        $this->ProductOrder_Model->getOrders($status, $user_id, $from, $to, $take, $skip, $data, $total);
+        $this->ProductOrder_Model->getOrders($status, $user_id, $from_no, $to_no, $from, $to, $take, $skip, $data, $total);
 
         $gridModel = [
             'extra_data' => null,

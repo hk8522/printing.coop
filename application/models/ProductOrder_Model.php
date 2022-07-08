@@ -311,20 +311,24 @@ Class ProductOrder_Model extends MY_Model {
         return $order;
     }
 
-    public function getOrders($status, $user_id, $from, $to, $take, $skip, &$data, &$total)
+    public function getOrders($status, $user_id, $from_no, $to_no, $from, $to, $take, $skip, &$data, &$total)
     {
-        $where = array('admin_delete' => 1);
+        $where = array('product_orders.admin_delete' => 1);
         if (!empty($user_id))
-            $where['user_id'] = $user_id;
+            $where['product_orders.user_id'] = $user_id;
+        if (!empty($from_no))
+           $where['product_orders.id >='] = $from_no;
+        if (!empty($to_no))
+           $where['product_orders.id <='] = $to_no;
         if (!empty($from))
-           $where['order_date >='] = date('Y-m-d', strtotime($from));
+           $where['product_orders.order_date >='] = date('Y-m-d', strtotime($from));
         if (!empty($to))
-           $where['order_date <='] = date('Y-m-d', strtotime($to));
+           $where['product_orders.order_date <='] = date('Y-m-d', strtotime($to));
         if ($status) {
             if (is_array($status) && count($status) > 1)
-                $this->db->where_in('status', $status);
+                $this->db->where_in('product_orders.status', $status);
             else
-                $where['status'] = is_array($status) ? $status[0] : $status;
+                $where['product_orders.status'] = is_array($status) ? $status[0] : $status;
         }
 
         $this->db->select('COUNT(*)');
@@ -336,7 +340,7 @@ Class ProductOrder_Model extends MY_Model {
         $this->db->from($this->table);
         $this->db->join('provider_orders', 'provider_orders.order_id=product_orders.id', 'left');
         $this->db->where($where);
-        $this->db->order_by('created', 'desc');
+        $this->db->order_by('product_orders.created', 'desc');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
         if ($take > 0)
