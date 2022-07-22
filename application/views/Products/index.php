@@ -11,7 +11,7 @@
                                         Catégories
                                     <?php } else { ?>
                                         Categories
-                                    <?php}?>
+                                    <?php } ?>
                                 </span>
                             </div>
                             <?php if ($categories['categories']) {?>
