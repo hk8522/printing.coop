@@ -1982,6 +1982,8 @@ class Orders extends Admin_Controller
             'ShipZip' => $order->shipping_pin_code,
             'ShipCountry' => $country ? $country->iso2 : null,
         ];
+        // echo json_encode([$items, $shippingInfo]);
+        // die();
         $response = sina_order_shippingEstimate(
             $items, $shippingInfo, $token
         );

@@ -394,13 +394,13 @@
                                 <div class="universal-dark-title">
                                     <span><?php echo $stap3Title;?></span>
                                     <?php if ($stap > 3) {
-                                            $stap_old=$stap-1;
-                                          ?>
-                                          <a class="mobile-position" href="<?php echo $BASE_URL?>Checkouts/index/<?php echo base64_encode($stap_old);?>/<?php echo $order_id;?>/<?php echo $product_id;?>/<?php echo $coupon_code; ?>">
-                                                 <button class="btn btn-warning button"  style="float:right;" type="button">Change</button>
-                                          </a>
-                                          <?php
-                                          }?>
+                                        $stap_old=$stap-1;
+                                        ?>
+                                        <a class="mobile-position" href="<?php echo $BASE_URL?>Checkouts/index/<?php echo base64_encode($stap_old);?>/<?php echo $order_id;?>/<?php echo $product_id;?>/<?php echo $coupon_code; ?>">
+                                                <button class="btn btn-warning button"  style="float:right;" type="button">Change</button>
+                                        </a>
+                                        <?php
+                                        }?>
                                 </div>
                             </div>
 

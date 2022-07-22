@@ -336,10 +336,11 @@ Class ProductOrder_Model extends MY_Model {
         $this->db->where($where);
         $total = reset($this->db->get()->row());
 
-        $this->db->select('product_orders.*, provider_orders.provider_order_id');
+        $this->db->select('product_orders.*, provider_orders.provider_order_id, COUNT(DISTINCT(provider_orders.id)) AS provider_order_count');
         $this->db->from($this->table);
         $this->db->join('provider_orders', 'provider_orders.order_id=product_orders.id', 'left');
         $this->db->where($where);
+        $this->db->group_by('product_orders.id');
         $this->db->order_by('product_orders.created', 'desc');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
@@ -347,6 +348,6 @@ Class ProductOrder_Model extends MY_Model {
             $this->db->limit($take, $skip);
         else
             $this->db->offset($skip);
-            $data = $this->db->get()->result();
+        $data = $this->db->get()->result();
     }
 }

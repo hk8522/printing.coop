@@ -209,7 +209,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 title: 'Provider Order #',
                 template: `
                     #if (provider_order_id) {#
-                        <a href="/admin/Orders/provider/#=provider_order_id#">#=provider_order_id#</a>
+                        <a href="/admin/Orders/provider/#=id#">#=provider_order_id##if (provider_order_count > 1) {#...#}#</a>
                     #} else {#
                         <select class="form-control" onchange="if (this.value == 'sina') sendToSina(#=id#);">
                             <option></option>

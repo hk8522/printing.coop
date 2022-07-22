@@ -141,62 +141,62 @@ class Checkouts extends Public_Controller
                 redirect('/');
             }
 
-                    $stateData = $this->Address_Model->getStateById($ProductOrder['shipping_state']);
+            $stateData = $this->Address_Model->getStateById($ProductOrder['shipping_state']);
 
-                    $CountryData = $this->Address_Model->getCountryById($ProductOrder['shipping_country']);
-                    $cityData = $this->Address_Model->getCityById($ProductOrder['shipping_city']);
-                    /*pr($stateData);
-                    pr($CountryData);
-                    pr($cityData);
-                    pr($ProductOrder);*/
+            $CountryData = $this->Address_Model->getCountryById($ProductOrder['shipping_country']);
+            $cityData = $this->Address_Model->getCityById($ProductOrder['shipping_city']);
+            /*pr($stateData);
+            pr($CountryData);
+            pr($cityData);
+            pr($ProductOrder);*/
 
-                    $shipping_pin_code = strtoupper(str_replace(" ", "", $ProductOrder['shipping_pin_code']));
+            $shipping_pin_code = strtoupper(str_replace(" ", "", $ProductOrder['shipping_pin_code']));
 
-                    $this->load->library('UpsKit/UpsRating');
-                    $this->upsrating->addField('ShipTo_Name', $ProductOrder['shipping_name']);
-                    $this->upsrating->addField('ShipTo_AddressLine', array(
-                        $ProductOrder['shipping_address'], $ProductOrder['shipping_address']
-                    ));
+            $this->load->library('UpsKit/UpsRating');
+            $this->upsrating->addField('ShipTo_Name', $ProductOrder['shipping_name']);
+            $this->upsrating->addField('ShipTo_AddressLine', array(
+                $ProductOrder['shipping_address'], $ProductOrder['shipping_address']
+            ));
 
-                    $this->upsrating->addField('ShipTo_City', $cityData['name']);
-                    $this->upsrating->addField('ShipTo_StateProvinceCode', $stateData['iso2']);
-                    $this->upsrating->addField('ShipTo_PostalCode', $shipping_pin_code);
-                    $this->upsrating->addField('ShipTo_CountryCode', $CountryData['iso2']);
+            $this->upsrating->addField('ShipTo_City', $cityData['name']);
+            $this->upsrating->addField('ShipTo_StateProvinceCode', $stateData['iso2']);
+            $this->upsrating->addField('ShipTo_PostalCode', $shipping_pin_code);
+            $this->upsrating->addField('ShipTo_CountryCode', $CountryData['iso2']);
 
-                    /* Package Dimension and Weight */
-                    /*$cart = $this->cart->contents();
-                    $dimensions = array();
-                    $index = 0;
-                    foreach( $cart as $rowid => $cart_data ) {
-                        $dimensions[$index]['Length'] = $cart_data['options']['Length'];
-                        $dimensions[$index]['Width'] = $cart_data['options']['Width'];
-                        $dimensions[$index]['Height'] = $cart_data['options']['Height'];
-                        $dimensions[$index]['Weight'] = $cart_data['options']['Weight'];
-                        $dimensions[$index]['Qty'] = $cart_data['qty'];
-                        $index++;
-                    }
-                    */
-                    $index = 0;
-                    //$dimensions[$index]['Length'] = 1;
-                    //$dimensions[$index]['Width'] = 1;
-                    //$dimensions[$index]['Height'] = 1;
-                $dimensions[$index]['Weight'] = 1; #Kg
-                $dimensions[$index]['Qty'] = $ProductOrder['total_items'];
-                $this->upsrating->addField('dimensions', $dimensions);
-                $this->upsrating->processRate();
-                list($response, $status) = $this->upsrating->processRate();
-                $ups_response = json_decode($response);
-                //pr($ups_response);
-                //pr($CanedaPostShiping);
-                if ($status == 200) {
-                    $total_charges_ups = $ups_response->RateResponse->RatedShipment;
-                }
+            /* Package Dimension and Weight */
+            /*$cart = $this->cart->contents();
+            $dimensions = array();
+            $index = 0;
+            foreach( $cart as $rowid => $cart_data ) {
+                $dimensions[$index]['Length'] = $cart_data['options']['Length'];
+                $dimensions[$index]['Width'] = $cart_data['options']['Width'];
+                $dimensions[$index]['Height'] = $cart_data['options']['Height'];
+                $dimensions[$index]['Weight'] = $cart_data['options']['Weight'];
+                $dimensions[$index]['Qty'] = $cart_data['qty'];
+                $index++;
+            }
+            */
+            $index = 0;
+            //$dimensions[$index]['Length'] = 1;
+            //$dimensions[$index]['Width'] = 1;
+            //$dimensions[$index]['Height'] = 1;
+            $dimensions[$index]['Weight'] = 1; #Kg
+            $dimensions[$index]['Qty'] = $ProductOrder['total_items'];
+            $this->upsrating->addField('dimensions', $dimensions);
+            $this->upsrating->processRate();
+            list($response, $status) = $this->upsrating->processRate();
+            $ups_response = json_decode($response);
+            //pr($ups_response);
+            //pr($CanedaPostShiping);
+            if ($status == 200) {
+                $total_charges_ups = $ups_response->RateResponse->RatedShipment;
+            }
 
-                $CanedaPostShiping = CanedaPostApigetRate($shipping_pin_code);
+            $CanedaPostShiping = CanedaPostApigetRate($shipping_pin_code);
 
-                $salesTaxRatesProvinces_Data = $this->Address_Model->salesTaxRatesProvincesById($ProductOrder['billing_state']);
+            $salesTaxRatesProvinces_Data = $this->Address_Model->salesTaxRatesProvincesById($ProductOrder['billing_state']);
 
-                //pr($CanedaPostShiping, 1);
+            //pr($CanedaPostShiping, 1);
             $storeData = $this->Store_Model->getDataById($ProductOrder['store_id']);
 
             $our_company_shiping_cost = calculateShippingCost($ProductOrder['total_amount']);
@@ -205,69 +205,69 @@ class Checkouts extends Public_Controller
                 $FlagShiping =getRatesFlagShip($ProductOrder, $ProductOrderItem, $CountryData, $stateData, $cityData, $storeData);
                 //pr($FlagShiping, 1);
             }
-            } else {
-                $ProductOrder['sub_total_amount'] = $this->cart->total();
-                $ProductOrder['total_amount'] = $this->cart->total();
-                $ProductOrder['preffered_customer_discount'] =0;
+        } else {
+            $ProductOrder['sub_total_amount'] = $this->cart->total();
+            $ProductOrder['total_amount'] = $this->cart->total();
+            $ProductOrder['preffered_customer_discount'] =0;
 
-                $ProductOrder['currency_id'] = !empty($default_currency_id) ? $default_currency_id :1;
+            $ProductOrder['currency_id'] = !empty($default_currency_id) ? $default_currency_id :1;
 
-                $ProductOrder['store_id'] = $main_store_data['id'];
-                $ProductOrder['payment_mode'] = $main_store_data['paypal_payment_mode'];
+            $ProductOrder['store_id'] = $main_store_data['id'];
+            $ProductOrder['payment_mode'] = $main_store_data['paypal_payment_mode'];
 
-                if (!empty($userData)) {
-                    $user_type = $userData['user_type'];
-                    $preferred_status = $userData['preferred_status'];
-                    if ($user_type == 2 && $preferred_status == 1) {
-                        $pramount = (($ProductOrder['sub_total_amount']*10)/100);
-                        $ProductOrder['preffered_customer_discount']  = $pramount;
-                        $ProductOrder['total_amount'] = $ProductOrder['total_amount']-$pramount;
-                    }
+            if (!empty($userData)) {
+                $user_type = $userData['user_type'];
+                $preferred_status = $userData['preferred_status'];
+                if ($user_type == 2 && $preferred_status == 1) {
+                    $pramount = (($ProductOrder['sub_total_amount']*10)/100);
+                    $ProductOrder['preffered_customer_discount']  = $pramount;
+                    $ProductOrder['total_amount'] = $ProductOrder['total_amount']-$pramount;
                 }
+            }
 
-                $ProductOrder['total_items'] = $this->cart->total_items();
-                $items = $this->cart->contents();
+            $ProductOrder['total_items'] = $this->cart->total_items();
+            $items = $this->cart->contents();
 
             foreach($items as $key => $item) {
-            $ProductData = $this->Product_Model->getProductDataById($item['id']);
-            #pr($ProductData);
-            $ProductOrderItem[$key]['id'] = '';
-            $ProductOrderItem[$key]['order_id'] = '';
-            $ProductOrderItem[$key]['product_id'] = $ProductData['id'];
-            $ProductOrderItem[$key]['name'] = $ProductData['name'];
-            $ProductOrderItem[$key]['name_french'] = $ProductData['name_french'];
-            $ProductOrderItem[$key]['price'] = $item['price'];
-            $ProductOrderItem[$key]['short_description'] = $ProductData['short_description'];
-            $ProductOrderItem[$key]['full_description'] = $ProductData['full_description'];
-            $ProductOrderItem[$key]['discount'] = $ProductData['discount'];
+                $ProductData = $this->Product_Model->getProductDataById($item['id']);
+                #pr($ProductData);
+                $ProductOrderItem[$key]['id'] = '';
+                $ProductOrderItem[$key]['order_id'] = '';
+                $ProductOrderItem[$key]['product_id'] = $ProductData['id'];
+                $ProductOrderItem[$key]['name'] = $ProductData['name'];
+                $ProductOrderItem[$key]['name_french'] = $ProductData['name_french'];
+                $ProductOrderItem[$key]['price'] = $item['price'];
+                $ProductOrderItem[$key]['short_description'] = $ProductData['short_description'];
+                $ProductOrderItem[$key]['full_description'] = $ProductData['full_description'];
+                $ProductOrderItem[$key]['discount'] = $ProductData['discount'];
 
-            $ProductOrderItem[$key]['product_image'] = $ProductData['product_image'];
-            $ProductOrderItem[$key]['cart_images'] = json_encode($item['options']['cart_images']);
-            $ProductOrderItem[$key]['attribute_ids'] = json_encode($item['options']['attribute_ids']);
+                $ProductOrderItem[$key]['product_image'] = $ProductData['product_image'];
+                $ProductOrderItem[$key]['cart_images'] = json_encode($item['options']['cart_images']);
+                $ProductOrderItem[$key]['attribute_ids'] = json_encode($item['options']['attribute_ids']);
 
-            $ProductOrderItem[$key]['product_size'] = json_encode($item['options']['product_size']);
+                $ProductOrderItem[$key]['product_size'] = json_encode($item['options']['product_size']);
 
-            $ProductOrderItem[$key]['product_width_length'] = json_encode($item['options']['product_width_length']);
+                $ProductOrderItem[$key]['product_width_length'] = json_encode($item['options']['product_width_length']);
 
-            $ProductOrderItem[$key]['page_product_width_length'] = json_encode($item['options']['page_product_width_length']);
+                $ProductOrderItem[$key]['page_product_width_length'] = json_encode($item['options']['page_product_width_length']);
 
-            $ProductOrderItem[$key]['product_depth_length_width'] = json_encode($item['options']['product_depth_length_width']);
+                $ProductOrderItem[$key]['product_depth_length_width'] = json_encode($item['options']['product_depth_length_width']);
 
-            $ProductOrderItem[$key]['votre_text'] = $item['options']['votre_text'];
+                $ProductOrderItem[$key]['votre_text'] = $item['options']['votre_text'];
 
-            $ProductOrderItem[$key]['recto_verso'] = $item['options']['recto_verso'];
+                $ProductOrderItem[$key]['recto_verso'] = $item['options']['recto_verso'];
 
-            $ProductOrderItem[$key]['code'] = $ProductData['code'];
-            $ProductOrderItem[$key]['brand'] = $ProductData['brand'];
-            $ProductOrderItem[$key]['quantity'] = $item['qty'];
-            $ProductOrderItem[$key]['subtotal'] = $item['subtotal'];
-            $ProductOrderItem[$key]['delivery_charge'] = $ProductData['delivery_charge'];
-            $ProductOrderItem[$key]['total_stock'] = $ProductData['total_stock'];
+                $ProductOrderItem[$key]['code'] = $ProductData['code'];
+                $ProductOrderItem[$key]['brand'] = $ProductData['brand'];
+                $ProductOrderItem[$key]['quantity'] = $item['qty'];
+                $ProductOrderItem[$key]['subtotal'] = $item['subtotal'];
+                $ProductOrderItem[$key]['delivery_charge'] = $ProductData['delivery_charge'];
+                $ProductOrderItem[$key]['total_stock'] = $ProductData['total_stock'];
 
-            $ProductOrderItem[$key]['shipping_box_length'] = $ProductData['shipping_box_length'];
-            $ProductOrderItem[$key]['shipping_box_width'] = $ProductData['shipping_box_width'];
-            $ProductOrderItem[$key]['shipping_box_height'] = $ProductData['shipping_box_height'];
-            $ProductOrderItem[$key]['shipping_box_weight'] = $ProductData['shipping_box_weight'];
+                $ProductOrderItem[$key]['shipping_box_length'] = $ProductData['shipping_box_length'];
+                $ProductOrderItem[$key]['shipping_box_width'] = $ProductData['shipping_box_width'];
+                $ProductOrderItem[$key]['shipping_box_height'] = $ProductData['shipping_box_height'];
+                $ProductOrderItem[$key]['shipping_box_weight'] = $ProductData['shipping_box_weight'];
             }
 
             $coupon_discount_amount = '0';
@@ -281,11 +281,11 @@ class Checkouts extends Public_Controller
                     $discount_valid_to = $couponData['discount_valid_to'];
                     $cdate = date('Y-m-d H:i:s');
                     if (strtotime($discount_valid_from) <= strtotime($cdate) && strtotime($discount_valid_to) >= strtotime($cdate)) {
-                       if ($discount_type == 'discount_percent') {
-                           $coupon_discount_amount = ($ProductOrder['sub_total_amount']*$discount)/100;
-                       } else {
-                           $coupon_discount_amount = $discount;
-                       }
+                        if ($discount_type == 'discount_percent') {
+                            $coupon_discount_amount = ($ProductOrder['sub_total_amount']*$discount)/100;
+                        } else {
+                            $coupon_discount_amount = $discount;
+                        }
                     } else {
                         $coupon_code = '';
                     }
@@ -315,7 +315,7 @@ class Checkouts extends Public_Controller
 
             $address = $this->Address_Model->getAddressDataById($PostData['delivery_address_id']);
             if (!empty($order_id)) {
-            $PostData['id'] = $order_id;
+                $PostData['id'] = $order_id;
             }
 
             $PostData['user_id'] = $this->loginId;
@@ -371,79 +371,79 @@ class Checkouts extends Public_Controller
             $insert_id = $this->ProductOrder_Model->saveProductOrder($PostData);
 
             if ($insert_id > 0) {
-            $PostDataNew = array();
-            $PostDataNew['id'] = $insert_id;
-            $PostDataNew['order_id'] = $main_store_data['order_id_prefix'].$insert_id;
+                $PostDataNew = array();
+                $PostDataNew['id'] = $insert_id;
+                $PostDataNew['order_id'] = $main_store_data['order_id_prefix'].$insert_id;
 
-            //$shipping_method = $this->input->post('shipping_method_formate') ?? $this->ProductOrder_Model->getProductOrderDataById($order_id)['shipping_method_formate'];
-            $shipping_method = $this->input->post('shipping_method_formate') ?? '';
-            if (!empty($shipping_method)) {
-                $shipping_method_old = $this->ProductOrder_Model->getProductOrderDataById($order_id)['shipping_method_formate'];
-                if (!empty($shipping_method_old)) {
-                    $delivery_charge_old = explode('-', $shipping_method_old);
-                    $ProductOrder['total_amount'] = $ProductOrder['total_amount']-$delivery_charge_old[1];
+                //$shipping_method = $this->input->post('shipping_method_formate') ?? $this->ProductOrder_Model->getProductOrderDataById($order_id)['shipping_method_formate'];
+                $shipping_method = $this->input->post('shipping_method_formate') ?? '';
+                if (!empty($shipping_method)) {
+                    $shipping_method_old = $this->ProductOrder_Model->getProductOrderDataById($order_id)['shipping_method_formate'];
+                    if (!empty($shipping_method_old)) {
+                        $delivery_charge_old = explode('-', $shipping_method_old);
+                        $ProductOrder['total_amount'] = $ProductOrder['total_amount']-$delivery_charge_old[1];
+                    }
+                    $PostDataNew['shipping_method_formate'] = $shipping_method;
+                    $delivery_charge = explode('-', $shipping_method);
+                    $PostDataNew['delivery_charge'] = $delivery_charge[1];
+                    $PostDataNew['total_amount'] = $ProductOrder['total_amount']+$delivery_charge[1];
+
+                    if ($delivery_charge[0] == 'flagship') {
+                        $PostDataNew['flag_shiping_cost'] = !empty($delivery_charge[3]) ? $delivery_charge[3]:0;
+                    } else {
+                        $PostDataNew['flag_shiping_cost'] = 0;
+                    }
                 }
-                $PostDataNew['shipping_method_formate'] = $shipping_method;
-                $delivery_charge = explode('-', $shipping_method);
-                $PostDataNew['delivery_charge'] = $delivery_charge[1];
-                $PostDataNew['total_amount'] = $ProductOrder['total_amount']+$delivery_charge[1];
 
-                if ($delivery_charge[0] == 'flagship') {
-                    $PostDataNew['flag_shiping_cost'] = !empty($delivery_charge[3]) ? $delivery_charge[3]:0;
-                } else {
-                    $PostDataNew['flag_shiping_cost'] = 0;
+                $this->ProductOrder_Model->saveProductOrder($PostDataNew);
+
+                foreach($ProductOrderItem as $ProductData) {
+                    $ProductOrderItemSaveData = array();
+                    $ProductOrderItemSaveData['id'] = $ProductData['id'];
+                    $ProductOrderItemSaveData['product_id'] = $ProductData['product_id'];
+                    $ProductOrderItemSaveData['order_id'] = $insert_id;
+                    $ProductOrderItemSaveData['name'] = $ProductData['name'];
+                    $ProductOrderItemSaveData['name_french'] = $ProductData['name_french'];
+                    $ProductOrderItemSaveData['price'] = $ProductData['price'];
+                    $ProductOrderItemSaveData['short_description'] = $ProductData['short_description'];
+                    $ProductOrderItemSaveData['short_description_french'] = $ProductData['short_description_french'];
+                    $ProductOrderItemSaveData['full_description'] = $ProductData['full_description'];
+                    $ProductOrderItemSaveData['full_description_french'] = $ProductData['full_description_french'];
+                    $ProductOrderItemSaveData['discount'] = $ProductData['discount'];
+                    $ProductOrderItemSaveData['product_image'] = $ProductData['product_image'];
+                    $ProductOrderItemSaveData['code'] = $ProductData['code'];
+                    $ProductOrderItemSaveData['brand'] = $ProductData['brand'];
+                    $ProductOrderItemSaveData['quantity'] = $ProductData['quantity'];
+                    $ProductOrderItemSaveData['subtotal'] = $ProductData['subtotal'];
+                    $ProductOrderItemSaveData['delivery_charge'] = $ProductData['delivery_charge'];
+                    $ProductOrderItemSaveData['total_stock'] = $ProductData['total_stock'];
+                    $ProductOrderItemSaveData['cart_images'] = $ProductData['cart_images'];
+                    $ProductOrderItemSaveData['attribute_ids'] = $ProductData['attribute_ids'];
+
+                    $ProductOrderItemSaveData['product_size'] = $ProductData['product_size'];
+
+                    $ProductOrderItemSaveData['product_width_length'] = $ProductData['product_width_length'];
+
+                    $ProductOrderItemSaveData['page_product_width_length'] = $ProductData['page_product_width_length'];
+
+                    $ProductOrderItemSaveData['product_depth_length_width'] = $ProductData['product_depth_length_width'];
+
+                    $ProductOrderItemSaveData['votre_text'] = $ProductData['votre_text'];
+
+                    $ProductOrderItemSaveData['recto_verso'] = $ProductData['recto_verso'];
+
+                    $ProductOrderItemSaveData['shipping_box_length'] = $ProductData['shipping_box_length'];
+                    $ProductOrderItemSaveData['shipping_box_width'] = $ProductData['shipping_box_width'];
+                    $ProductOrderItemSaveData['shipping_box_height'] = $ProductData['shipping_box_height'];
+                    $ProductOrderItemSaveData['shipping_box_weight'] = $ProductData['shipping_box_weight'];
+
+                    $this->ProductOrder_Model->saveProductOrderItem($ProductOrderItemSaveData);
                 }
-            }
 
-            $this->ProductOrder_Model->saveProductOrder($PostDataNew);
-
-            foreach($ProductOrderItem as $ProductData) {
-                $ProductOrderItemSaveData = array();
-                $ProductOrderItemSaveData['id'] = $ProductData['id'];
-                $ProductOrderItemSaveData['product_id'] = $ProductData['product_id'];
-                $ProductOrderItemSaveData['order_id'] = $insert_id;
-                $ProductOrderItemSaveData['name'] = $ProductData['name'];
-                $ProductOrderItemSaveData['name_french'] = $ProductData['name_french'];
-                $ProductOrderItemSaveData['price'] = $ProductData['price'];
-                $ProductOrderItemSaveData['short_description'] = $ProductData['short_description'];
-                $ProductOrderItemSaveData['short_description_french'] = $ProductData['short_description_french'];
-                $ProductOrderItemSaveData['full_description'] = $ProductData['full_description'];
-                $ProductOrderItemSaveData['full_description_french'] = $ProductData['full_description_french'];
-                $ProductOrderItemSaveData['discount'] = $ProductData['discount'];
-                $ProductOrderItemSaveData['product_image'] = $ProductData['product_image'];
-                $ProductOrderItemSaveData['code'] = $ProductData['code'];
-                $ProductOrderItemSaveData['brand'] = $ProductData['brand'];
-                $ProductOrderItemSaveData['quantity'] = $ProductData['quantity'];
-                $ProductOrderItemSaveData['subtotal'] = $ProductData['subtotal'];
-                $ProductOrderItemSaveData['delivery_charge'] = $ProductData['delivery_charge'];
-                $ProductOrderItemSaveData['total_stock'] = $ProductData['total_stock'];
-                $ProductOrderItemSaveData['cart_images'] = $ProductData['cart_images'];
-                $ProductOrderItemSaveData['attribute_ids'] = $ProductData['attribute_ids'];
-
-                $ProductOrderItemSaveData['product_size'] = $ProductData['product_size'];
-
-                $ProductOrderItemSaveData['product_width_length'] = $ProductData['product_width_length'];
-
-                $ProductOrderItemSaveData['page_product_width_length'] = $ProductData['page_product_width_length'];
-
-                $ProductOrderItemSaveData['product_depth_length_width'] = $ProductData['product_depth_length_width'];
-
-                $ProductOrderItemSaveData['votre_text'] = $ProductData['votre_text'];
-
-                $ProductOrderItemSaveData['recto_verso'] = $ProductData['recto_verso'];
-
-                $ProductOrderItemSaveData['shipping_box_length'] = $ProductData['shipping_box_length'];
-                $ProductOrderItemSaveData['shipping_box_width'] = $ProductData['shipping_box_width'];
-                $ProductOrderItemSaveData['shipping_box_height'] = $ProductData['shipping_box_height'];
-                $ProductOrderItemSaveData['shipping_box_weight'] = $ProductData['shipping_box_weight'];
-
-                $this->ProductOrder_Model->saveProductOrderItem($ProductOrderItemSaveData);
-            }
-
-            $stap = $stap+1;
-            redirect('Checkouts/index/'.base64_encode($stap).'/'.base64_encode($insert_id)."/".base64_encode($product_id)."/".$coupon_code);
+                $stap = $stap+1;
+                redirect('Checkouts/index/'.base64_encode($stap).'/'.base64_encode($insert_id)."/".base64_encode($product_id)."/".$coupon_code);
             } else{
-            $this->session->set_flashdata('message_error', 'oder save  Unsuccessfully.');
+                $this->session->set_flashdata('message_error', 'oder save  Unsuccessfully.');
             }
         }
 
