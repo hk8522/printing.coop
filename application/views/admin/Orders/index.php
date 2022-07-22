@@ -22,12 +22,12 @@ $pageSizes = [10, 15, 20, 50, 100];
                 <div class="x_title">
                     <div class="caption">
                         <i class="fa fa-shopping-cart"></i>
-                        All Orders List
+                        <?=ucfirst($page_title)?>
                     </div>
                     <div class="actions btn-group btn-group-devided util-btn-margin-bottom-5">
-                        <a href="/admin/Orders/exportCSV/<?=$status?>/<?=$user_id?>/<?=$fromDate?>/<?=$toDate?>" class="btn btn-primary">
+                        <button class="btn btn-primary" id="export-csv">
                             <i class="fa fa-download"></i> Export CSV
-                        </a>
+                        </button>
                     </div>
                 </div>
                 <div class="x_content form">
@@ -74,20 +74,16 @@ $pageSizes = [10, 15, 20, 50, 100];
                                         <?php $this->load->view('admin/shared/date_nullable', ['name' => 'from', 'value' => $this->input->get('from')]); ?>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="drop-filters-container w-100">
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="to">To Date</label>
                                     <div class="col-md-9 col-sm-9">
                                         <?php $this->load->view('admin/shared/date_nullable', ['name' => 'to', 'value' => $this->input->get('to')]); ?>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="drop-filters-container w-100">
                                 <div class="form-group">
                                     <label class="col-sm-3 control-label" for="status">Order Status</label>
                                     <div class="col-md-9 col-sm-9">
-                                        <?php $this->load->view('admin/shared/multi_select', ['name' => 'status', 'items' => App\Common\OrderStatus::names, 'value' => $this->input->get('status'), 'index' => true]); ?>
+                                        <?php $this->load->view('admin/shared/multi_select', ['name' => 'status', 'items' => App\Common\OrderStatus::names, 'value' => $status != null ? [$status] : $this->input->get('status'), 'index' => true]); ?>
                                     </div>
                                 </div>
                             </div>
@@ -156,6 +152,15 @@ $pageSizes = [10, 15, 20, 50, 100];
     };
     var salesTaxRatesProvinces = <?=json_encode($this->Address_Model->salesTaxRatesProvinces())?>;
     $(document).ready(function () {
+        $('#export-csv').on('click', function () {
+            var url = '/admin/Orders/exportCSV/<?=$statusStr?>/<?=$user_id?>';
+            var from = $('#from').data('kendoDatePicker').value();
+            var to = $('#to').data('kendoDatePicker').value();
+            url += '/' + from.getFullYear() + '-' + (from.getMonth() + 1) + '-' + from.getDate();
+            url += '/' + to.getFullYear() + '-' + (to.getMonth() + 1) + '-' + to.getDate();
+            window.open(window.location.origin + url, '_blank').focus();
+            return false;
+        });
         $('#orders-grid').kendoGrid({
             dataSource: {
                 transport: {

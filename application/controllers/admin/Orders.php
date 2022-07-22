@@ -1,6 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+require_once(APPPATH . 'common/OrderStatus.php');
+require_once(APPPATH . 'common/PaymentStatus.php');
+
+use App\Common\OrderStatus;
+use App\Common\PaymentStatus;
+
 class Orders extends Admin_Controller
 {
     public $class_name = '';
@@ -17,30 +23,32 @@ class Orders extends Admin_Controller
         $this->load->model('Store_Model');
     }
 
-    public function index($status = null, $user_id = null)
+    public function index($statusStr = null, $user_id = null)
     {
-        $this->data['page_title'] =ucfirst($status).' Orders';
-        $this->data['page_status']  = $status;
+        $orderStatusNames = [
+            'new' => OrderStatus::New,
+            'processing' => OrderStatus::Processing,
+            'shipped' => OrderStatus::Shipped,
+            'delivered' => OrderStatus::Delivered,
+            'cancelled' => OrderStatus::Cancelled,
+            'failed' => OrderStatus::Failed,
+            'complete' => OrderStatus::Complete,
+            'ready-for-pickup' => OrderStatus::ReadyForPickup,
+        ];
+        $status = $statusStr == null ? null : $orderStatusNames[strtolower($statusStr)];
+
+        $this->data['page_title'] = ucfirst($statusStr) . ' Orders';
+        $this->data['page_status']  = $statusStr;
         $this->data['sub_page_view_url'] = 'viewOrder';
         $this->data['sub_page_delete_url'] = 'deleteOrder';
-        $fromDate = $toDate = '';
-         if ($this->input->post()) {
-            $fromDate = $this->input->post('fromDate');
-            $toDate = $this->input->post('toDate');
-        }
-
-        $lists = $this->ProductOrder_Model->getOrderList($status, $user_id, $fromDate, $toDate);
 
         $StoreList = $this->Store_Model->getAllStoreList();
         $this->data['StoreList'] = $StoreList;
-        #pr($StoreList, 1);
 
-        $this->data['lists'] = $lists;
-        $this->data['user_id'] = !empty($user_id) ? $user_id:'0';
-        $this->data['fromDate'] = $fromDate;
-        $this->data['toDate'] = $toDate;
-        $this->data['status'] = !empty($status) ? $status:'all';
-        //print_r($this->data['lists']);die;
+        $this->data['user_id'] = !empty($user_id) ? $user_id : '0';
+        $this->data['status'] = $status == null ? 'all' : $status;
+        $this->data['statusStr'] = $statuStr == null ? 'all' : $statusStr;
+
         $this->render($this->class_name.'index');
     }
 
