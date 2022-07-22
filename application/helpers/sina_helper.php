@@ -11,11 +11,11 @@ function curl_helper(string $url, string $method = 'get', array $data = null, st
 
     if (strcasecmp($method, 'get') == 0 && $data)
         $url = "$url?" . http_build_query($data);
-    $curl = curl_init($url);
-    curl_setopt($curl, CURLOPT_URL, $url);
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_URL, $url);
     if (strcasecmp($method, 'post') == 0)
-        curl_setopt($curl, CURLOPT_POST, true);
-    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
     $headers = array(
        "Accept: application/json",
@@ -23,22 +23,23 @@ function curl_helper(string $url, string $method = 'get', array $data = null, st
     );
     if ($token)
         $headers[] = "Authorization: Bearer $token";
-    curl_setopt($curl, CURLOPT_HTTPHEADER, $headers);
+    curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
-    if (strcasecmp($method, 'post') == 0 && $data)
-        curl_setopt($curl, CURLOPT_POSTFIELDS, json_encode($data));
+    if (strcasecmp($method, 'post') == 0 && $data) {
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+    }
 
     // //for debug only!
-    // curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, false);
-    // curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+    // curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+    // curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
 
-    $resp = curl_exec($curl);
-    curl_close($curl);
+    $resp = curl_exec($ch);
+    curl_close($ch);
 
     if ($resp === false)
         return false;
 
-    return json_decode($resp);
+    return json_decode($resp) ?? $resp;
 }
 
 function sina_access_token()
@@ -97,5 +98,6 @@ function sina_order_new($items, $shippingInfo, $billingInfo, $token)
         'items' => $items,
         'shippingInfo' => $shippingInfo,
         'billingInfo' => $billingInfo,
+        'notes' => 'Business Card Test Order',
         ], $token);
 }

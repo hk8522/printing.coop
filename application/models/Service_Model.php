@@ -57,4 +57,3 @@ Class Service_Model extends MY_Model {
       return $this->db->select('*')->from($this->table)->where(array('status'=>1,'main_store_id'=>$website_store_id))->get()->result_array();
   }
 }
-?>

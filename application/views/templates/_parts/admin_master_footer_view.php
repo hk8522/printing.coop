@@ -1,4 +1,3 @@
-
 <footer class="main-footer text-center">
     <strong>&copy; <?php echo date('Y')?> Printingcoop</strong>
 </footer>

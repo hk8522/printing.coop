@@ -52,4 +52,3 @@ Class Configration_Model extends MY_Model {
         return $query->row_array();
     }
 }
-?>

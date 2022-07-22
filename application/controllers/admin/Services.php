@@ -235,5 +235,3 @@ class Services extends Admin_Controller
         $this->image_lib->clear();
     }
 }
-
-?>

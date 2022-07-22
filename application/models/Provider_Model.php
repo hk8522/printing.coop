@@ -337,4 +337,18 @@ Class Provider_Model extends MY_Model {
         $this->db->where_in('provider_product_attributes.value_id', $value_ids);
         return $this->db->get()->result();
     }
+
+    public function orderSave($order_id, $response)
+    {
+        $data = [
+            'order_id' => $order_id,
+            'provider_order_id' => $response->orderId,
+            'grandtotal' => $response->grandtotal,
+            'message' => $response->message,
+            'shipping_cost' => $response->shippingCost,
+            'subtotal' => $response->subtotal,
+            'tax' => $response->tax,
+        ];
+        $this->db->insert('provider_orders', $data);
+    }
 }

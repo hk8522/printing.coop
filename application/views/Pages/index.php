@@ -1,5 +1,3 @@
- <?php
-?>
 <div class="contact-section-detail universal-spacing universal-bg-white">
     <div class="container">
         <?php

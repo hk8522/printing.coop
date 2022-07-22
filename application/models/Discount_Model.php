@@ -131,4 +131,3 @@ Class Discount_Model extends MY_Model {
         }
     }
 }
-?>

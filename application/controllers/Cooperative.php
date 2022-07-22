@@ -17,4 +17,3 @@ class Cooperative extends Public_Controller
         $this->render($this->class_name.'index');
     }
 }
-?>

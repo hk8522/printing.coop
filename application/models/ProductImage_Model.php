@@ -44,4 +44,3 @@ Class ProductImage_Model extends MY_Model {
         }
     }
 }
-?>

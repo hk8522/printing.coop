@@ -2,8 +2,7 @@
 $i = 1;
 $j = 1;
 $k = 2;
-?>
-<?php if (!empty($options_qty)) {
+?><?php if (!empty($options_qty)) {
     if ($j == $last) {
         $onchange="getPaperPrice('$i')";
     } else {
@@ -19,8 +18,7 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?>
-<?php if (!empty($options_ncr_number_parts)) {
+}?><?php if (!empty($options_ncr_number_parts)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -36,9 +34,7 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?>
-
-<?php if (!empty($options_paper_size)) {
+}?><?php if (!empty($options_paper_size)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -54,9 +50,7 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?>
-
-<?php if (!empty($paper_quality)) {
+}?><?php if (!empty($paper_quality)) {
     if ($j==$last) {
         $onchange="getPaperPrice('$i')";
     } else {
@@ -72,9 +66,7 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?>
-
-<?php if (!empty($stock)) {
+}?><?php if (!empty($stock)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -90,9 +82,7 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?>
-
-<?php if (!empty($color)) {
+}?><?php if (!empty($color)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -108,9 +98,7 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?>
-
-<?php if (!empty($coating)) {
+}?><?php if (!empty($coating)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -126,9 +114,7 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?>
-
-<?php if (!empty($diameter)) {
+}?><?php if (!empty($diameter)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -144,9 +130,7 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?>
-
-<?php if (!empty($envelope)) {
+}?><?php if (!empty($envelope)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -162,9 +146,7 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?>
-
-<?php if (!empty($bundling)) {
+}?><?php if (!empty($bundling)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -181,7 +163,6 @@ $k = 2;
     $j++;
     $k++;
 }?>
-
 <script>
     function getQuantityPrice(nid, product_id_key) {
         $("#loader-img").show();

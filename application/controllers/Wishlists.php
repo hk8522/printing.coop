@@ -74,4 +74,3 @@ class Wishlists extends Public_Controller
         echo json_encode($json);
     }
 }
-?>

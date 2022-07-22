@@ -83,4 +83,3 @@ Class Menu_Model extends MY_Model {
         return $data;
     }
 }
-?>

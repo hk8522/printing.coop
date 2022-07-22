@@ -285,4 +285,3 @@ Class Store_Model extends MY_Model {
         return $image;
     }
 }
-?>

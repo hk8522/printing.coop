@@ -94,4 +94,3 @@ Class Banner_Model extends MY_Model {
                 return $this->db->get()->result_array();
         }
 }
-?>

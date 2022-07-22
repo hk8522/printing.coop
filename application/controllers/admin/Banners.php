@@ -269,4 +269,3 @@ class Banners extends Admin_Controller
         $this->image_lib->clear();
     }
 }
-?>

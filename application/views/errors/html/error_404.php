@@ -5,8 +5,7 @@ $HTTP_HOST=$_SERVER['HTTP_HOST'];
 //$FILE_BASE_URL='https://'.$HTTP_HOST.'/';
 $FILE_BASE_URL=$HTTP_X_FORWARDED_PROTO.'://'.$HTTP_HOST.'/';
 header('location:'.$FILE_BASE_URL);
-?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="utf-8">

@@ -85,5 +85,3 @@ Class Datatable_Model extends MY_Model {
         }
     }
 }
-
-?>

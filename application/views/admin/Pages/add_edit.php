@@ -1,4 +1,4 @@
- <script src="https://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
+<script src="https://cdn.ckeditor.com/4.6.2/standard-all/ckeditor.js"></script>
 <div class="content-wrapper" style="min-height: 687px;">
     <section class="content">
         <div class="row" style="display: flex;justify-content: center;align-items: center;">

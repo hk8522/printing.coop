@@ -147,4 +147,3 @@ Class Page_Model extends MY_Model {
         return $data;
     }
 }
-?>

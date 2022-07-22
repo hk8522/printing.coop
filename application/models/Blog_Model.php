@@ -269,4 +269,3 @@ Class Blog_Model extends MY_Model {
                 return 0;
         }
 }
-?>

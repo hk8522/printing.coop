@@ -94,4 +94,3 @@ Class Page_Category_Model extends MY_Model {
         }
     }
 }
-?>

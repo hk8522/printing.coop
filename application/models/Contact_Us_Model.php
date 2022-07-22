@@ -47,4 +47,3 @@ Class Contact_Us_Model extends MY_Model {
     return false;
   }
 }
-?>

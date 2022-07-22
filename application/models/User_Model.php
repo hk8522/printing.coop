@@ -452,5 +452,3 @@ Class User_Model extends MY_Model {
         }
     }
 }
-
-?>

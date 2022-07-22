@@ -48,4 +48,3 @@ Class Personalise_Model extends MY_Model {
         return $data;
     }
 }
-?>

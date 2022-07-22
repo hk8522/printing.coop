@@ -5,31 +5,31 @@ $pageSize = 10;
 $pageSizes = [10, 15, 20, 50, 100];
 ?>
 <section class="content">
-<form id="order-search-form" method="post" action="/admin/Orders/List">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="x_panel light form-fit popup-window">
-                <?php if ($this->session->has_userdata('message_error')) {?>
-                    <div class="alert alert-danger">
-                        <?=$this->session->flashdata('message_error')?>
-                    </div>
-                <?php } ?>
-                <?php if ($this->session->has_userdata('message_success')) {?>
-                    <div class="alert alert-success">
-                        <?=$this->session->flashdata('message_success')?>
-                    </div>
-                <?php } ?>
-                <div class="x_title">
-                    <div class="caption">
-                        <i class="fa fa-shopping-cart"></i>
-                        <?=ucfirst($page_title)?>
-                    </div>
-                    <div class="actions btn-group btn-group-devided util-btn-margin-bottom-5">
-                        <button class="btn btn-primary" id="export-csv">
-                            <i class="fa fa-download"></i> Export CSV
-                        </button>
-                    </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="x_panel light form-fit popup-window">
+            <?php if ($this->session->has_userdata('message_error')) {?>
+                <div class="alert alert-danger">
+                    <?=$this->session->flashdata('message_error')?>
                 </div>
+            <?php } ?>
+            <?php if ($this->session->has_userdata('message_success')) {?>
+                <div class="alert alert-success">
+                    <?=$this->session->flashdata('message_success')?>
+                </div>
+            <?php } ?>
+            <div class="x_title">
+                <div class="caption">
+                    <i class="fa fa-shopping-cart"></i>
+                    <?=ucfirst($page_title)?>
+                </div>
+                <div class="actions btn-group btn-group-devided util-btn-margin-bottom-5">
+                    <button class="btn btn-primary" id="export-csv">
+                        <i class="fa fa-download"></i> Export CSV
+                    </button>
+                </div>
+            </div>
+            <form id="search-order-form" method="post" action="/admin/Orders/List">
                 <div class="x_content form">
                     <div class="form-horizontal">
                         <div class="form-body">
@@ -93,10 +93,10 @@ $pageSizes = [10, 15, 20, 50, 100];
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
-</form>
+</div>
 <div id="sina_ship_methods" style="display:none;">
     <form method="post" action="/admin/Orders/sendToSina">
         <input type="hidden" name="id">
@@ -152,12 +152,18 @@ $pageSizes = [10, 15, 20, 50, 100];
     };
     var salesTaxRatesProvinces = <?=json_encode($this->Address_Model->salesTaxRatesProvinces())?>;
     $(document).ready(function () {
-        $('#export-csv').on('click', function () {
+        $('#export-csv').click(function () {
             var url = '/admin/Orders/exportCSV/<?=$statusStr?>/<?=$user_id?>';
             var from = $('#from').data('kendoDatePicker').value();
             var to = $('#to').data('kendoDatePicker').value();
-            url += '/' + from.getFullYear() + '-' + (from.getMonth() + 1) + '-' + from.getDate();
-            url += '/' + to.getFullYear() + '-' + (to.getMonth() + 1) + '-' + to.getDate();
+            if (from == null)
+                url += '/&nbsp;';
+            else
+                url += '/' + from.getFullYear() + '-' + (from.getMonth() + 1) + '-' + from.getDate();
+            if (to == null)
+                to += '/&nbsp;';
+            else
+                url += '/' + to.getFullYear() + '-' + (to.getMonth() + 1) + '-' + to.getDate();
             window.open(window.location.origin + url, '_blank').focus();
             return false;
         });
@@ -200,7 +206,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 title: '#',
                 template: '#=ucfirst(order_id)#',
             }, {
-                title: 'Order Provider',
+                title: 'Provider Order #',
                 template: `
                     #if (provider_order_id) {#
                         <a href="/admin/Orders/provider/#=provider_order_id#">#=provider_order_id#</a>
@@ -270,6 +276,11 @@ $pageSizes = [10, 15, 20, 50, 100];
             }],
         });
 
+        $('#search-order-form').submit(function(e) {
+            e.preventDefault();
+            $('#search-orders').click();
+            return false;
+        });
         //search button
         $('#search-orders').click(function () {
             //search
@@ -303,7 +314,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                     kendo.alert('Error occurred.');
                 else if (!response.success)
                     kendo.alert(response.message);
-                $('#sina_ship_methods').data('kendoWindow').close();
+               $('#sina_ship_methods').data('kendoWindow').close();
                 refreshGrid('orders-grid');
                 $("#loader-img").hide();
             }).fail(function (error) {
@@ -383,11 +394,11 @@ $pageSizes = [10, 15, 20, 50, 100];
 
     function additionalData() {
         return {
-            from_no: $('#order-search-form #from_no').val(),
-            to_no: $('#order-search-form #to_no').val(),
-            from: $('#order-search-form #from').val(),
-            to: $('#order-search-form #to').val(),
-            status: $('#order-search-form #status').data('kendoMultiSelect').value(),
+            from_no: $('#search-order-form #from_no').val(),
+            to_no: $('#search-order-form #to_no').val(),
+            from: $('#search-order-form #from').val(),
+            to: $('#search-order-form #to').val(),
+            status: $('#search-order-form #status').data('kendoMultiSelect').value(),
         };
     }
 

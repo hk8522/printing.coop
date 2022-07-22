@@ -171,4 +171,3 @@ class Tickets extends Admin_Controller
         redirect('Tickets');
     }
 }
-?>

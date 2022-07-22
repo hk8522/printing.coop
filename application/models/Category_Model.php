@@ -1,4 +1,4 @@
- <?php
+<?php
 
 Class Category_Model extends MY_Model {
     public $table='categories';
@@ -410,5 +410,3 @@ Class Category_Model extends MY_Model {
         }
     }
 }
-
-?>

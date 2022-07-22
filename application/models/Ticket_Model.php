@@ -285,5 +285,3 @@ Class Ticket_Model extends MY_Model {
         }
     }
 }
-
-?>

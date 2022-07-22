@@ -19,7 +19,6 @@
     #pr($Product);
 
 ?>
-
         <form method="post" id="cartForm-<?php echo $product_id_key?>">
             <input type="hidden" id="product_id-<?php echo $product_id_key?>" value="<?php echo $Product['id']?>" name="product_id">
             <input type="hidden" id="product_price<?php echo $product_id_key?>" value="<?php echo $Product['price']?>" name="price">
@@ -202,7 +201,7 @@
                                         <div class="col-md-6">
                                             <div class="shop-product-price">
                                                 <?php $price=isset($product_val['subtotal']) ? $product_val['subtotal']: $Product['price'];?>
-                                                <span><font class="new-price" ><?php echo CURREBCY_SYMBOL.'<span id="total-price-'.$product_id_key.'">'.number_format($price,2).'</span>'?> </font></span>
+                                                <span><font class="new-price"><?php echo CURREBCY_SYMBOL.'<span id="total-price-'.$product_id_key.'">'.number_format($price,2).'</span>'?> </font></span>
                                             </div>
                                         </div>
                                         <div class="col-md-6">

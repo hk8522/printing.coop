@@ -161,4 +161,3 @@ Class Printer_Model extends MY_Model {
         return $this->db->get()->row_array();
     }
 }
-?>

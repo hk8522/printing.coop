@@ -241,5 +241,3 @@ Class Admin_Model extends MY_Model {
         }
     }
 }
-
-?>

@@ -57,4 +57,3 @@ Class Section_Model extends MY_Model {
       return $this->db->select('*')->from($this->table)->where(array('id'=>$id, 'status'=> 1))->get()->row_array();
   }
 }
-?>

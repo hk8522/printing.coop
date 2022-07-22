@@ -246,5 +246,3 @@ Class Address_Model extends MY_Model {
         return $result;
     }
 }
-
-?>

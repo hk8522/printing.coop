@@ -1856,66 +1856,66 @@ class Orders extends Admin_Controller
                 $this->Product_Model->saveProduct($ProductDataSave);
             }
 
-                    #Oreder Invoice And Order  Pdf  Created
-                    $this->getOrderInvoicePdf($id);
-                    $this->getOrderPdf($id);
+            #Oreder Invoice And Order  Pdf  Created
+            $this->getOrderInvoicePdf($id);
+            $this->getOrderPdf($id);
 
-                #send Email and Msg
+            #send Email and Msg
 
-                    $orderData = $this->ProductOrder_Model->getProductOrderDataById($id);
-                    $toEmail = $orderData['email'];
-                    $name = $orderData['name'];
-                    $order_id = $orderData['order_id'];
-                    $subject = 'Order '.$order_id.' Confirmation';
+            $orderData = $this->ProductOrder_Model->getProductOrderDataById($id);
+            $toEmail = $orderData['email'];
+            $name = $orderData['name'];
+            $order_id = $orderData['order_id'];
+            $subject = 'Order '.$order_id.' Confirmation';
 
-                    $body = '<div class="top-info" style="margin-top: 25px;text-align: left;"><span style="color:#303030; font-size: 14px; letter-spacing: 0.5px; line-height: 22px; word-spacing: 0.5px;display: inline-block;">
-                        Hi '.ucfirst($name).',
-                    <br>
-                        Thanks for your order.
-                    </span>
-                    </div><br><br>';
-                    $invoice_file = $orderData['order_id'].'-invoice.pdf';
-                    $invoice_file = strtolower($invoice_file);
+            $body = '<div class="top-info" style="margin-top: 25px;text-align: left;"><span style="color:#303030; font-size: 14px; letter-spacing: 0.5px; line-height: 22px; word-spacing: 0.5px;display: inline-block;">
+                Hi '.ucfirst($name).',
+            <br>
+                Thanks for your order.
+            </span>
+            </div><br><br>';
+            $invoice_file = $orderData['order_id'].'-invoice.pdf';
+            $invoice_file = strtolower($invoice_file);
 
-                    $order_file = $orderData['order_id'].'-order.pdf';
-                    $order_file = strtolower($order_file);
+            $order_file = $orderData['order_id'].'-order.pdf';
+            $order_file = strtolower($order_file);
 
-                    $files[$invoice_file] = FILE_BASE_PATH.'pdf/'.$invoice_file;
-                    $files[$order_file] = FILE_BASE_PATH.'pdf/'.$order_file;
+            $files[$invoice_file] = FILE_BASE_PATH.'pdf/'.$invoice_file;
+            $files[$order_file] = FILE_BASE_PATH.'pdf/'.$order_file;
 
-                    $body = $this->getorderEmail($id, $subject, $body);
+            $body = $this->getorderEmail($id, $subject, $body);
 
-                    sendEmail($toEmail, $subject, $body, '', '', $files);
-                    sendEmail(ADMIN_EMAIL, $subject, $body, '', '', $files);
+            sendEmail($toEmail, $subject, $body, '', '', $files);
+            sendEmail(ADMIN_EMAIL, $subject, $body, '', '', $files);
 
-                    //Admin Email
-        } else  if ($orderData['status'] == 7) {
-                    $orderData = $this->ProductOrder_Model->getProductOrderDataById($id);
-                    $toEmail = $orderData['email'];
-                    $name = $orderData['name'];
+            //Admin Email
+        } else if ($orderData['status'] == 7) {
+            $orderData = $this->ProductOrder_Model->getProductOrderDataById($id);
+            $toEmail = $orderData['email'];
+            $name = $orderData['name'];
 
-                        $order_id = $orderData['order_id'];
-                        $subject = 'Your Order '.$order_id.'Payment Has Been Failed ';
+            $order_id = $orderData['order_id'];
+            $subject = 'Your Order '.$order_id.'Payment Has Been Failed ';
 
-                        $body = '<div class="top-info" style="margin-top: 25px;text-align: left;">
-                        <span style="font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;">
-                            Hi '.$name.',
-                        <br>
-                           your payment has been failed for the '.$order_id.' . There could be numerous reasons for this issue. May you have a poor internet connection or payment gateway failure.
+            $body = '<div class="top-info" style="margin-top: 25px;text-align: left;">
+            <span style="font-size: 17px; letter-spacing: 0.5px; line-height: 28px; word-spacing: 0.5px;">
+                Hi '.$name.',
+            <br>
+                your payment has been failed for the '.$order_id.' . There could be numerous reasons for this issue. May you have a poor internet connection or payment gateway failure.
 
-                           Wait a couple of hours and try again.<br>
+                Wait a couple of hours and try again.<br>
 
-                            Thanks! '.WEBSITE_NAME.' Team
+                Thanks! '.WEBSITE_NAME.' Team
 
-                        </span>
-                    </div></br>/br>';
+            </span>
+            </div></br>/br>';
 
-                    $body = $this->getorderEmail($id, $subject, $body);
-                    sendEmail($toEmail, $subject, $body);
+            $body = $this->getorderEmail($id, $subject, $body);
+            sendEmail($toEmail, $subject, $body);
         }
 
         $this->cart->destroy();
-         if ($insert_id > 0) {
+        if ($insert_id > 0) {
            return true;
         } else {
             return false;
@@ -2027,14 +2027,24 @@ class Orders extends Admin_Controller
         $provider = $this->Provider_Model->getProvider('sina');
         $items = [];
         foreach ($order->items as $item) {
+            $cartImages = json_decode($item->cart_images, true);
             $itemInfo = json_decode($item->attribute_ids);
             $attributes = $this->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_attribute_ids);
             $options = [];
             foreach ($attributes as $attribute)
                 $options[$attribute->name] = $attribute->value_id;
+            if (!is_array($cartImages) || count($cartImages) == 0) {
+                return $this->output
+                    ->set_content_type('application/json')
+                    ->set_output(json_encode(['success' => false, 'message' => 'No images uploaded.']));
+            }
+            $files = [['type' => 'front', array_values($cartImages)[0]['file_base_url']]];
+            if (count($cartImages) > 1)
+                $files[] = [['type' => 'back', array_values($cartImages)[1]['file_base_url']]];
             $items[] = [
                 'productId' => $itemInfo->provider_product_id,
                 'options' => $options,
+                'files' => $files,
             ];
         }
 
@@ -2049,7 +2059,7 @@ class Orders extends Admin_Controller
             'ShipLName' => count($names) > 1 ? implode(' ', array_slice($names, 1)) : null,
             'ShipEmail' => $order->email,
             'ShipAddr' => $order->shipping_address,
-            'ShipAddr2' => null,
+            'ShipAddr2' => '',
             'ShipCity' => $city ? $city->name : null,
             'ShipState' => $state ? $state->iso2 : '',
             'ShipZip' => $order->shipping_pin_code,
@@ -2069,7 +2079,7 @@ class Orders extends Admin_Controller
             'BillLName' => count($names) > 1 ? implode(' ', array_slice($names, 1)) : null,
             'BillEmail' => $order->email,
             'BillAddr' => $order->billing_address,
-            'BillAddr2' => null,
+            'BillAddr2' => '',
             'BillCity' => $city ? $city->name : null,
             'BillState' => $state ? $state->iso2 : '',
             'BillZip' => $order->billing_pin_code,
@@ -2081,8 +2091,15 @@ class Orders extends Admin_Controller
             $items, $shippingInfo, $billingInfo, $token
         );
 
+        if (is_string($response)) {
+            $result = ['success' => false, 'message' => $response];
+        } else {
+            $this->Provider_Model->orderSave($id, $response);
+            $result = ['success' => true, 'data' => $response];
+        }
+
         return $this->output
             ->set_content_type('application/json')
-            ->set_output(json_encode($response));
+            ->set_output(json_encode($result));
     }
 }

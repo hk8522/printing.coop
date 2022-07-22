@@ -176,4 +176,3 @@ class Tickets extends Public_Controller
         redirect('Tickets');
     }
 }
-?>

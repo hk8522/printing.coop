@@ -64,7 +64,7 @@
                                             <?php $new_price=getDiscountPrice($list['price'],$list['discount']);?>
                                                         <?php if(!empty($new_price)){?>
                                                             <span class="new-price"><?php echo CURREBCY_SYMBOL.$new_price;?></span>
-                                                            <span class="old-price"  style="text-decoration: line-through;"><?php echo CURREBCY_SYMBOL.number_format($list['price'],2);?></span>
+                                                            <span class="old-price" style="text-decoration: line-through;"><?php echo CURREBCY_SYMBOL.number_format($list['price'],2);?></span>
                                                         <?php
                                                         }else{?>
                                                             <span class="new-price"><?php echo CURREBCY_SYMBOL.number_format($list['price'],2);?></span>
