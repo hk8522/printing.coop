@@ -363,4 +363,12 @@ Class Provider_Model extends MY_Model {
         $this->db->select('COUNT(*) AS count');
         return $this->db->get()->row()->count;
     }
+
+    public function getOrders($order_id)
+    {
+        $this->db->from('provider_orders');
+        $this->db->where('order_id', $order_id);
+        $this->select('provider_order_id');
+        return $this->db->get()->result();
+    }
 }

@@ -109,19 +109,19 @@ function sina_attributes($attribute_ids)
 
     $provider = $ci->Provider_Model->getProvider('sina');
     $itemInfo = is_string($attribute_ids) ? json_decode($attribute_ids) : $attribute_ids;
-    $attributes = $ci->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_attribute_ids);
+    $itemInfo->attributes = $ci->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_attribute_ids);
 
-    return $attributes;
+    return $itemInfo;
 }
 
 function sina_attributes_map($attribute_ids)
 {
-    $attributes = sina_attributes($attribute_ids);
+    $itemInfo = sina_attributes($attribute_ids);
     $func = function($attribute) {
         $attribute_name = $attribute->type == App\Common\ProductAttributeType::Quantity ? 'Qautntiy' : ($attribute->type == App\Common\ProductAttributeType::Size ? 'Size' : $attribute->name);
         return ['attribute_name' => $attribute_name, 'item_name' => $attribute->value];
     };
-    return array_map($func, $attributes);
+    return array_map($func, $itemInfo->attributes);
 }
 
 function sina_shipping_methods($order_id)
@@ -168,4 +168,11 @@ function sina_shipping_methods($order_id)
     }
 
     return [];
+}
+
+function sina_order_info(string $token, int $order_id)
+{
+    $sina = config_item('sina');
+    $url = $sina['endpoint'] . "/order/$order_id";
+    return curl_helper($url, 'get', null, $token);
 }

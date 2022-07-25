@@ -1959,9 +1959,9 @@ class Orders extends Admin_Controller
 
         $items = [];
         foreach ($order->items as $item) {
-            $attributes = sina_attributes($item->attribute_ids);
+            $itemInfo = sina_attributes($item->attribute_ids);
             $options = [];
-            foreach ($attributes as $attribute)
+            foreach ($itemInfo->attributes as $attribute)
                 $options[$attribute->name] = $attribute->value_id;
             $items[] = [
                 'productId' => $itemInfo->provider_product_id,
@@ -1988,22 +1988,32 @@ class Orders extends Admin_Controller
             if (is_string($response)) {
                 $error = $response;
             } else if ($response->statusCode == 200) {
-                $data = [];
-                foreach ($response->body as $item) {
-                    $data[] = [
-                        'type' => $item[0],
-                        'name' => $item[1],
-                        'price' => $item[2],
-                        'quantity' => $item[3],
+                if ($response->body->error) {
+                    $error = false;
+                    $gridModel = [
+                        'extra_data' => null,
+                        'data' => [],
+                        'errors' => $response->body->error,
+                        'total' => 0,
                     ];
+                } else {
+                    $data = [];
+                    foreach ($response->body as $item) {
+                        $data[] = [
+                            'type' => $item[0],
+                            'name' => $item[1],
+                            'price' => $item[2],
+                            'quantity' => $item[3],
+                        ];
+                    }
+                    $gridModel = [
+                        'extra_data' => null,
+                        'data' => $data,
+                        'errors' => null,
+                        'total' => count($data),
+                    ];
+                    $error = false;
                 }
-                $gridModel = [
-                    'extra_data' => null,
-                    'data' => $data,
-                    'errors' => null,
-                    'total' => count($data),
-                ];
-                $error = false;
             } else {
                 $error = $response->body;
             }
@@ -2034,9 +2044,9 @@ class Orders extends Admin_Controller
         $items = [];
         foreach ($order->items as $item) {
             $cartImages = json_decode($item->cart_images, true);
-            $attributes = sina_attributes($item->attribute_ids);
+            $itemInfo = sina_attributes($item->attribute_ids);
             $options = [];
-            foreach ($attributes as $attribute)
+            foreach ($itemInfo->attributes as $attribute)
                 $options[$attribute->name] = $attribute->value_id;
             if (!is_array($cartImages) || count($cartImages) == 0) {
                 return $this->output
@@ -2121,4 +2131,18 @@ class Orders extends Admin_Controller
             ->set_content_type('application/json')
             ->set_output(json_encode($result));
     }
+
+    public function provider($order_id)
+    {
+        $orders = $this->Provider_Model->getOrders($order_id);
+
+        $result = [];
+        $token = $this->sina_access_token();
+        foreach ($orders as $order) {
+            $result[] = sina_order_info($token, $order->provider_order_id);
+        }
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode($result));
+}
 }
