@@ -1,5 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+require_once(APPPATH . 'common/ProductAttributeType.php');
+
+use App\Common\ProductAttributeType;
+
 class Checkouts extends Public_Controller
 {
     public $class_name = '';
@@ -18,6 +23,7 @@ class Checkouts extends Public_Controller
         $this->load->model('User_Model');
         $this->load->model('Discount_Model');
         $this->load->model('Store_Model');
+        $this->load->model('Provider_Model');
 
         $this->load->helper('form');
         $this->data['page_title'] = 'Checkout';
@@ -192,7 +198,17 @@ class Checkouts extends Public_Controller
                 $total_charges_ups = $ups_response->RateResponse->RatedShipment;
             }
 
-            $CanedaPostShiping = CanedaPostApigetRate($shipping_pin_code);
+            $provider_product_count = $this->Provider_Model->getOrderProductCount($order_id);
+            if ($provider_product_count > 0) {
+                $methods = sina_shipping_methods($order_id);
+                $CanedaPostShiping = ['statu' => 200, 'msg' => ''];
+                foreach ($methods as $method) {
+                    $CanedaPostShiping['list'] = [['service_name' => $method[1], 'price' => $method[2]]];
+                }
+            } else {
+                $CanedaPostShiping = CanedaPostApigetRate($shipping_pin_code);
+            }
+            $ProductOrder['provider_product_count'] = $provider_product_count;
 
             $salesTaxRatesProvinces_Data = $this->Address_Model->salesTaxRatesProvincesById($ProductOrder['billing_state']);
 

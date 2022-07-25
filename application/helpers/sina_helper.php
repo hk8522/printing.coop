@@ -101,3 +101,71 @@ function sina_order_new($items, $shippingInfo, $billingInfo, $token)
         'notes' => 'Business Card Test Order',
         ], $token);
 }
+
+function sina_attributes($attribute_ids)
+{
+    $ci = get_instance();
+    $ci->load->model('Provider_Model');
+
+    $provider = $ci->Provider_Model->getProvider('sina');
+    $itemInfo = is_string($attribute_ids) ? json_decode($attribute_ids) : $attribute_ids;
+    $attributes = $ci->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_attribute_ids);
+
+    return $attributes;
+}
+
+function sina_attributes_map($attribute_ids)
+{
+    $attributes = sina_attributes($attribute_ids);
+    $func = function($attribute) {
+        $attribute_name = $attribute->type == App\Common\ProductAttributeType::Quantity ? 'Qautntiy' : ($attribute->type == App\Common\ProductAttributeType::Size ? 'Size' : $attribute->name);
+        return ['attribute_name' => $attribute_name, 'item_name' => $attribute->value];
+    };
+    return array_map($func, $attributes);
+}
+
+function sina_shipping_methods($order_id)
+{
+    $ci = get_instance();
+    $ci->load->model('Address_Model');
+    $ci->load->model('ProductOrder_Model');
+    $ci->load->model('Provider_Model');
+
+    $order = $ci->ProductOrder_Model->getOrder($order_id);
+
+    $provider = $ci->Provider_Model->getProvider('sina');
+    $items = [];
+    foreach ($order->items as $item) {
+        $itemInfo = json_decode($item->attribute_ids);
+        $attributes = $ci->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_attribute_ids);
+        $options = [];
+        foreach ($attributes as $attribute)
+            $options[$attribute->name] = $attribute->value_id;
+        $items[] = [
+            'productId' => $itemInfo->provider_product_id,
+            'options' => $options,
+        ];
+    }
+
+    $country = (object) $ci->Address_Model->getCountryById($order->shipping_country);
+    $state = (object) $ci->Address_Model->getStateById($order->shipping_state);
+
+    $error = false;
+    if (count($items) > 0 && $state && $country) {
+        $shippingInfo = [
+            'ShipState' => $state ? $state->iso2 : '',
+            'ShipZip' => $order->shipping_pin_code,
+            'ShipCountry' => $country ? $country->iso2 : null,
+        ];
+
+        $token = sina_access_token();
+        $response = sina_order_shippingEstimate(
+            $items, $shippingInfo, $token
+        );
+
+        if ($response->statusCode == 200)
+            return $response->body;
+    }
+
+    return [];
+}

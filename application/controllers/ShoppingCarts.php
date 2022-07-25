@@ -15,6 +15,8 @@ class ShoppingCarts extends Public_Controller
     public function index()
     {
         #$this->load->model('Product_Model');
+        $this->load->model('Provider_Model');
+
         $this->data['page_title'] = 'Shopping Cart';
         if ($this->language_name == 'French') {
             $this->data['page_title'] = 'Panier';

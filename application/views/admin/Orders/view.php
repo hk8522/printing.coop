@@ -161,11 +161,11 @@
 </style>
 <?php
 $currency_id=$orderData['currency_id'];
-if(empty($currency_id)){
-    $currency_id=1;
+if (empty($currency_id)) {
+    $currency_id = 1;
 }
-$OrderCurrencyData=$CurrencyList[$currency_id];
-$order_currency_currency_symbol=$OrderCurrencyData['symbols'];
+$OrderCurrencyData = $CurrencyList[$currency_id];
+$order_currency_currency_symbol = $OrderCurrencyData['symbols'];
 ?>
 <div class="content-wrapper" style="min-height: 687px;">
     <section class="content">
@@ -175,7 +175,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo ucfirst($page_title); ?></span>
+                                <span><?=ucfirst($page_title)?></span>
                             </div>
                         </div>
 
@@ -198,22 +198,21 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                             <span>Order Id</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php echo $orderData['order_id']?></strong>
+                                                                            <strong><?=$orderData['order_id']?></strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>
-                                                                 <li>
+                                                                <li>
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                             <span>Customer Code:</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php if(!empty($orderData['user_id'])){
-                                                                                    echo CUSTOMER_ID_PREFIX.$orderData['user_id'];
-                                                                            }else{
+                                                                            <strong><?php if (!empty($orderData['user_id'])) {
+                                                                                echo CUSTOMER_ID_PREFIX.$orderData['user_id'];
+                                                                            } else {
                                                                                 echo "-";
-                                                                            }
-    ?>																		</strong>
+                                                                            }?>																		</strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -223,8 +222,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                             <span>Website:</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php echo $StoreList[$orderData['store_id']]['name']?>
-                                                                    </strong>
+                                                                            <strong><?=$StoreList[$orderData['store_id']]['name']?></strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -234,7 +232,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                             <span>Customer Name:</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php echo ucfirst($orderData['name']);?></strong>
+                                                                            <strong><?=ucfirst($orderData['name'])?></strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -244,7 +242,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                             <span>Customer Mobile:</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php echo ucfirst($orderData['mobile']);?></strong>
+                                                                            <strong><?=ucfirst($orderData['mobile'])?></strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -254,7 +252,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                             <span>Customer Email:</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php echo ucfirst($orderData['email']);?></strong>
+                                                                            <strong><?=ucfirst($orderData['email'])?></strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -264,7 +262,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                             <span>Order Amount:</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php echo $order_currency_currency_symbol.number_format($orderData['total_amount'],2);?></strong>
+                                                                            <strong><?=$order_currency_currency_symbol.number_format($orderData['total_amount'], 2)?></strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -274,7 +272,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                             <span>Order Status:</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php echo getOrderSatusClass($orderData['status']);?></strong>
+                                                                            <strong><?=getOrderSatusClass($orderData['status'])?></strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -284,60 +282,51 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                             <span>Order Date:</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php echo dateFormate($orderData['created']);?></strong>
+                                                                            <strong><?=dateFormate($orderData['created'])?></strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>
 
-                                                    <li>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <span>Shipping Method:</span>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <strong>
-
-                                               <?php
-                                                      $Method = getShipingName($orderData);
-
-                                                        if(!empty($Method)){
-                                                            echo $Method;
-                                                        }else{
-                            $shipping_method_formate=explode('-',$orderData['shipping_method_formate']);
-                            if($shipping_method_formate[0]=="pickupinstore"){
-                                                                $pickupStore=$this->Store_Model->getPickupStoreDataById($shipping_method_formate[2]);
-                                                                echo 'Pickup In Store<br>'.$pickupStore['name']."<br>".$pickupStore['address']."<br>".$pickupStore['phone'];
-                                                            }
-                                                        }
-
-                                                        ?>
-                                                            </strong>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                                                <?php
-                            $shipping_method_formate=explode('-',$orderData['shipping_method_formate']);
-                            $flag_shiping_cost=$orderData['flag_shiping_cost'];
-                            if($shipping_method_formate[0]=="flagship" && $flag_shiping_cost !=0.00 && !empty($flag_shiping_cost)){
-                                                ?>
-                                                <li>
-                                                   <div class="row">
-                                                        <div class="col-md-6">
-                                                            <span>Flagship Shipping Cost:</span>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <strong>
-
-                                                       <?php
-
-                                                        echo $order_currency_currency_symbol."".number_format($flag_shiping_cost,2)
-
-                                                        ?>
-                                                            </strong>
-                                                        </div>
-                                                    </div>
-                                                </li>
-                            <?php }?>
+                                                                <li>
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <span>Shipping Method:</span>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <strong>
+                                                                                <?php
+                                                                                $Method = getShipingName($orderData);
+                                                                                if (!empty($Method)) {
+                                                                                    echo $Method;
+                                                                                } else {
+                                                                                    $shipping_method_formate = explode('-',$orderData['shipping_method_formate']);
+                                                                                    if ($shipping_method_formate[0] == "pickupinstore") {
+                                                                                        $pickupStore = $this->Store_Model->getPickupStoreDataById($shipping_method_formate[2]);
+                                                                                        echo 'Pickup In Store<br>'.$pickupStore['name']."<br>".$pickupStore['address']."<br>".$pickupStore['phone'];
+                                                                                    }
+                                                                                }?>
+                                                                            </strong>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <?php
+                                                                $shipping_method_formate = explode('-',$orderData['shipping_method_formate']);
+                                                                $flag_shiping_cost = $orderData['flag_shiping_cost'];
+                                                                if ($shipping_method_formate[0] == "flagship" && $flag_shiping_cost != 0.00 && !empty($flag_shiping_cost)) {
+                                                                ?>
+                                                                <li>
+                                                                    <div class="row">
+                                                                        <div class="col-md-6">
+                                                                            <span>Flagship Shipping Cost:</span>
+                                                                        </div>
+                                                                        <div class="col-md-6">
+                                                                            <strong>
+                                                                                <?=$order_currency_currency_symbol . "" . number_format($flag_shiping_cost, 2)?>
+                                                                            </strong>
+                                                                        </div>
+                                                                    </div>
+                                                                </li>
+                                                                <?php }?>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -355,7 +344,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                             <span>Payment Type:</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php echo ucfirst($orderData['payment_type']);?></strong>
+                                                                            <strong><?=ucfirst($orderData['payment_type'])?></strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>-->
@@ -365,7 +354,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                             <span>Payment Method:</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php echo ucfirst($orderData['payment_type']);?></strong>
+                                                                            <strong><?=ucfirst($orderData['payment_type'])?></strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -375,7 +364,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                             <span>Payment Status:</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php echo getOrderPaymentStatus($orderData['payment_status']);?></strong>
+                                                                            <strong><?=getOrderPaymentStatus($orderData['payment_status'])?></strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -385,7 +374,7 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                             <span>Payment Transition Id:</span>
                                                                         </div>
                                                                         <div class="col-md-6">
-                                                                            <strong><?php echo $orderData['transition_id'];?></strong>
+                                                                            <strong><?=$orderData['transition_id']?></strong>
                                                                         </div>
                                                                     </div>
                                                                 </li>
@@ -409,20 +398,19 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <strong>
-                                                                              <?php echo ucfirst($orderData['billing_name']);?>
+                                                                                <?=ucfirst($orderData['billing_name'])?>
                                                                                 <br>
-                                                                                Mobile: <?php echo ucfirst($orderData['billing_mobile']);?><?php echo !empty($orderData['billing_alternate_phone']) ? ','.$orderData['billing_alternate_phone']:'';?>
-
-                                                                                <br>	<?php if(!empty($orderData['billing_company'])){?>
-
-    Company:<?php echo $orderData['billing_company'];?>
-    <br>
+                                                                                Mobile: <?=ucfirst($orderData['billing_mobile'])?><?=!empty($orderData['billing_alternate_phone']) ? ',' . $orderData['billing_alternate_phone'] : ''?>
+                                                                                <br>
+                                                                                <?php if (!empty($orderData['billing_company'])) {?>
+                                                                                    Company:<?=$orderData['billing_company']?>
+                                                                                    <br>
                                                                                 <?php }?>
 
-                                                                                <?php echo $orderData['billing_address'];?>
+                                                                                <?=$orderData['billing_address']?>
 
-                                            <br>
-          <?php echo $cityData['name'];?>,<?php echo $stateData['name'];?>,<?php echo $countryData['iso2'];?>,<?php echo $orderData['billing_pin_code'];?>
+                                                                                <br>
+                                                                                <?=$cityData['name']?>,<?=$stateData['name']?>,<?=$countryData['iso2']?>,<?=$orderData['billing_pin_code']?>
                                                                             </strong>
                                                                         </div>
                                                                     </div>
@@ -445,21 +433,19 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <strong>
-                                                                            <?php echo ucfirst($orderData['shipping_name']);?>
+                                                                                <?=ucfirst($orderData['shipping_name'])?>
                                                                                 <br>
-                                                                                Mobile: <?php echo ucfirst($orderData['shipping_mobile']);?><?php echo !empty($orderData['shipping_alternate_phone']) ? ','.$orderData['shipping_alternate_phone']:'';?>
+                                                                                Mobile: <?=ucfirst($orderData['shipping_mobile'])?><?=!empty($orderData['shipping_alternate_phone']) ? ',' . $orderData['shipping_alternate_phone'] : ''?>
 
-    <?php if(!empty($orderData['shipping_company'])){?>
-    <br>
-    Company:<?php echo $orderData['shipping_company'];?>
-
+                                                                                <?php if (!empty($orderData['shipping_company'])) {?>
+                                                                                    <br>
+                                                                                    Company:<?=$orderData['shipping_company']?>
                                                                                 <?php }?>
                                                                                 <br>
-                                      <?php echo $orderData['shipping_address'];?>
+                                                                                <?=$orderData['shipping_address']?>
 
                                                                                 <br>
-      <?php echo $cityData['name'];?>,<?php echo $stateData['name'];?> ,<?php echo $cityData['name'];?> <?php echo $countryData['iso2'];?>,<?php echo $orderData['shipping_pin_code'];?>
-
+                                                                                <?=$cityData['name']?>,<?=$stateData['name']?> ,<?=$cityData['name']?> <?=$countryData['iso2']?>,<?=$orderData['shipping_pin_code']?>
                                                                             </strong>
                                                                         </div>
                                                                     </div>
@@ -482,13 +468,13 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <strong>
-        <?php
-           $file_name=$orderData['order_id']."-invoice.pdf";
-           $file_name=strtolower($file_name);
-           $location=FILE_BASE_PATH.'pdf/'.$file_name;
-           $linkInvoice=$BASE_URL."admin/Orders/downloadOrderPdf/".urlencode($location)."/".urlencode($file_name).'/'.urlencode($orderData['id']);
-
-        ?>                                                                           <a href="<?php echo $linkInvoice?>">
+                                                                                <?php
+                                                                                $file_name = $orderData['order_id']."-invoice.pdf";
+                                                                                $file_name = strtolower($file_name);
+                                                                                $location = FILE_BASE_PATH.'pdf/'.$file_name;
+                                                                                $linkInvoice = $BASE_URL."admin/Orders/downloadOrderPdf/".urlencode($location)."/".urlencode($file_name).'/'.urlencode($orderData['id']);
+                                                                                ?>
+                                                                                <a href="<?=$linkInvoice?>">
                                                                                     <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-file-download"></i> Download</button>
                                                                                 </a>
                                                                             </strong>
@@ -502,13 +488,14 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <strong>
-       <?php
-           $file_name=$orderData['order_id']."-order.pdf";
-           $file_name=strtolower($file_name);
-           $location=FILE_BASE_PATH.'pdf/'.$file_name;
-           $linkOrder=$BASE_URL."admin/Orders/downloadOrderPdf/".urlencode($location)."/".urlencode($file_name).'/'.urlencode($orderData['id']);
-           //$linkOrder=$BASE_URL."admin/Orders/download/".urlencode($location);
-        ?>                                                                         <a href="<?php echo $linkOrder;?>">
+                                                                                <?php
+                                                                                $file_name = $orderData['order_id']."-order.pdf";
+                                                                                $file_name = strtolower($file_name);
+                                                                                $location = FILE_BASE_PATH.'pdf/'.$file_name;
+                                                                                $linkOrder = $BASE_URL."admin/Orders/downloadOrderPdf/".urlencode($location)."/".urlencode($file_name).'/'.urlencode($orderData['id']);
+                                                                                //$linkOrder=$BASE_URL."admin/Orders/download/".urlencode($location);
+                                                                                ?>
+                                                                                <a href="<?=$linkOrder?>">
                                                                                     <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-file-download"></i> Download</button>
                                                                                 </a>
                                                                             </strong>
@@ -537,340 +524,279 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                     </thead>
                                                     <tbody>
                                                         <?php
-                                                        foreach ($OrderItemData as $rowid=>$items){
-                                                            $cart_images=$items['cart_images'];
+                                                        foreach ($OrderItemData as $rowid => $item) {
+                                                            $cart_images = $item['cart_images'];
 
-                                                           $cart_images=!empty($cart_images) ? json_decode($cart_images,true) : array();
-                                                           $cart_images=(array) $cart_images;
+                                                            $cart_images = !empty($cart_images) ? json_decode($cart_images, true) : array();
+                                                            $cart_images = (array) $cart_images;
 
-                                    $attribute_ids=json_decode($items['attribute_ids'],true);
+                                                            if ($item['provider_product_id']) {
+                                                                $attribute_ids = sina_attributes_map($item['attribute_ids']);
+                                                            } else {
+                                                                $attribute_ids = json_decode($item['attribute_ids'], true);
+                                                            }
 
-$product_size=json_decode($items['product_size'],true);
-$product_width_length=$items['product_width_length'];
+                                                            $product_size = json_decode($item['product_size'], true);
+                                                            $product_width_length = $item['product_width_length'];
 
-$product_width_length=json_decode($items['product_width_length'],true);
-$page_product_width_length=json_decode($items['page_product_width_length'],true);
+                                                            $product_width_length = json_decode($item['product_width_length'], true);
+                                                            $page_product_width_length = json_decode($item['page_product_width_length'], true);
 
-$product_depth_length_width=json_decode($items['product_depth_length_width'],true);
+                                                            $product_depth_length_width = json_decode($item['product_depth_length_width'], true);
 
-$votre_text=$items['votre_text'];
-$recto_verso=$items['recto_verso'];
-$product_id=$items['product_id'];
-//$AttributesData=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
-
-                                                       ?>
+                                                            $votre_text = $item['votre_text'];
+                                                            $recto_verso = $item['recto_verso'];
+                                                            $product_id = $item['product_id'];
+                                                            //$AttributesData=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
+                                                        ?>
                                                         <tr>
                                                             <td class="product-thumbnail">
-                                                                <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($items['id']);?>">
-                                                                    <?php $imageurl=getProductImage($items['product_image']);
-
-                                                                     ?>
-
-                                                                    <img src="<?php echo $imageurl?>">
+                                                                <a href="<?=$BASE_URL?>Products/view/<?=base64_encode($item['id'])?>">
+                                                                    <?php $imageurl = getProductImage($item['product_image']);?>
+                                                                    <img src="<?=$imageurl?>">
                                                                 </a>
                                                             </td>
                                                             <td class="product-name">
-                                                                <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($items['id']);?>"><?php echo ucfirst($items['name'])?></a>
+                                                                <a href="<?=$BASE_URL?>Products/view/<?=base64_encode($item['id'])?>"><?=ucfirst($item['name'])?></a>
                                                                 <div class="product-name-detail">
                                                                     <div class="row">
-                                                                                         <?php if(!empty($product_width_length)){?>
-                                   <div class="col-md-6">
-                                            <span><strong>Length(Inch): <?php echo $product_width_length['product_length'];?></strong> </span>
-                                    </div>
-                                    <div class="col-md-6">
-                                            <span><strong> Width(Inch): <?php echo $product_width_length['product_width'];?></strong> </span>
-                                    </div>
-                                    <?php if(!empty($product_width_length['length_width_color_show'])){?>
-                                    <div class="col-md-6">
-                                            <span><strong> Colors: <?php echo $product_width_length['length_width_color'];?></strong> </span>
-                                    </div>
-                            <?php
-                            }?>
-                                    <?php if(!empty($product_width_length['product_total_page'])){?>
-                                    <div class="col-md-6">
-                                            <span><strong> Quantity: <?php echo $product_width_length['product_total_page'];?></strong> </span>
-                                    </div>
-                            <?php
-                            }?>
-                                <?php
-                                }?>
-                                <?php if(!empty($product_depth_length_width)){?>
-                                   <div class="col-md-6">
-                                            <span><strong>Length(Inch): <?php echo $product_depth_length_width['product_depth_length'];?></strong> </span>
-                                    </div>
-                                    <div class="col-md-6">
-                                            <span><strong> Width(Inch): <?php echo $product_depth_length_width['product_depth_width'];?></strong> </span>
-                                    </div>
-                                    <div class="col-md-6">
-                                            <span><strong> Depth(Inch): <?php echo $product_depth_length_width['product_depth'];?></strong> </span>
-                                    </div>
-                                    <?php if(!empty($product_depth_length_width['depth_color_show'])){?>
-                                    <div class="col-md-6">
-                                            <span><strong> Colors: <?php echo $product_depth_length_width['depth_color'];?></strong> </span>
-                                    </div>
-                            <?php
-                            }?>
-                            <?php if(!empty($product_depth_length_width['product_depth_total_page'])){?>
-                                    <div class="col-md-6">
-                                            <span><strong> Quantity: <?php echo $product_depth_length_width['product_depth_total_page'];?></strong> </span>
-                                    </div>
-                            <?php
-                            }?>
-                       <?php
-                        }?>
+                                                                        <?php if (!empty($product_width_length)) {?>
+                                                                            <div class="col-md-6">
+                                                                                <span><strong>Length(Inch): <?=$product_width_length['product_length']?></strong></span>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <span><strong>Width(Inch): <?=$product_width_length['product_width']?></strong></span>
+                                                                            </div>
+                                                                            <?php if (!empty($product_width_length['length_width_color_show'])) {?>
+                                                                                <div class="col-md-6">
+                                                                                    <span><strong>Colors: <?=$product_width_length['length_width_color']?></strong></span>
+                                                                                </div>
+                                                                            <?php }?>
+                                                                            <?php if (!empty($product_width_length['product_total_page'])) {?>
+                                                                                <div class="col-md-6">
+                                                                                    <span><strong>Quantity: <?=$product_width_length['product_total_page']?></strong></span>
+                                                                                </div>
+                                                                            <?php }?>
+                                                                        <?php }?>
+                                                                        <?php if (!empty($product_depth_length_width)) {?>
+                                                                            <div class="col-md-6">
+                                                                                <span><strong>Length(Inch): <?=$product_depth_length_width['product_depth_length']?></strong></span>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <span><strong>Width(Inch): <?=$product_depth_length_width['product_depth_width']?></strong></span>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <span><strong>Depth(Inch): <?=$product_depth_length_width['product_depth']?></strong></span>
+                                                                            </div>
+                                                                            <?php if (!empty($product_depth_length_width['depth_color_show'])) {?>
+                                                                                <div class="col-md-6">
+                                                                                    <span><strong>Colors: <?=$product_depth_length_width['depth_color']?></strong></span>
+                                                                                </div>
+                                                                            <?php }?>
+                                                                            <?php if (!empty($product_depth_length_width['product_depth_total_page'])) {?>
+                                                                                <div class="col-md-6">
+                                                                                    <span><strong>Quantity: <?=$product_depth_length_width['product_depth_total_page']?></strong></span>
+                                                                                </div>
+                                                                            <?php }?>
+                                                                        <?php }?>
 
-                                <?php
-        if(!empty($page_product_width_length)){?>
-                                   <div class="col-md-6">
-                                            <span><strong>Page Length(Inch): <?php echo $page_product_width_length['page_product_length'];?></strong> </span>
-                                    </div>
-                                    <div class="col-md-6">
-                                            <span><strong>Page Width(Inch): <?php echo $page_product_width_length['page_product_width'];?></strong> </span>
-                                    </div>
-                                    <?php if(!empty($page_product_width_length['page_length_width_color_show'])){?>
-                                    <div class="col-md-6">
-                                            <span><strong> Colors: <?php echo $page_product_width_length['page_length_width_color'];?></strong> </span>
-                                    </div>
-                            <?php
-                            }?>
-                                    <?php if(!empty($page_product_width_length['page_product_total_page'])){?>
-                                    <div class="col-md-6">
-                                            <span><strong>Pages: <?php echo $page_product_width_length['page_product_total_page'];?></strong> </span>
-                                    </div>
-                                <?php
-                                }?>
-                                <?php if(!empty($page_product_width_length['page_product_total_sheets'])){?>
-                                   <div class="col-md-12 col-lg-6 col-xl-6">
-                                            <span><strong><?php
+                                                                        <?php
+                                                                        if (!empty($page_product_width_length)) {?>
+                                                                            <div class="col-md-6">
+                                                                                <span><strong>Page Length(Inch): <?=$page_product_width_length['page_product_length']?></strong></span>
+                                                                            </div>
+                                                                            <div class="col-md-6">
+                                                                                <span><strong>Page Width(Inch): <?=$page_product_width_length['page_product_width']?></strong></span>
+                                                                            </div>
+                                                                            <?php if (!empty($page_product_width_length['page_length_width_color_show'])) {?>
+                                                                                <div class="col-md-6">
+                                                                                    <span><strong>Colors: <?=$page_product_width_length['page_length_width_color']?></strong></span>
+                                                                                </div>
+                                                                            <?php }?>
+                                                                            <?php if (!empty($page_product_width_length['page_product_total_page'])) {?>
+                                                                                <div class="col-md-6">
+                                                                                    <span><strong>Pages: <?=$page_product_width_length['page_product_total_page']?></strong></span>
+                                                                                </div>
+                                                                            <?php }?>
+                                                                            <?php if (!empty($page_product_width_length['page_product_total_sheets'])) {?>
+                                                                                <div class="col-md-12 col-lg-6 col-xl-6">
+                                                                                    <span><strong>Sheet Per Pad: <?= $page_product_width_length['page_product_total_sheets']?></strong></span>
+                                                                                </div>
+                                                                            <?php }?>
+                                                                            <?php
+                                                                            if (!empty($page_product_width_length['page_product_total_quantity'])) { ?>
+                                                                                <div class="col-md-12 col-lg-6 col-xl-6">
+                                                                                    <span><strong>Quantity: <?=$page_product_width_length['page_product_total_quantity']?></strong></span>
+                                                                                </div>
+                                                                            <?php }?>
+                                                                        <?php }?>
+                                                                        <?php
+                                                                        if (!empty($product_size)) {
+                                                                            $size_name = $product_size['product_size'];
+                                                                            $label_qty = $product_size['product_quantity'];
+                                                                            $attribute = isset($product_size['attribute']) ? $product_size['attribute'] : '';
 
-                                       echo 'Sheet Per Pad:'.$page_product_width_length['page_product_total_sheets'];
+                                                                            if ($label_qty) { ?>
+                                                                                <div class="col-md-12 col-lg-6 col-xl-6">
+                                                                                    <span><strong>Quantity: <?=$label_qty?></strong></span>
+                                                                                </div>
+                                                                            <?php }?>
 
-                                                ?></strong> </span>
-                                    </div>
-                                <?php
-                                }?>
-                                <?php
-                                if(!empty($page_product_width_length['page_product_total_quantity'])){ ?>
-                                   <div class="col-md-12 col-lg-6 col-xl-6">
-                                            <span><strong><?php
+                                                                            <?php
+                                                                            if ($size_name) { ?>
+                                                                                <div class="col-md-12 col-lg-6 col-xl-6">
+                                                                                    <span><strong>Size: <?=$size_name?></strong></span>
+                                                                                </div>
+                                                                            <?php }?>
 
-                                       echo 'Quantity:'.$page_product_width_length['page_product_total_quantity'];
-                                        ?></strong> </span>
-                                    </div>
-                                <?php
-                                }?>
-                                <?php
-                                }?>
-                                                                                                                               <?php
-                            if(!empty($product_size)){
-                                $size_name = $product_size['product_size'];
-                                $label_qty=$product_size['product_quantity'];
-                                $attribute=isset($product_size['attribute']) ? $product_size['attribute']:'';
+                                                                            <?php
+                                                                            if ($attribute) {
+                                                                                foreach ($attribute as $akey => $aval) {
+                                                                                    $multiple_attribute_name = $aval['attributes_name'];
+                                                                                    $multiple_attribute_item_name = $aval['attributes_item_name'];
+                                                                            ?>
 
-                                ?>
-                                <?php
-                                if($label_qty){ ?>
-                                   <div class="col-md-12 col-lg-6 col-xl-6">
-                                            <span><strong>
+                                                                                    <div class="col-md-12 col-lg-6 col-xl-6">
+                                                                                        <span>
+                                                                                            <strong><?= $multiple_attribute_name?>: <?=$multiple_attribute_item_name?></strong>
+                                                                                        </span>
+                                                                                    </div>
+                                                                                <?php }
+                                                                            }?>
+                                                                        <?php }?>
+                                                                        <?php
+                                                                        foreach ($attribute_ids as $key => $val) {
+                                                                            $attribute_name = $val['attribute_name'];
+                                                                            $item_name = $val['item_name'];
+                                                                        ?>
+                                                                            <div class="col-md-12 col-lg-6 col-xl-6">
+                                                                                <span><strong><?=$attribute_name?>: <?=$item_name?></strong></span>
+                                                                            </div>
+                                                                        <?php }?>
+                                                                        <?php if (!empty($recto_verso)) {?>
+                                                                            <div class="col-md-6">
+                                                                                <span><strong>Recto/Verso: <?=$recto_verso?></strong></span>
+                                                                            </div>
+                                                                        <?php }?>
 
-                                               Quantity :<?php echo $label_qty;?></strong> </span>
-                                    </div>
-                                <?php
-                                }?>
-
-                                <?php
-                                if($size_name){ ?>
-                                    <div class="col-md-12 col-lg-6 col-xl-6">
-                                        <span><strong>
-                                              Size: <?php echo $size_name;?></strong> </span>
-                                    </div>
-                                <?php
-                                }?>
-
-                                <?php
-                                if($attribute){
-                                    foreach($attribute as $akey=>$aval){
-                                        $multiple_attribute_name=$aval['attributes_name'];
-                                        $multiple_attribute_item_name=$aval['attributes_item_name'];
-
-                                ?>
-
-                                        <div class="col-md-12 col-lg-6 col-xl-6">
-                                            <span>
-                                            <strong>
-                                               <?php
-                                                echo $multiple_attribute_name
-                                                 .':'. $multiple_attribute_item_name;
-                                                ?>
-                                                 </strong>
-                                            </span>
-                                        </div>
-                                        <?php
-                                    }
-                                }?>
-                            <?php
-                            }
-                            ?>
-                           <?php
-                            #pr($attribute_ids);
-                            foreach($attribute_ids as $key=>$val){
-                                $attribute_name=$val['attribute_name'];
-                                $item_name=$val['item_name'];
-                            ?>
-                                <div class="col-md-12 col-lg-6 col-xl-6">
-                                <span><strong><?php echo $attribute_name;?>: <?php echo $item_name;?></strong> </span>
-                                </div>
-
-                            <?php
-                            }?>
-                            <?php if(!empty($recto_verso)){?>
-                                   <div class="col-md-6">
-                                            <span><strong>Recto/Verso: <?php echo $recto_verso?></strong> </span>
-                                    </div>
-
-                                <?php
-                                }?>
-
-                                <?php if(!empty($votre_text)){?>
-                                   <div class="col-md-6">
-                                            <span><strong>Your TEXT - Votre TEXT: <?php echo $votre_text?></strong> </span>
-                                    </div>
-
-                                <?php
-                                }?>											                  </div>
+                                                                        <?php if (!empty($votre_text)) {?>
+                                                                            <div class="col-md-6">
+                                                                                <span><strong>Your TEXT - Votre TEXT: <?=$votre_text?></strong></span>
+                                                                            </div>
+                                                                        <?php }?>
+                                                                    </div>
                                                                 </div>
                                                                 <div class="uploaded-file-detail" id="upload-file-data">
-                                                    <?php if(!empty($cart_images)){
-                                                    foreach($cart_images as $key=>$return_arr){
-                                                            //pr($return_arr);
+                                                                    <?php if (!empty($cart_images)) {
+                                                                        foreach ($cart_images as $key=>$return_arr) {
+                                                                            //pr($return_arr);?>
+                                                                            <div class="uploaded-file-single" id="teb-<?=$return_arr['skey']?>">
+                                                                                <div class="uploaded-file-single-inner">
+                                                                                    <div class="uploaded-file-img" style="background-image: url(<?=$return_arr['src']?>)">
 
-                                                     ?>
+                                                                                    </div>
 
-                                                       <div class="uploaded-file-single" id="teb-<?php echo $return_arr['skey']?>">
-                                                            <div class="uploaded-file-single-inner">
-                                                                <div class="uploaded-file-img" style="background-image: url(<?php echo $return_arr['src']?>)">
+                                                                                    <img src="<?=$return_arr['src']?>" width="150">
+                                                                                    <?php
+                                                                                    $link = $BASE_URL."admin/Orders/download/".urlencode($return_arr['location'])."/".urlencode($return_arr['name']);
+                                                                                    ?>
+                                                                                    <br>
 
-                                                                </div>
+                                                                                    <div class="uploaded-file-info">
+                                                                                        <div class="uploaded-file-name">
+                                                                                            <span><?=$return_arr['name']?></span>
+                                                                                        </div>
 
-                                                                <img src="<?php echo $return_arr['src']?>" width="150">
-                                                                <?php
-                                                                $link=$BASE_URL."admin/Orders/download/".urlencode($return_arr['location'])."/".urlencode($return_arr['name']);
-                                                                ?><br>
+                                                                                        <?php
+                                                                                        if (!empty($return_arr['cumment'])) {?>
+                                                                                            <div class="upload-field">
+                                                                                                Comment: <?=$return_arr['cumment']?>
+                                                                                            </div>
+                                                                                        <?php }?>
 
-                                                                <div class="uploaded-file-info">
-                                                                  <div class="uploaded-file-name">
-                                                                      <span><?php echo $return_arr['name']?></span>
-                                                                  </div>
-
-                                                                    <?php
-                                                                    if(!empty($return_arr['cumment'])){?>
-                                                                        <div class="upload-field">
-                                                                            Comment : <?php echo $return_arr['cumment']?>
-                                                                        </div>
-                                                                    <?php
+                                                                                        <a href="<?=$link?>">
+                                                                                            <i class="fas fa-file-download"></i> Download
+                                                                                        </a>
+                                                                                    </div>
+                                                                                </div>
+                                                                            </div>
+                                                                        <?php }
                                                                     }?>
-
-                                                                    <a href="<?php echo $link?>">
-                                                                        <i class="fas fa-file-download"></i> Download
-                                                                    </a>
-                                                                 </div>
-
-                                                            </div>
-                                                        </div>
-                                                    <?php
-                                                               }
-                                                         }
-
-                                                    ?>
-
-                                                </div>
-
+                                                                </div>
                                                             </td>
                                                             <td class="product-price1">
                                                                 <span>
-                                                                    <?php echo $order_currency_currency_symbol.number_format(
-                                                                    $items['price'],2);?>
+                                                                    <?=$order_currency_currency_symbol.number_format($item['price'], 2)?>
                                                                 </span>
                                                             </td>
                                                             <td class="quant-cart text-left">
-                                                                <?php
-                                                                    echo $items['quantity']
-                                                                ?>
+                                                                <?=$item['quantity']?>
                                                             </td>
                                                             <td class="product-subtotal">
                                                                 <span>
                                                                     <?php
-                                                                    $subtotal=($items['price']*
-                                                                    $items['quantity']);
-                                                                    echo $order_currency_currency_symbol.number_format($subtotal,2);
-
-                                                                   ?>
+                                                                    $subtotal = ($item['price'] * $item['quantity']);
+                                                                    echo $order_currency_currency_symbol.number_format($subtotal, 2);
+                                                                    ?>
                                                                 </span>
                                                             </td>
                                                         </tr>
                                                         <?php }?>
                                                         <tr>
                                                             <td colspan="5" class="text-right">
-                                                    <div class="cart-total">
-                                                    <span>Subtotal Amount : <font class="cart-sub-total"><?php echo $order_currency_currency_symbol."".number_format($orderData['sub_total_amount'],2);?></font>
-                                                    </div>
-                                        <?php
-                                        if(!empty($orderData['preffered_customer_discount']) && $orderData['preffered_customer_discount'] !="0.00"){?>
-                                                <div class="cart-total">
-                                                    <span>
-                                                    Preffered Customer Discount:
-                                                    <font class="cart-sub-total">
-                                                    <?php echo '-'.$order_currency_currency_symbol.number_format($orderData['preffered_customer_discount'],2);?></font>
-                                                    </span>
-                                                </div>
-                                        <?php
-                                        }?>
-                                        <?php if(!empty($orderData['coupon_discount_amount']) && $orderData['coupon_discount_amount'] !="0.00"){?>
-                                                <div class="cart-total">
-                                                    <span>
-                                                              Coupon Discount
+                                                                <div class="cart-total">
+                                                                    <span>Subtotal Amount: <font class="cart-sub-total"><?=$order_currency_currency_symbol."".number_format($orderData['sub_total_amount'], 2)?></font>
+                                                                </div>
+                                                                <?php
+                                                                if (!empty($orderData['preffered_customer_discount']) && $orderData['preffered_customer_discount'] !="0.00") {?>
+                                                                    <div class="cart-total">
+                                                                        <span>
+                                                                            Preffered Customer Discount:
+                                                                            <font class="cart-sub-total">
+                                                                            <?='-'.$order_currency_currency_symbol.number_format($orderData['preffered_customer_discount'], 2)?></font>
+                                                                        </span>
+                                                                    </div>
+                                                                <?php }?>
+                                                                <?php if (!empty($orderData['coupon_discount_amount']) && $orderData['coupon_discount_amount'] !="0.00") {?>
+                                                                    <div class="cart-total">
+                                                                        <span>Coupon Discount:
+                                                                            <font class="cart-sub-total"><?='-'.$order_currency_currency_symbol.number_format($orderData['coupon_discount_amount'], 2)?></font>
+                                                                        </span>
+                                                                    </div>
+                                                                <?php }?>
+                                                                <div class="cart-total">
+                                                                    <span>Shipping Fee:
+                                                                        <font class="cart-sub-total">
+                                                                            <?= $order_currency_currency_symbol.number_format($orderData['delivery_charge'], 2)?>
+                                                                        </font>
+                                                                    </span>
+                                                                </div>
 
-                                                           : <font class="cart-sub-total">
-<?php echo '-'.$order_currency_currency_symbol.number_format($orderData['coupon_discount_amount'],2);?></font>
-                                                    </span>
-                                                </div>
-                                        <?php
-                                        }?>
-                                    <div class="cart-total">
-                                            <span>
-
-                                        Shipping Fee:
-                                        <font class="cart-sub-total">
-                                            <?php
-    echo $order_currency_currency_symbol.number_format($orderData['delivery_charge'],2);?>
-                                            </font>
-                                                    </span>
-                                    </div>
-
-                                    <?php
-                                    if(!empty($orderData['total_sales_tax']) &&  $orderData['total_sales_tax'] !='0.00'){
-                                    ?>
-                                       <div class="cart-total">
-                                            <span>Total <?php echo $salesTaxRatesProvinces_Data['type']?> <?php echo number_format($salesTaxRatesProvinces_Data['total_tax_rate'],2);?>%: <font class="cart-sub-total"><?php
-    echo $order_currency_currency_symbol.number_format($orderData['total_sales_tax'],2);?></font>
-                                            </span>
+                                                                <?php
+                                                                if (!empty($orderData['total_sales_tax']) &&  $orderData['total_sales_tax'] != 0) {
+                                                                ?>
+                                                                    <div class="cart-total">
+                                                                        <span>Total <?=$salesTaxRatesProvinces_Data['type']?> <?=number_format($salesTaxRatesProvinces_Data['total_tax_rate'], 2)?>%:
+                                                                            <font class="cart-sub-total"><?= $order_currency_currency_symbol.number_format($orderData['total_sales_tax'], 2)?></font>
+                                                                        </span>
+                                                                    </div>
+                                                                <?php }?>
+                                                                <div class="cart-total">
+                                                                    <span>
+                                                                        Order Total Amount:
+                                                                        <font class="cart-sub-total">
+                                                                            <?= $order_currency_currency_symbol . "" . number_format($orderData['total_amount'], 2)?>
+                                                                        </font>
+                                                                    </span>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-                                    <?php
-                                    }?>
-                                    <div class="cart-total">
-                                        <span>
-                                            Order Total Amount
-                                             : <font class="cart-sub-total">
-                                            <?php
-                                            echo $order_currency_currency_symbol."".number_format($orderData['total_amount'],2);
-                                            ?>
-                                               </font>
-                                        </span>
                                     </div>
-                                    </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                </div>
                             </div>
                         </div>
                     </div>

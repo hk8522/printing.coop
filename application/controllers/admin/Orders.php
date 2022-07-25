@@ -1956,13 +1956,10 @@ class Orders extends Admin_Controller
         $id = $this->input->post('id');
 
         $order = $this->ProductOrder_Model->getOrder($id);
-        $token = $this->sina_access_token();
 
-        $provider = $this->Provider_Model->getProvider('sina');
         $items = [];
         foreach ($order->items as $item) {
-            $itemInfo = json_decode($item->attribute_ids);
-            $attributes = $this->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_attribute_ids);
+            $attributes = sina_attributes($item->attribute_ids);
             $options = [];
             foreach ($attributes as $attribute)
                 $options[$attribute->name] = $attribute->value_id;
@@ -1975,40 +1972,49 @@ class Orders extends Admin_Controller
         $country = (object) $this->Address_Model->getCountryById($order->shipping_country);
         $state = (object) $this->Address_Model->getStateById($order->shipping_state);
 
-        $name = $order->shipping_name ? $order->shipping_name : $order->name;
-        $names = $name ? explode(' ', $name) : [];
-        $shippingInfo = [
-            'ShipState' => $state ? $state->iso2 : '',
-            'ShipZip' => $order->shipping_pin_code,
-            'ShipCountry' => $country ? $country->iso2 : null,
-        ];
-        // echo json_encode([$items, $shippingInfo]);
-        // die();
-        $response = sina_order_shippingEstimate(
-            $items, $shippingInfo, $token
-        );
-
-        if ($response->statusCode == 200) {
-            $data = [];
-            foreach ($response->body as $item) {
-                $data[] = [
-                    'type' => $item[0],
-                    'name' => $item[1],
-                    'price' => $item[2],
-                    'quantity' => $item[3],
-                ];
-            }
-            $gridModel = [
-                'extra_data' => null,
-                'data' => $data,
-                'errors' => null,
-                'total' => count($data),
+        $error = false;
+        if (count($items) > 0 && $state && $country) {
+            $shippingInfo = [
+                'ShipState' => $state ? $state->iso2 : '',
+                'ShipZip' => $order->shipping_pin_code,
+                'ShipCountry' => $country ? $country->iso2 : null,
             ];
+
+            $token = $this->sina_access_token();
+            $response = sina_order_shippingEstimate(
+                $items, $shippingInfo, $token
+            );
+
+            if (is_string($response)) {
+                $error = $response;
+            } else if ($response->statusCode == 200) {
+                $data = [];
+                foreach ($response->body as $item) {
+                    $data[] = [
+                        'type' => $item[0],
+                        'name' => $item[1],
+                        'price' => $item[2],
+                        'quantity' => $item[3],
+                    ];
+                }
+                $gridModel = [
+                    'extra_data' => null,
+                    'data' => $data,
+                    'errors' => null,
+                    'total' => count($data),
+                ];
+                $error = false;
+            } else {
+                $error = $response->body;
+            }
         } else {
+            $error = 'Data is invalid';
+        }
+        if ($error) {
             $gridModel = [
                 'extra_data' => null,
                 'data' => [],
-                'errors' => $response->body,
+                'errors' => $error,
                 'total' => 0,
             ];
         }
@@ -2024,14 +2030,11 @@ class Orders extends Admin_Controller
         $ship_method = $this->input->post('ship_method');
 
         $order = $this->ProductOrder_Model->getOrder($id);
-        $token = $this->sina_access_token();
 
-        $provider = $this->Provider_Model->getProvider('sina');
         $items = [];
         foreach ($order->items as $item) {
             $cartImages = json_decode($item->cart_images, true);
-            $itemInfo = json_decode($item->attribute_ids);
-            $attributes = $this->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_attribute_ids);
+            $attributes = sina_attributes($item->attribute_ids);
             $options = [];
             foreach ($attributes as $attribute)
                 $options[$attribute->name] = $attribute->value_id;
@@ -2054,50 +2057,64 @@ class Orders extends Admin_Controller
         $state = (object) $this->Address_Model->getStateById($order->shipping_state);
         $city = (object) $this->Address_Model->getCityById($order->shipping_city);
 
-        $name = $order->shipping_name ? $order->shipping_name : $order->name;
-        $names = $name ? explode(' ', $name) : [];
-        $shippingInfo = [
-            'ShipFName' => count($names) > 0 ? $names[0] : null,
-            'ShipLName' => count($names) > 1 ? implode(' ', array_slice($names, 1)) : null,
-            'ShipEmail' => $order->email,
-            'ShipAddr' => $order->shipping_address,
-            'ShipAddr2' => '',
-            'ShipCity' => $city ? $city->name : null,
-            'ShipState' => $state ? $state->iso2 : '',
-            'ShipZip' => $order->shipping_pin_code,
-            'ShipCountry' => $country ? $country->iso2 : null,
-            'ShipPhone' => $order->shipping_mobile ? $order->shipping_mobile : $order->mobile,
-            'ShipMethod' => $ship_method,
-        ];
+        $error = false;
+        if (count($items) > 0 && $state && $country) {
+            $name = $order->shipping_name ? $order->shipping_name : $order->name;
+            $names = $name ? explode(' ', $name) : [];
+            $shippingInfo = [
+                'ShipFName' => count($names) > 0 ? $names[0] : null,
+                'ShipLName' => count($names) > 1 ? implode(' ', array_slice($names, 1)) : null,
+                'ShipEmail' => $order->email,
+                'ShipAddr' => $order->shipping_address,
+                'ShipAddr2' => '',
+                'ShipCity' => $city ? $city->name : null,
+                'ShipState' => $state ? $state->iso2 : '',
+                'ShipZip' => $order->shipping_pin_code,
+                'ShipCountry' => $country ? $country->iso2 : null,
+                'ShipPhone' => $order->shipping_mobile ? $order->shipping_mobile : $order->mobile,
+                'ShipMethod' => $ship_method,
+            ];
 
-        $country = (object) $this->Address_Model->getCountryById($order->billing_country);
-        $state = (object) $this->Address_Model->getStateById($order->billing_state);
-        $city = (object) $this->Address_Model->getCityById($order->billing_city);
+            $country = (object) $this->Address_Model->getCountryById($order->billing_country);
+            $state = (object) $this->Address_Model->getStateById($order->billing_state);
+            $city = (object) $this->Address_Model->getCityById($order->billing_city);
 
-        $name = $order->billing_name ? $order->billing_name : $order->name;
-        $names = $name ? explode(' ', $name) : [];
-        $billingInfo = [
-            'BillFName' => count($names) > 0 ? $names[0] : null,
-            'BillLName' => count($names) > 1 ? implode(' ', array_slice($names, 1)) : null,
-            'BillEmail' => $order->email,
-            'BillAddr' => $order->billing_address,
-            'BillAddr2' => '',
-            'BillCity' => $city ? $city->name : null,
-            'BillState' => $state ? $state->iso2 : '',
-            'BillZip' => $order->billing_pin_code,
-            'BillCountry' => $country ? $country->iso2 : null,
-            'BillPhone' => $order->billing_mobile ? $order->billing_mobile : $order->mobile,
-        ];
+            if ($state && $country) {
+                $name = $order->billing_name ? $order->billing_name : $order->name;
+                $names = $name ? explode(' ', $name) : [];
+                $billingInfo = [
+                    'BillFName' => count($names) > 0 ? $names[0] : null,
+                    'BillLName' => count($names) > 1 ? implode(' ', array_slice($names, 1)) : null,
+                    'BillEmail' => $order->email,
+                    'BillAddr' => $order->billing_address,
+                    'BillAddr2' => '',
+                    'BillCity' => $city ? $city->name : null,
+                    'BillState' => $state ? $state->iso2 : '',
+                    'BillZip' => $order->billing_pin_code,
+                    'BillCountry' => $country ? $country->iso2 : null,
+                    'BillPhone' => $order->billing_mobile ? $order->billing_mobile : $order->mobile,
+                ];
 
-        $response = sina_order_new(
-            $items, $shippingInfo, $billingInfo, $token
-        );
+                $token = $this->sina_access_token();
+                $response = sina_order_new(
+                    $items, $shippingInfo, $billingInfo, $token
+                );
 
-        if (is_string($response)) {
-            $result = ['success' => false, 'message' => $response];
+                if (is_string($response)) {
+                    $error = $response;
+                } else {
+                    $this->Provider_Model->orderSave($id, $response);
+                    $result = ['success' => true, 'data' => $response];
+                }
+            } else {
+                $error = 'Billing info is invalid';
+            }
         } else {
-            $this->Provider_Model->orderSave($id, $response);
-            $result = ['success' => true, 'data' => $response];
+            $error = 'Shipping info is invalid';
+        }
+
+        if ($error) {
+            $result = ['success' => false, 'message' => $error];
         }
 
         return $this->output

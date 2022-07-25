@@ -22,17 +22,23 @@
                     <span style="color:#fff; font-size: 15px;font-weight: 600;">Items in this order</span>
                 </div>
                 <?php
-                foreach ($OrderItemData as $rowid=>$items){
-                    $cart_images=json_decode($items['cart_images'],true);
-                    $attribute_ids=json_decode($items['attribute_ids'],true);
-                    $product_size=json_decode($items['product_size'],true);
-                    $product_width_length=json_decode($items['product_width_length'],true);
-                    $page_product_width_length=json_decode($items['page_product_width_length'],true);
-                    $product_depth_length_width=json_decode($items['product_depth_length_width'],true);
-                    $votre_text=$items['votre_text'];
-                    $recto_verso=$items['recto_verso'];
-                    $product_id=$items['product_id'];
-                    $imageurl=getProductImage($items['product_image']);
+                foreach ($OrderItemData as $rowid => $item){
+                    $cart_images = json_decode($item['cart_images'], true);
+
+                    if ($item['provider_product_id']) {
+                        $attribute_ids = sina_attributes_map($item['attribute_ids']);
+                    } else {
+                        $attribute_ids = json_decode($item['attribute_ids'], true);
+                    }
+
+                    $product_size = json_decode($item['product_size'], true);
+                    $product_width_length = json_decode($item['product_width_length'], true);
+                    $page_product_width_length = json_decode($item['page_product_width_length'], true);
+                    $product_depth_length_width = json_decode($item['product_depth_length_width'], true);
+                    $votre_text = $item['votre_text'];
+                    $recto_verso = $item['recto_verso'];
+                    $product_id = $item['product_id'];
+                    $imageurl = getProductImage($item['product_image']);
                 ?>
 
                 <div style="width: 100%;display: flex;align-items: center;border-bottom: 1px solid #ccc;padding: 20px 0px; flex-wrap: wrap;">
@@ -40,10 +46,10 @@
                         <div style="text-align: left;">
                             <div style="width: 100px; float: left; position: relative">
                                 <img style="margin-bottom: 10px;" src="<?php echo $imageurl?>" width="100%">
-                                <span style="font-size: 14px; color: #000;">How many sets: <span style="display: inline-block; height: 20px; width: 20px; text-align: center; line-height: 20px; color: #fff; font-weight: 600; font-size: 12px; background: #f58634; border-radius: 50%;"><?php echo $items['quantity'];?></span></span>
+                                <span style="font-size: 14px; color: #000;">How many sets: <span style="display: inline-block; height: 20px; width: 20px; text-align: center; line-height: 20px; color: #fff; font-weight: 600; font-size: 12px; background: #f58634; border-radius: 50%;"><?php echo $item['quantity'];?></span></span>
                             </div>
                             <div style="padding-left: 130px;">
-                                <span style="font-size: 14px;color: #000; font-weight: 600"><?php echo ucfirst($items['name'])?></span>
+                                <span style="font-size: 14px;color: #000; font-weight: 600"><?php echo ucfirst($item['name'])?></span>
 
                                 <div style="margin: 10px 0px 0px 0px">
                                 <?php if(!empty($product_width_length)){?>
@@ -139,10 +145,9 @@
                             }
                             ?>
                            <?php
-                            #pr($attribute_ids);
-                            foreach($attribute_ids as $key=>$val){
-                                $attribute_name=$val['attribute_name'];
-                                $item_name=$val['item_name'];
+                            foreach($attribute_ids as $key => $val){
+                                $attribute_name = $val['attribute_name'];
+                                $item_name = $val['item_name'];
                                 ?>
                                 <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222"><?php echo $attribute_name;?>:</font><?php echo $item_name;?></div>
                             <?php
@@ -195,14 +200,14 @@
                         </div>
                     </div>
                     <div style="width: 50%; text-align: left;">
-                        <div style="font-size: 14px;color: #303030;"><font style="color: #000; font-weight: 600;">Price :</font> <?php echo $order_currency_currency_symbol.number_format($items['price'],2);?>
+                        <div style="font-size: 14px;color: #303030;"><font style="color: #000; font-weight: 600;">Price :</font> <?php echo $order_currency_currency_symbol.number_format($item['price'],2);?>
                         </div>
                     </div>
                     <div style="width: 50%; text-align: right">
                         <div style="font-size: 14px;color: #303030;"><font style="color: #000; font-weight: 600;">Subtotal :</font> <?php
 
-                                                                    $subtotal=($items['price']*
-                                                                    $items['quantity']);
+                                                                    $subtotal=($item['price']*
+                                                                    $item['quantity']);
                                                                     echo $order_currency_currency_symbol.number_format($subtotal,2);
 
                                                                     ?>

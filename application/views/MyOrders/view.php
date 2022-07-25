@@ -558,32 +558,34 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                     </thead>
                                     <tbody>
                                         <?php
-                                        #pr($OrderItemData);
-                                        foreach ($OrderItemData as $rowid=>$items){
-                                          $cart_images=json_decode($items['cart_images'],true);
-                                          $attribute_ids=json_decode($items['attribute_ids'],true);
+                                        foreach ($OrderItemData as $rowid => $item){
+                                            $cart_images = json_decode($item['cart_images'], true);
 
-                                          $product_size=json_decode($items['product_size'],true);
-                                          //pr($product_size);
+                                            if ($item['provider_product_id']) {
+                                                $attribute_ids = sina_attributes_map($item['attribute_ids']);
+                                            } else {
+                                                $attribute_ids = json_decode($item['attribute_ids'], true);
+                                            }
 
-                                          $product_width_length=json_decode($items['product_width_length'],true);
+                                            $product_size = json_decode($item['product_size'], true);
 
-                                          $page_product_width_length=json_decode($items['page_product_width_length'],true);
-                                          $product_depth_length_width=json_decode($items['product_depth_length_width'],true);
+                                            $product_width_length = json_decode($item['product_width_length'], true);
 
-                                        $votre_text=$items['votre_text'];
+                                            $page_product_width_length = json_decode($item['page_product_width_length'], true);
+                                            $product_depth_length_width = json_decode($item['product_depth_length_width'], true);
 
-                                        $recto_verso=$items['recto_verso'];
+                                            $votre_text = $item['votre_text'];
 
-                                        $product_id=$items['product_id'];
-                                       //$AttributesData=$this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
-                                       ?>
+                                            $recto_verso = $item['recto_verso'];
+
+                                            $product_id = $item['product_id'];
+                                        ?>
                                         <tr>
                                             <td class="product-thumbnail">
-                                                <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($items['id']);?>">
-                                                    <?php $imageurl=getProductImage($items['product_image']);
-                                                     $personailise=$items['personailise'];
-                                                     $personailise_image=$items['personailise_image'];
+                                                <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($item['id']);?>">
+                                                    <?php $imageurl=getProductImage($item['product_image']);
+                                                     $personailise=$item['personailise'];
+                                                     $personailise_image=$item['personailise_image'];
                                                      $Personalised='Unpersonalised';
                                                      if($personailise==1 && $personailise_image !=''){
                                                          $Personalised='Personalised';
@@ -593,11 +595,11 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                                 </a>
                                             </td>
                                             <td class="product-name">
-                                                <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($items['id']);?>"><?php
+                                                <a href="<?php echo $BASE_URL;?>Products/view/<?php echo base64_encode($item['id']);?>"><?php
                                                 if ($language_name == 'French'){
-                                                echo ucfirst($items['name_french']);
+                                                echo ucfirst($item['name_french']);
                                                 }else{
-                                                    echo ucfirst($items['name']);
+                                                    echo ucfirst($item['name']);
                                                 }?>
                                                 </a>
 
@@ -847,14 +849,13 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             ?>
 
                             <?php
-                            #pr($attribute_ids);
-                            foreach($attribute_ids as $key=>$val){
+                            foreach($attribute_ids as $key => $val){
                                 if ($language_name == 'French'){
-                                    $attribute_name=$val['attribute_name_french'];
-                                    $item_name=$val['item_name_french'];
+                                    $attribute_name = $val['attribute_name_french'];
+                                    $item_name = $val['item_name_french'];
                                 }else{
-                                    $attribute_name=$val['attribute_name'];
-                                    $item_name=$val['item_name'];
+                                    $attribute_name = $val['attribute_name'];
+                                    $item_name = $val['item_name'];
                                 }
                                 ?>
                                 <div class="col-md-12 col-lg-6 col-xl-6">
@@ -958,19 +959,19 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                                             <td class="product-price1">
                                                 <span>
                                                     <?php echo $order_currency_currency_symbol.number_format(
-                                                    $items['price'],2);?>
+                                                    $item['price'],2);?>
                                                 </span>
                                             </td>
                                             <td class="quant-cart text-left">
                                                 <?php
-                                                    echo $items['quantity']
+                                                    echo $item['quantity']
                                                 ?>
                                             </td>
                                             <td class="product-subtotal">
                                                 <span>
                                                     <?php
-                                                    $subtotal=($items['price']*
-                                                    $items['quantity']);
+                                                    $subtotal=($item['price']*
+                                                    $item['quantity']);
                                                     echo $order_currency_currency_symbol.number_format( $subtotal,2);
 
                                                    ?>

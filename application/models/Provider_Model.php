@@ -329,12 +329,15 @@ Class Provider_Model extends MY_Model {
 
     public function getAttributesByValueIds($provider_id, $provider_product_id, $value_ids)
     {
-        $this->db->select('provider_attributes.*, provider_product_attributes.value_id');
+        $this->db->select(
+            'provider_attributes.*, provider_product_attributes.value_id, provider_product_attributes.value'
+        );
         $this->db->from('provider_product_attributes');
         $this->db->join('provider_attributes', 'provider_attributes.id = provider_product_attributes.provider_attribute_id');
         $this->db->where('provider_product_attributes.provider_id', $provider_id);
         $this->db->where('provider_product_attributes.provider_product_id', $provider_product_id);
         $this->db->where_in('provider_product_attributes.value_id', $value_ids);
+        $this->db->order_by('provider_attributes.type');
         return $this->db->get()->result();
     }
 
@@ -350,5 +353,14 @@ Class Provider_Model extends MY_Model {
             'tax' => $response->tax,
         ];
         $this->db->insert('provider_orders', $data);
+    }
+
+    public function getOrderProductCount($order_id)
+    {
+        $this->db->from('product_order_items');
+        $this->db->where('order_id', $order_id);
+        $this->db->join('provider_products', 'provider_products.product_id = product_order_items.product_id');
+        $this->db->select('COUNT(*) AS count');
+        return $this->db->get()->row()->count;
     }
 }

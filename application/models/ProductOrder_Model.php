@@ -2,9 +2,11 @@
 
 require_once(APPPATH . 'common/OrderStatus.php');
 require_once(APPPATH . 'common/PaymentStatus.php');
+require_once(APPPATH . 'common/ProductAttributeType.php');
 
 use App\Common\OrderStatus;
 use App\Common\PaymentStatus;
+use App\Common\ProductAttributeType;
 
 Class ProductOrder_Model extends MY_Model {
     public $table = 'product_orders';
@@ -212,12 +214,12 @@ Class ProductOrder_Model extends MY_Model {
     }
 
     public function getProductOrderItemDataById($order_id) {
-        $this->db->select('*');
-        $this->db->where('order_id', $order_id);
+        $this->db->select('product_order_items.*, provider_products.provider_product_id');
+        $this->db->where('product_order_items.order_id', $order_id);
         $this->db->from('product_order_items');
+        $this->db->join('provider_products', 'provider_products.product_id=product_order_items.product_id', 'left');
         $query = $this->db->get();
-        $data = $query->result_array();
-        return $data;
+        return $query->result_array();
     }
 
     public function deleteProductOrder($id, $type = 1) {
@@ -336,7 +338,10 @@ Class ProductOrder_Model extends MY_Model {
         $this->db->where($where);
         $total = reset($this->db->get()->row());
 
-        $this->db->select('product_orders.*, provider_orders.provider_order_id, COUNT(DISTINCT(provider_orders.id)) AS provider_order_count');
+        $this->db->select('product_orders.*, provider_orders.provider_order_id,
+            COUNT(DISTINCT(provider_orders.id)) AS provider_order_count,
+            (SELECT COUNT(*) FROM product_order_items INNER JOIN provider_products ON provider_products.product_id=product_order_items.product_id WHERE product_order_items.order_id=product_orders.id) AS provider_product_count
+            ');
         $this->db->from($this->table);
         $this->db->join('provider_orders', 'provider_orders.order_id=product_orders.id', 'left');
         $this->db->where($where);
