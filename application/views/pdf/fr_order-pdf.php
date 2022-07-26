@@ -1,12 +1,11 @@
- <?php
+<?php
     FILE_BASE_PATH.'dompdf-master/vendor/autoload.php';
     include FILE_BASE_PATH.'dompdf-master/vendor/autoload.php';
     use Dompdf\Dompdf;
     $dompdf = new Dompdf();
     ob_start();
 
- ?>
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html>
 <head>
     <title>Commander le PDF</title>
@@ -114,21 +113,26 @@
         </thead>
         <tbody>
         <?php
-        foreach ($OrderItemData as $rowid=>$items){
-                    $cart_images=json_decode($items['cart_images'],true);
-                    $attribute_ids=json_decode($items['attribute_ids'],true);
-                    $product_size=json_decode($items['product_size'],true);
-                    $product_width_length=json_decode($items['product_width_length'],true);
-                    $page_product_width_length=json_decode($items['page_product_width_length'],true);
-                    $product_depth_length_width=json_decode($items['product_depth_length_width'],true);
-                    $votre_text=$items['votre_text'];
-                    $recto_verso=$items['recto_verso'];
-                    $product_id=$items['product_id'];
+        foreach ($OrderItemData as $rowid => $item){
+            $cart_images = json_decode($item['cart_images'], true);
 
+            if ($item['provider_product_id']) {
+                $attribute_ids = sina_attributes_map($item['attribute_ids']);
+            } else {
+                $attribute_ids = json_decode($item['attribute_ids'], true);
+            }
+
+            $product_size = json_decode($item['product_size'], true);
+            $product_width_length = json_decode($item['product_width_length'], true);
+            $page_product_width_length = json_decode($item['page_product_width_length'], true);
+            $product_depth_length_width = json_decode($item['product_depth_length_width'], true);
+            $votre_text = $item['votre_text'];
+            $recto_verso = $item['recto_verso'];
+            $product_id = $item['product_id'];
         ?>
             <tr style="background-color: #fff; border-bottom: 1px dashed #ccc !important;">
                 <td style="color: #000; vertical-align: middle; font-size: 14px; font-weight: 400; padding: 5px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">
-                <?php echo ucfirst($items['name_french']);?><br>
+                <?php echo ucfirst($item['name_french']);?><br>
                 <?php
                 if(!empty($product_width_length)){?>
                         <span><strong>Longueur (pouces):<?php echo $product_width_length['product_length'];?></strong> </span>,
@@ -240,18 +244,18 @@
                 </td>
                 <!--<td style="color: #000; vertical-align: middle; font-size: 18px; font-weight: 400; padding: 10px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">14,975%</td>-->
 
-                <td style="color: #000; vertical-align: middle; font-size: 14px; font-weight: 400; padding: 5px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;"><?php echo $order_currency_currency_symbol.number_format($items['price'],2);?>
+                <td style="color: #000; vertical-align: middle; font-size: 14px; font-weight: 400; padding: 5px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;"><?php echo $order_currency_currency_symbol.number_format($item['price'],2);?>
                 </td>
                 <td style="color: #000; vertical-align: middle; font-size: 14px; font-weight: 400; padding: 5px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">
                 <?php
-                    echo $items['quantity'];
+                    echo $item['quantity'];
                 ?>
                 </td>
                 <td style="color: #000; vertical-align: middle; font-size: 14px; font-weight: 400; padding: 5px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">u.</td>
                 <td style="color: #000; vertical-align: middle; font-size: 14px; font-weight: 400; padding: 5px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">
                     <?php
-                    $subtotal=($items['price']*
-                    $items['quantity']);
+                    $subtotal=($item['price']*
+                    $item['quantity']);
                     echo $order_currency_currency_symbol.number_format( $subtotal,2);
                     ?>
                     </td>

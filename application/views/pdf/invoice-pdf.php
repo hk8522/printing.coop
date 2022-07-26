@@ -154,7 +154,6 @@
                     $votre_text = $item['votre_text'];
                     $recto_verso = $item['recto_verso'];
                     $product_id = $item['product_id'];
-
                 ?>
                 <tr style="background-color: #fff; border-bottom: 1px dashed #ccc !important;">
                     <td

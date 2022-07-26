@@ -183,7 +183,7 @@
                                     ?>
                                     <label id="default_delivery_address">
                                     <input name="default_delivery_address" value="1" for="default_delivery_address" type="checkbox"
-                                    <?php echo $cehecked;?> style="width: auto;height: 0px;">
+                                    <?php echo $cehecked;?> style="width: auto;">
                                         <?php
                                         if ($language_name == 'French'){ ?>
                                           Créer une adresse de livraison par défaut
