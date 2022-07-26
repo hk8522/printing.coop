@@ -45,7 +45,7 @@
                     $(".new-price-img").show();
                 }
                 if (data.success) {
-                    var price = data.price.price == NaN ? 0 : data.price.price * 1.5;
+                    var price = data.price.price == NaN ? 0 : data.price.price * 1.75;
                     $('[name="price"]').val(price);
                     $('#total-price').html((price * $("#quantity").val()).toFixed(2));
                 } else
