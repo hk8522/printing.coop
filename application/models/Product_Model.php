@@ -247,7 +247,7 @@ Class Product_Model extends MY_Model {
         //echo $this->db->last_query();
         return $data;
     }
-    public function getToatalActiveProduct($category_id = null, $sub_category_id = null, $printer_brand = null, $printer_series = null, $printer_models = null) {
+    public function getTotalActiveProduct($category_id = null, $sub_category_id = null, $printer_brand = null, $printer_series = null, $printer_models = null) {
         $this->db->select('*');
         $condition = array();
         $condition['status'] = 1;
@@ -275,7 +275,6 @@ Class Product_Model extends MY_Model {
         }
         $this->db->where($condition);
         $this->db->from($this->table);
-        $this->db->order_by($order_by, $type);
         $total = $this->db->get()->num_rows();
         return $total;
     }

@@ -42,19 +42,10 @@ class Products extends Public_Controller
             redirect($url);
         }
 
-        if (isset($_GET['sub_category_id'])) {
-            $sub_category_id = base64_decode($_GET['sub_category_id']);
-        }
-
-        if (isset($_GET['printer_brand'])) {
-            $printer_brand = $_GET['printer_brand'];
-        }
-        if (isset($_GET['printer_series'])) {
-            $printer_series = $_GET['printer_series'];
-        }
-        if (isset($_GET['printer_models'])) {
-            $printer_models = $_GET['printer_models'];
-        }
+        $sub_category_id = isset($_GET['sub_category_id']) ? base64_decode($_GET['sub_category_id']) : null;
+        $printer_brand = $_GET['printer_brand'] ?? null;
+        $printer_series = $_GET['printer_series'] ?? null;
+        $printer_models = $_GET['printer_models'] ?? null;
 
         if (!empty($category_id)) {
             $this->data['category_id'] = $category_id;
@@ -130,7 +121,7 @@ class Products extends Public_Controller
         $order_by = $sortByOptions['order_by'] ?? '';
         $type = $sortByOptions['type'] ?? '';
         $this->data['order'] = $sortBy;
-        $total = $this->Product_Model->getToatalActiveProduct($category_id, $sub_category_id, $printer_brand, $printer_series, $printer_models);
+        $total = $this->Product_Model->getTotalActiveProduct($category_id, $sub_category_id, $printer_brand, $printer_series, $printer_models);
 
         if (isset($_GET['pageno'])) {
             $pageno = $_GET['pageno'];
