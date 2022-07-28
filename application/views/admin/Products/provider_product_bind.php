@@ -4,6 +4,19 @@
             <div class="box">
                 <div class="box-header">
                     <h2><?=$product->name?></h2>
+                    <?php
+                    if ($product->product_id) {?>
+                    <a class="provider-product-unlink" href="/admin/Products/ProviderProductUnbind/<?=$product->id?>">
+                        <div class="action">
+                            <svg class="bi b-icon" width="2em" height="2em" fill="currentColor">
+                                <use xlink:href="/assets/images/bootstrap-icons.svg#link-45deg"/>
+                            </svg>
+                            <svg class="bi b-icon" width="2em" height="2em" fill="currentColor">
+                                <use xlink:href="/assets/images/bootstrap-icons.svg#x"/>
+                            </svg>
+                        </div>
+                    </a>
+                    <?php } ?>
                 </div>
                 <div class="box-body">
                     <div class="inner-head-section">
@@ -12,7 +25,7 @@
 <div class="search-box-area">
     <div class="search-sugg">
         <label class="span2">Search</label>
-        <input class="form-control" type="text" placeholder="Search Product" onkeyup="searchProduct($(this).val())">
+        <input class="form-control" type="text" placeholder="Search Product" value="<?=$product->product_name?>" onkeyup="searchProduct($(this).val())">
         <!--<button type="button"><i class="fas fa-search"></i></button>-->
     </div>
     <div class="search-result" style="display:none"> <!-- Add "active" class to show -->
@@ -29,6 +42,28 @@
     </div>
 </section>
 <script>
+    $(document).ready(function() {
+        searchProduct('<?=$product->product_name?>');
+        $('.provider-product-unlink').click(function(e) {
+            e.preventDefault();
+            $('#loader-img').show();
+            $.ajax({
+                type: 'POST',
+                url: $(this).attr('href'),
+                headers: { Accept: 'application/json; charset=utf-8' },
+                success: function(data)
+                {
+                    $('#loader-img').hide();
+                    $('.search-box-area input.form-control').val('');
+                    searchProduct('');
+                },
+                error: function (error) {
+                    $('#loader-img').hide();
+                }
+            });
+            return false;
+        });
+    });
     function searchProduct(searchtext)
     {
         if (searchtext !='') {

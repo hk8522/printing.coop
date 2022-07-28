@@ -206,7 +206,8 @@ Class Provider_Model extends MY_Model {
         $this->db->select('COUNT(*)');
         $this->db->from('provider_products');
         $this->db->where('provider_id', $provider_id);
-        $total = reset($this->db->get()->row());
+        $total = $this->db->get()->row();
+        $total = reset($total);
 
         if (strlen($q) > 0)
             $this->db->like('provider_products.name', $q);
@@ -227,7 +228,9 @@ Class Provider_Model extends MY_Model {
     public function getProduct($id)
     {
         $this->db->from('provider_products');
-        $this->db->where('id', $id);
+        $this->db->where('provider_products.id', $id);
+        $this->db->join('products', 'products.id=provider_products.product_id', 'left');
+        $this->db->select('provider_products.*, products.name AS product_name');
         return $this->db->get()->row();
     }
 
@@ -246,6 +249,13 @@ Class Provider_Model extends MY_Model {
         $this->db->update('provider_products');
     }
 
+    public function unbindProduct($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->set('product_id', 'NULL', false);
+        $this->db->update('provider_products');
+    }
+
     public function getAttributes($provider_id, $q, $take, $skip, &$data, &$total)
     {
         if (strlen($q) > 0)
@@ -253,7 +263,8 @@ Class Provider_Model extends MY_Model {
         $this->db->select('COUNT(*)');
         $this->db->from('provider_attributes');
         $this->db->where('provider_id', $provider_id);
-        $total = reset($this->db->get()->row());
+        $total = $this->db->get()->row();
+        $total = reset($total);
 
         if (strlen($q) > 0)
             $this->db->like('provider_attributes.name', $q);
@@ -285,7 +296,8 @@ Class Provider_Model extends MY_Model {
         $this->db->from('provider_product_attributes');
         $this->db->where('provider_id', $provider_id);
         $this->db->where('provider_product_id', $provider_product_id);
-        $total = reset($this->db->get()->row());
+        $total = $this->db->get()->row();
+        $total = reset($total);
 
         $this->db->select('provider_product_attributes.*, provider_attributes.name, provider_attributes.type, product_attributes.name AS attribute_name');
         $this->db->from('provider_product_attributes');

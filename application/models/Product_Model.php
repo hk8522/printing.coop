@@ -2116,7 +2116,7 @@ Class Product_Model extends MY_Model {
         return $data;
     }
 
-    public function delete($table, $id) {
+    public function deleteFromTable($table, $id) {
         $this->db->where('id', $id);
         $query = $this->db->delete($table);
         if ($query) {
@@ -2892,7 +2892,8 @@ Class Product_Model extends MY_Model {
         $this->db->select('COUNT(*)');
         $this->db->from('product_attributes');
         $this->db->like('name', $q);
-        $total = reset($this->db->get()->row());
+        $total = $this->db->get()->row();
+        $total = reset($total);
 
         $this->db->select('product_attributes.*');
         $this->db->from('product_attributes');

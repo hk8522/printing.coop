@@ -96,7 +96,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 title: 'Product Binding',
                 template: `
                     <a href="/admin/Products/ProviderProductBind/#=id#"
-                        class="k-link bind-product product-thumbs #if (product_id) {# active #}#"
+                        class="k-link bind-product product-thumbs #if (product_id) {# active #}# d-flex justify-content-center"
                         >
                         <img class="thumbs" src="#=product_image#" alt="#=product_name#">
                         <div class="action">

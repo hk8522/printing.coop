@@ -135,7 +135,7 @@
                                             $show_menu = $sval['show_menu'];
                                             $url = $sval['url'];
                                             $sub_module_name = $sval['sub_module_name'];
-                                            $sub_module_class = $module['sub_module_class'];
+                                            $sub_module_class = $module['sub_module_class'] ?? '';
                                             $url_prem = explode("/",$url);
                                             $url_prem = isset($url_prem['2']) ? $url_prem['2']:'';
                                             if ($show_menu && in_array($skey, $AdminSubModule)) {

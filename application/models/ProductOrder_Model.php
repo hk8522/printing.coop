@@ -336,7 +336,8 @@ Class ProductOrder_Model extends MY_Model {
         $this->db->select('COUNT(*)');
         $this->db->from($this->table);
         $this->db->where($where);
-        $total = reset($this->db->get()->row());
+        $total = $this->db->get()->row();
+        $total = reset($total);
 
         $this->db->select('product_orders.*, provider_orders.provider_order_id,
             COUNT(DISTINCT(provider_orders.id)) AS provider_order_count,
