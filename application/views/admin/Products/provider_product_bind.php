@@ -6,7 +6,7 @@
                     <h2><?=$product->name?></h2>
                     <?php
                     if ($product->product_id) {?>
-                    <a class="provider-product-unlink" href="/admin/Products/ProviderProductUnbind/<?=$product->id?>">
+                    <a class="provider-product-unlink" href="/admin/Products/ProviderProductUnbind/<?=$product->id?>" title="Unbind">
                         <div class="action">
                             <svg class="bi b-icon" width="2em" height="2em" fill="currentColor">
                                 <use xlink:href="/assets/images/bootstrap-icons.svg#link-45deg"/>
