@@ -371,7 +371,71 @@
         uploadData(fd,'<?php echo $product_id_key?>');
     });
  });
-  </script>
+
+    function showAttribute(cid,nid) {
+        $("#loader-img").show();
+        $(".new-price-img").hide();
+        var item_val = $("#attribute_id_" + cid).val();
+        var myForm = document.getElementById('cartForm');
+        var formData = new FormData(myForm);
+        $.ajax({
+            type: 'POST',
+            dataType: 'html',
+            url: '<?= $BASE_URL?>Products/calculatePrice',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                var json = JSON.parse(data);
+                $("#loader-img").hide();
+                $(".new-price-img").show();
+                if (json.success == 1) {
+                    $("#attribute_id_" + nid).attr("disabled", false);
+                    $("#total-price").html(json.price);
+                }
+            },
+            error: function (resp) {
+                console.log(resp);
+                $("#loader-img").hide();
+                $(".new-price-img").show();
+            }
+        });
+    }
+
+    function showQuantity() {
+        $("#loader-img").show();
+        $(".new-price-img").hide();
+        $(".multipal_size").html('<option value="">Choose an option...</option>');
+        var myForm = document.getElementById('cartForm');
+        var formData = new FormData(myForm);
+        $.ajax({
+            type: 'POST',
+            dataType: 'html',
+            url: '<?= $BASE_URL?>Products/GetQuantity',
+            data: formData,
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                console.log(data);
+                var json = JSON.parse(data);
+                    $("#loader-img").hide();
+                    $(".new-price-img").show();
+                if (json.success == 1) {
+                    if (json.sizeoptions == '0') {
+                        $("#attribute_id_2").attr("disabled", false);
+                        $("#SizeOptions").html('');
+                    } else {
+                        $("#SizeOptions").html(json.sizeoptions);
+                    }
+                    $("#total-price").html(json.price);
+                }
+            }
+        });
+    }
+
+</script>
 <?php
      $sn++;
     }
