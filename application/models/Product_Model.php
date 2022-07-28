@@ -189,6 +189,7 @@ class Product_Model extends MY_Model
         $this->db->select('*');
         $condition = array();
         $condition['status'] = 1;
+        $productIds = [];
         if (!empty($category_id)) {
             //$condition['category_id'] = $category_id;
             $productIds = $this->getProductIdsByCategory($category_id);
@@ -257,6 +258,7 @@ class Product_Model extends MY_Model
         $this->db->select('*');
         $condition = array();
         $condition['status'] = 1;
+        $productIds = [];
         if (!empty($category_id)) {
             //$condition['category_id'] = $category_id;
             $productIds = $this->getProductIdsByCategory($category_id);
