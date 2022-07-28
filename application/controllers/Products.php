@@ -156,7 +156,7 @@ class Products extends Public_Controller
             $multipalCategory = $this->Product_Model->getProductMultipalCategoriesAndSubCategories($list['id']);
             $multipalCategoryData = array();
             foreach ($multipalCategory as $ckey => $cval) {
-                $multipalCategoryData[$ckey]= $this->Category_Model->getCategoryDataById($ckey);
+                $multipalCategoryData[$ckey] = $this->Category_Model->getCategoryDataById($ckey);
             }
 
             $this->data['lists'][$key]['multipalCategory'] = $multipalCategoryData;
@@ -194,7 +194,9 @@ class Products extends Public_Controller
         $multipalCategory = $this->Product_Model->getProductMultipalCategoriesAndSubCategories($Product['id']);
         $multipalCategoryData = array();
         foreach ($multipalCategory as $ckey => $cval) {
-            $multipalCategoryData[$ckey] = $this->Category_Model->getCategoryDataById($ckey);
+            $category = $this->Category_Model->getCategoryDataById($ckey);
+            if ($category)
+                $multipalCategoryData[$ckey] = $category;
         }
         $Product['multipalCategoryData'] = $multipalCategoryData;
 

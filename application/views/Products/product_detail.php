@@ -349,9 +349,6 @@
     }
 
     var countsize ='<?= count($ProductSizes)?>';
-    if (countsize !='') {
-        //getSizeOptions('<?= $product_id?>','0');
-    }
     function getSizeOptions(product_id, make_a_default_qty_id) {
         $("#loader-img").show();
         $.ajax({
