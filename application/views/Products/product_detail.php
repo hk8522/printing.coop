@@ -282,7 +282,6 @@
                 }
             },
             error: function (resp) {
-                console.log(resp);
                 $("#loader-img").hide();
                 $(".new-price-img").show();
             }
@@ -304,7 +303,6 @@
             contentType: false,
             processData: false,
             success: function (data) {
-                console.log(data);
                 var json = JSON.parse(data);
                     $("#loader-img").hide();
                     $(".new-price-img").show();
@@ -336,7 +334,6 @@
             contentType: false,
             processData: false,
             success: function (data) {
-                console.log(data);
                 var json = JSON.parse(data);
                     $("#loader-img").hide();
                     $(".new-price-img").show();
@@ -359,7 +356,6 @@
             contentType: false,
             processData: false,
             success: function (data) {
-                console.log(data);
                 $("#loader-img").hide();
                 $("#SizeOptions").html(data);
             }

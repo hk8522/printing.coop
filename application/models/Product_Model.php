@@ -1675,8 +1675,8 @@ class Product_Model extends MY_Model
 
         foreach ($data as $key => $val) {
             $qty = $val['qty'];
-            $val['qty_name'] = $val['name'];
-            $val['qty_name_french'] = $val['name_french'];
+            $val['name'] = $val['qty_name'];
+            $val['name_french'] = $val['qty_name_french'];
             $this->db->select(array('product_size_new.size_id', 'product_size_new.extra_price', 'sizes.size_name', 'sizes.size_name_french'));
             $this->db->from('product_size_new');
             $this->db->join('sizes', 'product_size_new.size_id=sizes.id', 'inner');

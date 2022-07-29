@@ -418,7 +418,6 @@
             contentType: false,
             processData: false,
             success: function (data) {
-                console.log(data);
                 var json = JSON.parse(data);
                     $("#loader-img").hide();
                     $(".new-price-img").show();
