@@ -2380,7 +2380,7 @@ Coating";
     public function ProviderProductAttributes($provider, $provider_product_id)
     {
         if ($this->input->server('REQUEST_METHOD') === 'GET') {
-            $this->load->view('admin/Products/provider_product_attributes', ['provider' => $provider, 'provider_product_id' => $provider_product_id]);
+            $this->load->view('admin/Products/provider_product_options', ['provider' => $provider, 'provider_product_id' => $provider_product_id]);
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $provider = $this->Provider_Model->getProvider($provider);
 
