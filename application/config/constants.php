@@ -1,6 +1,6 @@
 <?php
 // error_reporting("ERROR");
-error_reporting(E_ALL);
+error_reporting(E_ERROR);
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 

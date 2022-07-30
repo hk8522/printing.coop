@@ -46,7 +46,7 @@ class Orders extends Admin_Controller
 
         $this->data['user_id'] = !empty($user_id) ? $user_id : '0';
         $this->data['status'] = $status == null ? 'all' : $status;
-        $this->data['statusStr'] = $statuStr == null ? 'all' : $statusStr;
+        $this->data['statusStr'] = $statusStr == null ? 'all' : $statusStr;
 
         $this->render($this->class_name . 'index');
     }
