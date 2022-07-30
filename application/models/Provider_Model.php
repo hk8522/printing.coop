@@ -94,12 +94,12 @@ Class Provider_Model extends MY_Model {
     {
         if (empty($productInfo) || empty($productInfo[0]))
             return;
-        if ($productInfo[0][0]->group != null) {
-            $this->updateProductInfoNormal($product, $productInfo);
+        if (is_object($productInfo[0]) && $productInfo[0]->data != null) {
+            $information_type = ProviderProductInformationType::Decal;
         } else if ($productInfo[0][0]->html_type != null) {
             $information_type = ProviderProductInformationType::RollLabel;
-        } else if ($productInfo[0][0]->data != null) {
-            $information_type = ProviderProductInformationType::Decal;
+        } else if ($productInfo[0][0]->group != null) {
+            $this->updateProductInfoNormal($product, $productInfo);
         }
     }
 
