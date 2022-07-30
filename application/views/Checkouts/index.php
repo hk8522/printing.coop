@@ -1,28 +1,28 @@
 <?php
     $stap = base64_decode($stap);
     if ($stap == 1) {
-        $stap1Title = $language_name == 'French' ? 'Identifiez-vous ou inscrivez-vous':'Login Or Signup';
-        $stap2Title = $language_name == 'French' ? 'Adresse de livraison':'Shipping Address';
-        $stap3Title = $language_name == 'French' ? 'méthodes de livraison':'Shipping Methods';
-        $stap4Title = $language_name == 'French' ? 'Options de paiement':'Payment Options';
+        $stap1Title = $language_name == 'French' ? 'Identifiez-vous ou inscrivez-vous' : 'Login Or Signup';
+        $stap2Title = $language_name == 'French' ? 'Adresse de livraison' : 'Shipping Address';
+        $stap3Title = $language_name == 'French' ? 'méthodes de livraison' : 'Shipping Methods';
+        $stap4Title = $language_name == 'French' ? 'Options de paiement' : 'Payment Options';
         $stap1Open = true;
         $stap2Open = false;
         $stap3Open = false;
         $stap4Open = false;
     } elseif ($stap == 2) {
-        $stap1Title = $language_name == 'French' ? 'Sidentifier <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>':'Login <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
-        $stap2Title = $language_name == 'French' ? 'Adresse de livraison':'Shipping Address';
-        $stap3Title = $language_name == 'French' ? 'méthodes de livraison':'Shipping Methods';
-        $stap4Title = $language_name == 'French' ? 'Options de paiement':'Payment Options';
+        $stap1Title = $language_name == 'French' ? 'Sidentifier <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>' : 'Login <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
+        $stap2Title = $language_name == 'French' ? 'Adresse de livraison' : 'Shipping Address';
+        $stap3Title = $language_name == 'French' ? 'méthodes de livraison' : 'Shipping Methods';
+        $stap4Title = $language_name == 'French' ? 'Options de paiement' : 'Payment Options';
         $stap1Open = false;
         $stap2Open = true;
         $stap3Open = false;
         $stap4Open = false;
     } elseif ($stap == 3) {
-        $stap1Title = $language_name == 'French' ? 'Sidentifier <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>':'Login <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
-        $stap2Title = $language_name == 'French' ? 'Adresse de livraison <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>':'Shipping Address <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
-        $stap3Title = $language_name == 'French' ? 'méthodes de livraison':'Shipping Methods';
-        $stap4Title = $language_name == 'French' ? 'Options de paiement':'Payment Options';
+        $stap1Title = $language_name == 'French' ? 'Sidentifier <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>' : 'Login <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
+        $stap2Title = $language_name == 'French' ? 'Adresse de livraison <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>' : 'Shipping Address <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
+        $stap3Title = $language_name == 'French' ? 'méthodes de livraison' : 'Shipping Methods';
+        $stap4Title = $language_name == 'French' ? 'Options de paiement' : 'Payment Options';
         $stap1Open = false;
         $stap2Open = false;
         $stap3Open = true;
@@ -32,10 +32,10 @@
         $stap2Open = false;
         $stap3Open = false;
         $stap4Open = true;
-        $stap1Title = $language_name == 'French' ? 'Sidentifier <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>':'Login <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
-        $stap2Title = $language_name == 'French' ? 'Adresse de livraison <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>':'Shipping Address <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
-        $stap3Title = $language_name == 'French' ? 'méthodes de livraison <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>':'Shipping Methods <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
-        $stap4Title = $language_name == 'French' ? 'Options de paiement':'Payment Options';
+        $stap1Title = $language_name == 'French' ? 'Sidentifier <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>' : 'Login <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
+        $stap2Title = $language_name == 'French' ? 'Adresse de livraison <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>' : 'Shipping Address <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
+        $stap3Title = $language_name == 'French' ? 'méthodes de livraison <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>' : 'Shipping Methods <i class="fa fa-check" aria-hidden="true" style="color:green;"></i>';
+        $stap4Title = $language_name == 'French' ? 'Options de paiement' : 'Payment Options';
     }
 ?>
 <div class="checkout-section universal-spacing universal-bg-white">
@@ -579,7 +579,6 @@
                                 <table class="shop-cart-table">
                                     <tbody>
                                         <?php foreach ($ProductOrderItem as $item) {
-                                            #pr($item);
                                             $product_id = $item['product_id'];
 
                                             $Product = $this->Product_Model->getProductList($product_id);
@@ -751,11 +750,11 @@
                                                             <?php
                                                             if (!empty($product_size)) {
                                                                 if ($language_name == 'French') {
-                                                                    $size_name = $product_size['product_size_french'];
-                                                                    $label_qty = $product_size['product_quantity_french'];
+                                                                    $size_name = $product_size['product_size_french'] ?? '';
+                                                                    $label_qty = $product_size['product_quantity_french'] ?? '';
                                                                 } else {
-                                                                    $size_name = $product_size['product_size'];
-                                                                    $label_qty = $product_size['product_quantity'];
+                                                                    $size_name = $product_size['product_size'] ?? '';
+                                                                    $label_qty = $product_size['product_quantity'] ?? '';
                                                                 }
 
                                                                 $attribute = isset($product_size['attribute']) ? $product_size['attribute'] : '';

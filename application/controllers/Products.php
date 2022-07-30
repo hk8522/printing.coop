@@ -253,10 +253,10 @@ class Products extends Public_Controller
             // $providerInfo['attribute_groups'] = $attributeGroups;
             $data = $this->Provider_Model->getProductAttributeValues($provider->id, $providerProduct->provider_product_id);
             foreach ($data as $item) {
-                $attribute = $attributes[$item->provider_attribute_id];
+                $attribute = $attributes[$item->option_id];
                 if (!isset($attribute->values))
                     $attribute->values = [];
-                $attribute->values[] = (object) ['id' => $item->value_id, 'value' => $item->value];
+                $attribute->values[] = (object) ['id' => $item->provider_option_value_id, 'value' => $item->value];
             }
             $this->data['provider'] = (object) [
                 'id' => $provider->id,
@@ -1427,8 +1427,7 @@ class Products extends Public_Controller
         $this->load->model('Provider_Model');
         $providerProduct = $this->Provider_Model->getProductByProductId($provider_id, $product_id);
         if ($providerProduct) {
-            $token = $this->sina_access_token();
-            $price = sina_price($token, $providerProduct->provider_product_id, $productOptions);
+            $price = sina_price($providerProduct->provider_product_id, $productOptions);
             $result = ['success' => true, 'price' => $price];
         } else
             $result = ['success' => false, 'message' => "Can't find product info"];

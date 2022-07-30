@@ -780,14 +780,14 @@ $order_currency_currency_symbol=$OrderCurrencyData['symbols'];
                             <?php
                             if(!empty($product_size)){
                                 if ($language_name == 'French'){
-                                    $size_name= $product_size['product_size_french'];
-                                    $label_qty=$product_size['product_quantity_french'];
+                                    $size_name = $product_size['product_size_french'] ?? '';
+                                    $label_qty = $product_size['product_quantity_french'] ?? '';
                                 }else{
-                                    $size_name = $product_size['product_size'];
-                                    $label_qty=$product_size['product_quantity'];
+                                    $size_name = $product_size['product_size'] ?? '';
+                                    $label_qty = $product_size['product_quantity'] ?? '';
                                 }
 
-                                $attribute=isset($product_size['attribute']) ? $product_size['attribute']:'';
+                                $attribute = isset($product_size['attribute']) ? $product_size['attribute']:'';
 
                                 ?>
                                 <?php

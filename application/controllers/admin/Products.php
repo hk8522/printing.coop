@@ -2358,8 +2358,7 @@ Coating";
             $this->Provider_Model->bindProduct($id, $product_id);
 
             $product = $this->Provider_Model->getProduct($id);
-            $sina_access_token = $this->sina_access_token();
-            $productInfo = sina_product_info($sina_access_token, $product->provider_product_id);
+            $productInfo = sina_product_info($product->provider_product_id);
             $this->Provider_Model->updateProductInfo($product, $productInfo);
 
             return $this->output

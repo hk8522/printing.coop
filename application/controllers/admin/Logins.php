@@ -18,7 +18,7 @@ class Logins extends Adminlogin_Controller
         if ($this->input->post()) {
             $currentUserIp = $this->input->ip_address();
             $ip_info = $this->db->where('created >=', 'date_sub(now(),interval ' . BLOCKED_IPS_ACCESS_TIME_IN_MINUTES . ' minute)')->where('ip', $currentUserIp)->get('blocked_ips')->row_array();
-            if (count($ip_info) > 0) {
+            if (!empty($ip_info)) {
                 $start_date = new DateTime($ip_info['created']);
                 $since_start = $start_date->diff(new DateTime(date()));
                 //$minutes = (time() - strtotime($ip_info['created'])) / 60;

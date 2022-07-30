@@ -135,11 +135,11 @@
                                             <?php
                                             if (!empty($product_size)) {
                                                 if ($language_name == 'French') {
-                                                    $size_name = $product_size['product_size_french'];
-                                                    $label_qty = $product_size['product_quantity_french'];
+                                                    $size_name = $product_size['product_size_french'] ?? '';
+                                                    $label_qty = $product_size['product_quantity_french'] ?? '';
                                                 } else {
-                                                    $size_name = $product_size['product_size'];
-                                                    $label_qty = $product_size['product_quantity'];
+                                                    $size_name = $product_size['product_size'] ?? '';
+                                                    $label_qty = $product_size['product_quantity'] ?? '';
                                                 }
 
                                                 $attribute = isset($product_size['attribute']) ? $product_size['attribute'] : '';
@@ -235,19 +235,22 @@
                                 <td>
                                     <div class="quant-cart">
                                         <input type="text" onchange="updateCartItem('<?= $item['id']?>', '<?= $rowid?>',$(this).val())" value="<?= $item['qty'];?>" onkeypress="javascript:return isNumber(event)">
-                                        <?php
-                                        $quantity = $item['qty'];
-                                        $total_stock = $item['options']['stock'];
-                                        $options_array = range(1,$total_stock);
-                                        foreach ($options_array as $v) {
-                                            $selected = '';
-                                            if ($v == $quantity) {
-                                                $selected='selected="selected"';
-                                            }
-                                            ?>
-                                            <option value="<?= $v?>" <?= $selected?>><?= $v?></option>
-                                        <?php } ?>
-                                    </select>-->
+                                        <?php /*
+                                        <select>
+                                            <?php
+                                            $quantity = $item['qty'];
+                                            $total_stock = $item['options']['stock'] ?? '';
+                                            $options_array = range(1, $total_stock);
+                                            foreach ($options_array as $v) {
+                                                $selected = '';
+                                                if ($v == $quantity) {
+                                                    $selected='selected="selected"';
+                                                }
+                                                ?>
+                                                <option value="<?= $v?>" <?= $selected?>><?= $v?></option>
+                                            <?php } ?>
+                                        </select>
+                                        */ ?>
                                     </div>
                                 </td>
                                 <td class="product-subtotal">

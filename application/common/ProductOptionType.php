@@ -2,7 +2,7 @@
 
 namespace App\Common;
 
-class ProductAttributeType {
+class ProductOptionType {
     const Quantity = 0;
     const Size = 1;
     const Normal = 2;

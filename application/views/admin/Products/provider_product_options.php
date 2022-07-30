@@ -13,7 +13,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 <div class="col-md-9 col-sm-9">
                     <select class="form-control k-input text-box single-line" name="type" data-bind="value:type" >
                         <?php
-                        foreach (App\Common\ProductAttributeType::names as $key => $name) {?>
+                        foreach (App\Common\ProductOptionType::names as $key => $name) {?>
                             <option value="<?=$key?>"><?=$name?></option>
                         <?php }?>
                     </select>
@@ -39,7 +39,7 @@ $pageSizes = [10, 15, 20, 50, 100];
 </script>
 <div id="provider-product-attributes-grid"></div>
 <script>
-    var attributeTypeNames = <?=json_encode(App\Common\ProductAttributeType::names)?>;
+    var attributeTypeNames = <?=json_encode(App\Common\ProductOptionType::names)?>;
     var record = 0;
     $(document).ready(function () {
         $('#provider-product-attributes-grid').kendoGrid({
@@ -170,7 +170,6 @@ $pageSizes = [10, 15, 20, 50, 100];
         $('#attribute-form input[name="attribute_name"]').val(name);
 
         var model = $('.k-popup-edit-form').data('kendoEditable').options.model;
-        model.id = model.provider_attribute_id;
         model.attribute_id = id;
         model.attribute_name = name;
         // model.dirty = true;

@@ -25,7 +25,7 @@ $tabname = 'provider-view';
             <?php $this->load->view('admin/Products/provider_products'); ?>
         </div>
         <div tab-index="2">
-            <?php $this->load->view('admin/Products/provider_attributes'); ?>
+            <?php $this->load->view('admin/Products/provider_options'); ?>
         </div>
     </div>
 </div>

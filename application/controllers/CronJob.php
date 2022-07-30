@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require_once(APPPATH . 'common/ProductAttributeType.php');
+require_once(APPPATH . 'common/ProductOptionType.php');
 
-use App\Common\ProductAttributeType;
+use App\Common\ProductOptionType;
 
 class CronJob extends Admin_Controller
 {
@@ -24,13 +24,8 @@ class CronJob extends Admin_Controller
 
     function check_sina($provider)
     {
-        if (!$this->session->has_userdata('sina_access_token') || !$this->session->sina_access_token) {
-            $sina_access_token = sina_access_token();
-            $this->session->set_userdata('sina_access_token', $sina_access_token);
-        }
-        $sina_access_token = $this->session->sina_access_token;
         if (!$this->session->has_userdata('sina_products') || !$this->session->sina_products) {
-            $sina_products = sina_products($sina_access_token);
+            $sina_products = sina_products();
             $this->session->set_userdata('sina_products', $sina_products);
         }
 
@@ -41,7 +36,7 @@ class CronJob extends Admin_Controller
         header('Cache-Control: no-cache');
         $products = $this->Provider_Model->getUpdatingProducts($provider->id);
         foreach ($products as $product) {
-            $productInfo = sina_product_info($sina_access_token, $product->provider_product_id);
+            $productInfo = sina_product_info($product->provider_product_id);
             $this->Provider_Model->updateProductInfo($product, $productInfo);
             echo "$product->provider_product_id: $product->name" . PHP_EOL;
             ob_flush();

@@ -272,13 +272,13 @@ $pageSizes = [10, 15, 20, 50, 100];
                     #if (provider_order_id) {#
                         <a href="/admin/Orders/provider/#=id#" class="provider-order" onClick="showProviderInfo(#=id#);return false;">#=provider_order_id##if (provider_order_count > 1) {#...#}#</a>
                     #} else if (provider_product_count > 0) {#
-                        <select class="form-control" onchange="if (this.value == 'sina') sendToSina(#=id#);">
+                        <select class="form-control" onchange="if (this.value == 'sina') sendToSina(#=id#, '#=shipping_method_formate#');">
                             <option></option>
                             <option value="sina">Send to Sina</option>
                         </select>
                     #}#
                 `,
-                // template: '<button type="button" class="btn btn-sm btn-info" onClick="sendToSina(#=id#)">Send to Sina</button>',
+                // template: '<button type="button" class="btn btn-sm btn-info" onClick="sendToSina(#=id#, '#=shipping_method_formate#')">Send to Sina</button>',
             }, {
                 title: 'Store Name',
                 template: '#=stores[store_id].name#',
@@ -387,7 +387,9 @@ $pageSizes = [10, 15, 20, 50, 100];
         });
     });
 
-    function sendToSina(id) {
+    function sendToSina(id, shipping_method_formate) {
+        var tokens = shipping_method_formate.split('-');
+        var shipping_method = tokens.length == 3 ? tokens[2] : shipping_method_formate;
         var window = $('#sina_ship_methods');
         if (!window.data('kendoWindow')) {
             window.kendoWindow({
@@ -436,7 +438,7 @@ $pageSizes = [10, 15, 20, 50, 100];
             columns: [{
                 field: 'name',
                 title: 'Select',
-                template: `<input type='radio' class='k-radio k-radio-md' name="ship_method" value="#=name#"/>`,
+                template: `<input type='radio' class='k-radio k-radio-md' name="ship_method" value="#=name#" #=(name == '${shipping_method}') ? 'checked' : ''#/>`,
             }, {
                 field: 'type',
                 title: 'Type',

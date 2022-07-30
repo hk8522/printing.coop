@@ -4,6 +4,9 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
+/**
+ * API Helper
+ */
 function curl_helper(string $url, string $method = 'get', array $data = null, string $token = null)
 {
     if (strcasecmp($method, 'post') != 0 && strcasecmp($method, 'get') != 0)
@@ -59,25 +62,25 @@ function sina_access_token()
     return $resp->access_token;
 }
 
-function sina_products(string $token)
+function sina_products()
 {
     $sina = config_item('sina');
     $url = $sina['endpoint'] . "/product";
-    return curl_helper($url, 'get', null, $token);
+    return curl_helper($url, 'get');
 }
 
-function sina_product_info(string $token, int $product_id, string $store = 'en_us')
+function sina_product_info(int $product_id, string $store = 'en_us')
 {
     $sina = config_item('sina');
     $url = $sina['endpoint'] . "/product/$product_id/$store";
-    return curl_helper($url, 'get', null, $token);
+    return curl_helper($url, 'get');
 }
 
-function sina_price(string $token, int $product_id, array $options, string $store = 'en_us')
+function sina_price(int $product_id, array $options, string $store = 'en_us')
 {
     $sina = config_item('sina');
     $url = $sina['endpoint'] . "/price/$product_id/$store";
-    return curl_helper($url, 'post', ['productOptions' => $options], $token);
+    return curl_helper($url, 'post', ['productOptions' => $options]);
 }
 
 function sina_order_shippingEstimate($items, $shippingInfo, $token)
@@ -102,6 +105,9 @@ function sina_order_new($items, $shippingInfo, $billingInfo, $token)
         ], $token);
 }
 
+/**
+ * Database Helper
+ */
 function sina_attributes($attribute_ids)
 {
     $ci = get_instance();
@@ -109,7 +115,7 @@ function sina_attributes($attribute_ids)
 
     $provider = $ci->Provider_Model->getProvider('sina');
     $itemInfo = is_string($attribute_ids) ? json_decode($attribute_ids) : $attribute_ids;
-    $itemInfo->attributes = $ci->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_attribute_ids);
+    $itemInfo->options = $ci->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_option_value_ids);
 
     return $itemInfo;
 }
@@ -117,11 +123,11 @@ function sina_attributes($attribute_ids)
 function sina_attributes_map($attribute_ids)
 {
     $itemInfo = sina_attributes($attribute_ids);
-    $func = function($attribute) {
-        $attribute_name = $attribute->type == App\Common\ProductAttributeType::Quantity ? 'Qautntiy' : ($attribute->type == App\Common\ProductAttributeType::Size ? 'Size' : $attribute->name);
-        return ['attribute_name' => $attribute_name, 'item_name' => $attribute->value];
+    $func = function($option) {
+        $attribute_name = $option->type == App\Common\ProductOptionType::Quantity ? 'Qautntiy' : ($option->type == App\Common\ProductOptionType::Size ? 'Size' : $option->name);
+        return ['attribute_name' => $attribute_name, 'item_name' => $option->value];
     };
-    return array_map($func, $itemInfo->attributes);
+    return array_map($func, $itemInfo->options);
 }
 
 function sina_shipping_methods($order_id)
@@ -137,10 +143,10 @@ function sina_shipping_methods($order_id)
     $items = [];
     foreach ($order->items as $item) {
         $itemInfo = json_decode($item->attribute_ids);
-        $attributes = $ci->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_attribute_ids);
+        $attributes = $ci->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_option_value_ids);
         $options = [];
         foreach ($attributes as $attribute)
-            $options[$attribute->name] = $attribute->value_id;
+            $options[$attribute->name] = $attribute->provider_option_value_id;
         $items[] = [
             'productId' => $itemInfo->provider_product_id,
             'options' => $options,

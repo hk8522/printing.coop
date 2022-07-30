@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 require_once APPPATH . 'common/OrderStatus.php';
 require_once APPPATH . 'common/PaymentStatus.php';
-require_once APPPATH . 'common/ProductAttributeType.php';
+require_once APPPATH . 'common/ProductOptionType.php';
 
 use App\Common\OrderStatus;
 
@@ -247,8 +247,9 @@ class Checkouts extends Public_Controller
             $items = $this->cart->contents();
 
             foreach ($items as $key => $item) {
+                if (is_object($item['options']['attribute_ids']))
+                    unset($item['options']['attribute_ids']->options);
                 $ProductData = $this->Product_Model->getProductDataById($item['id']);
-                #pr($ProductData);
                 $ProductOrderItem[$key]['id'] = '';
                 $ProductOrderItem[$key]['order_id'] = '';
                 $ProductOrderItem[$key]['product_id'] = $ProductData['id'];

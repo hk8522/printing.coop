@@ -13,7 +13,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 <div class="col-md-9 col-sm-9">
                     <select class="form-control k-input text-box single-line" name="type" data-bind="value:type" >
                         <?php
-                        foreach (App\Common\ProductAttributeType::names as $key => $name) {?>
+                        foreach (App\Common\ProductOptionType::names as $key => $name) {?>
                             <option value="<?=$key?>"><?=$name?></option>
                         <?php }?>
                     </select>
@@ -74,7 +74,7 @@ $pageSizes = [10, 15, 20, 50, 100];
     </div>
 </form>
 <script>
-    var attributeTypeNames = <?=json_encode(App\Common\ProductAttributeType::names)?>;
+    var attributeTypeNames = <?=json_encode(App\Common\ProductOptionType::names)?>;
     var record = 0;
     $(document).ready(function () {
         $('#attributes-grid').kendoGrid({

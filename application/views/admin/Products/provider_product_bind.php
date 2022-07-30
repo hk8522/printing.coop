@@ -101,7 +101,7 @@
     }
     function bindProduct(id, product_id)
     {
-        // $('#loader-img').show();
+        $('#loader-img').show();
         $.ajax({
             type: 'POST',
             url: '/admin/Products/ProviderProductBind/<?=$id?>',
@@ -112,13 +112,15 @@
                 $('#loader-img').hide();
                 hideSearchResult();
                 if (data.success) {
-                    var grid = $('#product-grid').data('kendoGrid');
+                    var grid = $('#products-grid').data('kendoGrid');
                     grid.dataSource.read();
                     grid.refresh();
                 }
                 $.magnificPopup.close();
             },
             error: function (error) {
+                $('#loader-img').hide();
+                console.log(error);
             }
         });
     }

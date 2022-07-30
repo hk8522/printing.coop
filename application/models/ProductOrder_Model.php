@@ -2,11 +2,11 @@
 
 require_once(APPPATH . 'common/OrderStatus.php');
 require_once(APPPATH . 'common/PaymentStatus.php');
-require_once(APPPATH . 'common/ProductAttributeType.php');
+require_once(APPPATH . 'common/ProductOptionType.php');
 
 use App\Common\OrderStatus;
 use App\Common\PaymentStatus;
-use App\Common\ProductAttributeType;
+use App\Common\ProductOptionType;
 
 Class ProductOrder_Model extends MY_Model {
     public $table = 'product_orders';

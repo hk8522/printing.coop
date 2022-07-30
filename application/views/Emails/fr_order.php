@@ -104,9 +104,9 @@
 
                              <?php
                             if(!empty($product_size)) {
-                                $size_name = $product_size['product_size_french'];
-                                $label_qty=$product_size['product_quantity_french'];
-                                $attribute=isset($product_size['attribute']) ? $product_size['attribute']:'';
+                                $size_name = $product_size['product_size_french'] ?? '';
+                                $label_qty = $product_size['product_quantity_french'] ?? '';
+                                $attribute = isset($product_size['attribute']) ? $product_size['attribute'] : '';
 
                                 ?>
                                  <?php if($label_qty) { ?>

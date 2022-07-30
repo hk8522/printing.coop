@@ -393,22 +393,21 @@
                 var msg = json.msg;
                 $("#btnsubmit").prop('disabled',false);
                 if (status == 1 ) {
-                        $(".cart-contents-count").html(json.total_item);
-                        getCartItem();
-                        //$(".after-click").show();
-                        //$(".before-click").hide();
-                        $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>'+msg+'.</span>').addClass("active");
+                    $(".cart-contents-count").html(json.total_item);
+                    getCartItem();
+                    //$(".after-click").show();
+                    //$(".before-click").hide();
+                    $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>'+msg+'.</span>').addClass("active");
 
-                        setTimeout(function() {
-                            $('.addtocart-message').removeClass("active");
-
+                    setTimeout(function() {
+                        $('.addtocart-message').removeClass("active");
                         location.assign("<?= $BASE_URL?>ShoppingCarts");
-                        }, 1000);
+                    }, 1000);
                 } else {
-                        $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>'+msg+'.</span>').addClass("active");
-                        setTimeout(function() {
-                            $('.addtocart-message').removeClass("active");
-                        }, 2000);
+                    $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>'+msg+'.</span>').addClass("active");
+                    setTimeout(function() {
+                        $('.addtocart-message').removeClass("active");
+                    }, 2000);
                 }
             },
             error: function (error) {

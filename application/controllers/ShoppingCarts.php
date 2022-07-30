@@ -32,7 +32,6 @@ class ShoppingCarts extends Public_Controller
 
     function addToCart()
     {
-        //pr($_POST);
         $json = array('status' => 0, 'msg' => '');
         $this->load->model('Product_Model');
         $this->load->model('Provider_Model');
@@ -66,7 +65,7 @@ class ShoppingCarts extends Public_Controller
             $productOptions = (object) [
                 'provider_id' => $provider_id,
                 'provider_product_id' => $providerProduct->provider_product_id,
-                'provider_attribute_ids' => $productOptions,
+                'provider_option_value_ids' => $productOptions,
             ];
         } else {
             $productOptions = array();
