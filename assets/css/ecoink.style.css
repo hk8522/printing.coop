@@ -4204,7 +4204,7 @@ button[type="submit"]:disabled {
 	border-radius:10px;
 	padding:20px 20px 30px 20px
 }
-.product-fields .single-review label {
+.product-fields .single-review>label {
 	width:30%;
 	padding-right:0px;
 	font-size:16px;
@@ -5291,7 +5291,7 @@ button[type="submit"]:disabled {
 	.shop-product-detail {
 		margin-bottom:20px
 	}
-	.product-fields .single-review label {
+	.product-fields .single-review>label {
 		font-size:12px
 	}
 	.shop-product-price span {
