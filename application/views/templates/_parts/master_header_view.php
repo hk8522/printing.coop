@@ -4,24 +4,24 @@
    <?php
         $favicon_url= $BASE_URL.'assets/images/favicon.png';
         $favicon='';
-        if ($language_name == 'French'){
+        if ($language_name == 'French') {
             $favicon=$configrations['french_favicon'];
-        }else{
+        } else {
             $favicon=$configrations['favicon'];
         }
-        if(!empty($favicon)){
+        if (!empty($favicon)) {
             $favicon_url = getLogoImages($favicon);
         }
 
-        if($website_store_id ==3 || $website_store_id ==5){  #Show only PrintCoop & Franch
+        if ($website_store_id ==3 || $website_store_id ==5) {  #Show only PrintCoop & Franch
 
             $meta_description_content='';
             $meta_keywords_content='';
             $page_title=$MainStoreData['name'].'-'.$page_title;
-        }else{
-            if(!empty($meta_page_title)){
+        } else {
+            if (!empty($meta_page_title)) {
                 $page_title=$meta_page_title;
-            }else{
+            } else {
                 $page_title=$MainStoreData['name'].'-'.$page_title;
             }
         }
@@ -33,12 +33,12 @@
     </title>
 
     <?php
-    if($meta_description_content){?>
+    if ($meta_description_content) {?>
        <meta name="description" content="<?php echo $meta_description_content?>">
     <?php
     }?>
     <?php
-    if($meta_keywords_content){?>
+    if ($meta_keywords_content) {?>
        <meta name="keywords" content="<?php echo $meta_keywords_content?>">
     <?php
     }?>
@@ -47,14 +47,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" type="image/png" href="<?php echo $favicon_url;?>">
   <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/bootstrap.css">
-  <?php if($website_store_id==1){?>
-  <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/style.css">
-  <?php }else if($website_store_id==3){?>
-  <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/clickimprimerie.style.css">
-  <?php }else if($website_store_id==5){?>
-  <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/ecoink.style.css">
+  <?php if ($website_store_id==1) {?>
+    <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/style.css">
+  <?php } else if ($website_store_id==3) {?>
+    <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/clickimprimerie.style.css">
+  <?php } else if ($website_store_id==5) {?>
+    <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/ecoink.style.css">
   <?php }?>
   <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/customslider.css">
+  <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/provider.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
   <!-- <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>fancy-product-designer-jquery/source/css/FancyProductDesigner-all.min.css"/> -->
@@ -66,46 +67,46 @@
 </script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() {dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-183856793-1');
 </script>
 
-<?php if($website_store_id==1){?>
-    <?php if ($language_name == 'French'){ ?>
+<?php if ($website_store_id==1) {?>
+    <?php if ($language_name == 'French') { ?>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7V7YLFS15"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag() {dataLayer.push(arguments);}
           gtag('js', new Date());
 
           gtag('config', 'G-L7V7YLFS15');
         </script>
-    <?php }else{ ?>
+    <?php } else { ?>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-S5JX3QGBRH"></script>
         <script>
           window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
+          function gtag() {dataLayer.push(arguments);}
           gtag('js', new Date());
 
           gtag('config', 'G-S5JX3QGBRH');
         </script>
     <?php }?>
-<?php }else if($website_store_id==3){?>
+<?php } else if ($website_store_id==3) {?>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X71XTPM7CL"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() {dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-X71XTPM7CL');
 </script>
-<?php }else if($website_store_id==5){?>
+<?php } else if ($website_store_id==5) {?>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHV7YWZEQ5"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag() {dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-QHV7YWZEQ5');
@@ -117,9 +118,9 @@
       <div class="container">
           <span>
               <?php
-               if ($language_name == 'French'){
+               if ($language_name == 'French') {
                     echo $configrations['announcement_french'] ?? 'Proudly involved in the community! 10% discount for Community organizations, co-operatives, not-for-profit organizations and print reselling companies will benefit.';
-               }else{
+               } else {
                      echo $configrations['announcement'] ?? 'Proudly involved in the community! 10% discount for Community organizations, co-operatives, not-for-profit organizations and print reselling companies will benefit.';
                 }
 
@@ -139,20 +140,20 @@
   <!-- add a "active" class to show -->
   <div class="addwishlist-message">
       <span><i class="la la-heart-o"></i> <?php
-                  if ($language_name == 'French'){ ?>
+                  if ($language_name == 'French') { ?>
                     "Produit" a été ajouté à votre liste de souhaits.
-                  <?php }else{ ?>
+                  <?php } else { ?>
                     "Product" has been added to your wishlist.
                   <?php
                   }?></span>
   </div>
 <div id="loader-img">
     <div id="loader-img-inner">
-        <?php if($website_store_id==1){?>
+        <?php if ($website_store_id==1) {?>
         <img src="<?php echo $BASE_URL;?>assets/images/loder.gif" width="100">
-        <?php }else if($website_store_id==3){?>
+        <?php } else if ($website_store_id==3) {?>
         <img src="<?php echo $BASE_URL;?>assets/images/loader-pink.gif" width="100">
-        <?php }else if($website_store_id==5){?>
+        <?php } else if ($website_store_id==5) {?>
         <img src="<?php echo $BASE_URL;?>assets/images/loader-green.gif" width="100">
         <?php }?>
     </div>

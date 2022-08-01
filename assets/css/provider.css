@@ -30,3 +30,9 @@
 .k-popup-edit-form.k-window-content {
     overflow: visible;
 }
+.product-fields .single-review .field {
+    width: 70%;
+}
+.product-fields .single-review .radio-icon {
+    display: inline-block;
+}

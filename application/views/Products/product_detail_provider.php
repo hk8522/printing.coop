@@ -11,17 +11,19 @@
             <?php if ($option->html_type == 'input' /*&& empty($option->values)*/) {?>
                 <input type="text" class="product-option" name="productOptions[<?= $option->name?>]" required id="attribute-<?=$option->id?>">
             <?php } else if ($option->html_type == 'radio') { ?>
-                <?php foreach ($option->values as $item) {?>
-                    <div class="shape-icon radio-icon">
-                        <input id="attribute-<?=$item->provider_option_value_id?>" type="radio" class="product-option" name="productOptions[<?= $option->name?>]" value="<?= $providerProduct->information_type == App\Common\ProviderProductInformationType::RollLabel ? $item->value : $item->id?>">
-                        <label for="attribute-<?=$item->provider_option_value_id?>">
-                            <?php if ($item->img_src) { ?>
-                                <img class="no-lazy" src="https://sinalite.com/pub/<?= $item->img_src?>" style="width: 32px;margin-top: 8px;cursor: pointer;">
-                            <?php } ?>
-                            <div><?= $item->value?></div>
-                        </label>
-                    </div>
-                <?php }?>
+                <div class="field">
+                    <?php foreach ($option->values as $item) {?>
+                        <div class="shape-icon radio-icon">
+                            <input id="attribute-<?=$item->provider_option_value_id?>" type="radio" class="product-option" name="productOptions[<?= $option->name?>]" value="<?= $providerProduct->information_type == App\Common\ProviderProductInformationType::RollLabel ? $item->value : $item->id?>">
+                            <label for="attribute-<?=$item->provider_option_value_id?>">
+                                <?php if ($item->img_src) { ?>
+                                    <img class="no-lazy" src="https://sinalite.com/pub/<?= $item->img_src?>" style="width: 32px;margin-top: 8px;cursor: pointer;">
+                                <?php } ?>
+                                <div><?= $item->value?></div>
+                            </label>
+                        </div>
+                    <?php }?>
+                </div>
             <?php } else { ?>
                 <select class="product-option" name="productOptions[<?= $option->name?>]" required id="attribute-<?=$option->id?>">
                     <option value="">
