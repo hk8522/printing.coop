@@ -613,7 +613,7 @@ Class Provider_Model extends MY_Model {
 
     public function getProductOptionValues($provider_id, $provider_product_id)
     {
-        $this->db->select('provider_product_options.*, provider_option_values.value, provider_options.type AS option_type');
+        $this->db->select('provider_option_values.*, provider_options.type AS option_type');
         $this->db->from('provider_product_options');
         $this->db->join('provider_options', 'provider_options.id = provider_product_options.option_id');
         $this->db->join('provider_option_values', 'provider_option_values.option_id = provider_product_options.option_id AND provider_option_values.provider_option_value_id = provider_product_options.provider_option_value_id', 'left');

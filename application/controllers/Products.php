@@ -260,9 +260,6 @@ class Products extends Public_Controller
                 $options[$item->id] = $item;
             }
 
-            $sina = config_item('sina');
-            $shipping_extra_days = $sina['shipping_extra_days'];
-
             $data = $this->Provider_Model->getProductOptionValues($provider->id, $providerProduct->provider_product_id);
             foreach ($data as $item) {
                 if ($item->provider_option_value_id == null || $item->value == null)
@@ -271,11 +268,7 @@ class Products extends Public_Controller
                 if (!isset($option->values)) {
                     $option->values = [];
                 }
-
-                $option->values[] = (object) [
-                    'id' => $item->provider_option_value_id,
-                    'value' => $item->option_type == ProviderOptionType::Turnaround ? option_turnaround_add_days($item->value, $shipping_extra_days) : $item->value,
-                ];
+                $option->values[] = $item;
             }
             $this->data['provider'] = (object) [
                 'id' => $provider->id,
