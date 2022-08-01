@@ -1,8 +1,10 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
+require_once(APPPATH . 'common/ProviderOptionType.php');
 require_once(APPPATH . 'common/ProviderProductInformationType.php');
 
+use App\Common\ProviderOptionType;
 use App\Common\ProviderProductInformationType;
 
 class Products extends Public_Controller
@@ -258,6 +260,9 @@ class Products extends Public_Controller
                 $options[$item->id] = $item;
             }
 
+            $sina = config_item('sina');
+            $shipping_extra_days = $sina['shipping_extra_days'];
+
             $data = $this->Provider_Model->getProductOptionValues($provider->id, $providerProduct->provider_product_id);
             foreach ($data as $item) {
                 if ($item->provider_option_value_id == null || $item->value == null)
@@ -267,12 +272,16 @@ class Products extends Public_Controller
                     $option->values = [];
                 }
 
-                $option->values[] = (object) ['id' => $item->provider_option_value_id, 'value' => $item->value];
+                $option->values[] = (object) [
+                    'id' => $item->provider_option_value_id,
+                    'value' => $item->option_type == ProviderOptionType::Turnaround ? option_turnaround_add_days($item->value, $shipping_extra_days) : $item->value,
+                ];
             }
             $this->data['provider'] = (object) [
                 'id' => $provider->id,
                 'product_id' => $id,
                 'options' => $options,
+                'shipping_extra_days' => $shipping_extra_days,
             ];
             $this->data['providerProduct'] = $providerProduct;
         } else {

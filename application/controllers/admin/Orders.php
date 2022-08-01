@@ -2147,7 +2147,9 @@ class Orders extends Admin_Controller
         $result = [];
         $token = $this->sina_access_token();
         foreach ($orders as $order) {
-            $result[] = sina_order_info($token, $order->provider_order_id);
+            $info = sina_order_info($token, $order->provider_order_id);
+            $info->initial = $order;
+            $result[] = $info;
         }
         return $this->output
             ->set_content_type('application/json')

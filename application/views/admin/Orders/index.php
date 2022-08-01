@@ -115,66 +115,6 @@ $pageSizes = [10, 15, 20, 50, 100];
     </form>
 </div>
 <div id="sina_provider_orders" style="display:none;"><ul></ul></div>
-<template id="order">
-    <li>
-        <ul id="order-info">
-            <li><label>BillAddr:</label> <span id="BillAddr"></span>
-            <li><label>BillAddr2:</label> <span id="BillAddr2"></span>
-            <li><label>BillCity:</label> <span id="BillCity"></span>
-            <li><label>BillCompany:</label> <span id="BillCompany"></span>
-            <li><label>BillCountry:</label> <span id="BillCountry"></span>
-            <li><label>BillEmail:</label> <span id="BillEmail"></span>
-            <li><label>BillFName:</label> <span id="BillFName"></span>
-            <li><label>BillLName:</label> <span id="BillLName"></span>
-            <li><label>BillPhone:</label> <span id="BillPhone"></span>
-            <li><label>BillState:</label> <span id="BillState"></span>
-            <li><label>BillZip:</label> <span id="BillZip"></span>
-            <li><label>FreightCost:</label> <span id="FreightCost"></span>
-            <li><label>Notes:</label> <span id="Notes"></span>
-            <li><label>ShipAddr:</label> <span id="ShipAddr"></span>
-            <li><label>ShipAddr2:</label> <span id="ShipAddr2"></span>
-            <li><label>ShipCity:</label> <span id="ShipCity"></span>
-            <li><label>ShipCompany:</label> <span id="ShipCompany"></span>
-            <li><label>ShipCountry:</label> <span id="ShipCountry"></span>
-            <li><label>ShipEmail:</label> <span id="ShipEmail"></span>
-            <li><label>ShipFName:</label> <span id="ShipFName"></span>
-            <li><label>ShipLName:</label> <span id="ShipLName"></span>
-            <li><label>ShipMethod:</label> <span id="ShipMethod"></span>
-            <li><label>ShipPhone:</label> <span id="ShipPhone"></span>
-            <li><label>ShipState:</label> <span id="ShipState"></span>
-            <li><label>ShipZip:</label> <span id="ShipZip"></span>
-            <li><label>created_time:</label> <span id="created_time"></span>
-            <li><label>discount:</label> <span id="discount"></span>
-            <li><label>id:</label> <span id="id"></span>
-            <li><label>payment_charged:</label> <span id="payment_charged"></span>
-            <li><label>status:</label> <span id="status"></span>
-            <li><label>tax:</label> <span id="tax"></span>
-            <li><label>total:</label> <span id="total"></span>
-            <li><label>updated_time:</label> <span id="updated_time"></span>
-        </ul>
-        <ul id="order-items"></ul>
-    </li>
-</template>
-<template id="order-item">
-    <li>
-        <ul>
-            <li><label>id:</label> <span id="id"></span>
-            <li><label>order_id:</label> <span id="order_id"></span>
-            <li><label>product_id:</label> <span id="product_id"></span>
-            <li><label>options:</label> <span id="options"></span>
-            <li><label>optionsRaw:</label> <span id="optionsRaw"></span>
-            <li><label>packageInfo:</label> <span id="packageInfo"></span>
-            <li><label>price:</label> <span id="price"></span>
-            <li><label>status:</label> <span id="status"></span>
-            <li><label>tax:</label> <span id="tax"></span>
-            <li><label>total:</label> <span id="total"></span>
-            <li><label>extra:</label> <span id="extra"></span>
-            <li><label>file_status:</label> <span id="file_status"></span>
-            <li><label>files:</label> <span id="files"></span>
-            <li><label>created_time:</label> <span id="created_time"></span>
-        </ul>
-    </li>
-</template>
 <script>
     function ucwords(str) {
         if (str)
@@ -469,61 +409,39 @@ $pageSizes = [10, 15, 20, 50, 100];
                 $('#sina_provider_orders ul').empty();
                 var template = document.querySelector('#order');
                 for (i = 0; i < resp.length; i++) {
-                    var clone = template.content.cloneNode(true);
-                    clone.querySelectorAll('#BillAddr')[0].innerHTML = resp[i].order.BillAddr;
-                    clone.querySelectorAll('#BillAddr2')[0].innerHTML = resp[i].order.BillAddr2;
-                    clone.querySelectorAll('#BillCity')[0].innerHTML = resp[i].order.BillCity;
-                    clone.querySelectorAll('#BillCompany')[0].innerHTML = resp[i].order.BillCompany;
-                    clone.querySelectorAll('#BillCountry')[0].innerHTML = resp[i].order.BillCountry;
-                    clone.querySelectorAll('#BillEmail')[0].innerHTML = resp[i].order.BillEmail;
-                    clone.querySelectorAll('#BillFName')[0].innerHTML = resp[i].order.BillFName;
-                    clone.querySelectorAll('#BillLName')[0].innerHTML = resp[i].order.BillLName;
-                    clone.querySelectorAll('#BillPhone')[0].innerHTML = resp[i].order.BillPhone;
-                    clone.querySelectorAll('#BillState')[0].innerHTML = resp[i].order.BillState;
-                    clone.querySelectorAll('#BillZip')[0].innerHTML = resp[i].order.BillZip;
-                    clone.querySelectorAll('#FreightCost')[0].innerHTML = resp[i].order.FreightCost;
-                    clone.querySelectorAll('#Notes')[0].innerHTML = resp[i].order.Notes;
-                    clone.querySelectorAll('#ShipAddr')[0].innerHTML = resp[i].order.ShipAddr;
-                    clone.querySelectorAll('#ShipAddr2')[0].innerHTML = resp[i].order.ShipAddr2;
-                    clone.querySelectorAll('#ShipCity')[0].innerHTML = resp[i].order.ShipCity;
-                    clone.querySelectorAll('#ShipCompany')[0].innerHTML = resp[i].order.ShipCompany;
-                    clone.querySelectorAll('#ShipCountry')[0].innerHTML = resp[i].order.ShipCountry;
-                    clone.querySelectorAll('#ShipEmail')[0].innerHTML = resp[i].order.ShipEmail;
-                    clone.querySelectorAll('#ShipFName')[0].innerHTML = resp[i].order.ShipFName;
-                    clone.querySelectorAll('#ShipLName')[0].innerHTML = resp[i].order.ShipLName;
-                    clone.querySelectorAll('#ShipMethod')[0].innerHTML = resp[i].order.ShipMethod;
-                    clone.querySelectorAll('#ShipPhone')[0].innerHTML = resp[i].order.ShipPhone;
-                    clone.querySelectorAll('#ShipState')[0].innerHTML = resp[i].order.ShipState;
-                    clone.querySelectorAll('#ShipZip')[0].innerHTML = resp[i].order.ShipZip;
-                    clone.querySelectorAll('#created_time')[0].innerHTML = resp[i].order.created_time;
-                    clone.querySelectorAll('#discount')[0].innerHTML = resp[i].order.discount;
-                    clone.querySelectorAll('#id')[0].innerHTML = resp[i].order.id;
-                    clone.querySelectorAll('#payment_charged')[0].innerHTML = resp[i].order.payment_charged;
-                    clone.querySelectorAll('#status')[0].innerHTML = resp[i].order.status;
-                    clone.querySelectorAll('#tax')[0].innerHTML = resp[i].order.tax;
-                    clone.querySelectorAll('#total')[0].innerHTML = resp[i].order.total;
-                    clone.querySelectorAll('#updated_time')[0].innerHTML = resp[i].order.updated_time;
-                    var template2 = document.querySelector('#order-item');
-                    for (var j = 0; j < resp[i].items.length; j++) {
-                        var clone2 = template2.content.cloneNode(true);
-                        clone2.querySelectorAll('#id')[0].innerHTML = resp[i].items[j].id;
-                        clone2.querySelectorAll('#order_id')[0].innerHTML = resp[i].items[j].order_id;
-                        clone2.querySelectorAll('#product_id')[0].innerHTML = resp[i].items[j].product_id;
-                        clone2.querySelectorAll('#options')[0].innerHTML = resp[i].items[j].options;
-                        clone2.querySelectorAll('#optionsRaw')[0].innerHTML = resp[i].items[j].optionsRaw;
-                        clone2.querySelectorAll('#packageInfo')[0].innerHTML = resp[i].items[j].packageInfo;
-                        clone2.querySelectorAll('#price')[0].innerHTML = resp[i].items[j].price;
-                        clone2.querySelectorAll('#status')[0].innerHTML = resp[i].items[j].status;
-                        clone2.querySelectorAll('#tax')[0].innerHTML = resp[i].items[j].tax;
-                        clone2.querySelectorAll('#total')[0].innerHTML = resp[i].items[j].total;
-                        clone2.querySelectorAll('#extra')[0].innerHTML = resp[i].items[j].extra;
-                        clone2.querySelectorAll('#file_status')[0].innerHTML = resp[i].items[j].file_status;
-                        clone2.querySelectorAll('#files')[0].innerHTML = resp[i].items[j].files;
-                        clone2.querySelectorAll('#created_time')[0].innerHTML = resp[i].items[j].created_time;
-                        $(clone.querySelectorAll('#order-items')[0]).append(clone2);
+                    var initialEntries = Object.entries(resp[i].initial);
+                    var initialContent = '';
+                    for (var j = 0; j < initialEntries.length; j++) {
+                        initialContent += `<li><label>${initialEntries[j][0]}:</label> <span>${initialEntries[j][1]}</span></li>`;
                     }
-                    console.log(clone);
-                    $('#sina_provider_orders ul').append(clone);
+
+                    var currentEntries = Object.entries(resp[i].order);
+                    var currentContent = '';
+                    for (var j = 0; j < currentEntries.length; j++) {
+                        currentContent += `<li><label>${currentEntries[j][0]}:</label> <span>${currentEntries[j][1]}</span></li>`;
+                    }
+
+                    var itemContent = '';
+                    for (var j = 0; j < resp[i].items.length; j++) {
+                        var itemEntries = Object.entries(resp[i].items[j]);
+                        itemContent += '<li><ul>';
+                        for (var k = 0; k < itemEntries.length; k++) {
+                            itemContent += `<li><label>${itemEntries[k][0]}:</label> <span>${itemEntries[k][1]}</span></li>`
+                        }
+                        itemContent += '</ul></li>';
+                    }
+
+                    var content = `
+                    <li>
+                        <label>Initial Info</label>
+                        <ul id="info-initial">${initialContent}</ul>
+                        <label>Current Info</label>
+                        <ul id="info-current">${currentContent}</ul>
+                        <label>Items</label>
+                        <ul id="items">${itemContent}</ul>
+                    </li>
+                    `;
+                    $('#sina_provider_orders ul').append(`<li><ul>${content}</ul></li>`);
                 }
 
                 var window = $('#sina_provider_orders');

@@ -166,10 +166,10 @@ function sina_options_map($attribute_ids)
 
     $func = function($key, $option) use ($providerOptionsByName) {
         if (is_object($option)) {
-            if ($option->type == App\Common\ProductOptionType::Quantity) {
+            if ($option->type == App\Common\ProviderOptionType::Quantity) {
                 $attribute_name = 'Quantity';
                 $attribute_name_french = 'Quantité';
-            } else if ($option->type == App\Common\ProductOptionType::Size) {
+            } else if ($option->type == App\Common\ProviderOptionType::Size) {
                 $attribute_name = 'Size';
                 $attribute_name_french = 'Taille';
             } else {
@@ -180,10 +180,10 @@ function sina_options_map($attribute_ids)
         } else {
             $providerOption = $providerOptionsByName[$key];
             if ($providerOption) {
-                if ($providerOption->type == App\Common\ProductOptionType::Quantity) {
+                if ($providerOption->type == App\Common\ProviderOptionType::Quantity) {
                     $attribute_name = 'Quantity';
                     $attribute_name_french = 'Quantité';
-                } else if ($providerOption->type == App\Common\ProductOptionType::Size) {
+                } else if ($providerOption->type == App\Common\ProviderOptionType::Size) {
                     $attribute_name = 'Size';
                     $attribute_name_french = 'Taille';
                 } else {

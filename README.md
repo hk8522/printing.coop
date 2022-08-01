@@ -11,4 +11,5 @@
 
 - Database update for BOPP ROLL Label
   Run app/database/provider.sql
-  UPDATE `product_order_items` SET `attribute_ids` = REPLACE(`attribute_ids`, 'provider_attribute_ids', 'provider_options');
+- Database update for Shipping Extra Days
+  ALTER TABLE `provider_orders` ADD COLUMN `shipping_extra_days` INT UNSIGNED NULL AFTER `tax`;

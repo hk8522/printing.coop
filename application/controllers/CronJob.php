@@ -1,9 +1,9 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-require_once(APPPATH . 'common/ProductOptionType.php');
+require_once(APPPATH . 'common/ProviderOptionType.php');
 
-use App\Common\ProductOptionType;
+use App\Common\ProviderOptionType;
 
 class CronJob extends Admin_Controller
 {

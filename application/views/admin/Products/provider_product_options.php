@@ -13,7 +13,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 <div class="col-md-9 col-sm-9">
                     <select class="form-control k-input text-box single-line" name="type" data-bind="value:type" >
                         <?php
-                        foreach (App\Common\ProductOptionType::names as $key => $name) {?>
+                        foreach (App\Common\ProviderOptionType::names as $key => $name) {?>
                             <option value="<?=$key?>"><?=$name?></option>
                         <?php }?>
                     </select>
@@ -39,7 +39,7 @@ $pageSizes = [10, 15, 20, 50, 100];
 </script>
 <div id="provider-product-options-grid"></div>
 <script>
-    var optionTypeNames = <?=json_encode(App\Common\ProductOptionType::names)?>;
+    var optionTypeNames = <?=json_encode(App\Common\ProviderOptionType::names)?>;
     var record = 0;
     $(document).ready(function () {
         $('#provider-product-options-grid').kendoGrid({

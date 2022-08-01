@@ -1,9 +1,9 @@
 <?php
 
-require_once(APPPATH . 'common/ProductOptionType.php');
+require_once(APPPATH . 'common/ProviderOptionType.php');
 require_once(APPPATH . 'common/ProviderProductInformationType.php');
 
-use App\Common\ProductOptionType;
+use App\Common\ProviderOptionType;
 use App\Common\ProviderProductInformationType;
 
 Class Provider_Model extends MY_Model {
@@ -117,22 +117,23 @@ Class Provider_Model extends MY_Model {
         $data = $this->db->get()->result();
         $originals = [];
         foreach ($data as $item) {
-            $originals[$item->name] = $item;
+            $originals[strtolower($item->name)] = $item;
         }
 
         $news = [];
 
         foreach ($productInfo[0] as $option) {
-            if (!array_key_exists($option->group, $originals)) {
-                if (!array_key_exists($option->group, $news)) {
-                    $type = ProductOptionType::Normal;
+            if (!array_key_exists(strtolower($option->group), $originals)) {
+                if (!array_key_exists(strtolower($option->group), $news)) {
+                    $type = ProviderOptionType::Normal;
                     if (strcasecmp($option->group, 'size') == 0)
-                        $type = ProductOptionType::Size;
+                        $type = ProviderOptionType::Size;
                     if (strcasecmp($option->group, 'qty') == 0 || strcasecmp($option->group, 'quantity') == 0)
-                        $type = ProductOptionType::Quantity;
-                    $news[$option->group] = (object) [
+                        $type = ProviderOptionType::Quantity;
+                    $news[strtolower($option->group)] = (object) [
                         'provider_id' => $product->provider_id,
                         'name' => $option->group,
+                        'label' => $option->group,
                         'type' => $type,
                     ];
                 }
@@ -258,21 +259,21 @@ Class Provider_Model extends MY_Model {
         $data = $this->db->get()->result();
         $originals = [];
         foreach ($data as $item) {
-            $originals[$item->name] = $item;
+            $originals[strtolower($item->name)] = $item;
         }
 
         $news = [];
         $updated = [];
 
         foreach ($productInfo[0] as $option) {
-            if (!array_key_exists($option->name, $originals)) {
-                if (!array_key_exists($option->name, $news)) {
-                    $type = ProductOptionType::Normal;
+            if (!array_key_exists(strtolower($option->name), $originals)) {
+                if (!array_key_exists(strtolower($option->name), $news)) {
+                    $type = ProviderOptionType::Normal;
                     if (strcasecmp($option->name, 'size') == 0)
-                        $type = ProductOptionType::Size;
+                        $type = ProviderOptionType::Size;
                     if (strcasecmp($option->name, 'qty') == 0 || strcasecmp($option->name, 'quantity') == 0)
-                        $type = ProductOptionType::Quantity;
-                    $news[$option->name] = (object) [
+                        $type = ProviderOptionType::Quantity;
+                    $news[strtolower($option->name)] = (object) [
                         'provider_id' => $product->provider_id,
                         'provider_option_id' => $option->option_id,
                         'name' => $option->name,
@@ -283,8 +284,8 @@ Class Provider_Model extends MY_Model {
                     ];
                 }
             } else {
-                $updated[$option->name] = (object) [
-                    'id' => $originals[$option->name]->id,
+                $updated[strtolower($option->name)] = (object) [
+                    'id' => $originals[strtolower($option->name)]->id,
                     'provider_option_id' => $option->option_id,
                     'label' => $option->label,
                     'html_type' => $option->html_type,
@@ -612,13 +613,13 @@ Class Provider_Model extends MY_Model {
 
     public function getProductOptionValues($provider_id, $provider_product_id)
     {
-        $this->db->select('provider_product_options.*, provider_option_values.value');
+        $this->db->select('provider_product_options.*, provider_option_values.value, provider_options.type AS option_type');
         $this->db->from('provider_product_options');
         $this->db->join('provider_options', 'provider_options.id = provider_product_options.option_id');
         $this->db->join('provider_option_values', 'provider_option_values.option_id = provider_product_options.option_id AND provider_option_values.provider_option_value_id = provider_product_options.provider_option_value_id', 'left');
         $this->db->where('provider_product_options.provider_id', $provider_id);
         $this->db->where('provider_product_options.provider_product_id', $provider_product_id);
-        $this->db->order_by('provider_options.type, provider_product_options.id, provider_product_options.provider_option_value_id');
+        $this->db->order_by('provider_options.sort_order, provider_options.type, provider_product_options.id, provider_product_options.provider_option_value_id');
         return $this->db->get()->result();
     }
 
@@ -654,6 +655,8 @@ Class Provider_Model extends MY_Model {
 
     public function orderSave($order_id, $response)
     {
+        $sina = config_item('sina');
+        $shipping_extra_days = $sina['shipping_extra_days'];
         $data = [
             'order_id' => $order_id,
             'provider_order_id' => $response->orderId,
@@ -662,6 +665,7 @@ Class Provider_Model extends MY_Model {
             'shipping_cost' => $response->shippingCost,
             'subtotal' => $response->subtotal,
             'tax' => $response->tax,
+            'shipping_extra_days' => $shipping_extra_days,
         ];
         $this->db->insert('provider_orders', $data);
     }
@@ -679,7 +683,7 @@ Class Provider_Model extends MY_Model {
     {
         $this->db->from('provider_orders');
         $this->db->where('order_id', $order_id);
-        $this->select('provider_order_id');
+        // $this->select('provider_order_id');
         return $this->db->get()->result();
     }
 }

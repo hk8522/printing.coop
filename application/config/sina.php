@@ -8,4 +8,5 @@ $config['sina'] = array(
     'grant_type' => 'client_credentials',
     // 'endpoint' => 'https://liveapi.sinalite.com',
     'endpoint' => 'https://api.sinaliteuppy.com',
+    'shipping_extra_days' => 2,
 );
