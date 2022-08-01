@@ -108,26 +108,94 @@ function sina_order_new($items, $shippingInfo, $billingInfo, $token)
 /**
  * Database Helper
  */
-function sina_attributes($attribute_ids)
+function sina_options($attribute_ids)
 {
     $ci = get_instance();
     $ci->load->model('Provider_Model');
 
-    $provider = $ci->Provider_Model->getProvider('sina');
     $itemInfo = is_string($attribute_ids) ? json_decode($attribute_ids) : $attribute_ids;
-    $itemInfo->options = $ci->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_option_value_ids);
+    if (!is_object($itemInfo) || empty($itemInfo->provider_id))
+        return false;
+    $providerProduct = $ci->Provider_Model->getProductByProviderProductId($itemInfo->provider_id, $itemInfo->provider_product_id);
+    $itemInfo->information_type = $providerProduct->information_type;
+    $itemInfo->options = [];
+    if ($providerProduct->information_type == App\Common\ProviderProductInformationType::Normal) {
+        $data = $ci->Provider_Model->getOptionsByValueIds($itemInfo->provider_id, $itemInfo->provider_product_id, array_values((array)$itemInfo->provider_options));
+        foreach ($data as $option)
+            $itemInfo->options[$option->name] = $option->provider_option_value_id;
+    } else if ($providerProduct->information_type == App\Common\ProviderProductInformationType::RollLabel) {
+        $itemInfo->options = $itemInfo->provider_options;
+    }
 
     return $itemInfo;
 }
 
-function sina_attributes_map($attribute_ids)
+function sina_options_raw($attribute_ids)
 {
-    $itemInfo = sina_attributes($attribute_ids);
-    $func = function($option) {
-        $attribute_name = $option->type == App\Common\ProductOptionType::Quantity ? 'Qautntiy' : ($option->type == App\Common\ProductOptionType::Size ? 'Size' : $option->name);
-        return ['attribute_name' => $attribute_name, 'item_name' => $option->value];
+    $ci = get_instance();
+    $ci->load->model('Provider_Model');
+
+    $itemInfo = is_string($attribute_ids) ? json_decode($attribute_ids) : $attribute_ids;
+    if (!is_object($itemInfo) || empty($itemInfo->provider_id))
+        return false;
+    $providerProduct = $ci->Provider_Model->getProductByProviderProductId($itemInfo->provider_id, $itemInfo->provider_product_id);
+    $itemInfo->information_type = $providerProduct->information_type;
+    if ($providerProduct->information_type == App\Common\ProviderProductInformationType::Normal) {
+        $itemInfo->options = $ci->Provider_Model->getOptionsByValueIds($itemInfo->provider_id, $itemInfo->provider_product_id, array_values((array)$itemInfo->provider_options));
+    } else if ($providerProduct->information_type == App\Common\ProviderProductInformationType::RollLabel) {
+        $itemInfo->options = $itemInfo->provider_options;
+    }
+
+    return $itemInfo;
+}
+
+function sina_options_map($attribute_ids)
+{
+    $ci = get_instance();
+    $ci->load->model('Provider_Model');
+
+    $itemInfo = sina_options_raw($attribute_ids);
+    if (!$itemInfo)
+        return false;
+
+    $ci->Provider_Model->getOptions($itemInfo->provider_id, null, 0, 0, $providerOptions, $total);
+    $providerOptionsByName = [];
+    foreach ($providerOptions as $option) {
+        $providerOptionsByName[$option->name] = $option;
+    }
+
+    $func = function($key, $option) use ($providerOptionsByName) {
+        if (is_object($option)) {
+            if ($option->type == App\Common\ProductOptionType::Quantity) {
+                $attribute_name = 'Quantity';
+                $attribute_name_french = 'Quantité';
+            } else if ($option->type == App\Common\ProductOptionType::Size) {
+                $attribute_name = 'Size';
+                $attribute_name_french = 'Taille';
+            } else {
+                $attribute_name = $option->attribute_name ?? $option->label ?? $option->name;
+                $attribute_name_french = $option->attribute_name_french ?? $option->attribute_name ?? $option->label ?? $option->name;
+            }
+            return ['attribute_name' => ucfirst($attribute_name), 'attribute_name_french' => ucfirst($attribute_name_french), 'item_name' => ucfirst($option->value), 'item_name_french' => ucfirst($option->value)];
+        } else {
+            $providerOption = $providerOptionsByName[$key];
+            if ($providerOption) {
+                if ($providerOption->type == App\Common\ProductOptionType::Quantity) {
+                    $attribute_name = 'Quantity';
+                    $attribute_name_french = 'Quantité';
+                } else if ($providerOption->type == App\Common\ProductOptionType::Size) {
+                    $attribute_name = 'Size';
+                    $attribute_name_french = 'Taille';
+                } else {
+                    $attribute_name = $providerOption->attribute_name ?? $providerOption->label ?? $providerOption->name;
+                    $attribute_name_french = $providerOption->attribute_name_french ?? $providerOption->attribute_name ?? $providerOption->label ?? $providerOption->name;
+                }
+                return ['attribute_name' => ucfirst($attribute_name), 'attribute_name_french' => ucfirst($attribute_name_french), 'item_name' => ucfirst($option), 'item_name_french' => ucfirst($option)];
+            } else
+                return ['attribute_name' => ucfirst($key), 'attribute_name_french' => ucfirst($key), 'item_name' => ucfirst($option), 'item_name_french' => ucfirst($option)];
+        }
     };
-    return array_map($func, $itemInfo->options);
+    return array_map($func, array_keys((array)$itemInfo->options), (array)$itemInfo->options);
 }
 
 function sina_shipping_methods($order_id)
@@ -139,17 +207,14 @@ function sina_shipping_methods($order_id)
 
     $order = $ci->ProductOrder_Model->getOrder($order_id);
 
-    $provider = $ci->Provider_Model->getProvider('sina');
     $items = [];
     foreach ($order->items as $item) {
-        $itemInfo = json_decode($item->attribute_ids);
-        $attributes = $ci->Provider_Model->getAttributesByValueIds($provider->id, $itemInfo->provider_product_id, $itemInfo->provider_option_value_ids);
-        $options = [];
-        foreach ($attributes as $attribute)
-            $options[$attribute->name] = $attribute->provider_option_value_id;
+        $itemInfo = sina_options($item->attribute_ids);
+        if (!$itemInfo)
+            continue;
         $items[] = [
             'productId' => $itemInfo->provider_product_id,
-            'options' => $options,
+            'options' => $itemInfo->options,
         ];
     }
 

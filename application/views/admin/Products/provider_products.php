@@ -108,10 +108,10 @@ $pageSizes = [10, 15, 20, 50, 100];
                     #if (product_id) {#<p>#=product_name#</p>#}#`,
             }, {
                 field: 'provider_product_id',
-                title: 'Attributes',
+                title: 'Options',
                 template: `
                     #if (product_id) {#
-                        <a href="/admin/Products/ProviderProductAttributes/<?=$provider?>/#=provider_product_id#" class="k-link bind-product-attributes">
+                        <a href="/admin/Products/ProviderProductOptions/<?=$provider?>/#=provider_product_id#" class="k-link bind-product-attributes">
                             <div class="action">
                                 <svg class="bi b-icon" width="2em" height="2em" fill="currentColor">
                                     <use xlink:href="/assets/images/bootstrap-icons.svg\\#pencil-square"/>

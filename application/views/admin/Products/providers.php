@@ -9,7 +9,7 @@ $tabname = 'provider-view';
             <?php
                 $tabs = ['Providers'];
                 $tabs[] = 'Products';
-                $tabs[] = 'Attributes';
+                $tabs[] = 'Options';
                 $_SESSION["$tabname-tab"] = 1;
             ?>
             <?php

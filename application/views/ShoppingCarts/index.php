@@ -25,7 +25,7 @@
                             $provider_id = 1;
                             $provider_product = $this->Provider_Model->getProductByProductId($provider_id, $item['options']['product_id']);
                             if ($provider_product) {
-                                $attribute_ids = sina_attributes_map($attribute_ids);
+                                $attribute_ids = sina_options_map($attribute_ids);
                             }
 
                             $product_size = $item['options']['product_size'];

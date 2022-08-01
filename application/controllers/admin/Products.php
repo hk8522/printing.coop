@@ -2359,6 +2359,7 @@ Coating";
 
             $product = $this->Provider_Model->getProduct($id);
             $productInfo = sina_product_info($product->provider_product_id);
+            // $productInfo = json_decode(file_get_contents("d:\\Workspace\\2021.12.04-Scrap-mefa(Ca)\\_temp\\sina-product-7028.txt"));
             $this->Provider_Model->updateProductInfo($product, $productInfo);
 
             return $this->output
@@ -2377,7 +2378,7 @@ Coating";
         }
     }
 
-    public function ProviderProductAttributes($provider, $provider_product_id)
+    public function ProviderProductOptions($provider, $provider_product_id)
     {
         if ($this->input->server('REQUEST_METHOD') === 'GET') {
             $this->load->view('admin/Products/provider_product_options', ['provider' => $provider, 'provider_product_id' => $provider_product_id]);
@@ -2388,7 +2389,7 @@ Coating";
             $pageSize = $this->input->post('pageSize');
             $take = $pageSize;
             $skip = $pageSize * ($page - 1);
-            $this->Provider_Model->getProductAttributes($provider->id, $provider_product_id, $take, $skip, $data, $total);
+            $this->Provider_Model->getProductOptions($provider->id, $provider_product_id, $take, $skip, $data, $total);
 
             $gridModel = [
                 'extra_data' => null,
@@ -2403,7 +2404,7 @@ Coating";
         }
     }
 
-    public function ProviderAttributes($provider)
+    public function ProviderOptions($provider)
     {
         $provider = $this->Provider_Model->getProvider($provider);
 
@@ -2412,7 +2413,7 @@ Coating";
         $pageSize = $this->input->post('pageSize');
         $take = $pageSize;
         $skip = $pageSize * ($page - 1);
-        $this->Provider_Model->getAttributes($provider->id, $q, $take, $skip, $data, $total);
+        $this->Provider_Model->getOptions($provider->id, $q, $take, $skip, $data, $total);
 
         $gridModel = [
             'extra_data' => null,
@@ -2448,12 +2449,12 @@ Coating";
             ->set_output(json_encode($gridModel));
     }
 
-    public function ProviderAttributeUpdate()
+    public function ProviderOptionUpdate()
     {
         $id = $this->input->post('id');
         $type = $this->input->post('type');
         $attribute_id = $this->input->post('attribute_id');
-        $this->Provider_Model->updateAttribute($id, $type, $attribute_id);
+        $this->Provider_Model->updateOption($id, $type, $attribute_id);
 
         return $this->output
             ->set_content_type('application/json')

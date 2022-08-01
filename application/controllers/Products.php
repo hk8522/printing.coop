@@ -1,17 +1,22 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
+
+require_once(APPPATH . 'common/ProviderProductInformationType.php');
+
+use App\Common\ProviderProductInformationType;
 
 class Products extends Public_Controller
 {
     public $class_name = '';
 
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
-        $this->class_name = ucfirst(strtolower($this->router->fetch_class())).'/';
+        $this->class_name = ucfirst(strtolower($this->router->fetch_class())) . '/';
     }
 
-    public function index($category_id = null, $sub_category_id = null) {
+    public function index($category_id = null, $sub_category_id = null)
+    {
         $this->load->model('Product_Model');
         $this->load->model('Category_Model');
         $this->load->model('SubCategory_Model');
@@ -28,9 +33,9 @@ class Products extends Public_Controller
         $this->data['printer_models'] = '';
         $title = 'All Categories';
         $title = $this->language_name == 'French' ? 'toutes catégories' : 'All Categories';
-        $category_id =     !empty($category_id) ? base64_decode($category_id) : 0;
+        $category_id = !empty($category_id) ? base64_decode($category_id) : 0;
         $sub_category_id = !empty($sub_category_id) ? base64_decode($sub_category_id) : 0;
-        $url = base_url()."Products/";
+        $url = base_url() . "Products/";
 
         if (isset($_GET['category_id'])) {
             $category_id = base64_decode($_GET['category_id']);
@@ -38,7 +43,7 @@ class Products extends Public_Controller
         #check condition ecoink
         if ($this->main_store_data['show_all_categories'] == 0 && $category_id != 13 && $this->website_store_id == 5) {
             $category_id = 13;
-            $url .= '?category_id='.base64_encode($category_id);
+            $url .= '?category_id=' . base64_encode($category_id);
             redirect($url);
         }
 
@@ -54,7 +59,7 @@ class Products extends Public_Controller
             $this->data['category_data'] = $data;
             $title = $this->language_name == 'French' ? ucfirst($data['name_french']) : ucfirst($data['name']);
             $pageData = $data;
-            $url .= '?category_id='.base64_encode($category_id);
+            $url .= '?category_id=' . base64_encode($category_id);
         } else {
             $url .= '?category_id=';
             $pageData = $this->Page_Model->getPageDataBySlug('products', $this->website_store_id);
@@ -67,32 +72,32 @@ class Products extends Public_Controller
             $this->data['sub_category_data'] = $data;
             //$title .= " /".ucfirst($data['name']);
 
-            $title .= $this->language_name == 'French' ?  " /".ucfirst($data['name_french']) :  " /".ucfirst($data['name']);
+            $title .= $this->language_name == 'French' ? " /" . ucfirst($data['name_french']) : " /" . ucfirst($data['name']);
 
-            $url .= '&sub_category_id='.base64_encode($sub_category_id);
+            $url .= '&sub_category_id=' . base64_encode($sub_category_id);
         } else {
             $url .= '&sub_category_id=';
         }
 
         if (!empty($printer_brand)) {
             $this->data['printer_brand'] = $printer_brand;
-            $title .= " / ".$printer_brand;
-            $url .= '&printer_brand='.$printer_brand;
+            $title .= " / " . $printer_brand;
+            $url .= '&printer_brand=' . $printer_brand;
         } else {
             $url .= '&printer_brand=';
         }
         if (!empty($printer_series)) {
             $this->data['printer_series'] = $printer_series;
-            $title .= " / ".$printer_series;
-            $url .= '&printer_series='.$printer_series;
+            $title .= " / " . $printer_series;
+            $url .= '&printer_series=' . $printer_series;
         } else {
             $url .= '&printer_series=';
         }
 
         if (!empty($printer_models)) {
             $this->data['printer_models'] = $printer_models;
-            $title .= " / ".$printer_models;
-            $url .= '&printer_models='.$printer_models;
+            $title .= " / " . $printer_models;
+            $url .= '&printer_models=' . $printer_models;
         } else {
             $url .= '&printer_models=';
         }
@@ -112,10 +117,10 @@ class Products extends Public_Controller
         if (isset($_GET['sort_by'])) {
             $sortBy = $_GET['sort_by'];
         } else {
-                $sortBy = 'name';
+            $sortBy = 'name';
         }
 
-        $url .= "&sort_by=".$sortBy;
+        $url .= "&sort_by=" . $sortBy;
         $sortByOptions = getSortByDropdown();
         $sortByOptions = $sortByOptions[$sortBy] ?? '';
         $order_by = $sortByOptions['order_by'] ?? '';
@@ -132,7 +137,7 @@ class Products extends Public_Controller
         $offset = ($pageno - 1) * $no_of_records_per_page;
         $total_pages = ceil($total / $no_of_records_per_page);
 
-        $lists = $this->Product_Model->getActiveProductList($category_id, $sub_category_id, $order_by, $type, $offset,  $no_of_records_per_page, $printer_brand, $printer_series, $printer_models);
+        $lists = $this->Product_Model->getActiveProductList($category_id, $sub_category_id, $order_by, $type, $offset, $no_of_records_per_page, $printer_brand, $printer_series, $printer_models);
 
         $prevPage = $pageno - 1;
         $NextPage = $pageno + 1;
@@ -144,8 +149,8 @@ class Products extends Public_Controller
             $prevPage = '';
         }
 
-        $this->data['url']      = $url;
-        $this->data['total']    = $total;
+        $this->data['url'] = $url;
+        $this->data['total'] = $total;
         $this->data['NextPage'] = $NextPage;
         $this->data['prevPage'] = $prevPage;
 
@@ -162,7 +167,7 @@ class Products extends Public_Controller
             $this->data['lists'][$key]['multipalCategory'] = $multipalCategoryData;
         }
 
-        $this->render($this->class_name.'index');
+        $this->render($this->class_name . 'index');
     }
 
     public function view($id = null)
@@ -195,24 +200,25 @@ class Products extends Public_Controller
         $multipalCategoryData = array();
         foreach ($multipalCategory as $ckey => $cval) {
             $category = $this->Category_Model->getCategoryDataById($ckey);
-            if ($category)
+            if ($category) {
                 $multipalCategoryData[$ckey] = $category;
+            }
         }
         $Product['multipalCategoryData'] = $multipalCategoryData;
 
         #check condition ecoink
         if ($this->main_store_data['show_all_categories'] == 0 && !array_key_exists(13, $multipalCategoryData) && $this->main_store_data['id'] == 5) {
-            $url = base_url()."Products/";
+            $url = base_url() . "Products/";
             $category_id = 13;
-            $url .= '?category_id='.base64_encode($category_id);
+            $url .= '?category_id=' . base64_encode($category_id);
             redirect($url);
         }
 
         $this->data['Product'] = $Product;
         //pr($multipalCategoryData);
         $this->data['ProductDescriptions'] = $ProductDescriptions;
-        $this->data['ProductTemplates']    = $ProductTemplates;
-        $ProductAttributes  = $this->Product_Model->getProductAttributesByItemIdFrontEnd($id);
+        $this->data['ProductTemplates'] = $ProductTemplates;
+        $ProductAttributes = $this->Product_Model->getProductAttributesByItemIdFrontEnd($id);
         $this->data['ProductAttributes'] = $ProductAttributes;
         $ProductSizes = $this->Product_Model->ProductQuantityDropDwon($id);
         //pr($ProductSizes, 1);
@@ -220,9 +226,9 @@ class Products extends Public_Controller
         $ProductPages = $this->Product_Model->getProductPages();
         $ProductSheets = $this->Product_Model->getProductSheets();
         $pageQuantity = $this->Product_Model->getPageQuantity();
-        $this->data['ProductPages']  = $ProductPages;
+        $this->data['ProductPages'] = $ProductPages;
         $this->data['ProductSheets'] = $ProductSheets;
-        $this->data['pageQuantity']  = $pageQuantity;
+        $this->data['pageQuantity'] = $pageQuantity;
 
         $total_items = $this->cart->total_items();
         $productRowid = '';
@@ -246,27 +252,34 @@ class Products extends Public_Controller
         $providerProduct = $this->Provider_Model->getProductByProductId($provider->id, $id);
         if ($providerProduct) {
             $providerInfo = [];
-            $attributeGroups = $this->Provider_Model->getProductAttributeGroups($provider->id, $providerProduct->provider_product_id);
-            $attributes = [];
-            foreach ($attributeGroups as $item)
-                $attributes[$item->id] = $item;
-            // $providerInfo['attribute_groups'] = $attributeGroups;
-            $data = $this->Provider_Model->getProductAttributeValues($provider->id, $providerProduct->provider_product_id);
+            $optionGroups = $this->Provider_Model->getProductOptionGroups($provider->id, $providerProduct->provider_product_id);
+            $options = [];
+            foreach ($optionGroups as $item) {
+                $options[$item->id] = $item;
+            }
+
+            $data = $this->Provider_Model->getProductOptionValues($provider->id, $providerProduct->provider_product_id);
             foreach ($data as $item) {
-                $attribute = $attributes[$item->option_id];
-                if (!isset($attribute->values))
-                    $attribute->values = [];
-                $attribute->values[] = (object) ['id' => $item->provider_option_value_id, 'value' => $item->value];
+                if ($item->provider_option_value_id == null || $item->value == null)
+                    continue;
+                $option = $options[$item->option_id];
+                if (!isset($option->values)) {
+                    $option->values = [];
+                }
+
+                $option->values[] = (object) ['id' => $item->provider_option_value_id, 'value' => $item->value];
             }
             $this->data['provider'] = (object) [
                 'id' => $provider->id,
                 'product_id' => $id,
-                'attributes' => $attributes
+                'options' => $options,
             ];
-        } else
+            $this->data['providerProduct'] = $providerProduct;
+        } else {
             $this->data['provider'] = false;
+        }
 
-        $this->render($this->class_name.'view');
+        $this->render($this->class_name . 'view');
     }
 
     public function searchProduct()
@@ -285,7 +298,7 @@ class Products extends Public_Controller
             if (!empty($lists)) {
                 foreach ($lists as $list) {
                     if ($list['status'] == 1) {
-                        $url = base_url()."Products/view/".base64_encode($list['id']);
+                        $url = base_url() . "Products/view/" . base64_encode($list['id']);
                         $name = $this->language_name == 'French' ? $list['name_french'] : $list['name'];
                         $name = ucfirst($name);
                         $imageurl = getProductImage($list['product_image'], 'medium');
@@ -293,11 +306,11 @@ class Products extends Public_Controller
                         if ($this->main_store_id == 5) {
                             $category_id = 13;
                             $multipalCategory = $this->Product_Model->getProductMultipalCategoriesAndSubCategories($list['id']);
-                                if (array_key_exists($category_id, $multipalCategory)) {
-                                    $search_result .= '<li><img src="'.$imageurl.'" width="50"><a href="'.$url.'">'.$name.'</a></li>';
-                                }
+                            if (array_key_exists($category_id, $multipalCategory)) {
+                                $search_result .= '<li><img src="' . $imageurl . '" width="50"><a href="' . $url . '">' . $name . '</a></li>';
+                            }
                         } else {
-                                $search_result .= '<li><img src="'.$imageurl.'" width="50"><a href="'.$url.'">'.$name.'</a></li>';
+                            $search_result .= '<li><img src="' . $imageurl . '" width="50"><a href="' . $url . '">' . $name . '</a></li>';
                         }
                     }
                 }
@@ -318,23 +331,23 @@ class Products extends Public_Controller
     {
         $this->load->model('Product_Model');
         $this->load->library('form_validation');
-                $rules = $this->Product_Model->ratingRules;
-                $this->form_validation->set_rules($rules);
+        $rules = $this->Product_Model->ratingRules;
+        $this->form_validation->set_rules($rules);
 
         $response = [
             'status' => 'success',
-            'msg'    => '',
+            'msg' => '',
             'errors' => [],
         ];
 
-        if ($this->form_validation->run() == FALSE) {
+        if ($this->form_validation->run() == false) {
             $response['status'] = 'error';
             $response['errors'] = $this->form_validation->error_array();
         } else {
             $name = $this->input->post('name');
             $rate = $this->input->post('rate');
             $review = $this->input->post('review');
-            $product_id  = $this->input->post('product_id');
+            $product_id = $this->input->post('product_id');
             $postData = [];
             $postData['name'] = $name;
             $postData['rate'] = $rate;
@@ -363,26 +376,26 @@ class Products extends Public_Controller
         echo json_encode($response);
     }
 
-    function emailSubscribe()
+    public function emailSubscribe()
     {
         if ($this->input->post()) {
             $this->load->library('form_validation');
             /*$this->form_validation->set_rules('email', 'Email', 'required|valid_email|is_unique[subscribe_emails.email]', 'errors' => array(
-                    'required' => 'Enter email id',
-                    'is_unique' => 'Email id already registered'
-                ));*/
+            'required' => 'Enter email id',
+            'is_unique' => 'Email id already registered'
+            ));*/
 
             $this->load->model('Product_Model');
             $set_rules = $this->Product_Model->EmailRules;
             $this->form_validation->set_rules($set_rules);
             $response = [
                 'status' => 'error',
-                'msg'    => '',
+                'msg' => '',
                 'errors' => [],
             ];
 
-            if ($this->form_validation->run() == FALSE) {
-                $response['errors'] =  $this->form_validation->error_array();
+            if ($this->form_validation->run() == false) {
+                $response['errors'] = $this->form_validation->error_array();
             } else {
                 $postData = [];
                 $postData['email'] = $this->input->post('email');
@@ -409,57 +422,65 @@ class Products extends Public_Controller
         }
     }
 
-    function calculatePrice()
+    public function calculatePrice()
     {
-        $response               = array();
-        $product_id             = $this->input->post('product_id');
-        $price                  = $this->input->post('price');
-        $quantity               = $this->input->post('quantity');
+        $response = array();
+        $product_id = $this->input->post('product_id');
+        $price = $this->input->post('price');
+        $quantity = $this->input->post('quantity');
 
-        $quantity_id            = $this->input->post('product_quantity_id');
-        $size_id                = $this->input->post('product_size_id');
+        $quantity_id = $this->input->post('product_quantity_id');
+        $size_id = $this->input->post('product_size_id');
 
-        $add_length_width       = $this->input->post('add_length_width');
-        $page_add_length_width  = $this->input->post('page_add_length_width');
+        $add_length_width = $this->input->post('add_length_width');
+        $page_add_length_width = $this->input->post('page_add_length_width');
         $depth_add_length_width = $this->input->post('depth_add_length_width');
-        $recto_verso            = $this->input->post('recto_verso');
-        $recto_verso_price      = $this->input->post('recto_verso_price');
-        $quantity               = !empty($quantity) ? $quantity : 1;
+        $recto_verso = $this->input->post('recto_verso');
+        $recto_verso_price = $this->input->post('recto_verso_price');
+        $quantity = !empty($quantity) ? $quantity : 1;
 
         /**
-            * Find Price from full price list of outside source(like newprint, sina)
-            */
+         * Find Price from full price list of outside source(like newprint, sina)
+         */
         $multiple_attributes = [];
         foreach ($_POST as $key => $val) {
-            if ($val == '')
+            if ($val == '') {
                 continue;
+            }
+
             if (preg_match('/^multiple_attribute_([0-9]+)$/i', $key, $m)) {
                 $attribute_id = $m[1];
                 $attribute_item_id = $val;
                 $multiple_attributes[] = [$attribute_id, $attribute_item_id];
             }
         }
-        usort($multiple_attributes, function($a, $b) {
-            if ($a[0] < $b[0])
+        usort($multiple_attributes, function ($a, $b) {
+            if ($a[0] < $b[0]) {
                 return -1;
-            else if ($a[0] > $b[0])
+            } else if ($a[0] > $b[0]) {
                 return 1;
+            }
+
             return 0;
         });
         $s_multiple_attributes = [];
-        foreach ($multiple_attributes as $attribute)
+        foreach ($multiple_attributes as $attribute) {
             $s_multiple_attributes[] = "$attribute[0] - $attribute[1]";
+        }
+
         $price_newprint = $this->Product_Model->getFullPrice($product_id, $quantity_id, $size_id, join(',', $s_multiple_attributes));
         if ($price_newprint > 0) {
             $price = $price_newprint;
         } else {
             /**
-                * Original price logic
-                */
+             * Original price logic
+             */
             $attributes = [];
             foreach ($_POST as $key => $val) {
-                if ($val == '')
+                if ($val == '') {
                     continue;
+                }
+
                 if (preg_match('/^attribute_id_([0-9]+)$/i', $key, $m)) {
                     $attribute_id = $m[1];
                     $attribute_item_id = $val;
@@ -473,34 +494,34 @@ class Products extends Public_Controller
             $price += $this->Product_Model->getSumExtraPriceOfMultipleAttributes($product_id, $quantity_id, $size_id, $multiple_attributes);
 
             if (!empty($add_length_width)) {
-                $product_length             = $this->input->post('product_length');
-                $product_width              = $this->input->post('product_width');
-                $product_total_page         = $this->input->post('product_total_page');
+                $product_length = $this->input->post('product_length');
+                $product_width = $this->input->post('product_width');
+                $product_total_page = $this->input->post('product_total_page');
                 $length_width_quantity_show = $this->input->post('length_width_quantity_show');
-                $length_width_color         = $this->input->post('length_width_color');
+                $length_width_color = $this->input->post('length_width_color');
 
                 $Product = $this->Product_Model->getProductList($product_id);
                 $min_length = $Product['min_length'];
                 $max_length = $Product['max_length'];
-                $min_width  = $Product['min_width'];
-                $max_width  = $Product['max_width'];
+                $min_width = $Product['min_width'];
+                $max_width = $Product['max_width'];
 
-                $length_width_min_quantity      = $Product['length_width_min_quantity'];
-                $length_width_max_quantity      = $Product['length_width_max_quantity'];
-                $min_length_min_width_price     = $Product['min_length_min_width_price'];
-                $length_width_unit_price_black  = $Product['length_width_unit_price_black'];
-                $length_width_price_color       = $Product['length_width_price_color'];
-                $length_width_color_show        = $Product['length_width_color_show'];
-                $length_width_pages_type        = $Product['length_width_pages_type'];
+                $length_width_min_quantity = $Product['length_width_min_quantity'];
+                $length_width_max_quantity = $Product['length_width_max_quantity'];
+                $min_length_min_width_price = $Product['min_length_min_width_price'];
+                $length_width_unit_price_black = $Product['length_width_unit_price_black'];
+                $length_width_price_color = $Product['length_width_price_color'];
+                $length_width_color_show = $Product['length_width_color_show'];
+                $length_width_pages_type = $Product['length_width_pages_type'];
 
-                $response['product_length']             = $product_length;
-                $response['product_length_error']       = '';
+                $response['product_length'] = $product_length;
+                $response['product_length_error'] = '';
 
-                $response['product_width']              = $product_width;
-                $response['product_width_error']        = '';
+                $response['product_width'] = $product_width;
+                $response['product_width_error'] = '';
 
-                $response['product_total_page']         = $product_total_page;
-                $response['product_total_page_error']   = '';
+                $response['product_total_page'] = $product_total_page;
+                $response['product_total_page_error'] = '';
 
                 if (empty($product_length)) {
                     $response['product_length'] = '';
@@ -558,51 +579,51 @@ class Products extends Public_Controller
                     }
 
                     $price += $extra_price;
-                    $response['product_width']              = $product_width;
-                    $response['product_width_error']        = '';
+                    $response['product_width'] = $product_width;
+                    $response['product_width_error'] = '';
 
-                    $response['product_length']             = $product_length;
-                    $response['product_length_error']       = '';
+                    $response['product_length'] = $product_length;
+                    $response['product_length_error'] = '';
 
-                    $response['product_total_page']         = $product_total_page;
-                    $response['product_total_page_error']   = '';
+                    $response['product_total_page'] = $product_total_page;
+                    $response['product_total_page_error'] = '';
                 }
             }
 
             if (!empty($depth_add_length_width)) {
-                $product_depth                      = $this->input->post('product_depth');
-                $product_depth_length               = $this->input->post('product_depth_length');
-                $product_depth_width                = $this->input->post('product_depth_width');
-                $product_depth_total_page           = $this->input->post('product_depth_total_page');
-                $depth_width_length_quantity_show   = $this->input->post('depth_width_length_quantity_show');
-                $depth_color                        = $this->input->post('depth_color');
+                $product_depth = $this->input->post('product_depth');
+                $product_depth_length = $this->input->post('product_depth_length');
+                $product_depth_width = $this->input->post('product_depth_width');
+                $product_depth_total_page = $this->input->post('product_depth_total_page');
+                $depth_width_length_quantity_show = $this->input->post('depth_width_length_quantity_show');
+                $depth_color = $this->input->post('depth_color');
 
                 $Product = $this->Product_Model->getProductList($product_id);
-                $min_depth                  = $Product['min_depth'];
-                $max_depth                  = $Product['max_depth'];
-                $depth_min_length           = $Product['depth_min_length'];
-                $depth_max_length           = $Product['depth_max_length'];
-                $depth_min_width            = $Product['depth_min_width'];
-                $depth_max_width            = $Product['depth_max_width'];
+                $min_depth = $Product['min_depth'];
+                $max_depth = $Product['max_depth'];
+                $depth_min_length = $Product['depth_min_length'];
+                $depth_max_length = $Product['depth_max_length'];
+                $depth_min_width = $Product['depth_min_width'];
+                $depth_max_width = $Product['depth_max_width'];
 
-                $depth_min_quantity         = $Product['depth_min_quantity'];
-                $depth_max_quantity         = $Product['depth_max_quantity'];
-                $depth_width_length_price   = $Product['depth_width_length_price'];
-                $depth_unit_price_black     = $Product['depth_unit_price_black'];
-                $depth_price_color          = $Product['depth_price_color'];
-                $depth_color_show           = $Product['depth_color_show'];
-                $depth_width_length_type    = $Product['depth_width_length_type'];
+                $depth_min_quantity = $Product['depth_min_quantity'];
+                $depth_max_quantity = $Product['depth_max_quantity'];
+                $depth_width_length_price = $Product['depth_width_length_price'];
+                $depth_unit_price_black = $Product['depth_unit_price_black'];
+                $depth_price_color = $Product['depth_price_color'];
+                $depth_color_show = $Product['depth_color_show'];
+                $depth_width_length_type = $Product['depth_width_length_type'];
 
-                $response['product_depth_length']           = $product_depth_length;
-                $response['product_depth_length_error']     = '';
+                $response['product_depth_length'] = $product_depth_length;
+                $response['product_depth_length_error'] = '';
 
-                $response['product_depth_width']            = $product_depth_width;
-                $response['product_depth_width_error']      = '';
+                $response['product_depth_width'] = $product_depth_width;
+                $response['product_depth_width_error'] = '';
 
-                $response['product_depth']                  = $product_depth;
-                $response['product_depth_error']            = '';
+                $response['product_depth'] = $product_depth;
+                $response['product_depth_error'] = '';
 
-                $response['product_depth_total_page']       = $product_depth_total_page;
+                $response['product_depth_total_page'] = $product_depth_total_page;
                 $response['product_depth_total_page_error'] = '';
 
                 if (empty($product_depth_length)) {
@@ -673,61 +694,61 @@ class Products extends Public_Controller
                     }
 
                     $price += $extra_price;
-                    $response['product_depth_length']           = $product_depth_length;
-                    $response['product_depth_width_error']      = '';
+                    $response['product_depth_length'] = $product_depth_length;
+                    $response['product_depth_width_error'] = '';
 
-                    $response['product_depth_width']            = $product_depth_width;
-                    $response['product_depth_length_error']     = '';
+                    $response['product_depth_width'] = $product_depth_width;
+                    $response['product_depth_length_error'] = '';
 
-                    $response['product_depth']                  = $product_depth;
-                    $response['product_depth_error']            = '';
+                    $response['product_depth'] = $product_depth;
+                    $response['product_depth_error'] = '';
 
-                    $response['product_depth_total_page']       = $product_depth_total_page;
+                    $response['product_depth_total_page'] = $product_depth_total_page;
                     $response['product_depth_total_page_error'] = '';
                 }
             }
 
             if (!empty($page_add_length_width)) {
-                $page_product_length                = $this->input->post('page_product_length');
-                $page_product_width                 = $this->input->post('page_product_width');
-                $page_product_total_page            = $this->input->post('page_product_total_page');
-                $page_product_total_sheets          = $this->input->post('page_product_total_sheets');
+                $page_product_length = $this->input->post('page_product_length');
+                $page_product_width = $this->input->post('page_product_width');
+                $page_product_total_page = $this->input->post('page_product_total_page');
+                $page_product_total_sheets = $this->input->post('page_product_total_sheets');
 
-                $page_length_width_pages_show       = $this->input->post('page_length_width_pages_show');
-                $page_length_width_sheets_show      = $this->input->post('page_length_width_sheets_show');
+                $page_length_width_pages_show = $this->input->post('page_length_width_pages_show');
+                $page_length_width_sheets_show = $this->input->post('page_length_width_sheets_show');
 
-                $page_length_width_quantity_show    = $this->input->post('page_length_width_quantity_show');
-                $page_product_total_quantity        = $this->input->post('page_product_total_quantity');
+                $page_length_width_quantity_show = $this->input->post('page_length_width_quantity_show');
+                $page_product_total_quantity = $this->input->post('page_product_total_quantity');
 
-                $page_length_width_color            = $this->input->post('page_length_width_color');
+                $page_length_width_color = $this->input->post('page_length_width_color');
 
                 $Product = $this->Product_Model->getProductList($product_id);
-                $page_min_length                    = $Product['page_min_length'];
-                $page_max_length                    = $Product['page_max_length'];
-                $page_min_width                     = $Product['page_min_width'];
-                $page_max_width                     = $Product['page_max_width'];
-                $page_min_length_min_width_price    = $Product['page_min_length_min_width_price'];
-                $page_length_width_price_color      = $Product['page_length_width_price_color'];
+                $page_min_length = $Product['page_min_length'];
+                $page_max_length = $Product['page_max_length'];
+                $page_min_width = $Product['page_min_width'];
+                $page_max_width = $Product['page_max_width'];
+                $page_min_length_min_width_price = $Product['page_min_length_min_width_price'];
+                $page_length_width_price_color = $Product['page_length_width_price_color'];
 
-                $page_length_width_price_black      = $Product['page_length_width_price_black'];
-                $page_length_width_min_quantity     = $Product['page_length_width_min_quantity'];
-                $page_length_width_max_quantity     = $Product['page_length_width_max_quantity'];
-                $page_length_width_color_show       = $Product['page_length_width_color_show'];
-                $page_length_width_quantity_type    = $Product['page_length_width_quantity_type'];
+                $page_length_width_price_black = $Product['page_length_width_price_black'];
+                $page_length_width_min_quantity = $Product['page_length_width_min_quantity'];
+                $page_length_width_max_quantity = $Product['page_length_width_max_quantity'];
+                $page_length_width_color_show = $Product['page_length_width_color_show'];
+                $page_length_width_quantity_type = $Product['page_length_width_quantity_type'];
 
-                $response['page_product_length']                = $page_product_length;
-                $response['page_product_length_error']          = '';
-                $response['page_product_width']                 = $page_product_width;
-                $response['page_product_width_error']           = '';
+                $response['page_product_length'] = $page_product_length;
+                $response['page_product_length_error'] = '';
+                $response['page_product_width'] = $page_product_width;
+                $response['page_product_width_error'] = '';
 
-                $response['page_product_total_page']            = $page_product_total_page;
-                $response['page_product_total_page_error']      = '';
+                $response['page_product_total_page'] = $page_product_total_page;
+                $response['page_product_total_page_error'] = '';
 
-                $response['page_product_total_sheets']          = $page_product_total_sheets;
-                $response['page_product_total_sheets_error']    = '';
+                $response['page_product_total_sheets'] = $page_product_total_sheets;
+                $response['page_product_total_sheets_error'] = '';
 
-                $response['page_product_total_quantity']        = $page_product_total_quantity;
-                $response['page_product_total_quantity_error']  = '';
+                $response['page_product_total_quantity'] = $page_product_total_quantity;
+                $response['page_product_total_quantity_error'] = '';
 
                 if (empty($page_product_length)) {
                     $response['page_product_length'] = '';
@@ -809,17 +830,17 @@ class Products extends Public_Controller
                     }
 
                     $price += $extra_price;
-                    $response['page_product_width']                 = $page_product_width;
-                    $response['page_product_width_error']           = '';
+                    $response['page_product_width'] = $page_product_width;
+                    $response['page_product_width_error'] = '';
 
-                    $response['page_product_length']                = $page_product_length;
-                    $response['page_product_length_error']          = '';
+                    $response['page_product_length'] = $page_product_length;
+                    $response['page_product_length_error'] = '';
 
-                    $response['page_product_total_sheets']          = $page_product_total_sheets;
-                    $response['page_product_total_sheets_error']    = '';
+                    $response['page_product_total_sheets'] = $page_product_total_sheets;
+                    $response['page_product_total_sheets_error'] = '';
 
-                    $response['page_product_total_quantity']        = $page_product_total_quantity;
-                    $response['page_product_total_quantity_error']  = '';
+                    $response['page_product_total_quantity'] = $page_product_total_quantity;
+                    $response['page_product_total_quantity_error'] = '';
                 }
             }
 
@@ -831,13 +852,14 @@ class Products extends Public_Controller
 
         // $response['form'] = $_POST;
         // $response['parsed'] = $multiple_attributes;
-        $response['success']    = 1;
-        $response['price']      = number_format($price * $quantity, 2);
+        $response['success'] = 1;
+        $response['price'] = number_format($price * $quantity, 2);
         echo json_encode($response);
         exit(0);
     }
 
-    function GetQuantity() {
+    public function GetQuantity()
+    {
         $product_id = $this->input->post('product_id');
         $price = $this->input->post('price');
         $quantity = $this->input->post('quantity');
@@ -867,13 +889,13 @@ class Products extends Public_Controller
 
         $extra_price = isset($sizeData['extra_price']) ? $sizeData['extra_price'] : 0;
 
-        $price = $price+$extra_price;
+        $price = $price + $extra_price;
 
         $ProductAttributes = $this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
         foreach ($ProductAttributes as $key => $val) {
-        $attribute_name = 'attribute_id_'.$key;
-        $attribute_item_id = isset($_POST[$attribute_name]) ? $this->input->post($attribute_name) : '';
-        $items = $val['items'];
+            $attribute_name = 'attribute_id_' . $key;
+            $attribute_item_id = isset($_POST[$attribute_name]) ? $this->input->post($attribute_name) : '';
+            $items = $val['items'];
 
             if (!empty($attribute_item_id) && array_key_exists($attribute_item_id, $items)) {
                 $extra_price = $items[$attribute_item_id]['extra_price'];
@@ -904,25 +926,25 @@ class Products extends Public_Controller
                 $length_width_unit_price_black = $Product['length_width_unit_price_black'];
                 $length_width_price_color = $Product['length_width_price_color'];
 
-                $rq_area = $product_length*$product_width;
+                $rq_area = $product_length * $product_width;
                 $extra_price = 0;
 
                 if ($length_width_color_show == 1) {
                     if (!empty($length_width_color)) {
                         if ($length_width_color == 'black') {
-                            $extra_price = $length_width_unit_price_black*$rq_area;
+                            $extra_price = $length_width_unit_price_black * $rq_area;
                         } else if ($length_width_color == 'color') {
-                            $extra_price = $length_width_price_color*$rq_area;
+                            $extra_price = $length_width_price_color * $rq_area;
                         }
                     } else {
-                        $extra_price = $min_length_min_width_price*$rq_area;
+                        $extra_price = $min_length_min_width_price * $rq_area;
                     }
                 } else {
-                $extra_price = $min_length_min_width_price*$rq_area;
+                    $extra_price = $min_length_min_width_price * $rq_area;
                 }
 
                 if ($length_width_quantity_show == 1 && !empty($product_total_page)) {
-                    $extra_price = $product_total_page*$extra_price;
+                    $extra_price = $product_total_page * $extra_price;
                 }
 
                 $price += $extra_price;
@@ -959,26 +981,26 @@ class Products extends Public_Controller
 
             $depth_color_show = $Product['depth_color_show'];
 
-            if   (!empty($product_depth_length) && !empty($product_depth_width) && !empty($product_depth)) {
-                $rq_area = $product_depth_length*$product_depth_width*$product_depth;
+            if (!empty($product_depth_length) && !empty($product_depth_width) && !empty($product_depth)) {
+                $rq_area = $product_depth_length * $product_depth_width * $product_depth;
                 $extra_price = 0;
 
                 if ($depth_color_show == 1) {
                     if (!empty($depth_color)) {
                         if ($depth_color == 'black') {
-                            $extra_price =$depth_unit_price_black*$rq_area;
+                            $extra_price = $depth_unit_price_black * $rq_area;
                         } else if ($depth_color == 'color') {
-                            $extra_price = $depth_price_color*$rq_area;
+                            $extra_price = $depth_price_color * $rq_area;
                         }
                     } else {
-                        $extra_price = $depth_width_length_price*$rq_area;
+                        $extra_price = $depth_width_length_price * $rq_area;
                     }
                 } else {
-                $extra_price = $depth_width_length_price*$rq_area;
+                    $extra_price = $depth_width_length_price * $rq_area;
                 }
 
                 if ($depth_width_length_quantity_show == 1 && !empty($product_depth_total_page)) {
-                    $extra_price = $product_depth_total_page*$extra_price;
+                    $extra_price = $product_depth_total_page * $extra_price;
                 }
             }
         }
@@ -1011,39 +1033,39 @@ class Products extends Public_Controller
 
                 $page_length_width_color_show = $Product['page_length_width_color_show'];
 
-                $rq_area = $page_product_length*$page_product_width;
+                $rq_area = $page_product_length * $page_product_width;
 
                 $extra_price = 0;
                 if ($page_length_width_color_show == 1) {
                     if (!empty($page_length_width_color)) {
                         if ($page_length_width_color == 'black') {
-                            $extra_price = $page_length_width_price_black*$rq_area;
+                            $extra_price = $page_length_width_price_black * $rq_area;
                         } else if ($page_length_width_color == 'color') {
-                            $extra_price = $page_length_width_price_color*$rq_area;
+                            $extra_price = $page_length_width_price_color * $rq_area;
                         }
                     } else {
-                        $extra_price = $page_min_length_min_width_price*$rq_area;
+                        $extra_price = $page_min_length_min_width_price * $rq_area;
                     }
                 } else {
-                    $extra_price = $page_min_length_min_width_price*$rq_area;
+                    $extra_price = $page_min_length_min_width_price * $rq_area;
                 }
                 $page_extra_price = 0;
                 $sheets_extra_price = 0;
                 if (!empty($page_product_total_page) && $page_length_width_pages_show == 1) {
                     $page_product_total_page_error = explode('-', $page_product_total_page);
-                    $page_extra_price = $page_product_total_page_error[0]*$extra_price;
+                    $page_extra_price = $page_product_total_page_error[0] * $extra_price;
                 }
 
                 if (!empty($page_product_total_sheets) && $page_length_width_sheets_show == 1) {
-                    $sheets_extra_price = $page_product_total_sheets*$extra_price;
+                    $sheets_extra_price = $page_product_total_sheets * $extra_price;
                 }
 
                 if (!empty($page_extra_price) || !empty($sheets_extra_price)) {
-                    $extra_price = $page_extra_price+$sheets_extra_price;
+                    $extra_price = $page_extra_price + $sheets_extra_price;
                 }
 
                 if (!empty($page_product_total_quantity) && $page_length_width_quantity_show == 1) {
-                    $extra_price = $page_product_total_quantity*$extra_price;
+                    $extra_price = $page_product_total_quantity * $extra_price;
                 }
 
                 $price += $extra_price;
@@ -1052,12 +1074,12 @@ class Products extends Public_Controller
 
         #RECTO PRICE CAl.
         if (!empty($recto_verso) && $recto_verso == "Yes" && !empty($recto_verso_price)) {
-            $price = $price+(($price*$recto_verso_price)/100);
+            $price = $price + (($price * $recto_verso_price) / 100);
         }
 
         $response = array();
         $response['success'] = 1;
-        $price = $price*$quantity;
+        $price = $price * $quantity;
         $response['price'] = number_format($price, 2);
         $response['sizeoptions'] = $this->getSizeOptions($product_id, $product_quantity_id, $product_size_id, 1);
         //pr($response, 1);
@@ -1065,7 +1087,8 @@ class Products extends Public_Controller
         exit(0);
     }
 
-    function getSizeOptions($product_id = null, $product_quantity_id = null, $product_size_id = null, $fl = 0) {
+    public function getSizeOptions($product_id = null, $product_quantity_id = null, $product_size_id = null, $fl = 0)
+    {
         if (empty($product_id)) {
             redirect(base_url());
         }
@@ -1092,7 +1115,7 @@ class Products extends Public_Controller
                     if ($key1 == $product_size_id) {
                         $selected = 'selected="selected"';
                     }
-                    $options_size = $options_size."<option value='".$key1."' $selected>".$label."</option>";
+                    $options_size = $options_size . "<option value='" . $key1 . "' $selected>" . $label . "</option>";
                 }
             }
 
@@ -1115,7 +1138,7 @@ class Products extends Public_Controller
                 foreach ($sizeData as $key1 => $val1) {
                     $label = $this->language_name == 'French' ? $val1['size_name_french'] : $val1['size_name'];
 
-                    $options_size = $options_size."<option value='".$key1."'>".$label."</option>";
+                    $options_size = $options_size . "<option value='" . $key1 . "'>" . $label . "</option>";
                     $attribute = isset($val1['attribute']) ? $val1['attribute'] : array();
                     if (!empty($attribute)) {
                         foreach ($MultipleAttributes as $mkey => $mval) {
@@ -1173,10 +1196,11 @@ class Products extends Public_Controller
         exit();
     }
 
-    function uploadImage() {
+    public function uploadImage()
+    {
         #unset($_SESSION['product_id']); die();
         $product_id = $_POST['product_id'];
-    /* Getting file name */
+        /* Getting file name */
         $filename = $_FILES['file']['name'];
         /* Getting File size */
         $filesize = $_FILES['file']['size'];
@@ -1184,8 +1208,8 @@ class Products extends Public_Controller
         /* Location */
         $time = time();
         $ext = pathinfo($filename, PATHINFO_EXTENSION);
-        $newfileName = "cart-image/".$time.'.'.$ext;
-        $location = FILE_UPLOAD_BASE_PATH."cart-image/".$time.'.'.$ext;
+        $newfileName = "cart-image/" . $time . '.' . $ext;
+        $location = FILE_UPLOAD_BASE_PATH . "cart-image/" . $time . '.' . $ext;
         $return_arr = array();
         $session_data = array();
         /* Upload file */
@@ -1196,19 +1220,19 @@ class Products extends Public_Controller
         if ($filetype != 'application/pdf') {
             $return_arr['error'] = 1;
             $return_arr['error_msg'] = $this->language_name == 'French' ? 'Type de fichier autorisé uniquement pdf' : 'Allowed file type only pdf';
-        } else if ($filesize > 262144000) {  //250MB
+        } else if ($filesize > 262144000) { //250MB
 
             $return_arr['error'] = 1;
             $return_arr['error_msg'] = 'Maximum file size allowed for upload 250 MB';
             $return_arr['error_msg'] = $this->language_name == 'French' ? 'Taille de fichier maximale autorisée pour le téléchargement 250 Mo' : 'Maximum file size allowed for upload 250 MB';
         } else if (move_uploaded_file($_FILES['file']['tmp_name'], $location)) {
-            $src = DEFAULT_IMAGE_URL."pdf-icon.png";
+            $src = DEFAULT_IMAGE_URL . "pdf-icon.png";
 
-            $file_base_url = FILE_UPLOAD_BASE_URL.$newfileName;
+            $file_base_url = FILE_UPLOAD_BASE_URL . $newfileName;
 
             // checking file is image or not
             /*if (is_array(getimagesize($location))) {
-                $src = FILE_UPLOAD_BASE_URL.$newfileName;
+            $src = FILE_UPLOAD_BASE_URL.$newfileName;
             }*/
 
             $range = range(1, 5000);
@@ -1232,7 +1256,8 @@ class Products extends Public_Controller
         echo json_encode($return_arr);
     }
 
-    function updateCumment() {
+    public function updateCumment()
+    {
         $product_id = $_POST['product_id'];
         $skey = $_POST['skey'];
         $cumment = $_POST['cumment'];
@@ -1244,7 +1269,8 @@ class Products extends Public_Controller
         //echo json_encode($return_arr);
     }
 
-    function deleteImage() {
+    public function deleteImage()
+    {
         $product_id = $_POST['product_id'];
         $skey = $_POST['skey'];
         $location = $_POST['location'];
@@ -1252,8 +1278,8 @@ class Products extends Public_Controller
             unset($_SESSION['product_id'][$product_id][$skey]);
 
             /*if (file_exists($location)) {
-                unlink($location);
-            }*/
+        unlink($location);
+        }*/
         }
         exit(0);
         //echo json_encode($return_arr);
@@ -1272,12 +1298,12 @@ class Products extends Public_Controller
         $this->form_validation->set_rules($rules);
 
         $response = [
-                'status' => 'success',
-                'msg'    => '',
-                'errors' => [],
-            ];
+            'status' => 'success',
+            'msg' => '',
+            'errors' => [],
+        ];
 
-        if ($this->form_validation->run() == FALSE) {
+        if ($this->form_validation->run() == false) {
             $response['status'] = 'error';
             $response['errors'] = $this->form_validation->error_array();
         } else {
@@ -1311,35 +1337,35 @@ class Products extends Public_Controller
                 $subject = 'Estimate Quote Request';
                 $postData['same_quote_request'] = $postData['same_quote_request'] == 0 ? "Nope" : "Yes";
                 $postData['no_of_sides'] = $postData['no_of_sides'] == 1 ? "1 side (inches)" : "Flat Format (2 Sides)";
-                $body = '<div style="text-align:left;">'.
-                addEmailItem('Name Of The Contact', $postData['contact_name']).
-                addEmailItem('Company Name', $postData['company_name']).
-                addEmailItem('Email Address', $postData['email']).
-                addEmailItem('Street', $postData['street']).
-                addEmailItem('City', $postData['city']).
-                addEmailItem('Country', $postData['country']).
-                addEmailItem('State', $postData['province']).
-                addEmailItem('Postal Code', $postData['postal_code']).
-                addEmailItem('Product Type (Postcards, Booklets)', $postData['product_type']).
-                addEmailItem('Product Name', $postData['product_name']).
-                addEmailItem('Ever Requested The Same Quote?', $postData['same_quote_request']).
-                addEmailItem('Qty1', $postData['qty_1']).
-                addEmailItem('Qty2', $postData['qty_2']).
-                addEmailItem('Qty3', $postData['qty_3']).
-                addEmailItem('More quantity', $postData['more_qty']).
-                addEmailItem('Flat Size (inches)', $postData['flat_size']).
-                addEmailItem('Finished Size (inches)', $postData['finish_size']).
-                addEmailItem('Paper / Stock', $postData['paper_stock']).
-                addEmailItem('Number Of Sides', $postData['no_of_sides']).
-                addEmailItem('Folding', $postData['folding']).
-                addEmailItem('Number of Versions', $postData['folding']).
-                addEmailItem('Shipping Method', $postData['shipping_methods']).
-                addEmailItem('Notes', $postData['notes']).
-                '</div>';
+                $body = '<div style="text-align:left;">' .
+                addEmailItem('Name Of The Contact', $postData['contact_name']) .
+                addEmailItem('Company Name', $postData['company_name']) .
+                addEmailItem('Email Address', $postData['email']) .
+                addEmailItem('Street', $postData['street']) .
+                addEmailItem('City', $postData['city']) .
+                addEmailItem('Country', $postData['country']) .
+                addEmailItem('State', $postData['province']) .
+                addEmailItem('Postal Code', $postData['postal_code']) .
+                addEmailItem('Product Type (Postcards, Booklets)', $postData['product_type']) .
+                addEmailItem('Product Name', $postData['product_name']) .
+                addEmailItem('Ever Requested The Same Quote?', $postData['same_quote_request']) .
+                addEmailItem('Qty1', $postData['qty_1']) .
+                addEmailItem('Qty2', $postData['qty_2']) .
+                addEmailItem('Qty3', $postData['qty_3']) .
+                addEmailItem('More quantity', $postData['more_qty']) .
+                addEmailItem('Flat Size (inches)', $postData['flat_size']) .
+                addEmailItem('Finished Size (inches)', $postData['finish_size']) .
+                addEmailItem('Paper / Stock', $postData['paper_stock']) .
+                addEmailItem('Number Of Sides', $postData['no_of_sides']) .
+                addEmailItem('Folding', $postData['folding']) .
+                addEmailItem('Number of Versions', $postData['folding']) .
+                addEmailItem('Shipping Method', $postData['shipping_methods']) .
+                addEmailItem('Notes', $postData['notes']) .
+                    '</div>';
 
                 $logo = $this->data['language_name'] == 'French' ? getLogoImages($this->data['configrations']['logo_image_french'], true) : getLogoImages($this->data['configrations']['logo_image'], true);
                 $body = emailTemplate($subject, $body, false, $logo);
-                sendEmail( ADMIN_EMAIL, $subject, $body, FROM_EMAIL, 'ADMIN', array() );
+                sendEmail(ADMIN_EMAIL, $subject, $body, FROM_EMAIL, 'ADMIN', array());
 
                 $response['msg'] = 'Thank you for contacting printing coop we have received your estimation query our representative will get back to you within 24 hours';
                 if ($this->language_name == 'French') {
@@ -1357,27 +1383,29 @@ class Products extends Public_Controller
         echo json_encode($response);
     }
 
-    public function download($filePath = NULL, $name = null) {
+    public function download($filePath = null, $name = null)
+    {
         $this->load->helper('download');
         if ($filePath) {
             ///$file = FILE_UPLOAD_BASE_URL."cart-image\\" .$fileName;
             $file = urldecode($filePath);
             // check file exists
-            if (file_exists ( $file )) {
-            // get file content
-                $data = file_get_contents ($file);
+            if (file_exists($file)) {
+                // get file content
+                $data = file_get_contents($file);
 
                 //force download
-                force_download (urldecode($name), $data);
+                force_download(urldecode($name), $data);
                 exit();
             }
         }
     }
 
-    function PrinterSeries($name = null) {
+    public function PrinterSeries($name = null)
+    {
         $label = $this->language_name == 'French' ? "Sélectionnez une série d'imprimantes" : 'Select a Printer Series';
         $this->load->model('Printer_Model');
-        $options = '<option value="">'.$label.'</option>';
+        $options = '<option value="">' . $label . '</option>';
         $name = trim($name);
         $name = str_replace('%20', ' ', $name);
 
@@ -1386,17 +1414,18 @@ class Products extends Public_Controller
             $printer_brand = $data['id'];
             $PrinterSeries = $this->Printer_Model->getAcctivePrinterSeriesByBrandId($printer_brand);
             foreach ($PrinterSeries as $key => $val) {
-                $options .= '<option value="'.$val['name'].'">'.$val['name'].'</option>';
+                $options .= '<option value="' . $val['name'] . '">' . $val['name'] . '</option>';
             }
         }
         echo $options;
         exit();
     }
 
-    function PrinterModel($printer_brand = null, $printer_series = null) {
+    public function PrinterModel($printer_brand = null, $printer_series = null)
+    {
         $this->load->model('Printer_Model');
         $label = $this->language_name == 'French' ? "Sélectionnez un modèle d'imprimante" : 'Select a Printer Model';
-        $options = '<option value="">'.$label.'</option>';
+        $options = '<option value="">' . $label . '</option>';
 
         $printer_series = trim($printer_series);
         $printer_series = str_replace('%20', ' ', $printer_series);
@@ -1411,7 +1440,7 @@ class Products extends Public_Controller
             $printer_series_id = $sdata['id'];
             $PrinterModel = $this->Printer_Model->getAcctiveModelByBrandId($printer_brand_id, $printer_series_id);
             foreach ($PrinterModel as $key => $val) {
-                $options .= '<option value="'.$val['name'].'">'.$val['name'].'</option>';
+                $options .= '<option value="' . $val['name'] . '">' . $val['name'] . '</option>';
             }
         }
         echo $options;
@@ -1420,17 +1449,30 @@ class Products extends Public_Controller
 
     public function ProviderPrice()
     {
-        $provider_id = $this->input->post('provider_id');
-        $product_id = $this->input->post('product_id');
-        $productOptions = array_filter($this->input->post('productOptions'));
+        $params = [];
+        parse_str($this->input->post('params'), $params);
+
+        $provider_id = $params['provider_id'];
+        $product_id = $params['product_id'];
+        $productOptions = array_filter($params['productOptions']);
 
         $this->load->model('Provider_Model');
         $providerProduct = $this->Provider_Model->getProductByProductId($provider_id, $product_id);
         if ($providerProduct) {
-            $price = sina_price($providerProduct->provider_product_id, $productOptions);
+            if ($providerProduct->information_type == ProviderProductInformationType::Normal) {
+                $options = array_values((array)$productOptions);
+            } else if ($providerProduct->information_type == ProviderProductInformationType::RollLabel) {
+                // $options = [];
+                // foreach ($productOptions as $key => $value) {
+                //     $options["productOptions[$key]"] = $value;
+                // }
+                $options = $productOptions;
+            }
+            $price = sina_price($providerProduct->provider_product_id, $options);
             $result = ['success' => true, 'price' => $price];
-        } else
+        } else {
             $result = ['success' => false, 'message' => "Can't find product info"];
+        }
 
         return $this->output
             ->set_content_type('application/json')

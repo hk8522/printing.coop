@@ -65,6 +65,8 @@ Class Provider_Model extends MY_Model {
             $this->db->update_batch('provider_products', $originals, 'id');
         if ($news)
             $this->db->insert_batch('provider_products', $news);
+        $this->db->where('deleted', 1);
+        $this->db->delete('provider_products');
         $this->db->trans_complete();
     }
 
@@ -97,7 +99,7 @@ Class Provider_Model extends MY_Model {
         if (is_object($productInfo[0]) && $productInfo[0]->data != null) {
             $information_type = ProviderProductInformationType::Decal;
         } else if ($productInfo[0][0]->html_type != null) {
-            $information_type = ProviderProductInformationType::RollLabel;
+            $this->updateProductInfoRollLabel($product, $productInfo);
         } else if ($productInfo[0][0]->group != null) {
             $this->updateProductInfoNormal($product, $productInfo);
         }
@@ -119,7 +121,6 @@ Class Provider_Model extends MY_Model {
         }
 
         $news = [];
-        $updated = [];
 
         foreach ($productInfo[0] as $option) {
             if (!array_key_exists($option->group, $originals)) {
@@ -211,9 +212,6 @@ Class Provider_Model extends MY_Model {
 
         $news = [];
         foreach ($productInfo[0] as $option) {
-            if ($option->group == null)
-                break;
-
             $option_id = $options[$option->group]->id;
             if (array_key_exists($option_id, $originals) && array_key_exists($option->id, $originals[$option_id])) {
                 $originals[$option_id][$option->id]->deleted = 0;
@@ -232,13 +230,254 @@ Class Provider_Model extends MY_Model {
             $this->db->update_batch('provider_product_options', $original_items, 'id');
         if ($news)
             $this->db->insert_batch('provider_product_options', $news);
+        $this->db->where('deleted', 1);
+        $this->db->delete('provider_product_options');
         $this->db->trans_complete();
 
         /**
          * provider_products.information_type
          * Flag Updated
          */
-        $this->db->set('information_type', ProviderProductInformationType::Normal);
+        $this->db->set('information_type', $information_type);
+        $this->db->set('updating', 0);
+        $this->db->where('id', $product->id);
+        $this->db->update('provider_products');
+    }
+
+    function updateProductInfoRollLabel($product, $productInfo)
+    {
+        $information_type = ProviderProductInformationType::RollLabel;
+
+        /**
+         * First array
+         */
+
+        // provider_options
+        $this->db->from('provider_options');
+        $this->db->where('provider_id', $product->provider_id);
+        $data = $this->db->get()->result();
+        $originals = [];
+        foreach ($data as $item) {
+            $originals[$item->name] = $item;
+        }
+
+        $news = [];
+        $updated = [];
+
+        foreach ($productInfo[0] as $option) {
+            if (!array_key_exists($option->name, $originals)) {
+                if (!array_key_exists($option->name, $news)) {
+                    $type = ProductOptionType::Normal;
+                    if (strcasecmp($option->name, 'size') == 0)
+                        $type = ProductOptionType::Size;
+                    if (strcasecmp($option->name, 'qty') == 0 || strcasecmp($option->name, 'quantity') == 0)
+                        $type = ProductOptionType::Quantity;
+                    $news[$option->name] = (object) [
+                        'provider_id' => $product->provider_id,
+                        'provider_option_id' => $option->option_id,
+                        'name' => $option->name,
+                        'label' => $option->label,
+                        'type' => $type,
+                        'html_type' => $option->html_type,
+                        'sort_order' => $option->opt_sort_order,
+                    ];
+                }
+            } else {
+                $updated[$option->name] = (object) [
+                    'id' => $originals[$option->name]->id,
+                    'provider_option_id' => $option->option_id,
+                    'label' => $option->label,
+                    'html_type' => $option->html_type,
+                    'sort_order' => $option->opt_sort_order,
+                ];
+            }
+        }
+
+        $this->db->trans_start();
+        if ($updated)
+            $this->db->update_batch('provider_options', $updated, 'id');
+        if ($news)
+            $this->db->insert_batch('provider_options', $news);
+        $this->db->trans_complete();
+
+        $this->db->from('provider_options');
+        $this->db->where('provider_id', $product->provider_id);
+        $data = $this->db->get()->result();
+        $options = [];
+        foreach ($data as $item) {
+            $options[$item->provider_option_id] = $item;
+        }
+
+        // provider_option_values
+        $this->db->from('provider_option_values');
+        $this->db->join('provider_options', 'provider_options.id=provider_option_values.option_id');
+        $this->db->where('provider_options.provider_id', $product->provider_id);
+        $this->db->select('provider_option_values.*, provider_options.name');
+        $data = $this->db->get()->result();
+        $originals = [];
+        foreach ($data as $item) {
+            $originals[$item->option_id . '-' . $item->provider_option_value_id] = $item;
+        }
+
+        $news = [];
+        $updated = [];
+
+        foreach ($productInfo[0] as $option) {
+            if ($option->opt_val_id == null || $option->option_val == null)
+                continue;
+            $option_id = $options[$option->option_id]->id;
+            $key = $option_id . '-' . $option->opt_val_id;
+            if (!array_key_exists($key, $originals)) {
+                if (!array_key_exists($key, $news)) {
+                    $news[$key] = (object) [
+                        'option_id' => $option_id,
+                        'provider_option_value_id' => $option->opt_val_id,
+                        'value' => $option->option_val,
+                        'img_src' => $option->img_src,
+                        'sort_order' => $option->opt_val_sort_order,
+                        'extra_turnaround_days' => $option->extra_turnaround_days,
+                    ];
+                }
+            } else {
+                $updated[$key] = (object) [
+                    'id' => $originals[$key]->id,
+                    'img_src' => $option->img_src,
+                    'sort_order' => $option->opt_val_sort_order,
+                    'extra_turnaround_days' => $option->extra_turnaround_days,
+            ];
+            }
+        }
+
+        $this->db->trans_start();
+        if ($updated)
+            $this->db->update_batch('provider_option_values', $updated, 'id');
+        if ($news)
+            $this->db->insert_batch('provider_option_values', $news);
+        $this->db->trans_complete();
+
+        // provider_product_options
+        // Flag deleted
+        $this->db->set('deleted', 1);
+        $this->db->where('provider_id', $product->provider_id);
+        $this->db->where('provider_product_id', $product->provider_product_id);
+        $this->db->update('provider_product_options');
+
+        $this->db->from('provider_product_options');
+        $this->db->where('provider_id', $product->provider_id);
+        $this->db->where('provider_product_id', $product->provider_product_id);
+        $data = $this->db->get()->result();
+        $originals = [];
+        $original_items = [];
+        foreach ($data as $item) {
+            if (!array_key_exists($item->option_id, $originals))
+                $originals[$item->option_id] = [];
+            $originals[$item->option_id][$item->provider_option_value_id] = $item;
+            $original_items[] = $item;
+        }
+
+        $news = [];
+        foreach ($productInfo[0] as $option) {
+            $option_id = $options[$option->option_id]->id;
+            if (array_key_exists($option_id, $originals) && array_key_exists($option->opt_val_id, $originals[$option_id])) {
+                $originals[$option_id][$option->opt_val_id]->deleted = 0;
+            } else {
+                $news[] = (object) [
+                    'provider_id' => $product->provider_id,
+                    'provider_product_id' => $product->provider_product_id,
+                    'option_id' => $option_id,
+                    'provider_option_value_id' => $option->opt_val_id,
+                ];
+            }
+        }
+
+        $this->db->trans_start();
+        if ($original_items)
+            $this->db->update_batch('provider_product_options', $original_items, 'id');
+        if ($news)
+            $this->db->insert_batch('provider_product_options', $news);
+        $this->db->where('deleted', 1);
+        $this->db->delete('provider_product_options');
+        $this->db->trans_complete();
+
+        /**
+         * Second array
+         */
+        if ($productInfo[1]) {
+            $excludes = [];
+            // foreach ($productInfo[1] as $optSet) {
+            //     $optSet = (array)$optSet;
+            //     $exclude = [];
+            //     foreach ($optSet as $key => $value) {
+            //         if ($key == 'size_id' || $key == 'qty') {
+            //             $exclude[$key] = $value;
+            //         } else if (str_starts_with($key, 'pricing_product_option_entity_id_')) {
+            //             $index = substr($key, strlen('pricing_product_option_entity_id_'));
+            //             $k = $value;
+            //             $v = $optSet["pricing_product_option_value_entity_id_$index"];
+            //             $exclude[$k] = $v;
+            //         }
+            //     }
+            //     $excludes[] = $exclude;
+            // }
+
+            $this->db->where('provider_id', $product->provider_id);
+            $this->db->where('provider_product_id', $product->provider_product_id);
+            $this->db->delete('provider_product_option_excludes');
+
+            $groupNo = 0;
+            foreach ($productInfo[1] as $optSet) {
+                $optSet = (array)$optSet;
+                $exclude = [];
+                foreach ($optSet as $key => $value) {
+                    if ($key == 'size_id' || $key == 'qty') {
+                        //$exclude[$key] = $value;
+                    } else if (str_starts_with($key, 'pricing_product_option_entity_id_')) {
+                        $index = substr($key, strlen('pricing_product_option_entity_id_'));
+                        $k = $value;
+                        $v = $optSet["pricing_product_option_value_entity_id_$index"];
+                        if ($v) {
+                            $excludes[] = [
+                                'provider_id' => $product->provider_id,
+                                'provider_product_id' => $product->provider_product_id,
+                                'group_no' => $groupNo,
+                                'provider_option_id' => $k,
+                                'provider_option_value_id' => $v,
+                            ];
+                        }
+                    }
+                }
+                $groupNo++;
+            }
+            if ($excludes)
+                $this->db->insert_batch('provider_product_option_excludes', $excludes);
+        }
+
+        /**
+         * Third array
+         */
+        if ($productInfo[2]) {
+            $this->db->where('provider_id', $product->provider_id);
+            $this->db->where('provider_product_id', $product->provider_product_id);
+            $this->db->delete('provider_product_option_contents');
+            foreach ($productInfo[2] as $item) {
+                $contents[] = [
+                    'provider_id' => $product->provider_id,
+                    'provider_product_id' => $product->provider_product_id,
+                    'provider_option_value_id' => $item->pricing_product_option_value_entity_id,
+                    'content_type' => $item->content_type,
+                    'content' => $item->content,
+                ];
+            }
+            if ($contents) {
+                $this->db->insert_batch('provider_product_option_contents', $contents);
+            }
+        }
+
+        /**
+         * provider_products.information_type
+         * Flag Updated
+         */
+        $this->db->set('information_type', $information_type);
         $this->db->set('updating', 0);
         $this->db->where('id', $product->id);
         $this->db->update('provider_products');
@@ -287,6 +526,14 @@ Class Provider_Model extends MY_Model {
         return $this->db->get()->row();
     }
 
+    public function getProductByProviderProductId($provider_id, $provider_product_id)
+    {
+        $this->db->from('provider_products');
+        $this->db->where('provider_id', $provider_id);
+        $this->db->where('provider_product_id', $provider_product_id);
+        return $this->db->get()->row();
+    }
+
     public function bindProduct($id, $product_id)
     {
         $this->db->where('id', $id);
@@ -301,7 +548,7 @@ Class Provider_Model extends MY_Model {
         $this->db->update('provider_products');
     }
 
-    public function getAttributes($provider_id, $q, $take, $skip, &$data, &$total)
+    public function getOptions($provider_id, $q, $take, $skip, &$data, &$total)
     {
         if (strlen($q) > 0)
             $this->db->like('provider_options.name', $q);
@@ -313,7 +560,7 @@ Class Provider_Model extends MY_Model {
 
         if (strlen($q) > 0)
             $this->db->like('provider_options.name', $q);
-        $this->db->select('provider_options.*, product_attributes.name AS attribute_name');
+        $this->db->select('provider_options.*, product_attributes.name AS attribute_name, product_attributes.name_french AS attribute_name_french');
         $this->db->from('provider_options');
         $this->db->join('product_attributes', 'product_attributes.id = provider_options.attribute_id', 'left');
         $this->db->where('provider_id', $provider_id);
@@ -327,7 +574,7 @@ Class Provider_Model extends MY_Model {
         $data = $this->db->get()->result();
     }
 
-    public function updateAttribute($id, $type, $attribute_id)
+    public function updateOption($id, $type, $attribute_id)
     {
         $this->db->where('id', $id);
         $this->db->set('type', $type);
@@ -335,7 +582,7 @@ Class Provider_Model extends MY_Model {
         $this->db->update('provider_options');
     }
 
-    public function getProductAttributes($provider_id, $provider_product_id, $take, $skip, &$data, &$total)
+    public function getProductOptions($provider_id, $provider_product_id, $take, $skip, &$data, &$total)
     {
         $this->db->select('COUNT(*)');
         $this->db->from('provider_product_options');
@@ -361,11 +608,11 @@ Class Provider_Model extends MY_Model {
         $data = $this->db->get()->result();
     }
 
-    public function getProductAttributeValues($provider_id, $provider_product_id)
+    public function getProductOptionValues($provider_id, $provider_product_id)
     {
         $this->db->select('provider_product_options.*, provider_option_values.value');
         $this->db->from('provider_product_options');
-        $this->db->join('provider_options', 'provider_options.id = provider_product_options.option_id', 'left');
+        $this->db->join('provider_options', 'provider_options.id = provider_product_options.option_id');
         $this->db->join('provider_option_values', 'provider_option_values.option_id = provider_product_options.option_id AND provider_option_values.provider_option_value_id = provider_product_options.provider_option_value_id', 'left');
         $this->db->where('provider_product_options.provider_id', $provider_id);
         $this->db->where('provider_product_options.provider_product_id', $provider_product_id);
@@ -373,7 +620,7 @@ Class Provider_Model extends MY_Model {
         return $this->db->get()->result();
     }
 
-    public function getProductAttributeGroups($provider_id, $provider_product_id)
+    public function getProductOptionGroups($provider_id, $provider_product_id)
     {
         $this->db->select('provider_options.*, product_attributes.name AS attribute_name, product_attributes.name_french AS attribute_name_french');
         $this->db->from('provider_product_options');
@@ -386,14 +633,16 @@ Class Provider_Model extends MY_Model {
         return $this->db->get()->result();
     }
 
-    public function getAttributesByValueIds($provider_id, $provider_product_id, $value_ids)
+    public function getOptionsByValueIds($provider_id, $provider_product_id, $value_ids)
     {
         $this->db->select(
-            'provider_options.*, provider_product_options.provider_option_value_id, provider_option_values.value'
+            'provider_options.*, provider_product_options.provider_option_value_id, provider_option_values.value,' .
+            'product_attributes.name AS attribute_name, product_attributes.name_french AS attribute_name_french'
         );
         $this->db->from('provider_product_options');
         $this->db->join('provider_options', 'provider_options.id = provider_product_options.option_id');
         $this->db->join('provider_option_values', 'provider_option_values.option_id = provider_product_options.option_id AND provider_option_values.provider_option_value_id = provider_product_options.provider_option_value_id');
+        $this->db->join('product_attributes', 'product_attributes.id=provider_options.attribute_id', 'left');
         $this->db->where('provider_product_options.provider_id', $provider_id);
         $this->db->where('provider_product_options.provider_product_id', $provider_product_id);
         $this->db->where_in('provider_product_options.provider_option_value_id', $value_ids);

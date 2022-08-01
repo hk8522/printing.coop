@@ -111,7 +111,11 @@ class Product_Model extends MY_Model
 
     public function getProductList($id = null, $product_id = null, $limit = null, $start = null, $order = 'desc')
     {
-        $this->db->select(array('Product.*', 'Category.name as category_name', 'Category.name_french as category_name_french', 'SubCategory.name as sub_category_name', 'SubCategory.name_french as sub_category_name_french'));
+        $this->db->select(array('Product.*',
+            'Category.name as category_name', 'Category.name_french as category_name_french',
+            'SubCategory.name as sub_category_name', 'SubCategory.name_french as sub_category_name_french',
+            'provider_products.provider_product_id',
+        ));
         $this->db->from($this->table . ' as Product');
         $where = [];
         if ($id) {
@@ -123,6 +127,7 @@ class Product_Model extends MY_Model
         $this->db->where($where);
         $this->db->join('categories as Category', 'Category.id=Product.category_id', 'left');
         $this->db->join('sub_categories as SubCategory', 'SubCategory.id=Product.sub_category_id', 'left');
+        $this->db->join('provider_products', 'provider_products.product_id = Product.id', 'left');
 
         //$this->db->join('brands as Brand', 'Brand.id=Product.brand', 'left');
         //$this->db->join('discounts as Discount', 'Discount.id=Product.discount_id', 'left');

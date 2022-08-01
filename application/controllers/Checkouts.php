@@ -262,6 +262,7 @@ class Checkouts extends Public_Controller
 
                 $ProductOrderItem[$key]['product_image'] = $ProductData['product_image'];
                 $ProductOrderItem[$key]['cart_images'] = json_encode($item['options']['cart_images']);
+                $ProductOrderItem[$key]['provider_product_id'] = $item['options']['provider_product_id'];
                 $ProductOrderItem[$key]['attribute_ids'] = json_encode($item['options']['attribute_ids']);
 
                 $ProductOrderItem[$key]['product_size'] = json_encode($item['options']['product_size']);

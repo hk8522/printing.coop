@@ -11,4 +11,4 @@
 
 - Database update for BOPP ROLL Label
   Run app/database/provider.sql
-  UPDATE `product_order_items` SET `attribute_ids` = REPLACE(`attribute_ids`, 'provider_attribute_ids', 'provider_option_value_ids');
+  UPDATE `product_order_items` SET `attribute_ids` = REPLACE(`attribute_ids`, 'provider_attribute_ids', 'provider_options');

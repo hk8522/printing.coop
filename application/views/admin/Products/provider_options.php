@@ -37,7 +37,7 @@ $pageSizes = [10, 15, 20, 50, 100];
         </div>
     </div>
 </script>
-<form id="attribute-search-form" method="post" action="/admin/Products/ProviderAttributes/<?=$provider?>">
+<form id="option-search-form" method="post" action="/admin/Products/ProviderOptions/<?=$provider?>">
     <div class="row">
         <div class="col-md-12">
             <div class="x_panel light form-fit popup-window">
@@ -48,14 +48,14 @@ $pageSizes = [10, 15, 20, 50, 100];
                                 <div class="row align-items-end">
                                     <div class="col-md-8 col-ms-12 col-12">
                                         <div class="form-group mb-0">
-                                            <label class="control-label" for="q">Attribute Name</label>
+                                            <label class="control-label" for="q">Option Name</label>
                                             <input class="form-control k-input text-box single-line" id="q" name="q" type="text" />
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-12 col-12">
                                         <div class="form-actions">
                                             <div class="btn-group">
-                                                <button class="btn btn-success filter-submit" id="search-attributes">
+                                                <button class="btn btn-success filter-submit" id="search-options">
                                                     <i class="fa fa-search"></i> Search
                                                 </button>
                                             </div>
@@ -65,7 +65,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                             </div>
                         </div>
                         <div class="x_content">
-                            <div id="attributes-grid"></div>
+                            <div id="options-grid"></div>
                         </div>
                     </div>
                 </div>
@@ -74,20 +74,20 @@ $pageSizes = [10, 15, 20, 50, 100];
     </div>
 </form>
 <script>
-    var attributeTypeNames = <?=json_encode(App\Common\ProductOptionType::names)?>;
+    var optionTypeNames = <?=json_encode(App\Common\ProductOptionType::names)?>;
     var record = 0;
     $(document).ready(function () {
-        $('#attributes-grid').kendoGrid({
+        $('#options-grid').kendoGrid({
             dataSource: {
                 transport: {
                     read: {
-                        url: '/admin/Products/ProviderAttributes/<?=$provider?>',
+                        url: '/admin/Products/ProviderOptions/<?=$provider?>',
                         type: 'POST',
                         dataType: 'json',
-                        data: additionalDataAttribute
+                        data: additionalDataOption
                     },
                     update: {
-                        url:'/admin/Products/ProviderAttributeUpdate',
+                        url:'/admin/Products/ProviderOptionUpdate',
                         type: 'POST',
                         dataType: 'json',
                         data: []
@@ -144,7 +144,10 @@ $pageSizes = [10, 15, 20, 50, 100];
             }, {
                 field: 'type',
                 title: 'Type',
-                template: '#=attributeTypeNames[type]#',
+                template: '#=optionTypeNames[type]#',
+            }, {
+                field: 'html_type',
+                title: 'HTML Type',
             }, {
                 field: 'attribute_name',
                 title: 'Attribute',
@@ -165,17 +168,17 @@ $pageSizes = [10, 15, 20, 50, 100];
         });
 
         //search button
-        $('#search-attributes').click(function () {
+        $('#search-options').click(function () {
             //search
-            var grid = $('#attributes-grid').data('kendoGrid');
+            var grid = $('#options-grid').data('kendoGrid');
             grid.dataSource.page(1);
             return false;
         });
     });
 
-    function additionalDataAttribute() {
+    function additionalDataOption() {
         return {
-            q: $('#attribute-search-form #q').val(),
+            q: $('#option-search-form #q').val(),
         };
     }
 

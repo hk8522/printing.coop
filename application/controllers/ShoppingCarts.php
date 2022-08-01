@@ -1,6 +1,10 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+require_once(APPPATH . 'common/ProviderProductInformationType.php');
+
+use App\Common\ProviderProductInformationType;
+
 class ShoppingCarts extends Public_Controller
 {
     public $class_name = '';
@@ -32,47 +36,56 @@ class ShoppingCarts extends Public_Controller
 
     function addToCart()
     {
+        $params = [];
+        parse_str($this->input->post('params'), $params);
+
         $json = array('status' => 0, 'msg' => '');
         $this->load->model('Product_Model');
         $this->load->model('Provider_Model');
-        $product_id = $this->input->post('product_id');
-        $quantity = $this->input->post('quantity');
-        $price = $this->input->post('price');
+        $product_id = $params['product_id'];
+        $quantity = $params['quantity'];
+        $price = $params['price'];
 
-        $product_quantity_id = $this->input->post('product_quantity_id');
+        $product_quantity_id = $params['product_quantity_id'];
 
-        $product_size_id = $this->input->post('product_size_id');
+        $product_size_id = $params['product_size_id'];
 
-        $add_length_width = $this->input->post('add_length_width');
+        $add_length_width = $params['add_length_width'];
 
-        $depth_add_length_width = $this->input->post('depth_add_length_width');
+        $depth_add_length_width = $params['depth_add_length_width'];
 
-        $page_add_length_width = $this->input->post('page_add_length_width');
+        $page_add_length_width = $params['page_add_length_width'];
 
-        $recto_verso = $this->input->post('recto_verso');
-        $recto_verso_price = $this->input->post('recto_verso_price');
-        $votre_text = $this->input->post('votre_text');
+        $recto_verso = $params['recto_verso'];
+        $recto_verso_price = $params['recto_verso_price'];
+        $votre_text = $params['votre_text'];
 
         // Provider
-        $provider_id = $this->input->post('provider_id');
-        $productOptions = $this->input->post('productOptions');
+        $provider_id = $params['provider_id'];
+        $productOptions = $params['productOptions'];
 
         $productData = $this->Product_Model->getProductDataById($product_id);
         $ProductAttributes = $this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
 
         if ($provider_id) {
             $providerProduct = $this->Provider_Model->getProductByProductId($provider_id, $product_id);
+            if ($providerProduct->information_type == ProviderProductInformationType::Normal) {
+                $options = array_values((array)$productOptions);
+            } else if ($providerProduct->information_type == ProviderProductInformationType::RollLabel) {
+                $options = $productOptions;
+            }
+
             $productOptions = (object) [
                 'provider_id' => $provider_id,
                 'provider_product_id' => $providerProduct->provider_product_id,
-                'provider_option_value_ids' => $productOptions,
+                'provider_options' => $productOptions,
             ];
         } else {
             $productOptions = array();
             //pr($ProductAttributes, 1);
             foreach ($ProductAttributes as $key => $val) {
                 $attribute_name = 'attribute_id_'.$key;
-                $attribute_item_id = isset($_POST[$attribute_name]) ? $this->input->post($attribute_name):'';
+                $attribute_item_id = isset($_POST[$attribute_name]) ? $params[$attribute_name] : '';
                 $items = $val['items'];
                 $attribute_data = $val['data'];
                 if (!empty($attribute_item_id) && array_key_exists($attribute_item_id, $items)) {
@@ -115,7 +128,7 @@ class ShoppingCarts extends Public_Controller
 
         foreach ($attribute as $akey => $aval) {
             $multiple_attribute_name = 'multiple_attribute_'.$akey;
-            $multiple_attribute_item_id = isset($_POST[$multiple_attribute_name]) ? $this->input->post($multiple_attribute_name):'';
+            $multiple_attribute_item_id = isset($_POST[$multiple_attribute_name]) ? $params[$multiple_attribute_name] : '';
             $attribute_items = isset($aval['attribute_items']) ? $aval['attribute_items']:array();
 
             if (!empty($multiple_attribute_item_id) && array_key_exists($multiple_attribute_item_id, $attribute_items)) {
@@ -130,14 +143,14 @@ class ShoppingCarts extends Public_Controller
         $page_product_width_length = array();
 
         if (!empty($add_length_width)) {
-            $product_length = $this->input->post('product_length');
-            $product_width = $this->input->post('product_width');
+            $product_length = $params['product_length'];
+            $product_width = $params['product_width'];
 
-            $product_total_page = $this->input->post('product_total_page');
+            $product_total_page = $params['product_total_page'];
 
-            $length_width_quantity_show = $this->input->post('length_width_quantity_show');
+            $length_width_quantity_show = $params['length_width_quantity_show'];
 
-            $length_width_color = $this->input->post('length_width_color');
+            $length_width_color = $params['length_width_color'];
 
             $Product = $this->Product_Model->getProductList($product_id);
             $min_length = $Product['min_length'];
@@ -268,15 +281,15 @@ class ShoppingCarts extends Public_Controller
         }
 
         if (!empty($depth_add_length_width)) {
-            $product_depth_length = $this->input->post('product_depth_length');
-            $product_depth_width = $this->input->post('product_depth_width');
+            $product_depth_length = $params['product_depth_length'];
+            $product_depth_width = $params['product_depth_width'];
 
-            $product_depth_total_page = $this->input->post('product_depth_total_page');
+            $product_depth_total_page = $params['product_depth_total_page'];
 
-            $product_depth = $this->input->post('product_depth');
-            $depth_width_length_quantity_show = $this->input->post('depth_width_length_quantity_show');
+            $product_depth = $params['product_depth'];
+            $depth_width_length_quantity_show = $params['depth_width_length_quantity_show'];
 
-            $depth_color = $this->input->post('depth_color');
+            $depth_color = $params['depth_color'];
 
             $Product = $this->Product_Model->getProductList($product_id);
             $min_depth = $Product['min_depth'];
@@ -425,18 +438,18 @@ class ShoppingCarts extends Public_Controller
         }
 
         if (!empty($page_add_length_width)) {
-            $page_product_length = $this->input->post('page_product_length');
-            $page_product_width = $this->input->post('page_product_width');
-            $page_product_total_page = $this->input->post('page_product_total_page');
-            $page_product_total_sheets = $this->input->post('page_product_total_sheets');
+            $page_product_length = $params['page_product_length'];
+            $page_product_width = $params['page_product_width'];
+            $page_product_total_page = $params['page_product_total_page'];
+            $page_product_total_sheets = $params['page_product_total_sheets'];
 
-            $page_length_width_pages_show = $this->input->post('page_length_width_pages_show');
-            $page_length_width_sheets_show = $this->input->post('page_length_width_sheets_show');
+            $page_length_width_pages_show = $params['page_length_width_pages_show'];
+            $page_length_width_sheets_show = $params['page_length_width_sheets_show'];
 
-            $page_length_width_color = $this->input->post('page_length_width_color');
+            $page_length_width_color = $params['page_length_width_color'];
 
-            $page_length_width_quantity_show = $this->input->post('page_length_width_quantity_show');
-            $page_product_total_quantity = $this->input->post('page_product_total_quantity');
+            $page_length_width_quantity_show = $params['page_length_width_quantity_show'];
+            $page_product_total_quantity = $params['page_product_total_quantity'];
 
             $Product = $this->Product_Model->getProductList($product_id);
             $page_min_length = $Product['page_min_length'];
@@ -634,6 +647,7 @@ class ShoppingCarts extends Public_Controller
                 'product_id'       => $productData['id'],
                 'product_image'    => $productData['product_image'],
                 'cart_images'      => $cart_images,
+                'provider_product_id' => $provider_id ? $providerProduct->provider_product_id : null,
                 'attribute_ids'    => $productOptions,
                 'product_size'     => $product_size,
                 'product_width_length' => $product_width_length,
@@ -644,7 +658,6 @@ class ShoppingCarts extends Public_Controller
                 'votre_text' => $votre_text
             );
 
-            //pr($data);
             if ($this->cart->insert($data)) {
                 $items = $this->cart->contents();
                 $row_id = '';

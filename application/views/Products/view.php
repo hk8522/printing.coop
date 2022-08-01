@@ -216,9 +216,9 @@
                                 <?php }?>
                                 <div class="quant-cart">
                                     <input type="hidden" id="<?= $Product['id']?>-rowid" value="<?= $productRowid?>">
-                                    <input type="hidden" id="<?= $Product['id']?>-Productid">
+                                    <input type="hidden" id="<?= $Product['id']?>-productId">
 
-                                    <button class="cart-adder" type="submit" id="btnsubmit">
+                                    <button class="cart-adder" type="submit" id="btnSubmit">
                                         <span><?= $language_name == 'French' ? 'Ajouter au chariot' : 'Add to Cart'?></span>
                                     </button>
                                 </div>
@@ -375,23 +375,21 @@
 
     $('form#cartForm').on('submit', function (e) {
         $("#loader-img").show();
-        $("#btnsubmit").prop('disabled',true);
-        var formData = new FormData(this);
+        $("#btnSubmit").prop('disabled', true);
         e.preventDefault();
         var url ='<?= $BASE_URL ?>ShoppingCarts/addToCart';
         $.ajax({
             type: "POST",
             url: url,
-            data: formData,
+            data: {params: $(this).serialize()},
             cache: false,
-            contentType: false,
-            processData: false,
+            headers: { accept: 'application/json' },
             success: function(data) {
                 $("#loader-img").hide();
                 var json = JSON.parse(data);
                 var status = json.status;
                 var msg = json.msg;
-                $("#btnsubmit").prop('disabled',false);
+                $("#btnSubmit").prop('disabled', false);
                 if (status == 1 ) {
                     $(".cart-contents-count").html(json.total_item);
                     getCartItem();

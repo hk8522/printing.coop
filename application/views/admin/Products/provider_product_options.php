@@ -2,7 +2,7 @@
 $pageSize = 10;
 $pageSizes = [10, 15, 20, 50, 100];
 ?>
-<script id="attribute-popup-editor" type="text/x-kendo-template">
+<script id="option-popup-editor" type="text/x-kendo-template">
     <div class="form-horizontal" id="attribute-form">
         <div class="form-header center">
             <h3><span data-bind="html:name"</h3>
@@ -37,22 +37,22 @@ $pageSizes = [10, 15, 20, 50, 100];
         </div>
     </div>
 </script>
-<div id="provider-product-attributes-grid"></div>
+<div id="provider-product-options-grid"></div>
 <script>
-    var attributeTypeNames = <?=json_encode(App\Common\ProductOptionType::names)?>;
+    var optionTypeNames = <?=json_encode(App\Common\ProductOptionType::names)?>;
     var record = 0;
     $(document).ready(function () {
-        $('#provider-product-attributes-grid').kendoGrid({
+        $('#provider-product-options-grid').kendoGrid({
             dataSource: {
                 transport: {
                     read: {
-                        url: '/admin/Products/ProviderProductAttributes/<?=$provider?>/<?=$provider_product_id?>',
+                        url: '/admin/Products/ProviderProductOptions/<?=$provider?>/<?=$provider_product_id?>',
                         type: 'POST',
                         dataType: 'json',
                         data: []
                     },
                     update: {
-                        url:'/admin/Products/ProviderAttributeUpdate',
+                        url:'/admin/Products/ProviderOptionUpdate',
                         type: 'POST',
                         dataType: 'json',
                         data: []
@@ -91,7 +91,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 confirmation: false,
                 // mode: 'inline',
                 mode: 'popup',
-                template: kendo.template($('#attribute-popup-editor').html())
+                template: kendo.template($('#option-popup-editor').html())
             },
             scrollable: false,
             columns: [{
@@ -107,7 +107,10 @@ $pageSizes = [10, 15, 20, 50, 100];
             }, {
                 field: 'type',
                 title: 'Type',
-                template: '#=attributeTypeNames[type]#',
+                template: '#=optionTypeNames[type]#',
+            }, {
+                field: 'html_type',
+                title: 'HTML Type',
             }, {
                 field: 'attribute_name',
                 title: 'Attribute',

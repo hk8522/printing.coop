@@ -1966,15 +1966,12 @@ class Orders extends Admin_Controller
 
         $items = [];
         foreach ($order->items as $item) {
-            $itemInfo = sina_attributes($item->attribute_ids);
-            $options = [];
-            foreach ($itemInfo->options as $option) {
-                $options[$option->name] = $option->provider_option_value_id;
-            }
-
+            $itemInfo = sina_options($item->attribute_ids);
+            if (!$itemInfo)
+                continue;
             $items[] = [
                 'productId' => $itemInfo->provider_product_id,
-                'options' => $options,
+                'options' => $itemInfo->options,
             ];
         }
 
@@ -2053,11 +2050,9 @@ class Orders extends Admin_Controller
         $items = [];
         foreach ($order->items as $item) {
             $cartImages = json_decode($item->cart_images, true);
-            $itemInfo = sina_attributes($item->attribute_ids);
-            $options = [];
-            foreach ($itemInfo->options as $option) {
-                $options[$option->name] = $option->provider_option_value_id;
-            }
+            $itemInfo = sina_options($item->attribute_ids);
+            if ($itemInfo)
+                continue;
 
             if (!is_array($cartImages) || count($cartImages) == 0) {
                 return $this->output
@@ -2071,7 +2066,7 @@ class Orders extends Admin_Controller
 
             $items[] = [
                 'productId' => $itemInfo->provider_product_id,
-                'options' => $options,
+                'options' => $itemInfo->options,
                 'files' => $files,
             ];
         }

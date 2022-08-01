@@ -531,7 +531,7 @@ $order_currency_currency_symbol = $OrderCurrencyData['symbols'];
                                                             $cart_images = (array) $cart_images;
 
                                                             if ($item['provider_product_id']) {
-                                                                $attribute_ids = sina_attributes_map($item['attribute_ids']);
+                                                                $attribute_ids = sina_options_map($item['attribute_ids']);
                                                             } else {
                                                                 $attribute_ids = json_decode($item['attribute_ids'], true);
                                                             }
