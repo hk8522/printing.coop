@@ -490,6 +490,7 @@ Class Provider_Model extends MY_Model {
         $this->db->select('COUNT(*)');
         $this->db->from('provider_products');
         $this->db->where('provider_id', $provider_id);
+        $this->db->where_not_in('provider_product_id', [14959, 14960, 14966]);
         $total = $this->db->get()->row();
         $total = reset($total);
 
@@ -499,6 +500,7 @@ Class Provider_Model extends MY_Model {
         $this->db->from('provider_products');
         $this->db->join('products', 'products.id = provider_products.product_id', 'left');
         $this->db->where('provider_id', $provider_id);
+        $this->db->where_not_in('provider_product_id', [14959, 14960, 14966]);
         $this->db->order_by('name');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;

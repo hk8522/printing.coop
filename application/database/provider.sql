@@ -1,5 +1,5 @@
 /*
-SQLyog Community v13.1.8 (64 bit)
+SQLyog Ultimate v13.1.1 (64 bit)
 MySQL - 10.4.8-MariaDB : Database - db_printing_imprimeur
 *********************************************************************
 */
@@ -31,7 +31,7 @@ CREATE TABLE `provider_option_values` (
   PRIMARY KEY (`id`),
   KEY `option` (`provider_option_value_id`),
   KEY `option_value` (`provider_option_value_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `provider_options` */
 
@@ -49,9 +49,10 @@ CREATE TABLE `provider_options` (
   `sort_order` int(11) DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE KEY `option_id` (`provider_id`,`provider_option_id`),
-  KEY `attribute_id` (`attribute_id`),
-  KEY `type` (`type`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4;
+  KEY `type` (`type`),
+  KEY `attribute_id` (`provider_id`,`attribute_id`),
+  KEY `provider_id` (`provider_id`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `provider_orders` */
 
@@ -69,7 +70,37 @@ CREATE TABLE `provider_orders` (
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Table structure for table `provider_product_option_contents` */
+
+DROP TABLE IF EXISTS `provider_product_option_contents`;
+
+CREATE TABLE `provider_product_option_contents` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `provider_id` bigint(20) unsigned NOT NULL,
+  `provider_product_id` bigint(20) unsigned NOT NULL,
+  `provider_option_value_id` bigint(20) unsigned NOT NULL,
+  `content_type` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `content` (`provider_id`,`provider_product_id`,`provider_option_value_id`,`content_type`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Table structure for table `provider_product_option_excludes` */
+
+DROP TABLE IF EXISTS `provider_product_option_excludes`;
+
+CREATE TABLE `provider_product_option_excludes` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `provider_id` bigint(20) unsigned NOT NULL,
+  `provider_product_id` bigint(20) unsigned NOT NULL,
+  `group_no` int(10) unsigned NOT NULL,
+  `provider_option_id` bigint(20) unsigned NOT NULL,
+  `provider_option_value_id` bigint(20) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `exclude` (`provider_id`,`provider_product_id`,`group_no`,`provider_option_id`,`provider_option_value_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `provider_product_options` */
 
@@ -84,7 +115,7 @@ CREATE TABLE `provider_product_options` (
   `deleted` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `option` (`provider_id`,`provider_product_id`,`option_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `provider_products` */
 
@@ -112,7 +143,20 @@ CREATE TABLE `provider_products` (
   KEY `deleted` (`provider_id`,`deleted`),
   KEY `updating` (`provider_id`,`updating`),
   KEY `product_id` (`provider_id`,`product_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=245 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Table structure for table `providers` */
+
+DROP TABLE IF EXISTS `providers`;
+
+CREATE TABLE `providers` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` varbinary(255) DEFAULT NULL,
+  `official_link` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
