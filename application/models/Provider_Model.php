@@ -484,7 +484,7 @@ Class Provider_Model extends MY_Model {
         $this->db->update('provider_products');
     }
 
-    function updateProductInfoRollDecal($product, $productInfo)
+    function updateProductInfoDecal($product, $productInfo)
     {
         $information_type = ProviderProductInformationType::Decal;
 
