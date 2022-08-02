@@ -105,6 +105,9 @@ $pageSizes = [10, 15, 20, 50, 100];
                 field: 'value',
                 title: 'Value',
             }, {
+                field: 'provider_option_value_id',
+                title: 'Value #',
+            }, {
                 field: 'type',
                 title: 'Type',
                 template: '#=optionTypeNames[type]#',

@@ -594,7 +594,7 @@ Class Provider_Model extends MY_Model {
         $total = $this->db->get()->row();
         $total = reset($total);
 
-        $this->db->select('provider_options.*, provider_option_values.value, provider_options.name, provider_options.type, product_attributes.name AS attribute_name');
+        $this->db->select('provider_options.*, provider_option_values.provider_option_value_id, provider_option_values.value, provider_options.name, provider_options.type, product_attributes.name AS attribute_name');
         $this->db->from('provider_product_options');
         $this->db->join('provider_options', 'provider_options.id = provider_product_options.option_id', 'left');
         $this->db->join('provider_option_values', 'provider_option_values.option_id = provider_product_options.option_id AND provider_option_values.provider_option_value_id = provider_product_options.provider_option_value_id', 'left');

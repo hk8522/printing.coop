@@ -14,7 +14,7 @@
                 <div class="field">
                     <?php foreach ($option->values as $item) {?>
                         <div class="shape-icon radio-icon">
-                            <input id="attribute-<?=$item->provider_option_value_id?>" type="radio" class="product-option" name="productOptions[<?= $option->name?>]" value="<?= $providerProduct->information_type == App\Common\ProviderProductInformationType::RollLabel ? $item->value : $item->id?>">
+                            <input id="attribute-<?=$item->provider_option_value_id?>" type="radio" class="product-option" name="productOptions[<?= $option->name?>]" value="<?= $providerProduct->information_type == App\Common\ProviderProductInformationType::RollLabel ? $item->value : $item->provider_option_value_id?>">
                             <label for="attribute-<?=$item->provider_option_value_id?>">
                                 <?php if ($item->img_src) { ?>
                                     <img class="no-lazy" src="https://sinalite.com/pub/<?= $item->img_src?>" style="width: 32px;margin-top: 8px;cursor: pointer;">
@@ -34,7 +34,7 @@
                         <?php }?>
                     </option>
                     <?php foreach ($option->values as $item) {?>
-                        <option value="<?= $providerProduct->information_type == App\Common\ProviderProductInformationType::RollLabel ? $item->value : $item->id?>">
+                        <option value="<?= $providerProduct->information_type == App\Common\ProviderProductInformationType::RollLabel ? $item->value : $item->provider_option_value_id?>">
                             <?= ucfirst($item->option_type == App\Common\ProviderOptionType::Turnaround ? option_turnaround_add_days($item->value, $shipping_extra_days) : $item->value)?>
                         </option>
                     <?php }?>
@@ -54,7 +54,7 @@
         var formData = $('#cartForm').serializeArray();
         var filled = 0;
         for (var i = 0; i < formData.length; i++) {
-            if (formData[i].name.startsWith('productOptions['))
+            if (formData[i].name.startsWith('productOptions[') && (formData[i].value != null && formData[i].value != ''))
                 filled++;
         }
         if (filled < <?=count($provider->options)?>)
