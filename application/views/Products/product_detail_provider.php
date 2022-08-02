@@ -6,10 +6,10 @@
         $shipping_extra_days = $sina['shipping_extra_days'];
     ?>
     <?php foreach ($provider->options as $option) {//echo json_encode($option);?>
-        <div class="single-review">
+        <div class="single-review option-<?= str_replace(' ', '-', $option->name)?>">
             <label><?= ucfirst($option->option_id ? ($language_name == 'French' ? $option->attribute_name_french : $option->attribute_name) : $option->label)?><span class="required">*</span></label>
             <?php if ($option->html_type == 'input' /*&& empty($option->values)*/) {?>
-                <input type="text" class="product-option" name="productOptions[<?= $option->name?>]" required id="attribute-<?=$option->id?>">
+                <input type="text" class="product-option field" name="productOptions[<?= $option->name?>]" required id="attribute-<?=$option->id?>">
             <?php } else if ($option->html_type == 'radio') { ?>
                 <div class="field">
                     <?php foreach ($option->values as $item) {?>
@@ -25,7 +25,7 @@
                     <?php }?>
                 </div>
             <?php } else { ?>
-                <select class="product-option" name="productOptions[<?= $option->name?>]" required id="attribute-<?=$option->id?>">
+                <select class="product-option field" name="productOptions[<?= $option->name?>]" required id="attribute-<?=$option->id?>">
                     <option value="">
                         <?php if ($option->attribute_id) {?>
                             <?= ucfirst($language_name == 'French' ? "Sélectionnez $option->attribute_name_french" : "Select $option->attribute_name")?>
@@ -45,7 +45,27 @@
     <?php }?>
 </div>
 <script>
+    var ctrlWidth, ctrlLength;
     $(document).ready(function() {
+        ctrlWidth = $('.option-width');
+        ctrlLength = $('.option-length');
+        ctrlDiameter = $('.option-diameter');
+        $('[name="productOptions[shape]"]').change(function(e) {
+            var value = $(this).val();
+            if (value == 'circle') {
+                ctrlWidth.hide();
+                ctrlLength.hide();
+                ctrlDiameter.show();
+            } else {
+                ctrlWidth.show();
+                ctrlLength.show();
+                ctrlDiameter.hide();
+            }
+        });
+        ctrlWidth.hide();
+        ctrlLength.hide();
+        ctrlDiameter.hide();
+
         $('.single-review select').on('change', updatePrice);
         $('.single-review input').on('change', updatePrice);
     });
@@ -54,10 +74,17 @@
         var formData = $('#cartForm').serializeArray();
         var filled = 0;
         for (var i = 0; i < formData.length; i++) {
-            if (formData[i].name.startsWith('productOptions[') && (formData[i].value != null && formData[i].value != ''))
-                filled++;
+            const regex = /productOptions\[(.*)\]/;
+            const found = formData[i].name.match(regex);
+            if (found) {
+                var fieldName = found[1];
+                if ($(`.single-review.option-${fieldName.replaceAll(' ', '-')}`).is(":visible")) {
+                    if (formData[i].value != null && formData[i].value != '')
+                        filled++;
+                }
+            }
         }
-        if (filled < <?=count($provider->options)?>)
+        if (filled < $('.single-review:visible').length)
             return;
 
         $("#loader-img").show();
@@ -68,7 +95,7 @@
             data: {params: $('#cartForm').serialize()},
             headers: { accept: 'application/json' },
             success: function(data) {
-                if (filled == <?=count($provider->options)?>) {
+                if (filled == $('.single-review:visible').length) {
                     $("#loader-img").hide();
                     $(".new-price-img").show();
                 }
