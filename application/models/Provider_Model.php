@@ -97,7 +97,7 @@ Class Provider_Model extends MY_Model {
         if (empty($productInfo) || empty($productInfo[0]))
             return;
         if (is_object($productInfo[0]) && $productInfo[0]->data != null) {
-            $information_type = ProviderProductInformationType::Decal;
+            $this->updateProductInfoDecal($product, $productInfo);
         } else if ($productInfo[0][0]->html_type != null) {
             $this->updateProductInfoRollLabel($product, $productInfo);
         } else if ($productInfo[0][0]->group != null) {
@@ -473,6 +473,20 @@ Class Provider_Model extends MY_Model {
                 $this->db->insert_batch('provider_product_option_contents', $contents);
             }
         }
+
+        /**
+         * provider_products.information_type
+         * Flag Updated
+         */
+        $this->db->set('information_type', $information_type);
+        $this->db->set('updating', 0);
+        $this->db->where('id', $product->id);
+        $this->db->update('provider_products');
+    }
+
+    function updateProductInfoRollDecal($product, $productInfo)
+    {
+        $information_type = ProviderProductInformationType::Decal;
 
         /**
          * provider_products.information_type
