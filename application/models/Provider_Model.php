@@ -94,21 +94,32 @@ Class Provider_Model extends MY_Model {
 
     public function updateProductInfo($product, $productInfo)
     {
-        if (empty($productInfo) || empty($productInfo[0]))
-            return;
-        if (is_object($productInfo[0]) && $productInfo[0]->data != null) {
-            $this->updateProductInfoDecal($product, $productInfo);
-        } else if ($productInfo[0][0]->html_type != null) {
-            $this->updateProductInfoRollLabel($product, $productInfo);
-        } else if ($productInfo[0][0]->group != null) {
-            $this->updateProductInfoNormal($product, $productInfo);
+        $information_type = ProviderProductInformationType::Normal;
+        if (!empty($productInfo) && !empty($productInfo[0])) {
+            if (is_object($productInfo[0]) && $productInfo[0]->data != null) {
+                $information_type = ProviderProductInformationType::Decal;
+                $this->updateProductInfoDecal($product, $productInfo);
+            } else if ($productInfo[0][0]->html_type != null) {
+                $information_type = ProviderProductInformationType::RollLabel;
+                $this->updateProductInfoRollLabel($product, $productInfo);
+            } else if ($productInfo[0][0]->group != null) {
+                $information_type = ProviderProductInformationType::Normal;
+                $this->updateProductInfoNormal($product, $productInfo);
+            }
         }
+
+        /**
+         * provider_products.information_type
+         * Flag Updated
+         */
+        $this->db->set('information_type', $information_type);
+        $this->db->set('updating', 0);
+        $this->db->where('id', $product->id);
+        $this->db->update('provider_products');
     }
 
     function updateProductInfoNormal($product, $productInfo)
     {
-        $information_type = ProviderProductInformationType::Normal;
-
         /**
          * provider_options
          **/
@@ -234,21 +245,10 @@ Class Provider_Model extends MY_Model {
         $this->db->where('deleted', 1);
         $this->db->delete('provider_product_options');
         $this->db->trans_complete();
-
-        /**
-         * provider_products.information_type
-         * Flag Updated
-         */
-        $this->db->set('information_type', $information_type);
-        $this->db->set('updating', 0);
-        $this->db->where('id', $product->id);
-        $this->db->update('provider_products');
     }
 
     function updateProductInfoRollLabel($product, $productInfo)
     {
-        $information_type = ProviderProductInformationType::RollLabel;
-
         /**
          * First array
          */
@@ -473,29 +473,10 @@ Class Provider_Model extends MY_Model {
                 $this->db->insert_batch('provider_product_option_contents', $contents);
             }
         }
-
-        /**
-         * provider_products.information_type
-         * Flag Updated
-         */
-        $this->db->set('information_type', $information_type);
-        $this->db->set('updating', 0);
-        $this->db->where('id', $product->id);
-        $this->db->update('provider_products');
     }
 
     function updateProductInfoDecal($product, $productInfo)
     {
-        $information_type = ProviderProductInformationType::Decal;
-
-        /**
-         * provider_products.information_type
-         * Flag Updated
-         */
-        $this->db->set('information_type', $information_type);
-        $this->db->set('updating', 0);
-        $this->db->where('id', $product->id);
-        $this->db->update('provider_products');
     }
 
     public function getProducts($provider_id, $q, $take, $skip, &$data, &$total)
