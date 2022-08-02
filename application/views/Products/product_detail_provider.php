@@ -45,32 +45,29 @@
     <?php }?>
 </div>
 <script>
-    var ctrlWidth, ctrlLength;
     $(document).ready(function() {
-        ctrlWidth = $('.option-width');
-        ctrlLength = $('.option-length');
-        ctrlDiameter = $('.option-diameter');
-        $('[name="productOptions[shape]"]').change(function(e) {
-            var value = $(this).val();
-            if (value == 'circle') {
-                ctrlWidth.hide();
-                ctrlLength.hide();
-                ctrlDiameter.show();
-            } else {
-                ctrlWidth.show();
-                ctrlLength.show();
-                ctrlDiameter.hide();
-            }
-        });
-        ctrlWidth.hide();
-        ctrlLength.hide();
-        ctrlDiameter.hide();
+        $('.option-width').hide();
+        $('.option-length').hide();
+        $('.option-diameter').hide();
 
         $('.single-review select').on('change', updatePrice);
         $('.single-review input').on('change', updatePrice);
     });
     function updatePrice()
     {
+        if ($(this).attr('name') == 'productOptions[shape]') {
+            var value = $(this).val();
+            if (value == 'circle') {
+                $('.option-width').hide();
+                $('.option-length').hide();
+                $('.option-diameter').show();
+            } else {
+                $('.option-width').show();
+                $('.option-length').show();
+                $('.option-diameter').hide();
+            }
+        }
+
         var formData = $('#cartForm').serializeArray();
         var filled = 0;
         for (var i = 0; i < formData.length; i++) {
