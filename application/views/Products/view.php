@@ -390,6 +390,7 @@
                 var status = json.status;
                 var msg = json.msg;
                 $("#btnSubmit").prop('disabled', false);
+return;
                 if (status == 1 ) {
                     $(".cart-contents-count").html(json.total_item);
                     getCartItem();

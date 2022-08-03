@@ -267,7 +267,7 @@ Class Store_Model extends MY_Model {
         return $data;
     }
 
-    public function getStoreEmailTemapleImage($store_id=null,$template_name=null) {
+    public function getStoreEmailTemplateImage($store_id=null,$template_name=null) {
         $this->db->select('image');
         $condition=array();
         $condition['store_id']=$store_id;

@@ -382,7 +382,7 @@ class Users extends Admin_Controller
                             if($status==1){
                                 $subject='Votre compte '.$from_name.' est approuvé';
 
-                                $image=$this->Store_Model->getStoreEmailTemapleImage($store_id,'account_approved');
+                                $image=$this->Store_Model->getStoreEmailTemplateImage($store_id,'account_approved');
 
                                 $image_template='';
                                 if(!empty($image)){
@@ -415,7 +415,7 @@ class Users extends Admin_Controller
                             if($status==1){
                                 $subject='Your '.$from_name.' Account is Approved';
 
-                                $image=$this->Store_Model->getStoreEmailTemapleImage($store_id,'account_approved');
+                                $image=$this->Store_Model->getStoreEmailTemplateImage($store_id,'account_approved');
                                 $image_template='';
                                 if(!empty($image)){
                                     $image_url=$store_url.'uploads/email_templates/'.$image;

@@ -240,7 +240,7 @@ $pageSizes = [10, 15, 20, 50, 100];
             }, {
                 field: 'total_sales_tax',
                 title: 'Total Sales Tax',
-                template: `#if (total_sales_tax == 0) {#-#} else {#
+                template: `#if (total_sales_tax == 0 || salesTaxRatesProvinces[billing_state] == null) {#-#} else {#
                     <span>#=salesTaxRatesProvinces[billing_state].Province# #=Number(salesTaxRatesProvinces[billing_state].total_tax_rate).toFixed(2)#%<br><strong><?=$product_price_currency_symbol?>#=Number(total_sales_tax).toFixed(2)#</strong></span>
                     #}#`,
             }, {

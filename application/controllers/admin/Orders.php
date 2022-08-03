@@ -117,7 +117,7 @@ class Orders extends Admin_Controller
                            </div><br></br>';
                     }
                 } else if ($status == 4) {
-                    $image = $this->Store_Model->getStoreEmailTemapleImage($store_id, 'shipped_order');
+                    $image = $this->Store_Model->getStoreEmailTemplateImage($store_id, 'shipped_order');
 
                     $image_template = '';
                     if ($orderData['shipping_method_formate']) {
@@ -1851,7 +1851,7 @@ class Orders extends Admin_Controller
 
         $ProductOrderItem = $this->ProductOrder_Model->getProductOrderItemDataById($id);
 
-        if ($orderData['status'] == OrderStatus::new ) {
+        if ($orderData['status'] == OrderStatus::New ) {
             foreach ($ProductOrderItem as $order) {
                 $ProductDataSave = array();
                 $product_id = $order['product_id'];

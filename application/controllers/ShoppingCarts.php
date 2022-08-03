@@ -85,7 +85,7 @@ class ShoppingCarts extends Public_Controller
             //pr($ProductAttributes, 1);
             foreach ($ProductAttributes as $key => $val) {
                 $attribute_name = 'attribute_id_'.$key;
-                $attribute_item_id = isset($_POST[$attribute_name]) ? $params[$attribute_name] : '';
+                $attribute_item_id = isset($params[$attribute_name]) ? $params[$attribute_name] : '';
                 $items = $val['items'];
                 $attribute_data = $val['data'];
                 if (!empty($attribute_item_id) && array_key_exists($attribute_item_id, $items)) {
@@ -122,14 +122,14 @@ class ShoppingCarts extends Public_Controller
             $product_size['product_size_french'] = $sizeData['size_name_french'];
         }
 
-        $attribute = isset($ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]['attribute']) ? $ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]['attribute']:array();
+        $attribute = isset($ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]['attribute']) ? $ProductSizes[$product_quantity_id]['sizeData'][$product_size_id]['attribute'] : array();
 
         $product_size['attribute'] = array();
 
         foreach ($attribute as $akey => $aval) {
             $multiple_attribute_name = 'multiple_attribute_'.$akey;
-            $multiple_attribute_item_id = isset($_POST[$multiple_attribute_name]) ? $params[$multiple_attribute_name] : '';
-            $attribute_items = isset($aval['attribute_items']) ? $aval['attribute_items']:array();
+            $multiple_attribute_item_id = isset($params[$multiple_attribute_name]) ? $params[$multiple_attribute_name] : '';
+            $attribute_items = isset($aval['attribute_items']) ? $aval['attribute_items'] : array();
 
             if (!empty($multiple_attribute_item_id) && array_key_exists($multiple_attribute_item_id, $attribute_items)) {
                 $extra_price = $attribute_items[$multiple_attribute_item_id]['extra_price'];

@@ -367,7 +367,7 @@ class Logins extends Public_Controller
                                             sendEmail($admin_email3,$subject,$body,$from_email,$from_name);
                                         }
 
-                                $image=$this->Store_Model->getStoreEmailTemapleImage($this->main_store_id,'account_awaiting_approval');
+                                $image=$this->Store_Model->getStoreEmailTemplateImage($this->main_store_id,'account_awaiting_approval');
                                 $image_template='';
                                 if(!empty($image)){
                                     $image_url=$store_url.'uploads/email_templates/'.$image;
@@ -431,7 +431,7 @@ class Logins extends Public_Controller
                                             sendEmail($admin_email3,$subject,$body,$from_email,$from_name);
                                         }
 
-                                    $image=$this->Store_Model->getStoreEmailTemapleImage($this->main_store_id,'account_awaiting_approval');
+                                    $image=$this->Store_Model->getStoreEmailTemplateImage($this->main_store_id,'account_awaiting_approval');
 
                                     $image_template='';
                                     if(!empty($image)){

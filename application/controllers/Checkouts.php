@@ -586,7 +586,7 @@ class Checkouts extends Public_Controller
                                 $this->UpdateOrderStatus($orderData);
                                 $this->data['orderData'] = $this->ProductOrder_Model->getProductOrderDataById($orderData['id']);
                                 $this->session->set_flashdata('message_success', $response['msg']);
-                                redirect('MyOrders/view/' . base64_encode($orderData['id']));
+                                // redirect('MyOrders/view/' . base64_encode($orderData['id']));
                                 /* payment response */
                             } else {
                                 $orderData['payment_status'] = 3;
@@ -928,7 +928,7 @@ class Checkouts extends Public_Controller
         $admin_email2 = $StoreData['admin_email2'];
         $admin_email3 = $StoreData['admin_email3'];
 
-        if ($orderData['status'] == OrderStatus::new ) {
+        if ($orderData['status'] == OrderStatus::New ) {
             foreach ($ProductOrderItem as $order) {
                 $ProductDataSave = array();
                 $product_id = $order['product_id'];
@@ -961,7 +961,7 @@ class Checkouts extends Public_Controller
                 //$subject = 'Order '.$order_id.' Confirmation';
                 $subject = 'Reçu de la commande n ° ' . $order_id;
 
-                $image = $this->Store_Model->getStoreEmailTemapleImage($this->main_store_id, 'receipt_for_order');
+                $image = $this->Store_Model->getStoreEmailTemplateImage($this->main_store_id, 'receipt_for_order');
                 $image_template = '';
                 if (!empty($image)) {
                     $image_url = $store_url . 'uploads/email_templates/' . $image;
@@ -992,7 +992,7 @@ class Checkouts extends Public_Controller
             } else {
                 $subject = 'Receipt for order ' . $order_id;
                 //$subject = 'Order '.$order_id.' Confirmation';
-                $image = $this->Store_Model->getStoreEmailTemapleImage($this->main_store_id, 'receipt_for_order');
+                $image = $this->Store_Model->getStoreEmailTemplateImage($this->main_store_id, 'receipt_for_order');
                 $image_template = '';
                 if (!empty($image)) {
                     $image_url = $store_url . 'uploads/email_templates/' . $image;
