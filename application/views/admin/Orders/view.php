@@ -469,7 +469,7 @@ $order_currency_currency_symbol = $OrderCurrencyData['symbols'];
                                                                         <div class="col-md-6">
                                                                             <strong>
                                                                                 <?php
-                                                                                $file_name = $orderData['order_id']."-invoice.pdf";
+                                                                                $file_name = $orderData['order_id'] . ($langue_id == 2 ? 'fr' : '') . "-invoice.pdf";
                                                                                 $file_name = strtolower($file_name);
                                                                                 $location = FILE_BASE_PATH.'pdf/'.$file_name;
                                                                                 $linkInvoice = $BASE_URL."admin/Orders/downloadOrderPdf/".urlencode($location)."/".urlencode($file_name).'/'.urlencode($orderData['id']);
@@ -489,7 +489,7 @@ $order_currency_currency_symbol = $OrderCurrencyData['symbols'];
                                                                         <div class="col-md-6">
                                                                             <strong>
                                                                                 <?php
-                                                                                $file_name = $orderData['order_id']."-order.pdf";
+                                                                                $file_name = $orderData['order_id'] . ($langue_id == 2 ? 'fr' : '') . "-order.pdf";
                                                                                 $file_name = strtolower($file_name);
                                                                                 $location = FILE_BASE_PATH.'pdf/'.$file_name;
                                                                                 $linkOrder = $BASE_URL."admin/Orders/downloadOrderPdf/".urlencode($location)."/".urlencode($file_name).'/'.urlencode($orderData['id']);

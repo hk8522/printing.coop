@@ -578,6 +578,10 @@ class Orders extends Admin_Controller
         $StoreList = $this->Store_Model->getAllStoreList();
         $this->data['StoreList'] = $StoreList;
 
+        $store_id = $orderData['store_id'];
+        $StoreData = $this->Store_Model->getStoreDataById($store_id);
+        $langue_id = $StoreData['langue_id'];
+
         $this->data['page_title'] = 'Order details';
         $this->data['orderData'] = $orderData;
         $this->data['OrderItemData'] = $OrderItemData;
@@ -585,6 +589,7 @@ class Orders extends Admin_Controller
         $this->data['stateData'] = $stateData;
         $this->data['countryData'] = $countryData;
         $this->data['salesTaxRatesProvinces_Data'] = $salesTaxRatesProvinces_Data;
+        $this->data['langue_id'] = $langue_id;
 
         $this->render($this->class_name . 'view');
     }
