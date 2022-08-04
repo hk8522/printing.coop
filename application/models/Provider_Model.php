@@ -287,6 +287,7 @@ Class Provider_Model extends MY_Model {
                 $updated[strtolower($option->name)] = (object) [
                     'id' => $originals[strtolower($option->name)]->id,
                     'provider_option_id' => $option->option_id,
+                    'name' => $option->name,
                     'label' => $option->label,
                     'html_type' => $option->html_type,
                     'sort_order' => $option->opt_sort_order,
