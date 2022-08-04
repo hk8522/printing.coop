@@ -273,6 +273,8 @@ Class Provider_Model extends MY_Model {
                         $type = ProviderOptionType::Size;
                     if (strcasecmp($option->name, 'qty') == 0 || strcasecmp($option->name, 'quantity') == 0)
                         $type = ProviderOptionType::Quantity;
+                    if (strcasecmp($option->name, 'turnaround') == 0)
+                        $type = ProviderOptionType::Turnaround;
                     $news[strtolower($option->name)] = (object) [
                         'provider_id' => $product->provider_id,
                         'provider_option_id' => $option->option_id,
