@@ -129,10 +129,6 @@ $pageSizes = [10, 15, 20, 50, 100];
             return str.charAt(0).toUpperCase() + str.slice(1);;
         return '';
     }
-    function refreshGrid(id) {
-        var grid = $(`#${id}`).data('kendoGrid');
-        grid.dataSource.page(grid.dataSource.page());
-    }
     var currencies = <?=json_encode($CurrencyList)?>;
     var stores = <?=json_encode($StoreList)?>;
     var paymentStatus = {
@@ -315,7 +311,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                     kendo.alert('Error occurred.');
                 else if (!response.success)
                     kendo.alert(response.message);
-               $('#sina_ship_methods').data('kendoWindow').close();
+                $('#sina_ship_methods').data('kendoWindow').close();
                 refreshGrid('orders-grid');
                 $("#loader-img").hide();
             }).fail(function (error) {

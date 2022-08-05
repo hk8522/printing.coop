@@ -5,7 +5,7 @@ $pageSizes = [10, 15, 20, 50, 100];
 <script id="option-popup-editor" type="text/x-kendo-template">
     <div class="form-horizontal" id="attribute-form">
         <div class="form-header center">
-            <h3><span data-bind="html:name"</h3>
+            <h3><span data-bind="html:name"></span></h3>
         </div>
         <div class="form-body">
             <div class="form-group">

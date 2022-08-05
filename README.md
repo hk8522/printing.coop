@@ -13,3 +13,5 @@
   Run app/database/provider.sql
 - Database update for Shipping Extra Days
   ALTER TABLE `provider_orders` ADD COLUMN `shipping_extra_days` INT UNSIGNED NULL AFTER `tax`;
+- Database update for customized price rate
+  ALTER TABLE `provider_products` ADD COLUMN `price_rate` DOUBLE DEFAULT 1.75 NULL AFTER `information_type`;

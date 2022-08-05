@@ -104,7 +104,7 @@
     <script src="<?php echo $BASE_URL;?>assets/admin/js/chart.js" type="text/javascript"></script>
     <script src="<?php echo $BASE_URL;?>assets/admin/js/app.js" type="text/javascript"></script>
     <script src="<?php echo $BASE_URL;?>assets/admin/js/jquery.js" type="text/javascript"></script>
-    <script src="<?php echo $BASE_URL;?>assets/admin/js/font-awesome.js" type="text/javascript"></script>
+    <!-- <script src="<?php echo $BASE_URL;?>assets/admin/js/font-awesome.js" type="text/javascript"></script> -->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
     </script>
 
@@ -117,6 +117,8 @@
     <script src="<?php echo $BASE_URL;?>assets/administration/elfinder/js/elfinder.min.js"></script>
     <script src="<?php echo $BASE_URL;?>assets/administration/magnific-popup/jquery.magnific-popup.min.js"></script>
     <script src="<?php echo $BASE_URL;?>assets/administration/jquery.tmpl.min.js"></script>
+
+    <script src="<?php echo $BASE_URL;?>assets/js/kendo-util.js"></script>
 
 <script>
 $(document).ready(function(){

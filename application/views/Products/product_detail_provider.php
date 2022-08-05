@@ -97,7 +97,7 @@
                     $(".new-price-img").show();
                 }
                 if (data.success) {
-                    var price = data.price.price == NaN ? 0 : data.price.price * 1.75;
+                    var price = data.price.price == NaN ? 0 : data.price.price * <?= $provider->price_rate?>;
                     $('[name="price"]').val(price);
                     $('#total-price').html((price * $("#quantity").val()).toFixed(2));
                 } else

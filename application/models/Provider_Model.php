@@ -684,4 +684,11 @@ Class Provider_Model extends MY_Model {
         // $this->select('provider_order_id');
         return $this->db->get()->result();
     }
+
+    public function updatePriceRate($id, $price_rate)
+    {
+        $this->db->set('price_rate', $price_rate);
+        $this->db->where('id', $id);
+        $this->db->update('provider_products');
+    }
 }

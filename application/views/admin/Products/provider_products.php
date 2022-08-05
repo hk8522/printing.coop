@@ -112,13 +112,16 @@ $pageSizes = [10, 15, 20, 50, 100];
                 template: `
                     #if (product_id) {#
                         <a href="/admin/Products/ProviderProductOptions/<?=$provider?>/#=provider_product_id#" class="k-link bind-product-attributes">
-                            <div class="action">
-                                <svg class="bi b-icon" width="2em" height="2em" fill="currentColor">
-                                    <use xlink:href="/assets/images/bootstrap-icons.svg\\#pencil-square"/>
-                                </svg>
-                            </div>
+                            <div class="action"><i class="fa fa-2x fa-pencil-square-o"></i></div>
                         </a>
                     #}#`,
+            }, {
+                field: 'price_rate',
+                title: 'Price Rate',
+                template: `#=price_rate#
+                    <a href="/admin/Products/ProviderProductPriceRate/#=id#" class="k-link bind-product-attributes">
+                        <div class="action"><i class="fa fa-pencil"></i></div>
+                    </a>`,
             }],
             dataBinding: function() {
                 record = this.dataSource.pageSize() * (this.dataSource.page() - 1);

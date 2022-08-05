@@ -275,6 +275,7 @@ class Products extends Public_Controller
                 'product_id' => $id,
                 'options' => $options,
                 'shipping_extra_days' => $shipping_extra_days,
+                'price_rate' => $providerProduct->price_rate,
             ];
             $this->data['providerProduct'] = $providerProduct;
         } else {

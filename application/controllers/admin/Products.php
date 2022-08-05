@@ -2404,6 +2404,21 @@ Coating";
         }
     }
 
+    public function ProviderProductPriceRate($id)
+    {
+        $product = $this->Provider_Model->getProduct($id);
+        if ($this->input->server('REQUEST_METHOD') === 'GET') {
+            $this->load->view('admin/Products/provider_product_price_rate', ['product' => $product]);
+        } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
+            $price_rate = $this->input->post('price_rate');
+            $this->Provider_Model->updatePriceRate($id, $price_rate);
+
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success' => true]));
+        }
+    }
+
     public function ProviderOptions($provider)
     {
         $provider = $this->Provider_Model->getProvider($provider);
