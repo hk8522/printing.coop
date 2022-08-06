@@ -1,10 +1,9 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-require_once(APPPATH . 'common/ProviderOptionType.php');
-require_once(APPPATH . 'common/ProviderProductInformationType.php');
+require_once APPPATH . 'common/ProviderOptionType.php';
+require_once APPPATH . 'common/ProviderProductInformationType.php';
 
-use App\Common\ProviderOptionType;
 use App\Common\ProviderProductInformationType;
 
 class Products extends Public_Controller
@@ -262,8 +261,10 @@ class Products extends Public_Controller
 
             $data = $this->Provider_Model->getProductOptionValues($provider->id, $providerProduct->provider_product_id);
             foreach ($data as $item) {
-                if ($item->provider_option_value_id == null || $item->value == null)
+                if ($item->provider_option_value_id == null || $item->value == null) {
                     continue;
+                }
+
                 $option = $options[$item->option_id];
                 if (!isset($option->values)) {
                     $option->values = [];
@@ -1463,7 +1464,7 @@ class Products extends Public_Controller
         $providerProduct = $this->Provider_Model->getProductByProductId($provider_id, $product_id);
         if ($providerProduct) {
             if ($providerProduct->information_type == ProviderProductInformationType::Normal) {
-                $options = array_values((array)$productOptions);
+                $options = array_values((array) $productOptions);
             } else if ($providerProduct->information_type == ProviderProductInformationType::RollLabel) {
                 // $options = [];
                 // foreach ($productOptions as $key => $value) {

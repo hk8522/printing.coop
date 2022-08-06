@@ -14,12 +14,13 @@ if (!empty($options_size)) {
         $onchange = "showSizeQuantity()";
     }
     ?>
-    <div class="single-review">
-        <label><?= $language_name == 'French' ? 'Taille' : 'Size'?><span class="required">*</span></label>
-        <select name="product_size_id" required onchange="<?= $onchange?>" <?= $size_disabled ? 'disabled' : ''?> class="multipal_size">
-            <?= $options_size?>
-        </select>
-    </div>
+<div class="single-review">
+    <label><?= $language_name == 'French' ? 'Taille' : 'Size'?><span class="required">*</span></label>
+    <select name="product_size_id" required onchange="<?= $onchange?>" <?= $size_disabled ? 'disabled' : ''?>
+        class="multipal_size">
+        <?= $options_size?>
+    </select>
+</div>
 <?php
     $j++;
     $k++;
@@ -47,15 +48,19 @@ foreach ($AtirbuteProductSizes as $mkey => $mval) {
         $disabled = '';
     }
 ?>
-    <div class="single-review">
-        <label><?= $language_name == 'French' ? $mval['attributes_name_french'] : $mval['attribute_name']?><span class="required">*</span></label>
-        <select name="multiple_attribute_<?= $mkey?>" required id="product_size_option_<?= $j?>" required <?= $disabled?> onchange="<?= $onchange?>" class="multipal_size multipal_size_item">
-            <?= $options?>
-            <?php foreach ($attribute_items as $akey=>$aval) { ?>
-                <option value="<?= $akey?>"><?= $language_name == 'French' ? $aval['attributes_item_name_french'] : $aval['attributes_item_name']?></option>
-            <?php }?>
-        </select>
-    </div>
+<div class="single-review">
+    <label><?= $language_name == 'French' ? $mval['attributes_name_french'] : $mval['attribute_name']?><span
+            class="required">*</span></label>
+    <select name="multiple_attribute_<?= $mkey?>" required id="product_size_option_<?= $j?>" required <?= $disabled?>
+        onchange="<?= $onchange?>" class="multipal_size multipal_size_item">
+        <?= $options?>
+        <?php foreach ($attribute_items as $akey=>$aval) { ?>
+            <option value="<?= $akey?>">
+                <?= $language_name == 'French' ? $aval['attributes_item_name_french'] : $aval['attributes_item_name']?>
+            </option>
+        <?php }?>
+    </select>
+</div>
 <?php
     $j++;
     $k++;
@@ -63,60 +68,60 @@ foreach ($AtirbuteProductSizes as $mkey => $mval) {
 }
 ?>
 <script>
-    function getQuantityPrice(nid) {
-        $("#loader-img").show();
-        $(".new-price-img").hide();
-        var myForm = document.getElementById('cartForm');
-        var formData = new FormData(myForm);
-        $.ajax({
-            type: 'POST',
-            dataType: 'html',
-            url: '<?= $BASE_URL?>Products/calculatePrice',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (data) {
-                var json = JSON.parse(data);
-                    $("#loader-img").hide();
-                    $(".new-price-img").show();
-                if (json.success == 1) {
-                    $("#"+nid).attr("disabled", false);
+function getQuantityPrice(nid) {
+    $("#loader-img").show();
+    $(".new-price-img").hide();
+    var myForm = document.getElementById('cartForm');
+    var formData = new FormData(myForm);
+    $.ajax({
+        type: 'POST',
+        dataType: 'html',
+        url: '<?= $BASE_URL?>Products/calculatePrice',
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+            var json = JSON.parse(data);
+            $("#loader-img").hide();
+            $(".new-price-img").show();
+            if (json.success == 1) {
+                $("#" + nid).attr("disabled", false);
 
-                    $("#total-price").html(json.price);
-                }
-            },
-            error: function (resp) {
-                console.log(resp);
-                $("#loader-img").hide();
-                $(".new-price-img").show();
+                $("#total-price").html(json.price);
             }
-        });
-    }
+        },
+        error: function(resp) {
+            console.log(resp);
+            $("#loader-img").hide();
+            $(".new-price-img").show();
+        }
+    });
+}
 
-    function getPaperPrice(nid) {
-        $("#loader-img").show();
-        $(".new-price-img").hide();
-        var myForm = document.getElementById('cartForm');
-        var formData = new FormData(myForm);
-        $.ajax({
-            type: 'POST',
-            dataType: 'html',
-            url: '<?= $BASE_URL?>Products/calculatePrice',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (data) {
-                var json = JSON.parse(data);
-                    $("#loader-img").hide();
-                    $(".new-price-img").show();
-                if (json.success == 1) {
-                    $("#attribute_id_"+nid).attr("disabled", false);
+function getPaperPrice(nid) {
+    $("#loader-img").show();
+    $(".new-price-img").hide();
+    var myForm = document.getElementById('cartForm');
+    var formData = new FormData(myForm);
+    $.ajax({
+        type: 'POST',
+        dataType: 'html',
+        url: '<?= $BASE_URL?>Products/calculatePrice',
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+        success: function(data) {
+            var json = JSON.parse(data);
+            $("#loader-img").hide();
+            $(".new-price-img").show();
+            if (json.success == 1) {
+                $("#attribute_id_" + nid).attr("disabled", false);
 
-                    $("#total-price").html(json.price);
-                }
+                $("#total-price").html(json.price);
             }
-        });
-    }
+        }
+    });
+}
 </script>

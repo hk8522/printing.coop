@@ -2,7 +2,7 @@
 $i = 1;
 $j = 1;
 $k = 2;
-?><?php if (!empty($options_qty)) {
+if (!empty($options_qty)) {
     if ($j == $last) {
         $onchange="getPaperPrice('$i')";
     } else {
@@ -18,7 +18,8 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?><?php if (!empty($options_ncr_number_parts)) {
+}
+if (!empty($options_ncr_number_parts)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -34,7 +35,8 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?><?php if (!empty($options_paper_size)) {
+}
+if (!empty($options_paper_size)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -50,7 +52,8 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?><?php if (!empty($paper_quality)) {
+}
+if (!empty($paper_quality)) {
     if ($j==$last) {
         $onchange="getPaperPrice('$i')";
     } else {
@@ -66,7 +69,8 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?><?php if (!empty($stock)) {
+}
+if (!empty($stock)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -82,7 +86,8 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?><?php if (!empty($color)) {
+}
+if (!empty($color)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -98,7 +103,8 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?><?php if (!empty($coating)) {
+}
+if (!empty($coating)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -114,7 +120,8 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?><?php if (!empty($diameter)) {
+}
+if (!empty($diameter)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -130,7 +137,8 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?><?php if (!empty($envelope)) {
+}
+if (!empty($envelope)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -146,7 +154,8 @@ $k = 2;
 <?php
     $j++;
     $k++;
-}?><?php if (!empty($bundling)) {
+}
+if (!empty($bundling)) {
     if ($j == $last) {
         $onchange = "getPaperPrice('$i')";
     } else {
@@ -200,7 +209,7 @@ $k = 2;
         $.ajax({
             type: 'POST',
             dataType: 'html',
-            url: '<?php echo $BASE_URL?>admin/Orders/calculatePrice',
+            url: '<?= $BASE_URL?>admin/Orders/calculatePrice',
             data: formData,
             cache: false,
             contentType: false,
