@@ -15,3 +15,8 @@
   ALTER TABLE `provider_orders` ADD COLUMN `shipping_extra_days` INT UNSIGNED NULL AFTER `tax`;
 - Database update for customized price rate
   ALTER TABLE `provider_products` ADD COLUMN `price_rate` DOUBLE DEFAULT 1.75 NULL AFTER `information_type`;
+- Database Index
+  ALTER TABLE `size_multiple_attributes` ADD INDEX `attribute` (`product_id`, `qty`, `size_id`, `attribute_id`, `attribute_item_id`), ADD INDEX `attribute_item` (`product_id`, `qty`, `size_id`, `attribute_item_id`);
+  ALTER TABLE `product_attribute_item_datas` ADD INDEX `attribute` (`product_id`, `attribute_id`, `attribute_item_id`), ADD INDEX `attribute_item` (`product_id`, `attribute_item_id`);
+  ALTER TABLE `product_quantity` DROP INDEX `product_id`, ADD KEY `qty` (`product_id`, `qty`);
+  ALTER TABLE `product_size_new` DROP INDEX `product_id`, ADD KEY `size` (`product_id`, `qty`, `size_id`);

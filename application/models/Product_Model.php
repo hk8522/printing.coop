@@ -3007,18 +3007,26 @@ class Product_Model extends MY_Model
      */
     public function getSumExtraPriceOfSingleAttributes($product_id, $attributes)
     {
+        if (empty($attributes))
+            return 0;
+        $attribute_items = [];
+        foreach ($attributes as $attribute) {
+            $attribute_items[] = $attribute[1];
+        }
+
         $this->db->select('SUM(extra_price)');
         $this->db->from('product_attribute_item_datas');
         $this->db->where('product_id', $product_id);
-        if (count($attributes) > 0) {
-            $this->db->group_start();
-            foreach ($attributes as $attribute) {
-                $attribute_id = $attribute[0];
-                $attribute_item_id = $attribute[1];
-                $this->db->or_where("(`attribute_id` = '$attribute_id' AND `attribute_item_id` = '$attribute_item_id')");
-            }
-            $this->db->group_end();
-        }
+        $this->db->where_in('attribute_item_id', $attribute_items);
+        // if (count($attributes) > 0) {
+        //     $this->db->group_start();
+        //     foreach ($attributes as $attribute) {
+        //         $attribute_id = $attribute[0];
+        //         $attribute_item_id = $attribute[1];
+        //         $this->db->or_where("(`attribute_id` = '$attribute_id' AND `attribute_item_id` = '$attribute_item_id')");
+        //     }
+        //     $this->db->group_end();
+        // }
         $result = $this->db->get()->result_array();
         if (!$result) {
             return 0;
@@ -3058,20 +3066,28 @@ class Product_Model extends MY_Model
 
     public function getSumExtraPriceOfMultipleAttributes($product_id, $quantity_id, $size_id, $multiple_attributes)
     {
+        if (empty($multiple_attributes))
+            return 0;
+        $attribute_items = [];
+        foreach ($multiple_attributes as $attribute) {
+            $attribute_items[] = $attribute[1];
+        }
+
         $this->db->select('SUM(extra_price)');
         $this->db->from('size_multiple_attributes');
         $this->db->where('product_id', $product_id);
         $this->db->where('qty', $quantity_id);
         $this->db->where('size_id', $size_id);
-        if (count($multiple_attributes) > 0) {
-            $this->db->group_start();
-            foreach ($multiple_attributes as $attribute) {
-                $attribute_id = $attribute[0];
-                $attribute_item_id = $attribute[1];
-                $this->db->or_where("(`attribute_id` = '$attribute_id' AND `attribute_item_id` = '$attribute_item_id')");
-            }
-            $this->db->group_end();
-        }
+        $this->db->where_in('attribute_item_id', $attribute_items);
+        // if (count($multiple_attributes) > 0) {
+        //     $this->db->group_start();
+        //     foreach ($multiple_attributes as $attribute) {
+        //         $attribute_id = $attribute[0];
+        //         $attribute_item_id = $attribute[1];
+        //         $this->db->or_where("(`attribute_id` = '$attribute_id' AND `attribute_item_id` = '$attribute_item_id')");
+        //     }
+        //     $this->db->group_end();
+        // }
         $result = $this->db->get()->result_array();
         if (!$result) {
             return 0;
