@@ -29,8 +29,9 @@
                                                     <div class="controls small-controls">
                                                         <div class="attribute-info-inner">
                                                             <div class="all-vol-btn">
-                                                                <button type="button" onclick="addQuantity('')"><i
-                                                                        class="fa fa-plus"></i>Add Quantity</button>
+                                                                <button type="button" onclick="addQuantity('')">
+                                                                    <i class="fa fa-plus"></i> Add Quantity
+                                                                </button>
                                                             </div>
                                                         </div>
 
@@ -65,13 +66,10 @@
                                                                             </div>
                                                                             <div class="col-3 col-md-2">
                                                                                 <div class="attribute-inner action-btns">
-                                                                                    <button class="btn btn-success"
-                                                                                        type="button"
-                                                                                        onclick="addQuantity('<?= $id?>')"><i
-                                                                                            class="far fa-edit fa-lg"></i></button>&nbsp;
-                                                                                    <button class="btn btn-danger"
-                                                                                        type="button"
-                                                                                        onclick="deleteQuantity('<?= $id?>')">
+                                                                                    <button class="btn btn-success" type="button" onclick="addQuantity('<?= $id?>')">
+                                                                                        <i class="far fa-edit fa-lg"></i>
+                                                                                    </button>&nbsp;
+                                                                                    <button class="btn btn-danger" type="button" onclick="deleteQuantity('<?= $id?>')">
                                                                                         <i class="fa fa-trash fa-lg"></i>
                                                                                     </button>
                                                                                 </div>
@@ -95,8 +93,9 @@
                                                     <div class="controls small-controls">
                                                         <div class="attribute-info-inner">
                                                             <div class="all-vol-btn">
-                                                                <button type="button" onclick="addSize('')"><i
-                                                                        class="fa fa-plus"></i>Add Size</button>
+                                                                <button type="button" onclick="addSize('')">
+                                                                <i class="fa fa-plus"></i> Add Size
+                                                            </button>
                                                             </div>
                                                         </div>
 
@@ -130,14 +129,12 @@
                                                                             </div>
                                                                             <div class="col-3 col-md-2">
                                                                                 <div class="attribute-inner action-btns">
-                                                                                    <button class="btn btn-success"
-                                                                                        type="button"
-                                                                                        onclick="addSize('<?= $id?>')"><i
-                                                                                            class="far fa-edit fa-lg"></i></button>&nbsp;
-                                                                                    <button class="btn btn-danger"
-                                                                                        type="button"
-                                                                                        onclick="deleteSize('<?= $id?>')"><i
-                                                                                            class="fa fa-trash fa-lg"></i></button>
+                                                                                    <button class="btn btn-success" type="button" onclick="addSize('<?= $id?>')">
+                                                                                        <i class="far fa-edit fa-lg"></i>
+                                                                                    </button>&nbsp;
+                                                                                    <button class="btn btn-danger" type="button" onclick="deleteSize('<?= $id?>')">
+                                                                                        <i class="fa fa-trash fa-lg"></i>
+                                                                                    </button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -159,8 +156,9 @@
                                                     <div class="controls small-controls">
                                                         <div class="attribute-info-inner">
                                                             <div class="all-vol-btn">
-                                                                <button type="button" onclick="addAttribute('')"><i
-                                                                        class="fa fa-plus"></i>Add Attributes</button>
+                                                                <button type="button" onclick="addAttribute('')">
+                                                                    <i class="fa fa-plus"></i> Add Attributes
+                                                                </button>
                                                             </div>
                                                         </div>
 
@@ -191,14 +189,12 @@
                                                                                             <?= $attribute['name']?>
                                                                                             Item</button>
                                                                                     </div>&nbsp;
-                                                                                    <button class="btn btn-success"
-                                                                                        type="button"
-                                                                                        onclick="addAttribute('<?= $attribute_id?>')"><i
-                                                                                            class="far fa-edit fa-lg"></i></button>&nbsp;
-                                                                                    <button class="btn btn-danger"
-                                                                                        type="button"
-                                                                                        onclick="deleteAttribute('<?= $attribute_id?>')"><i
-                                                                                            class="fa fa-trash fa-lg"></i></button>
+                                                                                    <button class="btn btn-success" type="button" onclick="addAttribute('<?= $attribute_id?>')">
+                                                                                        <i class="far fa-edit fa-lg"></i>
+                                                                                    </button>&nbsp;
+                                                                                    <button class="btn btn-danger" type="button" onclick="deleteAttribute('<?= $attribute_id?>')">
+                                                                                        <i class="fa fa-trash fa-lg"></i>
+                                                                                    </button>
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -308,15 +304,11 @@
                                                 <div class="col-md-3">
                                                     <div class="controls small-controls">
                                                         <div class="single-for-verify">
-                                                            <input id="upload-attributes" type="file" class="hidden"
-                                                                name="fileUpload"
-                                                                onchange="uploadAttributes(this.files[0])" />
-                                                            <label for="upload-attributes" id="file-drag"
-                                                                style="width: 100%;background-color: #367fa9;">
-                                                                <span id="upload-attributes-btn"
-                                                                    class="btn btn-primary">Attributes Excel <i
-                                                                        class="fa fa-upload"
-                                                                        aria-hidden="true"></i></span>
+                                                            <input id="upload-attributes" type="file" class="hidden" name="fileUpload" onchange="uploadAttributes(this.files[0])" />
+                                                            <label for="upload-attributes" id="file-drag" style="width: 100%;background-color: #367fa9;">
+                                                                <span id="upload-attributes-btn" class="btn btn-primary">
+                                                                    Attributes Excel <i class="fa fa-upload" aria-hidden="true"></i>
+                                                                </span>
                                                             </label>
                                                         </div>
                                                     </div>
@@ -324,15 +316,12 @@
                                                 <div class="col-md-3">
                                                     <div class="controls small-controls">
                                                         <div class="single-for-verify">
-                                                            <input id="upload-full-pricelist" type="file" class="hidden"
-                                                                name="fileUpload"
-                                                                onchange="uploadFullPriceList(this.files[0])" />
-                                                            <label for="upload-full-pricelist" id="file-drag"
-                                                                style="width: 100%;background-color: #367fa9;">
-                                                                <span id="upload-full-pricelist-btn"
-                                                                    class="btn btn-primary">Full Price List Excel <i
-                                                                        class="fa fa-upload"
-                                                                        aria-hidden="true"></i></span>
+                                                            <input id="upload-full-pricelist" type="file" class="hidden" name="fileUpload" onchange="uploadFullPriceList(this.files[0])" />
+                                                            <label for="upload-full-pricelist" id="file-drag" style="width: 100%;background-color: #367fa9;">
+                                                                <span id="upload-full-pricelist-btn" class="btn btn-primary">
+                                                                    Full Price List Excel
+                                                                    <i class="fa fa-upload" aria-hidden="true"></i>
+                                                                </span>
                                                             </label>
                                                         </div>
                                                     </div>

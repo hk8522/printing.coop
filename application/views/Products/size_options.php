@@ -49,8 +49,10 @@ foreach ($AtirbuteProductSizes as $mkey => $mval) {
     }
 ?>
 <div class="single-review">
-    <label><?= $language_name == 'French' ? $mval['attributes_name_french'] : $mval['attribute_name']?><span
-            class="required">*</span></label>
+    <label>
+        <?= $language_name == 'French' ? $mval['attributes_name_french'] : $mval['attribute_name']?>
+        <span class="required">*</span>
+    </label>
     <select name="multiple_attribute_<?= $mkey?>" required id="product_size_option_<?= $j?>" required <?= $disabled?>
         onchange="<?= $onchange?>" class="multipal_size multipal_size_item">
         <?= $options?>

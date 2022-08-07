@@ -12,8 +12,10 @@
     </div> -->
 </div>
 <div class="product-pagination">
-    <span><a href="<?= $BASE_URL ?>">Home</a> > <a
-            href="javascript:void(0)"><?= $page_title ?></a></span>
+    <span>
+        <a href="<?= $BASE_URL ?>">Home</a> >
+        <a href="javascript:void(0)"><?= $page_title ?></a>
+    </span>
 </div>
 <div class="container-fluid checkout-main-section">
     <div class="container p-0">

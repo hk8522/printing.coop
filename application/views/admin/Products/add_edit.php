@@ -284,16 +284,13 @@
                                                                     }
                                                                     ?>
                                                                     <div class="add-new-btn">
-
-                                                                        <button class="btn-danger dbtn-remove" type="button"
-                                                                            style="display:<?= $displayminusbtn ?>"><i
-                                                                                class="fa fa-minus"></i></button>
-
-                                                                        <button class="btn-success dbtn-add" type="button"
-                                                                            style="display:<?= $displayplusnbtn ?>"><i
-                                                                                class="fa fa-plus"></i>
+                                                                        <button class="btn-danger dbtn-remove" type="button" style="display:<?= $displayminusbtn ?>">
+                                                                            <i class="fa fa-minus"></i>
                                                                         </button>
 
+                                                                        <button class="btn-success dbtn-add" type="button" style="display:<?= $displayplusnbtn ?>">
+                                                                            <i class="fa fa-plus"></i>
+                                                                        </button>
                                                                     </div>
                                                                     <label>Description Title</label>
                                                                     <input type="text" class="form-control"
@@ -386,16 +383,13 @@
                                                                     }
                                                                     ?>
                                                                     <div class="add-new-btn">
-
-                                                                        <button class="btn-danger tdtn-remove" type="button"
-                                                                            style="display:<?= $displayminusbtn ?>"><i
-                                                                                class="fa fa-minus"></i></button>
-
-                                                                        <button class="btn-success tdtn-add" type="button"
-                                                                            style="display:<?= $displayplusnbtn ?>"><i
-                                                                                class="fa fa-plus"></i>
+                                                                        <button class="btn-danger tdtn-remove" type="button" style="display:<?= $displayminusbtn ?>">
+                                                                            <i class="fa fa-minus"></i>
                                                                         </button>
 
+                                                                        <button class="btn-success tdtn-add" type="button" style="display:<?= $displayplusnbtn ?>">
+                                                                            <i class="fa fa-plus"></i>
+                                                                        </button>
                                                                     </div>
 
                                                                     <label>Final Dimensions</label>
@@ -424,13 +418,13 @@
                                                                     <?php if ($val['template_file']) {
                                                                         $link = $BASE_URL . "admin/Orders/download/" . urlencode(TEMPLATE_FILE_BASE_PATH . $val['template_file']) . "/" . urlencode($val['template_file']);
                                                                         ?>
-                                                                        <label class="file_name">File Name:<?= $val['template_file'] ?><a
-                                                                                href="<?= $link ?>">
-                                                                                <i class="fa fa-download"
-                                                                                    aria-hidden="true"></i></a></label>
+                                                                        <label class="file_name">File Name:<?= $val['template_file'] ?>
+                                                                            <a href="<?= $link ?>">
+                                                                                <i class="fa fa-download" aria-hidden="true"></i>
+                                                                            </a>
+                                                                        </label>
                                                                     <?php } ?><br>
-                                                                    <input class="btn btn-primary" name="template_file[]"
-                                                                        type="file"
+                                                                    <input class="btn btn-primary" name="template_file[]" type="file"
                                                                         style="background-color:#3c8dbc !important;" />
                                                                 </div>
                                                             </div>
@@ -440,15 +434,13 @@
                                                         <div class="controls description-class tmds">
                                                             <div class="description-single">
                                                                 <div class="add-new-btn">
-
-                                                                    <button class="btn-danger tdtn-remove" type="button"
-                                                                        style="display:none"><i
-                                                                            class="fa fa-minus"></i></button>
-
-                                                                    <button class="btn-success tdtn-add" type="button"><i
-                                                                            class="fa fa-plus"></i>
+                                                                    <button class="btn-danger tdtn-remove" type="button" style="display:none">
+                                                                        <i class="fa fa-minus"></i>
                                                                     </button>
 
+                                                                    <button class="btn-success tdtn-add" type="button">
+                                                                        <i class="fa fa-plus"></i>
+                                                                    </button>
                                                                 </div>
                                                                 <label>Final Dimensions</label>
                                                                 <input type="text" class="form-control"
@@ -1951,10 +1943,10 @@
                                                             &nbsp;&nbsp;
                                                             <span class="input-group-btn">
 
-                                                                <button class="btn btn-danger btn-remove" type="button"
-                                                                    style="display:none"><span
-                                                                        class="fa fa-minus"></span></button> <button
-                                                                    class="btn btn-success btn-add" type="button">
+                                                                <button class="btn btn-danger btn-remove" type="button" style="display:none">
+                                                                    <span class="fa fa-minus"></span>
+                                                                </button>
+                                                                <button class="btn btn-success btn-add" type="button">
                                                                     <span class="fa fa-plus"></span>
                                                                 </button>
                                                             </span>

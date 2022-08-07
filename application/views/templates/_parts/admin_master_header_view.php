@@ -144,8 +144,7 @@
                                         $url_prem = isset($url_prem['2']) ? $url_prem['2'] : '';
                                         if ($show_menu && in_array($skey, $AdminSubModule)) {
                                             ?>
-                                            <li
-                                                class="<?=$CLASS_NAME == $class && $METHOD_NAME == $action && $PARAMETER_NAME == $url_prem ? 'active' : ''?>">
+                                            <li class="<?=$CLASS_NAME == $class && $METHOD_NAME == $action && $PARAMETER_NAME == $url_prem ? 'active' : ''?>">
                                                 <a href="<?=$BASE_URL_ADMIN . $url?>">
                                                     <i class="<?=$sub_module_class?>"></i><?=$sub_module_name?>
                                                 </a>

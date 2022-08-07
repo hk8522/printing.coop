@@ -146,8 +146,9 @@
                                                     <div class="controls small-controls">
                                                         <div class="attribute-info-inner">
                                                             <div class="all-vol-btn">
-                                                                <button type="button" onclick="addQuantity('')"><i
-                                                                        class="fa fa-plus"></i> Add Quantity</button>
+                                                                <button type="button" onclick="addQuantity('')">
+                                                                <i class="fa fa-plus"></i> Add Quantity
+                                                            </button>
                                                             </div>
                                                         </div>
 
@@ -183,13 +184,12 @@
                                                                         </div>
                                                                         <div class="col-3 col-md-2">
                                                                             <div class="attribute-inner action-btns">
-                                                                                <button class="btn btn-success"
-                                                                                    type="button"
-                                                                                    onclick="addQuantity('<?= $key ?>')"><i
-                                                                                        class="far fa-edit fa-lg"></i></button>&nbsp;
-                                                                                <button class="btn btn-danger" type="button"
-                                                                                    onclick="deleteQuantity('<?= $key ?>')"><i
-                                                                                        class="fa fa-trash fa-lg"></i></button>
+                                                                                <button class="btn btn-success" type="button" onclick="addQuantity('<?= $key ?>')">
+                                                                                    <i class="far fa-edit fa-lg"></i>
+                                                                                </button>&nbsp;
+                                                                                <button class="btn btn-danger" type="button" onclick="deleteQuantity('<?= $key ?>')">
+                                                                                    <i class="fa fa-trash fa-lg"></i>
+                                                                                </button>
                                                                             </div>
                                                                         </div>
                                                                     </div>
@@ -241,14 +241,12 @@
                                                                                             </div>
                                                                                             <div class="col-3 col-md-2">
                                                                                                 <div class="attribute-inner action-btns">
-                                                                                                    <button class="btn btn-success"
-                                                                                                        type="button"
-                                                                                                        onclick="addSize('<?= $key ?>','<?= $skey ?>')"><i
-                                                                                                            class="far fa-edit fa-lg"></i></button>&nbsp;
-                                                                                                    <button class="btn btn-danger"
-                                                                                                        type="button"
-                                                                                                        onclick="deleteProductSize('<?= $key ?>','<?= $skey ?>')"><i
-                                                                                                            class="fa fa-trash fa-lg"></i></button>
+                                                                                                    <button class="btn btn-success" type="button" onclick="addSize('<?= $key ?>','<?= $skey ?>')">
+                                                                                                        <i class="far fa-edit fa-lg"></i>
+                                                                                                    </button>&nbsp;
+                                                                                                    <button class="btn btn-danger" type="button" onclick="deleteProductSize('<?= $key ?>','<?= $skey ?>')">
+                                                                                                        <i class="fa fa-trash fa-lg"></i>
+                                                                                                    </button>
                                                                                                 </div>
                                                                                             </div>
                                                                                         </div>

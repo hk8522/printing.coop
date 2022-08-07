@@ -160,13 +160,13 @@
 
                                                     <div class="add-new-btn">
                                                         <button class="btn-danger sqbtn-remove" type="button"
-                                                            style="display:<?= $displayminusbtn ?>"
-                                                            onclick="RemoveRow($(this))"><span
-                                                                class="fa fa-minus"></span></button>
+                                                            style="display:<?= $displayminusbtn ?>" onclick="RemoveRow($(this))">
+                                                            <span class="fa fa-minus"></span>
+                                                        </button>
                                                         <button class="btn-success sqbtn-add" type="button"
-                                                            onclick="AddRow($(this))"
-                                                            style="display:<?= $displayplusnbtn ?>"><span
-                                                                class="fa fa-plus"></span></button>
+                                                            style="display:<?= $displayplusnbtn ?>" onclick="AddRow($(this))">
+                                                            <span class="fa fa-plus"></span>
+                                                        </button>
                                                     </div>
 
                                                 </div>
@@ -440,12 +440,12 @@
                                             <div class="col-md-12">
                                                 <div class="attribute-info-inner">
                                                     <span class="input-group-btn">
-                                                        <button class="btn btn-danger sqbtn-remove" type="button"
-                                                            style="display:none" onclick="RemoveRow($(this))"><span
-                                                                class="fa fa-minus"></span></button>
-                                                        <button class="btn btn-success sqbtn-add" type="button"
-                                                            onclick="AddRow($(this))"><span
-                                                                class="fa fa-plus"></span></button>
+                                                        <button class="btn btn-danger sqbtn-remove" type="button" style="display:none" onclick="RemoveRow($(this))">
+                                                            <span class="fa fa-minus"></span>
+                                                        </button>
+                                                        <button class="btn btn-success sqbtn-add" type="button" onclick="AddRow($(this))">
+                                                            <span class="fa fa-plus"></span>
+                                                        </button>
                                                     </span>
                                                 </div>
                                             </div>

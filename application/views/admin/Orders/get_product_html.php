@@ -33,28 +33,21 @@ if (isset($_SESSION['product_list'])) {
                                     <span class="product-number"><?= $sn ?></span>
                                     <span><?= $Product['name'] ?></span>
                                     <div class="create-tab-action">
-
                                         <a onClick="closeCart('<?= $product_id_key ?>')" href="javascript:void(0)"
                                             id="close-<?= $product_id_key ?>">
-                                            <span class="custom-close"><i class="fas fa-minus"></i>
-
-                                            </span>
-
+                                            <span class="custom-close"><i class="fas fa-minus"></i></span>
                                         </a>
 
                                         <a onClick="openCart('<?= $product_id_key ?>')" href="javascript:void(0)"
-                                            id="open-<?= $product_id_key ?>" style="display:none"><span
-                                                class="custom-open">
+                                            id="open-<?= $product_id_key ?>" style="display:none">
+                                            <span class="custom-open">
                                                 <i class="fas fa-plus"></i>
-
                                             </span>
-
                                         </a>
 
                                         <a onClick="removeProduct('<?= $product_id_key ?>')" href="javascript:void(0)">
                                             <span><i class="fas fa-trash"></i></span>
                                         </a>
-
                                     </div>
                                 </div>
                             </div>
@@ -180,15 +173,15 @@ if (isset($_SESSION['product_list'])) {
                                                         id="product_width_<?= $product_id_key ?>" required
                                                         value="<?= isset($product_width_length['product_width']) ? $product_width_length['product_width'] : 0 ?>"
                                                         onkeypress="javascript:return isNumber(event)" class="form-control"
-                                                        onchange="getLengthWidthPrice('<?= $product_id_key ?>')"><span
-                                                        style="color:red"
-                                                        id="product_width_error_<?= $product_id_key ?>"><span>
+                                                        onchange="getLengthWidthPrice('<?= $product_id_key ?>')">
+                                                        <span style="color:red" id="product_width_error_<?= $product_id_key ?>"><span>
                                                 </div>
                                             </div>
 
-                                            <label> <?= $Product['min_length'] ?> X <?= $Product['min_width'] ?> Inch
-                                                Price :<span
-                                                    class="required"><?= CURREBCY_SYMBOL . number_format($Product['min_length_min_width_price'], 2) ?></span>
+                                            <label>
+                                                <?= $Product['min_length'] ?> X <?= $Product['min_width'] ?>
+                                                Inch Price:
+                                                <span class="required"><?= CURREBCY_SYMBOL . number_format($Product['min_length_min_width_price'], 2) ?></span>
                                             </label>
                                         <?php } ?>
                                     </div>
@@ -257,8 +250,8 @@ if (isset($_SESSION['product_list'])) {
                                                                         Note</button>
                                                                     <button type="button" title="Delete"
                                                                         onclick="delete_image('<?= $return_arr['skey'] ?>','<?= $return_arr['product_id'] ?>','<?= $return_arr['product_id_key'] ?>')"
-                                                                        id="smd-<?= $return_arr['skey'] ?>"><i
-                                                                            class="fas fa-trash"></i>
+                                                                        id="smd-<?= $return_arr['skey'] ?>">
+                                                                        <i class="fas fa-trash"></i>
                                                                     </button>
                                                                     <input type="hidden"
                                                                         value="<?= $return_arr['location'] ?>"

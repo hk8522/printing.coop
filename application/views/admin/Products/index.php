@@ -26,15 +26,14 @@
                                             <input class="form-control" type="text" placeholder="Search Product"
                                                 onkeyup="searchProduct($(this).val())" id="searchSgedProductTextBox"
                                                 name="searchSgedProductTextBox">
-                                            <!--<button type="button"><i class="fas fa-search"></i></button>-->
+                                            <!--<button type="button"><i class="fa fas fa-search"></i></button>-->
                                         </div>
                                         <div class="search-result" id="searchDiv" style="display:none">
                                             <!-- Add "active" class to show -->
-                                            <a href="javascript:void(0)" onclick="hidesearchDiv()"><i
-                                                    class="fas fa-times"></i></a>
-                                            <ul id="ProductListUl">
-
-                                            </ul>
+                                            <a href="javascript:void(0)" onclick="hidesearchDiv()">
+                                                <i class="fa fas fa-times"></i>
+                                            </a>
+                                            <ul id="ProductListUl"></ul>
                                         </div>
                                     </div>
                                     <!----End Serach Product Html-->
@@ -45,17 +44,14 @@
                                             <div>
                                                 <label class="span2">Order By</label>
                                                 <select class="form-control" onchange="this.form.submit()" name="order">
-                                                    <option value="desc"
-                                                        <?= $order == 'desc' ? 'selected="selected"' : '' ?>>
-                                                        Latest Product</option>
-                                                    <option value="asc"
-                                                        <?= $order == 'asc' ? 'selected="selected"' : '' ?>>
-                                                        Oldest Product</option>
+                                                    <option value="desc" <?= $order == 'desc' ? 'selected="selected"' : '' ?>>Latest Product</option>
+                                                    <option value="asc" <?= $order == 'asc' ? 'selected="selected"' : '' ?>>Oldest Product</option>
                                                 </select>
                                             </div>
                                             <div style="margin-left: 10px;">
-                                                <a href="<?= $BASE_URL . $class_name ?>"><button
-                                                        type="button">Reset</button></a>
+                                                <a href="<?= $BASE_URL . $class_name ?>">
+                                                    <button type="button">Reset</button>
+                                                </a>
                                             </div>
                                         </form>
                                     </div>
@@ -66,10 +62,11 @@
                                             method="post">
                                             <a href="<?= $BASE_URL . $class_name . $sub_page_url ?>"
                                                 style="margin-right: 5px;">
-                                                <button type="button"><i
-                                                        class="fas fa-plus-circle"></i><?= $sub_page_title ?></button>
+                                                <button type="button">
+                                                    <i class="fa fas fa-plus-circle"></i> <?= $sub_page_title ?>
+                                                </button>
                                             </a>
-                                            <button><i class="fas fa-trash fa-lg"></i>Delete All</button>
+                                            <button><i class="fa fas fa-trash fa-lg"></i> Delete All</button>
                                     </div>
                                 </div>
                             </div>
@@ -166,11 +163,11 @@
                                                         <div class="action-btns">
                                                             <a href="<?= $BASE_URL . $class_name . $sub_page_view_url ?>/<?= $list['id'] ?>"
                                                                 style="color:#3c8dbc;padding: 5px;" title="view">
-                                                                <i class="far fa-eye fa-lg"></i>
+                                                                <i class="fa far fa-eye fa-lg"></i>
                                                             </a>
                                                             <a href="<?= $BASE_URL . $class_name . $sub_page_url ?>/<?= $list['id'] ?>"
                                                                 style="color:green;padding: 5px;" title="edit">
-                                                                <i class="far fa-edit fa-lg"></i>
+                                                                <i class="fa far fa-edit fa-lg"></i>
                                                             </a>
 
                                                             <a href="<?= $BASE_URL . $class_name . $sub_page_delete_url ?>/<?= $list['id'] ?>"
@@ -182,11 +179,10 @@
                                                                 style="color:geen;padding: 5px;" title="Set Single Attribute">
                                                                 <button type="button" class="custon-active">Multiple Attribute</button>
                                                             </a>
-                                                            <a href="<?= $BASE_URL . $class_name ?>SetMultipleAttributesAuto/<?= $list['id'] ?>"
+                                                            <!-- <a href="<?= $BASE_URL . $class_name ?>SetMultipleAttributesAuto/<?= $list['id'] ?>"
                                                                 style="color:geen;padding: 5px;" title="Set Single Attribute">
-                                                                <button type="button" class="custon-active">Multiple Attribute
-                                                                    (Automatic)</button>
-                                                            </a>
+                                                                <button type="button" class="custon-active">Multiple Attribute (Automatic)</button>
+                                                            </a> -->
                                                             <a href="<?= $BASE_URL . $class_name ?>SetSingleAttributes/<?= $list['id'] ?>"
                                                                 style="color:#geen;padding: 5px;" title="Set Single Attribute">
                                                                 <button type="button" class="custon-active">Single Attribute</button>
