@@ -17,17 +17,17 @@ class PickupTests extends TestCase{
 
     public function testGetFullAddress(){
         $expectedResult = [
-            "name"=> "FCS",
-            "attn"=> "customer service",
-            "address"=> "148 brunswick boul",
-            "suite"=> "56",
-            "city"=> "Pointe-Claire",
-            "country"=> "CA",
-            "state"=> "QC",
-            "postal_code"=> "H9R5P9",
-            "phone"=> "1234567890",
-            "ext"=> "6789",
-            "is_commercial"=> "1"
+            "name" => "FCS",
+            "attn" => "customer service",
+            "address" => "148 brunswick boul",
+            "suite" => "56",
+            "city" => "Pointe-Claire",
+            "country" => "CA",
+            "state" => "QC",
+            "postal_code" => "H9R5P9",
+            "phone" => "1234567890",
+            "ext" => "6789",
+            "is_commercial" => "1"
         ];
         $this->assertNotEmpty($this->pickup->getFullAddress());
         $this->assertNotNull($this->pickup->getFullAddress());

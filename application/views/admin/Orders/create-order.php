@@ -537,9 +537,9 @@
                                                         <select class="form-control" name="category_id"
                                                             id="category_id">
                                                             <option value="">Select Category</option>
-                                                            <?php foreach ($categoryList as $key => $val) {?>
+                                                            <?php foreach ($categoryList as $key => $val) { ?>
                                                                 <option value="<?= $key?>"><?= $val?></option>
-                                                            <?php }?>
+                                                            <?php } ?>
                                                         </select>
 
                                                     </div>

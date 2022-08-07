@@ -16,9 +16,9 @@
               </div>
               <div class="modal-body">
                 <div class="universal-dark-info">
-                      <?php if($website_store_id==1){?>
+                      <?php if ($website_store_id==1) { ?>
                           <span>
-                            <?php if ($language_name == 'French'){ ?>
+                            <?php if ($language_name == 'French') { ?>
                                 Suite à l'annonce du gouvernement concernant les commerces essentiels et non essentiels, nous prenons le temps de vous aviser que nos services se poursuivent puisque nos activités manufacturières apparaissent sur la liste des services essentiels.
                                 <br>
                                 Nous offrirons un service restreint d'impressions en ligne pour les entreprises qui sont considérées essentielles. Tel que les restaurateurs et les services alimentaires.
@@ -36,7 +36,7 @@
                                 Cordialement,
                                 <br>
                                 L'équipe de imprimeur.coop
-                            <?php }else{ ?>
+                            <?php } else{ ?>
                                 Following the government announcement about essential and non-essential businesses, we're taking this moment to inform you that we will continue our operations since our manufacturing activities are on the essential services list.
                                 <br>
                                 Our online printing service continues to serve businesses that are considered essential such as restaurateurs and food services safely.
@@ -56,11 +56,11 @@
                                 Best regards,
                                 <br>
                                 Printing.coop team
-                            <?php }?>
+                            <?php } ?>
                         </span>
-                      <?php }else if($website_store_id==3){?>
+                      <?php } else if ($website_store_id==3) { ?>
                           <span>
-                            <?php if ($language_name == 'French'){ ?>
+                            <?php if ($language_name == 'French') { ?>
                                 Suite à l'annonce du gouvernement concernant les commerces essentiels et non essentiels, nous prenons le temps de vous aviser que nos services se poursuivent puisque nos activités manufacturières apparaissent sur la liste des services essentiels.
                                 <br>
                                 Nous offrirons un service restreint d'impressions en ligne pour les entreprises qui sont considérées essentielles. Tel que les restaurateurs et les services alimentaires.
@@ -78,7 +78,7 @@
                                 Cordialement,
                                 <br>
                                 L'équipe de imprimeur.coop
-                            <?php }else{ ?>
+                            <?php } else{ ?>
                                 Following the government announcement about essential and non-essential businesses, we're taking this moment to inform you that we will continue our operations since our manufacturing activities are on the essential services list.
                                 <br>
                                 Our online printing service continues to serve businesses that are considered essential such as restaurateurs and food services safely.
@@ -98,11 +98,11 @@
                                 Best regards,
                                 <br>
                                 Printing.coop team
-                            <?php }?>
+                            <?php } ?>
                         </span>
-                      <?php }else if($website_store_id==5){?>
+                      <?php } else if ($website_store_id==5) { ?>
                         <span>
-                            <?php if ($language_name == 'French'){ ?>
+                            <?php if ($language_name == 'French') { ?>
                                 Suite à l'annonce du gouvernement concernant les commerces essentiels et non essentiels, nous prenons le temps de vous aviser que nos services se poursuivent puisque nos activités manufacturières apparaissent sur la liste des services essentiels.
                                 <br>
                                 Nous offrirons un service restreint d'impressions en ligne pour les entreprises qui sont considérées essentielles. Tel que les restaurateurs et les services alimentaires.
@@ -120,7 +120,7 @@
                                 Cordialement,
                                 <br>
                                 L'équipe de imprimeur.coop
-                            <?php }else{ ?>
+                            <?php } else{ ?>
                                 Following the government announcement about essential and non-essential businesses, we're taking this moment to inform you that we will continue our operations since our manufacturing activities are on the essential services list.
                                 <br>
                                 Our online printing service continues to serve businesses that are considered essential such as restaurateurs and food services safely.
@@ -140,9 +140,9 @@
                                 Best regards,
                                 <br>
                                 Printing.coop team
-                            <?php }?>
+                            <?php } ?>
                         </span>
-                    <?php }?>
+                    <?php } ?>
                 </div>
               </div>
         </div>

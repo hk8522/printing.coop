@@ -13,7 +13,7 @@
                             <div class="col-md-12 col-lg-6 col-xl-4">
                                 <div class="single-blog-box">
                                     <div class="single-blog-area">
-                                        <div class="single-blog-img" style="background-image: url(<?php echo $BASE_URL?>assets/images/difference-between-offset-digital-printing.jpg"></div>
+                                        <div class="single-blog-img" style="background-image: url(<?= $BASE_URL ?>assets/images/difference-between-offset-digital-printing.jpg"></div>
                                         <div class="single-blog-box-inner">
                                             <div class="single-blog-category">
                                                 <a href="/Blogs/online_printing_service"><span>Online Printing Service</span></a>
@@ -38,7 +38,7 @@
                             <div class="col-md-12 col-lg-6 col-xl-4">
                                 <div class="single-blog-box">
                                     <div class="single-blog-area">
-                                        <div class="single-blog-img" style="background-image: url(<?php echo $BASE_URL?>assets/images/sites-para-estudar-de-casa.jpg"></div>
+                                        <div class="single-blog-img" style="background-image: url(<?= $BASE_URL ?>assets/images/sites-para-estudar-de-casa.jpg"></div>
                                         <div class="single-blog-box-inner">
                                             <div class="single-blog-category">
                                                 <a href="/Blogs/online_printing_service"><span>Online Printing Service</span></a>
@@ -63,7 +63,7 @@
                             <div class="col-md-12 col-lg-6 col-xl-4">
                                 <div class="single-blog-box">
                                     <div class="single-blog-area">
-                                        <div class="single-blog-img" style="background-image: url(<?php echo $BASE_URL?>assets/images/applications-hero-1200x320_0.jpg"></div>
+                                        <div class="single-blog-img" style="background-image: url(<?= $BASE_URL ?>assets/images/applications-hero-1200x320_0.jpg"></div>
                                         <div class="single-blog-box-inner">
                                             <div class="single-blog-category">
                                                 <a href="/Blogs/digital_printing"><span>Digital Printing</span></a>
@@ -87,7 +87,7 @@
                             <div class="col-md-12 col-lg-6 col-xl-4">
                                 <div class="single-blog-box">
                                     <div class="single-blog-area">
-                                        <div class="single-blog-img" style="background-image: url(<?php echo $BASE_URL?>assets/images/online_printing.png"></div>
+                                        <div class="single-blog-img" style="background-image: url(<?= $BASE_URL ?>assets/images/online_printing.png"></div>
                                         <div class="single-blog-box-inner">
                                             <div class="single-blog-category">
                                                 <a href="/Blogs/online_printing_service"><span>Online Printing Service</span></a>
@@ -111,7 +111,7 @@
                             <div class="col-md-12 col-lg-6 col-xl-4">
                                 <div class="single-blog-box">
                                     <div class="single-blog-area">
-                                        <div class="single-blog-img" style="background-image: url(<?php echo $BASE_URL?>assets/images/business_card.png"></div>
+                                        <div class="single-blog-img" style="background-image: url(<?= $BASE_URL ?>assets/images/business_card.png"></div>
                                         <div class="single-blog-box-inner">
                                             <div class="single-blog-category">
                                                 <a href="/Blogs/business_cards"><span>Business Cards</span></a>

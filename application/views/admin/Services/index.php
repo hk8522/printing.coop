@@ -5,22 +5,22 @@
                 <div class="box">
                     <div class="box-body">
                         <div class="text-center" style="color:red">
-                            <?php echo $this->session->flashdata('message_error');?>
+                            <?= $this->session->flashdata('message_error') ?>
                         </div>
                         <div class="text-center" style="color:green">
-                            <?php echo $this->session->flashdata('message_success');?>
+                            <?= $this->session->flashdata('message_success') ?>
                         </div>
                         <div class="inner-head-section">
                             <div class="row">
                                 <div class="col-md-6 col-xs-12 text-left">
                                     <div class="inner-title">
-                                        <span><?php echo ucfirst($page_title).' List'; ?></span>
+                                        <span><?= ucfirst($page_title).' List' ?></span>
                                     </div>
                                 </div>
                                 <div class="col-md-6 col-xs-12 text-right">
                                     <div class="all-vol-btn">
-                                        <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>"><button>
-                                        <i class="fas fa-plus-circle"></i><?php echo $sub_page_title ?></button>
+                                        <a href="<?= $BASE_URL.$class_name.$sub_page_url ?>"><button>
+                                        <i class="fas fa-plus-circle"></i><?= $sub_page_title ?></button>
                                         </a>
                                     </div>
                                 </div>
@@ -42,52 +42,52 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                            if ($services){
-                                                foreach($services as $key=>$service){
+                                            if ($services) {
+                                                foreach ($services as $key => $service) {
                                                     //pr($service);
                                                 ?>
                                         <tr>
                                             <td>
                                               <?php $imageurl=getBannerImage($service['service_image'],'small');?>
-                                              <img src="<?php echo $imageurl?>" width="auto" height="80">
+                                              <img src="<?= $imageurl ?>" width="auto" height="80">
                                              </td>
-                                            <td><?php echo ucfirst($service['name']);?></td>
-                                            <td><?php echo $MainStoreList[$service['main_store_id']]?></td>
+                                            <td><?= ucfirst($service['name']) ?></td>
+                                            <td><?= $MainStoreList[$service['main_store_id']] ?></td>
                                             <td>
-                                                <?php echo dateFormate($service['created']);?>
+                                                <?= dateFormate($service['created']) ?>
                                             </td>
                                             <td>
-                                                <?php echo dateFormate($service['updated']);?>
+                                                <?= dateFormate($service['updated']) ?>
                                             </td>
                                             <td>
-                                                <?php if($service['status']==1){?>
-                                                <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $service['id']?>/0">
+                                                <?php if ($service['status']==1) { ?>
+                                                <a href="<?= $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?= $service['id'] ?>/0">
                                                 <button type="submit" class="custon-active">Active
                                                 </button>
                                                 </a>
                                                 <?php
-                                                    }else{?>
-                                                <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $service['id']?>/1">
+                                                    } else{ ?>
+                                                <a href="<?= $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?= $service['id'] ?>/1">
                                                 <button type="submit" class="custon-delete">Inactive
                                                 </button>
                                                 </a>
                                                 <?php
-                                                    }?>
+                                                   } ?>
                                             </td>
                                             <td>
-                                                <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $service['id'];?>" style="color:green" title="edit">
+                                                <a href="<?= $BASE_URL.$class_name.$sub_page_url?>/<?= $service['id'] ?>" style="color:green" title="edit">
                                                 <i class="far fa-edit fa-lg"></i>
                                                 </a>
                                             </td>
                                         </tr>
                                         <?php
                                             }
-                                            }else{?>
+                                            } else{ ?>
                                         <tr>
                                             <td colspan="7" class="text-center">List Empty.</td>
                                         </tr>
                                         <?php
-                                            }?>
+                                           } ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -100,7 +100,7 @@
 </div>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $('#example1').DataTable({
             "order": [[ 2, "asc" ]]
         });

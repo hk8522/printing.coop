@@ -1,3 +1,3 @@
-<?php echo $before_body;?>
+<?= $before_body ?>
     </body>
 </html>

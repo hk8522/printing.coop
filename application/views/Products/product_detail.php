@@ -11,7 +11,7 @@
     <input type="hidden" name="depth_width_length_quantity_show"
         value="<?= $Product['depth_width_length_quantity_show']?>">
 
-    <?php if ($Product['add_length_width'] == 1) {?>
+    <?php if ($Product['add_length_width'] == 1) { ?>
         <div class="single-review">
             <label><?= $language_name == 'French' ? 'Longueur (pouces)' : 'Length (Inch)'?><span
                     class="required">*</span></label>
@@ -26,7 +26,7 @@
             <input type="text" name="product_width" id="product_width" required value="0"
                 onkeypress="javascript:return isNumber(event)"><span style="color:red" id="product_width_error"></span>
         </div>
-        <?php if ($Product['length_width_color_show'] == 1) {?>
+        <?php if ($Product['length_width_color_show'] == 1) { ?>
             <div class="single-review">
                 <label><?= $language_name == 'French' ? 'Couleurs' : 'Colors'?><span class="required">*</span></label>
                 <select name="length_width_color" id="length_width_color" required>
@@ -36,37 +36,37 @@
                 </select>
                 <!-- <span> -->
             </div>
-        <?php }?>
+        <?php } ?>
 
-        <?php if ($Product['length_width_quantity_show'] == 1) {?>
+        <?php if ($Product['length_width_quantity_show'] == 1) { ?>
             <div class="single-review">
                 <label><?= $language_name == 'French' ? 'Quantité' : 'Quantity'?><span class="required">*</span></label>
-                <?php if ($Product['length_width_pages_type'] == 'input') {?>
+                <?php if ($Product['length_width_pages_type'] == 'input') { ?>
                     <input type="number" name="product_total_page" id="product_total_page" required
                         onkeypress="javascript:return isNumber(event)" value="<?= $Product['length_width_min_quantity']?>"
                         onkeypress="javascript:return isNumber(event)">
-                <?php } else {?>
+                <?php } else{ ?>
                     <select name="product_total_page" required id="product_total_page">
                         <option value="">
                             <?= $language_name == 'French' ? 'Sélectionnez la quantité' : 'Select Quantity'?>
                         </option>
-                        <?php foreach($pageQuantity as $Quantity) {?>
+                        <?php foreach ($pageQuantity as $Quantity) { ?>
                         <option value="<?= $Quantity['name']?>">
                             <?= $language_name == 'French' ? $Quantity['name_french'] : $Quantity['name']?>
                         </option>
-                        <?php }?>
+                        <?php } ?>
                     </select>
-                <?php }?>
+                <?php } ?>
                 <span style="color:red" id="product_total_page_error"></span>
             </div>
-        <?php }?>
-    <?php }?>
+        <?php } ?>
+    <?php } ?>
 
-    <?php if ($Product['page_add_length_width'] == 1) {?>
+    <?php if ($Product['page_add_length_width'] == 1) { ?>
         <div class="single-review">
             <label><?= $language_name == 'French' ? 'Longueur (pouces)' : 'Length (Inch)'?><span
                     class="required">*</span></label>
-            <input type="text" name="page_product_length" id="page_product_length" required value="0"
+            <input type="text" name="page_product_length" id="page_product_length" required value=""
                 onkeypress="javascript:return isNumber(event)">
             <span style="color:red" id="page_product_length_error"></span>
         </div>
@@ -74,10 +74,10 @@
         <div class="single-review">
             <label><?= $language_name == 'French' ? 'Largeur (pouces)' : 'Width (Inch)'?><span
                     class="required">*</span></label>
-            <input type="text" name="page_product_width" id="page_product_width" required value="0"
+            <input type="text" name="page_product_width" id="page_product_width" required value=""
                 onkeypress="javascript:return isNumber(event)"><span style="color:red" id="page_product_width_error"></span>
         </div>
-        <?php if ($Product['page_length_width_color_show'] == 1) {?>
+        <?php if ($Product['page_length_width_color_show'] == 1) { ?>
             <div class="single-review">
                 <label><?= $language_name == 'French' ? 'Couleurs' : 'Colors'?><span class="required">*</span></label>
                 <select name="page_length_width_color" required id="page_length_width_color">
@@ -87,69 +87,69 @@
                 </select>
                 <span>
             </div>
-        <?php }?>
+        <?php } ?>
 
-        <?php if ($Product['page_length_width_pages_show'] == 1) {?>
+        <?php if ($Product['page_length_width_pages_show'] == 1) { ?>
             <div class="single-review">
                 <label><?= $language_name == 'French' ? 'Des pages' : 'Pages'?><span class="required">*</span></label>
-                <?php if ($Product['length_width_pages_type']=='input') {?>
+                <?php if ($Product['length_width_pages_type']=='input') { ?>
                     <input type="text" name="page_product_total_page" id="page_product_total_page" required value="1"
                         onkeypress="javascript:return isNumber(event)">
-                <?php } else {?>
+                <?php } else{ ?>
                     <select name="page_product_total_page" required id="page_product_total_page">
                         <option value=""><?= $language_name == 'French' ? 'Sélectionner des pages' : 'Select Pages'?></option>
-                        <?php foreach($ProductPages as $Pages) {?>
+                        <?php foreach ($ProductPages as $Pages) { ?>
                         <option value="<?= $Pages['total_page'].'-'.$Pages['name']?>-<?= $Pages['name_french']?>">
                             <?= $language_name == 'French' ? $Pages['name_french'] : $Pages['name']?>
                         </option>
-                        <?php }?>
+                        <?php } ?>
                     </select>
-                <?php }?>
+                <?php } ?>
                 <span style="color:red" id="page_product_total_page_error"></span>
             </div>
-        <?php }?>
+        <?php } ?>
 
-        <?php if ($Product['page_length_width_sheets_show'] == 1) {?>
+        <?php if ($Product['page_length_width_sheets_show'] == 1) { ?>
             <div class="single-review">
                 <label><?= $language_name == 'French' ? 'Feuille par bloc' : 'Sheet Per Pad'?><span
                         class="required">*</span></label>
-                <?php if ($Product['page_length_width_sheets_type'] == 'input') {?>
+                <?php if ($Product['page_length_width_sheets_type'] == 'input') { ?>
                     <input type="text" name="page_product_total_sheets" id="page_product_total_sheets" required value="1"
                         onkeypress="javascript:return isNumber(event)">
-                <?php } else {?>
+                <?php } else{ ?>
                     <select name="page_product_total_sheets" required id="page_product_total_sheets">
                         <option value="">
                             <?= $language_name == 'French' ? 'Sélectionner une feuille par bloc' : 'Select Sheet per pad'?></option>
-                        <?php foreach($ProductSheets as $Sheets) {?>
+                        <?php foreach ($ProductSheets as $Sheets) { ?>
                         <option value="<?= $Sheets['name']?>">
                             <?= $language_name == 'French' ? $Sheets['name_french'] : $Sheets['name']?></option>
-                        <?php }?>
+                        <?php } ?>
                     </select>
-                <?php }?>
+                <?php } ?>
                 <span style="color:red" id="page_product_total_sheets_error"></span>
             </div>
-        <?php }?>
-        <?php if ($Product['page_length_width_quantity_show'] == 1) {?>
+        <?php } ?>
+        <?php if ($Product['page_length_width_quantity_show'] == 1) { ?>
             <div class="single-review">
                 <label><?= $language_name == 'French' ? 'Quantité' : 'Quantity'?><span class="required">*</span></label>
-                <?php if ($Product['page_length_width_quantity_type'] == 'input') {?>
+                <?php if ($Product['page_length_width_quantity_type'] == 'input') { ?>
                     <input type="text" name="page_product_total_quantity" id="page_product_total_quantity" required
-                        onkeypress="javascript:return isNumber(event)" value="0">
+                        onkeypress="javascript:return isNumber(event)" value="">
                 <?php } else { ?>
                     <select name="page_product_total_quantity" required id="page_product_total_quantity">
                         <option value=""><?= $language_name == 'French' ? 'Sélectionnez la quantité' : 'Select Quantity'?></option>
-                        <?php foreach($pageQuantity as $Quantity) {?>
+                        <?php foreach ($pageQuantity as $Quantity) { ?>
                         <option value="<?= $Quantity['name']?>">
                             <?= $language_name == 'French' ? $Quantity['name_french'] : $Quantity['name']?></option>
-                        <?php }?>
+                        <?php } ?>
                     </select>
-                <?php }?>
+                <?php } ?>
                 <span style="color:red" id="page_product_total_quantity_error"></span>
             </div>
-        <?php }?>
-    <?php }?>
+        <?php } ?>
+    <?php } ?>
 
-    <?php if ($Product['depth_add_length_width'] == 1) {?>
+    <?php if ($Product['depth_add_length_width'] == 1) { ?>
         <div class="single-review">
             <label><?= $language_name == 'French' ? 'Longueur (pouces)' : 'Length (Inch)'?> <span
                     class="required">*</span></label>
@@ -171,7 +171,7 @@
             <input type="text" name="product_depth" id="product_depth" required value="0"
                 onkeypress="javascript:return isNumber(event)"><span style="color:red" id="product_depth_error"></span>
         </div>
-        <?php if ($Product['depth_color_show'] == 1) {?>
+        <?php if ($Product['depth_color_show'] == 1) { ?>
             <div class="single-review">
                 <label><?= $language_name == 'French' ? 'Couleurs' : 'Colors'?><span class="required">*</span></label>
 
@@ -185,8 +185,8 @@
                 </select>
                 <span>
             </div>
-        <?php }?>
-        <?php if ($Product['depth_width_length_quantity_show'] == 1) {?>
+        <?php } ?>
+        <?php if ($Product['depth_width_length_quantity_show'] == 1) { ?>
             <div class="single-review">
                 <label><?= $language_name == 'French' ? 'Quantité' : 'Quantity'?><span class="required">*</span></label>
                 <?php if ($Product['depth_width_length_type'] == 'input') { ?>
@@ -195,16 +195,16 @@
                 <?php } else { ?>
                 <select name="product_depth_total_page" required id="page_product_total_quantity">
                     <option value=""><?= $language_name == 'French' ? 'Sélectionnez la quantité' : 'Select Quantity'?></option>
-                    <?php foreach($pageQuantity as $Quantity) {?>
+                    <?php foreach ($pageQuantity as $Quantity) { ?>
                     <option value="<?= $Quantity['name']?>">
                         <?= $language_name == 'French' ? $Quantity['name_french'] : $Quantity['name']?></option>
-                    <?php }?>
+                    <?php } ?>
                 </select>
-                <?php }?>
+                <?php } ?>
                 <span style="color:red" id="product_depth_total_page_error"></span>
             </div>
-        <?php }?>
-    <?php }?>
+        <?php } ?>
+    <?php } ?>
     <?php
         $i = 1;
         if (!empty($ProductSizes)) {
@@ -216,31 +216,31 @@
             <select name="product_quantity_id" required id="product_quantity_id" onchange="showQuantity()">
                 <option value=""><?= $language_name == 'French'?'Choisis une option...':'Choose an option...'?></option>
 
-                <?php foreach($ProductSizes as $key => $val) {
+                <?php foreach ($ProductSizes as $key => $val) {
                         $qty_name = '';
                         $qty_extra_price = '';
                         $qty_name = $language_name == 'French' ? $val['qty_name_french'] : $val['qty_name'];
                     ?>
                     <option value='<?= $key?>'><?= $qty_name.$qty_extra_price?></option>
-                <?php }?>
+                <?php } ?>
             </select>
         </div>
 
         <div id="SizeOptions"></div>
-    <?php }?>
+    <?php } ?>
 
-    <?php foreach($ProductAttributes as $key => $val) {
+    <?php foreach ($ProductAttributes as $key => $val) {
         $items = $val['items'];
     ?>
         <div class="single-review">
             <label><?= $language_name == 'French' ? $val['data']['attribute_name_french'] : $val['data']['attribute_name']?><span
                     class="required">*</span></label>
             <?php $items = $val['items'];?>
-            <?php if (!empty($items)) {?>
+            <?php if (!empty($items)) { ?>
                 <select name="attribute_id_<?= $key?>" required <?php if ($i > 1) {echo 'disabled';}?>
-                    onchange="showAttribute(<?= $i?>,'<?= $i + 1?>')" id="attribute_id_<?= $i?>">
-                    <option value=""><?= $language_name == 'French' ? 'Choisis une option...':'Choose an option...'?> </option>
-                    <?php foreach($items as $subkey => $subval) {
+                    onchange="showAttribute(<?= $i?>,'<?= $i +1 ?>')" id="attribute_id_<?= $i?>">
+                    <option value=""><?= $language_name == 'French' ? 'Choisis une option...':'Choose an option...'?></option>
+                    <?php foreach ($items as $subkey => $subval) {
                                 $extra_price = '';
                                 if (!empty($subval['extra_price']) && $subval['extra_price'] !='0.00') {
                                     //$extra_price=" (+ ".$product_price_currency_symbol.$subval['extra_price'].")";
@@ -249,17 +249,17 @@
                     <option value="<?= $subval['attribute_item_id']?>">
                         <?= $language_name == 'French' ? $subval['item_name_french'].$extra_price : $subval['item_name'].$extra_price?>
                     </option>
-                    <?php }?>
+                    <?php } ?>
                 </select>
-            <?php $i++; }?>
+            <?php $i++;} ?>
         </div>
-    <?php }?>
+    <?php } ?>
 
-    <?php if ($Product['recto_verso'] == 1) {?>
+    <?php if ($Product['recto_verso'] == 1) { ?>
         <div class="single-review">
             <label><?= $language_name == 'French' ? 'Recto verso' : 'Recto/Verso'?><span class="required">*</span></label>
             <select name="recto_verso" required id="attribute_id_<?= $i?>" <?php if ($i > 1) {echo 'disabled';}?>
-                onchange="showAttribute(<?= $i?>,'<?= $i + 1?>')">
+                onchange="showAttribute(<?= $i?>,'<?= $i +1 ?>')">
                 <option value=""><?= $language_name == 'French' ? 'Choisis une option...':'Choose an option...'?></option>
                 <option value="Yes"><?= $language_name == 'French' ? 'Oui':'Yes'?></option>
                 <option value="No"><?= $language_name == 'French' ? 'Non':'No'?></option>
@@ -267,16 +267,16 @@
             <!--<span>Recto/verso will add <?= $Product['recto_verso_price']?>% more to the price</span>-->
         </div>
         <input type="hidden" name="recto_verso_price" value="<?= $Product['recto_verso_price']?>">
-    <?php }?>
-    <?php if ($Product['votre_text'] == 1) {?>
+    <?php } ?>
+    <?php if ($Product['votre_text'] == 1) { ?>
         <div class="single-review">
             <label><?= $language_name == 'French' ? 'Votre TEXTE - Votre TEXTE' : 'Your TEXT - Votre TEXT'?><span
                     class="required">*</span></label>
             <input type="text" name="votre_text" id="votre_text" required value="">
         </div>
-    <?php }?>
+    <?php } ?>
 
-    <?php if ($Product['call'] == 1) {?>
+    <?php if ($Product['call'] == 1) { ?>
         <div class="single-review">
             <label><?= $language_name == 'French' ? 'Appel' : 'Call'?><span class="required"></span></label>
             <label>
@@ -284,7 +284,7 @@
                 <span class="required"></span>
             </label>
         </div>
-    <?php }?>
+    <?php } ?>
 </div>
 <script>
     function showAttribute(cid, nid) {
@@ -307,7 +307,9 @@
                 $(".new-price-img").show();
                 if (json.success == 1) {
                     $("#attribute_id_" + nid).attr("disabled", false);
-                    $("#total-price").html(json.price);
+
+                    // $('[name="price"]').val(json.price);
+                    $("#total-price").html((json.price * $("#quantity").val()).toFixed(2));
                 }
             },
             error: function(resp) {
@@ -408,7 +410,9 @@
                 $("#loader-img").hide();
                 $(".new-price-img").show();
                 if (json.success == 1) {
-                    $("#total-price").html(json.price);
+                    // $('[name="price"]').val(json.price);
+                    $("#total-price").html((json.price * $("#quantity").val()).toFixed(2));
+
                     $("#product_width").val(json.product_width);
                     $("#product_length").val(json.product_length);
 
@@ -441,7 +445,8 @@
                 $("#loader-img").hide();
                 $(".new-price-img").show();
                 if (json.success == 1) {
-                    $("#total-price").html(json.price);
+                    // $('[name="price"]').val(json.price);
+                    $("#total-price").html((json.price * $("#quantity").val()).toFixed(2));
 
                     $("#product_depth_width").val(json.product_depth_width);
                     $("#product_depth_length").val(json.product_depth_length);
@@ -480,7 +485,9 @@
                 $(".new-price-img").show();
 
                 if (json.success == 1) {
-                    $("#total-price").html(json.price);
+                    // $('[name="price"]').val(json.price);
+                    $("#total-price").html((json.price * $("#quantity").val()).toFixed(2));
+
                     $("#page_product_width").val(json.page_product_width);
                     $("#page_product_length").val(json.page_product_length);
 

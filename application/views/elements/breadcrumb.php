@@ -4,16 +4,16 @@ if (!in_array($page_title,array('Home','Product Details','Accueil'))) { ?>
     <div class="container">
         <div class="page-title-section-inner universal-half-spacing">
             <div class="inner-breadcrum">
-                <a href="<?php echo $BASE_URL;?>"><?php
-                if($this->language_name == 'French'){
+                <a href="<?= $BASE_URL ?>"><?php
+                if ($this->language_name == 'French') {
                      echo 'Accueil';
-                }else{
+                } else {
                     echo 'Home';
-                }?></a>
+               } ?></a>
                 /
-                <span class="current"><?php echo $page_title ?></span>
+                <span class="current"><?= $page_title ?></span>
             </div>
         </div>
     </div>
 </div>
-<?php }?>
+<?php } ?>

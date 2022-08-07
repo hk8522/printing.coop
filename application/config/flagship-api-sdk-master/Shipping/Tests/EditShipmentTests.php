@@ -87,17 +87,17 @@ class EditShipmentTests extends TestCase{
 
     public function testGetSenderDetails(){
         $expected = [
-            "name"=> "WooComm",
-            "attn"=> "WooComm",
-            "address"=> "148 Boul. Brunswick",
-            "suite"=> null,
-            "department"=> " ",
-            "city"=> "Pointe",
-            "country"=> "CA",
-            "state"=> "QC",
-            "postal_code"=> "H9R 5P9",
-            "phone"=> "5148936016",
-            "phone_ext"=> null
+            "name" => "WooComm",
+            "attn" => "WooComm",
+            "address" => "148 Boul. Brunswick",
+            "suite" => null,
+            "department" => " ",
+            "city" => "Pointe",
+            "country" => "CA",
+            "state" => "QC",
+            "postal_code" => "H9R 5P9",
+            "phone" => "5148936016",
+            "phone_ext" => null
         ];
 
         $this->assertNotEmpty($this->editShipment->getSenderDetails());
@@ -176,18 +176,18 @@ class EditShipmentTests extends TestCase{
 
     public function testGetReceiverDetails(){
         $expected = [
-            "name"=> "Smith Associates",
-            "attn"=> "Adam Smith",
-            "address"=> "691 Williams Avenue",
-            "suite"=> "54",
-            "department"=> " ",
-            "is_commercial"=> false,
-            "city"=> "dorval",
-            "country"=> "CA",
-            "state"=> "QC",
-            "postal_code"=> "Y9S 5K6",
-            "phone"=> "5148915618",
-            "phone_ext"=> "248"
+            "name" => "Smith Associates",
+            "attn" => "Adam Smith",
+            "address" => "691 Williams Avenue",
+            "suite" => "54",
+            "department" => " ",
+            "is_commercial" => false,
+            "city" => "dorval",
+            "country" => "CA",
+            "state" => "QC",
+            "postal_code" => "Y9S 5K6",
+            "phone" => "5148915618",
+            "phone_ext" => "248"
         ];
 
         $this->assertNotEmpty($this->editShipment->getReceiverDetails());

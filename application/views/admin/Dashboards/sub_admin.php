@@ -3,16 +3,16 @@
         <div class="top-home">
             <div class="marque">
                 <marquee>
-                    <i class="fas fa-glass-martini-alt"></i> Welcome to  <?php echo WEBSITE_NAME;?>  admin panel
+                    <i class="fas fa-glass-martini-alt"></i> Welcome to  <?= WEBSITE_NAME ?>  admin panel
 
                 </marquee>
             </div>
         </div>
-        <?php if($this->session->flashdata('url_error')){?>
+        <?php if ($this->session->flashdata('url_error')) { ?>
         <div class="alert alert-danger" role="alert">
-         <?php echo $this->session->flashdata('url_error');?>
+         <?= $this->session->flashdata('url_error') ?>
         </div>
-        <?php }?>
+        <?php } ?>
         <!--<div class="home-small-sections">
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
@@ -22,7 +22,7 @@
                                 <i class="fas fa-twitter"></i>
                             </div>
                             <p class="card-category">All Orders</p>
-                            <h3 class="card-title"><?php echo $totalOrder;?></h3>
+                            <h3 class="card-title"><?= $totalOrder ?></h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -38,7 +38,7 @@
                                 <i class="fas fa-twitter"></i>
                             </div>
                             <p class="card-category">Sales</p>
-                            <h3 class="card-title">$<?php echo number_format($totalSale,2);?></h3>
+                            <h3 class="card-title">$<?= number_format($totalSale,2) ?></h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -54,7 +54,7 @@
                                 <i class="fas fa-twitter"></i>
                             </div>
                             <p class="card-category">Cancelled Orders</p>
-                            <h3 class="card-title"><?php echo $totalCancelOrder?></h3>
+                            <h3 class="card-title"><?= $totalCancelOrder ?></h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -70,7 +70,7 @@
                                 <i class="fas fa-twitter"></i>
                             </div>
                             <p class="card-category">All Users</p>
-                            <h3 class="card-title">+<?php echo $totalUser?></h3>
+                            <h3 class="card-title">+<?= $totalUser ?></h3>
                         </div>
                         <div class="card-footer">
                             <div class="stats">
@@ -104,7 +104,7 @@
                                 <p class="card-category">Unresolved tickets</p>
                             </div>
                             <div class="product-number">
-                                <span><?php echo $totalUnresolvedTicket?></span>
+                                <span><?= $totalUnresolvedTicket ?></span>
                             </div>
                         </div>
                         <div class="card-footer section-divide1">
@@ -112,7 +112,7 @@
                                Till now
                             </div>
                             <div class="view-btn view-green">
-                                <a href="<?php echo $BASE_URL.'admin/Tickets/index/'?>"><button>View</button></a>
+                                <a href="<?= $BASE_URL.'admin/Tickets/index/' ?>"><button>View</button></a>
                             </div>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                                 <p class="card-category">Total Subscribers</p>
                             </div>
                             <div class="product-number">
-                                <span><?php echo $totalSubscribeEmail?></span>
+                                <span><?= $totalSubscribeEmail ?></span>
                             </div>
                         </div>
                         <div class="card-footer section-divide1">
@@ -136,7 +136,7 @@
                                 Till now
                             </div>
                             <div class="view-btn view-yellow">
-                                <a href="<?php echo $BASE_URL_ADMIN ?>Products/subscribeEmail"><button>View</button></a>
+                                <a href="<?= $BASE_URL_ADMIN ?>Products/subscribeEmail"><button>View</button></a>
                             </div>
                         </div>
                     </div>
@@ -152,7 +152,7 @@
                                 <p class="card-category">Total Products</p>
                             </div>
                             <div class="product-number">
-                                <span><?php echo $totalProducts?></span>
+                                <span><?= $totalProducts ?></span>
                             </div>
                         </div>
                         <div class="card-footer section-divide1">
@@ -160,7 +160,7 @@
                                Till now
                             </div>
                             <div class="view-btn view-red">
-                                <a href="<?php echo $BASE_URL_ADMIN ?>Products"><button>View</button></a>
+                                <a href="<?= $BASE_URL_ADMIN ?>Products"><button>View</button></a>
                             </div>
                         </div>
                     </div>
@@ -177,17 +177,17 @@
                                 <div class="nav-tabs-wrapper">
                                     <ul class="nav nav-tabs" data-tabs="tabs">
                                         <li class="nav-item">
-                                            <a class="nav-link active" href="#profile" data-toggle="tab" onclick="getOrdersByStatus('<?php echo base64_encode(2)?>')">
+                                            <a class="nav-link active" href="#profile" data-toggle="tab" onclick="getOrdersByStatus('<?= base64_encode(2) ?>')">
                                                 New Orders
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#messages" data-toggle="tab" onclick="getOrdersByStatus('<?php echo base64_encode(5)?>')">
+                                            <a class="nav-link" href="#messages" data-toggle="tab" onclick="getOrdersByStatus('<?= base64_encode(5) ?>')">
                                                 Delivered Orders
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="#settings" data-toggle="tab" onclick="getOrdersByStatus('<?php echo base64_encode(6)?>')">
+                                            <a class="nav-link" href="#settings" data-toggle="tab" onclick="getOrdersByStatus('<?= base64_encode(6) ?>')">
                                                 Cancelled Orders
                                             </a>
                                         </li>
@@ -218,7 +218,7 @@
                                         </tbody>
                                     </table>
                                     <div class="view-btn view-blue text-right">
-                                       <a href="<?php echo $BASE_URL_ADMIN ?>Orders/index/all"><button>View</button></a>
+                                       <a href="<?= $BASE_URL_ADMIN ?>Orders/index/all"><button>View</button></a>
                                    </div>
                                 </div>
                             </div>
@@ -242,9 +242,9 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    if(!empty($userList)){
+                                    if (!empty($userList)) {
                                     $i=1;
-                                    foreach($userList as $list){?>
+                                    foreach ($userList as $list) { ?>
                                         <tr>
                                             <td><?php echo $i;
                                             $i++;?></td>
@@ -252,20 +252,20 @@
                                             ?></td>
                                             <td><?php echo $list['email'];
                                             ?></td>
-                                            <td><?php echo dateFormate($list['created']);?></td>
+                                            <td><?= dateFormate($list['created']) ?></td>
                                         </tr>
                                     <?php
                                     }
-                                    }else{?>
+                                    } else{ ?>
                                        <tr>
                                             <td colspan="4" class="text-center">List empty</td>
 
                                         </tr>
-                                    <?php }?>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                             <div class="view-btn view-orange text-right">
-                                <a href="<?php echo $BASE_URL_ADMIN ?>Users"><button>View</button></a>
+                                <a href="<?= $BASE_URL_ADMIN ?>Users"><button>View</button></a>
                             </div>
                         </div>
                     </div>
@@ -276,11 +276,11 @@
 </div>
 
 <script>
-var BASE_URL='<?php echo $BASE_URL_ADMIN;?>';
-var status='<?php echo base64_encode(2);?>';
+var BASE_URL='<?= $BASE_URL_ADMIN ?>';
+var status='<?= base64_encode(2) ?>';
 getOrdersByStatus(status);
 
-function getOrdersByStatus(order_status){
+function getOrdersByStatus(order_status) {
         var url =BASE_URL+'Orders/getOrdersByStatus/'+order_status;
         $.ajax({
                 type: "GET",

@@ -23,7 +23,7 @@ Class Menu_Model extends MY_Model {
 
     public function getCollectionMenu() {
         $this->db->select('*');
-        $this->db->where(array('status'=>1,'collection'=>1));
+        $this->db->where(array('status' => 1,'collection' => 1));
         $this->db->from($this->table);
         $query = $this->db->get();
         $data=$query->result_array();
@@ -32,7 +32,7 @@ Class Menu_Model extends MY_Model {
 
     public function getMenuDropDownList() {
         $this->db->select(array('id','name'));
-        $this->db->where(array('status'=>1));
+        $this->db->where(array('status' => 1));
         $this->db->from($this->table);
         $this->db->order_by('menu_order','asc');
         $query = $this->db->get();
@@ -47,7 +47,7 @@ Class Menu_Model extends MY_Model {
     public function getMenuDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('id'=>$id));
+        $this->db->where(array('id' => $id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;
@@ -75,7 +75,7 @@ Class Menu_Model extends MY_Model {
 
     public function getActiveMenuList() {
         $this->db->select(array('id','name'));
-        $this->db->where(array('status'=>1));
+        $this->db->where(array('status' => 1));
         $this->db->from($this->table);
         $this->db->order_by('menu_order','asc');
         $query = $this->db->get();

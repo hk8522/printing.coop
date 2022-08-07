@@ -57,13 +57,13 @@ class Clover extends Public_Controller
     $curl = curl_init();
     $token = 'caf7e973-b40c-2e43-1c63-0d75faa714fa';
     $d = [
-      'amount'=>10,
-      'currency'=>'cad',
-      'capture'=>'true',
-      'description'=>'ddddddd',
-      'external_reference_id'=>1234,
-      'receipt_email'=>'devouttest@gmail.com',
-      'source'=>$source
+      'amount' => 10,
+      'currency' => 'cad',
+      'capture' => 'true',
+      'description' => 'ddddddd',
+      'external_reference_id' => 1234,
+      'receipt_email' => 'devouttest@gmail.com',
+      'source' => $source
     ];
     curl_setopt_array($curl, [
       CURLOPT_URL => "https://scl-sandbox.dev.clover.com/v1/charges",

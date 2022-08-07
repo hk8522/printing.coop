@@ -122,29 +122,29 @@ class SalesReports extends Admin_Controller
                         while(($line = fgetcsv($csvFile)) !== FALSE){
                             // Get row data
                             $saveData=array(
-                                'start_date'=>date('Y-m-d',strtotime($line[0])),
-                                'end_date'=>date('Y-m-d',strtotime($line[1])),
-                                'portfolio_name'=>$line[2],
-                                'currency'=>$line[3],
-                                'campaign_name'=>$line[4],
-                                'ad_grou_name'=>$line[5],
-                                'targeting'=>$line[6],
-                                'match_type'=>$line[7],
-                                'impressions'=>$line[8],
-                                'clicks'=>$line[9],
-                                'click_thru_rate'=>$line[10],
-                                'cost_per_click'=>$line[11],
-                                'spend'=>$line[12],
-                                'total_advertising_cost_of_sales'=>$line[13],
-                                'total_return_on_advertising_spend'=>$line[14],
-                                '7_day_total_sales'=>$line[15],
-                                '7_day_total_orders'=>$line[16],
-                                '7_day_total_units'=>$line[17],
-                                '7_day_conversion_rate'=>$line[18],
-                                '7_day_advertised_sku_units'=>$line[19],
-                                '7_day_other_sku_units'=>$line[20],
-                                '7_day_advertised_sku_sales'=>$line[21],
-                                '7_day_other_sku_sales'=>$line[22]
+                                'start_date' => date('Y-m-d',strtotime($line[0])),
+                                'end_date' => date('Y-m-d',strtotime($line[1])),
+                                'portfolio_name' => $line[2],
+                                'currency' => $line[3],
+                                'campaign_name' => $line[4],
+                                'ad_grou_name' => $line[5],
+                                'targeting' => $line[6],
+                                'match_type' => $line[7],
+                                'impressions' => $line[8],
+                                'clicks' => $line[9],
+                                'click_thru_rate' => $line[10],
+                                'cost_per_click' => $line[11],
+                                'spend' => $line[12],
+                                'total_advertising_cost_of_sales' => $line[13],
+                                'total_return_on_advertising_spend' => $line[14],
+                                '7_day_total_sales' => $line[15],
+                                '7_day_total_orders' => $line[16],
+                                '7_day_total_units' => $line[17],
+                                '7_day_conversion_rate' => $line[18],
+                                '7_day_advertised_sku_units' => $line[19],
+                                '7_day_other_sku_units' => $line[20],
+                                '7_day_advertised_sku_sales' => $line[21],
+                                '7_day_other_sku_sales' => $line[22]
 
                             );
 
@@ -197,7 +197,7 @@ class SalesReports extends Admin_Controller
                 {
                     $this->ProductImage_Model->deleteProductImageByProductId($id);
 
-                    foreach($productImageData as $key=>$data){
+                    foreach($productImageData as $key => $data){
                         $imageName=$data['image'];
                         if(file_exists(PRODUCT_IMAGE_SMALL_BASE_PATH.$imageName))
                         unlink(PRODUCT_IMAGE_SMALL_BASE_PATH.$imageName);

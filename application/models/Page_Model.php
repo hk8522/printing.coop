@@ -60,7 +60,7 @@ Class Page_Model extends MY_Model {
     public function getActivePageListByCategoryId($category_id) {
         $this->db->select(array('Page.*'));
         $this->db->from($this->table.' as Page');
-        $this->db->where(array('Page.status'=>1,'Page.category_id'=>$category_id));
+        $this->db->where(array('Page.status' => 1,'Page.category_id' => $category_id));
         $this->db->order_by('Page.shortOrder','asc');
         $query = $this->db->get();
         $data=$query->result_array();
@@ -70,7 +70,7 @@ Class Page_Model extends MY_Model {
     public function getPageDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('id'=>$id));
+        $this->db->where(array('id' => $id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;
@@ -79,7 +79,7 @@ Class Page_Model extends MY_Model {
     public function getPageDataBySlug($slug,$main_store_id=1) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('slug'=>$slug,'main_store_id'=>$main_store_id));
+        $this->db->where(array('slug' => $slug,'main_store_id' => $main_store_id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;
@@ -87,7 +87,7 @@ Class Page_Model extends MY_Model {
     public function checkPageSlug($slug,$main_store_id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('slug'=>$slug,'main_store_id'=>$main_store_id));
+        $this->db->where(array('slug' => $slug,'main_store_id' => $main_store_id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;
@@ -139,7 +139,7 @@ Class Page_Model extends MY_Model {
         $this->db->from($this->table.' as Page');
 
         if($active){
-             $this->db->where(array('Page.status'=>$active , 'display_on_footer' => 1));
+             $this->db->where(array('Page.status' => $active , 'display_on_footer' => 1));
         }
         $this->db->order_by('shortOrder','asc');
         $query = $this->db->get();

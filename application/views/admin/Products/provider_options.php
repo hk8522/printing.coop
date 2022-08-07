@@ -13,9 +13,9 @@ $pageSizes = [10, 15, 20, 50, 100];
                 <div class="col-md-9 col-sm-9">
                     <select class="form-control k-input text-box single-line" name="type" data-bind="value:type" >
                         <?php
-                        foreach (App\Common\ProviderOptionType::names as $key => $name) {?>
-                            <option value="<?=$key?>"><?=$name?></option>
-                        <?php }?>
+                        foreach (App\Common\ProviderOptionType::names as $key => $name) { ?>
+                            <option value="<?= $key?>"><?= $name?></option>
+                        <?php } ?>
                     </select>
                 </div>
             </div>
@@ -37,7 +37,7 @@ $pageSizes = [10, 15, 20, 50, 100];
         </div>
     </div>
 </script>
-<form id="option-search-form" method="post" action="/admin/Products/ProviderOptions/<?=$provider?>">
+<form id="option-search-form" method="post" action="/admin/Products/ProviderOptions/<?= $provider?>">
     <div class="row">
         <div class="col-md-12">
             <div class="x_panel light form-fit popup-window">
@@ -74,14 +74,14 @@ $pageSizes = [10, 15, 20, 50, 100];
     </div>
 </form>
 <script>
-    var optionTypeNames = <?=json_encode(App\Common\ProviderOptionType::names)?>;
+    var optionTypeNames = <?= json_encode(App\Common\ProviderOptionType::names)?>;
     var record = 0;
     $(document).ready(function () {
         $('#options-grid').kendoGrid({
             dataSource: {
                 transport: {
                     read: {
-                        url: '/admin/Products/ProviderOptions/<?=$provider?>',
+                        url: '/admin/Products/ProviderOptions/<?= $provider?>',
                         type: 'POST',
                         dataType: 'json',
                         data: additionalDataOption
@@ -118,14 +118,14 @@ $pageSizes = [10, 15, 20, 50, 100];
                     // Cancel the changes
                     this.cancelChanges();
                 },
-                pageSize: <?=$pageSize?>,
+                pageSize: <?= $pageSize?>,
                 serverPaging: true,
                 serverFiltering: true,
                 serverSorting: true
             },
             pageable: {
                 refresh: true,
-                pageSizes: <?=json_encode($pageSizes)?>
+                pageSizes: <?= json_encode($pageSizes)?>
             },
             editable: {
                 confirmation: false,

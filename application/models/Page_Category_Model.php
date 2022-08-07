@@ -33,7 +33,7 @@ Class Page_Category_Model extends MY_Model {
     public function getActiveCategoryList() {
         $this->db->select(array('page_categories.*'));
         $this->db->from($this->table);
-        $this->db->where(array('status'=>1));
+        $this->db->where(array('status' => 1));
         $this->db->order_by('category_order','asc');
         $query = $this->db->get();
         $data=$query->result_array();
@@ -43,7 +43,7 @@ Class Page_Category_Model extends MY_Model {
     public function getCategoryDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('id'=>$id));
+        $this->db->where(array('id' => $id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;
@@ -53,7 +53,7 @@ Class Page_Category_Model extends MY_Model {
         $lists=array();
 
             $this->db->select(array('id','name'));
-            $this->db->where(array('status'=>'1'));
+            $this->db->where(array('status' => '1'));
             $this->db->from($this->table);
             $this->db->order_by('category_order','asc');
             $query = $this->db->get();

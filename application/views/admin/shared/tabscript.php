@@ -6,9 +6,9 @@
 ?>
 <script>
     $(document).ready(function () {
-        $('#<?=$tabname?>').show();
-        var tab = $('#<?=$tabname?>').kendoTabStrip({
-            tabPosition: '<?=isset($position) ? $position : 'left'?>',
+        $('#<?= $tabname?>').show();
+        var tab = $('#<?= $tabname?>').kendoTabStrip({
+            tabPosition: '<?= isset($position) ? $position : 'left'?>',
             animation: { open: { effects: 'fadeIn'} },
             select: tabstrip_on_tab_select_ex,
             show: tabstrip_on_tab_show,
@@ -19,8 +19,8 @@
         // $.ajax({
         //     type: "POST",
         //     url: '/admin/Home/SetTab',
-        //     data: addAntiForgeryToken({name: '<?=$tabname?>-tab', index: $(e.item).index()})
+        //     data: addAntiForgeryToken({name: '<?= $tabname?>-tab', index: $(e.item).index()})
         // });
     }
 </script>
-<input type='hidden' id='selected-tab-index' name='selected-tab-index' value='<?=$_SESSION["$tabname-tab"]?>'>
+<input type='hidden' id='selected-tab-index' name='selected-tab-index' value='<?= $_SESSION["$tabname-tab"]?>'>

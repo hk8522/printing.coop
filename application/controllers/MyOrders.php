@@ -95,7 +95,7 @@ class MyOrders extends Public_Controller
         $id=$this->input->post('order_id');
         $status=$this->input->post('status');
         $MobileMsg=$this->input->post('mobileMsg');
-        $json=array('status'=>0,'msg'=>'');
+        $json=array('status' => 0,'msg' => '');
 
         if(!empty($id) && !empty($status) && $status=='6'){
                 $postData['id']=$id;

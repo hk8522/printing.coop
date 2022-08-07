@@ -199,7 +199,7 @@ Class Ticket_Model extends MY_Model {
         if(!empty($ticket_id)){
             $this->db->where('ticket_id', $ticket_id);
             $this->db->where('comment_author !=0');
-            $data=array('receiver_read'=>2);
+            $data=array('receiver_read' => 2);
             $query = $this->db->update('ticket_comments', $data);
             if ($query) {
                return $ticket_id;
@@ -212,7 +212,7 @@ Class Ticket_Model extends MY_Model {
         if(!empty($ticket_id)){
             $this->db->where('ticket_id', $ticket_id);
             $this->db->where('comment_author=0');
-            $data=array('receiver_read'=>2);
+            $data=array('receiver_read' => 2);
             $query = $this->db->update('ticket_comments', $data);
             if ($query) {
                return $ticket_id;

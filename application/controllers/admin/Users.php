@@ -542,7 +542,7 @@ class Users extends Admin_Controller
         $header = array("Customer Code","Name","Mobile","Email","Last Login","Last Login IP","Created On","Status");
         fputcsv($file, $header);
 
-        foreach ($lists as $key=>$list){
+        foreach ($lists as $key => $list){
             $data=array();
             $data['customer_code']=CUSTOMER_ID_PREFIX.$list['id'];
             $data['name']=ucwords($list['name']);

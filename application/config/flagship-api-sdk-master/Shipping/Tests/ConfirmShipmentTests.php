@@ -30,8 +30,8 @@ class ConfirmShipmentTests extends TestCase{
 
         public function testGetTaxesDetails(){
             $expected = [
-                "gst"=>2.02,
-                "qst"=>4.04
+                "gst" => 2.02,
+                "qst" => 4.04
             ];
             $this->assertNotNull($this->confirmShipment->getTaxesDetails());
             $this->assertNotEmpty($this->confirmShipment->getTaxesDetails());

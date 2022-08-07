@@ -19,7 +19,7 @@ class Ajax extends Admin_Controller
         if(!empty($menu_id)){
             $categoryList=$this->Category_Model->getCategoryDropDownList($menu_id);
 
-            foreach($categoryList as $key=>$val){
+            foreach($categoryList as $key => $val){
                 $options .='<option value="'.$key.'">'.$val.'</option>';
             }
         }
@@ -35,7 +35,7 @@ class Ajax extends Admin_Controller
         if(!empty($menu_id) && !empty($category_id)){
             $categoryList=$this->SubCategory_Model->getSubCategoryDropDownList($menu_id,$category_id);
 
-            foreach($categoryList as $key=>$val){
+            foreach($categoryList as $key => $val){
                 $options .='<option value="'.$key.'">'.$val.'</option>';
             }
         }
@@ -48,7 +48,7 @@ class Ajax extends Admin_Controller
         if(!empty($menu_id)){
             $productList=$this->Product_Model->getProductDropDownList($menu_id);
 
-            foreach($productList as $key=>$val){
+            foreach($productList as $key => $val){
                 $options .='<option value="'.$key.'">'.$val.'</option>';
             }
         }
@@ -62,7 +62,7 @@ class Ajax extends Admin_Controller
             $ProductImages=$this->ProductImage_Model->getProductImageDataByProductId($product_id);
             if(!empty($ProductImages)){
                 $product_main_image=isset($ProductImages[0]) ? $ProductImages[0]:'';
-                $postData=array('id'=>$product_id,'product_image'=>$product_main_image['image']);
+                $postData=array('id' => $product_id,'product_image' => $product_main_image['image']);
                 $this->Product_Model->saveProduct($postData);
             }
             if(file_exists(PRODUCT_IMAGE_SMALL_BASE_PATH.$imageName))

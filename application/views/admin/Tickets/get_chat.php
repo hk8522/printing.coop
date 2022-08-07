@@ -3,45 +3,45 @@
                                                                                                       <div class="message-list" id="messages">
                                     <ul id="ChatList">
                                           <!--<li class="message-date">05 August 2019</li>-->
-                                        <?php foreach($lists as $list){
+                                        <?php foreach ($lists as $list) {
                                           $send_message_detail='send-message-detail';
                                            $send_message='send-message';
                                             $sender_name='sender-name';
                                            $Username=$loginName;
 
-                                           if($list['comment_author'] !=0){
+                                           if ($list['comment_author'] !=0) {
                                                 $send_message_detail='recieve-message-detail';
                                                 $send_message='recieve-message';
                                                  $sender_name='reciever-name';
                                                 $Username=$list['name'];
                                            }
                                         ?>
-                                          <li class="<?php echo  $send_message;?>">
-                                              <div class="<?php echo $sender_name?>">
+                                          <li class="<?=  $send_message ?>">
+                                              <div class="<?= $sender_name ?>">
                                                   <span><?php  echo $Username?></span>
                                               </div>
-                                              <div class="<?php echo $send_message_detail;?>">
-                                                  <span><?php echo $list['message']?></span>
+                                              <div class="<?= $send_message_detail ?>">
+                                                  <span><?= $list['message'] ?></span>
                                                 <br>
-                                                <span><?php echo dateFormate($list['created']);?></span>
+                                                <span><?= dateFormate($list['created']) ?></span>
                                               </div>
                                           </li>
                                         <?php
-                                        }?>
+                                       } ?>
 
                                       </ul>
 
                                     </div>
-                                    <?php echo form_open_multipart('',array('class'=>'form-horizontal','id'=>'SendMessageFrom'));?>
+                                    <?= form_open_multipart('',array('class' => 'form-horizontal','id' => 'SendMessageFrom')) ?>
                                   <div class="enter-message">
-                                    <input type="hidden" required name="ticket_id" value="<?php echo $ticket_id?>">
+                                    <input type="hidden" required name="ticket_id" value="<?= $ticket_id ?>">
 
                                       <input type="text" placeholder="Enter message..." required name="message" id="messageText">
                                       <button type="submit">
                                     Send
                                     </button>
                                   </div>
-                                <?php echo form_close();?>
+                                <?= form_close() ?>
 
 <script>
 var $chatWindow = $('#messages');
@@ -51,8 +51,8 @@ $("#SendMessageFrom").submit(function(e) {
         var form = $(this);
         var formsubmit=true;
         $("#SendMessageFromSubmit").attr("disabled",true);
-        if(formsubmit==true){
-            var url =BASE_URL+'Tickets/getChat/'+'<?php echo base64_encode($ticket_id);?>';
+        if (formsubmit==true) {
+            var url =BASE_URL+'Tickets/getChat/'+'<?= base64_encode($ticket_id) ?>';
             $.ajax({
                    type: "POST",
                    url: url,
@@ -69,14 +69,14 @@ $("#SendMessageFrom").submit(function(e) {
                       $("#SendMessageFromSubmit").attr("disabled",false);
                    }
             });
-        }else{
+        } else{
             $("#SendMessageFromSubmit").attr("disabled",false);
         }
     });
 
     setInterval(getLetestChat, 1000);
-    function getLetestChat(){
-        var url =BASE_URL+'Tickets/getLetestChat/'+'<?php echo base64_encode($ticket_id);?>';
+    function getLetestChat() {
+        var url =BASE_URL+'Tickets/getLetestChat/'+'<?= base64_encode($ticket_id) ?>';
 
         $.ajax({
                type: "GET",

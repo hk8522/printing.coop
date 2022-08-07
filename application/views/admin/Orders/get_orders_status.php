@@ -1,25 +1,25 @@
 <?php
-                                if(count($lists) > 0){
-                                    foreach($lists as $key=>$list){
+                                if (count($lists) > 0) {
+                                    foreach ($lists as $key => $list) {
                                     ?>
-                                        <tr id="row-<?php echo $list['id'];?>">
+                                        <tr id="row-<?= $list['id'] ?>">
                                             <td>
-                                             <?php echo ucfirst($list['order_id']);?>
+                                             <?= ucfirst($list['order_id']) ?>
                                             </td>
                                             <td>
-                                              <?php echo ucwords($list['name']);?>
+                                              <?= ucwords($list['name']) ?>
                                              </td>
-                                             <td><?php echo CURREBCY_SYMBOL.number_format($list['total_amount'],2);?></td>
-                                            <td><?php echo ucfirst($list['total_items']);?></td>
+                                             <td><?= CURREBCY_SYMBOL.number_format($list['total_amount'],2) ?></td>
+                                            <td><?= ucfirst($list['total_items']) ?></td>
                                             <td>
-                                              <?php echo dateFormate($list['created']);?>
+                                              <?= dateFormate($list['created']) ?>
                                             </td>
                                         </tr>
                                 <?php
                                     }
-                                }else{?>
+                                } else{?>
                                     <tr>
                                     <td colspan="5" class="text-center">List Empty.</td>
                                     </tr>
                                 <?php
-                                }?>
+                               } ?>

@@ -6,14 +6,14 @@
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo $page_title?></span>
+                                <span><?= $page_title ?></span>
                             </div>
                         </div>
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-7">
                                     <div class="text-center" style="color:red">
-                                        <?php echo $this->session->flashdata('message_error');?>
+                                        <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <div class="form-role-area">
                                         <div class="control-group info">
@@ -24,7 +24,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <div class="product-view-display">
-                                                            <span><?php echo ucfirst($Product['name']);?></span>
+                                                            <span><?= ucfirst($Product['name']) ?></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -38,7 +38,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <div class="product-view-display">
-                                                            <span><?php echo ucfirst($Product['short_description']);?></span>
+                                                            <span><?= ucfirst($Product['short_description']) ?></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -52,7 +52,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <div class="product-view-display">
-                                                            <span><?php echo ucfirst($Product['full_description']);?></span>
+                                                            <span><?= ucfirst($Product['full_description']) ?></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -65,14 +65,14 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <?php $imageurl=getBrandImage($Product['brand_image'],'large');?>
-                                                          <img src="<?php echo $imageurl?>" width="100" height="100">
+                                                        <?php $imageurl = getBrandImage($Product['brand_image'], 'large');?>
+                                                          <img src="<?= $imageurl ?>" width="100" height="100">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="text-right">
-                                            <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
+                                            <a href="<?= $BASE_URL . $class_name . $main_page_url ?>" class="btn btn-success">Back</a>
                                         </div>
                                     </div>
                                 </div>

@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title><?php echo $language_name == 'French' ? 'Page de paiement PayPal':'PayPal Check Out Page';?></title>
+    <title><?= $language_name == 'French' ? 'Page de paiement PayPal':'PayPal Check Out Page' ?></title>
 </head>
 <body>
     <?php
@@ -23,22 +23,22 @@
     $store_url = $MainStoreData['url'];
 
     ?>
-<center><h1><?php echo $language_name == 'French' ? 'Veuillez ne pas actualiser cette page ...' : 'Please do not refresh this page...';?></h1></center>
-<form action="<?php echo $url;?>" method="post" name="f1">
+<center><h1><?= $language_name == 'French' ? 'Veuillez ne pas actualiser cette page ...' : 'Please do not refresh this page...' ?></h1></center>
+<form action="<?= $url ?>" method="post" name="f1">
     <table border="1">
         <tbody>
-            <input type="hidden" name="order_id" value="<?php echo $ProductOrder['id']?>">
+            <input type="hidden" name="order_id" value="<?= $ProductOrder['id'] ?>">
             <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="<?php echo $paypal_email?>">
-            <input type="hidden" name="item_number" value="<?php echo $ProductOrder['id']?>">
-            <input type="hidden" name="item_total" value="<?php echo $ProductOrder['total_items']?>">
-            <input type="hidden" name="amount" value="<?php echo $ProductOrder['total_amount'];?>">
-            <input type="hidden" name="first_name" value="<?php echo $ProductOrder['shipping_name']?>">
-            <input type="hidden" name="return" value="<?php echo $store_url?>Checkouts/PayPalSuccessResponse/<?php echo $ProductOrder['id'];?>">
-            <input type="hidden" name="cancel_return" value="<?php echo $store_url?>Checkouts/PayPalCancelResponse/<?php echo $ProductOrder['id'];?>">
-            <input type="hidden" name="email" value="<?php echo $ProductOrder['email']?>" >
+            <input type="hidden" name="business" value="<?= $paypal_email ?>">
+            <input type="hidden" name="item_number" value="<?= $ProductOrder['id'] ?>">
+            <input type="hidden" name="item_total" value="<?= $ProductOrder['total_items'] ?>">
+            <input type="hidden" name="amount" value="<?= $ProductOrder['total_amount'] ?>">
+            <input type="hidden" name="first_name" value="<?= $ProductOrder['shipping_name'] ?>">
+            <input type="hidden" name="return" value="<?= $store_url?>Checkouts/PayPalSuccessResponse/<?= $ProductOrder['id'] ?>">
+            <input type="hidden" name="cancel_return" value="<?= $store_url?>Checkouts/PayPalCancelResponse/<?= $ProductOrder['id'] ?>">
+            <input type="hidden" name="email" value="<?= $ProductOrder['email'] ?>" >
             <input type="hidden" name="currency_code" value="CAD">
-            <input type="hidden" name="notify_url" value="<?php echo $store_url?>Checkouts/PayPalIPNResponse/<?php echo $ProductOrder['id'];?>">
+            <input type="hidden" name="notify_url" value="<?= $store_url?>Checkouts/PayPalIPNResponse/<?= $ProductOrder['id'] ?>">
             <input type="hidden" name="cbt" value="Return to Merchant">
             <input type="hidden" name="rm" value="2">
             <!--<input type="image" name="submit"

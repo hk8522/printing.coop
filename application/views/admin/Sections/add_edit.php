@@ -7,17 +7,17 @@
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo $page_title?></span>
+                                <span><?= $page_title ?></span>
                             </div>
                         </div>
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="text-center" style="color:red">
-                                        <?php echo $this->session->flashdata('message_error');?>
+                                        <?= $this->session->flashdata('message_error') ?>
                                     </div>
-                                    <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
-                                    <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>">
+                                    <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
+                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>">
                                     <div class="form-role-area">
                                         <!--<div class="control-group info">
                                             <div class="row">
@@ -28,18 +28,18 @@
                                                     <div class="controls">
                                                        <select name="main_store_id" class="form-control">
                                                        <option value="">Select WebSite</option>
-                                                       <?php foreach($MainStoreList as $key=>$val){
+                                                       <?php foreach ($MainStoreList as $key => $val) {
                                                         $selected='';
-                                                        if($postData['main_store_id'] == $key){
+                                                        if ($postData['main_store_id'] == $key) {
                                                              $selected='selected="selected"';
                                                         }
                                                         ?>
 
-                                                        <option value="<?php echo $key?>" <?php echo $selected?>><?php echo $val;?></option>
+                                                        <option value="<?= $key?>" <?= $selected?>><?= $val  ?></option>
                                                        <?php
-                                                       }?>
+                                                      } ?>
                                                        </select>
-                                                       <?php echo form_error('main_store_id');?>
+                                                       <?= form_error('main_store_id') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -51,8 +51,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="<?php echo isset($postData['name']) ? $postData['name']:'';?>" maxlength="50">
-                                                        <label class="mt-2 text-danger"><?php echo $errors['name'] ?? '';?></label>
+                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="<?= isset($postData['name']) ? $postData['name']:'' ?>" maxlength="50">
+                                                        <label class="mt-2 text-danger"><?= $errors['name'] ?? '' ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -64,8 +64,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name_france" id="name_france" type="text" placeholder="name france" value="<?php echo isset($postData['name_france']) ? $postData['name_france']:'';?>" maxlength="50">
-                                                        <label class="mt-2 text-danger"><?php echo $errors['name_france'] ?? '';?></label>
+                                                        <input class="form-control" name="name_france" id="name_france" type="text" placeholder="name france" value="<?= isset($postData['name_france']) ? $postData['name_france']:'' ?>" maxlength="50">
+                                                        <label class="mt-2 text-danger"><?= $errors['name_france'] ?? '' ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -77,8 +77,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                      <textarea class="form-control" rows="4" name="description" placeholder="Description"><?php echo isset($postData['description'])? $postData['description']:'';?></textarea>
-                                                      <label class="mt-2 text-danger"><?php echo $errors['description'] ?? '';?></label>
+                                                      <textarea class="form-control" rows="4" name="description" placeholder="Description"><?= isset($postData['description'])? $postData['description']:'' ?></textarea>
+                                                      <label class="mt-2 text-danger"><?= $errors['description'] ?? '' ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -90,8 +90,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                      <textarea class="form-control" rows="4" name="description_france" placeholder="description_france"><?php echo isset($postData['description_france'])? $postData['description_france']:'';?></textarea>
-                                                      <label class="mt-2 text-danger"><?php echo $errors['description_france'] ?? '';?></label>
+                                                      <textarea class="form-control" rows="4" name="description_france" placeholder="description_france"><?= isset($postData['description_france'])? $postData['description_france']:'' ?></textarea>
+                                                      <label class="mt-2 text-danger"><?= $errors['description_france'] ?? '' ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -104,9 +104,9 @@
                                                 <div class="col-md-12">
                                                     <div class="controls">
                                                         <textarea name="content" id="content" rows="100">
-                                                          <?php echo isset($postData['content']) ? $postData['content']:'';?>
+                                                          <?= isset($postData['content']) ? $postData['content']:'' ?>
                                                         </textarea>
-                                                        <?php echo form_error('content');?>
+                                                        <?= form_error('content') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -119,9 +119,9 @@
                                                 <div class="col-md-12">
                                                     <div class="controls">
                                                         <textarea name="content_france" id="content1" rows="100">
-                                                          <?php echo isset($postData['content_france']) ? $postData['content_france']:'';?>
+                                                          <?= isset($postData['content_france']) ? $postData['content_france']:'' ?>
                                                         </textarea>
-                                                        <?php echo form_error('content_france');?>
+                                                        <?= form_error('content_france') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -137,15 +137,15 @@
                                                         <?php $old_background_image =isset($postData['background_image']) ? $postData['background_image']:'';
                                                             ?>
                                                         <?php
-                                                            if($old_background_image !=''){
+                                                            if ($old_background_image !='') {
                                                                $imageurl=getSectionImage($old_background_image);
 
                                                                ?>
-                                                            <img src="<?php echo $imageurl?>" width="100" height="80">
+                                                            <img src="<?= $imageurl ?>" width="100" height="80">
                                                         <?php
                                                             }
                                                             ?>
-                                                        <input name="old_background_image" value="<?php echo $old_background_image;?>" type="hidden">
+                                                        <input name="old_background_image" value="<?= $old_background_image ?>" type="hidden">
                                                     </div>
                                                 </div>
                                                 <div class="controls file-data">
@@ -179,15 +179,15 @@
                                                         <?php $old_french_background_image =isset($postData['french_background_image']) ? $postData['french_background_image']:'';
                                                             ?>
                                                         <?php
-                                                            if($old_french_background_image !=''){
+                                                            if ($old_french_background_image !='') {
                                                                $imageurl=getSectionImage($old_french_background_image);
 
                                                                ?>
-                                                            <img src="<?php echo $imageurl?>" width="100" height="80">
+                                                            <img src="<?= $imageurl ?>" width="100" height="80">
                                                         <?php
                                                             }
                                                             ?>
-                                                        <input name="old_french_background_image" value="<?php echo $old_french_background_image;?>" type="hidden">
+                                                        <input name="old_french_background_image" value="<?= $old_french_background_image ?>" type="hidden">
                                                     </div>
                                                 </div>
                                                 <div class="controls file-data">
@@ -212,9 +212,9 @@
 
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success">Submit</button>
-                                            <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
+                                            <a href="<?= $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
                                         </div>
-                                        <?php echo form_close();?>
+                                        <?= form_close() ?>
                                     </div>
                                 </div>
                             </div>
@@ -228,14 +228,14 @@
 <script>
  CKEDITOR.replace('content', {
     height: 300,
-    filebrowserUploadUrl: "<?php echo $BASE_URL;?>upload.php",
+    filebrowserUploadUrl: "<?= $BASE_URL ?>upload.php",
     allowedContent:true,
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });
 CKEDITOR.dtd.$removeEmpty.i = 0;
 CKEDITOR.replace('content1', {
     height: 300,
-    filebrowserUploadUrl: "<?php echo $BASE_URL;?>upload.php",
+    filebrowserUploadUrl: "<?= $BASE_URL ?>upload.php",
     allowedContent:true,
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });

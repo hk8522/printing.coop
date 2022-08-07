@@ -24,7 +24,7 @@ class Wishlists extends Public_Controller
 
     public function addByAjax()
     {
-        $json=array('status'=>0,'msg'=>'');
+        $json=array('status' => 0,'msg' => '');
         $this->load->model('Product_Model');
         $this->load->model('User_Model');
         $product_id=$this->input->post('product_id');
@@ -53,7 +53,7 @@ class Wishlists extends Public_Controller
     public function deleteWishlist()
     {
         $id=$this->input->post('wishlist_id');
-        $json=array('status'=>0,'msg'=>'');
+        $json=array('status' => 0,'msg' => '');
 
         if(!empty($id)){
                 $page_title='Product Remove From Wishlist';
@@ -63,12 +63,12 @@ class Wishlists extends Public_Controller
                     //$this->session->set_flashdata('message_success',$page_title.' Successfully.');
                     //redirect('Wishlists');
                     $count=$this->User_Model->geWishlistCount($this->loginId);
-                    $json=array('status'=>1,'msg'=>$page_title.' Successfully.','count'=>$count);
+                    $json=array('status' => 1,'msg' => $page_title.' Successfully.','count' => $count);
                 }
                 else
                 {
                     //$this->session->set_flashdata('message_error',$page_title.' Unsuccessfully.');
-                    $json=array('status'=>0,'msg'=>$page_title.' unsuccessfully.');
+                    $json=array('status' => 0,'msg' => $page_title.' unsuccessfully.');
                 }
         }
         echo json_encode($json);

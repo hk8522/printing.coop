@@ -20,15 +20,15 @@
                   <?php //$url=$StoreData['url'].'/uploads/logo/'. $StoreData['pdf_template_logo '];
                    $url='uploads/logo/'.$StoreData['pdf_template_logo'];
                    ?>
-                   <img src="<?php echo $url;?>" width="200">
+                   <img src="<?= $url ?>" width="200">
                     <!--<img src="assets/images/printing.coop_logo.png" width="200">-->
                 </div>
             </td>
             <td style="width: 50%;">
                 <div style="text-align: right;">
                     <h2 style="margin: 0px; font-size: 24px; font-weight: 600; color: #000;">Invoice</h2>
-                    <h2 style="margin: 0px; font-size: 24px; font-weight: 600; color: #000;">Ref. : F-00<?php echo $orderData['id'];?></h2>
-                    <p style="margin: 15px 0px 0px 0px; font-size: 18px; font-weight: 400; color: #000;">Ref. order: <?php echo $orderData['order_id']?> (GAL inc.) / <?php echo date('d/m/Y',strtotime($orderData['created']))?></p>
+                    <h2 style="margin: 0px; font-size: 24px; font-weight: 600; color: #000;">Ref. : F-00<?= $orderData['id'] ?></h2>
+                    <p style="margin: 15px 0px 0px 0px; font-size: 18px; font-weight: 400; color: #000;">Ref. order: <?= $orderData['order_id']?> (GAL inc.) / <?= date('d/m/Y',strtotime($orderData['created'])) ?></p>
                 </div>
             </td>
         </tr>
@@ -49,11 +49,11 @@
 
             <td style="width: 50%;">
                 <div>
-                    <p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><b><?php echo ucfirst($orderData['billing_name']);?></b></p>
-                    <p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><?php echo $orderData['billing_address'];?></p>
-                    <p style="margin: 15px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><?php echo $cityData['name'];?>,<?php echo $stateData['name'];?>,<?php echo $countryData['iso2'];?>,<?php echo $orderData['billing_pin_code'];?></p>
-                    <p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;">Phone: <?php echo ucfirst($orderData['billing_mobile']);?></p>
-                    <p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;">Email: <?php echo ucfirst($orderData['email']);?></p>
+                    <p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><b><?= ucfirst($orderData['billing_name']) ?></b></p>
+                    <p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><?= $orderData['billing_address'] ?></p>
+                    <p style="margin: 15px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><?= $cityData['name'] ?>,<?= $stateData['name'] ?>,<?= $countryData['iso2'] ?>,<?= $orderData['billing_pin_code']  ?></p>
+                    <p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;">Phone: <?= ucfirst($orderData['billing_mobile']) ?></p>
+                    <p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;">Email: <?= ucfirst($orderData['email']) ?></p>
                 </div>
             </td>
         </tr>
@@ -63,13 +63,13 @@
             <td style="width: 20%;">
                 <div style="text-align: center;">
                     <p style="margin: 0px 0px 10px 0px; font-size: 16px; font-weight: 400; color: #000;"><b>Billing date</b></p>
-                    <p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><?php echo date('d/m/Y',strtotime($orderData['created']))?></p>
+                    <p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><?= date('d/m/Y',strtotime($orderData['created'])) ?></p>
                 </div>
             </td>
             <!--<td style="width: 20%;">
                 <div style="text-align: center;">
                     <p style="margin: 0px 0px 10px 0px; font-size: 20px; font-weight: 400; color: #000;"><b>Date deadline</b></p>
-                    <p style="margin: 0px 0px 0px 0px; font-size: 20px; font-weight: 400; color: #000;"><?php echo date('d/m/Y',strtotime($orderData['created']))?></p>
+                    <p style="margin: 0px 0px 0px 0px; font-size: 20px; font-weight: 400; color: #000;"><?= date('d/m/Y',strtotime($orderData['created'])) ?></p>
                 </div>
             </td>-->
 
@@ -82,11 +82,11 @@
             <td style="width: 20%;">
                 <div style="text-align: center;">
                     <p style="margin: 0px 0px 10px 0px; font-size: 16px; font-weight: 400; color: #000;"><b>Customer code</b></p>
-                    <p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><?php if(!empty($orderData['user_id'])){
+                    <p style="margin: 0px 0px 0px 0px; font-size: 16px; font-weight: 400; color: #000;"><?php if (!empty($orderData['user_id'])) {
                                                                                                                                                                                          echo CUSTOMER_ID_PREFIX.$orderData['user_id'];
-                                                                                                                }else{
+                                                                                                                } else {
                                                                                                                     echo "-";
-                                                                                                                }?></p>
+                                                                                                               } ?></p>
                 </div>
             </td>
             <td style="width: 20%;">
@@ -130,119 +130,119 @@
         ?>
             <tr style="background-color: #fff; border-bottom: 1px dashed #ccc !important;">
                 <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 10px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">
-                <?php echo ucfirst($item['name'])?><br>
+                <?= ucfirst($item['name']) ?><br>
                 <?php
-                if(!empty($product_width_length)){?>
-                        <span><strong>Length(Inch):<?php echo $product_width_length['product_length'];?></strong> </span>,
-                        <span><strong>Width(Inch):<?php echo $product_width_length['product_width'];?></strong>
+                if (!empty($product_width_length)) { ?>
+                        <span><strong>Length(Inch):<?= $product_width_length['product_length'] ?></strong></span>,
+                        <span><strong>Width(Inch):<?= $product_width_length['product_width'] ?></strong>
                         </span>,
-                        <?php if(!empty($product_width_length['length_width_color_show'])){?>
-                         <span><strong>Colors:<?php echo $product_width_length['length_width_color'];?></strong>
+                        <?php if (!empty($product_width_length['length_width_color_show'])) { ?>
+                         <span><strong>Colors:<?= $product_width_length['length_width_color'] ?></strong>
                         </span>,
-                        <?php }?>
-                        <?php if(!empty($product_width_length['product_total_page'])){?>
-                         <span><strong>Quality:<?php echo $product_width_length['product_total_page'];?></strong>
+                        <?php } ?>
+                        <?php if (!empty($product_width_length['product_total_page'])) { ?>
+                         <span><strong>Quality:<?= $product_width_length['product_total_page'] ?></strong>
                         </span>
                         <?php
-                        }?>
+                       } ?>
                        <?php
-                       }?>
+                      } ?>
                        <?php
 
-                       if(!empty($product_depth_length_width)){?>
-                        <span><strong>Length(Inch):<?php echo $product_depth_length_width['product_depth_length'];?></strong> </span>,
-                        <span><strong>Width(Inch):<?php echo $product_depth_length_width['product_depth_width'];?></strong>
+                       if (!empty($product_depth_length_width)) { ?>
+                        <span><strong>Length(Inch):<?= $product_depth_length_width['product_depth_length'] ?></strong></span>,
+                        <span><strong>Width(Inch):<?= $product_depth_length_width['product_depth_width'] ?></strong>
                         </span>,
-                         <span><strong>Depth(Inch):<?php echo $product_depth_length_width['product_depth'];?></strong>
+                         <span><strong>Depth(Inch):<?= $product_depth_length_width['product_depth'] ?></strong>
                         </span>,
-                        <?php if(!empty($product_depth_length_width['depth_color_show'])){?>
-                         <span><strong>Colors:<?php echo $product_depth_length_width['depth_color'];?></strong>
+                        <?php if (!empty($product_depth_length_width['depth_color_show'])) { ?>
+                         <span><strong>Colors:<?= $product_depth_length_width['depth_color'] ?></strong>
                         </span>,
-                        <?php }?>
-                        <?php if(!empty($product_depth_length_width['product_depth_total_page'])){?>
-                         <span><strong>Quality:<?php echo $product_depth_length_width['product_depth_total_page'];?></strong>
+                        <?php } ?>
+                        <?php if (!empty($product_depth_length_width['product_depth_total_page'])) { ?>
+                         <span><strong>Quality:<?= $product_depth_length_width['product_depth_total_page'] ?></strong>
                         </span>
                         <?php
-                        }?>
+                       } ?>
                        <?php
-                       }?>
-                       <?php if(!empty($page_product_width_length)){?>
-                        <span><strong>Page Length(Inch):<?php echo $page_product_width_length['page_product_length'];?></strong> </span>,
-                        <span><strong>Page Width(Inch):<?php echo $page_product_width_length['page_product_width'];?></strong> </span>,
-                        <?php if(!empty($page_product_width_length['page_length_width_color_show'])){?>
-                         <span><strong>Colors:<?php echo $page_product_width_length['page_length_width_color'];?></strong>
+                      } ?>
+                       <?php if (!empty($page_product_width_length)) { ?>
+                        <span><strong>Page Length(Inch):<?= $page_product_width_length['page_product_length'] ?></strong></span>,
+                        <span><strong>Page Width(Inch):<?= $page_product_width_length['page_product_width'] ?></strong></span>,
+                        <?php if (!empty($page_product_width_length['page_length_width_color_show'])) { ?>
+                         <span><strong>Colors:<?= $page_product_width_length['page_length_width_color'] ?></strong>
                         </span>,
-                        <?php }?>
-                        <?php if(!empty($page_product_width_length['page_product_total_page'])){?>
-                        <span><strong>Pages:<?php echo $page_product_width_length['page_product_total_page'];?></strong> </span>
+                        <?php } ?>
+                        <?php if (!empty($page_product_width_length['page_product_total_page'])) { ?>
+                        <span><strong>Pages:<?= $page_product_width_length['page_product_total_page'] ?></strong></span>
                         <?php
-                        }?>
+                       } ?>
                         <?php
-                         if(!empty($page_product_width_length['page_product_total_sheets'])){?>
-                        <span><strong>Sheet Per Pad:<?php echo $page_product_width_length['page_product_total_sheets']?>
-                        </strong> </span>
-                        <?php }?>
-                        <?php if(!empty($page_product_width_length['page_product_total_quantity'])){?>
-                        <span><strong>Quantity:<?php echo $page_product_width_length['page_product_total_quantity']?>
-                        </strong> </span>
-                        <?php }?>
+                         if (!empty($page_product_width_length['page_product_total_sheets'])) { ?>
+                        <span><strong>Sheet Per Pad:<?= $page_product_width_length['page_product_total_sheets'] ?>
+                        </strong></span>
+                        <?php } ?>
+                        <?php if (!empty($page_product_width_length['page_product_total_quantity'])) { ?>
+                        <span><strong>Quantity:<?= $page_product_width_length['page_product_total_quantity'] ?>
+                        </strong></span>
+                        <?php } ?>
                     <?php
-                      }?>
+                     } ?>
                     <?php
-                        if(!empty($product_size)){
+                        if (!empty($product_size)) {
                                 $size_name = $product_size['product_size'];
                                 $label_qty=$product_size['product_quantity'];
                                 $attribute=isset($product_size['attribute']) ? $product_size['attribute']:'';
 
                                 ?>
-                                 <?php if($label_qty){ ?>
-                                   <span><strong>Quantity:<?php echo $label_qty;?></strong> </span>
+                                 <?php if ($label_qty) { ?>
+                                   <span><strong>Quantity:<?= $label_qty ?></strong></span>
                                     <?php
-                                    }?>
+                                   } ?>
                                 <?php
-                                if($size_name){ ?>
-                                      <span><strong>Size:<?php echo $size_name;?></strong> </span>
+                                if ($size_name) { ?>
+                                      <span><strong>Size:<?= $size_name ?></strong></span>
                                     <?php
-                                }?>
+                               } ?>
 
                                 <?php
-                                if($attribute){
-                                    foreach($attribute as $akey=>$aval){
+                                if ($attribute) {
+                                    foreach ($attribute as $akey=>$aval) {
                                         $multiple_attribute_name=$aval['attributes_name'];
                                         $multiple_attribute_item_name=$aval['attributes_item_name'];
                                 ?>
 
-                                   <span><strong><?php echo $multiple_attribute_name;?>:<?php echo $multiple_attribute_item_name;?></strong> </span>
+                                   <span><strong><?= $multiple_attribute_name ?>:<?= $multiple_attribute_item_name ?></strong></span>
                                 <?php
                                     }
-                                }?>
+                               } ?>
 
                             <?php
                         }
                     ?>
                          <?php
                             #pr($attribute_ids);
-                            foreach($attribute_ids as $key=>$val){
+                            foreach ($attribute_ids as $key=>$val) {
                                 $attribute_name=$val['attribute_name'];
                                 $item_name=$val['item_name'];
                                 ?>
-                                 <span><strong><?php echo $attribute_name;?>:<?php echo $item_name;?></strong> </span>
+                                 <span><strong><?= $attribute_name ?>:<?= $item_name ?></strong></span>
                             <?php
-                            }?>
-                        <?php if($recto_verso){?>
-                                    <span><strong>Recto/Verso: <?php echo $recto_verso;?></strong> </span>,
+                           } ?>
+                        <?php if ($recto_verso) { ?>
+                                    <span><strong>Recto/Verso: <?= $recto_verso ?></strong></span>,
                                     <?php
-                        }?>
+                       } ?>
 
-                       <?php if($votre_text){?>
-                                    <span><strong>Your TEXT - Votre TEXT: <?php echo $votre_text;?></strong> </span>,
+                       <?php if ($votre_text) { ?>
+                                    <span><strong>Your TEXT - Votre TEXT: <?= $votre_text ?></strong></span>,
                                     <?php
-                        }?>
+                       } ?>
 
                 </td>
                 <!--<td style="color: #000; vertical-align: middle; font-size: 18px; font-weight: 400; padding: 10px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">14,975%</td>-->
 
-                <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 10px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;"><?php echo $order_currency_currency_symbol.number_format($item['price'],2);?>
+                <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 10px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;"><?= $order_currency_currency_symbol.number_format($item['price'],2) ?>
                 </td>
                 <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 10px 10px !important; border-bottom: 1px dashed #ccc; border-right: 2px solid #ff0000;">
                 <?php
@@ -259,7 +259,7 @@
                     </td>
             </tr>
         <?php
-        }?>
+       } ?>
         </tbody>
     </table>
     <table style="width: 100%; margin-top: 20px;">
@@ -274,41 +274,41 @@
                     <tbody>
                         <tr style="background-color: #fff;">
                             <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important;">Subtotal:</td>
-                            <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?php echo $order_currency_currency_symbol."".number_format($orderData['sub_total_amount'],2);?>
+                            <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?= $order_currency_currency_symbol."".number_format($orderData['sub_total_amount'],2) ?>
                             </td>
                         </tr>
-                        <?php if(!empty($orderData['preffered_customer_discount']) && $orderData['preffered_customer_discount'] !="0.00"){?>
+                        <?php if (!empty($orderData['preffered_customer_discount']) && $orderData['preffered_customer_discount'] !="0.00") { ?>
                         <tr style="background-color: #fff;">
                             <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important;">Preffered Customer Discount:</td>
-                            <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?php echo '-'.$order_currency_currency_symbol.number_format($orderData['preffered_customer_discount'],2);?>
+                            <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?= '-'.$order_currency_currency_symbol.number_format($orderData['preffered_customer_discount'],2) ?>
                             </td>
                         </tr>
                         <?php
-                        }?>
-                        <?php if(!empty($orderData['coupon_discount_amount']) && $orderData['coupon_discount_amount'] !="0.00"){?>
+                       } ?>
+                        <?php if (!empty($orderData['coupon_discount_amount']) && $orderData['coupon_discount_amount'] !="0.00") { ?>
                         <tr style="background-color: #fff;">
                             <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important;">Coupon Discount:</td>
-                            <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?php echo '-'.$order_currency_currency_symbol.number_format($orderData['coupon_discount_amount'],2);?>
+                            <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?= '-'.$order_currency_currency_symbol.number_format($orderData['coupon_discount_amount'],2) ?>
                             </td>
                         </tr>
                         <?php
-                        }?>
-                        <?php if(!empty($orderData['delivery_charge']) && $orderData['delivery_charge'] !="0.00"){?>
+                       } ?>
+                        <?php if (!empty($orderData['delivery_charge']) && $orderData['delivery_charge'] !="0.00") { ?>
                         <tr style="background-color: #fff;">
                             <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important;">Shipping Fee:</td>
-                            <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?php echo $order_currency_currency_symbol.number_format($orderData['delivery_charge'],2);?>
+                            <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?= $order_currency_currency_symbol.number_format($orderData['delivery_charge'],2) ?>
                             </td>
                         </tr>
                         <?php
-                        }?>
-                         <?php if(!empty($orderData['total_sales_tax']) &&  $orderData['total_sales_tax'] !='0.00'){ ?>
+                       } ?>
+                         <?php if (!empty($orderData['total_sales_tax']) &&  $orderData['total_sales_tax'] !='0.00') { ?>
                         <tr style="background-color: #fff;">
-                            <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important;"><?php echo $salesTaxRatesProvinces_Data['type']?> <?php echo number_format($salesTaxRatesProvinces_Data['total_tax_rate'],2);?>%:</td>
+                            <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important;"><?= $salesTaxRatesProvinces_Data['type']?> <?= number_format($salesTaxRatesProvinces_Data['total_tax_rate'],2) ?>%:</td>
                             <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 400; padding: 5px 5px !important; text-align: right;"><?php
     echo $order_currency_currency_symbol.number_format($orderData['total_sales_tax'],2);?></td>
                         </tr>
                         <?php
-                        }?>
+                       } ?>
                         <tr style="background-color: #fff;">
                             <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 600; padding: 5px 5px !important; background: #e7e7e7;">Total:</td>
                             <td style="color: #000; vertical-align: middle; font-size: 16px; font-weight: 600; padding: 5px 5px !important; background: #e7e7e7; text-align: right;"><?php

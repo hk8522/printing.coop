@@ -74,8 +74,8 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    if (count($list) > 0){
-                                        foreach($list as $key => $item){
+                                    if (count($list) > 0) {
+                                        foreach ($list as $key => $item) {
                                         ?>
                                         <tr>
                                             <td><input type="checkbox" name="neighbor_ids[]" class="neighbor_ids" value="<?= $iem['id']?>"></td>
@@ -98,12 +98,12 @@
                                         </tr>
                                     <?php
                                         }
-                                    } else {?>
+                                    } else{ ?>
                                         <tr>
                                         <td colspan="10" class="text-center">List Empty.</td>
                                         </tr>
                                     <?php
-                                    }?>
+                                   } ?>
                                 </tbody>
                             </table>
                             <p><?= $links?></p>
@@ -119,8 +119,8 @@
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
 </script>
 <script>
-function searchNeighbor(searchtext){
-    if(searchtext !=''){
+function searchNeighbor(searchtext) {
+    if (searchtext !='') {
         $("#loader-img").show();
         var url ='<?= $BASE_URL?>admin/Neighbor/search';
         $("#searchDiv").show();
@@ -143,7 +143,7 @@ function searchNeighbor(searchtext){
     }
 }
 
-function hidesearchDiv(){
+function hidesearchDiv() {
     $("#searchDiv").hide();
     $("#NeighborListUl").html('');
 }

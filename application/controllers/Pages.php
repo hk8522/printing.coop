@@ -148,7 +148,7 @@
                     }else if( $recaptchaResponse=='' ){
                         $response['status'] = 'error';
                         $response['msg'] = 'failed';
-                        $response['errors'] = array('captcha'=>'Captcha unsuccessfull');
+                        $response['errors'] = array('captcha' => 'Captcha unsuccessfull');
                     } else {
                             $data['name']  = $this->input->post('name');
                             $data['email'] = $this->input->post('email');

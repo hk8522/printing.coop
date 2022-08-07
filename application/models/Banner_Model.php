@@ -25,10 +25,10 @@ Class Banner_Model extends MY_Model {
         {
                 $this->db->select('*');
                 $this->db->from($this->table);
-                $this->db->where(array('status'=>1));
+                $this->db->where(array('status' => 1));
 
                if (!empty($id)){
-                    $this->db->where(array('id'=>$id));
+                    $this->db->where(array('id' => $id));
                 }
 
                 $query = $this->db->get();
@@ -70,7 +70,7 @@ Class Banner_Model extends MY_Model {
     {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('id'=>$id));
+        $this->db->where(array('id' => $id));
         return $this->db->get()->row_array();
     }
 
@@ -90,7 +90,7 @@ Class Banner_Model extends MY_Model {
         {
                 $this->db->select('*');
                 $this->db->from($this->table);
-                $this->db->where(array('status'=>1, 'menu_id' => NULL, 'product_id' => NULL,'main_store_id'=>$website_store_id));
+                $this->db->where(array('status' => 1, 'menu_id' => NULL, 'product_id' => NULL,'main_store_id' => $website_store_id));
                 return $this->db->get()->result_array();
         }
 }

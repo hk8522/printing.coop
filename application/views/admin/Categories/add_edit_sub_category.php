@@ -7,17 +7,17 @@
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo $page_title?></span>
+                                <span><?= $page_title ?></span>
                             </div>
                         </div>
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="text-center" style="color:red">
-                                        <?php echo $this->session->flashdata('message_error');?>
+                                        <?= $this->session->flashdata('message_error') ?>
                                     </div>
-                                    <?php echo form_open('',array('class'=>'form-horizontal'));?>
-                                    <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>">
+                                    <?= form_open('',array('class' => 'form-horizontal')) ?>
+                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>">
                                     <div class="form-role-area">
                                         <div class="control-group info">
                                             <div class="row">
@@ -36,12 +36,12 @@
                                                                     $selected = 'selected="selected"';
                                                                 }
                                                                 ?>
-                                                                  <option value="<?php echo  $key?>" <?php echo $selected ?>><?php echo $category;?></option>
+                                                                  <option value="<?=  $key?>" <?= $selected ?>><?= $category ?></option>
                                                                     <?php
                                                                     }
                                                                     ?>
                                                         </select>
-                                                                                                                <label class="mt-2 text-danger"><?php echo $errors['category_id'] ?? '';?></label>
+                                                                                                                <label class="mt-2 text-danger"><?= $errors['category_id'] ?? '' ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -53,8 +53,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="<?php echo isset($postData['name']) ? $postData['name']:$old_values['name'] ?? '';?>" maxlength="50">
-                                                                                                                <label class="mt-2 text-danger"><?php echo $errors['name'] ?? '';?></label>
+                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="<?= isset($postData['name']) ? $postData['name']:$old_values['name'] ?? '' ?>" maxlength="50">
+                                                                                                                <label class="mt-2 text-danger"><?= $errors['name'] ?? '' ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -67,8 +67,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name_french" id="name_french" type="text" placeholder="Name" value="<?php echo isset($postData['name_french']) ? $postData['name_french']:$old_values['name_french'] ?? '';?>" maxlength="50">
-                                                                                                                <label class="mt-2 text-danger"><?php echo $errors['name_french'] ?? '';?></label>
+                                                        <input class="form-control" name="name_french" id="name_french" type="text" placeholder="Name" value="<?= isset($postData['name_french']) ? $postData['name_french']:$old_values['name_french'] ?? '' ?>" maxlength="50">
+                                                                                                                <label class="mt-2 text-danger"><?= $errors['name_french'] ?? '' ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -81,8 +81,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="sub_category_order" id="sub_category_order" type="number" placeholder="Sub Category Order" value="<?php echo isset($postData['sub_category_order']) ? $postData['sub_category_order']:'';?>">
-                                                        <label class="mt-2 text-danger"><?php echo $errors['sub_category_order'] ?? '';?></label>
+                                                        <input class="form-control" name="sub_category_order" id="sub_category_order" type="number" placeholder="Sub Category Order" value="<?= isset($postData['sub_category_order']) ? $postData['sub_category_order']:'' ?>">
+                                                        <label class="mt-2 text-danger"><?= $errors['sub_category_order'] ?? '' ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -94,8 +94,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <textarea class="form-control" name="sub_category_dispersion" id="content"><?php echo isset($postData['sub_category_dispersion']) ? $postData['sub_category_dispersion']:'';?></textarea>
-                                                        <?php echo form_error('sub_category_dispersion');?>
+                                                        <textarea class="form-control" name="sub_category_dispersion" id="content"><?= isset($postData['sub_category_dispersion']) ? $postData['sub_category_dispersion']:'' ?></textarea>
+                                                        <?= form_error('sub_category_dispersion') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -107,8 +107,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <textarea class="form-control" name="sub_category_dispersion_french" id="content1"><?php echo isset($postData['sub_category_dispersion_french']) ? $postData['sub_category_dispersion_french']:'';?></textarea>
-                                                        <?php echo form_error('sub_category_dispersion_french');?>
+                                                        <textarea class="form-control" name="sub_category_dispersion_french" id="content1"><?= isset($postData['sub_category_dispersion_french']) ? $postData['sub_category_dispersion_french']:'' ?></textarea>
+                                                        <?= form_error('sub_category_dispersion_french') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -121,7 +121,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input type="checkbox" name="show_main_menu" value="1" <?php echo !empty(    $postData['show_main_menu']) ? 'checked':''?>> Show Main Menu
+                                                        <input type="checkbox" name="show_main_menu" value="1" <?= !empty(    $postData['show_main_menu']) ? 'checked':'' ?>> Show Main Menu
                                                         <?php echo form_error('show_main_menu');
                                                         ?>
                                                     </div>
@@ -130,9 +130,9 @@
                                         </div>
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success">Submit</button>
-                                            <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
+                                            <a href="<?= $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
                                         </div>
-                                        <?php echo form_close();?>
+                                        <?= form_close() ?>
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +151,7 @@
 
 CKEDITOR.replace('content', {
 height: 300,
-filebrowserUploadUrl: "<?php echo $BASE_URL;?>upload.php",
+filebrowserUploadUrl: "<?= $BASE_URL ?>upload.php",
 allowedContent:true,
 extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
 });
@@ -159,7 +159,7 @@ CKEDITOR.dtd.$removeEmpty.i = 0;
 
 CKEDITOR.replace('content1', {
 height: 300,
-filebrowserUploadUrl: "<?php echo $BASE_URL;?>upload.php",
+filebrowserUploadUrl: "<?= $BASE_URL ?>upload.php",
 allowedContent:true,
 extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
 });

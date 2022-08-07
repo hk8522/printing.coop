@@ -748,10 +748,10 @@ function emailTemplateFranch($subject, $body) {
     'html' => $body,
     'text' => $body,
     'from' => $from,
-    'fromname' =>$fromname
+    'fromname' => $fromname
     );
 
-    foreach ($files as $fileName=>$path) {
+    foreach ($files as $fileName => $path) {
         $params['files['.$fileName.']'] = file_get_contents($path);
     }
     //pr($params);
@@ -779,10 +779,10 @@ function sendEmailFranch($toEmail = null, $sub = null, $body = null, $from = nul
     'html' => $body,
     'text' => $body,
     'from' => $from,
-    'fromname' =>$fromname
+    'fromname' => $fromname
     );
 
-    foreach ($files as $fileName=>$path) {
+    foreach ($files as $fileName => $path) {
         $params['files['.$fileName.']'] = file_get_contents($path);
     }
     //pr($params);
@@ -812,10 +812,10 @@ function sendEmailFranch($toEmail = null, $sub = null, $body = null, $from = nul
     'html' => $body,
     'text' => $body,
     'from' => trim($from),
-    'fromname' =>$fromname
+    'fromname' => $fromname
     );
 
-    foreach ($files as $fileName=>$path) {
+    foreach ($files as $fileName => $path) {
         $params['files['.$fileName.']'] = file_get_contents($path);
     }
     #pr($params);
@@ -843,10 +843,10 @@ function sendEmailFranch($toEmail = null, $sub = null, $body = null, $from = nul
     'html' => $body,
     'text' => $body,
     'from' => $from,
-    'fromname' =>$fromname
+    'fromname' => $fromname
     );
     #pr($params);
-    foreach ($files as $fileName=>$path) {
+    foreach ($files as $fileName => $path) {
         $params['files['.$fileName.']'] = file_get_contents($path);
     }
     //pr($params);
@@ -879,7 +879,7 @@ function sendEmail($toEmail = null, $sub = null, $body = null, $from = null, $fr
 
     $message->from = new \Socketlabs\Message\EmailAddress($params['from']);
     $message->replyTo = new Socketlabs\Message\EmailAddress($params['from']);
-    foreach ($files as $fileName=>$path) {
+    foreach ($files as $fileName => $path) {
         $message->attachments[] = \Socketlabs\Message\Attachment::createFromPath($path, $fileName);
     }
     $message->addToAddress($params['to']);
@@ -898,7 +898,7 @@ function sendEmailFranch($toEmail = null, $sub = null, $body = null, $from = nul
     $message->plainTextBody = $params['text'];
     $message->from = new \Socketlabs\Message\EmailAddress($params['from']);
     $message->replyTo = new Socketlabs\Message\EmailAddress($params['from']);
-    foreach ($files as $fileName=>$path) {
+    foreach ($files as $fileName => $path) {
         $message->attachments[] = \Socketlabs\Message\Attachment::createFromPath($path, $fileName);
     }
     $message->addToAddress($params['to']);
@@ -1208,7 +1208,7 @@ function getRatesFlagShip($ProductOrder, $ProductOrderItems, $CountryData, $stat
             "height" => $shipping_box_height,
             "length" => $shipping_box_length,
             "weight" => $shipping_box_weight,
-            "description"=> $name
+            "description" => $name
         ];
 
         //pr($items,1);
@@ -1216,55 +1216,55 @@ function getRatesFlagShip($ProductOrder, $ProductOrderItems, $CountryData, $stat
 
     $flagship = new Flagship($MY_ACCESS_TOKEN, $API_URL, $website_name,API_VERSION);
     $payload = [
-        'from' =>[
-            "name"=> "printing coop",
-            "attn"=> "Mehdi Afzali",
-            "address"=> "9166 rue Lajeunesse",
-            "suite"=> "",
-            "city"=> "MONTREAL",
-            "country"=> "CA",
-            "state"=> "QC",
-            "postal_code"=> "H2M1S2",
-            "phone"=> "5143848043",
-            "ext"=> "",
-            "department"=> "",
-            "is_commercial"=> true
+        'from' => [
+            "name" => "printing coop",
+            "attn" => "Mehdi Afzali",
+            "address" => "9166 rue Lajeunesse",
+            "suite" => "",
+            "city" => "MONTREAL",
+            "country" => "CA",
+            "state" => "QC",
+            "postal_code" => "H2M1S2",
+            "phone" => "5143848043",
+            "ext" => "",
+            "department" => "",
+            "is_commercial" => true
         ],
         "to" => [
-            "name"=> $shipping_name,
-            "attn"=> "",
-            "address"=> $shipping_address,
-            "suite"=> "",
-            "city"=> $shipping_city,
-            "country"=> $shipping_country,
-            "state"=> $shipping_state,
-            "postal_code"=> $shipping_pin_code,
-            "phone"=> $shipping_mobile,
-            "ext"=> "",
-            "department"=> "",
-            "is_commercial"=> true
+            "name" => $shipping_name,
+            "attn" => "",
+            "address" => $shipping_address,
+            "suite" => "",
+            "city" => $shipping_city,
+            "country" => $shipping_country,
+            "state" => $shipping_state,
+            "postal_code" => $shipping_pin_code,
+            "phone" => $shipping_mobile,
+            "ext" => "",
+            "department" => "",
+            "is_commercial" => true
         ],
-        "packages"=> [
-            "items"=> $items,
-            "units"=> "imperial",
-            "type"=> "package",
-            "content"=> "goods"
+        "packages" => [
+            "items" => $items,
+            "units" => "imperial",
+            "type" => "package",
+            "content" => "goods"
         ],
-        "payment"=> [
-            "payer"=> "F"
+        "payment" => [
+            "payer" => "F"
         ],
-        "options"=> [
-            /*"insurance"=> [
-                "value"=> 123.45,
-                "description"=> "Children books"
+        "options" => [
+            /*"insurance" => [
+                "value" => 123.45,
+                "description" => "Children books"
             ],*/
-            "signature_required"=> false,
-            "saturday_delivery"=> false,
-            "reference"=>$reference,
-            "driver_instructions"=> "",
-            "address_correction"=> true,
-            "return_documents_as"=> "url",
-            "shipment_tracking_emails"=> "$store_email;$user_email"
+            "signature_required" => false,
+            "saturday_delivery" => false,
+            "reference" => $reference,
+            "driver_instructions" => "",
+            "address_correction" => true,
+            "return_documents_as" => "url",
+            "shipment_tracking_emails" => "$store_email;$user_email"
         ]
     ];
 
@@ -1293,7 +1293,7 @@ function getRatesFlagShip($ProductOrder, $ProductOrderItems, $CountryData, $stat
 }
 
 function FlagShipConfirm($ProductOrder, $ProductOrderItems, $CountryData, $stateData, $cityData, $storeData) {
-    $json = array('status'=> 0, 'msg' => '', 'data' => array());
+    $json = array('status' => 0, 'msg' => '', 'data' => array());
     //pr($ProductOrder);
     //pr($ProductOrderItem);
     //pr($storeData,1);
@@ -1356,7 +1356,7 @@ function FlagShipConfirm($ProductOrder, $ProductOrderItems, $CountryData, $state
             "height" => $shipping_box_height,
             "length" => $shipping_box_length,
             "weight" => $shipping_box_weight,
-            "description"=> $name
+            "description" => $name
         ];
     }
     $service = array();
@@ -1367,8 +1367,8 @@ function FlagShipConfirm($ProductOrder, $ProductOrderItems, $CountryData, $state
         $courier_name = $codeData['courier_name'];
         $courier_code = $codeData['courier_code'];
             $service = [
-            "courier_name"=>$courier_name,
-            "courier_code"=>$courier_code
+            "courier_name" => $courier_name,
+            "courier_code" => $courier_code
             ];
         }
     }
@@ -1376,57 +1376,57 @@ function FlagShipConfirm($ProductOrder, $ProductOrderItems, $CountryData, $state
     if (!empty($service)) {
         $flagship = new Flagship($MY_ACCESS_TOKEN, $API_URL, $website_name,API_VERSION);
         $payload = [
-            'from' =>[
-                "name"=> "printing coop",
-                "attn"=> "Mehdi Afzali",
-                "address"=> "9166 rue Lajeunesse",
-                "suite"=> "",
-                "city"=> "MONTREAL",
-                "country"=> "CA",
-                "state"=> "QC",
-                "postal_code"=> "H2M1S2",
-                "phone"=> "5143848043",
-                "ext"=> "",
-                "department"=> "",
-                "is_commercial"=> true
+            'from' => [
+                "name" => "printing coop",
+                "attn" => "Mehdi Afzali",
+                "address" => "9166 rue Lajeunesse",
+                "suite" => "",
+                "city" => "MONTREAL",
+                "country" => "CA",
+                "state" => "QC",
+                "postal_code" => "H2M1S2",
+                "phone" => "5143848043",
+                "ext" => "",
+                "department" => "",
+                "is_commercial" => true
             ],
             "to" => [
-                "name"=> $shipping_name,
-                "attn"=> $shipping_name,
-                "address"=> $shipping_address,
-                "suite"=> "",
-                "city"=> $shipping_city,
-                "country"=> $shipping_country,
-                "state"=> $shipping_state,
-                "postal_code"=> $shipping_pin_code,
-                "phone"=> $shipping_mobile,
-                "ext"=> "",
-                "department"=> "",
-                "is_commercial"=> true
+                "name" => $shipping_name,
+                "attn" => $shipping_name,
+                "address" => $shipping_address,
+                "suite" => "",
+                "city" => $shipping_city,
+                "country" => $shipping_country,
+                "state" => $shipping_state,
+                "postal_code" => $shipping_pin_code,
+                "phone" => $shipping_mobile,
+                "ext" => "",
+                "department" => "",
+                "is_commercial" => true
             ],
-            "packages"=> [
-                "items"=> $items,
-                "units"=> "imperial",
-                "type"=> "package",
-                "content"=> "goods"
+            "packages" => [
+                "items" => $items,
+                "units" => "imperial",
+                "type" => "package",
+                "content" => "goods"
             ],
-            "payment"=> [
-                "payer"=> "F"
+            "payment" => [
+                "payer" => "F"
             ],
-            'service'=>$service,
-            "options"=> [
-                /*"insurance"=> [
-                    "value"=> 123.45,
-                    "description"=> "Children books"
+            'service' => $service,
+            "options" => [
+                /*"insurance" => [
+                    "value" => 123.45,
+                    "description" => "Children books"
                 ],*/
-                "signature_required"=> false,
-                "saturday_delivery"=> false,
-                "shipping_date"=>date('Y-m-d'),
-                "reference"=>$reference,
-                "driver_instructions"=> "",
-                "address_correction"=> true,
-                "return_documents_as"=> "url",
-                "shipment_tracking_emails"=> "$store_email;$user_email"
+                "signature_required" => false,
+                "saturday_delivery" => false,
+                "shipping_date" => date('Y-m-d'),
+                "reference" => $reference,
+                "driver_instructions" => "",
+                "address_correction" => true,
+                "return_documents_as" => "url",
+                "shipment_tracking_emails" => "$store_email;$user_email"
             ]
         ];
 
@@ -1454,7 +1454,7 @@ function FlagShipConfirm($ProductOrder, $ProductOrderItems, $CountryData, $state
 }
 
 function FlagShipTracking($ProductOrder, $storeData) {
-    $json = array('status'=> 0, 'msg' => '', 'data' => array());
+    $json = array('status' => 0, 'msg' => '', 'data' => array());
     //pr($ProductOrder);
     //pr($ProductOrderItem);
     //pr($storeData,1);
@@ -1497,7 +1497,7 @@ function FlagShipTracking($ProductOrder, $storeData) {
 }
 
 function FlagShipCancal($ProductOrder, $storeData) {
-    $json = array('status'=> 0, 'msg' => '', 'data' => array());
+    $json = array('status' => 0, 'msg' => '', 'data' => array());
     //pr($ProductOrder);
     //pr($ProductOrderItem);
     //pr($storeData,1);
@@ -1549,64 +1549,64 @@ function FlagShipTestRate() {
     $flagship = new Flagship(MY_ACCESS_TOKEN_TEST, 'https://test-api.smartship.io', 'printing.coop',API_VERSION);
 
     $payload = [
-        'from' =>[
-            "name"=> "printing coop",
-            "attn"=> "Mehdi Afzali",
-            "address"=> "9166 rue Lajeunesse",
-            "suite"=> "",
-            "city"=> "MONTREAL",
-            "country"=> "CA",
-            "state"=> "QC",
-            "postal_code"=> "H2M1S2",
-            "phone"=> "5143848043",
-            "ext"=> "",
-            "department"=> "",
-            "is_commercial"=> true
+        'from' => [
+            "name" => "printing coop",
+            "attn" => "Mehdi Afzali",
+            "address" => "9166 rue Lajeunesse",
+            "suite" => "",
+            "city" => "MONTREAL",
+            "country" => "CA",
+            "state" => "QC",
+            "postal_code" => "H2M1S2",
+            "phone" => "5143848043",
+            "ext" => "",
+            "department" => "",
+            "is_commercial" => true
         ],
         "to" => [
-            "name"=> "Papeterie St-Sauveur",
-            "attn"=> "Papiterie",
-            "address"=> "407 Rue Principale, 201",
-            "suite"=> "",
-            "city"=> "SAINT-SAUVEUR",
-            "country"=> "CA",
-            "state"=> "QC",
-            "postal_code"=> "J0R1R4",
-            "phone"=> "4502275252",
-            "ext"=> "",
-            "department"=> "Reception",
-            "is_commercial"=> true
+            "name" => "Papeterie St-Sauveur",
+            "attn" => "Papiterie",
+            "address" => "407 Rue Principale, 201",
+            "suite" => "",
+            "city" => "SAINT-SAUVEUR",
+            "country" => "CA",
+            "state" => "QC",
+            "postal_code" => "J0R1R4",
+            "phone" => "4502275252",
+            "ext" => "",
+            "department" => "Reception",
+            "is_commercial" => true
         ],
-        "packages"=> [
-            "items"=> [
+        "packages" => [
+            "items" => [
                 [
-                    "width"=> 9,
-                    "height"=> 4,
-                    "length"=> 12,
-                    "weight"=> 11,
-                    "description"=> "Item description"
+                    "width" => 9,
+                    "height" => 4,
+                    "length" => 12,
+                    "weight" => 11,
+                    "description" => "Item description"
                 ],
 
             ],
-            "units"=> "imperial",
-            "type"=> "package",
-            "content"=> "goods"
+            "units" => "imperial",
+            "type" => "package",
+            "content" => "goods"
         ],
-        "payment"=> [
-            "payer"=> "F"
+        "payment" => [
+            "payer" => "F"
         ],
-        "options"=> [
-            "insurance"=> [
-                "value"=> 101,
-                "description"=> "Children books"
+        "options" => [
+            "insurance" => [
+                "value" => 101,
+                "description" => "Children books"
             ],
-            "signature_required"=> false,
-            "saturday_delivery"=> false,
-            "reference"=> "123 test",
-            "driver_instructions"=> "Doorbell broken, knock on door",
-            "address_correction"=> true,
-            "return_documents_as"=> "url",
-            "shipment_tracking_emails"=> "jbeans@company.com;shipping1@company.com"
+            "signature_required" => false,
+            "saturday_delivery" => false,
+            "reference" => "123 test",
+            "driver_instructions" => "Doorbell broken, knock on door",
+            "address_correction" => true,
+            "return_documents_as" => "url",
+            "shipment_tracking_emails" => "jbeans@company.com;shipping1@company.com"
         ]
     ];
 
@@ -1649,68 +1649,68 @@ function FlagShipTestConfirm() {
     $flagship = new Flagship(MY_ACCESS_TOKEN_TEST, 'https://test-api.smartship.io', 'printing.coop',API_VERSION);
     //pr($flagship,1);
     $payload = [
-        'from' =>[
-            "name"=> "printing coop",
-            "attn"=> "Mehdi Afzali",
-            "address"=> "9166 rue Lajeunesse",
-            "suite"=> "",
-            "city"=> "MONTREAL",
-            "country"=> "CA",
-            "state"=> "QC",
-            "postal_code"=> "H2M1S2",
-            "phone"=> "5143848043",
-            "ext"=> "",
-            "department"=> "",
-            "is_commercial"=> true
+        'from' => [
+            "name" => "printing coop",
+            "attn" => "Mehdi Afzali",
+            "address" => "9166 rue Lajeunesse",
+            "suite" => "",
+            "city" => "MONTREAL",
+            "country" => "CA",
+            "state" => "QC",
+            "postal_code" => "H2M1S2",
+            "phone" => "5143848043",
+            "ext" => "",
+            "department" => "",
+            "is_commercial" => true
         ],
         "to" => [
-            "name"=> "FlagShip Courier Solutions",
-            "attn"=> "FCS",
-            "address"=> "Brunswick Blvd",
-            "suite"=> "148",
-            "city"=> "Pointe-Claire",
-            "country"=> "CA",
-            "state"=> "QC",
-            "postal_code"=> "H9R5P9",
-            "phone"=> "18663208383",
-            "ext"=> "",
-            "department"=> "Reception",
-            "is_commercial"=> true
+            "name" => "FlagShip Courier Solutions",
+            "attn" => "FCS",
+            "address" => "Brunswick Blvd",
+            "suite" => "148",
+            "city" => "Pointe-Claire",
+            "country" => "CA",
+            "state" => "QC",
+            "postal_code" => "H9R5P9",
+            "phone" => "18663208383",
+            "ext" => "",
+            "department" => "Reception",
+            "is_commercial" => true
         ],
-        "packages"=> [
-            "items"=> [
+        "packages" => [
+            "items" => [
                 [
-                    "width"=> 22,
-                    "height"=> 22,
-                    "length"=> 22,
-                    "weight"=> 22,
-                    "description"=> "Item description"
+                    "width" => 22,
+                    "height" => 22,
+                    "length" => 22,
+                    "weight" => 22,
+                    "description" => "Item description"
                 ],
 
             ],
-            "units"=> "imperial",
-            "type"=> "package",
-            "content"=> "goods"
+            "units" => "imperial",
+            "type" => "package",
+            "content" => "goods"
         ],
-        "payment"=> [
-            "payer"=> "F"
+        "payment" => [
+            "payer" => "F"
         ],
-        "service"=> [
-            "courier_name"=>"FedEx",
-            "courier_code"=>"FEDEX_GROUND"
+        "service" => [
+            "courier_name" => "FedEx",
+            "courier_code" => "FEDEX_GROUND"
         ],
-        "options"=> [
-            /*"insurance"=> [
-                "value"=> 123.45,
-                "description"=> "Children books"
+        "options" => [
+            /*"insurance" => [
+                "value" => 123.45,
+                "description" => "Children books"
             ],*/
-            "signature_required"=> false,
-            "saturday_delivery"=> false,
-            "reference"=> "123 test",
-            "driver_instructions"=> "Doorbell broken, knock on door",
-            "address_correction"=> true,
-            "return_documents_as"=> "url",
-            "shipment_tracking_emails"=> "devouttest@gmail.com"
+            "signature_required" => false,
+            "saturday_delivery" => false,
+            "reference" => "123 test",
+            "driver_instructions" => "Doorbell broken, knock on door",
+            "address_correction" => true,
+            "return_documents_as" => "url",
+            "shipment_tracking_emails" => "devouttest@gmail.com"
         ]
     ];
 

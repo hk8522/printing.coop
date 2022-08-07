@@ -186,23 +186,23 @@
     </section><!-- /.content -->
  </div>
 
- <script src="<?php echo $BASE_URL;?>assets/admin/js/jquery.datetimepicker.full.js"></script>
+ <script src="<?= $BASE_URL ?>assets/admin/js/jquery.datetimepicker.full.js"></script>
 <script>
-$(document).ready(function(){
-    $("#show-discount-percent").click(function(){
+$(document).ready(function() {
+    $("#show-discount-percent").click(function() {
         $(".discount-percent").show();
         $(".discount-amount").hide();
     });
-    $("#show-discount-amount").click(function(){
+    $("#show-discount-amount").click(function() {
         $(".discount-percent").hide();
         $(".discount-amount").show();
     });
 
-    $("#show-minimum").click(function(){
+    $("#show-minimum").click(function() {
         $(".minimum-quantity").show();
         $(".maximum-quantity").hide();
     });
-    $("#show-maximum").click(function(){
+    $("#show-maximum").click(function() {
         $(".minimum-quantity").hide();
         $(".maximum-quantity").show();
     });

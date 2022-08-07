@@ -2,17 +2,15 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="text-center" style="color:red">
-                <?php echo $this->session->flashdata('message_error');?>
+                <?= $this->session->flashdata('message_error') ?>
             </div>
             <div class="text-center" style="color:green">
-                <?php
-                echo $this->session->flashdata('message_success');
-                ?>
+                <?= $this->session->flashdata('message_success') ?>
             </div>
-            <?php echo form_open_multipart('', array('class'=>'form-horizontal', 'id'=>'auto_attribute_add_form'));?>
-            <input class="form-control" name="id" type="hidden"  value="<?php echo $id?>" id="id">
-            <input class="form-control" type="hidden"
-            value="<?php echo $product_id?>" id="product_id" name="product_id">
+            <?= form_open_multipart('', array('class' => 'form-horizontal', 'id' => 'auto_attribute_add_form')) ?>
+            <input class="form-control" name="id" type="hidden" value="<?= $id ?>" id="id">
+            <input class="form-control" type="hidden" value="<?= $product_id ?>" id="product_id"
+                name="product_id">
             <div class="form-role-area">
                 <div class="control-group info">
                     <div class="row align-items-center">
@@ -29,10 +27,10 @@
                                         if ($attribute['id'] == $attribute_id) {
                                             $selected = 'selected="selected"';
                                         }
-                                    ?>
-                                        <option value="<?=$attribute['id']?>" <?=$selected?>><?=$attribute['name']?></option>
-                                    <?php
-                                    }?>
+                                        ?>
+                                        <option value="<?= $attribute['id']?>" <?= $selected?>><?= $attribute['name']?>
+                                        </option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>
@@ -42,29 +40,29 @@
                     <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
                 </div>
             </div>
-            <?php echo form_close();?>
+            <?= form_close() ?>
         </div>
     </div>
 </div>
-<script src="<?php echo $BASE_URL?>/assets/js/validation.js"></script>
+<script src="<?= $BASE_URL ?>/assets/js/validation.js"></script>
 <script>
-success='<?php echo $success?>';
+success = '<?= $success ?>';
 $('#auto_attribute_add_form').validate({
-        rules: {
-            attribute_id: {
+    rules: {
+        attribute_id: {
             required: true,
-            },
         },
-        messages: {
-            attribute_id: {
+    },
+    messages: {
+        attribute_id: {
             required: 'Please select attribute',
-            },
         },
-        submitHandler: function(form) {
-            $("#loader-img").show();
-            $.ajax({
+    },
+    submitHandler: function(form) {
+        $("#loader-img").show();
+        $.ajax({
             type: "POST",
-            url: '<?=$BASE_URL?>admin/Products/AutoAttributeAdd',
+            url: '<?= $BASE_URL?>admin/Products/AutoAttributeAdd',
             data: $(form).serialize(),
             beforeSend: function() {
                 $('button[type=submit]').attr('disabled', true);
@@ -77,7 +75,7 @@ $('#auto_attribute_add_form').validate({
                     location.reload();
                 }
             }
-            });
-        },
-    });
+        });
+    },
+});
 </script>

@@ -13,8 +13,8 @@
     if (!isset($index))
         $index = false;
 ?>
-<?php if (isset($items)) {?>
-<select class="form-control {{isset($class) ? $class : ''}}" id="<?=$id?>" name="<?=$name?>[]" multiple="multiple" {{isset($required) && $required ? 'required' : ''}} {{isset($disabled) && $disabled ? 'disabled' : ''}}>
+<?php if (isset($items)) { ?>
+<select class="form-control {{isset($class) ? $class : ''}}" id="<?= $id?>" name="<?= $name?>[]" multiple="multiple" {{isset($required) && $required ? 'required' : ''}} {{isset($disabled) && $disabled ? 'disabled' : ''}}>
     <?php
     foreach ($items as $key => $item) {
         if (is_array($item) && isset($item['text']))
@@ -27,11 +27,11 @@
             echo '<option ' . (((isset($value) && in_array($item->id, $value)) || (isset($item->selected) && $item->selected)) ? 'selected="selected"' : '') . ' value="' . ($index ? $key : $item->id) . '">' . $item->name . '</option>';
         else
             echo '<option ' . ((isset($value) && in_array($index ? $key : $item, $value)) ? 'selected="selected"' : '') . ' value="' . ($index ? $key : $item) . '">' . $item . '</option>';
-    }?>
+   } ?>
 </select>
 <script>
     $(document).ready(function() {
-        $("#<?=str_replace(['[', ']'], ['\\\\[', '\\\\]'], $id)?>").kendoMultiSelect({
+        $("#<?= str_replace(['[', ']'], ['\\\\[', '\\\\]'], $id)?>").kendoMultiSelect({
             select: function (e) {
                 var current = this.value();
                 if (this.dataSource.view()[e.item.index()].value === "0") {

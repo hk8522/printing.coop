@@ -17,30 +17,30 @@
                     $multipalCategoryData = $Product['multipalCategoryData'];
                 ?>
                     <a href="<?= $BASE_URL?>">Accueil</a>
-                    <?php if (!empty($Product['category_name_french'])) {?>
+                    <?php if (!empty($Product['category_name_french'])) { ?>
                         /
                         <a href="<?= $BASE_URL?>Products/?category_id=<?= base64_encode($Product['category_id'])?>"><?= $Product['category_name_french']?></a>
-                    <?php }?>
-                    <?php if (!empty($Product['sub_category_name_french'])) {?>
+                    <?php } ?>
+                    <?php if (!empty($Product['sub_category_name_french'])) { ?>
                         /
                         <a href="<?= $BASE_URL?>Products/?category_id=<?= base64_encode($Product['category_id'])?>&sub_category_id=<?= base64_encode($Product['sub_category_id'])?>"><?= $Product['sub_category_name_french']?></a>
-                    <?php }?>
+                    <?php } ?>
                     /<span class="current"><?= $Product['name_french']?></span>
 
                 <?php } else { ?>
 
                     <a href="<?= $BASE_URL?>">Home</a>
-                    <?php if (!empty($Product['category_name'])) {?>
+                    <?php if (!empty($Product['category_name'])) { ?>
                         /
                         <a href="<?= $BASE_URL?>Products/?category_id=<?= base64_encode($Product['category_id'])?>"><?= $Product['category_name']?></a>
-                    <?php }?>
-                    <?php if (!empty($Product['sub_category_name'])) {?>
+                    <?php } ?>
+                    <?php if (!empty($Product['sub_category_name'])) { ?>
                         /
                         <a href="<?= $BASE_URL?>Products/?category_id=<?= base64_encode($Product['category_id'])?>&sub_category_id=<?= base64_encode($Product['sub_category_id'])?>"><?= $Product['sub_category_name']?></a>
-                    <?php }?>
+                    <?php } ?>
                     /<span class="current"><?= $Product['name']?></span>
 
-                <?php }?>
+                <?php } ?>
             </div>
         </div>
     </div>
@@ -52,24 +52,24 @@
                 <div class="col-md-5 col-lg-6 col-xl-6">
                     <div class="swiper-container-gallery-top">
                         <div class="swiper-wrapper">
-                            <?php foreach ($ProductImages as $key => $ProductImage) {?>
+                            <?php foreach ($ProductImages as $key => $ProductImage) { ?>
                                 <div class="swiper-slide">
                                     <div class="shop-product-img">
                                         <img src="<?= getProductImage($ProductImage['image'],'large')?>">
                                     </div>
                                 </div>
-                            <?php }?>
+                            <?php } ?>
                         </div>
                         <!-- Slider Arrow -->
-                        <?php if (count($ProductImages) > 1) {?>
+                        <?php if (count($ProductImages) > 1) { ?>
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
-                        <?php }?>
+                        <?php } ?>
                     </div>
                     <div class="product-sample-image">
                         <div class="swiper-container-gallery-thumbs">
                             <div class="swiper-wrapper">
-                                <?php foreach ($ProductImages as $key => $ProductImage) {?>
+                                <?php foreach ($ProductImages as $key => $ProductImage) { ?>
                                     <div class="swiper-slide">
                                         <div class="latest-single-product">
                                             <div class="latest-product-img">
@@ -77,7 +77,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                <?php }?>
+                                <?php } ?>
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>
@@ -100,9 +100,9 @@
                                 ?>
                                 <div class="shop-category">
                                     <span><?= ($language_name == 'French') ? 'Catégorie' : 'Category'?> :
-                                        <?php foreach($multipalCategoryData as $key => $val) {?>
+                                        <?php foreach ($multipalCategoryData as $key => $val) { ?>
                                             <font><?= $language_name == 'French' ? $val['name_french'] : $val['name']?></font>
-                                        <?php }?>
+                                        <?php } ?>
                                     </span>
                                 </div>
                                 <?php //}?>
@@ -137,11 +137,11 @@
                                 <input type="hidden" id="product_price" value="<?= $Product[$product_price_currency]?>" name="price">
                                 <div class="product-fields">
                                     <div class="row">
-                                        <?php if ($provider) {?>
+                                        <?php if ($provider) { ?>
                                             <?php $this->view('Products/product_detail_provider'); ?>
-                                        <?php } else {?>
+                                        <?php } else{ ?>
                                             <?php $this->view('Products/product_detail'); ?>
-                                        <?php }?>
+                                        <?php } ?>
                                     </div>
                                 </div>
 
@@ -157,7 +157,7 @@
                                         </div>
                                         <div class="col-6 col-md-6">
                                             <div class="quant-cart">
-                                                <label><?= $language_name == 'French' ? "Combien d'ensembles" : 'How many sets'?> </label>
+                                                <label><?= $language_name == 'French' ? "Combien d'ensembles" : 'How many sets'?></label>
                                                 <input type="text" value="1" id="quantity" name="quantity" onkeypress="javascript:return isNumber(event)" onchange="setQuantity()">
                                             </div>
                                         </div>
@@ -179,7 +179,7 @@
                                             <?php if (isset($_SESSION['product_id'][$Product['id']])) {
                                                 $file_data = $_SESSION['product_id'][$Product['id']];
                                                 #pr($file_data);
-                                                foreach($file_data as $key => $return_arr) {
+                                                foreach ($file_data as $key => $return_arr) {
                                                     #pr($return_arr);
                                                 ?>
 
@@ -210,10 +210,10 @@
                                                         </div>
                                                     </div>
                                                 <?php }
-                                            }?>
+                                           } ?>
                                         </div>
                                     </div>
-                                <?php }?>
+                                <?php } ?>
                                 <div class="quant-cart">
                                     <input type="hidden" id="<?= $Product['id']?>-rowid" value="<?= $productRowid?>">
                                     <input type="hidden" id="<?= $Product['id']?>-productId">
@@ -224,7 +224,7 @@
                                 </div>
 
                             </form>
-                        <?php }?>
+                        <?php } ?>
                     </div>
                 </div>
             </div>
@@ -233,14 +233,14 @@
             <div class="featured-tabs tab">
                 <button class="tablinks active" id="defaultOpen" onclick="openCity(event, 'Description')"><?= $language_name == 'French' ? 'La description' : 'Description'?></button>
                 <?php if (!empty($ProductDescriptions)) {
-                    foreach($ProductDescriptions as $key => $val) {
+                    foreach ($ProductDescriptions as $key => $val) {
                 ?>
                         <button class="tablinks" id="defaultOpen<?= $val['id']?>" onclick="openCity(event, 'Description<?= $val['id']?>')"><?= $language_name == 'French' ? $val['title_french']:$val['title']?></button>
                     <?php }
-                }?>
-                <?php if (!empty($ProductTemplates)) {?>
+               } ?>
+                <?php if (!empty($ProductTemplates)) { ?>
                     <button class="tablinks" id="defaultOpen-Template" onclick="openCity(event, 'template')"><?= $language_name == 'French' ? 'Modèles' : 'Templates'?></button>
-                <?php }?>
+                <?php } ?>
                 <!--<button class="tablinks" onclick="openCity(event, 'Reviews')">Reviews (<?= count($ratings)?>)</button>-->
             </div>
             <div class="featured-tab-output">
@@ -255,7 +255,7 @@
                     </div>
                 </div>
                 <?php if (!empty($ProductDescriptions)) {
-                    foreach($ProductDescriptions as $key => $val) {
+                    foreach ($ProductDescriptions as $key => $val) {
                     ?>
                         <div id="Description<?= $val['id']?>" class="tabcontent" style="display:none">
                             <div class="tabcontent-inner">
@@ -268,9 +268,9 @@
                             </div>
                         </div>
                     <?php }
-                }?>
+               } ?>
 
-                <?php if (!empty($ProductTemplates)) {?>
+                <?php if (!empty($ProductTemplates)) { ?>
                     <div id="template" class="tabcontent" style="display:none">
                         <div class="tabcontent-inner">
                             <div class="universal-dark-title">
@@ -287,7 +287,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <?php foreach($ProductTemplates as $key => $val) {?>
+                                        <?php foreach ($ProductTemplates as $key => $val) { ?>
                                             <tr>
                                                 <td><?= $language_name == 'French' ? $val['final_dimensions_french'] : $val['final_dimensions']?></td>
                                                 <td><?= $language_name == 'French' ? $val['template_description_french'] : $val['template_description']?></td>
@@ -297,22 +297,22 @@
                                                     </a>
                                                 </td>
                                             </tr>
-                                        <?php }?>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
-                <?php }?>
+                <?php } ?>
             </div>
         </div>
     </div>
 </div>
 <?php if ($language_name == 'French') { ?>
     <script src="<?= $BASE_URL?>assets/file-upload/script-french.js" type="text/javascript"></script>
-<?php } else {?>
+<?php } else{ ?>
     <script src="<?= $BASE_URL?>assets/file-upload/script.js" type="text/javascript"></script>
-<?php }?>
+<?php } ?>
 <script>
 
     function setQuantity() {
@@ -346,7 +346,7 @@
 
      function delete_image(skey) {
         var location = $("#location-"+skey).val();
-        var product_id = '<?= $product_id;?>';
+        var product_id = '<?= $product_id ?>';
         if (location == '') { return false}
 
         $("#smd-" + skey).prop('disabled', true);

@@ -54,11 +54,11 @@ foreach ($AtirbuteProductSizes as $mkey => $mval) {
     <select name="multiple_attribute_<?= $mkey?>" required id="product_size_option_<?= $j?>" required <?= $disabled?>
         onchange="<?= $onchange?>" class="multipal_size multipal_size_item">
         <?= $options?>
-        <?php foreach ($attribute_items as $akey=>$aval) { ?>
+        <?php foreach ($attribute_items as $akey => $aval) { ?>
             <option value="<?= $akey?>">
                 <?= $language_name == 'French' ? $aval['attributes_item_name_french'] : $aval['attributes_item_name']?>
             </option>
-        <?php }?>
+        <?php } ?>
     </select>
 </div>
 <?php
@@ -88,7 +88,8 @@ function getQuantityPrice(nid) {
             if (json.success == 1) {
                 $("#" + nid).attr("disabled", false);
 
-                $("#total-price").html(json.price);
+                // $('[name="price"]').val(json.price);
+                $("#total-price").html((json.price * $("#quantity").val()).toFixed(2));
             }
         },
         error: function(resp) {
@@ -119,7 +120,8 @@ function getPaperPrice(nid) {
             if (json.success == 1) {
                 $("#attribute_id_" + nid).attr("disabled", false);
 
-                $("#total-price").html(json.price);
+                // $('[name="price"]').val(json.price);
+                $("#total-price").html((json.price * $("#quantity").val()).toFixed(2));
             }
         }
     });

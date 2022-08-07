@@ -9,22 +9,22 @@
                             <div class="row">
                                 <div class="col-md-6 col-xs-12 text-left">
                                     <div class="inner-title">
-                                        <span><?php echo ucfirst($page_title).' List'; ?></span>
+                                        <span><?= ucfirst($page_title).' List' ?></span>
                                     </div>
                                 </div>
 
                                <div class="col-md-6 col-xs-12 text-right">
                                     <div class="all-vol-btn">
 
-                                            <?php if($status_ticket==0){
+                                            <?php if ($status_ticket==0) {
                                             $url=$BASE_URL.'admin/Tickets/index/'.base64_encode(1);
                                             $text='Resolved Ticket';
-                                        }else{
+                                        } else {
                                             $url=$BASE_URL.'admin/Tickets/index/';
                                             $text='Unresolved Ticket';
-                                        }?>
+                                       } ?>
                                             <div class="upload-area">
-                                               <a href="<?php echo $url;?>"><button><?php echo $text;?></button>
+                                               <a href="<?= $url ?>"><button><?= $text ?></button>
                                                 </a>
                                             </div>
                                     </div>
@@ -90,10 +90,10 @@
     </div>
 </div>
 <script>
-var BASE_URL='<?php echo $BASE_URL_ADMIN;?>';
-var status_ticket='<?php echo isset($status_ticket) ? base64_encode($status_ticket):base64_encode(0);?>';
+var BASE_URL='<?= $BASE_URL_ADMIN ?>';
+var status_ticket='<?= isset($status_ticket) ? base64_encode($status_ticket):base64_encode(0) ?>';
 </script>
 <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
  </script>
-<script src="<?php echo $BASE_URL;?>assets/admin/js/tickets.js"></script>
+<script src="<?= $BASE_URL ?>assets/admin/js/tickets.js"></script>
 

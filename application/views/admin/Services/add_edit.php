@@ -6,17 +6,17 @@
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo $page_title?></span>
+                                <span><?= $page_title ?></span>
                             </div>
                         </div>
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="text-center" style="color:red">
-                                        <?php echo $this->session->flashdata('message_error');?>
+                                        <?= $this->session->flashdata('message_error') ?>
                                     </div>
-                                   <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
-                                    <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']: $old_values['id'] ?? '';?>">
+                                   <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
+                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']: $old_values['id'] ?? '' ?>">
                                     <div class="form-role-area">
                                        <div class="control-group info">
                                             <div class="row">
@@ -27,17 +27,17 @@
                                                     <div class="controls">
                                                        <select name="main_store_id" class="form-control">
                                                        <option value="">Select WebSite</option>
-                                                       <?php foreach($MainStoreList as $key=>$val){
+                                                       <?php foreach ($MainStoreList as $key => $val) {
                                                         $selected='';
-                                                        if($postData['main_store_id'] == $key){
+                                                        if ($postData['main_store_id'] == $key) {
                                                              $selected='selected="selected"';
                                                         }
                                                         ?>
-                                                        <option value="<?php echo $key?>" <?php echo $selected?>><?php echo $val;?></option>
+                                                        <option value="<?= $key?>" <?= $selected?>><?= $val  ?></option>
                                                        <?php
-                                                       }?>
+                                                      } ?>
                                                        </select>
-                                                       <?php echo form_error('main_store_id');?>
+                                                       <?= form_error('main_store_id') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -49,8 +49,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="<?php echo isset($postData['name']) ? $postData['name']: $old_values['name'] ?? '';?>" maxlength="50">
-                                                        <label class="mt-2 text-danger"><?php echo $errors['name'] ?? '';?></label>
+                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="<?= isset($postData['name']) ? $postData['name']: $old_values['name'] ?? '' ?>" maxlength="50">
+                                                        <label class="mt-2 text-danger"><?= $errors['name'] ?? '' ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -62,8 +62,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name_french" id="name_french" type="text" placeholder="Name" value="<?php echo isset($postData['name_french']) ? $postData['name_french']: $old_values['name_french'] ?? '';?>" maxlength="50">
-                                                        <label class="mt-2 text-danger"><?php echo $errors['name_french'] ?? '';?></label>
+                                                        <input class="form-control" name="name_french" id="name_french" type="text" placeholder="Name" value="<?= isset($postData['name_french']) ? $postData['name_french']: $old_values['name_french'] ?? '' ?>" maxlength="50">
+                                                        <label class="mt-2 text-danger"><?= $errors['name_french'] ?? '' ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -75,8 +75,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <textarea class="form-control" rows="4" name="description" placeholder="Description"><?php echo isset($postData['description'])? $postData['description']: $old_values['description'] ?? '';?></textarea>
-                                                        <label class="mt-2 text-danger"><?php echo $errors['description'] ?? '';?></label>
+                                                        <textarea class="form-control" rows="4" name="description" placeholder="Description"><?= isset($postData['description'])? $postData['description']: $old_values['description'] ?? '' ?></textarea>
+                                                        <label class="mt-2 text-danger"><?= $errors['description'] ?? '' ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -88,8 +88,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <textarea class="form-control" rows="4" name="description_french" placeholder="Description"><?php echo isset($postData['description_french'])? $postData['description_french']: $old_values['description_french'] ?? '';?></textarea>
-                                                        <label class="mt-2 text-danger"><?php echo $errors['description_french'] ?? '';?></label>
+                                                        <textarea class="form-control" rows="4" name="description_french" placeholder="Description"><?= isset($postData['description_french'])? $postData['description_french']: $old_values['description_french'] ?? '' ?></textarea>
+                                                        <label class="mt-2 text-danger"><?= $errors['description_french'] ?? '' ?></label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -107,13 +107,13 @@
                                                             <?php $old_image =isset($postData['service_image']) ? $postData['service_image']:'';
                                                                 ?>
                                                             <?php
-                                                                if($old_image !=''){
+                                                                if ($old_image !='') {
                                                                    $imageurl=getBannerImage($old_image,'large');?>
-                                                            <img src="<?php echo $imageurl?>" width="100" height="80">
+                                                            <img src="<?= $imageurl ?>" width="100" height="80">
                                                             <?php
                                                                 }
                                                                 ?>
-                                                            <input name="old_image" value="<?php echo $old_image;?>" type="hidden">
+                                                            <input name="old_image" value="<?= $old_image ?>" type="hidden">
                                                         </div>
                                                     </div>
                                                     <div class="controls file-data">
@@ -148,13 +148,13 @@
                                                             <?php $old_image_french =isset($postData['service_image_french']) ? $postData['service_image_french']:'';
                                                                 ?>
                                                             <?php
-                                                                if($old_image_french !=''){
+                                                                if ($old_image_french !='') {
                                                                    $imageurl=getBannerImage($old_image_french,'large');?>
-                                                            <img src="<?php echo $imageurl?>" width="100" height="80">
+                                                            <img src="<?= $imageurl ?>" width="100" height="80">
                                                             <?php
                                                                 }
                                                                 ?>
-                                                            <input name="old_image_french" value="<?php echo $old_image_french;?>" type="hidden">
+                                                            <input name="old_image_french" value="<?= $old_image_french ?>" type="hidden">
                                                         </div>
                                                     </div>
                                                     <div class="controls file-data">
@@ -180,9 +180,9 @@
 
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success">Submit</button>
-                                            <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
+                                            <a href="<?= $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
                                         </div>
-                                        <?php echo form_close();?>
+                                        <?= form_close() ?>
                                     </div>
                                 </div>
                             </div>
@@ -215,10 +215,10 @@
                       var height = this.height;
                       var width = this.width;
                 var imagesize=fileUpload.files[0].size;
-                var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
+                var FILE_MAX_SIZE_JS='<?= FILE_MAX_SIZE_JS ?>';
 
                 //alert(imagesize);
-                /*if(FILE_MAX_SIZE_JS < imagesize){
+                /*if (FILE_MAX_SIZE_JS < imagesize) {
                     $("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
                     $("#MsgModal").modal('show');
                           return false;

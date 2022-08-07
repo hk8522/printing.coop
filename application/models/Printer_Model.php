@@ -140,7 +140,7 @@ Class Printer_Model extends MY_Model {
     {
         $this->db->select('*');
         $this->db->from($table);
-        $this->db->where(array('id'=>$id));
+        $this->db->where(array('id' => $id));
         return $this->db->get()->row_array();
     }
     public function deletePrinter($table,$id)
@@ -157,7 +157,7 @@ Class Printer_Model extends MY_Model {
     {
         $this->db->select('*');
         $this->db->from($table);
-        $this->db->where(array('name'=>$name));
+        $this->db->where(array('name' => $name));
         return $this->db->get()->row_array();
     }
 }

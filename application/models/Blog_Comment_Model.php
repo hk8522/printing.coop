@@ -31,7 +31,7 @@ Class Blog_Comment_Model extends MY_Model {
     {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('blog_id'=>$id));
+        $this->db->where(array('blog_id' => $id));
         return $this->db->get()->result_array();
     }
 }

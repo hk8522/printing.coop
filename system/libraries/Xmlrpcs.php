@@ -147,11 +147,11 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 	public function set_system_methods()
 	{
 		$this->methods = array(
-					'system.listMethods'	 => array(
+					'system.listMethods'	=> array(
 										'function' => 'this.listMethods',
 										'signature' => array(array($this->xmlrpcArray, $this->xmlrpcString), array($this->xmlrpcArray)),
 										'docstring' => 'Returns an array of available methods on this server'),
-					'system.methodHelp'	 => array(
+					'system.methodHelp'	=> array(
 										'function' => 'this.methodHelp',
 										'signature' => array(array($this->xmlrpcString, $this->xmlrpcString)),
 										'docstring' => 'Returns a documentation string for the specified method'),
@@ -159,7 +159,7 @@ class CI_Xmlrpcs extends CI_Xmlrpc {
 										'function' => 'this.methodSignature',
 										'signature' => array(array($this->xmlrpcArray, $this->xmlrpcString)),
 										'docstring' => 'Returns an array describing the return type and required parameters of a method'),
-					'system.multicall'	 => array(
+					'system.multicall'	=> array(
 										'function' => 'this.multicall',
 										'signature' => array(array($this->xmlrpcArray, $this->xmlrpcArray)),
 										'docstring' => 'Combine multiple RPC calls in one request. See http://www.xmlrpc.com/discuss/msgReader$1208 for details')

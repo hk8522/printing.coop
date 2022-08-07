@@ -22,14 +22,14 @@ class EditPickupTests extends TestCase{
             "name"  => "fls",
             "attn"  => "ryan",
             "address" => "3767 thimens",
-            "suite"=> "227",
-            "city"=> "SAINT-LAURENT",
-            "country"=> "CA",
-            "state"=> "QC",
-            "postal_code"=> "H4R1W4",
-            "phone"=> "5146789056",
-            "ext"=> "11",
-            "is_commercial"=> "1"
+            "suite" => "227",
+            "city" => "SAINT-LAURENT",
+            "country" => "CA",
+            "state" => "QC",
+            "postal_code" => "H4R1W4",
+            "phone" => "5146789056",
+            "ext" => "11",
+            "is_commercial" => "1"
         ];
 
         $this->assertNotEmpty($this->editPickup->getFullAddress());

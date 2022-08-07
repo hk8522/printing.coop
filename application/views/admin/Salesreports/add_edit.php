@@ -11,17 +11,17 @@
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo $page_title?></span>
+                                <span><?= $page_title ?></span>
                             </div>
                         </div>
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="text-center" style="color:red">
-                                        <?php echo $this->session->flashdata('message_error');?>
+                                        <?= $this->session->flashdata('message_error') ?>
                                     </div>
-                                    <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
-                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="product_id">
+                                    <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
+                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>" id="product_id">
                                      <div class="form-role-area">
 
                                         <div class="row">
@@ -47,7 +47,7 @@
 
                                                       </div>
                                                       <div style="color:red">
-                                                      <?php echo $this->session->flashdata('csv_file');?>
+                                                      <?= $this->session->flashdata('csv_file') ?>
                                                       </div>
                                                   </div>
                                              </div>
@@ -56,9 +56,9 @@
                                         <div class="product-actions-btn text-right">
 
                                             <button type="submit" class="btn btn-success" id="submitBtn">Submit</button>
-                                            <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
+                                            <a href="<?= $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
                                         </div>
-                                         <?php echo form_close();?>
+                                         <?= form_close() ?>
                                     </div>
                                 </div>
                             </div>

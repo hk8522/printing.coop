@@ -2,7 +2,7 @@
 $pageSize = 10;
 $pageSizes = [10, 15, 20, 50, 100];
 ?>
-<form id="product-search-form" method="post" action="/admin/Products/ProviderProducts/<?=$provider?>">
+<form id="product-search-form" method="post" action="/admin/Products/ProviderProducts/<?= $provider?>">
     <div class="row">
         <div class="col-md-12">
             <div class="x_panel light form-fit popup-window">
@@ -14,7 +14,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                                     <div class="col-md-8 col-ms-12 col-12">
                                         <div class="form-group mb-0">
                                             <label class="control-label" for="q">Product Name</label>
-                                            <input class="form-control k-input text-box single-line" id="q" name="q" type="text" value="<?=$this->input->get('q', '')?>" />
+                                            <input class="form-control k-input text-box single-line" id="q" name="q" type="text" value="<?= $this->input->get('q', '')?>" />
                                         </div>
                                     </div>
                                     <div class="col-md-4 col-sm-12 col-12">
@@ -45,7 +45,7 @@ $pageSizes = [10, 15, 20, 50, 100];
             dataSource: {
                 transport: {
                     read: {
-                        url: '/admin/Products/ProviderProducts/<?=$provider?>',
+                        url: '/admin/Products/ProviderProducts/<?= $provider?>',
                         type: 'POST',
                         dataType: 'json',
                         data: additionalData
@@ -61,14 +61,14 @@ $pageSizes = [10, 15, 20, 50, 100];
                     // Cancel the changes
                     this.cancelChanges();
                 },
-                pageSize: <?=$pageSize?>,
+                pageSize: <?= $pageSize?>,
                 serverPaging: true,
                 serverFiltering: true,
                 serverSorting: true
             },
             pageable: {
                 refresh: true,
-                pageSizes: <?=json_encode($pageSizes)?>,
+                pageSizes: <?= json_encode($pageSizes)?>,
                 change: function(e) {
                     var stateurl = new URL(location.href);
                     stateurl.searchParams.set('page', e.index);
@@ -111,7 +111,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 title: 'Options',
                 template: `
                     #if (product_id) {#
-                        <a href="/admin/Products/ProviderProductOptions/<?=$provider?>/#=provider_product_id#" class="k-link bind-product-attributes">
+                        <a href="/admin/Products/ProviderProductOptions/<?= $provider?>/#=provider_product_id#" class="k-link bind-product-attributes">
                             <div class="action"><i class="fa fa-2x fa-pencil-square-o"></i></div>
                         </a>
                     #}#`,

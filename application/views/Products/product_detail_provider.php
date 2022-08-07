@@ -8,41 +8,41 @@
     <?php foreach ($provider->options as $option) {//echo json_encode($option);?>
         <div class="single-review option-<?= str_replace(' ', '-', $option->name)?>">
             <label><?= ucfirst($option->option_id ? ($language_name == 'French' ? $option->attribute_name_french : $option->attribute_name) : $option->label)?><span class="required">*</span></label>
-            <?php if ($option->html_type == 'input' /*&& empty($option->values)*/) {?>
-                <input type="text" class="product-option field" name="productOptions[<?= $option->name?>]" required id="attribute-<?=$option->id?>">
+            <?php if ($option->html_type == 'input' /*&& empty($option->values)*/) { ?>
+                <input type="text" class="product-option field" name="productOptions[<?= $option->name?>]" required id="attribute-<?= $option->id?>">
             <?php } else if ($option->html_type == 'radio') { ?>
                 <div class="field">
-                    <?php foreach ($option->values as $item) {?>
+                    <?php foreach ($option->values as $item) { ?>
                         <div class="shape-icon radio-icon">
-                            <input id="attribute-<?=$item->provider_option_value_id?>" type="radio" class="product-option" name="productOptions[<?= $option->name?>]" value="<?= $providerProduct->information_type == App\Common\ProviderProductInformationType::RollLabel ? $item->value : $item->provider_option_value_id?>">
-                            <label for="attribute-<?=$item->provider_option_value_id?>">
+                            <input id="attribute-<?= $item->provider_option_value_id?>" type="radio" class="product-option" name="productOptions[<?= $option->name?>]" value="<?= $providerProduct->information_type == App\Common\ProviderProductInformationType::RollLabel ? $item->value : $item->provider_option_value_id?>">
+                            <label for="attribute-<?= $item->provider_option_value_id?>">
                                 <?php if ($item->img_src) { ?>
                                     <img class="no-lazy" src="https://sinalite.com/pub/<?= $item->img_src?>" style="width: 32px;margin-top: 8px;cursor: pointer;">
                                 <?php } ?>
                                 <div><?= $item->value?></div>
                             </label>
                         </div>
-                    <?php }?>
+                    <?php } ?>
                 </div>
             <?php } else { ?>
-                <select class="product-option field" name="productOptions[<?= $option->name?>]" required id="attribute-<?=$option->id?>">
+                <select class="product-option field" name="productOptions[<?= $option->name?>]" required id="attribute-<?= $option->id?>">
                     <option value="">
-                        <?php if ($option->attribute_id) {?>
+                        <?php if ($option->attribute_id) { ?>
                             <?= ucfirst($language_name == 'French' ? "Sélectionnez $option->attribute_name_french" : "Select $option->attribute_name")?>
-                        <?php } else {?>
+                        <?php } else{ ?>
                             Select <?= ucfirst($option->label)?>
-                        <?php }?>
+                        <?php } ?>
                     </option>
-                    <?php foreach ($option->values as $item) {?>
+                    <?php foreach ($option->values as $item) { ?>
                         <option value="<?= $providerProduct->information_type == App\Common\ProviderProductInformationType::RollLabel ? $item->value : $item->provider_option_value_id?>">
                             <?= ucfirst($item->option_type == App\Common\ProviderOptionType::Turnaround ? option_turnaround_add_days($item->value, $shipping_extra_days) : $item->value)?>
                         </option>
-                    <?php }?>
+                    <?php } ?>
                 </select>
             <?php } ?>
-            <span style="color:red" id="attribute-<?=$option->id?>_error"></span>
+            <span style="color:red" id="attribute-<?= $option->id?>_error"></span>
         </div>
-    <?php }?>
+    <?php } ?>
 </div>
 <script>
     $(document).ready(function() {

@@ -65,9 +65,9 @@ class ConfirmManifestByIdTests extends TestCase{
     public function testGetTaxesDetails(){
         $this->assertNotNull($this->manifest->getTaxesDetails());
         $this->assertSame([
-            "gst"=> 1.5,
-            "qst"=> 2.9800000000000004,
-            "hst"=> 6.58
+            "gst" => 1.5,
+            "qst" => 2.9800000000000004,
+            "hst" => 6.58
         ],$this->manifest->getTaxesDetails());
     }
 

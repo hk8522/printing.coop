@@ -2,12 +2,12 @@
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
         <?php
-        foreach($Branrers as $key=>$list) {
+        foreach ($Branrers as $key => $list) {
         ?>
-            <li data-target="#carouselExampleIndicators" data-slide-to="<?php echo $key?>" class="<?php echo $key==0 ? 'active':''?>">
+            <li data-target="#carouselExampleIndicators" data-slide-to="<?= $key?>" class="<?= $key==0 ? 'active':'' ?>">
             </li>
         <?php
-        }?>
+       } ?>
 
         <!--<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
@@ -21,28 +21,28 @@
           <?php
               $showIndicators = false;
               if ($Branrers) {
-                if(count($Branrers) > 1) {
+                if (count($Branrers) > 1) {
                   $showIndicators = true;
                 }
-                foreach($Branrers as $key=>$list) {
+                foreach ($Branrers as $key => $list) {
                   $class = "";
                   $imageurl = getBannerImage($list['banner_image'],'large');
-                  if ($language_name == 'French'){
+                  if ($language_name == 'French') {
                      $imageurl = getBannerImage($list['banner_image_french'],'large');
                   }
                   if ($key == 0) {
                      $class = "active";
                   }
                   ?>
-                  <div class="carousel-item <?php echo $class;?>">
-                      <img src="<?php echo $imageurl;?>">
+                  <div class="carousel-item <?= $class ?>">
+                      <img src="<?= $imageurl ?>">
                   </div>
                   <?php
               }
           } else {
             ?>
                       <div class="carousel-item active">
-                              <a href="javascript:void(0)"><img src="<?php echo BANNER_DEFAULT_IMAGE_URL ?>"></a>
+                              <a href="javascript:void(0)"><img src="<?= BANNER_DEFAULT_IMAGE_URL ?>"></a>
                       </div>
                   <?php
           }

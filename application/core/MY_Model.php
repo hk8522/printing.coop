@@ -788,7 +788,7 @@ class MY_Model extends CI_Model
         {
             $this->where($where);
         }
-        if($affected_rows = $this->_database->update($this->table,array($this->_deleted_at_field=>NULL)))
+        if($affected_rows = $this->_database->update($this->table,array($this->_deleted_at_field => NULL)))
         {
             $this->_prep_after_write();
             return $affected_rows;
@@ -1005,7 +1005,7 @@ class MY_Model extends CI_Model
         $this->_set_relationships();
         if (array_key_exists($request, $this->_relationships))
         {
-            $this->_requested[$request] = array('request'=>$request);
+            $this->_requested[$request] = array('request' => $request);
             $parameters = array();
 
             if(isset($arguments))
@@ -1410,7 +1410,7 @@ class MY_Model extends CI_Model
                             $pivot_table = $tables[0].'_'.$tables[1];
                         }
 
-                        $this->_relationships[$key] = array('relation' => $option, 'relation_key' => $key, 'foreign_model' => strtolower($foreign_model), 'foreign_model_name'=>strtolower($foreign_model_name), 'foreign_table' => $foreign_table, 'foreign_key' => $foreign_key, 'local_key' => $local_key);
+                        $this->_relationships[$key] = array('relation' => $option, 'relation_key' => $key, 'foreign_model' => strtolower($foreign_model), 'foreign_model_name' => strtolower($foreign_model_name), 'foreign_table' => $foreign_table, 'foreign_key' => $foreign_key, 'local_key' => $local_key);
                         if($option == 'has_many_pivot')
                         {
                             $this->_relationships[$key]['pivot_table'] = $pivot_table;
@@ -1589,7 +1589,7 @@ class MY_Model extends CI_Model
     {
         if(is_array($criteria))
         {
-            foreach ($criteria as $key=>$value)
+            foreach ($criteria as $key => $value)
             {
                 $this->_database->order_by($key, $value);
             }
@@ -1664,7 +1664,7 @@ class MY_Model extends CI_Model
     {
         $prefix = (strlen($this->cache_prefix)>0) ? $this->cache_prefix.'_' : '';
         $prefix .= $this->table.'_';
-        $this->_cache = array('cache_name' => $prefix.$string,'seconds'=>$seconds);
+        $this->_cache = array('cache_name' => $prefix.$string,'seconds' => $seconds);
         return $this;
     }
 

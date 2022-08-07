@@ -243,8 +243,8 @@ class GetShipmentByIdTests extends TestCase{
     public function testGetTaxesDetails(){
         $this->assertNotNull($this->shipment->getTaxesDetails());
         $this->assertSame([
-            "gst"=> 1.25,
-            "qst"=> 2.49
+            "gst" => 1.25,
+            "qst" => 2.49
         ],$this->shipment->getTaxesDetails());
     }
 

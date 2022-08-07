@@ -16,19 +16,19 @@
     </div>
     <div class="account-single-points">
         <ul>
-            <li><a href="<?php echo $BASE_URL;?>MyOrders">
+            <li><a href="<?= $BASE_URL ?>MyOrders">
             <?= ($language_name == 'French') ? 'Historique des commandes' : 'Order History'?></a></li>
-            <li><a href="<?php echo $BASE_URL;?>MyAccounts">
+            <li><a href="<?= $BASE_URL ?>MyAccounts">
             <?= ($language_name == 'French') ? 'Modifier le compte' : 'Edit Account'?></a></li>
-            <li><a href="<?php echo $BASE_URL;?>MyAccounts/changePassword">
+            <li><a href="<?= $BASE_URL ?>MyAccounts/changePassword">
             <?= ($language_name == 'French') ? 'Changer le mot de passe' : 'Change Password'?></a></li>
-            <li><a href="<?php echo $BASE_URL;?>MyAccounts/manageAddress">
+            <li><a href="<?= $BASE_URL ?>MyAccounts/manageAddress">
             <?= ($language_name == 'French') ? 'Gérer les adresses' : 'Manage Addresses'?></a></li>
-            <!-- <li><a href="<?php echo $BASE_URL;?>Wishlists">Wishlist</a></li>  -->
+            <!-- <li><a href="<?= $BASE_URL ?>Wishlists">Wishlist</a></li>  -->
 
-            <!-- <li><a href="<?php echo $BASE_URL;?>Tickets/index/">Support</a></li> -->
-            <!-- <li><a href="<?php echo $BASE_URL;?>MyAccounts/notification">Notifications</a></li> -->
-            <li><a href="<?php echo $BASE_URL;?>MyAccounts/logout">
+            <!-- <li><a href="<?= $BASE_URL ?>Tickets/index/">Support</a></li> -->
+            <!-- <li><a href="<?= $BASE_URL ?>MyAccounts/notification">Notifications</a></li> -->
+            <li><a href="<?= $BASE_URL ?>MyAccounts/logout">
             <?= ($language_name == 'French') ? 'Se déconnecter' : 'Logout'?></a></li>
         </ul>
     </div>

@@ -91,7 +91,7 @@ class Logins extends Public_Controller
     public function checkMobileByAjax()
     {
         $this->load->model('User_Model');
-        $json=array('status'=>0,'msg'=>'');
+        $json=array('status' => 0,'msg' => '');
         if($this->input->post()){
             $email=$this->input->post('ck_moblie_number');
             if ($this->User_Model->checkEmailId($email))
@@ -548,7 +548,7 @@ closed on Saturday and Sunday.<br><br>
         $email=$this->input->post('mobile');
         $type=$this->input->post('type');
 
-        $json=array('status'=>0,'msg'=>'');
+        $json=array('status' => 0,'msg' => '');
         $this->load->model('User_Model');
         if($this->User_Model->checkEmailId($email)){
             $otp=getOtp();
@@ -627,7 +627,7 @@ closed on Saturday and Sunday.<br><br>
         $email=$this->input->post('mobile');
         $type=$this->input->post('type');
 
-        $json=array('status'=>0,'msg'=>'');
+        $json=array('status' => 0,'msg' => '');
         $this->load->model('User_Model');
 
         if($this->User_Model->checkEmailId($email)){

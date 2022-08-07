@@ -7,17 +7,17 @@
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo $page_title?></span>
+                                <span><?= $page_title ?></span>
                             </div>
                         </div>
                         <div class="inner-content-area">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="text-center" style="color:red">
-                                        <?php echo $this->session->flashdata('message_error');?>
+                                        <?= $this->session->flashdata('message_error') ?>
                                     </div>
-                                    <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
-                                    <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="id">
+                                    <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
+                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>" id="id">
                                     <div class="form-role-area">
                                          <div class="control-group info">
                                             <div class="row align-items-center">
@@ -27,24 +27,22 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <?php
-                                                        $store_ids=$postData['store_id'];
-                                                        if(!empty($store_ids)){
+                                                        $store_ids = $postData['store_id'];
+                                                        if (!empty($store_ids)) {
                                                             $store_ids=explode(',',$store_ids);
-                                                        }else{
+                                                        } else {
                                                             $store_ids=array();
                                                         }
 
-                                                        foreach($StoreList as $key=>$val){
+                                                        foreach ($StoreList as $key => $val) {
                                                             $checked='';
-                                                            if(in_array($key,$store_ids)){
+                                                            if (in_array($key,$store_ids)) {
                                                                 $checked='checked';
                                                             }
                                                         ?>
 
-                                                            <input  name="store_id[]" type="checkbox" value="<?php echo $key?>" <?php echo $checked;?>><label style="margin-left:5px;"><?php echo $val['name']?></label>
-                                                        <?php
-                                                        }?>
-
+                                                            <input  name="store_id[]" type="checkbox" value="<?= $key?>" <?= $checked ?>><label style="margin-left:5px;"><?= $val['name'] ?></label>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -56,8 +54,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="category_name" id="category_name" type="text" placeholder="category name" value="<?php echo isset($postData['category_name']) ? $postData['category_name']:'';?>" >
-                                                        <?php echo form_error('category_name');?>
+                                                        <input class="form-control" name="category_name" id="category_name" type="text" placeholder="category name" value="<?= isset($postData['category_name']) ? $postData['category_name']:'' ?>" >
+                                                        <?= form_error('category_name') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -69,8 +67,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="category_name_french" id="category_name_french" type="text" placeholder="category name french" value="<?php echo isset($postData['category_name_french']) ? $postData['category_name_french']:'';?>" >
-                                                        <?php echo form_error('category_name_french');?>
+                                                        <input class="form-control" name="category_name_french" id="category_name_french" type="text" placeholder="category name french" value="<?= isset($postData['category_name_french']) ? $postData['category_name_french']:'' ?>" >
+                                                        <?= form_error('category_name_french') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -78,9 +76,9 @@
                                         <div class="control-group info">
                                           <div class="text-right">
                                               <button type="submit" class="btn btn-success" id="submitBtn" >Submit</button>
-                                              <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
+                                              <a href="<?= $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
                                           </div>
-                                          <?php echo form_close();?>
+                                          <?= form_close() ?>
                                         </div>
                                 </div>
                             </div>

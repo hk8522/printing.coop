@@ -9,16 +9,16 @@
                             <li><span>
                                 <?= ($language_name == 'French') ? 'Appelez-nous' : 'Call Us'?>: <strong>
                                 <?php
-                                   if ($language_name == 'French'){
+                                   if ($language_name == 'French') {
                                     echo !empty($configrations['contact_no_french']) ? $configrations['contact_no_french']:'1-877-384-8043';
-                                   }else{
+                                   } else {
                                     echo !empty($configrations['contact_no']) ? $configrations['contact_no']:'1-877-384-8043';
                                    }
                                 ?></strong></span></li>
                             <li><span><?php
-                            if ($language_name == 'French'){
+                            if ($language_name == 'French') {
                                 echo $configrations['office_timing_french'] ?? 'Du lundi au vendredi: <strong>9:00-18:00</strong>';
-                            }else{
+                            } else {
                                 echo $configrations['office_timing'] ?? 'Monday-Friday: <strong>9:00-18:00</strong>';
                             }
                             ?></span></li>
@@ -32,11 +32,11 @@
                 <div class="col-md-7">
                     <div class="top-bar-menu right-menu">
                         <ul>
-                        <?php if($MainStoreData['show_language_translation']){?>
+                        <?php if ($MainStoreData['show_language_translation']) { ?>
                             <li>
                                 <div class="language-selector">
                                     <div class="language-selector-box">
-                                        <a href="javascript:void(0)"><?php echo $MainStoreData['language_name'];?><i class="las la-angle-down"></i>
+                                        <a href="javascript:void(0)"><?= $MainStoreData['language_name'] ?><i class="las la-angle-down"></i>
                                         </a>
                                         <div class="language-selector-content">
                                             <div class="upward-arrow">
@@ -45,7 +45,7 @@
                                             <?php
                                 foreach ($StoreListData as $key => $language) {
                                                   ?>
-                               <a href="<?php echo $language['url'];?>"><?php echo $language['language_name'];?>
+                               <a href="<?= $language['url'] ?>"><?= $language['language_name'] ?>
                                                     </a>
                                                   <?php
                                                 }
@@ -55,7 +55,7 @@
                                 </div>
                             </li>
                         <?php
-                        }?>
+                       } ?>
                             <!--<li>
 
                                 <div class="language-selector">
@@ -67,9 +67,9 @@
                                             </div>
                                             <?php
 
-                        foreach($CurrencyList as $key => $val) {
+                        foreach ($CurrencyList as $key => $val) {
                                                         ?>
-                        <a href="<?php echo $BASE_URL?>?currency_id=<?php echo $key;?>&REDIRECT_URL=<?php echo $_SERVER['REQUEST_URI'];?>">               <?php echo $val['currency_name']; ?>
+                        <a href="<?= $BASE_URL?>?currency_id=<?= $key ?>&REDIRECT_URL=<?= $_SERVER['REQUEST_URI'] ?>">               <?= $val['currency_name'] ?>
                         </a>
 
                                                   <?php
@@ -81,21 +81,21 @@
                             </li>-->
 
                             <?php $totalWishListCount = 0;?>
-                            <?php if(!empty($loginId)){
+                            <?php if (!empty($loginId)) {
                                 $totalWishListCount=$this->User_Model->geWishlistCount($loginId);
                               }
                             ?>
-                            <li><a href="<?php echo $BASE_URL?>Wishlists">
-                                <?= ($language_name == 'French') ? 'Ma liste d\'envies' : 'My Wish List'?> (<strong id="WishlistsCount"><?php echo $totalWishListCount?></strong>)</a></li>
+                            <li><a href="<?= $BASE_URL ?>Wishlists">
+                                <?= ($language_name == 'French') ? 'Ma liste d\'envies' : 'My Wish List'?> (<strong id="WishlistsCount"><?= $totalWishListCount ?></strong>)</a></li>
 
                             <?php if (!$loginId) { ?>
-                              <li><a href="<?php echo $BASE_URL?>Logins">
+                              <li><a href="<?= $BASE_URL ?>Logins">
                               <?= ($language_name == 'French') ? 'S\'identifier S\'enregistrer' : 'Login/Register'?></a></li>
                               <?php
-                            }else{?>
-                               <li><a href="<?php echo $BASE_URL?>MyAccounts/logout">
+                            } else{ ?>
+                               <li><a href="<?= $BASE_URL ?>MyAccounts/logout">
                                <?= ($language_name == 'French') ? 'Se déconnecter' : 'Logout'?></a></li>
-                            <?php }?>
+                            <?php } ?>
                         </ul>
                     </div>
                 </div>

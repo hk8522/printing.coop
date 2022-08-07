@@ -1,8 +1,8 @@
 <?php
-/*if(strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') == 0){
+/*if (strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') == 0) {
     //Request hash
     $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
-    if(strcasecmp($contentType, 'application/json') == 0){
+    if (strcasecmp($contentType, 'application/json') == 0) {
         $data = json_decode(file_get_contents('php://input'));
         $hash=hash('sha512', $data->key.'|'.$data->txnid.'|'.$data->amount.'|'.$data->pinfo.'|'.$data->fname.'|'.$data->email.'|||||'.$data->udf5.'||||||'.$data->salt);
         $json=array();
@@ -59,66 +59,66 @@ color="e34524" bolt-logo="http://boltiswatching.com/wp-content/uploads/2015/09/B
 <body>
 <div class="main">
     <div style="text-align: center;">
-        <img src="<?php echo base_url();?>assets/images/payumoney.png" />
+        <img src="<?= base_url() ?>assets/images/payumoney.png" />
     </div>
     <div style="text-align: center;">
         <h3>Please do not refresh this page...</h3>
     </div>
     <!--<center><h1>Please do not refresh this page...</h1></center>-->
     <form action="#" id="payment_form">
-    <input type="hidden" id="udf5" name="udf5" value="<?php echo $paramList["udf5"]; ?>"/>
-    <input type="hidden" id="surl" name="surl" value="<?php echo $paramList["CALLBACK_URL"]; ?>" />
+    <input type="hidden" id="udf5" name="udf5" value="<?= $paramList["udf5"] ?>"/>
+    <input type="hidden" id="surl" name="surl" value="<?= $paramList["CALLBACK_URL"] ?>" />
     <div class="dv">
     <!--<span class="text"><label>Merchant Key:</label></span>-->
-    <span><input type="hidden" id="key" name="key" placeholder="Merchant Key" value="<?php echo $paramList["key"]; ?>" /></span>
+    <span><input type="hidden" id="key" name="key" placeholder="Merchant Key" value="<?= $paramList["key"] ?>" /></span>
     </div>
     <div class="dv">
     <span class="hidden"><label>Merchant Salt:</label></span>
-    <span><input type="hidden" id="salt" name="salt" placeholder="Merchant Salt" value="<?php echo $paramList["salt"]; ?>" /></span>
+    <span><input type="hidden" id="salt" name="salt" placeholder="Merchant Salt" value="<?= $paramList["salt"] ?>" /></span>
     </div>
 
     <div class="dv">
     <span class="hidden"><label>Transaction/Order ID:</label></span>
-    <span><input type="hidden" id="txnid" name="txnid" placeholder="Transaction ID" value="<?php echo $paramList["ORDER_ID"]; ?>" /></span>
+    <span><input type="hidden" id="txnid" name="txnid" placeholder="Transaction ID" value="<?= $paramList["ORDER_ID"] ?>" /></span>
     </div>
 
     <div class="dv">
     <span class="hidden"><label>Amount:</label></span>
-    <span><input type="hidden" id="amount" name="amount" placeholder="Amount" value="<?php echo $paramList["TXN_AMOUNT"]; ?>" /></span>
+    <span><input type="hidden" id="amount" name="amount" placeholder="Amount" value="<?= $paramList["TXN_AMOUNT"] ?>" /></span>
     </div>
 
     <div class="dv">
     <span class="hidden"><label>Product Info:</label></span>
-    <span><input type="hidden" id="pinfo" name="pinfo" placeholder="Product Info" value="<?php echo $paramList["product_info"]; ?>" /></span>
+    <span><input type="hidden" id="pinfo" name="pinfo" placeholder="Product Info" value="<?= $paramList["product_info"] ?>" /></span>
     </div>
 
     <div class="dv">
     <span class="hidden"><label>First Name:</label></span>
-    <span><input type="hidden" id="fname" name="fname" placeholder="First Name" value="<?php echo $paramList["name"]; ?>" /></span>
+    <span><input type="hidden" id="fname" name="fname" placeholder="First Name" value="<?= $paramList["name"] ?>" /></span>
     </div>
 
     <div class="dv">
     <span class="hidden"><label>Email ID:</label></span>
-    <span><input type="hidden" id="email" name="email" placeholder="Email ID" value="<?php echo $paramList["email"]; ?>" /></span>
+    <span><input type="hidden" id="email" name="email" placeholder="Email ID" value="<?= $paramList["email"] ?>" /></span>
     </div>
 
     <div class="dv">
     <span class="hidden"><label>Mobile/Cell Number:</label></span>
-    <span><input type="hidden" id="mobile" name="mobile" placeholder="Mobile/Cell Number" value="<?php echo $paramList["mobile"]; ?>" /></span>
+    <span><input type="hidden" id="mobile" name="mobile" placeholder="Mobile/Cell Number" value="<?= $paramList["mobile"] ?>" /></span>
     </div>
 
     <div class="dv">
     <span class="hidden"><label>Hash:</label></span>
-    <span><input type="hidden" id="hash" name="hash" placeholder="Hash" value="<?php echo $hash; ?>" /></span>
+    <span><input type="hidden" id="hash" name="hash" placeholder="Hash" value="<?= $hash ?>" /></span>
     </div>
     <!--<div style="text-align:center;">
-     <b>Total Pay Amount: <?php echo $paramList["TXN_AMOUNT"]; ?> </b><?php ?><input type="submit" value="Pay" class="sbtn" onclick="launchBOLT(); return false;"/></div>-=>
+     <b>Total Pay Amount: <?= $paramList["TXN_AMOUNT"] ?></b><?php ?><input type="submit" value="Pay" class="sbtn" onclick="launchBOLT(); return false;"/></div>- =>
 
     </form>
 
 </div>
 <script type="text/javascript"><!--
-$('#payment_form').bind('keyup blur', function(){
+$('#payment_form').bind('keyup blur', function() {
     $.ajax({
           url: 'index.php',
           type: 'post',
@@ -163,9 +163,9 @@ function launchBOLT()
     surl : $('#surl').val(),
     furl: $('#surl').val(),
     mode: 'dropout'
-},{ responseHandler: function(BOLT){
+},{ responseHandler: function(BOLT) {
     console.log( BOLT.response.txnStatus);
-    if(BOLT.response.txnStatus != 'CANCEL')
+    if (BOLT.response.txnStatus != 'CANCEL')
     {
         //Salt is passd here for demo purpose only. For practical use keep salt at server side only.
         var fr = '<form action=\"'+$('#surl').val()+'\" method=\"post\">' +
@@ -186,11 +186,11 @@ function launchBOLT()
         form.submit();
     }
 
-    if(BOLT.response.txnStatus = 'CANCEL'){
-        window.location="<?php echo $paramList['CALLBACK_URL']?>";
+    if (BOLT.response.txnStatus = 'CANCEL') {
+        window.location="<?= $paramList['CALLBACK_URL'] ?>";
     }
 },
-    catchException: function(BOLT){
+    catchException: function(BOLT) {
          alert( BOLT.message );
     }
 });

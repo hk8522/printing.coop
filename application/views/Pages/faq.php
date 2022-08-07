@@ -1,6 +1,6 @@
 <?php
-if ($language_name == 'French'){
+if ($language_name == 'French') {
     echo $pageData['description_france'];
-}else{
+} else{
     echo $pageData['description'];
 }

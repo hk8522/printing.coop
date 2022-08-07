@@ -522,7 +522,7 @@ class Checkouts extends Public_Controller
 
                     $this->data['payment_type'] = $payment_type;
                     $this->data['ProductOrder'] = $ProductOrder;
-                    $this->render($this->class_name . 'cod_response');
+                    $this->render($this->class_name . 'code_response');
                 } else if ($payment_type == 'paypal') {
                     /*$returnURL = base_url().'Checkouts/success'; //payment success url
                     $cancelURL = base_url().'Checkouts/cancel'; //payment cancel url

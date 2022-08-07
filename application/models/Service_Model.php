@@ -49,11 +49,11 @@ Class Service_Model extends MY_Model {
 
   public function getServiceById($id)
   {
-      return $this->db->select('*')->from($this->table)->where(array('id'=>$id, 'status'=> 1))->get()->row_array();
+      return $this->db->select('*')->from($this->table)->where(array('id' => $id, 'status' => 1))->get()->row_array();
   }
 
     public function getActiveServices($website_store_id=null)
   {
-      return $this->db->select('*')->from($this->table)->where(array('status'=>1,'main_store_id'=>$website_store_id))->get()->result_array();
+      return $this->db->select('*')->from($this->table)->where(array('status' => 1,'main_store_id' => $website_store_id))->get()->result_array();
   }
 }

@@ -1,18 +1,18 @@
 <div class="product-title-section">
     <div class="product-title-section-img">
-        <img src="<?php echo $BASE_URL;?>assets/images/FncwAQkcU.jpg">
+        <img src="<?= $BASE_URL ?>assets/images/FncwAQkcU.jpg">
     </div>
     <!--<div class="product-title-section-info">-->
     <!--    <div class="product-title-section-info-inner">-->
     <!--        <div class="today-deal-title">-->
-    <!--            <span><?php echo $page_title; ?></span>-->
+    <!--            <span><?= $page_title ?></span>-->
     <!--        </div>-->
 
     <!--    </div>-->
     <!--</div>-->
 </div>
 <div class="product-pagination">
-    <span><a href="<?php echo $BASE_URL?>">Home</a> > <a href="javascript:void(0)"><?php echo $page_title; ?></a></span>
+    <span><a href="<?= $BASE_URL?>">Home</a> > <a href="javascript:void(0)"><?= $page_title ?></a></span>
 </div>
 <div class="container-fluid all-products-section">
     <div class="container p-0">

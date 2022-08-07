@@ -1,4 +1,4 @@
-<form id="price-rate-form" method="post" action="/admin/Products/ProviderProductPriceRate/<?=$product->id?>">
+<form id="price-rate-form" method="post" action="/admin/Products/ProviderProductPriceRate/<?= $product->id?>">
     <div class="card">
         <div class="card-header">
             <h3>Update Price Rate</h3>
@@ -26,7 +26,7 @@
         $('#price-rate-form').on('submit', function (e) {
             e.preventDefault();
             $("#loader-img").show();
-            $.post('/admin/Products/ProviderProductPriceRate/<?=$product->id?>', $(this).serialize())
+            $.post('/admin/Products/ProviderProductPriceRate/<?= $product->id?>', $(this).serialize())
             .done(function (response) {
                 if (!response)
                     kendo.alert('Error occurred.');

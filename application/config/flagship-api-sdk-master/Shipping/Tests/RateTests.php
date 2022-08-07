@@ -22,8 +22,8 @@ class RateTests extends TestCase{
 
     public function testGetTaxesDetails(){
         $expected = [
-            "gst"=> 2.82,
-            "qst"=> 5.62
+            "gst" => 2.82,
+            "qst" => 5.62
         ];
         $this->assertNotNull($this->rate->getTaxesDetails());
         $this->assertInternalType('array', $this->rate->getTaxesDetails());

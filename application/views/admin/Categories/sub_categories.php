@@ -5,10 +5,10 @@
                 <div class="box">
                     <div class="box-body">
                         <div class="text-center" style="color:red">
-                            <?php echo $this->session->flashdata('message_error');?>
+                            <?= $this->session->flashdata('message_error') ?>
                         </div>
                         <div class="text-center" style="color:green">
-                            <?php echo $this->session->flashdata('message_success');?>
+                            <?= $this->session->flashdata('message_success') ?>
                         </div>
                         <div class="inner-head-section">
                             <div class="row">
@@ -19,8 +19,8 @@
                                 </div>
                                 <div class="col-md-6 col-xs-12 text-right">
                                     <div class="all-vol-btn">
-                                        <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>"><button>
-                                        <i class="fas fa-plus-circle"></i><?php echo $sub_page_title ?></button>
+                                        <a href="<?= $BASE_URL.$class_name.$sub_page_url ?>"><button>
+                                        <i class="fas fa-plus-circle"></i><?= $sub_page_title ?></button>
                                         </a>
                                     </div>
                                 </div>
@@ -44,43 +44,43 @@
                                     <tbody>
                                         <?php
                                             if ($lists) {
-                                            foreach($lists as $key => $list) {
+                                            foreach ($lists as $key => $list) {
                                                                                         ?>
                                         <tr>
                                             <td class="hidden"></td>
 
                                             <td>
-                                                <?php echo $list['name'];?>
+                                                <?= $list['name'] ?>
                                             </td>
                                             <td>
-                                                <?php echo $list['sub_category_order'];?>
+                                                <?= $list['sub_category_order'] ?>
                                             </td>
                                             <td>
-                                                <?php echo $list['category_name'];?>
+                                                <?= $list['category_name'] ?>
                                             </td>
                                             <td>
-                                                                  <?php if($list['status']==1){?>
-                                                                  <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0">
+                                                                  <?php if ($list['status']==1) { ?>
+                                                                  <a href="<?= $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?= $list['id'] ?>/0">
                                                                    <button type="submit" class="custon-active">Active
                                                                    </button>
                                                                   </a>
                                                                   <?php
-                                                                  }else{?>
-                                                                     <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1">
+                                                                  } else{ ?>
+                                                                     <a href="<?= $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?= $list['id'] ?>/1">
                                                                        <button type="submit" class="custon-delete">Inactive
                                                                         </button>
                                                                      </a>
                                                                   <?php
-                                                                  }?>
+                                                                 } ?>
                                                                   </td>
                                             <td>
-                                                <?php echo dateFormate($list['created']);?>
+                                                <?= dateFormate($list['created']) ?>
                                             </td>
                                             <td>
-                                                <?php echo dateFormate($list['updated']);?>
+                                                <?= dateFormate($list['updated']) ?>
                                             </td>
                                             <td>
-                                                <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>" style="color:green" title="edit">
+                                                <a href="<?= $BASE_URL.$class_name.$sub_page_url?>/<?= $list['id'] ?>" style="color:green" title="edit">
                                                 <i class="far fa-edit fa-lg"></i>
                                                 </a>
                                                 &nbsp;&nbsp;
@@ -88,12 +88,12 @@
                                         </tr>
                                         <?php
                                             }
-                                            } else{?>
+                                            } else{ ?>
                                         <tr>
                                             <td colspan="8" class="text-center">List Empty.</td>
                                         </tr>
                                         <?php
-                                            }?>
+                                           } ?>
                                     </tbody>
                                 </table>
                             </div>

@@ -20,7 +20,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="controls">
-                                                    <label class="span2" for="inputMame"><?=$neighbor['name']?></label>
+                                                    <label class="span2" for="inputMame"><?= $neighbor['name']?></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -33,7 +33,7 @@
                                             </div>
                                             <div class="col-md-9">
                                                 <div class="controls">
-                                                    <label class="span2" for="inputMame"><?=$neighbor['url']?></label>
+                                                    <label class="span2" for="inputMame"><?= $neighbor['url']?></label>
                                                 </div>
                                             </div>
                                         </div>
@@ -48,7 +48,7 @@
                                 <div class="text-center" style="color:red">
                                     <?= $this->session->flashdata('message_error')?>
                                 </div>
-                                <?= form_open_multipart('', array('class'=>'form-horizontal'))?>
+                                <?= form_open_multipart('', array('class' => 'form-horizontal'))?>
                                 <input class="form-control" name="id" type="hidden"  value="<?= isset($attributeData['id']) ? $attributeData['id'] : ''?>" id="data_id">
                                 <div class="form-role-area">
                                     <div class="control-group info">
@@ -94,8 +94,8 @@
 </section><!-- /.content -->
 </div>
 <script>
-function searchAttribute(searchtext){
-    if(searchtext !=''){
+function searchAttribute(searchtext) {
+    if (searchtext !='') {
         $("#loader-img").show();
         var url ='<?= $BASE_URL?>admin/Neighbor/searchAttribute/<?= $neighbor_id?>';
         $("#searchDiv").show();
@@ -118,7 +118,7 @@ function searchAttribute(searchtext){
     }
 }
 
-function hidesearchDiv(){
+function hidesearchDiv() {
     $("#searchDiv").hide();
     $("#AttributeListUl").html('');
 }

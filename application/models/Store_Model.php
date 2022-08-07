@@ -108,7 +108,7 @@ Class Store_Model extends MY_Model {
         $query = $this->db->get();
         $data=$query->result_array();
 
-        foreach($data as $key=>$val){
+        foreach($data as $key => $val){
             $datanew[$val['id']]=$val['name'];
         }
 
@@ -126,7 +126,7 @@ Class Store_Model extends MY_Model {
         $query = $this->db->get();
         $data=$query->result_array();
 
-        foreach($data as $key=>$val){
+        foreach($data as $key => $val){
             $datanew[$val['id']]=$val;
         }
 
@@ -150,7 +150,7 @@ Class Store_Model extends MY_Model {
         $data=$query->result_array();
 
         $Currency=$this->getCurrencyList();
-        foreach($data as $key=>$val){
+        foreach($data as $key => $val){
             $CurrencyList=array();
             $currency_ids=!empty($val['currency_id']) ? explode(",",$val['currency_id']):array();
             foreach($currency_ids as $currency_id){
@@ -185,7 +185,7 @@ Class Store_Model extends MY_Model {
         $this->db->from('language');
         $query = $this->db->get();
         $data=$query->result_array();
-        foreach($data as $key=>$val){
+        foreach($data as $key => $val){
             $datanew[$val['id']]=$val['name'];
         }
         return $datanew;
@@ -198,7 +198,7 @@ Class Store_Model extends MY_Model {
         $this->db->order_by('order','asc');
         $query = $this->db->get();
         $data=$query->result_array();
-        foreach($data as $key=>$val){
+        foreach($data as $key => $val){
             $datanew[$val['id']]=$val;
         }
         return $datanew;

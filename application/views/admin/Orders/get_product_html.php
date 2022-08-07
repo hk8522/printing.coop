@@ -102,7 +102,7 @@ if (isset($_SESSION['product_list'])) {
                                             <script>
                                                 getSizeOptions('<?= $product_id_key ?>', '<?= $product_id ?>', '0');
                                             </script>
-                                        <?php }?>
+                                        <?php } ?>
 
                                         <?php
                                         $attribute_ids = isset($product_val['options']['attribute_ids']) ? $product_val['options']['attribute_ids'] : array();
@@ -141,18 +141,18 @@ if (isset($_SESSION['product_list'])) {
                                                                         <?= $selected ?>>
                                                                         <?= $subval['item_name'] . $extra_price ?>
                                                                     </option>
-                                                                <?php }?>
+                                                                <?php } ?>
                                                             </select>
-                                                            <?php if ($key == RECTO_ATTRIBUTE_ID) {?>
+                                                            <?php if ($key == RECTO_ATTRIBUTE_ID) { ?>
                                                                 <span>Recto/verso will add 35% more to the price</span>
-                                                            <?php }?>
+                                                            <?php } ?>
                                                         </div>
                                                         <?php
                                                         $i++;
-                                                    }?>
+                                                   } ?>
                                                 </div>
                                             </div>
-                                        <?php }?>
+                                        <?php } ?>
 
                                         <input type="hidden" name="add_length_width"
                                             value="<?= $Product['add_length_width'] ?>">
@@ -190,7 +190,7 @@ if (isset($_SESSION['product_list'])) {
                                                 Price :<span
                                                     class="required"><?= CURREBCY_SYMBOL . number_format($Product['min_length_min_width_price'], 2) ?></span>
                                             </label>
-                                        <?php }?>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="set-price-area">
@@ -267,13 +267,12 @@ if (isset($_SESSION['product_list'])) {
                                                             </div>
                                                         </div>
                                                         <div class="upload-field">
-                                                            <textarea
-                                                                id="cumment-<?= $return_arr['skey'] ?>"><?= $return_arr['cumment'] ?></textarea>
+                                                            <textarea id="cumment-<?= $return_arr['skey'] ?>"><?= $return_arr['cumment'] ?></textarea>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        <?php }?>
+                                        <?php } ?>
                                     </div>
                                 </div>
                                 <div class="custom-save-btn">
@@ -406,7 +405,7 @@ if (isset($_SESSION['product_list'])) {
             $.ajax({
                 type: 'POST',
                 dataType: 'html',
-                url: '<?=$BASE_URL?>Products/calculatePrice',
+                url: '<?= $BASE_URL?>Products/calculatePrice',
                 data: formData,
                 cache: false,
                 contentType: false,
@@ -437,7 +436,7 @@ if (isset($_SESSION['product_list'])) {
             $.ajax({
                 type: 'POST',
                 dataType: 'html',
-                url: '<?=$BASE_URL?>Products/GetQuantity',
+                url: '<?= $BASE_URL?>Products/GetQuantity',
                 data: formData,
                 cache: false,
                 contentType: false,

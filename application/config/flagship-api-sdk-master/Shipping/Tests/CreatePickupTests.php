@@ -21,17 +21,17 @@ class CreatePickupTests extends TestCase{
     public function testGetFullAddress(){
         $this->assertNotNull($this->pickup->getFullAddress());
         $this->assertSame([
-                    "name"=> "FCS",
-                    "attn"=> "customer service",
-                    "address"=> "148 brunswick boul",
-                    "suite"=> null,
-                    "city"=> "Pointe-Claire",
-                    "country"=> "CA",
-                    "state"=> "QC",
-                    "postal_code"=> "H9R5P9",
-                    "phone"=> "5147390202",
-                    "ext"=>null,
-                    "is_commercial"=> "1"
+                    "name" => "FCS",
+                    "attn" => "customer service",
+                    "address" => "148 brunswick boul",
+                    "suite" => null,
+                    "city" => "Pointe-Claire",
+                    "country" => "CA",
+                    "state" => "QC",
+                    "postal_code" => "H9R5P9",
+                    "phone" => "5147390202",
+                    "ext" => null,
+                    "is_commercial" => "1"
                 ],$this->pickup->getFullAddress());
     }
 

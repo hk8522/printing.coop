@@ -74,7 +74,7 @@ class Paypal_lib
     }
 
     function add_field($field, $value){
-        // adds a key=>value pair to the fields array, which is what will be
+        // adds a key => value pair to the fields array, which is what will be
         // sent to paypal as POST variables.  If the value is already in the
         // array, it will be overwritten.
         $this->fields[$field] = $value;
@@ -114,7 +114,7 @@ class Paypal_lib
         // script.
         $post_string = '';
         if($this->CI->input->post()){
-            foreach ($this->CI->input->post() as $field=>$value){
+            foreach ($this->CI->input->post() as $field => $value){
                 $this->ipn_data[$field] = $value;
                 $post_string .= $field.'='.urlencode(stripslashes($value)).'&';
             }
@@ -170,7 +170,7 @@ class Paypal_lib
 
         // Log the POST variables
         $text .= "IPN POST Vars from Paypal:\n";
-        foreach ($this->ipn_data as $key=>$value)
+        foreach ($this->ipn_data as $key => $value)
             $text .= "$key=$value, ";
 
         // Log the response from the paypal server

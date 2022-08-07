@@ -1,16 +1,16 @@
 <div class="estimate-section universal-spacing universal-bg-white">
     <div class="container ">
     <?php
-    if ($language_name == 'French'){
+    if ($language_name == 'French') {
     echo $pageData['description_france'];
-    }else{
+    } else {
     echo $pageData['description'];
     }
     ?>
       <div class="text-center" id="estimate-message"></div>
          <div class="estimate-section-inner">
           <?php
-            if ($language_name == 'French'){ ?>
+            if ($language_name == 'French') { ?>
             <form method="post" id="estimate-form">
               <div class="contact-form">
                   <div class="estimate-inner1">
@@ -59,12 +59,12 @@
                                                       <?php foreach ($countries as $country) {
                                                           $selected = '';
                                                           $post_country = isset($postData['country']) ? $postData['country']:'';
-                                                          if ($country['id'] == $post_country){
+                                                          if ($country['id'] == $post_country) {
                                                               $selected='selected="selected"';
                                                           }
                                                           ?>
-                                                      <option value="<?php echo $country['id']?>" <?php echo $selected;?>><?php echo $country['name'];?></option>
-                                                      <?php }?>
+                                                      <option value="<?= $country['id']?>" <?= $selected ?>><?= $country['name']  ?></option>
+                                                      <?php } ?>
                                                     </select>
                               </div>
                           </div>
@@ -73,16 +73,16 @@
                                   <label>Etat</label>
                                                   <select name="province" id="stateiD">
                                       <option value="">-- Sélectionnez l'état --</option>
-                                      <?php foreach($states as $state){
+                                      <?php foreach ($states as $state) {
                                                       $selected='';
                                                         $post_state= isset($postData['state']) ? $postData['state']:'';
 
-                                                        if($state['StateID'] == $post_state){
+                                                        if ($state['StateID'] == $post_state) {
                                                               $selected='selected="selected"';
                                                         }
                                                       ?>
-                                                      <option value="<?php echo $state['StateID']?>" <?php echo $selected;?>><?php echo $state['StateName'];?></option>
-                                                      <?php }?>
+                                                      <option value="<?= $state['StateID']?>" <?= $selected ?>><?= $state['StateName']  ?></option>
+                                                      <?php } ?>
                                                   </select>
                               </div>
                           </div>
@@ -442,7 +442,7 @@
                   </div>
               </div>
             </form>
-            <?php }else{ ?>
+            <?php } else { ?>
             <form method="post" id="estimate-form">
               <div class="contact-form">
                   <div class="estimate-inner1">
@@ -491,12 +491,12 @@
                                     <?php foreach ($countries as $country) {
                                       $selected = '';
                                       $post_country = isset($postData['country']) ? $postData['country']:'';
-                                      if ($country['id'] == $post_country){
+                                      if ($country['id'] == $post_country) {
                                         $selected='selected="selected"';
                                       }
                                       ?>
-                                    <option value="<?php echo $country['id']?>" <?php echo $selected;?>><?php echo $country['name'];?></option>
-                                    <?php }?>
+                                    <option value="<?= $country['id'] ?>" <?= $selected ?>><?= $country['name']  ?></option>
+                                    <?php } ?>
                                   </select>
                               </div>
                           </div>
@@ -505,16 +505,16 @@
                                   <label>State</label>
                                   <select name="province" id="stateiD">
                                       <option value="">-- Select State --</option>
-                                      <?php foreach($states as $state){
+                                      <?php foreach ($states as $state) {
                                       $selected='';
                                       $post_state= isset($postData['state']) ? $postData['state']:'';
 
-                                      if($state['StateID'] == $post_state){
+                                      if ($state['StateID'] == $post_state) {
                                           $selected='selected="selected"';
                                       }
                                       ?>
-                                      <option value="<?php echo $state['StateID']?>" <?php echo $selected;?>><?php echo $state['StateName'];?></option>
-                                      <?php }?>
+                                      <option value="<?= $state['StateID']?>" <?= $selected ?>><?= $state['StateName']  ?></option>
+                                      <?php } ?>
                                   </select>
                               </div>
                           </div>
@@ -875,7 +875,7 @@
               </div>
             </form>
             <?php
-            }?>
+           } ?>
          </div>
     </div>
 </div>

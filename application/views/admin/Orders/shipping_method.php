@@ -13,18 +13,18 @@
                                          <?php
                                               $upsServiceCode=upsServiceCode();
                                               //pr($total_charges_ups);
-                                              foreach($total_charges_ups as $key=>$val){
+                                              foreach ($total_charges_ups as $key => $val) {
                                                 $value='ups-'.$val->TotalCharges->MonetaryValue.'-'.$val->Service->Code;
                                           ?>
                                           <div class="shipping-metthod-single">
                                               <label>
-                                                  <input type="radio" name="shipping_method_formate" value="<?php echo $value?>" <?php echo $shipping_method_formate == $value ? "checked":"" ?> class="shipping_method_formate">
+                                                  <input type="radio" name="shipping_method_formate" value="<?= $value?>" <?= $shipping_method_formate == $value ? "checked":"" ?> class="shipping_method_formate">
                                                   <div class="row">
                                                       <div class="col-md-12 col-lg-3 col-xl-2">
-                                                          <strong><?php echo CURREBCY_SYMBOL.$val->TotalCharges->MonetaryValue;?></strong>
+                                                          <strong><?= CURREBCY_SYMBOL.$val->TotalCharges->MonetaryValue ?></strong>
                                                       </div>
                                                       <div class="col-md-9 col-lg-6 col-xl-7 p-0">
-                                                           <span><?php echo $upsServiceCode[$val->Service->Code];?></span>
+                                                           <span><?= $upsServiceCode[$val->Service->Code] ?></span>
                                                           <!--<span>Expedited Parcel - Est. Delivery Jan 19, 2020</span>-->
                                                       </div>
                                                       <div class="col-md-3 col-lg-3 col-xl-3">
@@ -35,22 +35,22 @@
                                           </div>
 
                                        <?php
-                                       }?>
+                                      } ?>
                                        <?php
 
-                                            foreach($CanedaPostShiping['list'] as $key=>$val){
+                                            foreach ($CanedaPostShiping['list'] as $key => $val) {
                                                 $value='canadapost-'.$val['price'].'-'.$val['service_name'];
                                           ?>
                                           <div class="shipping-metthod-single">
                                               <label>
-                                                  <input type="radio" name="shipping_method_formate" value="<?php echo $value?>" <?php echo $shipping_method_formate==$value ? "checked":"" ?>  class="shipping_method_formate">
+                                                  <input type="radio" name="shipping_method_formate" value="<?= $value?>" <?= $shipping_method_formate==$value ? "checked":"" ?>  class="shipping_method_formate">
                                                   <div class="row">
                                                       <div class="col-md-12 col-lg-3 col-xl-2">
-                                                          <strong><?php echo CURREBCY_SYMBOL.$val['price'];?></strong>
+                                                          <strong><?= CURREBCY_SYMBOL.$val['price'] ?></strong>
                                                       </div>
                                                       <div class="col-md-9 col-lg-6 col-xl-7 p-0">
                                                            <span>
-                                                           <?php echo $val['service_name'];?>
+                                                           <?= $val['service_name'] ?>
                                                            </span>
                                                           <!--<span>Expedited Parcel - Est. Delivery Jan 19, 2020</span>-->
                                                       </div>
@@ -62,29 +62,29 @@
                                           </div>
 
                                        <?php
-                                        }?>
+                                       } ?>
                                         <?php
-                                        foreach($PickupStoresList as $key=>$val){
+                                        foreach ($PickupStoresList as $key => $val) {
                                            $value='pickupinstore-0.00-'.$val['id'];
 
                                         ?>
 
                                         <div class="shipping-metthod-single">
                                               <label>
-                                                  <input type="radio" name="shipping_method_formate" value="<?php echo $value?>" <?php echo $shipping_method_formate==$value ? "checked":"" ?> class="shipping_method_formate">
+                                                  <input type="radio" name="shipping_method_formate" value="<?= $value?>" <?= $shipping_method_formate==$value ? "checked":"" ?> class="shipping_method_formate">
                                                   <div class="row">
                                                       <div class="col-md-2">
                                                           <strong>Free Delivery</strong>
                                                       </div>
                                                       <div class="col-md-7 p-0">
                                                           <span>
-                                                          <?php echo $val['name']?>
+                                                          <?= $val['name'] ?>
                                                           </span><br>
                                                           <span>
-                                                          <?php echo $val['address']?>
+                                                          <?= $val['address'] ?>
                                                           </span><br>
                                                           <span>
-                                                          <?php echo $val['phone']?>
+                                                          <?= $val['phone'] ?>
                                                           </span>
                                                       </div>
                                                       <div class="col-md-3">
@@ -94,7 +94,7 @@
                                               </label>
                                           </div>
                                         <?php
-                                        }?>
+                                       } ?>
 
                                 </div>
                             </div>

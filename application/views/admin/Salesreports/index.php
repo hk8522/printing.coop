@@ -5,16 +5,16 @@
             <div class="box">
                 <div class="box-body">
                 <div class="text-center" style="color:red">
-                    <?php echo $this->session->flashdata('message_error');?>
+                    <?= $this->session->flashdata('message_error') ?>
                 </div>
                 <div class="text-center" style="color:green">
-                    <?php echo $this->session->flashdata('message_success');?>
+                    <?= $this->session->flashdata('message_success') ?>
                 </div>
                 <div class="inner-head-section">
                     <div class="row align-items-center">
                         <div class="col-md-12 col-lg-6 col-xs-12 text-left">
                             <div class="inner-title">
-                                <span><?php echo ucfirst($page_title).' List'; ?></span>
+                                <span><?= ucfirst($page_title).' List' ?></span>
                             </div>
                         </div>
                         <div class="col-md-12 col-lg-6 col-xs-12 text-right">
@@ -26,8 +26,8 @@
                                 <a href="#">
                                     <button class="dark-btn"><i class="fas fa-file-download"></i>Exporting PDF Reports</button>
                                 </a>
-                                <a href="<?php echo $BASE_URL.$this->router->fetch_class().'/'.$sub_page_url?>">
-                                    <button><i class="fas fa-plus-circle"></i><?php echo $sub_page_title ?></button>
+                                <a href="<?= $BASE_URL.$this->router->fetch_class().'/'.$sub_page_url ?>">
+                                    <button><i class="fas fa-plus-circle"></i><?= $sub_page_title ?></button>
                                 </a>
                             </div>
                         </div>
@@ -38,25 +38,25 @@
                     <div class="table-filter-area">
                         <div class="row">
                             <div class="col-md-12 col-lg-10">
-                                <form action="<?php echo $BASE_URL?>SalesReports/search">
+                                <form action="<?= $BASE_URL ?>SalesReports/search">
                                 <div class="table-filter-inner control-group">
                                     <div class="row">
                                         <div class="col-md-12 col-lg-3">
                                             <div class="table-filter-fields">
                                                 <label>Start Date</label>
-                                                <input class="form-control" type="date" name="StartDate" required value="<?php echo $StartDate?>">
+                                                <input class="form-control" type="date" name="StartDate" required value="<?= $StartDate ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-lg-3">
                                             <div class="table-filter-fields">
                                                 <label>End Date</label>
-                                                <input class="form-control" type="date" name="EndDate" required value="<?php echo $EndDate?>">
+                                                <input class="form-control" type="date" name="EndDate" required value="<?= $EndDate ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-lg-3">
                                             <div class="table-filter-fields">
                                                 <label>Campaign Name</label>
-                                                <input class="form-control" type="text" placeholder="Enter Campaign Name" name="CampaignName" required value="<?php echo $CampaignName?>">
+                                                <input class="form-control" type="text" placeholder="Enter Campaign Name" name="CampaignName" required value="<?= $CampaignName ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-12 col-lg-3">
@@ -65,10 +65,10 @@
                                                 <select class="form-control" name="keywords" required>
                                                 <option value="">Select Keywords</option>
 
-                                                <option value="spend" <?php echo $keywords=='spend' ? 'selected="selected"':''?>>Spend</option>
+                                                <option value="spend" <?= $keywords=='spend' ? 'selected="selected"':'' ?>>Spend</option>
 
-                                                <option value="revenue" <?php echo $keywords=='revenue' ? 'selected="selected"':''?>>Revenue</option>
-                                                <option value="0-impressions" <?php echo $keywords=='0-impressions' ? 'selected="selected"':''?>>0 Impressions</option>
+                                                <option value="revenue" <?= $keywords=='revenue' ? 'selected="selected"':'' ?>>Revenue</option>
+                                                <option value="0-impressions" <?= $keywords=='0-impressions' ? 'selected="selected"':'' ?>>0 Impressions</option>
 
                                                 </select>
                                             </div>
@@ -119,88 +119,88 @@
 
                             <tbody>
                                 <?php
-                                if(count($lists) > 0){
-                                    foreach($lists as $key=>$list){
+                                if (count($lists) > 0) {
+                                    foreach ($lists as $key => $list) {
                                     ?>
                                     <tr>
                                          <th style="display:none"></th>
                                         <td>
-                                                <?php echo dateFormate($list['start_date'],false);?>
+                                                <?= dateFormate($list['start_date'],false) ?>
                                         </td>
                                         <td>
-                                                <?php echo dateFormate($list['end_date'],false);?>
+                                                <?= dateFormate($list['end_date'],false) ?>
                                         </td>
 
                                         <td>
-                                              <?php echo $list['portfolio_name']; ?>
+                                              <?= $list['portfolio_name'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['currency']; ?>
+                                              <?= $list['currency'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['campaign_name']; ?>
+                                              <?= $list['campaign_name'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['ad_grou_name']; ?>
+                                              <?= $list['ad_grou_name'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['targeting']; ?>
+                                              <?= $list['targeting'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['match_type']; ?>
+                                              <?= $list['match_type'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['impressions']; ?>
+                                              <?= $list['impressions'] ?>
                                          </td><td>
-                                              <?php echo $list['clicks']; ?>
+                                              <?= $list['clicks'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['click_thru_rate']; ?>
+                                              <?= $list['click_thru_rate'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['cost_per_click']; ?>
+                                              <?= $list['cost_per_click'] ?>
                                          </td><td>
-                                              <?php echo $list['spend']; ?>
+                                              <?= $list['spend'] ?>
                                          </td><td>
-                                              <?php echo $list['total_advertising_cost_of_sales']; ?>
+                                              <?= $list['total_advertising_cost_of_sales'] ?>
                                          </td><td>
-                                              <?php echo $list['total_return_on_advertising_spend']; ?>
+                                              <?= $list['total_return_on_advertising_spend'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['7_day_total_sales']; ?>
+                                              <?= $list['7_day_total_sales'] ?>
                                          </td>
 
                                          <td>
-                                              <?php echo $list['7_day_total_orders']; ?>
+                                              <?= $list['7_day_total_orders'] ?>
                                          </td>
                                          <td>
-                                              <?php echo $list['7_day_total_units']; ?>
+                                              <?= $list['7_day_total_units'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['7_day_conversion_rate']; ?>
+                                              <?= $list['7_day_conversion_rate'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['7_day_advertised_sku_units']; ?>
+                                              <?= $list['7_day_advertised_sku_units'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['7_day_other_sku_units']; ?>
+                                              <?= $list['7_day_other_sku_units'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['7_day_advertised_sku_sales']; ?>
+                                              <?= $list['7_day_advertised_sku_sales'] ?>
                                          </td>
                                         <td>
-                                              <?php echo $list['7_day_other_sku_sales']; ?>
+                                              <?= $list['7_day_other_sku_sales'] ?>
                                          </td>
 
                                         <!--<td>
                                             <div class="action-btns">
-                                                   <a href="<?php echo $BASE_URL.$class_name.$sub_page_view_url?>/<?php echo $list['id'];?>" style="color:#3c8dbc;padding: 5px;" title="view">
+                                                   <a href="<?= $BASE_URL.$class_name.$sub_page_view_url?>/<?= $list['id'] ?>" style="color:#3c8dbc;padding: 5px;" title="view">
                                                     <i class="far fa-eye fa-lg"></i>
                                                    </a>
-                                                   <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>" style="color:green;padding: 5px;" title="edit">
+                                                   <a href="<?= $BASE_URL.$class_name.$sub_page_url?>/<?= $list['id'] ?>" style="color:green;padding: 5px;" title="edit">
                                                     <i class="far fa-edit fa-lg"></i>
                                                    </a>
-                                                   <a href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $list['id'];?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this product?');">
+                                                   <a href="<?= $BASE_URL.$class_name.$sub_page_delete_url?>/<?= $list['id'] ?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this product?');">
                                                      <i class="fa fa-trash fa-lg"></i>
                                                    </a>
                                            </div>
@@ -209,12 +209,12 @@
                                     </tr>
                                 <?php
                                     }
-                                }else{?>
+                                } else{ ?>
                                     <tr>
                                     <td colspan="24" class="text-left">No Records Found</td>
                                     </tr>
                                 <?php
-                                }?>
+                               } ?>
                             </tbody>
                         </table>
                         <!--<div class="text-right">
@@ -229,7 +229,7 @@
                         </nav>
                         </div>-->
 
-                       <?php echo $links; ?>
+                       <?= $links ?>
                     </div>
                 </div>
 
@@ -242,7 +242,7 @@
   <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
  </script>
 <script>
-$(document).ready(function(){
+$(document).ready(function() {
     $('#example2').DataTable({
         "order": [[ 3, "asc" ]]
     });

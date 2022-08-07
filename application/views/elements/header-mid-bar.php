@@ -5,14 +5,14 @@
                 <div class="col-md-12 col-lg-3 col-xl-3">
                     <div class="site-logo">
                         <div class="menu-bar"><i class="las la-bars" data-toggle="dropdown" aria-expanded="false" onclick="openNav01()"></i></div>
-                        <a href="<?php echo $BASE_URL;?>">
+                        <a href="<?= $BASE_URL ?>">
                             <?php
-                            if($configrations['logo_image']) {
+                            if ($configrations['logo_image']) {
                                 $alt='';
-                               if ($language_name == 'French'){
+                               if ($language_name == 'French') {
                                 $imageurl = getLogoImages($configrations['logo_image_french']);
                                 $alt = $configrations['log_alt_teg_french'];
-                               }else{
+                               } else{
                                 $imageurl = getLogoImages($configrations['logo_image']);
                                 $alt = $configrations['log_alt_teg'];
                                }
@@ -20,14 +20,14 @@
                               <?php
                               if ($imageurl) {
                                 ?>
-                                <img src="<?php echo $imageurl?>" width="100" alt="<?php echo $alt?>">
+                                <img src="<?= $imageurl?>" width="100" alt="<?= $alt ?>">
                                 <?php
                               } ?>
                             <?php
                             } else { ?>
-                              <img src="<?php echo $BASE_URL;?>assets/images/printing.coopLogo.png" alt="Digital and Offset Printing">
+                              <img src="<?= $BASE_URL ?>assets/images/printing.coopLogo.png" alt="Digital and Offset Printing">
                               <?php
-                            }?>
+                           } ?>
                         </a>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
                                 </div>
                                 <div class="search-product-result">
                                     <span style="color:black; border:0px;" id="coming-res-data">
-                                        <?= ($language_name == 'French') ? 'Le résultat de la recherche arrive ...' : 'Search result is coming...'?> </span>
+                                        <?= ($language_name == 'French') ? 'Le résultat de la recherche arrive ...' : 'Search result is coming...'?></span>
                                     <ul id="ProductListUl">
 
                                     </ul>
@@ -62,7 +62,7 @@
                                 <div class="mid-action-single">
                                     <a href="tel:18773848043">
                                         <div class="mid-action-single-inner">
-                                            <?php if($website_store_id==1){ ?>
+                                            <?php if ($website_store_id==1) { ?>
                                             <div class="mid-action-icon">
                                                 <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                     <g>
@@ -78,7 +78,7 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                               <?php }else if($website_store_id==3){?>
+                                               <?php } else if ($website_store_id==3) { ?>
                                             <div class="mid-action-icon">
                                                 <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                     <g>
@@ -94,7 +94,7 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                            <?php }else if($website_store_id==5){?>
+                                            <?php } else if ($website_store_id==5) { ?>
                                             <div class="mid-action-icon">
                                                 <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                     <g>
@@ -110,12 +110,12 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                            <?php }?>
+                                            <?php } ?>
                                             <div class="mid-action-content">
                                                 <span>
                                                     <strong>
                                                     <?= ($language_name == 'French') ? 'L\'aide est là.' : 'Help is here.'?></strong>
-                                                    <?php echo $configrations['contact_no'] ?? '1-877-384-8043';?>
+                                                    <?= $configrations['contact_no'] ?? '1-877-384-8043' ?>
                                                 </span>
                                             </div>
                                         </div>
@@ -125,9 +125,9 @@
                             <?php if ($loginId) { ?>
                             <li>
                                 <div class="mid-action-single">
-                                    <a href="<?php echo $BASE_URL?>MyAccounts">
+                                    <a href="<?= $BASE_URL ?>MyAccounts">
                                         <div class="mid-action-single-inner">
-                                            <?php if($website_store_id==1){ ?>
+                                            <?php if ($website_store_id==1) { ?>
                                             <div class="mid-action-icon">
                                                 <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                     <g>
@@ -142,7 +142,7 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                            <?php }else if($website_store_id==3){?>
+                                            <?php } else if ($website_store_id==3) { ?>
                                             <div class="mid-action-icon">
                                                 <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                     <g>
@@ -157,7 +157,7 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                            <?php }else if($website_store_id==5){?>
+                                            <?php } else if ($website_store_id==5) { ?>
                                             <div class="mid-action-icon">
                                                 <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                     <g>
@@ -172,11 +172,11 @@
                                                     </g>
                                                 </svg>
                                             </div>
-                                            <?php }?>
+                                            <?php } ?>
                                             <div class="mid-action-content">
                                                   <span>
                                                   <!-- Replace "Sign In" text with "User name" after login -->
-                                                  <strong><?php echo $loginName?></strong>
+                                                  <strong><?= $loginName ?></strong>
                                                   <?= ($language_name == 'French') ? 'Mon compte' : 'My account'?>
                                                   </span>
                                             </div>
@@ -189,7 +189,7 @@
                             <li>
                                 <div class="mid-action-single">
                                     <div class="mid-action-single-inner">
-                                        <?php if($website_store_id==1){ ?>
+                                        <?php if ($website_store_id==1) { ?>
                                         <div class="mid-action-icon">
                                             <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                 <g>
@@ -207,10 +207,10 @@
                                             </svg>
                                             <!-- Cart Counter -->
                                             <span class="cart-contents-count">
-                                              <?php echo count($this->cart->contents())?>
+                                              <?= count($this->cart->contents()) ?>
                                             </span>
                                         </div>
-                                        <?php }else if($website_store_id==3){?>
+                                        <?php } else if ($website_store_id==3) { ?>
                                         <div class="mid-action-icon">
                                             <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                 <g>
@@ -228,10 +228,10 @@
                                             </svg>
                                             <!-- Cart Counter -->
                                             <span class="cart-contents-count">
-                                              <?php echo count($this->cart->contents())?>
+                                              <?= count($this->cart->contents()) ?>
                                             </span>
                                         </div>
-                                        <?php }else if($website_store_id==5){?>
+                                        <?php } else if ($website_store_id==5) { ?>
                                         <div class="mid-action-icon">
                                             <svg version="1.2" baseProfile="tiny" id="Layer_1" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 35 35" height="35" width="35" class="header-link-icon" xml:space="preserve">
                                                 <g>
@@ -249,10 +249,10 @@
                                             </svg>
                                             <!-- Cart Counter -->
                                             <span class="cart-contents-count">
-                                              <?php echo count($this->cart->contents())?>
+                                              <?= count($this->cart->contents()) ?>
                                             </span>
                                         </div>
-                                        <?php }?>
+                                        <?php } ?>
                                         <div class="mid-action-content">
                                             <span>
                                                 <strong>

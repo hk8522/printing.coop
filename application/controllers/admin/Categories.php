@@ -77,7 +77,7 @@ class Categories extends Admin_Controller
             #pr($_POST);
             //pr($_FILES,1);
 
-            foreach($MainStoreList as $key=>$val){
+            foreach($MainStoreList as $key => $val){
                 $FilenameInadex=$key.'files';
                 $oldImageInadex=$key.'old_image';
                 $ImageIdInadex=$key.'category_image_id';
@@ -154,7 +154,7 @@ class Categories extends Admin_Controller
                     $insert_id=$this->Category_Model->saveCategory($postData);
                     if ($insert_id) {
                         #pr($saveCategoryImageData,1);
-                        foreach($saveCategoryImageData as $key=>$val){
+                        foreach($saveCategoryImageData as $key => $val){
                             $CategoryImage=array();
                             $CategoryImage=$val;
                             $CategoryImage['category_id']=$insert_id;

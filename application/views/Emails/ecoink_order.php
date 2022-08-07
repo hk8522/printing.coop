@@ -1,12 +1,12 @@
 <div class="top-mid-section" style="font-family: 'Raleway', sans-serif !important; width:100%; max-width:100%; height:auto; text-align:center; padding:0px 0px 0px 0px;background: #eeeeee;">
     <div>
-        <div style="padding: 20px 0px 10px 0px; text-align: center;"><img src="<?php echo $StoreData['url'].'/uploads/logo/'. $StoreData['email_template_logo']?>" width="300px"></div>
+        <div style="padding: 20px 0px 10px 0px; text-align: center;"><img src="<?= $StoreData['url'].'/uploads/logo/'. $StoreData['email_template_logo'] ?>" width="300px"></div>
         <div class="tem-mid-section" style="text-align: center;">
             <div class="tem-visibility" style="z-index: 99; padding: 20px;">
                 <div class="top-title" style="font-size: 20px; text-align: center;">
-                    <span><strong><?php echo $heding;?></strong></span>
+                    <span><strong><?= $heding ?></strong></span>
                 </div>
-                <?php echo $body;?>
+                <?= $body ?>
                 <!--<div class="top-info" style="margin-top: 25px;text-align: left;">
                     <span style="color:#303030; font-size: 14px; letter-spacing: 0.5px; line-height: 22px; word-spacing: 0.5px;display: inline-block;">
                         Hi Malle,
@@ -45,73 +45,73 @@
                     <div style="width: 100%; margin-bottom: 10px;">
                         <div style="text-align: left;">
                             <div style="width: 100px; float: left; position: relative">
-                                <img style="margin-bottom: 10px;" src="<?php echo $imageurl?>" width="100%">
-                                <span style="font-size: 14px; color: #000;">How many sets: <span style="display: inline-block; height: 20px; width: 20px; text-align: center; line-height: 20px; color: #fff; font-weight: 600; font-size: 12px; background: #7aa93c; border-radius: 50%;"><?php echo $item['quantity'];?></span></span>
+                                <img style="margin-bottom: 10px;" src="<?= $imageurl ?>" width="100%">
+                                <span style="font-size: 14px; color: #000;">How many sets: <span style="display: inline-block; height: 20px; width: 20px; text-align: center; line-height: 20px; color: #fff; font-weight: 600; font-size: 12px; background: #7aa93c; border-radius: 50%;"><?= $item['quantity'] ?></span></span>
                             </div>
                             <div style="padding-left: 130px;">
-                                <span style="font-size: 14px;color: #000; font-weight: 600"><?php echo ucfirst($item['name'])?></span>
+                                <span style="font-size: 14px;color: #000; font-weight: 600"><?= ucfirst($item['name']) ?></span>
 
                                 <div style="margin: 10px 0px 0px 0px">
-                                <?php if (!empty($product_width_length)) {?>
+                                <?php if (!empty($product_width_length)) { ?>
 
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Length(Inch):</font><?php echo $product_width_length['product_length'];?></div>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Length(Inch):</font><?= $product_width_length['product_length'] ?></div>
 
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Width(Inch):</font><?php echo $product_width_length['product_width'];?></div>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Width(Inch):</font><?= $product_width_length['product_width'] ?></div>
 
-                                <?php if (!empty($product_width_length['length_width_color_show'])) {?>
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Colors:</font><?php echo $product_width_length['length_width_color'];?>
+                                <?php if (!empty($product_width_length['length_width_color_show'])) { ?>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Colors:</font><?= $product_width_length['length_width_color'] ?>
                                 </div>
-                                <?php }?>
+                                <?php } ?>
 
-                                <?php if (!empty($product_width_length['product_total_page'])) {?>
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Quantity:</font><?php echo $product_width_length['product_total_page'];?>
+                                <?php if (!empty($product_width_length['product_total_page'])) { ?>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Quantity:</font><?= $product_width_length['product_total_page'] ?>
                                 </div>
-                                <?php }?>
+                                <?php } ?>
                                 <?php
-                            }?>
-                            <?php if (!empty($product_depth_length_width)) {?>
+                           } ?>
+                            <?php if (!empty($product_depth_length_width)) { ?>
 
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Length(Inch):</font><?php echo $product_depth_length_width['product_depth_length'];?></div>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Length(Inch):</font><?= $product_depth_length_width['product_depth_length'] ?></div>
 
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Width(Inch):</font><?php echo $product_depth_length_width['product_depth_width'];?></div>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Width(Inch):</font><?= $product_depth_length_width['product_depth_width'] ?></div>
 
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Depth(Inch):</font><?php echo $product_depth_length_width['product_depth'];?></div>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Depth(Inch):</font><?= $product_depth_length_width['product_depth'] ?></div>
 
-                                <?php if (!empty($product_depth_length_width['depth_color_show'])) {?>
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Colors:</font><?php echo $product_depth_length_width['depth_color'];?>
+                                <?php if (!empty($product_depth_length_width['depth_color_show'])) { ?>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Colors:</font><?= $product_depth_length_width['depth_color'] ?>
                                 </div>
-                                <?php }?>
+                                <?php } ?>
 
-                                <?php if (!empty($product_depth_length_width['product_depth_total_page'])) {?>
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Quantity:</font><?php echo $product_depth_length_width['product_depth_total_page'];?>
+                                <?php if (!empty($product_depth_length_width['product_depth_total_page'])) { ?>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Quantity:</font><?= $product_depth_length_width['product_depth_total_page'] ?>
                                 </div>
-                                <?php }?>
+                                <?php } ?>
                                 <?php
-                            }?>
+                           } ?>
 
-                            <?php if (!empty($page_product_width_length)) {?>
+                            <?php if (!empty($page_product_width_length)) { ?>
 
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Page Length(Inch):</font><?php echo $page_product_width_length['page_product_length'];?></div>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Page Length(Inch):</font><?= $page_product_width_length['page_product_length'] ?></div>
 
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Page Width(Inch):</font><?php echo $page_product_width_length['page_product_width'];?></div>
-                                <?php if (!empty($page_product_width_length['page_length_width_color_show'])) {?>
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Colors:</font><?php echo $page_product_width_length['page_length_width_color'];?>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Page Width(Inch):</font><?= $page_product_width_length['page_product_width'] ?></div>
+                                <?php if (!empty($page_product_width_length['page_length_width_color_show'])) { ?>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Colors:</font><?= $page_product_width_length['page_length_width_color'] ?>
                                 </div>
-                                <?php }?>
-                                <?php if (!empty($page_product_width_length['page_product_total_page'])) {?>
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Pages:</font><?php echo $page_product_width_length['page_product_total_page']?>
+                                <?php } ?>
+                                <?php if (!empty($page_product_width_length['page_product_total_page'])) { ?>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Pages:</font><?= $page_product_width_length['page_product_total_page'] ?>
                                 </div>
-                                <?php }?>
-                                <?php if (!empty($page_product_width_length['page_product_total_sheets'])) {?>
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Sheet Per Pad:</font><?php echo $page_product_width_length['page_product_total_sheets']?>
+                                <?php } ?>
+                                <?php if (!empty($page_product_width_length['page_product_total_sheets'])) { ?>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Sheet Per Pad:</font><?= $page_product_width_length['page_product_total_sheets'] ?>
                                 </div>
-                                <?php }?>
-                                <?php if (!empty($page_product_width_length['page_product_total_quantity'])) {?>
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Quantity:</font><?php echo $page_product_width_length['page_product_total_quantity']?>
+                                <?php } ?>
+                                <?php if (!empty($page_product_width_length['page_product_total_quantity'])) { ?>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Quantity:</font><?= $page_product_width_length['page_product_total_quantity'] ?>
                                 </div>
-                                <?php }?>
+                                <?php } ?>
                                 <?php
-                            }?>
+                           } ?>
                             <?php
                             if (!empty($product_size)) {
                                 $size_name = $product_size['product_size'];
@@ -120,75 +120,75 @@
 
                                 ?>
                                  <?php if ($label_qty) { ?>
-                                    <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Quantity:</font><?php echo $label_qty;?></div>
+                                    <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Quantity:</font><?= $label_qty ?></div>
                                     <?php
-                                    }?>
+                                   } ?>
                                 <?php
                                 if ($size_name) { ?>
-                                    <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Size:</font><?php echo $size_name;?></div>
+                                    <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Size:</font><?= $size_name ?></div>
                                     <?php
-                                }?>
+                               } ?>
 
                                 <?php
                                 if ($attribute) {
-                                    foreach($attribute as $akey=>$aval) {
+                                    foreach ($attribute as $akey => $aval) {
                                         $multiple_attribute_name=$aval['attributes_name'];
                                         $multiple_attribute_item_name=$aval['attributes_item_name'];
                                 ?>
 
-                                 <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222"><?php echo $multiple_attribute_name;?>:</font><?php echo $multiple_attribute_item_name;?></div>
+                                 <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222"><?= $multiple_attribute_name ?>:</font><?= $multiple_attribute_item_name ?></div>
                                 <?php
                                     }
-                                }?>
+                               } ?>
 
                             <?php
                             }
                             ?>
                            <?php
                             #pr($attribute_ids);
-                            foreach($attribute_ids as $key=>$val) {
+                            foreach ($attribute_ids as $key => $val) {
                                 $attribute_name=$val['attribute_name'];
                                 $item_name=$val['item_name'];
                                 ?>
-                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222"><?php echo $attribute_name;?>:</font><?php echo $item_name;?></div>
+                                <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222"><?= $attribute_name ?>:</font><?= $item_name ?></div>
                             <?php
-                            }?>
+                           } ?>
                             <?php if (!empty($recto_verso)) { ?>
-                            <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Recto/Verso:</font><?php echo $recto_verso;?>
+                            <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Recto/Verso:</font><?= $recto_verso ?>
                             </div>
                             <?php
-                            }?>
+                           } ?>
 
-                            <?php if (!empty($votre_text)) {?>
-                            <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Your TEXT - Votre TEXT:</font><?php echo $votre_text;?>
+                            <?php if (!empty($votre_text)) { ?>
+                            <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Your TEXT - Votre TEXT:</font><?= $votre_text ?>
                             </div>
 
                             <?php
-                            }?>
+                           } ?>
                         <br>
                         <?php
                             if (!empty($cart_images)) {
-                            foreach($cart_images as $key=>$return_arr) {
+                            foreach ($cart_images as $key => $return_arr) {
                             ?>
-                               <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><a href="<?php echo $return_arr['file_base_url']?>">
-                               <img src="<?php echo $return_arr['src']?>" width="150"></a></div>
+                               <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><a href="<?= $return_arr['file_base_url'] ?>">
+                               <img src="<?= $return_arr['src'] ?>" width="150"></a></div>
                                <?php
                                 $link=$BASE_URL."admin/Orders/download/".urlencode($return_arr['location'])."/".urlencode($return_arr['name']);
                                 ?>
-                                <!--<a href="<?php echo $link?>">
+                                <!--<a href="<?= $link ?>">
                                 Download
                                 </a>-->
-                                <?php if (!empty($return_arr['cumment'])) {?>
+                                <?php if (!empty($return_arr['cumment'])) { ?>
                                     <br>
                                     <div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Comment:</font> <?php echo $return_arr['cumment'];
                                     ?>
                                     </div>
                                 <?php
-                                }?>
+                               } ?>
 
                             <?php
                             }
-                        }?>
+                       } ?>
 
                                     <!--<div style="font-size: 14px;color: #666; font-weight: 400; margin: 0px 0px 5px 0px;"><font style="color: #222">Stands Color:</font> Frame color Silver</div>
 
@@ -201,7 +201,7 @@
                         </div>
                     </div>
                     <div style="width: 50%; text-align: left;">
-                        <div style="font-size: 14px;color: #303030;"><font style="color: #000; font-weight: 600;">Price :</font> <?php echo $order_currency_currency_symbol.number_format($item['price'],2);?>
+                        <div style="font-size: 14px;color: #303030;"><font style="color: #000; font-weight: 600;">Price :</font> <?= $order_currency_currency_symbol.number_format($item['price'],2) ?>
                         </div>
                     </div>
                     <div style="width: 50%; text-align: right">
@@ -216,7 +216,7 @@
                     </div>
                 </div>
                 <?php
-                }?>
+               } ?>
 
                 <div style="width: 100%;display: flex;align-items: center;padding: 10px 0px 0px 0px;">
                     <div style="width: 100%;display: flex;">
@@ -224,11 +224,11 @@
                             <span style="font-size: 14px;color: #303030;font-weight: 500;">Subtotal:</span>
                         </div>
                         <div style="width: 30%; text-align: right;">
-                            <span style="font-size: 14px;color: #303030;"><?php echo $order_currency_currency_symbol."".number_format($orderData['sub_total_amount'],2);?></span>
+                            <span style="font-size: 14px;color: #303030;"><?= $order_currency_currency_symbol."".number_format($orderData['sub_total_amount'],2) ?></span>
                         </div>
                     </div>
                 </div>
-                <?php if (!empty($orderData['preffered_customer_discount']) && $orderData['preffered_customer_discount'] !="0.00") {?>
+                <?php if (!empty($orderData['preffered_customer_discount']) && $orderData['preffered_customer_discount'] !="0.00") { ?>
 
                 <div style="width: 100%;display: flex;align-items: center;padding: 10px 0px 0px 0px;">
                     <div style="width: 100%;display: flex;">
@@ -236,13 +236,13 @@
                             <span style="font-size: 14px;color: #303030;font-weight: 500;">Preffered Customer Discount:</span>
                         </div>
                         <div style="width: 30%; text-align: right;">
-                            <span style="font-size: 14px;color: #303030;"><?php echo "-".$order_currency_currency_symbol."".number_format($orderData['preffered_customer_discount'],2);?></span>
+                            <span style="font-size: 14px;color: #303030;"><?= "-".$order_currency_currency_symbol."".number_format($orderData['preffered_customer_discount'],2) ?></span>
                         </div>
                     </div>
                 </div>
                 <?php
-                }?>
-                <?php if (!empty($orderData['coupon_discount_amount']) && $orderData['coupon_discount_amount'] !="0.00") {?>
+               } ?>
+                <?php if (!empty($orderData['coupon_discount_amount']) && $orderData['coupon_discount_amount'] !="0.00") { ?>
 
                 <div style="width: 100%;display: flex;align-items: center;padding: 10px 0px 0px 0px;">
                     <div style="width: 100%;display: flex;">
@@ -250,19 +250,19 @@
                             <span style="font-size: 14px;color: #303030;font-weight: 500;">Coupon Discount:</span>
                         </div>
                         <div style="width: 30%; text-align: right;">
-                            <span style="font-size: 14px;color: #303030;"><?php echo "-".$order_currency_currency_symbol."".number_format($orderData['coupon_discount_amount'],2);?></span>
+                            <span style="font-size: 14px;color: #303030;"><?= "-".$order_currency_currency_symbol."".number_format($orderData['coupon_discount_amount'],2) ?></span>
                         </div>
                     </div>
                 </div>
                 <?php
-                }?>
+               } ?>
                 <div style="width: 100%;display: flex;align-items: center;padding: 10px 0px 0px 0px;">
                     <div style="width: 100%;display: flex;">
                         <div style="width: 70%; text-align: right;">
                             <span style="font-size: 14px;color: #303030;font-weight: 500;">Shipping Fee:</span>
                         </div>
                         <div style="width: 30%; text-align: right;">
-                            <span style="font-size: 14px;color: #303030;"><?php echo $order_currency_currency_symbol.number_format($orderData['delivery_charge'],2);?></span>
+                            <span style="font-size: 14px;color: #303030;"><?= $order_currency_currency_symbol.number_format($orderData['delivery_charge'],2) ?></span>
                         </div>
                     </div>
                 </div>
@@ -271,7 +271,7 @@
                 <div style="width: 100%;display: flex;align-items: center;padding: 10px 0px 0px 0px;">
                     <div style="width: 100%;display: flex;">
                         <div style="width: 70%; text-align: right;">
-                            <span style="font-size: 14px;color: #303030;font-weight: 500;">Total <?php echo $salesTaxRatesProvinces_Data['type']?> <?php echo number_format($salesTaxRatesProvinces_Data['total_tax_rate'],2);?>%:</span>
+                            <span style="font-size: 14px;color: #303030;font-weight: 500;">Total <?= $salesTaxRatesProvinces_Data['type']?> <?= number_format($salesTaxRatesProvinces_Data['total_tax_rate'],2) ?>%:</span>
                         </div>
                         <div style="width: 30%; text-align: right;">
                          <span style="font-size: 16px;color: #7aa93c;font-weight: 600;"><?php
@@ -280,7 +280,7 @@
                     </div>
                 </div>
                 <?php
-                }?>
+               } ?>
                 <div style="width: 100%;display: flex;align-items: center;padding: 10px 0px 0px 0px;">
                     <div style="width: 100%;display: flex;">
                         <div style="width: 70%; text-align: right;">
@@ -300,7 +300,7 @@
                                 <span style="color: #666; font-weight: 400; font-size: 14px;">Order Id</span>
                             </div>
                             <div style="width: 50%; margin-left: 5px; text-align: right">
-                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?php echo $orderData['order_id']?></strong>
+                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?= $orderData['order_id'] ?></strong>
                             </div>
                         </div>
                         <div style="display: flex;margin-bottom: 5px;padding-bottom: 5px;border-bottom: 1px solid rgba(0,0,0,0.1);">
@@ -310,9 +310,9 @@
                             <div style="width: 50%; margin-left: 5px; text-align: right">
                                 <strong style="color: #000; font-weight: 400; font-size: 14px;"><?php if (!empty($orderData['user_id'])) {
                                                                                                                                                                                          echo CUSTOMER_ID_PREFIX.$orderData['user_id'];
-                                                                                                                }else{
+                                                                                                                } else {
                                                                                                                     echo "-";
-                                                                                                                }?>
+                                                                                                               } ?>
                                                                             </strong>
                             </div>
                         </div>
@@ -321,7 +321,7 @@
                                 <span style="color: #666; font-weight: 400; font-size: 14px;">Customer Name:</span>
                             </div>
                             <div style="width: 50%; margin-left: 5px; text-align: right">
-                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?php echo ucfirst($orderData['name']);?></strong>
+                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?= ucfirst($orderData['name']) ?></strong>
                             </div>
                         </div>
                         <div style="display: flex;margin-bottom: 5px;padding-bottom: 5px;border-bottom: 1px solid rgba(0,0,0,0.1);">
@@ -329,7 +329,7 @@
                                 <span style="color: #666; font-weight: 400; font-size: 14px;">Customer Mobile:</span>
                             </div>
                             <div style="width: 50%; margin-left: 5px; text-align: right">
-                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?php echo ucfirst($orderData['mobile']);?></strong>
+                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?= ucfirst($orderData['mobile']) ?></strong>
                             </div>
                         </div>
                         <div style="display: flex;margin-bottom: 5px;padding-bottom: 5px;border-bottom: 1px solid rgba(0,0,0,0.1);">
@@ -337,7 +337,7 @@
                                 <span style="color: #666; font-weight: 400; font-size: 14px;">Customer Email:</span>
                             </div>
                             <div style="width: 50%; margin-left: 5px; text-align: right">
-                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?php echo ucfirst($orderData['email']);?></strong>
+                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?= ucfirst($orderData['email']) ?></strong>
                             </div>
                         </div>
                         <div style="display: flex;margin-bottom: 5px;padding-bottom: 5px;border-bottom: 1px solid rgba(0,0,0,0.1);">
@@ -345,7 +345,7 @@
                                 <span style="color: #666; font-weight: 400; font-size: 14px;">Order Amount:</span>
                             </div>
                             <div style="width: 50%; margin-left: 5px; text-align: right">
-                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?php echo $order_currency_currency_symbol.number_format($orderData['total_amount'],2);?></strong>
+                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?= $order_currency_currency_symbol.number_format($orderData['total_amount'],2) ?></strong>
                             </div>
                         </div>
                         <div style="display: flex;margin-bottom: 5px;padding-bottom: 5px;border-bottom: 1px solid rgba(0,0,0,0.1);">
@@ -353,7 +353,7 @@
                                 <span style="color: #666; font-weight: 400; font-size: 14px;">Order Status:</span>
                             </div>
                             <div style="width: 50%; margin-left: 5px; text-align: right">
-                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?php echo getOrderSatusClass($orderData['status']);?></strong>
+                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?= getOrderSatusClass($orderData['status']) ?></strong>
                             </div>
                         </div>
                         <div style="display: flex;margin-bottom: 5px;padding-bottom: 5px;border-bottom: 1px solid rgba(0,0,0,0.1);">
@@ -361,7 +361,7 @@
                                 <span style="color: #666; font-weight: 400; font-size: 14px;">Order Date:</span>
                             </div>
                             <div style="width: 50%; margin-left: 5px; text-align: right">
-                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?php echo dateFormate($orderData['created']);?></strong>
+                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?= dateFormate($orderData['created']) ?></strong>
                             </div>
                         </div>
 
@@ -375,7 +375,7 @@
 
                                      if (!empty(getShipingName($orderData))) {
                                         echo getShipingName($orderData);
-                                   }else{
+                                   } else {
                                         if ($orderData['shipping_method_formate']) {
                                             $shipping_method_formate=explode('-',$orderData['shipping_method_formate']);
 
@@ -399,7 +399,7 @@
                                 <span style="color: #666; font-weight: 400; font-size: 14px;">Payment Method:</span>
                             </div>
                             <div style="width: 50%; margin-left: 5px; text-align: right">
-                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?php echo ucfirst($orderData['payment_type']);?></strong>
+                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?= ucfirst($orderData['payment_type']) ?></strong>
                             </div>
                         </div>
 
@@ -408,7 +408,7 @@
                                 <span style="color: #666; font-weight: 400; font-size: 14px;">Payment Status:</span>
                             </div>
                             <div style="width: 50%; margin-left: 5px; text-align: right">
-                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?php echo getOrderPaymentStatus($orderData['payment_status']);?></strong>
+                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?= getOrderPaymentStatus($orderData['payment_status']) ?></strong>
                             </div>
                         </div>
                         <div style="display: flex;">
@@ -416,7 +416,7 @@
                                 <span style="color: #666; font-weight: 400; font-size: 14px;">Payment Transition Id:</span>
                             </div>
                             <div style="width: 50%; margin-left: 5px; text-align: right">
-                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?php echo $orderData['transition_id'];?></strong>
+                                <strong style="color: #000; font-weight: 400; font-size: 14px;"><?= $orderData['transition_id'] ?></strong>
                             </div>
                         </div>
                     </div>
@@ -425,20 +425,20 @@
                             <div style="text-align: left;font-size: 18px;font-weight: 600;margin-bottom: 10px;border-bottom: 2px dashed rgba(0,0,0,0.1);padding-bottom: 10px;">Billing Information</div>
                             <div style="text-align: left;">
                                 <strong style="color: #000; font-weight: 400; font-size: 14px;">
-                                <?php echo ucfirst($orderData['billing_name']);?>
+                                <?= ucfirst($orderData['billing_name']) ?>
                                                                                 <br>
-                                                                                Mobile: <?php echo ucfirst($orderData['billing_mobile']);?><?php echo !empty($orderData['billing_alternate_phone']) ? ','.$orderData['billing_alternate_phone']:'';?>
+                                                                                Mobile: <?= ucfirst($orderData['billing_mobile']) ?><?= !empty($orderData['billing_alternate_phone']) ? ','.$orderData['billing_alternate_phone']:'' ?>
 
-                                                                                <br>	<?php if (!empty($orderData['billing_company'])) {?>
+                                                                                <br>	<?php if (!empty($orderData['billing_company'])) { ?>
 
-    Company:<?php echo $orderData['billing_company'];?>
+    Company:<?= $orderData['billing_company'] ?>
     <br>
-                                                                                <?php }?>
+                                                                                <?php } ?>
 
-                                                                                <?php echo $orderData['billing_address'];?>
+                                                                                <?= $orderData['billing_address'] ?>
 
                                             <br>
-                                                                                <?php echo $cityData['name'];?>, <?php echo $stateData['name'];?>, <?php echo $countryData['iso2'];?>, <?php echo $orderData['billing_pin_code'];?>
+                                                                                <?= $cityData['name'] ?>, <?= $stateData['name'] ?>, <?= $countryData['iso2'] ?>, <?= $orderData['billing_pin_code']  ?>
                                 </strong>
                             </div>
                         </div>
@@ -446,20 +446,20 @@
                             <div style="text-align: left;font-size: 18px;font-weight: 600;margin-bottom: 10px;border-bottom: 2px dashed rgba(0,0,0,0.1);padding-bottom: 10px;">Shipping Information</div>
                             <div style="text-align: left;">
                                 <strong style="color: #000; font-weight: 400; font-size: 14px;">
-                                    <?php echo ucfirst($orderData['shipping_name']);?>
+                                    <?= ucfirst($orderData['shipping_name']) ?>
                                                                                 <br>
-                                                                                Mobile: <?php echo ucfirst($orderData['shipping_mobile']);?><?php echo !empty($orderData['shipping_alternate_phone']) ? ','.$orderData['shipping_alternate_phone']:'';?>
+                                                                                Mobile: <?= ucfirst($orderData['shipping_mobile']) ?><?= !empty($orderData['shipping_alternate_phone']) ? ','.$orderData['shipping_alternate_phone']:'' ?>
 
-    <?php if (!empty($orderData['shipping_company'])) {?>
+    <?php if (!empty($orderData['shipping_company'])) { ?>
     <br>
-    Company:<?php echo $orderData['shipping_company'];?>
+    Company:<?= $orderData['shipping_company'] ?>
 
-                                                                                <?php }?>
+                                                                                <?php } ?>
                                                                                 <br>
-                                      <?php echo $orderData['shipping_address'];?>
+                                      <?= $orderData['shipping_address'] ?>
 
                                                                                 <br>
-      <?php echo $cityData['name'];?>,<?php echo $stateData['name'];?> ,<?php echo $cityData['name'];?> <?php echo $countryData['iso2'];?>,<?php echo $orderData['shipping_pin_code'];?>
+      <?= $cityData['name'] ?>,<?= $stateData['name'] ?>, <?= $cityData['name'] ?> <?= $countryData['iso2'] ?>,<?= $orderData['shipping_pin_code']  ?>
 
                                 </strong>
                             </div>
@@ -468,7 +468,7 @@
                 </div>
                 <div style="background-color: #000 ;margin-top: 20px;">
                     <div style="padding: 10px 10px 15px 10px;">
-                         <span style="color: #fff;line-height: 25px;"><?php echo $StoreData['email_footer_line']?></span>
+                         <span style="color: #fff;line-height: 25px;"><?= $StoreData['email_footer_line'] ?></span>
 
                         </span>
                         <!--<span style="font-size: 14px; letter-spacing: 0.5px; line-height: 22px; word-spacing: 0.5px;display: inline-block; color:#fff">We are always here to help. You can also contact us directly on email us at info@printing.coop</span>

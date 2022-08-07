@@ -6,14 +6,14 @@
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo $page_title?></span>
+                                <span><?= $page_title ?></span>
                             </div>
                         </div>
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="text-center" style="color:red">
-                                        <?php echo $this->session->flashdata('message_error');?>
+                                        <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <div class="form-role-area">
                                         <div class="control-group info">
@@ -26,19 +26,19 @@
                                                         <div class="row">
                                                             <div class="col-md-12">
                                                                 <div class="product-view-display">
-                                                                    <span><?php echo ucfirst($Product['menu_name']);?></span>
+                                                                    <span><?= ucfirst($Product['menu_name']) ?></span>
                                                                 </div>
                                                                 <label class="form-inner-label">Menu </label>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="product-view-display">
-                                                                   <span><?php echo ucfirst($Product['category_name']);?></span>
+                                                                   <span><?= ucfirst($Product['category_name']) ?></span>
                                                                 </div>
                                                                 <label class="form-inner-label">Category</label>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="product-view-display">
-                                                                    <span><?php echo ucfirst($Product['sub_category_name']);?></span>
+                                                                    <span><?= ucfirst($Product['sub_category_name']) ?></span>
                                                                 </div>
                                                                 <label class="form-inner-label">Sub Category</label>
                                                             </div>
@@ -55,7 +55,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <div class="product-view-display">
-                                                            <span><?php echo ucfirst($Product['name']);?></span>
+                                                            <span><?= ucfirst($Product['name']) ?></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -69,7 +69,7 @@
                                                  <div class="col-md-8">
                                                     <div class="controls">
                                                         <div class="product-view-display">
-                                                            <span><?php echo ucfirst($Product['short_description']);?></span>
+                                                            <span><?= ucfirst($Product['short_description']) ?></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -83,7 +83,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <div class="product-view-display">
-                                                            <span><?php echo ucfirst($Product['full_description']);?></span>
+                                                            <span><?= ucfirst($Product['full_description']) ?></span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -99,7 +99,7 @@
                                                         <div class="row align-items-center">
                                                             <div class="col-md-6">
                                                                 <div class="product-view-display">
-                                                                    <span><?php echo number_format($Product['price'],2);?></span>
+                                                                    <span><?= number_format($Product['price'],2) ?></span>
                                                                 </div>
                                                                 <label class="form-inner-label">List Price</label>
                                                             </div>
@@ -124,7 +124,7 @@
                                                         <div class="row">
                                                             <div class="col-md-4">
                                                                 <div class="product-view-display">
-                                                                    <span><?php echo $Product['total_stock'];?></span>
+                                                                    <span><?= $Product['total_stock'] ?></span>
                                                                 </div>
                                                                 <label class="form-inner-label">Stock</label>
                                                             </div>
@@ -136,19 +136,19 @@
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="product-view-display">
-                                                                    <span><?php echo $Product['code'];?></span>
+                                                                    <span><?= $Product['code'] ?></span>
                                                                 </div>
                                                                 <label class="form-inner-label">Code</label>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="product-view-display">
-                                                                    <span><?php echo $Product['discount']."%";?></span>
+                                                                    <span><?= $Product['discount']."%" ?></span>
                                                                 </div>
                                                                 <label class="form-inner-label">Discount</label>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="product-view-display">
-                                                                    <span><?php echo ucfirst($Product['brand_name']);?></span>
+                                                                    <span><?= ucfirst($Product['brand_name']) ?></span>
                                                                 </div>
                                                                 <label class="form-inner-label">Brand</label>
                                                             </div>
@@ -187,72 +187,72 @@
                                                                 <?php
                                                                 $is_featured=isset($Product['is_featured']) ? $Product['is_featured']:'';
                                                                 $cehecked='No';
-                                                                if($is_featured==1){
+                                                                if ($is_featured==1) {
                                                                     $cehecked='Yes';
                                                                 }
                                                                 ?>
                                                                 <div class="product-view-display">
-                                                                    <span>Featured Product: <strong><?php echo $cehecked;?></strong></span>
+                                                                    <span>Featured Product: <strong><?= $cehecked ?></strong></span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <?php
                                                                 $is_special=isset($Product['is_special']) ? $Product['is_special']:'';
                                                                 $cehecked='No';
-                                                                if($is_special==1){
+                                                                if ($is_special==1) {
                                                                     $cehecked='No';
                                                                 }
                                                                 ?>
                                                                 <div class="product-view-display">
-                                                                    <span>Special: <strong><?php echo $cehecked;?></strong></span>
+                                                                    <span>Special: <strong><?= $cehecked ?></strong></span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <?php
                                                                 $is_bestseller=isset($Product['is_bestseller']) ? $Product['is_bestseller']:'';
                                                                 $cehecked='No';
-                                                                if($is_bestseller==1){
+                                                                if ($is_bestseller==1) {
                                                                     $cehecked='Yes';
                                                                 }
                                                                 ?>
                                                                 <div class="product-view-display">
-                                                                    <span>Bestseller: <strong><?php echo $cehecked;?></strong></span>
+                                                                    <span>Bestseller: <strong><?= $cehecked ?></strong></span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <?php
                                                                 $is_bestdeal=isset($Product['is_bestdeal']) ? $Product['is_bestdeal']:'';
                                                                 $cehecked='No';
-                                                                if($is_bestdeal==1){
+                                                                if ($is_bestdeal==1) {
                                                                     $cehecked='Yes';
                                                                 }
                                                                 ?>
                                                                 <div class="product-view-display">
-                                                                    <span>Best Deals: <strong><?php echo $cehecked;?></strong></span>
+                                                                    <span>Best Deals: <strong><?= $cehecked ?></strong></span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <?php
                                                                 $is_stock=isset($Product['is_stock']) ? $Product['is_stock']:'';
                                                                 $cehecked='No';
-                                                                if($is_stock==1){
+                                                                if ($is_stock==1) {
                                                                     $cehecked='Yes';
                                                                 }
                                                                 ?>
                                                                 <div class="product-view-display">
-                                                                    <span>Out of Stock: <strong><?php echo $cehecked;?></strong></span>
+                                                                    <span>Out of Stock: <strong><?= $cehecked ?></strong></span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <?php
                                                                 $is_today_deal=isset($Product['is_stock']) ? $Product['is_today_deal']:'';
                                                                 $cehecked='No';
-                                                                if($is_today_deal==1){
+                                                                if ($is_today_deal==1) {
                                                                     $cehecked='Yes';
                                                                 }
                                                                 ?>
                                                                 <div class="product-view-display">
-                                                                    <span>Featured Deal: <strong><?php echo $cehecked;?></strong></span>
+                                                                    <span>Featured Deal: <strong><?= $cehecked ?></strong></span>
                                                                 </div>
                                                             </div>
                                                             <div class="col-md-6">
@@ -262,7 +262,7 @@
                                                             </div>
                                                             <div class="col-md-12">
                                                                 <div class="product-view-display">
-                                                                    <span><?php echo dateFormate($Product['is_today_deal_date'],false);?></span>
+                                                                    <span><?= dateFormate($Product['is_today_deal_date'],false) ?></span>
                                                                 </div>
                                                                 <label class="form-inner-label">Featured Deal Date</label>
                                                             </div>
@@ -298,19 +298,19 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <?php
-                                                foreach($ProductImages as $key=>$list){ ?>
+                                                foreach ($ProductImages as $key => $list) { ?>
                                                     <div class="control-group info col-sm-4">
                                                             <div class="controls">
                                                                  <?php $imageurl=getProductImage($list['image'],'medium');?>
-                                                                  <img src="<?php echo $imageurl?>" width="100%" height="auto">
+                                                                  <img src="<?= $imageurl ?>" width="100%" height="auto">
                                                             </div>
                                                      </div>
                                                 <?php
-                                                }?>
+                                               } ?>
                                             </div>
                                         </div>
                                         <div class="text-right">
-                                            <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
+                                            <a href="<?= $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
                                         </div>
                                     </div>
                                 </div>

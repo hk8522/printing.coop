@@ -53,9 +53,9 @@ class ManifestTests extends TestCase{
 
     public function testGetTaxesDetails(){
         $this->assertNotNull($this->manifest->getTaxesDetails());
-        $this->assertSame(["gst"=> 2.75,
-                "qst"=> 5.470000000000001,
-                "hst"=> 6.56], $this->manifest->getTaxesDetails());
+        $this->assertSame(["gst" => 2.75,
+                "qst" => 5.470000000000001,
+                "hst" => 6.56], $this->manifest->getTaxesDetails());
     }
 
     public function testGetTaxesTotal(){

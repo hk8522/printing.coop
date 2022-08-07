@@ -1,7 +1,7 @@
 <div class="cart-section universal-spacing universal-bg-white">
     <div class="container">
         <div class="cart-section-inner" id="shoping-cart-container">
-            <?php if (!empty($this->cart->contents())) {?>
+            <?php if (!empty($this->cart->contents())) { ?>
                 <table class="shop-cart-table" id="shop-cart-table">
                     <thead>
                         <tr>
@@ -62,26 +62,26 @@
                                     </a>
                                     <div class="product-name-detail">
                                         <div class="row">
-                                            <?php if (!empty($product_width_length)) {?>
+                                            <?php if (!empty($product_width_length)) { ?>
                                                 <div class="col-md-12 col-lg-6 col-xl-6">
                                                     <span><strong><?= ($language_name == 'French') ? 'Longueur(pouces)' : 'Length(Inch)'?>: <?= $product_width_length['product_length']?></strong></span>
                                                 </div>
                                                 <div class="col-md-12 col-lg-6 col-xl-6">
                                                     <span><strong><?= ($language_name == 'French') ? 'Largeur (pouces)' : 'Width(Inch)'?>: <?= $product_width_length['product_width']?></strong></span>
                                                 </div>
-                                                <?php if (!empty($product_width_length['length_width_color_show'])) {?>
+                                                <?php if (!empty($product_width_length['length_width_color_show'])) { ?>
                                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                                         <span><strong><?= ($language_name == 'French') ? 'Couleursv:'.$product_width_length['length_width_color_french'] : 'Colors:'.$product_width_length['length_width_color']?></strong></span>
                                                     </div>
-                                                <?php }?>
-                                                <?php if (!empty($product_width_length['product_total_page'])) {?>
+                                                <?php } ?>
+                                                <?php if (!empty($product_width_length['product_total_page'])) { ?>
                                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                                         <span><strong><?= ($language_name == 'French') ? 'Quantité' : 'Quantity'?>: <?= $product_width_length['product_total_page']?></strong></span>
                                                     </div>
-                                                <?php }?>
-                                            <?php }?>
+                                                <?php } ?>
+                                            <?php } ?>
 
-                                            <?php if (!empty($product_depth_length_width)) {?>
+                                            <?php if (!empty($product_depth_length_width)) { ?>
                                                 <div class="col-md-12 col-lg-6 col-xl-6">
                                                     <span><strong><?= ($language_name == 'French') ? 'Longueur (pouces)': 'Length(Inch)'?>: <?= $product_depth_length_width['product_depth_length']?></strong></span>
                                                 </div>
@@ -91,18 +91,18 @@
                                                 <div class="col-md-12 col-lg-6 col-xl-6">
                                                     <span><strong><?= ($language_name == 'French') ? 'Profondeur (pouces)' : 'Depth(Inch)'?>: <?= $product_depth_length_width['product_depth']?></strong></span>
                                                 </div>
-                                                <?php if (!empty($product_depth_length_width['depth_color_show'])) {?>
+                                                <?php if (!empty($product_depth_length_width['depth_color_show'])) { ?>
                                                 <div class="col-md-12 col-lg-6 col-xl-6">
                                                     <span><strong><?= ($language_name == 'French') ? 'Couleursv:'.$product_depth_length_width['depth_color_french'] : 'Colors:'.$product_depth_length_width['depth_color']?></strong></span>
                                                 </div>
-                                                <?php }?>
-                                                <?php if (!empty($product_depth_length_width['product_depth_total_page'])) {?>
+                                                <?php } ?>
+                                                <?php if (!empty($product_depth_length_width['product_depth_total_page'])) { ?>
                                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                                         <span><strong><?= ($language_name == 'French') ? 'Quantité' : 'Quantity'?>: <?= $product_depth_length_width['product_depth_total_page']?></strong></span>
                                                     </div>
-                                                <?php }?>
-                                            <?php }?>
-                                            <?php if (!empty($page_product_width_length)) {?>
+                                                <?php } ?>
+                                            <?php } ?>
+                                            <?php if (!empty($page_product_width_length)) { ?>
                                                 <div class="col-md-12 col-lg-6 col-xl-6">
                                                     <span><strong><?= ($language_name == 'French') ? 'Longueur(pouces)' : 'Length(Inch)'?>: <?= $page_product_width_length['page_product_length']?></strong></span>
                                                 </div>
@@ -110,28 +110,28 @@
                                                     <span><strong><?= ($language_name == 'French') ? 'Largeur(pouces)' : 'Width(Inch)'?>: <?= $page_product_width_length['page_product_width']?></strong></span>
                                                 </div>
 
-                                                <?php if (!empty($page_product_width_length['page_length_width_color_show'])) {?>
+                                                <?php if (!empty($page_product_width_length['page_length_width_color_show'])) { ?>
                                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                                         <span><strong><?= ($language_name == 'French') ? 'Couleursv:'.$page_product_width_length['page_length_width_color_french'] : 'Colors:'.$page_product_width_length['page_length_width_color']?></strong></span>
                                                     </div>
-                                                <?php }?>
-                                                <?php if (!empty($page_product_width_length['page_product_total_page'])) {?>
+                                                <?php } ?>
+                                                <?php if (!empty($page_product_width_length['page_product_total_page'])) { ?>
                                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                                         <span><strong><?= ($language_name == 'French') ? 'Des pages:'.$page_product_width_length['page_product_total_page_french'] : 'Pages:'.$page_product_width_length['page_product_total_page']?></strong></span>
                                                     </div>
-                                                <?php }?>
-                                                <?php if (!empty($page_product_width_length['page_product_total_sheets'])) {?>
+                                                <?php } ?>
+                                                <?php if (!empty($page_product_width_length['page_product_total_sheets'])) { ?>
                                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                                         <span><strong><?= ($language_name == 'French') ? 'Feuille par bloc:'.$page_product_width_length['page_product_total_sheets_french'] : 'Sheet Per Pad:'.$page_product_width_length['page_product_total_sheets']?></strong></span>
                                                     </div>
-                                                <?php }?>
+                                                <?php } ?>
                                                 <?php
                                                 if (!empty($page_product_width_length['page_product_total_quantity'])) { ?>
                                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                                         <span><strong><?= ($language_name == 'French') ? 'Quantité:'.$page_product_width_length['page_product_total_quantity'] : 'Quantity:'.$page_product_width_length['page_product_total_quantity']?></strong></span>
                                                     </div>
-                                                <?php }?>
-                                            <?php }?>
+                                                <?php } ?>
+                                            <?php } ?>
                                             <?php
                                             if (!empty($product_size)) {
                                                 if ($language_name == 'French') {
@@ -148,12 +148,12 @@
                                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                                         <span><strong><?= ($language_name == 'French') ? 'Quantité' : 'Quantity'?>: <?= $label_qty?></strong></span>
                                                     </div>
-                                                <?php }?>
+                                                <?php } ?>
                                                 <?php if ($size_name) { ?>
                                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                                         <span><strong><?= ($language_name == 'French') ? 'Taille' : 'Size'?>: <?= $size_name?></strong></span>
                                                     </div>
-                                                <?php }?>
+                                                <?php } ?>
 
                                                 <?php
                                                 if ($attribute) {
@@ -176,7 +176,7 @@
                                                         </div>
                                                     <?php }
                                                 }
-                                            }?>
+                                           } ?>
 
                                             <?php
                                             foreach ($attribute_ids as $key => $val) {
@@ -192,23 +192,23 @@
                                                     <span><strong><?= $attribute_name?>: <?= $item_name?></strong></span>
                                                 </div>
 
-                                            <?php }?>
+                                            <?php } ?>
                                             <?php
-                                            if (!empty($recto_verso)) {?>
+                                            if (!empty($recto_verso)) { ?>
                                                 <div class="col-md-12 col-lg-6 col-xl-6">
                                                     <span><strong><?= ($language_name == 'French') ? 'Recto verso:'.$recto_verso_french : 'Recto/Verso:'.$recto_verso?></strong></span>
                                                 </div>
-                                            <?php }?>
-                                            <?php if (!empty($votre_text)) {?>
+                                            <?php } ?>
+                                            <?php if (!empty($votre_text)) { ?>
                                                 <div class="col-md-12 col-lg-6 col-xl-6">
                                                     <span><strong><?= ($language_name == 'French') ? 'Votre TEXTE - Votre TEXTE' : 'Your TEXT - Votre TEXT'?>: <?= $votre_text?></strong></span>
                                                 </div>
-                                            <?php }?>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                     <div class="uploaded-file-detail" id="upload-file-data">
                                         <?php if (!empty($cart_images)) {
-                                            foreach ($cart_images as $key=>$return_arr) {
+                                            foreach ($cart_images as $key => $return_arr) {
                                             ?>
                                                 <div class="uploaded-file-single" id="teb-<?= $return_arr['skey']?>">
                                                     <div class="uploaded-file-single-inner">
@@ -226,7 +226,7 @@
                                                     </div>
                                                 </div>
                                             <?php }
-                                        }?>
+                                       } ?>
                                     </div>
                                 </td>
                                 <td class="product-price1" id="">
@@ -234,7 +234,7 @@
                                 </td>
                                 <td>
                                     <div class="quant-cart">
-                                        <input type="text" onchange="updateCartItem('<?= $item['id']?>', '<?= $rowid?>',$(this).val())" value="<?= $item['qty'];?>" onkeypress="javascript:return isNumber(event)">
+                                        <input type="text" onchange="updateCartItem('<?= $item['id']?>', '<?= $rowid?>',$(this).val())" value="<?= $item['qty'] ?>" onkeypress="javascript:return isNumber(event)">
                                         <?php /*
                                         <select>
                                             <?php
@@ -257,7 +257,7 @@
                                     <span class="<?= $rowid?>-product-row-sub-total"><?= $product_price_currency_symbol.number_format($item['subtotal'], 2)?></span>
                                 </td>
                             </tr>
-                        <?php }?>
+                        <?php } ?>
                         <tr>
                             <td colspan="2" class="actions">
                                 <div class="coupon">
@@ -288,11 +288,11 @@
                         </tr>
                     </tbody>
                 </table>
-            <?php } else {?>
+            <?php } else{ ?>
                 <div class="text-center">
                     <h4 class="lead"><?= ($language_name == 'French') ? 'Le panier d\'achat est vide' : 'Shopping Cart Is Empty'?></h4>
                 </div>
-            <?php }?>
+            <?php } ?>
         </div>
     </div>
 </div>

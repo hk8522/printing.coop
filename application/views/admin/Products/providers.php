@@ -4,7 +4,7 @@ $tabname = 'provider-view';
 <link rel="stylesheet" type="text/css" href="/assets/css/provider.css"/>
 <div class="content-wrapper dd">
     <?php $this->load->view('admin/shared/tabscript', ['tabname' => $tabname, 'position' => 'top']); ?>
-    <div id="<?=$tabname?>" style="display:none">
+    <div id="<?= $tabname?>" style="display:none">
         <ul>
             <?php
                 $tabs = ['Providers'];
@@ -13,9 +13,9 @@ $tabname = 'provider-view';
                 $_SESSION["$tabname-tab"] = 1;
             ?>
             <?php
-            foreach ($tabs as $i => $tab) {?>
-                <li <?= $_SESSION["$tabname-tab"] == $i ? 'class="k-state-active"' : ''?>><?=$tab?></li>
-            <?php }?>
+            foreach ($tabs as $i => $tab) { ?>
+                <li <?= $_SESSION["$tabname-tab"] == $i ? 'class="k-state-active"' : ''?>><?= $tab?></li>
+            <?php } ?>
         </ul>
 
         <div tab-index="0">

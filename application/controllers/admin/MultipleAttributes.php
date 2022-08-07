@@ -62,7 +62,7 @@ class MultipleAttributes extends Admin_Controller
                     {
                                 $data = array();
 
-                                foreach($attribute_item_name as $k=>$v) {
+                                foreach($attribute_item_name as $k => $v) {
                                     $sdata=array();
                                     $sdata['id']=$attribute_item_id[$k];
 

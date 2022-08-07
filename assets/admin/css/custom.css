@@ -2997,17 +2997,17 @@ ul.dropdown .open-dropdown {
 	width: 100px;
 }
 
-.discription-single {
+.description-single {
 	position: relative;
 	padding: 10px 10px 10px 10px;
 	background: #f9f9f9;
 	border: 1px solid #ccc;
 	margin-right: 45px;
 }
-.control-group .discription-single input, .control-group .discription-single textarea, .control-group .single-product-att input, .control-group .single-product-att select {
+.control-group .description-single input, .control-group .description-single textarea, .control-group .single-product-att input, .control-group .single-product-att select {
 	background-color: #fff !important;
 }
-.control-group .discription-single input {
+.control-group .description-single input {
 	margin-bottom: 10px;
 }
 .add-new-btn {

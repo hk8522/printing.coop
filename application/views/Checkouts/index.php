@@ -160,19 +160,19 @@
                                         </div>
                                     </div>
                                 </div>
-                            <?php }?>
+                            <?php } ?>
                         </div>
                         <div class="card">
                             <div class="card-header <?= $stap == 2 ? '' : 'collapsed'?>" id="heading2" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
                                 <div class="universal-dark-title">
                                     <span><?= $stap2Title?></span>
-                                    <?php if ($stap > 2) {?>
+                                    <?php if ($stap > 2) { ?>
                                         <a class="mobile-position" href="<?= $BASE_URL?>Checkouts/index/<?= base64_encode($stap-1)?>/<?= $order_id?>/<?= $product_id?>/<?= $coupon_code?>">
                                             <button class="btn btn-warning button"  style="float:right;" type="button">
                                                 <?= ($language_name == 'French') ? 'Changement' : 'Change'?>
                                             </button>
                                         </a>
-                                    <?php }?>
+                                    <?php } ?>
                                 </div>
                             </div>
                             <?php if ($stap2Open) { ?>
@@ -206,7 +206,7 @@
                                                                                     <?= !empty($list['company_name']) ? '(' . $list['company_name'] . ')' : ''?>
                                                                             </span>
                                                                                 <br>
-                                                                                <span class="tt-t"><?= $list['address'];?>, <?= $list['cityName']?>, <?= $list['StateName']?>, <?= $list['CountryName']?> - <strong><?= $list['pin_code']?></strong></span>
+                                                                                <span class="tt-t"><?= $list['address'] ?>, <?= $list['cityName']?>, <?= $list['StateName']?>, <?= $list['CountryName']?> - <strong><?= $list['pin_code']?></strong></span>
                                                                             </div>
                                                                         </label>
                                                                     </div>
@@ -260,7 +260,7 @@
                                                                             <option value="">-- Choisissez le pays --</option>
                                                                         <?php } else { ?>
                                                                             <option value="">-- Select Country --</option>
-                                                                        <?php }?>
+                                                                        <?php } ?>
 
                                                                         <?php foreach ($countries as $country) {
                                                                             $selected = '';
@@ -270,7 +270,7 @@
                                                                             }
                                                                             ?>
                                                                             <option value="<?= $country['id']?>" <?= $selected?>><?= $country['name']?></option>
-                                                                        <?php }?>
+                                                                        <?php } ?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -283,7 +283,7 @@
                                                                             <option value="">-- Sélectionnez l'état --</option>
                                                                         <?php } else { ?>
                                                                             <option value="">-- Select State --</option>
-                                                                        <?php }?>
+                                                                        <?php } ?>
 
                                                                         <?php foreach ($states as $state) {
                                                                             $selected ='';
@@ -293,7 +293,7 @@
                                                                             }
                                                                             ?>
                                                                             <option value="<?= $state['id']?>" <?= $selected?>><?= $state['name']?></option>
-                                                                        <?php }?>
+                                                                        <?php } ?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -310,7 +310,7 @@
                                                                                 }
                                                                             ?>
                                                                         <option value="<?= $city['id']?>" <?= $selected?>><?= $city['name']?></option>
-                                                                        <?php }?>
+                                                                        <?php } ?>
                                                                     </select>
                                                                 </div>
                                                             </div>
@@ -354,7 +354,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            <?php }?>
+                            <?php } ?>
                         </div>
 
                         <div class="card">
@@ -364,10 +364,10 @@
                                     <?php if ($stap > 3) {
                                         $stap_old = $stap - 1;
                                         ?>
-                                        <a class="mobile-position" href="<?= $BASE_URL?>Checkouts/index/<?= base64_encode($stap_old)?>/<?= $order_id?>/<?= $product_id;?>/<?= $coupon_code; ?>">
+                                        <a class="mobile-position" href="<?= $BASE_URL?>Checkouts/index/<?= base64_encode($stap_old)?>/<?= $order_id?>/<?= $product_id?>/<?= $coupon_code ?>">
                                             <button class="btn btn-warning button" style="float:right;" type="button">Change</button>
                                         </a>
-                                    <?php }?>
+                                    <?php } ?>
                                 </div>
                             </div>
 
@@ -401,7 +401,7 @@
                                                             </div>
                                                         </label>
                                                     </div>
-                                                <?php }?>
+                                                <?php } ?>
                                                 <?php
                                                 foreach ($CanedaPostShiping['list'] as $key => $val) {
                                                     $value = 'canadapost-' . $val['price'] . '-' . $val['service_name'];
@@ -423,7 +423,7 @@
                                                             </div>
                                                         </label>
                                                     </div>
-                                                <?php }?>
+                                                <?php } ?>
                                                 <?php
                                                 foreach ($FlagShiping as $data) {
                                                     $flag_shiping_cost = $data->rate->price->total;
@@ -457,7 +457,7 @@
                                                             </div>
                                                         </label>
                                                     </div>
-                                                <?php }?>
+                                                <?php } ?>
                                                 <?php
                                                 if ($ProductOrder['provider_product_count'] == 0) {
                                                     foreach ($PickupStoresList as $key => $val) {
@@ -482,7 +482,7 @@
                                                             </label>
                                                         </div>
                                                     <?php }
-                                                }?>
+                                               } ?>
 
                                                 <div class="save-btn">
                                                     <button class="save" type="submit">
@@ -492,7 +492,7 @@
                                         </div>
                                     </div>
                                 </div>
-                            <?php }?>
+                            <?php } ?>
                         </div>
                         <form action="<?= $BASE_URL?>Checkouts/SubmitOrder" id="place-order-form" method="post">
                             <input type="hidden" name="order_id" value="<?= base64_decode($order_id)?>">
@@ -570,7 +570,7 @@
                     </div>
                 </div>
                 <div class="col-md-5">
-                    <?php if (!empty($ProductOrderItem)) {?>
+                    <?php if (!empty($ProductOrderItem)) { ?>
                         <div>
                             <div class="order-area">
                                 <div class="universal-dark-title">
@@ -609,7 +609,7 @@
                                         ?>
                                             <tr>
                                                 <td class="product-thumbnail">
-                                                    <a href="<?= $BASE_URL;?>Products/view/<?= base64_encode($item['id'])?>" target="_blank">
+                                                    <a href="<?= $BASE_URL ?>Products/view/<?= base64_encode($item['id'])?>" target="_blank">
                                                         <?php $imageurl = getProductImage($item['product_image']);?>
                                                         <img src="<?= $imageurl?>">
                                                     </a>
@@ -620,7 +620,7 @@
                                                             echo ucfirst($Product['name_french']);
                                                         } else {
                                                             echo ucfirst($Product['name']);
-                                                        }?>
+                                                       } ?>
                                                     </a>
                                                     <div class="row align-items-center">
                                                         <div class="col-md-6 text-left">
@@ -642,14 +642,14 @@
 
                                                     <div class="product-name-detail">
                                                         <div class="row">
-                                                            <?php if (!empty($product_width_length)) {?>
+                                                            <?php if (!empty($product_width_length)) { ?>
                                                                 <div class="col-md-12 col-lg-12 col-xl-6">
                                                                     <span><strong><?= ($language_name == 'French') ? 'Longueur(pouces)' : 'Length(Inch)'?>: <?= $product_width_length['product_length']?></strong></span>
                                                                 </div>
                                                                 <div class="col-md-12 col-lg-12 col-xl-6">
                                                                     <span><strong> <?= ($language_name == 'French') ? 'Largeur (pouces)' : 'Width(Inch)'?>: <?= $product_width_length['product_width']?></strong></span>
                                                                 </div>
-                                                                <?php if (!empty($product_width_length['length_width_color_show'])) {?>
+                                                                <?php if (!empty($product_width_length['length_width_color_show'])) { ?>
                                                                     <div class="col-md-6">
                                                                         <span><strong><?php
                                                                             if ($language_name == 'French') {
@@ -659,15 +659,15 @@
                                                                             }
                                                                         ?></strong></span>
                                                                     </div>
-                                                                <?php }?>
-                                                                <?php if (!empty($product_width_length['product_total_page'])) {?>
+                                                                <?php } ?>
+                                                                <?php if (!empty($product_width_length['product_total_page'])) { ?>
                                                                     <div class="col-md-12 col-lg-12 col-xl-6">
                                                                         <span><strong> <?= ($language_name == 'French') ? 'Quantité' : 'Quantity'?>: <?= $product_width_length['product_total_page']?></strong></span>
                                                                     </div>
-                                                                <?php }?>
-                                                            <?php }?>
+                                                                <?php } ?>
+                                                            <?php } ?>
 
-                                                            <?php if (!empty($product_depth_length_width)) {?>
+                                                            <?php if (!empty($product_depth_length_width)) { ?>
                                                                 <div class="col-md-12 col-lg-12 col-xl-6">
                                                                     <span><strong><?= ($language_name == 'French') ? 'Longueur (pouces)' : 'Length(Inch)'?>: <?= $product_depth_length_width['product_depth_length']?></strong></span>
                                                                 </div>
@@ -677,7 +677,7 @@
                                                                 <div class="col-md-12 col-lg-12 col-xl-6">
                                                                     <span><strong> <?= ($language_name == 'French') ? 'Profondeur (pouces)' : 'Depth(Inch)'?>: <?= $product_depth_length_width['product_depth']?></strong></span>
                                                                 </div>
-                                                                <?php if (!empty($product_depth_length_width['depth_color_show'])) {?>
+                                                                <?php if (!empty($product_depth_length_width['depth_color_show'])) { ?>
                                                                     <div class="col-md-12 col-lg-12 col-xl-6">
                                                                         <span><strong><?php
                                                                             if ($language_name == 'French') {
@@ -687,14 +687,14 @@
                                                                             }
                                                                         ?></strong></span>
                                                                     </div>
-                                                                <?php }?>
-                                                                <?php if (!empty($product_depth_length_width['product_depth_total_page'])) {?>
+                                                                <?php } ?>
+                                                                <?php if (!empty($product_depth_length_width['product_depth_total_page'])) { ?>
                                                                     <div class="col-md-12 col-lg-12 col-xl-6">
                                                                         <span><strong> <?= ($language_name == 'French') ? 'Quantité' : 'Quantity'?>: <?= $product_depth_length_width['product_depth_total_page']?></strong></span>
                                                                     </div>
-                                                                <?php }?>
-                                                            <?php }?>
-                                                            <?php if (!empty($page_product_width_length)) {?>
+                                                                <?php } ?>
+                                                            <?php } ?>
+                                                            <?php if (!empty($page_product_width_length)) { ?>
                                                                 <div class="col-md-12 col-lg-12 col-xl-6">
                                                                     <span><strong><?= ($language_name == 'French') ? 'Longueur (pouces)' : 'Length(Inch)'?>: <?= $page_product_width_length['page_product_length']?></strong></span>
                                                                 </div>
@@ -702,7 +702,7 @@
                                                                     <span><strong><?= ($language_name == 'French') ? 'Largeur(pouces)' : 'Width(Inch)'?>: <?= $page_product_width_length['page_product_width']?></strong></span>
                                                                 </div>
 
-                                                                <?php if (!empty($page_product_width_length['page_length_width_color_show'])) {?>
+                                                                <?php if (!empty($page_product_width_length['page_length_width_color_show'])) { ?>
                                                                     <div class="col-md-12 col-lg-12 col-xl-6">
                                                                         <span><strong><?php
                                                                             if ($language_name == 'French') {
@@ -712,8 +712,8 @@
                                                                             }
                                                                         ?></strong></span>
                                                                     </div>
-                                                                <?php }?>
-                                                                <?php if (!empty($page_product_width_length['page_product_total_page'])) {?>
+                                                                <?php } ?>
+                                                                <?php if (!empty($page_product_width_length['page_product_total_page'])) { ?>
                                                                     <div class="col-md-12 col-lg-12 col-xl-6">
                                                                         <span><strong><?php
                                                                             if ($language_name == 'French') {
@@ -723,8 +723,8 @@
                                                                             }
                                                                         ?></strong></span>
                                                                     </div>
-                                                                <?php }?>
-                                                                <?php if (!empty($page_product_width_length['page_product_total_sheets'])) {?>
+                                                                <?php } ?>
+                                                                <?php if (!empty($page_product_width_length['page_product_total_sheets'])) { ?>
                                                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                                                         <span><strong><?php
                                                                             if ($language_name == 'French') {
@@ -734,7 +734,7 @@
                                                                             }
                                                                         ?></strong></span>
                                                                     </div>
-                                                                <?php }?>
+                                                                <?php } ?>
                                                                 <?php if (!empty($page_product_width_length['page_product_total_quantity'])) { ?>
                                                                     <div class="col-md-12 col-lg-6 col-xl-6">
                                                                         <span><strong><?php
@@ -745,8 +745,8 @@
                                                                             }
                                                                         ?></strong></span>
                                                                     </div>
-                                                                <?php }?>
-                                                            <?php }?>
+                                                                <?php } ?>
+                                                            <?php } ?>
                                                             <?php
                                                             if (!empty($product_size)) {
                                                                 if ($language_name == 'French') {
@@ -799,23 +799,23 @@
                                                                 <div class="col-md-12 col-lg-6 col-xl-6">
                                                                     <span><strong><?= $attribute_name?>: <?= $item_name?></strong></span>
                                                                 </div>
-                                                            <?php }?>
+                                                            <?php } ?>
 
                                                             <?php if (!empty($recto_verso)) { ?>
                                                                 <div class="col-md-12 col-lg-12 col-xl-6">
                                                                     <span><strong><?= ($language_name == 'French') ? 'Recto verso: ' . $recto_verso_french : 'Recto/Verso: ' . $recto_verso?></strong></span>
                                                                 </div>
-                                                            <?php }?>
-                                                            <?php if (!empty($votre_text)) {?>
+                                                            <?php } ?>
+                                                            <?php if (!empty($votre_text)) { ?>
                                                                 <div class="col-md-12 col-lg-12 col-xl-6">
                                                                     <span><strong><?= ($language_name == 'French') ? 'Votre TEXTE - Votre TEXTE' : 'Your TEXT - Votre TEXT'?>: <?= $votre_text?></strong></span>
                                                                 </div>
-                                                            <?php }?>
+                                                            <?php } ?>
                                                         </div>
                                                     </div>
                                                     <div class="uploaded-file-detail" id="upload-file-data">
                                                         <?php if (!empty($cart_images)) {
-                                                            foreach ($cart_images as $key=>$return_arr) {?>
+                                                            foreach ($cart_images as $key => $return_arr) { ?>
                                                                 <div class="uploaded-file-single" id="teb-<?= $return_arr['skey']?>">
                                                                     <div class="uploaded-file-single-inner">
                                                                         <a href="<?= $return_arr['file_base_url']?>" target="_blank"><div class="uploaded-file-img" style="background-image: url(<?= $return_arr['src']?>)"></div></a>
@@ -830,11 +830,11 @@
                                                                     </div>
                                                                 </div>
                                                             <?php }
-                                                        }?>
+                                                       } ?>
                                                     </div>
                                                 </td>
                                             </tr>
-                                        <?php }?>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -853,7 +853,7 @@
                                     </div>
                                 </div>
                                 <?php
-                                if (!empty($ProductOrder['preffered_customer_discount']) &&  $ProductOrder['preffered_customer_discount'] != '0.00') {?>
+                                if (!empty($ProductOrder['preffered_customer_discount']) &&  $ProductOrder['preffered_customer_discount'] != '0.00') { ?>
                                     <div class="single-cart-total">
                                         <div class="row">
                                             <div class="col-5 col-md-6">
@@ -865,7 +865,7 @@
                                         </div>
                                     </div>
                                 <?php }
-                                if (!empty($ProductOrder['coupon_discount_amount']) &&  $ProductOrder['coupon_discount_amount'] != '0.00') {?>
+                                if (!empty($ProductOrder['coupon_discount_amount']) &&  $ProductOrder['coupon_discount_amount'] != '0.00') { ?>
                                     <div class="single-cart-total">
                                         <div class="row">
                                             <div class="col-5 col-md-6">
@@ -876,7 +876,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                <?php }?>
+                                <?php } ?>
                                 <div class="single-cart-total">
                                     <div class="row">
                                         <div class="col-5 col-md-6">
@@ -905,7 +905,7 @@
                                                 }
                                                 ?>
                                                 <br><strong><?= $product_price_currency_symbol.ucfirst($shipping_method_formate[1])?></strong></span>
-                                            <?php }?>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -927,7 +927,7 @@
                                     </div>
                                 </form>
 
-                                <?php if (!empty($ProductOrder['total_sales_tax']) &&  $ProductOrder['total_sales_tax'] !='0.00') {?>
+                                <?php if (!empty($ProductOrder['total_sales_tax']) &&  $ProductOrder['total_sales_tax'] !='0.00') { ?>
                                     <div class="single-cart-total">
                                         <div class="row">
                                             <div class="col-5 col-md-6">
@@ -938,7 +938,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                <?php }?>
+                                <?php } ?>
                                 <div class="single-cart-total">
                                     <div class="row">
                                         <div class="col-5 col-md-6">
@@ -964,7 +964,7 @@
                                 <?= ($language_name == 'French') ? 'Le panier d\'achat est vide' : 'Shopping Cart Is Empty'?></h4>
                             </div>
                         </div>
-                    <?php }?>
+                    <?php } ?>
                 </div>
             </div>
         </div>

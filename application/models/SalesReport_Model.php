@@ -53,7 +53,7 @@ Class SalesReport_Model extends MY_Model {
         $top=array();
         $bottom=array();
         if(!empty($data)){
-            foreach($data as $key=>$val){
+            foreach($data as $key => $val){
                 $spend=trim(str_replace("$","",$val['spend']));
                 $ACOS=trim(str_replace("%","",$val['total_advertising_cost_of_sales']));
                 $CTR=trim(str_replace("%","",$val['click_thru_rate']));
@@ -80,7 +80,7 @@ Class SalesReport_Model extends MY_Model {
             if(count($temp) <=5){
                 $top=$temp;
             }else if(count($temp) > 5){
-                foreach($temp as $key=>$val){
+                foreach($temp as $key => $val){
                     if($key <=4){
                         $top[$key]=$val;
                     }else{
@@ -103,7 +103,7 @@ Class SalesReport_Model extends MY_Model {
                    $loopCount=3;
                 }
 
-                foreach($temp as $key=>$val){
+                foreach($temp as $key => $val){
                     if($key <= $loopCount){
                         $bottom[$key]=$val;
                     }else{
@@ -121,7 +121,7 @@ Class SalesReport_Model extends MY_Model {
     public function getDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('id'=>$id));
+        $this->db->where(array('id' => $id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;

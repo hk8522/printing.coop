@@ -26,7 +26,7 @@ Class User_Model extends MY_Model {
                 'rules' => 'required|valid_email|max_length[50]|is_unique[users.email]',
                 'errors' => array(
                         'required' => 'Enter email id',
-                        'is_unique'=>'Email id already registered'
+                        'is_unique' => 'Email id already registered'
                 ),
         ),
         array(
@@ -51,7 +51,7 @@ Class User_Model extends MY_Model {
                 'rules' => 'required|max_length[50]',
                 'errors' => array(
                         'required' => 'entrez votre prénom',
-                        'max_length'=>"Le champ du nom le plus éloigné ne peut pas dépasser 50 caractères."
+                        'max_length' => "Le champ du nom le plus éloigné ne peut pas dépasser 50 caractères."
                 ),
         ),
         array(
@@ -60,7 +60,7 @@ Class User_Model extends MY_Model {
                 'rules' => 'required|max_length[50]',
                 'errors' => array(
                     'required' => 'Entrer le nom de famille',
-                    'max_length'=>"Le champ du nom de famille ne peut pas dépasser 50 caractères."
+                    'max_length' => "Le champ du nom de famille ne peut pas dépasser 50 caractères."
                 ),
         ),
         array(
@@ -69,8 +69,8 @@ Class User_Model extends MY_Model {
                 'rules' => 'required|valid_email|max_length[50]|is_unique[users.email]',
                 'errors' => array(
                         'required' => "Entrez l'identifiant de l'e-mail",
-                        'is_unique'=>'Identifiant de messagerie déjà enregistré',
-                        'max_length'=>"Le champ de l'e-mail ne peut pas dépasser 50 caractères."
+                        'is_unique' => 'Identifiant de messagerie déjà enregistré',
+                        'max_length' => "Le champ de l'e-mail ne peut pas dépasser 50 caractères."
                 ),
         ),
         array(
@@ -233,7 +233,7 @@ Class User_Model extends MY_Model {
             $password=md5($data['password']);
         }
 
-        $condition=array('email'=>$data['email'],'password'=>$password);
+        $condition=array('email' => $data['email'],'password' => $password);
         $this->db->select('*');
         $this->db->from('users');
         $this->db->where($condition);
@@ -246,7 +246,7 @@ Class User_Model extends MY_Model {
 
     public function checkMobileNumber($mobile_number){
         $LoginUser=array();
-        $condition=array('mobile'=>$mobile_number);
+        $condition=array('mobile' => $mobile_number);
         $this->db->select(array('mobile'));
         $this->db->from('users');
         $this->db->where($condition);
@@ -259,7 +259,7 @@ Class User_Model extends MY_Model {
     }
     public function checkEmailId($email){
         $LoginUser=array();
-        $condition=array('email'=>$email);
+        $condition=array('email' => $email);
         $this->db->select(array('email'));
         $this->db->from('users');
         $this->db->where($condition);
@@ -274,7 +274,7 @@ Class User_Model extends MY_Model {
     }
     public function getUserDataByEmailId($email){
         $LoginUser=array();
-        $condition=array('email'=>$email);
+        $condition=array('email' => $email);
         $this->db->select('*');
         $this->db->from('users');
         $this->db->where($condition);
@@ -342,7 +342,7 @@ Class User_Model extends MY_Model {
     public function getUserDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('id'=>$id));
+        $this->db->where(array('id' => $id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;

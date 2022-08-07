@@ -7,17 +7,17 @@
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo $page_title?></span>
+                                <span><?= $page_title ?></span>
                             </div>
                         </div>
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="text-center" style="color:red">
-                                        <?php echo $this->session->flashdata('message_error');?>
+                                        <?= $this->session->flashdata('message_error') ?>
                                     </div>
-                                    <?php echo form_open('',array('class'=>'form-horizontal'));?>
-                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>">
+                                    <?= form_open('',array('class' => 'form-horizontal')) ?>
+                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>">
                                      <div class="form-role-area">
 
                                         <div class="control-group info">
@@ -29,17 +29,17 @@
                                                     <div class="controls">
                                                        <select name="main_store_id" class="form-control">
                                                        <option value="">Select WebSite</option>
-                                                       <?php foreach($MainStoreList as $key=>$val){
+                                                       <?php foreach ($MainStoreList as $key => $val) {
                                                         $selected='';
-                                                        if($postData['main_store_id'] == $key){
+                                                        if ($postData['main_store_id'] == $key) {
                                                              $selected='selected="selected"';
                                                         }
                                                         ?>
-                                                        <option value="<?php echo $key?>" <?php echo $selected?>><?php echo $val;?></option>
+                                                        <option value="<?= $key?>" <?= $selected?>><?= $val  ?></option>
                                                        <?php
-                                                       }?>
+                                                      } ?>
                                                        </select>
-                                                       <?php echo form_error('main_store_id');?>
+                                                       <?= form_error('main_store_id') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -51,8 +51,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="title" id="name" type="text" placeholder="Page Name" value="<?php echo isset($postData['title']) ? $postData['title']:'';?>" maxlength="50">
-                                                        <?php echo form_error('title');?>
+                                                        <input class="form-control" name="title" id="name" type="text" placeholder="Page Name" value="<?= isset($postData['title']) ? $postData['title']:'' ?>" maxlength="50">
+                                                        <?= form_error('title') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -65,8 +65,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="title_france" id="title_france" type="text" placeholder="Page Name" value="<?php echo isset($postData['title_france']) ? $postData['title_france']:'';?>" maxlength="50">
-<?php echo form_error('title_france');?>
+                                                        <input class="form-control" name="title_france" id="title_france" type="text" placeholder="Page Name" value="<?= isset($postData['title_france']) ? $postData['title_france']:'' ?>" maxlength="50">
+<?= form_error('title_france') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -79,8 +79,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="shortOrder" id="shortOrder" type="number" placeholder="Page Order" value="<?php echo isset($postData['shortOrder']) ? $postData['shortOrder']:'';?>" maxlength="50">
-                                                        <?php echo form_error('shortOrder');?>
+                                                        <input class="form-control" name="shortOrder" id="shortOrder" type="number" placeholder="Page Order" value="<?= isset($postData['shortOrder']) ? $postData['shortOrder']:'' ?>" maxlength="50">
+                                                        <?= form_error('shortOrder') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,8 +100,8 @@
                                     $cehecked='checked';
                                 }
                                 ?>
-                            <label class="span2"><input name="display_on_top_menu" id="display_on_top_menu" type="checkbox" value="1" <?php echo $cehecked;?>>Top Main Menu</label>
-                            <?php echo form_error('display_on_top_menu');?>
+                            <label class="span2"><input name="display_on_top_menu" id="display_on_top_menu" type="checkbox" value="1" <?= $cehecked ?>>Top Main Menu</label>
+                            <?= form_error('display_on_top_menu') ?>
 
                             <?php
                                 $displayOnFooter = isset($postData['display_on_footer']) ? $postData['display_on_footer']:'';
@@ -110,8 +110,8 @@
                                     $cehecked='checked';
                                 }
                                 ?>
-                            <label class="span2"><input name="display_on_footer" id="display_on_footer" type="checkbox" value="1" <?php echo $cehecked;?>>Footer Menu One</label>
-                            <?php echo form_error('display_on_footer');?>
+                            <label class="span2"><input name="display_on_footer" id="display_on_footer" type="checkbox" value="1" <?= $cehecked ?>>Footer Menu One</label>
+                            <?= form_error('display_on_footer') ?>
 
                             <?php
                                 $display_on_footer_last_menu = isset($postData['display_on_footer_last_menu']) ? $postData['display_on_footer_last_menu']:'';
@@ -120,8 +120,8 @@
                                     $cehecked='checked';
                                 }
                                 ?>
-                            <label class="span2"><input name="display_on_footer_last_menu" id="display_on_footer_last_menu" type="checkbox" value="1" <?php echo $cehecked;?>> Footer Menu Two</label>
-                            <?php echo form_error('display_on_footer_last_menu');?>
+                            <label class="span2"><input name="display_on_footer_last_menu" id="display_on_footer_last_menu" type="checkbox" value="1" <?= $cehecked ?>> Footer Menu Two</label>
+                            <?= form_error('display_on_footer_last_menu') ?>
 
                         </div>
                                             </div>
@@ -134,8 +134,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="page_title" id="page_title" type="text" placeholder="Page Title" value="<?php echo isset($postData['page_title']) ? $postData['page_title']:'';?>" maxlength="250">
-                                                        <?php echo form_error('page_title');?>
+                                                        <input class="form-control" name="page_title" id="page_title" type="text" placeholder="Page Title" value="<?= isset($postData['page_title']) ? $postData['page_title']:'' ?>" maxlength="250">
+                                                        <?= form_error('page_title') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -148,8 +148,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="page_title_france" id="page_title_france" type="text" placeholder="French Page Title" value="<?php echo isset($postData['page_title_france']) ? $postData['page_title_france']:'';?>" maxlength="50">
-<?php echo form_error('page_title_france');?>
+                                                        <input class="form-control" name="page_title_france" id="page_title_france" type="text" placeholder="French Page Title" value="<?= isset($postData['page_title_france']) ? $postData['page_title_france']:'' ?>" maxlength="50">
+<?= form_error('page_title_france') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -161,9 +161,9 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-        <textarea name="meta_description_content" id="meta_description_content" rows="100"><?php echo isset($postData['meta_description_content']) ? $postData['meta_description_content']:'';?></textarea>
+        <textarea name="meta_description_content" id="meta_description_content" rows="100"><?= isset($postData['meta_description_content']) ? $postData['meta_description_content']:'' ?></textarea>
 
-                                                        <?php echo form_error('meta_description_content');?>
+                                                        <?= form_error('meta_description_content') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -175,9 +175,9 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-        <textarea name="meta_description_content_france" id="meta_description_content_france" rows="100"><?php echo isset($postData['meta_description_content_france']) ? $postData['meta_description_content_france']:'';?></textarea>
+        <textarea name="meta_description_content_france" id="meta_description_content_france" rows="100"><?= isset($postData['meta_description_content_france']) ? $postData['meta_description_content_france']:'' ?></textarea>
 
-                                                        <?php echo form_error('meta_description_content_france');?>
+                                                        <?= form_error('meta_description_content_france') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -189,9 +189,9 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-        <textarea name="meta_keywords_content" id="meta_keywords_content" rows="100"><?php echo isset($postData['meta_keywords_content']) ? $postData['meta_keywords_content']:'';?></textarea>
+        <textarea name="meta_keywords_content" id="meta_keywords_content" rows="100"><?= isset($postData['meta_keywords_content']) ? $postData['meta_keywords_content']:'' ?></textarea>
 
-                                                        <?php echo form_error('meta_keywords_content');?>
+                                                        <?= form_error('meta_keywords_content') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -203,9 +203,9 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-        <textarea name="meta_keywords_content_france" id="meta_keywords_content_france" rows="100"><?php echo isset($postData['meta_keywords_content_france']) ? $postData['meta_keywords_content_france']:'';?></textarea>
+        <textarea name="meta_keywords_content_france" id="meta_keywords_content_france" rows="100"><?= isset($postData['meta_keywords_content_france']) ? $postData['meta_keywords_content_france']:'' ?></textarea>
 
-                                                        <?php echo form_error('meta_keywords_content_france');?>
+                                                        <?= form_error('meta_keywords_content_france') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -217,9 +217,9 @@
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="controls">
-        <textarea name="description" id="content" rows="100"><?php echo isset($postData['description']) ? $postData['description']:'';?></textarea>
+        <textarea name="description" id="content" rows="100"><?= isset($postData['description']) ? $postData['description']:'' ?></textarea>
 
-                                                        <?php echo form_error('description');?>
+                                                        <?= form_error('description') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -232,17 +232,17 @@
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="controls">
-        <textarea name="description_france" id="content1" rows="100"><?php echo isset($postData['description_france']) ? $postData['description_france']:'';?></textarea>
-       <?php echo form_error('description_france');?>
+        <textarea name="description_france" id="content1" rows="100"><?= isset($postData['description_france']) ? $postData['description_france']:'' ?></textarea>
+       <?= form_error('description_france') ?>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success">Submit</button>
-                                            <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
+                                            <a href="<?= $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
                                         </div>
-                                         <?php echo form_close();?>
+                                         <?= form_close() ?>
                                      </div>
                                  </div>
                              </div>
@@ -256,7 +256,7 @@
 <script>
  CKEDITOR.replace('content', {
     height: 300,
-    filebrowserUploadUrl: "<?php echo $BASE_URL;?>upload.php",
+    filebrowserUploadUrl: "<?= $BASE_URL ?>upload.php",
     allowedContent:true,
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });
@@ -264,7 +264,7 @@
 CKEDITOR.dtd.$removeEmpty.i = 0;
 CKEDITOR.replace('content1', {
     height: 300,
-    filebrowserUploadUrl: "<?php echo $BASE_URL;?>upload.php",
+    filebrowserUploadUrl: "<?= $BASE_URL ?>upload.php",
     allowedContent:true,
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });

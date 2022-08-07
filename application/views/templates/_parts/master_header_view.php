@@ -29,36 +29,36 @@
     ?>
 
     <title>
-    <?php echo $page_title;?>
+    <?= $page_title ?>
     </title>
 
     <?php
-    if ($meta_description_content) {?>
-       <meta name="description" content="<?php echo $meta_description_content?>">
+    if ($meta_description_content) { ?>
+       <meta name="description" content="<?= $meta_description_content ?>">
     <?php
-    }?>
+   } ?>
     <?php
-    if ($meta_keywords_content) {?>
-       <meta name="keywords" content="<?php echo $meta_keywords_content?>">
+    if ($meta_keywords_content) { ?>
+       <meta name="keywords" content="<?= $meta_keywords_content ?>">
     <?php
-    }?>
-   <?php echo $before_head;?>
+   } ?>
+   <?= $before_head ?>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="shortcut icon" type="image/png" href="<?php echo $favicon_url;?>">
-  <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/bootstrap.css">
-  <?php if ($website_store_id==1) {?>
-    <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/style.css">
-  <?php } else if ($website_store_id==3) {?>
-    <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/clickimprimerie.style.css">
-  <?php } else if ($website_store_id==5) {?>
-    <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/ecoink.style.css">
-  <?php }?>
-  <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/customslider.css">
-  <link rel="stylesheet" href="<?php echo $BASE_URL;?>assets/css/provider.css">
+  <link rel="shortcut icon" type="image/png" href="<?= $favicon_url ?>">
+  <link rel="stylesheet" href="<?= $BASE_URL ?>assets/css/bootstrap.css">
+  <?php if ($website_store_id==1) { ?>
+    <link rel="stylesheet" href="<?= $BASE_URL ?>assets/css/style.css">
+  <?php } else if ($website_store_id==3) { ?>
+    <link rel="stylesheet" href="<?= $BASE_URL ?>assets/css/clickimprimerie.style.css">
+  <?php } else if ($website_store_id==5) { ?>
+    <link rel="stylesheet" href="<?= $BASE_URL ?>assets/css/ecoink.style.css">
+  <?php } ?>
+  <link rel="stylesheet" href="<?= $BASE_URL ?>assets/css/customslider.css">
+  <link rel="stylesheet" href="<?= $BASE_URL ?>assets/css/provider.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
   <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-  <!-- <link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>fancy-product-designer-jquery/source/css/FancyProductDesigner-all.min.css"/> -->
+  <!-- <link rel="stylesheet" type="text/css" href="<?= $BASE_URL ?>fancy-product-designer-jquery/source/css/FancyProductDesigner-all.min.css"/> -->
 
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "ec9dc85b92c741879c76713f0ada873b"}'></script><!-- End Cloudflare Web Analytics -->
 
@@ -73,7 +73,7 @@
   gtag('config', 'UA-183856793-1');
 </script>
 
-<?php if ($website_store_id==1) {?>
+<?php if ($website_store_id==1) { ?>
     <?php if ($language_name == 'French') { ?>
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7V7YLFS15"></script>
         <script>
@@ -92,8 +92,8 @@
 
           gtag('config', 'G-S5JX3QGBRH');
         </script>
-    <?php }?>
-<?php } else if ($website_store_id==3) {?>
+    <?php } ?>
+<?php } else if ($website_store_id==3) { ?>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-X71XTPM7CL"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -102,7 +102,7 @@
 
   gtag('config', 'G-X71XTPM7CL');
 </script>
-<?php } else if ($website_store_id==5) {?>
+<?php } else if ($website_store_id==5) { ?>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QHV7YWZEQ5"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -111,7 +111,7 @@
 
   gtag('config', 'G-QHV7YWZEQ5');
 </script>
-<?php }?>
+<?php } ?>
 </head>
 <body>
   <div class="announcements-bar">
@@ -145,16 +145,16 @@
                   <?php } else { ?>
                     "Product" has been added to your wishlist.
                   <?php
-                  }?></span>
+                 } ?></span>
   </div>
 <div id="loader-img">
     <div id="loader-img-inner">
-        <?php if ($website_store_id==1) {?>
-        <img src="<?php echo $BASE_URL;?>assets/images/loder.gif" width="100">
-        <?php } else if ($website_store_id==3) {?>
-        <img src="<?php echo $BASE_URL;?>assets/images/loader-pink.gif" width="100">
-        <?php } else if ($website_store_id==5) {?>
-        <img src="<?php echo $BASE_URL;?>assets/images/loader-green.gif" width="100">
-        <?php }?>
+        <?php if ($website_store_id==1) { ?>
+        <img src="<?= $BASE_URL ?>assets/images/loder.gif" width="100">
+        <?php } else if ($website_store_id==3) { ?>
+        <img src="<?= $BASE_URL ?>assets/images/loader-pink.gif" width="100">
+        <?php } else if ($website_store_id==5) { ?>
+        <img src="<?= $BASE_URL ?>assets/images/loader-green.gif" width="100">
+        <?php } ?>
     </div>
 </div>

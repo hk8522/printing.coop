@@ -7,17 +7,17 @@
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo $page_title?></span>
+                                <span><?= $page_title ?></span>
                             </div>
                         </div>
                         <div class="inner-content-area">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="text-center" style="color:red">
-                                        <?php echo $this->session->flashdata('message_error');?>
+                                        <?= $this->session->flashdata('message_error') ?>
                                     </div>
-                                    <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
-                                    <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="id">
+                                    <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
+                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>" id="id">
                                     <div class="form-role-area">
 
                                         <div class="control-group info">
@@ -29,22 +29,22 @@
                                                     <div class="controls">
                                                         <?php
                                                         $store_ids=$postData['store_id'];
-                                                        if(!empty($store_ids)){
+                                                        if (!empty($store_ids)) {
                                                             $store_ids=explode(',',$store_ids);
-                                                        }else{
+                                                        } else {
                                                             $store_ids=array();
                                                         }
 
-                                                        foreach($StoreList as $key=>$val){
+                                                        foreach ($StoreList as $key => $val) {
                                                             $checked='';
-                                                            if(in_array($key,$store_ids)){
+                                                            if (in_array($key,$store_ids)) {
                                                                 $checked='checked';
                                                             }
                                                         ?>
 
-                                                            <input  name="store_id[]" type="checkbox" value="<?php echo $key?>" <?php echo $checked;?>><label style="margin-left:5px;"><?php echo $val['name']?></label>
+                                                            <input  name="store_id[]" type="checkbox" value="<?= $key?>" <?= $checked ?>><label style="margin-left:5px;"><?= $val['name'] ?></label>
                                                         <?php
-                                                        }?>
+                                                       } ?>
 
                                                     </div>
                                                 </div>
@@ -57,8 +57,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="title" id="title" type="text" placeholder="Blog Title" value="<?php echo isset($postData['title']) ? $postData['title']:'';?>" >
-                                                        <?php echo form_error('title');?>
+                                                        <input class="form-control" name="title" id="title" type="text" placeholder="Blog Title" value="<?= isset($postData['title']) ? $postData['title']:'' ?>" >
+                                                        <?= form_error('title') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -70,8 +70,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="title_french" id="title_french" type="text" placeholder="Blog Title" value="<?php echo isset($postData['title_french']) ? $postData['title_french']:'';?>" >
-                                                        <?php echo form_error('title_french');?>
+                                                        <input class="form-control" name="title_french" id="title_french" type="text" placeholder="Blog Title" value="<?= isset($postData['title_french']) ? $postData['title_french']:'' ?>" >
+                                                        <?= form_error('title_french') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -91,19 +91,19 @@
                                                         <?php
                                                            $category_id=$postData['category_id'] ? isset($postData['category_id']):0;
 
-                                                           foreach($categoryData as $key=>$val){
+                                                           foreach ($categoryData as $key => $val) {
                                                                $selected='';
-                                                               if($val['id']==$category_id){
+                                                               if ($val['id']==$category_id) {
                                                                    $selected='selected="selected"';
                                                                }
                                                         ?>
-                                                           <option value="<?php echo $val['id'];?>" <?php echo $selected;?>>
-                                                          <?php echo $val['category_name']?>
+                                                           <option value="<?= $val['id'] ?>" <?= $selected ?>>
+                                                          <?= $val['category_name'] ?>
                                                         </option>
                                                           <?php
-                                                          }?>
+                                                         } ?>
                                                         </select>
-                                                        <?php echo form_error('category_id');?>
+                                                        <?= form_error('category_id') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -115,8 +115,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                  <input name="populer" id="populer" type="checkbox" placeholder="Blog Title" value="1" <?php echo isset($postData['populer']) && $postData['populer'] ==1 ? 'checked':'';?>>
-                                                        <?php echo form_error('populer');?>
+                                                  <input name="populer" id="populer" type="checkbox" placeholder="Blog Title" value="1" <?= isset($postData['populer']) && $postData['populer'] ==1 ? 'checked':'' ?>>
+                                                        <?= form_error('populer') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,7 +128,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                      <textarea name="content" id="content"><?php echo isset($postData['content']) ? $postData['content']:'';?>
+                                                      <textarea name="content" id="content"><?= isset($postData['content']) ? $postData['content']:'' ?>
                                                       </textarea>
                                                         <?php
                                                           echo form_error('content');
@@ -145,7 +145,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                      <textarea name="content_french" id="content1"><?php echo isset($postData['content_french']) ? $postData['content_french']:'';?>
+                                                      <textarea name="content_french" id="content1"><?= isset($postData['content_french']) ? $postData['content_french']:'' ?>
                                                       </textarea>
                                                         <?php
                                                           echo form_error('content_french');
@@ -167,15 +167,15 @@
                                                         <?php $old_image =isset($postData['image']) ? $postData['image']:'';
                                                             ?>
                                                         <?php
-                                                            if($old_image !=''){
+                                                            if ($old_image !='') {
                                                                $imageurl=getBlogImage($old_image,'large');
 
                                                                ?>
-                                                        <img src="<?php echo $imageurl?>" width="100" height="80">
+                                                        <img src="<?= $imageurl ?>" width="100" height="80">
                                                         <?php
                                                             }
                                                             ?>
-                                                        <input name="old_image" value="<?php echo $old_image;?>" type="hidden">
+                                                        <input name="old_image" value="<?= $old_image ?>" type="hidden">
                                                     </div>
                                                 </div>
                                                 <div class="controls file-data">
@@ -204,9 +204,9 @@
                                           </div>
                                           <div class="text-right">
                                               <button type="submit" class="btn btn-success" id="submitBtn" >Submit</button>
-                                              <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
+                                              <a href="<?= $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
                                           </div>
-                                          <?php echo form_close();?>
+                                          <?= form_close() ?>
                                         </div>
                                 </div>
                             </div>
@@ -243,10 +243,10 @@
                       var height = this.height;
                       var width = this.width;
                 var imagesize=fileUpload.files[0].size;
-                var FILE_MAX_SIZE_JS='<?php echo FILE_MAX_SIZE_JS ?>';
+                var FILE_MAX_SIZE_JS='<?= FILE_MAX_SIZE_JS ?>';
 
                 //alert(imagesize);
-                /*if(FILE_MAX_SIZE_JS < imagesize){
+                /*if (FILE_MAX_SIZE_JS < imagesize) {
                     $("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
                     $("#MsgModal").modal('show');
                           return false;
@@ -260,14 +260,14 @@
 <script>
  CKEDITOR.replace('content', {
     height: 300,
-    filebrowserUploadUrl: "<?php echo $BASE_URL;?>upload.php",
+    filebrowserUploadUrl: "<?= $BASE_URL ?>upload.php",
     allowedContent:true,
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });
  CKEDITOR.dtd.$removeEmpty.i = 0;
   CKEDITOR.replace('content1', {
     height: 300,
-    filebrowserUploadUrl: "<?php echo $BASE_URL;?>upload.php",
+    filebrowserUploadUrl: "<?= $BASE_URL ?>upload.php",
     allowedContent:true,
     extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
  });

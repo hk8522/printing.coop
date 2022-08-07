@@ -15,7 +15,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                         <?php
                         foreach (App\Common\ProviderOptionType::names as $key => $name) {?>
                             <option value="<?=$key?>"><?=$name?></option>
-                        <?php }?>
+                        <?php } ?>
                     </select>
                 </div>
             </div>

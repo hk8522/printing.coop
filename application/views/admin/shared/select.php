@@ -14,8 +14,8 @@
     if (!isset($index))
         $index = false;
 ?>
-<?php if (isset($items)) {?>
-<select class="form-control <?=isset($class) ? $class : ''?>" data-val="true" <?=isset($msg_required) ? 'data-val-required="' . $msg_required . '"' : ''?> id="<?=$id?>" name="<?=$name?>" <?=isset($required) && $required ? 'required' : ''?> <?=isset($disabled) && $disabled ? 'disabled' : ''?>>
+<?php if (isset($items)) { ?>
+<select class="form-control <?= isset($class) ? $class : ''?>" data-val="true" <?= isset($msg_required) ? 'data-val-required="' . $msg_required . '"' : ''?> id="<?= $id?>" name="<?= $name?>" <?= isset($required) && $required ? 'required' : ''?> <?= isset($disabled) && $disabled ? 'disabled' : ''?>>
     <?php
     foreach ($items as $key => $item) {
         if (is_array($item) && isset($item['text']))
@@ -28,11 +28,11 @@
             echo '<option ' . (((isset($value) && $item->id == $value) || (isset($item->selected) && $item->selected)) ? 'selected="selected"' : '') . ' value="' . ($index ? $key : $item->id) . '">' . $item->name . '</option>';
         else
             echo '<option ' . ((isset($value) && ($index ? $key : $item) == $value) ? 'selected="selected"' : '') . ' value="' . ($index ? $key : $item) . '">' . $item . '</option>';
-    }?>
+   } ?>
 </select>
 <script>
     $(document).ready(function() {
-        $("#<?=str_replace(['[', ']'], ['\\\\[', '\\\\]'], $id)?>").kendoDropDownList();
+        $("#<?= str_replace(['[', ']'], ['\\\\[', '\\\\]'], $id)?>").kendoDropDownList();
     });
 </script>
 <?php } ?>

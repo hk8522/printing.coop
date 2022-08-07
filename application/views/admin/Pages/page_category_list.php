@@ -5,22 +5,22 @@
             <div class="box">
                 <div class="box-body">
                 <div class="text-center" style="color:red">
-                    <?php echo $this->session->flashdata('message_error');?>
+                    <?= $this->session->flashdata('message_error') ?>
                 </div>
                 <div class="text-center" style="color:green">
-                    <?php echo $this->session->flashdata('message_success');?>
+                    <?= $this->session->flashdata('message_success') ?>
                 </div>
                 <div class="inner-head-section">
                     <div class="row">
                         <div class="col-md-6 col-xs-12 text-left">
                             <div class="inner-title">
-                                <span><?php echo ucfirst($page_title).' List'; ?></span>
+                                <span><?= ucfirst($page_title).' List' ?></span>
                             </div>
                         </div>
                         <div class="col-md-6 col-xs-12 text-right">
                             <div class="all-vol-btn">
-                            <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>"><button>
-                            <i class="fas fa-plus-circle"></i><?php echo $sub_page_title ?></button>
+                            <a href="<?= $BASE_URL.$class_name.$sub_page_url ?>"><button>
+                            <i class="fas fa-plus-circle"></i><?= $sub_page_title ?></button>
                             </a>
                             </div>
                         </div>
@@ -43,41 +43,41 @@
 
                             <tbody>
                                 <?php
-                                if(count($lists) > 0){
-                                    foreach($lists as $key=>$list){
+                                if (count($lists) > 0) {
+                                    foreach ($lists as $key => $list) {
                                     ?>
                                         <tr>
-                                            <td><?php echo ucfirst($list['name']);?></td>
-                                            <td><?php echo ucfirst($list['category_order']);?></td>
+                                            <td><?= ucfirst($list['name']) ?></td>
+                                            <td><?= ucfirst($list['category_order']) ?></td>
 
                                             <td>
-                                              <?php echo dateFormate($list['created']);?>
+                                              <?= dateFormate($list['created']) ?>
                                             </td>
 
                                             <td>
-                                              <?php echo dateFormate($list['updated']);?>
+                                              <?= dateFormate($list['updated']) ?>
                                             </td>
                                             <td>
-                                            <?php if($list['status']==1){?>
-                                            <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/0">
+                                            <?php if ($list['status']==1) { ?>
+                                            <a href="<?= $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?= $list['id'] ?>/0">
                                              <button type="submit" class="custon-active">Active
                                              </button>
                                             </a>
                                             <?php
-                                            }else{?>
-                                               <a href="<?php echo $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?php echo $list['id']?>/1">
+                                            } else{ ?>
+                                               <a href="<?= $BASE_URL.$class_name.$sub_page_url_active_inactive?>/<?php ?><?= $list['id'] ?>/1">
                                                  <button type="submit" class="custon-delete">Inactive
                                                   </button>
                                                </a>
                                             <?php
-                                            }?>
+                                           } ?>
                                             </td>
                                             <td>
-                                               <a href="<?php echo $BASE_URL.$class_name.$sub_page_url?>/<?php echo $list['id'];?>" style="color:green" title="edit">
+                                               <a href="<?= $BASE_URL.$class_name.$sub_page_url?>/<?= $list['id'] ?>" style="color:green" title="edit">
                                                     <i class="far fa-edit fa-lg"></i>
                                                </a>
                                                 &nbsp;&nbsp;
-                                               <a href="<?php echo $BASE_URL.$class_name.$sub_page_delete_url?>/<?php echo $list['id'];?>" style="color:red" title="delete" onclick="return confirm('Are you sure you want to delete this page category?');">
+                                               <a href="<?= $BASE_URL.$class_name.$sub_page_delete_url?>/<?= $list['id'] ?>" style="color:red" title="delete" onclick="return confirm('Are you sure you want to delete this page category?');">
                                                   <i class="fa fa-trash fa-lg"></i>
                                                </a>
 
@@ -85,12 +85,12 @@
                                         </tr>
                                 <?php
                                     }
-                                }else{?>
+                                } else{ ?>
                                     <tr>
                                     <td colspan="7" class="text-center">List Empty.</td>
                                     </tr>
                                 <?php
-                                }?>
+                               } ?>
                             </tbody>
                         </table>
                     </div>
@@ -105,7 +105,7 @@
  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
  </script>
 <script>
-$(document).ready(function(){
+$(document).ready(function() {
     $('#example1').DataTable({
         "order": [[ 2, "asc" ]]
     });

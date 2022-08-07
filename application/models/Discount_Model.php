@@ -9,7 +9,7 @@ Class Discount_Model extends MY_Model {
                 'rules' => 'required|is_unique[discounts.code]',
                 'errors' => array(
                         'required' => 'Enter discount code',
-                        'is_unique'=>'This code already generated'
+                        'is_unique' => 'This code already generated'
                 ),
         ),
         array(
@@ -66,7 +66,7 @@ Class Discount_Model extends MY_Model {
     public function getDiscountsList() {
         $this->db->select(array('*'));
         $this->db->from($this->table);
-        //$this->db->where(array('Page_Category.status'=>1));
+        //$this->db->where(array('Page_Category.status' => 1));
         $this->db->order_by('id','desc');
         $query = $this->db->get();
         $data=$query->result_array();
@@ -76,7 +76,7 @@ Class Discount_Model extends MY_Model {
     public function getActiveDiscountsList() {
         $this->db->select(array('*'));
         $this->db->from($this->table);
-        $this->db->where(array('status'=>1));
+        $this->db->where(array('status' => 1));
         $this->db->order_by('id','desc');
         $query = $this->db->get();
         $data=$query->result_array();
@@ -86,7 +86,7 @@ Class Discount_Model extends MY_Model {
     public function getDiscountDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('id'=>$id));
+        $this->db->where(array('id' => $id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;
@@ -95,7 +95,7 @@ Class Discount_Model extends MY_Model {
     public function getDiscountDataByCode($code) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('code'=>$code));
+        $this->db->where(array('code' => $code));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;

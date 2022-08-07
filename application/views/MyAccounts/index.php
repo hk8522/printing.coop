@@ -6,89 +6,89 @@
                 <div class="universal-dark-title">
                     <span>
                     <?php
-                    if ($language_name == 'French'){ ?>
+                    if ($language_name == 'French') { ?>
                       Vos informations personnelles
-                    <?php }else{ ?>
+                    <?php } else{ ?>
                       Your Personal Details
                     <?php
-                    }?></span>
-                    <?php if($postData['email_verification']==0){?>
+                   } ?></span>
+                    <?php if ($postData['email_verification']==0) { ?>
                               <div class="verify">
                                          <span class="verify-email mt-5" style="color:red"><small>
                                        <?php
-                                        if ($language_name == 'French'){ ?>
+                                        if ($language_name == 'French') { ?>
                                           Vérifiez votre e-mail
-                                        <?php }else{ ?>
+                                        <?php } else{ ?>
                                           Verify your email
                                         <?php
-                                        }?></p></small>
+                                       } ?></p></small>
                               </div>
                           <?php
-                          }?>
-                        <?php if($postData['user_type']==2){?>
+                         } ?>
+                        <?php if ($postData['user_type']==2) { ?>
                         <div class="verify">
                                <span class="verify-email mt-5" style="color:green"><small>
                              <?php
-                            if ($language_name == 'French'){ ?>
+                            if ($language_name == 'French') { ?>
                               Custome préféré
-                            <?php }else{ ?>
+                            <?php } else{ ?>
                               Preferred Custome
                             <?php
-                            }?>r</p></small>
+                           } ?>r</p></small>
                         </div>
                     <?php
-                    }?>
+                   } ?>
                       </div>
                 </div>
                     <div class="text-center" style="color:red">
-                            <?php echo $this->session->flashdata('message_error');?>
+                            <?= $this->session->flashdata('message_error') ?>
                     </div>
                     <div class="text-center" style="color:green">
-                            <?php echo $this->session->flashdata('message_success');?>
+                            <?= $this->session->flashdata('message_success') ?>
                     </div><br>
                 <div class="shipping-form">
-                  <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
+                  <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if ($language_name == 'French'){ ?>
+                                if ($language_name == 'French') { ?>
                                   Code client
-                                <?php }else{ ?>
+                                <?php } else{ ?>
                                   Customer Code
                                 <?php
-                                }?></label>
-                                <input type="text" name="fname" value="<?php echo isset($postData['id']) ? CUSTOMER_ID_PREFIX.$postData['id']:'';?>" readonly>
-                                <span class="text-danger"><?php echo form_error('fname');?></span>
+                               } ?></label>
+                                <input type="text" name="fname" value="<?= isset($postData['id']) ? CUSTOMER_ID_PREFIX.$postData['id']:'' ?>" readonly>
+                                <span class="text-danger"><?= form_error('fname') ?></span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if ($language_name == 'French'){ ?>
+                                if ($language_name == 'French') { ?>
                                   votre nom
-                                <?php }else{ ?>
+                                <?php } else{ ?>
                                   Your Name
                                 <?php
-                                }?> *</label>
-                                <input type="text" name="fname" value="<?php echo isset($postData['fname']) ? $postData['fname']:'';?>" readonly>
-                                <span class="text-danger"><?php echo form_error('fname');?></span>
+                               } ?> *</label>
+                                <input type="text" name="fname" value="<?= isset($postData['fname']) ? $postData['fname']:'' ?>" readonly>
+                                <span class="text-danger"><?= form_error('fname') ?></span>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if ($language_name == 'French'){ ?>
+                                if ($language_name == 'French') { ?>
                                   Votre nom de famille
-                                <?php }else{ ?>
+                                <?php } else{ ?>
                                   Your Last Name
                                 <?php
-                                }?> *</label>
-                                <input type="text" name="lname" value="<?php echo isset($postData['lname']) ? $postData['lname']:'';?>" readonly>
-                                <span class="text-danger"><?php echo form_error('lname');?></span>
+                               } ?> *</label>
+                                <input type="text" name="lname" value="<?= isset($postData['lname']) ? $postData['lname']:'' ?>" readonly>
+                                <span class="text-danger"><?= form_error('lname') ?></span>
                             </div>
                         </div>
                     </div>
@@ -97,42 +97,42 @@
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if ($language_name == 'French'){ ?>
+                                if ($language_name == 'French') { ?>
                                   Votre adresse email
-                                <?php }else{ ?>
+                                <?php } else{ ?>
                                   Your Email Address
                                 <?php
-                                }?> *</label>
-                                <input type="text" name="email" value="<?php echo isset($postData['email']) ? $postData['email']:'';?>" readonly>
-                                <?php echo form_error('email');?>
+                               } ?> *</label>
+                                <input type="text" name="email" value="<?= isset($postData['email']) ? $postData['email']:'' ?>" readonly>
+                                <?= form_error('email') ?>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="single-review">
                                 <label>
                                 <?php
-                                if ($language_name == 'French'){ ?>
+                                if ($language_name == 'French') { ?>
                                   Ton téléphone
-                                <?php }else{ ?>
+                                <?php } else{ ?>
                                   Your Phone
                                 <?php
-                                }?> *</label>
-                                <input type="text" name="mobile" value="<?php echo isset($postData['mobile']) ? $postData['mobile']:'';?>" readonly>
-                                <?php echo form_error('mobile');?>
+                               } ?> *</label>
+                                <input type="text" name="mobile" value="<?= isset($postData['mobile']) ? $postData['mobile']:'' ?>" readonly>
+                                <?= form_error('mobile') ?>
                             </div>
                         </div>
                     </div>
                     <div class="order-btn">
-                       <a href="<?php echo $BASE_URL;?>MyAccounts/EditAccount"><button type="button">
+                       <a href="<?= $BASE_URL ?>MyAccounts/EditAccount"><button type="button">
                        <?php
-                        if ($language_name == 'French'){ ?>
+                        if ($language_name == 'French') { ?>
                           Éditer
-                        <?php }else{ ?>
+                        <?php } else{ ?>
                           Edit
                         <?php
-                        }?></button></a>
+                       } ?></button></a>
                     </div>
-                  <?php echo form_close();?>
+                  <?= form_close() ?>
                 </div>
             </div>
         </div>

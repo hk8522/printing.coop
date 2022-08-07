@@ -1,4 +1,4 @@
-<?php echo form_open_multipart('',array('class'=>'form-horizontal')); ?>
+<?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
 <?php //pr($PostData);?>
 <div class="custom-order-info-section">
         <div class="custom-order-info-title">
@@ -18,8 +18,8 @@
                                         <div class="table-filter-fields">
                                             <label>Name</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" placeholder="Name" value="<?php echo isset($PostData['name']) ? $PostData['name']:'';?>" name="name">
-                                                <?php echo form_error('name');?>
+                                                <input type="text" class="form-control" placeholder="Name" value="<?= isset($PostData['name']) ? $PostData['name']:'' ?>" name="name">
+                                                <?= form_error('name') ?>
                                             </div>
                                         </div>
                                     </div>
@@ -27,8 +27,8 @@
                                         <div class="table-filter-fields">
                                             <label>Mobile</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" placeholder="Mobile"  value="<?php echo isset($PostData['mobile']) ? $PostData['mobile']:'';?>" name="mobile">
-                                                <?php echo form_error('mobile');?>
+                                                <input type="text" class="form-control" placeholder="Mobile"  value="<?= isset($PostData['mobile']) ? $PostData['mobile']:'' ?>" name="mobile">
+                                                <?= form_error('mobile') ?>
                                             </div>
                                         </div>
                                     </div>
@@ -36,8 +36,8 @@
                                         <div class="table-filter-fields">
                                             <label>Email</label>
                                             <div class="controls">
-                                                <input type="email" class="form-control" placeholder="Email" value="<?php echo isset($PostData['email']) ? $PostData['email']:'';?>" name="email" id="email">
-                                                <?php echo form_error('email');?>
+                                                <input type="email" class="form-control" placeholder="Email" value="<?= isset($PostData['email']) ? $PostData['email']:'' ?>" name="email" id="email">
+                                                <?= form_error('email') ?>
                                             </div>
                                         </div>
                                     </div>
@@ -58,8 +58,8 @@
                                         <div class="table-filter-fields">
                                             <label>Name</label>
                                             <div class="controls">
-                                                <input class="form-control" type="text" placeholder="Name*" value="<?php echo isset($PostData['billing_name']) ? $PostData['billing_name']:'';?>" name="billing_name">
-                                                 <?php echo form_error('billing_name');?>
+                                                <input class="form-control" type="text" placeholder="Name*" value="<?= isset($PostData['billing_name']) ? $PostData['billing_name']:'' ?>" name="billing_name">
+                                                 <?= form_error('billing_name') ?>
                                             </div>
                                         </div>
                                     </div>
@@ -67,8 +67,8 @@
                                         <div class="table-filter-fields">
                                             <label>Phone Number</label>
                                             <div class="controls">
-                                                <input class="form-control" type="text" placeholder="Phone Number*" value="<?php echo isset($PostData['billing_mobile']) ? $PostData['billing_mobile']:'';?>" name="billing_mobile">
-                                                 <?php echo form_error('billing_mobile');?>
+                                                <input class="form-control" type="text" placeholder="Phone Number*" value="<?= isset($PostData['billing_mobile']) ? $PostData['billing_mobile']:'' ?>" name="billing_mobile">
+                                                 <?= form_error('billing_mobile') ?>
                                             </div>
                                         </div>
                                     </div>
@@ -76,8 +76,8 @@
                                         <div class="table-filter-fields">
                                             <label>Company</label>
                                             <div class="controls">
-                                                <input class="form-control" type="text" placeholder="Company" value="<?php echo isset($PostData['billing_company']) ? $PostData['billing_company']:'';?>" name="billing_company">
-                                                 <?php echo form_error('billing_company');?>
+                                                <input class="form-control" type="text" placeholder="Company" value="<?= isset($PostData['billing_company']) ? $PostData['billing_company']:'' ?>" name="billing_company">
+                                                 <?= form_error('billing_company') ?>
                                             </div>
                                         </div>
                                     </div>
@@ -85,7 +85,7 @@
                                         <div class="table-filter-fields">
                                             <label>Address</label>
                                             <div class="controls">
-                                                <textarea class="form-control" style="height: 60px !important;" type="text" placeholder="Address (area &amp; street)*" name="billing_address"><?php echo isset($PostData['billing_address']) ? $PostData['billing_address']:'';?></textarea>
+                                                <textarea class="form-control" style="height: 60px !important;" type="text" placeholder="Address (area &amp; street)*" name="billing_address"><?= isset($PostData['billing_address']) ? $PostData['billing_address']:'' ?></textarea>
                                                  <?php
                                                  echo form_error('billing_address');
                                                  ?>
@@ -103,12 +103,12 @@
                                                       $selected = '';
                                                       $post_country = isset($PostData['billing_country']) ? $PostData['billing_country']:'';
 
-                                                      if ($country['id'] == $post_country){
+                                                      if ($country['id'] == $post_country) {
                                                           $selected='selected="selected"';
                                                       }
                                                       ?>
-                                                  <option value="<?php echo $country['id']?>" <?php echo $selected;?>><?php echo $country['name'];?></option>
-                                                  <?php }?>
+                                                  <option value="<?= $country['id'] ?>" <?= $selected ?>><?= $country['name']  ?></option>
+                                                  <?php } ?>
                                                 </select>
                                                  <?php
                                                  echo form_error('billing_country');
@@ -126,12 +126,12 @@
                                                   <?php foreach ($states as $state) {
                                                       $selected ='';
                                                       $post_state = isset($PostData['billing_state']) ? $PostData['billing_state']:'';
-                                                      if ($state['id'] == $post_state){
+                                                      if ($state['id'] == $post_state) {
                                                           $selected='selected="selected"';
                                                       }
                                                       ?>
-                                                  <option value="<?php echo $state['id']?>" <?php echo $selected;?>><?php echo $state['name'];?></option>
-                                                  <?php }?>
+                                                  <option value="<?= $state['id']?>" <?= $selected ?>><?= $state['name']  ?></option>
+                                                  <?php } ?>
                                                 </select>
                                                 <?php
                                                  echo form_error('billing_state');
@@ -150,12 +150,12 @@
                                                   $selected ='';
                                                   $post_city = isset($PostData['billing_city']) ? $PostData['billing_city']:'';
 
-                                                    if ($city['id'] == $post_city){
+                                                    if ($city['id'] == $post_city) {
                                                        $selected='selected="selected"';
                                                     }
                                                   ?>
-                                              <option value="<?php echo $city['id']?>" <?php echo $selected;?>><?php echo $city['name'];?></option>
-                                              <?php }?>
+                                              <option value="<?= $city['id'] ?>" <?= $selected ?>><?= $city['name']  ?></option>
+                                              <?php } ?>
                                                </select>
 
                                                 <?php
@@ -168,7 +168,7 @@
                                         <div class="table-filter-fields">
                                             <label>Zip/Postal Code</label>
                                             <div class="controls">
-                                                <input class="form-control" type="text" placeholder="Zip/Postal Code*" name="billing_pin_code" value="<?php echo isset($PostData['billing_pin_code']) ? $PostData['billing_pin_code']:'';?>" >
+                                                <input class="form-control" type="text" placeholder="Zip/Postal Code*" name="billing_pin_code" value="<?= isset($PostData['billing_pin_code']) ? $PostData['billing_pin_code']:'' ?>" >
                                                 <?php
                                                  echo form_error('billing_pin_code');
                                                  ?>
@@ -205,17 +205,17 @@
                                                     <option value="">Select Type</option>
                                                     <option value="paypal">Paypal</option>
                                                     <!--<?php
-                                                        foreach ($PaymentMethod as $key=>$val) {
+                                                        foreach ($PaymentMethod as $key => $val) {
                                                           $selected = '';
                                                           $payment_type = isset($PostData['payment_type']) ? $PostData['payment_type']:'';
 
-                                                          if ($val == $payment_type){
+                                                          if ($val == $payment_type) {
                                                               $selected='selected="selected"';
                                                           }
                                                           ?>
-                                                         <option value="<?php echo $val?>" <?php echo $selected;?>><?php echo $val;?></option>
+                                                         <option value="<?= $val?>" <?= $selected ?>><?= $val  ?></option>
                                                   <?php
-                                                  }?>-->
+                                                 } ?>-->
                                                 </select>
                                                 <?php
                                                   echo form_error('payment_status');
@@ -230,17 +230,17 @@
                                                 <select class="form-control" name="payment_status">
 
                                                     <option value="">Select Status</option>
-                                                        <?php foreach ($PaymentStatus as $key=>$val) {
+                                                        <?php foreach ($PaymentStatus as $key => $val) {
                                                           $selected = '';
                                                           $payment_status = isset($PostData['payment_status']) ? $PostData['payment_status']:'';
 
-                                                          if ($key == $payment_status){
+                                                          if ($key == $payment_status) {
                                                               $selected='selected="selected"';
                                                           }
                                                           ?>
-                                                         <option value="<?php echo $key?>" <?php echo $selected;?>><?php echo $val;?></option>
+                                                         <option value="<?= $key ?>" <?= $selected ?>><?= $val  ?></option>
                                                   <?php
-                                                  }?>
+                                                 } ?>
 
                                                 </select>
                                                 <?php
@@ -253,7 +253,7 @@
                                         <div class="table-filter-fields">
                                             <label>Payment Transaction ID</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" placeholder="Transaction ID" name="transition_id" value="<?php echo isset($PostData['transition_id']) ? $PostData['transition_id']:'';?>">
+                                                <input type="text" class="form-control" placeholder="Transaction ID" name="transition_id" value="<?= isset($PostData['transition_id']) ? $PostData['transition_id']:'' ?>">
                                             </div>
                                         </div>
                                     </div>
@@ -313,11 +313,11 @@
 
     <script>
 
-    function getState(country_id){
+    function getState(country_id) {
         $("#stateiD").val('');
         $("#stateiD").html('<option value="">Loding..</option>');
-        if(country_id !=''){
-            var url ='<?php echo $BASE_URL ?>MyAccounts/getStateDropDownListByAjax/'+country_id;
+        if (country_id !='') {
+            var url ='<?= $BASE_URL ?>MyAccounts/getStateDropDownListByAjax/'+country_id;
             $.ajax({
                    type: "GET",
                    url: url,
@@ -331,11 +331,11 @@
         }
     }
 
-    function getCity(state_id){
+    function getCity(state_id) {
         $("#cityId").val('');
         $("#cityId").html('<option value="">Loding..</option>');
-        if(state_id !=''){
-            var url ='<?php echo $BASE_URL ?>/admin/Orders/getCityDropDownListByAjax/'+state_id;
+        if (state_id !='') {
+            var url ='<?= $BASE_URL ?>/admin/Orders/getCityDropDownListByAjax/'+state_id;
             $.ajax({
                    type: "GET",
                    url: url,

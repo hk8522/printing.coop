@@ -6,22 +6,22 @@
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo $page_title?></span>
+                                <span><?= $page_title ?></span>
                             </div>
                         </div>
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-7">
                                     <div class="text-center" style="color:red ;margin-bottom:10px;">
-                                        <?php echo $this->session->flashdata('message_error');?>
+                                        <?= $this->session->flashdata('message_error') ?>
                                     </div>
-                                    <?php echo form_open('',array('class'=>'form-horizontal'));?>
-                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>">
+                                    <?= form_open('',array('class' => 'form-horizontal')) ?>
+                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>">
 
-                                    <input class="form-control" name="type" type="hidden"  value="<?php echo $type?>">
+                                    <input class="form-control" name="type" type="hidden"  value="<?= $type ?>">
 
                                     <div class="form-role-area">
-                                    <?php if($type =='printer_series' || $type =='printermodels'){?>
+                                    <?php if ($type =='printer_series' || $type =='printermodels') { ?>
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -32,26 +32,26 @@
                                                         <select name="printer_brand_id" class="form-control" id="printer_brand_id">
                                                             <option value="">Select Printer Brands</option>
                                                            <?php
-                                                            foreach($PrinterBrandLists as $list){
+                                                            foreach ($PrinterBrandLists as $list) {
                                                             $selected='';
-                                                            if($list['id']==$postData['printer_brand_id']){
+                                                            if ($list['id']==$postData['printer_brand_id']) {
                                                                 $selected='selected="selected"';
                                                             }
                                                             ?>
-                                                             <option value="<?php echo $list['id']?>" <?php echo $selected?>><?php echo $list['name']?></option>
-                                                        <?php }?>
+                                                             <option value="<?= $list['id']?>" <?= $selected?>><?= $list['name'] ?></option>
+                                                        <?php } ?>
                                                         </select>
-                                                        <?php echo form_error('printer_brand_id');?>
+                                                        <?= form_error('printer_brand_id') ?>
 
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     <?php
-                                    }?>
+                                   } ?>
                                     <?php
                                     #pr($postData);
-                                    if($type =='printermodels'){ ?>
+                                    if ($type =='printermodels') { ?>
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -63,23 +63,23 @@
                                                             <option value="">Select Printer Series</option>
                                                            <?php
 
-                                                            foreach($PrinterSeriesLists as $list){
+                                                            foreach ($PrinterSeriesLists as $list) {
                                                             $selected='';
-                                                            if($list['id']==$postData['printer_series_id']){
+                                                            if ($list['id']==$postData['printer_series_id']) {
                                                                 $selected='selected="selected"';
                                                             }
                                                             ?>
-                                                             <option value="<?php echo $list['id']?>" <?php echo $selected?>><?php echo $list['name']?></option>
-                                                        <?php }?>
+                                                             <option value="<?= $list['id']?>" <?= $selected?>><?= $list['name'] ?></option>
+                                                        <?php } ?>
                                                         </select>
-                                                        <?php echo form_error('printer_series_id');?>
+                                                        <?= form_error('printer_series_id') ?>
 
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     <?php
-                                    }?>
+                                   } ?>
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
@@ -87,8 +87,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" type="text" name="name" value="<?php echo isset($postData['name']) ? $postData['name']:'';?>" maxlength="50">
-                                                        <?php echo form_error('name');?>
+                                                        <input class="form-control" type="text" name="name" value="<?= isset($postData['name']) ? $postData['name']:'' ?>" maxlength="50">
+                                                        <?= form_error('name') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -100,8 +100,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" type="text" name="name_french" value="<?php echo isset($postData['name_french']) ? $postData['name_french']:'';?>" maxlength="50">
-                                                        <?php echo form_error('name_french');?>
+                                                        <input class="form-control" type="text" name="name_french" value="<?= isset($postData['name_french']) ? $postData['name_french']:'' ?>" maxlength="50">
+                                                        <?= form_error('name_french') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -128,7 +128,7 @@
         $.ajax({
         type: 'GET',
         dataType: 'html',
-        url: '<?php echo $BASE_URL ?>admin/Ajax/getPrinterSeriesListByAjax/'+printer_brand_id,
+        url: '<?= $BASE_URL ?>admin/Ajax/getPrinterSeriesListByAjax/'+printer_brand_id,
         cache: false,
         contentType: false,
         processData: false,

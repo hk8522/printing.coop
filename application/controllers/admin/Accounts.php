@@ -87,7 +87,7 @@ class Accounts extends Admin_Controller
             $uploadData = array();
             $attributes_data = array();
 
-            foreach($AttributesList as $key=>$val){
+            foreach($AttributesList as $key => $val){
                 $attribute_name='attribute_id_'.$key;
                 $attribute_id=isset($_POST[$attribute_name]) ? $this->input->post($attribute_name):'';
 
@@ -98,7 +98,7 @@ class Accounts extends Admin_Controller
 
                     $product_attribute_item_ids =!empty($this->input->post('attribute_item_id_'.$attribute_id)) ? $this->input->post('attribute_item_id_'.$attribute_id):array();
 
-                    foreach($product_attribute_item_ids as $subkey=>$subval){
+                    foreach($product_attribute_item_ids as $subkey => $subval){
                         $attributes_item_sdata=array();
                         if(!empty($subval)){
                             $attributes_item_sdata['attribute_id']=$attribute_id;
@@ -130,7 +130,7 @@ class Accounts extends Admin_Controller
                         $attributes_data = array();
                         $attributes_item_data = array();
 
-                        foreach($AttributesList as $key=>$val){
+                        foreach($AttributesList as $key => $val){
                             $attributes_sdata=array();
                             $attribute_name='attribute_id_'.$key;
                             $attribute_id=isset($_POST[$attribute_name]) ? $this->input->post($attribute_name):'';
@@ -142,7 +142,7 @@ class Accounts extends Admin_Controller
 
                                 $product_attribute_item_ids =!empty($this->input->post('attribute_item_id_'.$attribute_id)) ? $this->input->post('attribute_item_id_'.$attribute_id):array();
 
-                                foreach($product_attribute_item_ids as $subkey=>$subval){
+                                foreach($product_attribute_item_ids as $subkey => $subval){
                                     $attributes_item_sdata=array();
                                     if(!empty($subval)){
                                         $attributes_item_sdata['module_id']=$attribute_id;

@@ -56,7 +56,7 @@ Class Admin_Model extends MY_Model {
                 'errors' => array(
 
                         'required' => 'Enter Email',
-                        'is_unique'=>'Email id already registered'
+                        'is_unique' => 'Email id already registered'
                 ),
         ),
         array(
@@ -66,7 +66,7 @@ Class Admin_Model extends MY_Model {
                 'errors' => array(
 
                         'required' => 'Enter user name',
-                        'is_unique'=>'User name id already registered'
+                        'is_unique' => 'User name id already registered'
                 ),
         ),
         array(
@@ -108,7 +108,7 @@ Class Admin_Model extends MY_Model {
                 'errors' => array(
 
                         'required' => 'Enter Email',
-                        'is_unique'=>'Email id already registered'
+                        'is_unique' => 'Email id already registered'
                 ),
         ),
         array(
@@ -118,7 +118,7 @@ Class Admin_Model extends MY_Model {
                 'errors' => array(
 
                         'required' => 'Enter user name',
-                        'is_unique'=>'User name id already registered'
+                        'is_unique' => 'User name id already registered'
                 ),
         ),
         array(
@@ -145,7 +145,7 @@ Class Admin_Model extends MY_Model {
     public function checkAdminLogin($data){
         $LoginUser=array();
 
-        $condition=array('username'=>$data['username'],'password'=>md5($data['password']));
+        $condition=array('username' => $data['username'],'password' => md5($data['password']));
         $this->db->select('*');
         $this->db->from('admins');
         $this->db->where($condition);
@@ -174,7 +174,7 @@ Class Admin_Model extends MY_Model {
     public function getAdminDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('id'=>$id));
+        $this->db->where(array('id' => $id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;
@@ -183,7 +183,7 @@ Class Admin_Model extends MY_Model {
     public function getDataByEmailId($email) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('email'=>$email));
+        $this->db->where(array('email' => $email));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;

@@ -1,18 +1,19 @@
 <div class="product-title-section">
     <div class="product-title-section-img">
-        <img src="<?php echo $BASE_URL;?>assets/images/dry-fruits.jpg">
+        <img src="<?= $BASE_URL ?>assets/images/dry-fruits.jpg">
     </div>
     <!-- <div class="product-title-section-info">
         <div class="product-title-section-info-inner">
             <div class="today-deal-title">
-                <span><?php echo $page_title; ?></span>
+                <span><?= $page_title ?></span>
             </div>
 
         </div>
     </div> -->
 </div>
 <div class="product-pagination">
-    <span><a href="<?php echo $BASE_URL?>">Home</a> > <a href="javascript:void(0)"><?php echo $page_title; ?></a></span>
+    <span><a href="<?= $BASE_URL ?>">Home</a> > <a
+            href="javascript:void(0)"><?= $page_title ?></a></span>
 </div>
 <div class="container-fluid checkout-main-section">
     <div class="container p-0">
@@ -21,42 +22,42 @@
                 <div class="col-md-12">
                     <div class="checkout-section-box">
                         <div class="text-center" style="color:red">
-                           <?php echo $this->session->flashdata('message_error');?>
+                            <?= $this->session->flashdata('message_error') ?>
                         </div>
                         <div class="text-center" style="color:green">
-                         <?php echo $this->session->flashdata('message_success');?>
+                            <?= $this->session->flashdata('message_success') ?>
                         </div>
 
-                            <div class="shopping-product-display">
+                        <div class="shopping-product-display">
 
-                                <table>
+                            <table>
                                 <tr>
-                                   <td>Order Id</td>
-                                   <td>
-                                     <?php echo $orderData['order_id']?>
-                                   </td>
+                                    <td>Order Id</td>
+                                    <td>
+                                        <?= $orderData['order_id'] ?>
+                                    </td>
                                 </tr>
                                 <!--<tr>
                                    <td>Order Amount </td>
                                    <td>
-                                     <?php CURREBCY_SYMBOL.number_format($orderData['total_amount'],2)?>
+                                     <?php CURREBCY_SYMBOL . number_format($orderData['total_amount'], 2)?>
                                    </td>
                                 </tr>-->
 
                                 <tr>
-                                   <td>Payment Status </td>
-                                   <td>
-                                     <?php echo $_POST["status"]=='Success' ? 'success':'Failed';?>
-                                   </td>
+                                    <td>Payment Status </td>
+                                    <td>
+                                        <?= $_POST["status"] == 'Success' ? 'success' : 'Failed' ?>
+                                    </td>
                                 </tr>
                                 <tr>
-                                   <td>Payment Transition Id  </td>
-                                   <td>
-                                     <?php echo isset($_POST['payuMoneyId']) ? $_POST['payuMoneyId']:'';?>
-                                   </td>
+                                    <td>Payment Transition Id </td>
+                                    <td>
+                                        <?= isset($_POST['payuMoneyId']) ? $_POST['payuMoneyId'] : '' ?>
+                                    </td>
                                 </tr>
-                                </table>
-                             </div>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -65,9 +66,9 @@
 </div>
 
 <script>
-setTimeout(function(){
-            window.location.href = "<?php echo $BASE_URL?>MyOrders";
-          }, 2000
+setTimeout(function() {
+        window.location.href = "<?= $BASE_URL ?>MyOrders";
+    }, 2000
 
 );
 </script>

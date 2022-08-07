@@ -8,20 +8,20 @@ $pageSizes = [10, 15, 20, 50, 100];
 <div class="row">
     <div class="col-md-12">
         <div class="x_panel light form-fit popup-window">
-            <?php if ($this->session->has_userdata('message_error')) {?>
+            <?php if ($this->session->has_userdata('message_error')) { ?>
                 <div class="alert alert-danger">
-                    <?=$this->session->flashdata('message_error')?>
+                    <?= $this->session->flashdata('message_error')?>
                 </div>
             <?php } ?>
-            <?php if ($this->session->has_userdata('message_success')) {?>
+            <?php if ($this->session->has_userdata('message_success')) { ?>
                 <div class="alert alert-success">
-                    <?=$this->session->flashdata('message_success')?>
+                    <?= $this->session->flashdata('message_success')?>
                 </div>
             <?php } ?>
             <div class="x_title">
                 <div class="caption">
                     <i class="fa fa-shopping-cart"></i>
-                    <?=ucfirst($page_title)?>
+                    <?= ucfirst($page_title)?>
                 </div>
                 <div class="actions btn-group btn-group-devided util-btn-margin-bottom-5">
                     <button class="btn btn-primary" id="export-csv">
@@ -39,7 +39,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label" for="from">From #</label>
                                             <div class="col-md-9 col-sm-9">
-                                                <input class="form-control" type="text" value="<?=$this->input->get('from_no')?>" id="from_no" name="from_no">
+                                                <input class="form-control" type="text" value="<?= $this->input->get('from_no')?>" id="from_no" name="from_no">
                                             </div>
                                         </div>
                                     </div>
@@ -47,7 +47,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label" for="to">To #</label>
                                             <div class="col-md-9 col-sm-9">
-                                                <input class="form-control" type="text" value="<?=$this->input->get('to_no')?>" id="to_no" name="to_no">
+                                                <input class="form-control" type="text" value="<?= $this->input->get('to_no')?>" id="to_no" name="to_no">
                                             </div>
                                         </div>
                                     </div>
@@ -129,12 +129,12 @@ $pageSizes = [10, 15, 20, 50, 100];
             return str.charAt(0).toUpperCase() + str.slice(1);;
         return '';
     }
-    var currencies = <?=json_encode($CurrencyList)?>;
-    var stores = <?=json_encode($StoreList)?>;
+    var currencies = <?= json_encode($CurrencyList)?>;
+    var stores = <?= json_encode($StoreList)?>;
     var paymentStatus = {
-        <?=App\Common\PaymentStatus::Pending?>: '<button type="button" class="btn btn-sm btn-warning">Pending</button>',
-        <?=App\Common\PaymentStatus::Success?>: '<button type="button" class="btn btn-sm btn-info">Success</button>',
-        <?=App\Common\PaymentStatus::Failed?>: '<button type="button" class="btn btn-sm btn-danger ">Failed</button>',
+        <?= App\Common\PaymentStatus::Pending?>: '<button type="button" class="btn btn-sm btn-warning">Pending</button>',
+        <?= App\Common\PaymentStatus::Success?>: '<button type="button" class="btn btn-sm btn-info">Success</button>',
+        <?= App\Common\PaymentStatus::Failed?>: '<button type="button" class="btn btn-sm btn-danger ">Failed</button>',
     };
     var orderStatus = {
         1 : '<button type="button" class="btn btn-sm">Incomplete</button>',
@@ -147,10 +147,10 @@ $pageSizes = [10, 15, 20, 50, 100];
         8 : '<button type="button" class="btn btn-info btn-sm">Complete</button>',
         9 : '<button type="button" class="btn btn-sm" style="background-color: #17a2b8; border-color: #17a2b8;">Ready for pickup</button>',
     };
-    var salesTaxRatesProvinces = <?=json_encode($this->Address_Model->salesTaxRatesProvinces())?>;
+    var salesTaxRatesProvinces = <?= json_encode($this->Address_Model->salesTaxRatesProvinces())?>;
     $(document).ready(function () {
         $('#export-csv').click(function () {
-            var url = '/admin/Orders/exportCSV/<?=$statusStr?>/<?=$user_id?>';
+            var url = '/admin/Orders/exportCSV/<?= $statusStr?>/<?= $user_id?>';
             var from = $('#from').data('kendoDatePicker').value();
             var to = $('#to').data('kendoDatePicker').value();
             if (from == null)
@@ -184,14 +184,14 @@ $pageSizes = [10, 15, 20, 50, 100];
                     // Cancel the changes
                     this.cancelChanges();
                 },
-                pageSize: <?=$pageSize?>,
+                pageSize: <?= $pageSize?>,
                 serverPaging: true,
                 serverFiltering: true,
                 serverSorting: true
             },
             pageable: {
                 refresh: true,
-                pageSizes: <?=json_encode($pageSizes)?>,
+                pageSizes: <?= json_encode($pageSizes)?>,
                 change: function(e) {
                     var stateurl = new URL(location.href);
                     stateurl.searchParams.set('page', e.index);
@@ -232,12 +232,12 @@ $pageSizes = [10, 15, 20, 50, 100];
                 template: '#=coupon_discount_amount == 0 ? "-" : (currencies[currency_id].symbols + Number(coupon_discount_amount).toFixed(2))#',
             }, {
                 title: 'Shipping Fee',
-                template: '#=delivery_charge == 0 ? "-" : ("<?=$product_price_currency_symbol?>" + Number(delivery_charge).toFixed(2))#',
+                template: '#=delivery_charge == 0 ? "-" : ("<?= $product_price_currency_symbol?>" + Number(delivery_charge).toFixed(2))#',
             }, {
                 field: 'total_sales_tax',
                 title: 'Total Sales Tax',
                 template: `#if (total_sales_tax == 0 || salesTaxRatesProvinces[billing_state] == null) {#-#} else {#
-                    <span>#=salesTaxRatesProvinces[billing_state].Province# #=Number(salesTaxRatesProvinces[billing_state].total_tax_rate).toFixed(2)#%<br><strong><?=$product_price_currency_symbol?>#=Number(total_sales_tax).toFixed(2)#</strong></span>
+                    <span>#=salesTaxRatesProvinces[billing_state].Province# #=Number(salesTaxRatesProvinces[billing_state].total_tax_rate).toFixed(2)#%<br><strong><?= $product_price_currency_symbol?>#=Number(total_sales_tax).toFixed(2)#</strong></span>
                     #}#`,
             }, {
                 title: 'Order Amount',
@@ -265,7 +265,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 template: '#=orderStatusChangeOptions(id, order_id, payment_status, status)#',
             }, {
                 title: 'View Orders',
-                template: `<a class="view-btn" href="/<?=$class_name.$sub_page_view_url?>/#=id#">
+                template: `<a class="view-btn" href="/<?= $class_name.$sub_page_view_url?>/#=id#">
                     <i class="far fa-eye fa-lg"></i></a>`,
             }, {
                 title: 'Action',
@@ -466,13 +466,13 @@ $pageSizes = [10, 15, 20, 50, 100];
     }
 
     function paymentStatusChangeOptions(id, payment_status) {
-        if (payment_status != <?=App\Common\PaymentStatus::Success?>) {
+        if (payment_status != <?= App\Common\PaymentStatus::Success?>) {
             var result = `<select class="form-control" onChange="changeOrderPaymentStatus(${id}, $(this).val())" style="width: 150px">
                 <option value="">Change Payment Status</option>`;
-            if (payment_status != <?=App\Common\PaymentStatus::Failed?>) {
-                result += '<option value="<?=App\Common\PaymentStatus::Pending?>" ' + (payment_status == <?=App\Common\PaymentStatus::Pending?> ? 'selected="selected"' : '') + '>Pending</option>';
+            if (payment_status != <?= App\Common\PaymentStatus::Failed?>) {
+                result += '<option value="<?= App\Common\PaymentStatus::Pending?>" ' + (payment_status == <?= App\Common\PaymentStatus::Pending?> ? 'selected="selected"' : '') + '>Pending</option>';
             }
-            result += '<option value="<?=App\Common\PaymentStatus::Success?>" ' + (payment_status == <?=App\Common\PaymentStatus::Success?> ? 'selected="selected"' : '') + '>Success</option>';
+            result += '<option value="<?= App\Common\PaymentStatus::Success?>" ' + (payment_status == <?= App\Common\PaymentStatus::Success?> ? 'selected="selected"' : '') + '>Success</option>';
             result += '</select>';
             return result;
         } else {
@@ -480,46 +480,46 @@ $pageSizes = [10, 15, 20, 50, 100];
         }
     }
     function orderStatusChangeOptions(id, order_id, payment_status, status) {
-        var availables = <?=json_encode(App\Common\OrderStatus::names)?>;
-        delete availables[<?=App\Common\OrderStatus::Incomplete?>];
-        delete availables[<?=App\Common\OrderStatus::Failed?>];
-        delete availables[<?=App\Common\OrderStatus::Complete?>];
+        var availables = <?= json_encode(App\Common\OrderStatus::names)?>;
+        delete availables[<?= App\Common\OrderStatus::Incomplete?>];
+        delete availables[<?= App\Common\OrderStatus::Failed?>];
+        delete availables[<?= App\Common\OrderStatus::Complete?>];
 
-        if (status == <?=App\Common\OrderStatus::Processing?>)
-            delete availables[<?=App\Common\OrderStatus::New?>];
-        if (status == <?=App\Common\OrderStatus::Shipped?>) {
-            delete availables[<?=App\Common\OrderStatus::New?>];
-            delete availables[<?=App\Common\OrderStatus::Processing?>];
-            delete availables[<?=App\Common\OrderStatus::ReadyForPickup?>];
+        if (status == <?= App\Common\OrderStatus::Processing?>)
+            delete availables[<?= App\Common\OrderStatus::New?>];
+        if (status == <?= App\Common\OrderStatus::Shipped?>) {
+            delete availables[<?= App\Common\OrderStatus::New?>];
+            delete availables[<?= App\Common\OrderStatus::Processing?>];
+            delete availables[<?= App\Common\OrderStatus::ReadyForPickup?>];
         }
-        if (status == <?=App\Common\OrderStatus::ReadyForPickup?>) {
-            delete availables[<?=App\Common\OrderStatus::New?>];
-            delete availables[<?=App\Common\OrderStatus::Processing?>];
-            delete availables[<?=App\Common\OrderStatus::Shipped?>];
+        if (status == <?= App\Common\OrderStatus::ReadyForPickup?>) {
+            delete availables[<?= App\Common\OrderStatus::New?>];
+            delete availables[<?= App\Common\OrderStatus::Processing?>];
+            delete availables[<?= App\Common\OrderStatus::Shipped?>];
         }
-        if (status == <?=App\Common\OrderStatus::Delivered?>) {
-            delete availables[<?=App\Common\OrderStatus::New?>];
-            delete availables[<?=App\Common\OrderStatus::Processing?>];
-            delete availables[<?=App\Common\OrderStatus::Shipped?>];
-            delete availables[<?=App\Common\OrderStatus::Delivered?>];
-            delete availables[<?=App\Common\OrderStatus::Cancelled?>];
-            delete availables[<?=App\Common\OrderStatus::ReadyForPickup?>];
+        if (status == <?= App\Common\OrderStatus::Delivered?>) {
+            delete availables[<?= App\Common\OrderStatus::New?>];
+            delete availables[<?= App\Common\OrderStatus::Processing?>];
+            delete availables[<?= App\Common\OrderStatus::Shipped?>];
+            delete availables[<?= App\Common\OrderStatus::Delivered?>];
+            delete availables[<?= App\Common\OrderStatus::Cancelled?>];
+            delete availables[<?= App\Common\OrderStatus::ReadyForPickup?>];
         }
-        if (status == <?=App\Common\OrderStatus::Cancelled?>) {
-            delete availables[<?=App\Common\OrderStatus::New?>];
-            delete availables[<?=App\Common\OrderStatus::Processing?>];
-            delete availables[<?=App\Common\OrderStatus::Shipped?>];
-            delete availables[<?=App\Common\OrderStatus::Delivered?>];
-            delete availables[<?=App\Common\OrderStatus::Cancelled?>];
-            delete availables[<?=App\Common\OrderStatus::ReadyForPickup?>];
+        if (status == <?= App\Common\OrderStatus::Cancelled?>) {
+            delete availables[<?= App\Common\OrderStatus::New?>];
+            delete availables[<?= App\Common\OrderStatus::Processing?>];
+            delete availables[<?= App\Common\OrderStatus::Shipped?>];
+            delete availables[<?= App\Common\OrderStatus::Delivered?>];
+            delete availables[<?= App\Common\OrderStatus::Cancelled?>];
+            delete availables[<?= App\Common\OrderStatus::ReadyForPickup?>];
         }
         var result = '';
-        if ([<?=App\Common\OrderStatus::New?>,
-            <?=App\Common\OrderStatus::Processing?>,
-            <?=App\Common\OrderStatus::Shipped?>,
-            <?=App\Common\OrderStatus::ReadyForPickup?>
+        if ([<?= App\Common\OrderStatus::New?>,
+            <?= App\Common\OrderStatus::Processing?>,
+            <?= App\Common\OrderStatus::Shipped?>,
+            <?= App\Common\OrderStatus::ReadyForPickup?>
         ].indexOf(Number(status)) >= 0) {
-            result += `<select class="form-control" onChange="changeOrderStatus(${id}, $(this).val(), '<?=$page_status?>', '${order_id}','${payment_status}')" id="select-${id}" style="width: 150px">
+            result += `<select class="form-control" onChange="changeOrderStatus(${id}, $(this).val(), '<?= $page_status?>', '${order_id}','${payment_status}')" id="select-${id}" style="width: 150px">
                 <!--<option value="">Change Order Status</option>-->`;
             for (const [key, value] of Object.entries(availables)) {
                 var selected = '';
@@ -535,12 +535,12 @@ $pageSizes = [10, 15, 20, 50, 100];
     function itemActions(id, status, shipment_id, tracking_number, labels_regular, labels_thermal)
     {
         var result = '';
-        if (status == <?=App\Common\OrderStatus::Delivered?> || status == <?=App\Common\OrderStatus::Cancelled?> || status == <?=App\Common\OrderStatus::Failed?>) {
-            result += `<a class="view-btn" href="/<?=$class_name.$sub_page_delete_url?>/${id}/<?=$page_status?>" style="color:#d71b23" title="delete" onclick="return confirm('Are you sure you want to delete this order?');">
+        if (status == <?= App\Common\OrderStatus::Delivered?> || status == <?= App\Common\OrderStatus::Cancelled?> || status == <?= App\Common\OrderStatus::Failed?>) {
+            result += `<a class="view-btn" href="/<?= $class_name.$sub_page_delete_url?>/${id}/<?= $page_status?>" style="color:#d71b23" title="delete" onclick="return confirm('Are you sure you want to delete this order?');">
                 <i class="fa fa-trash fa-lg"></i>
             </a>`;
         }
-        if ((status == <?=App\Common\OrderStatus::Shipped?> || status == <?=App\Common\OrderStatus::Delivered?>) &&
+        if ((status == <?= App\Common\OrderStatus::Shipped?> || status == <?= App\Common\OrderStatus::Delivered?>) &&
             shipment_id != null && tracking_number != null && labels_regular != null && labels_thermal != null)
         {
             result += `<!--<label>Order shipment Id: ${shipment_id}</label><label>Order Tracking Number: ${shipment_id}</label>-->
@@ -669,7 +669,7 @@ $pageSizes = [10, 15, 20, 50, 100];
            return false;
         } else {
             $("#myModal").modal('show');
-            var url ='<?=$BASE_URL?>admin/Orders/getOrderData/' + order_id + '/' + status;
+            var url ='<?= $BASE_URL?>admin/Orders/getOrderData/' + order_id + '/' + status;
             $.ajax({
                 type: "GET",
                 url: url,
@@ -699,7 +699,7 @@ $pageSizes = [10, 15, 20, 50, 100];
 
         if (formsubmit == true) {
             $("#loader-img").show();
-            var url ='<?=$BASE_URL?>admin/Orders/changeOrderStatus';
+            var url ='<?= $BASE_URL?>admin/Orders/changeOrderStatus';
             $.ajax({
                 type: "POST",
                 url: url,
@@ -715,13 +715,13 @@ $pageSizes = [10, 15, 20, 50, 100];
                         refreshGrid('orders-grid');
                         if (page_status == 'all') {
                             if (status == '3') {
-                            $("#td-" + order_id).html('<?=getOrderSatusClass(3)?>');
+                            $("#td-" + order_id).html('<?= getOrderSatusClass(3)?>');
                             } else if (status == '4') {
-                                $("#td-" + order_id).html('<?=getOrderSatusClass(4)?>');
+                                $("#td-" + order_id).html('<?= getOrderSatusClass(4)?>');
                             } else if (status == '5') {
-                            $("#td-" + order_id).html('<?=getOrderSatusClass(5)?>');
+                            $("#td-" + order_id).html('<?= getOrderSatusClass(5)?>');
                             } else if (status == '6') {
-                                $("#td-" + order_id).html('<?=getOrderSatusClass(6)?>');
+                                $("#td-" + order_id).html('<?= getOrderSatusClass(6)?>');
                             }
                         } else {
                             $("#row-" + order_id).remove();
@@ -769,7 +769,7 @@ $pageSizes = [10, 15, 20, 50, 100];
 
         if (formsubmit == true) {
             $("#loader-img").show();
-            var url ='<?=$BASE_URL?>admin/Orders/changeOrderPaymentStatus';
+            var url ='<?= $BASE_URL?>admin/Orders/changeOrderPaymentStatus';
             $.ajax({
                 type: "POST",
                 url: url,
@@ -802,7 +802,7 @@ $pageSizes = [10, 15, 20, 50, 100];
             return false;
         } else {
             $("#OrderTracking").modal('show');
-            var url ='<?=$BASE_URL?>admin/Orders/OrderTracking/'+order_id;;
+            var url ='<?= $BASE_URL?>admin/Orders/OrderTracking/'+order_id;;
             $.ajax({
                 type: "GET",
                 url: url,

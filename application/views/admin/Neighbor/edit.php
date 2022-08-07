@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="<?php echo $BASE_URL;?>assets/admin/css/treeview.css"/>
+<link rel="stylesheet" type="text/css" href="<?= $BASE_URL ?>assets/admin/css/treeview.css"/>
 <style type="text/css">
 .attribute-items:nth-child(even) {
     background: #f1f1f1;
@@ -23,7 +23,7 @@
                 <? if (count($errors) > 0) { ?>
                     <div class="alert alert-danger alert-dismissible">
                         <button type="button" class="close" data-dismiss="alert">×</button>
-                        <? foreach($errors as $error)
+                        <? foreach ($errors as $error)
                             echo $error . "<br>"; ?>
                     </div>
                 <? } ?>
@@ -75,7 +75,7 @@
             <!-- @if (count($errors->attribute->all()) > 0)
                 <div class="alert alert-danger alert-dismissible">
                     <button type="button" class="close" data-dismiss="alert">×</button>
-                    @foreach($errors->attribute->all() as $error)
+                    @foreach ($errors->attribute->all() as $error)
                             {{ $error }}<br>
                     @endforeach
                 </div>
@@ -234,7 +234,7 @@ $('button.right').click(function() {
 }).trigger('propertychange');
 
 function searchAttribute(searchtext) {
-    if(searchtext !=''){
+    if (searchtext !='') {
         $("#loader-img").show();
         var url ='<?= $BASE_URL?>admin/Neighbor/searchAttribute/<?= $neighbor_id?>';
         $("#searchDiv").show();
@@ -257,7 +257,7 @@ function searchAttribute(searchtext) {
     }
 }
 
-function hidesearchDiv(){
+function hidesearchDiv() {
     $("#searchDiv").hide();
     $("#AttributeListUl").html('');
 }
@@ -275,4 +275,4 @@ function confirmDelete() {
     return confirm('Do you really want to delete this?');
 }
 </script>
-<script src="<?php echo $BASE_URL;?>assets/admin/js/treeview.js" type="text/javascript"></script>
+<script src="<?= $BASE_URL ?>assets/admin/js/treeview.js" type="text/javascript"></script>

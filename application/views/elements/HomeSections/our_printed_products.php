@@ -6,7 +6,7 @@
               <?= ($language_name == 'French') ? 'NOS PRODUITS IMPRIMÉS' : 'Our Printed Products'?>
               </span>
             </div>
-            <?php if($our_printed_products_category) { ?>
+            <?php if ($our_printed_products_category) { ?>
               <div class="universal-row">
                   <div class="row justify-content-center">
                     <?php
@@ -15,7 +15,7 @@
                             $categoryImage=$categoryImages[$website_store_id];
                             $src=geCategoryImage($categoryImage['image']);
 
-                            if ($language_name == 'French'){
+                            if ($language_name == 'French') {
                                 $src=geCategoryImage($categoryImage['image_french']);
                             }
                       ?>
@@ -31,14 +31,14 @@
 
                                           <div class="single-service-content">
                                               <div class="universal-small-dark-title">
-                                                  <a href="<?php echo $BASE_URL;?>Products?category_id=<?php echo base64_encode($category['id'])?>">
-                                                    <img src="<?php echo $src; ?>">
+                                                  <a href="<?= $BASE_URL ?>Products?category_id=<?= base64_encode($category['id']) ?>">
+                                                    <img src="<?= $src ?>">
                                                     <span><?= ($language_name == 'French') ? ucfirst($category['name_french']) : ucfirst($category['name'])?>
                                         </span>
                                                   </a>
                                               </div>
                                               <!--<div class="universal-dark-info">-->
-                                              <!--    <span><?php echo $category['description']?></span>-->
+                                              <!--    <span><?= $category['description'] ?></span>-->
                                               <!--</div>-->
                                           </div>
                                       </div>
@@ -51,9 +51,9 @@
                   </div>
               </div>
                 <?php
-            }?>
+           } ?>
             <div class="universal-dark-info" style="text-align: center; margin: 0px;">
-                <a href="<?php echo $BASE_URL;?>Products"><button style="margin: 0px;" type="text" class="checkout-view">
+                <a href="<?= $BASE_URL ?>Products"><button style="margin: 0px;" type="text" class="checkout-view">
                 <?= ($language_name == 'French') ? 'Voir tout' : 'View All'?></button></a>
             </div>
         </div>

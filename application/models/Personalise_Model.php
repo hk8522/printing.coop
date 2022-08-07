@@ -13,7 +13,7 @@ Class Personalise_Model extends MY_Model {
 
         $paragraph=json_encode($data['paragraph']);
         $total_upload_image=$data['total_upload_image'];
-        //$newdata=array('product_Id'=>$productId,'text_field'=>$textfield,'paragraph'=>$paragraph,'image_upload'=>$total_upload_image,'color'=>$color);
+        //$newdata=array('product_Id' => $productId,'text_field' => $textfield,'paragraph' => $paragraph,'image_upload' => $total_upload_image,'color' => $color);
         //print_r($newdata);die;
 
         $id=isset($data['productId']) ? $data['productId']:'';
@@ -42,7 +42,7 @@ Class Personalise_Model extends MY_Model {
     public function getdatabyid($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('product_Id'=>$id));
+        $this->db->where(array('product_Id' => $id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;

@@ -1,7 +1,7 @@
 <link href="/assets/admin/css/product.css" rel="stylesheet" type="text/css">
 
-<script src="<?=$BASE_URL?>assets/js/vue-app.js" defer></script>
-<script src="<?=$BASE_URL?>assets/js/vue-app.js"></script>
+<script src="<?= $BASE_URL?>assets/js/vue-app.js" defer></script>
+<script src="<?= $BASE_URL?>assets/js/vue-app.js"></script>
 
 <div class="content-wrapper dd" style="min-height: 687px;">
     <section class="content">
@@ -35,12 +35,12 @@
                 })
                 .then(response => {
                     this.products = response.data;
-                    response.data.forEach(function(e, i) {
+                    response.data.foreach (function(e, i) {
                         console.log(e, i);
                     });
                 })
                 .catch(err => {
-                    Object.keys(err.response.data.errors).forEach(key => {
+                    Object.keys(err.response.data.errors).foreach (key => {
                         kendo.alert(err.response.data.errors[key]);
                     });
                 });
@@ -59,7 +59,7 @@
                 this.getProduct(token);
             })
             .catch(err => {
-                Object.keys(err.response.data.errors).forEach(key => {
+                Object.keys(err.response.data.errors).foreach (key => {
                     kendo.alert(err.response.data.errors[key]);
                 });
             });

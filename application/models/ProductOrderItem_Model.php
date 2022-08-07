@@ -82,9 +82,9 @@ Class ProductOrderItem extends MY_Model {
         $this->db->select(array('Product.*','Menu.name as menu_name','Category.name as category_name','SubCategory.name as sub_category_name'));
         $this->db->from($this->table.' as Product');
 
-        $this->db->where(array('Menu.status'=>1,'Category.status'=>1,'SubCategory.status'=>1));
+        $this->db->where(array('Menu.status' => 1,'Category.status' => 1,'SubCategory.status' => 1));
         if(!empty($id)){
-            $this->db->where(array('Menu.status'=>1,'Category.status'=>1,'SubCategory.status'=>1,'Product.id'=>$id));
+            $this->db->where(array('Menu.status' => 1,'Category.status' => 1,'SubCategory.status' => 1,'Product.id' => $id));
         }
         $this->db->join('menus as Menu', 'Menu.id=Product.menu_id', 'inner');
         $this->db->join('categories as Category', 'Category.id=Product.category_id', 'inner');
@@ -168,7 +168,7 @@ Class ProductOrderItem extends MY_Model {
     public function getProductOrderDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('id'=>$id));
+        $this->db->where(array('id' => $id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;

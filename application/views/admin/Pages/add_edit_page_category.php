@@ -6,17 +6,17 @@
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo $page_title?></span>
+                                <span><?= $page_title ?></span>
                             </div>
                         </div>
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-7">
                                     <div class="text-center" style="color:red">
-                                        <?php echo $this->session->flashdata('message_error');?>
+                                        <?= $this->session->flashdata('message_error') ?>
                                     </div>
-                                    <?php echo form_open('',array('class'=>'form-horizontal'));?>
-                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>">
+                                    <?= form_open('',array('class' => 'form-horizontal')) ?>
+                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>">
                                      <div class="form-role-area">
 
                                         <div class="control-group info">
@@ -26,8 +26,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Category Name" value="<?php echo isset($postData['name']) ? $postData['name']:'';?>" maxlength="50">
-                                                        <?php echo form_error('name');?>
+                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Category Name" value="<?= isset($postData['name']) ? $postData['name']:'' ?>" maxlength="50">
+                                                        <?= form_error('name') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -40,8 +40,8 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="category_order" id="category_order" type="number" placeholder="Category Order" value="<?php echo isset($postData['category_order']) ? $postData['category_order']:'';?>" maxlength="50">
-                                                        <?php echo form_error('category_order');?>
+                                                        <input class="form-control" name="category_order" id="category_order" type="number" placeholder="Category Order" value="<?= isset($postData['category_order']) ? $postData['category_order']:'' ?>" maxlength="50">
+                                                        <?= form_error('category_order') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -49,9 +49,9 @@
 
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success">Submit</button>
-                                            <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
+                                            <a href="<?= $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
                                         </div>
-                                         <?php echo form_close();?>
+                                         <?= form_close() ?>
                                      </div>
                                  </div>
                              </div>

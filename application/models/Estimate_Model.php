@@ -136,7 +136,7 @@ Class Estimate_Model extends MY_Model {
     public function getEstimateDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('id'=>$id));
+        $this->db->where(array('id' => $id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;

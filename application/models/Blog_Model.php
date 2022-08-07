@@ -39,11 +39,11 @@ Class Blog_Model extends MY_Model {
                 $this->db->from($this->table);
                 $this->db->join('blog_category as blog_category', 'blog_category.id=blogs.category_id', 'left');
                 if (!empty($status)){
-                    $this->db->where(array('blogs.status'=>1));
+                    $this->db->where(array('blogs.status' => 1));
                 }
 
                 if (!empty($id)){
-                    $this->db->where(array('blogs.id'=>$id));
+                    $this->db->where(array('blogs.id' => $id));
                 }
                 $this->db->order_by('blogs.created','desc');
                 $query = $this->db->get();
@@ -62,16 +62,16 @@ Class Blog_Model extends MY_Model {
                 $this->db->select('blogs.*,blog_category.category_name,blog_category.category_name_french');
                 $this->db->from($this->table);
 
-                $this->db->where(array('blogs.status'=>1));
+                $this->db->where(array('blogs.status' => 1));
                 if (!empty($category_id)){
                 $this->db->join('blog_category as blog_category', 'blog_category.id=blogs.category_id', 'left');
-                $this->db->where(array('blogs.category_id'=>$category_id));
+                $this->db->where(array('blogs.category_id' => $category_id));
                 }else{
                     $this->db->join('blog_category as blog_category', 'blog_category.id=blogs.category_id', 'left');
                 }
 
                 if (!empty($populer)){
-                   $this->db->where(array('blogs.populer'=>1));
+                   $this->db->where(array('blogs.populer' => 1));
                 }
 
                 if (!empty($search)){
@@ -99,7 +99,7 @@ Class Blog_Model extends MY_Model {
                 $this->db->select('blogs.*,blog_category.category_name,blog_category.category_name_french');
                 $this->db->from($this->table);
                 $this->db->join('blog_category as blog_category', 'blog_category.id=blogs.category_id', 'left');
-                $this->db->where(array('blogs.id'=>$id));
+                $this->db->where(array('blogs.id' => $id));
                 $this->db->order_by('blogs.created','desc');
                 $query = $this->db->get();
                 if (!empty($store_id)){
@@ -114,7 +114,7 @@ Class Blog_Model extends MY_Model {
         {
                 $this->db->select('*');
                 $this->db->from($this->table);
-                $this->db->where(array('status'=>1));
+                $this->db->where(array('status' => 1));
                 $this->db->order_by('created','desc');
                 $query = $this->db->get();
 
@@ -155,7 +155,7 @@ Class Blog_Model extends MY_Model {
         {
                 $this->db->select('*');
                 $this->db->from($this->table);
-                $this->db->where(array('id'=>$id));
+                $this->db->where(array('id' => $id));
                 return $this->db->get()->row_array();
         }
 
@@ -163,7 +163,7 @@ Class Blog_Model extends MY_Model {
         {
                 $this->db->select('*');
                 $this->db->from($this->table);
-                $this->db->where(array('status'=>1));
+                $this->db->where(array('status' => 1));
 
                 $this->db->order_by('created','desc');
 
@@ -199,7 +199,7 @@ Class Blog_Model extends MY_Model {
                 $this->db->select('blog_category.*');
                 $this->db->from('blog_category');
                 if($status==1){
-                    $this->db->where(array('blog_category.status'=>1));
+                    $this->db->where(array('blog_category.status' => 1));
                 }
                 if (!empty($store_id)){
                     $this->db->where("find_in_set($store_id, blog_category.store_id)");
@@ -214,14 +214,14 @@ Class Blog_Model extends MY_Model {
         {
                 $this->db->select('*');
                 $this->db->from('blog_category');
-                $this->db->where(array('id'=>$id));
+                $this->db->where(array('id' => $id));
                 return $this->db->get()->row_array();
         }
         public function getActiveBlogCategory()
         {
                 $this->db->select('*');
                 $this->db->from('blog_category');
-                $this->db->where(array('status'=>1));
+                $this->db->where(array('status' => 1));
                 $this->db->order_by('created','desc');
                 $query = $this->db->get();
 

@@ -6,17 +6,17 @@
                     <div class="box-body">
                         <div class="inner-head-section">
                             <div class="inner-title">
-                                <span><?php echo $page_title?></span>
+                                <span><?= $page_title ?></span>
                             </div>
                         </div>
                         <div class="inner-content-area">
                             <div class="row justify-content-center">
                                 <div class="col-md-12">
                                     <div class="text-center" style="color:red">
-                                        <?php echo $this->session->flashdata('message_error');?>
+                                        <?= $this->session->flashdata('message_error') ?>
                                     </div>
-                                    <?php echo form_open_multipart('',array('class'=>'form-horizontal'));?>
-                                     <input class="form-control" name="id" type="hidden"  value="<?php echo isset($postData['id']) ? $postData['id']:'';?>" id="id">
+                                    <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
+                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>" id="id">
                                      <div class="form-role-area">
                                         <div class="control-group info">
                                             <div class="row align-items-center">
@@ -25,8 +25,8 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Attribute Name" value='<?php echo isset($postData['name']) ? $postData['name']:'';?>'  required>
-                                                        <?php echo form_error('name');?>
+                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Attribute Name" value='<?= isset($postData['name']) ? $postData['name']:'' ?>'  required>
+                                                        <?= form_error('name') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -38,8 +38,8 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name_french" id="name_french" type="text" placeholder="French Attribute Name" value='<?php echo isset($postData['name_french']) ? $postData['name_french']:'';?>'  required>
-                                                        <?php echo form_error('name_french');?>
+                                                        <input class="form-control" name="name_french" id="name_french" type="text" placeholder="French Attribute Name" value='<?= isset($postData['name_french']) ? $postData['name_french']:'' ?>'  required>
+                                                        <?= form_error('name_french') ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -52,45 +52,45 @@
                                                 <div class="col-md-9">
                                                     <div class="controls file-data">
                                                         <?php
-                                                        if(!empty($productItemData)){
+                                                        if (!empty($productItemData)) {
                                                             $last=count($productItemData)-1;
 
-                                                            foreach($productItemData as $key=>$val){ //pr($val);?>
+                                                            foreach ($productItemData as $key => $val) { //pr($val);?>
                                                                 <div class="att-single">
                                                                     <div class="row">
                                                                         <div class="col-md-6">
                                                                               <label>Attribute Item Name</label>
-                                                                              <input class="form-control" name="attribute_item_name[]" id="attribute_item_name" type="text" placeholder="Attribute Item"  required value='<?php echo $val['item_name']?>'>
+                                                                              <input class="form-control" name="attribute_item_name[]" id="attribute_item_name" type="text" placeholder="Attribute Item"  required value='<?= $val['item_name'] ?>'>
                                                                           </div>
                                                                           <div class="col-md-6">
                                                                               <label>French Attribute Item Name</label>
-                                                                              <input class="form-control" name="item_name_french[]" id="item_name_french" type="text" placeholder="French Attribute Item"  required value='<?php echo $val['item_name_french']?>'>
-                                                                              <input class="form-control" name="attribute_item_id[]" id="attribute_item_id" type="hidden" maxlength="50" value="<?php echo $val['id']?>">
+                                                                              <input class="form-control" name="item_name_french[]" id="item_name_french" type="text" placeholder="French Attribute Item"  required value='<?= $val['item_name_french'] ?>'>
+                                                                              <input class="form-control" name="attribute_item_id[]" id="attribute_item_id" type="hidden" maxlength="50" value="<?= $val['id'] ?>">
                                                                           </div>
                                                                       </div>
                                                                     <div class="add-new-btn">
                                                                         <?php
                                                                         $displayplusnbtn='none';
                                                                            $displayminusbtn='';
-                                                                        if($last==0){
+                                                                        if ($last==0) {
                                                                             $displayplusnbtn='';
                                                                             $displayminusbtn='none';
-                                                                        }else if($last==$key){
+                                                                        } else if ($last==$key) {
                                                                            $displayplusnbtn='';
                                                                            $displayminusbtn='';
                                                                         }
                                                                         ?>
-                                                                        <button class="btn-danger btn-remove" type="button" title="remove" style="display:<?php echo $displayminusbtn;?>">
+                                                                        <button class="btn-danger btn-remove" type="button" title="remove" style="display:<?= $displayminusbtn ?>">
                                                                             <i class="fa fa-minus"></i>
                                                                         </button>
-                                                                        <button class="btn-success btn-add" type="button" style="display:<?php echo $displayplusnbtn;?>">
+                                                                        <button class="btn-success btn-add" type="button" style="display:<?= $displayplusnbtn ?>">
                                                                             <i class="fa fa-plus"></i>
                                                                         </button>
                                                                     </div>
                                                                 </div>
                                                             <?php
                                                           }
-                                                        }else{?>
+                                                        } else{?>
                                                         <div class="att-single">
                                                             <div class="row">
                                                                 <div class="col-md-6">
@@ -113,9 +113,9 @@
                                                             </div>
                                                         </div>
                                                         <?php
-                                                        }?>
+                                                       } ?>
                                                         <div style="color:red">
-                                                            <?php echo $this->session->flashdata('file_message_error');?>
+                                                            <?= $this->session->flashdata('file_message_error') ?>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -123,10 +123,10 @@
                                         </div>
                                         <div class="text-right">
                                             <button type="submit" class="btn btn-success" id="submitBtn" >Submit</button>
-                                            <a href="<?php echo $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
+                                            <a href="<?= $BASE_URL.$class_name.$main_page_url ?>" class="btn btn-success">Back</a>
                                         </div>
                                     </div>
-                                     <?php echo form_close();?>
+                                     <?= form_close() ?>
                                  </div>
                              </div>
                          </div>
@@ -138,8 +138,8 @@
  </div>
  <script>
 
-     $(function(){
-        $(document).on('click', '.btn-add', function(e){
+     $(function() {
+        $(document).on('click', '.btn-add', function(e) {
             e.preventDefault();
             var controlForm = $('.file-data:first'),
             currentEntry = $(this).parents('.att-single:first'),
@@ -157,11 +157,11 @@
             e.preventDefault();
             var numItems = $('.file-data .att-single').length;
 
-            if(numItems==1){
+            if (numItems==1) {
             var controlForm = $('.file-data .att-single').last();
             controlForm.find('.btn-remove').hide();
             controlForm.find('.btn-add').show();
-            }else{
+            } else{
                 var controlForm = $('.file-data .att-single').last();
                 controlForm.find('.btn-remove').show();
                 controlForm.find('.btn-add').show();

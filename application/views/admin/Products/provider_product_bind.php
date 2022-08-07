@@ -3,10 +3,10 @@
         <div class="col-xs-12 col-md-12">
             <div class="box">
                 <div class="box-header">
-                    <h2><?=$product->name?></h2>
+                    <h2><?= $product->name?></h2>
                     <?php
-                    if ($product->product_id) {?>
-                    <a class="provider-product-unlink" href="/admin/Products/ProviderProductUnbind/<?=$product->id?>" title="Unbind">
+                    if ($product->product_id) { ?>
+                    <a class="provider-product-unlink" href="/admin/Products/ProviderProductUnbind/<?= $product->id?>" title="Unbind">
                         <div class="action">
                             <svg class="bi b-icon" width="2em" height="2em" fill="currentColor">
                                 <use xlink:href="/assets/images/bootstrap-icons.svg#link-45deg"/>
@@ -25,7 +25,7 @@
 <div class="search-box-area">
     <div class="search-sugg">
         <label class="span2">Search</label>
-        <input class="form-control" type="text" placeholder="Search Product" value="<?=$product->product_name?>" onkeyup="searchProduct($(this).val())">
+        <input class="form-control" type="text" placeholder="Search Product" value="<?= $product->product_name?>" onkeyup="searchProduct($(this).val())">
         <!--<button type="button"><i class="fas fa-search"></i></button>-->
     </div>
     <div class="search-result" style="display:none"> <!-- Add "active" class to show -->
@@ -43,7 +43,7 @@
 </section>
 <script>
     $(document).ready(function() {
-        searchProduct('<?=$product->product_name?>');
+        searchProduct('<?= $product->product_name?>');
         $('.provider-product-unlink').click(function(e) {
             e.preventDefault();
             $('#loader-img').show();
@@ -80,7 +80,7 @@
                     $('#loader-img').hide();
                     var html = '<div>';
                     for (var i = 0; i < data.length; i++) {
-                        html += `<li><a class="k-link product-thumbs" onclick="bindProduct(<?=$id?>, ${data[i].id})"><img src="${data[i].product_image}" width=50><span></i>${data[i].name}</span></li></a>`;
+                        html += `<li><a class="k-link product-thumbs" onclick="bindProduct(<?= $id?>, ${data[i].id})"><img src="${data[i].product_image}" width=50><span></i>${data[i].name}</span></li></a>`;
                     }
                     html += '</div>';
                     $('.search-result ul').html(html);
@@ -104,7 +104,7 @@
         $('#loader-img').show();
         $.ajax({
             type: 'POST',
-            url: '/admin/Products/ProviderProductBind/<?=$id?>',
+            url: '/admin/Products/ProviderProductBind/<?= $id?>',
             headers: { Accept: 'application/json; charset=utf-8' },
             data: { product_id: product_id },
             success: function(data)

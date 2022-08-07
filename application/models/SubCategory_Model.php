@@ -33,7 +33,7 @@ Class SubCategory_Model extends MY_Model {
     public function getSubCategoryDataById($id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('id'=>$id));
+        $this->db->where(array('id' => $id));
         $query = $this->db->get();
         $data=(array)$query->row();
         return $data;
@@ -69,7 +69,7 @@ Class SubCategory_Model extends MY_Model {
         $lists=array();
         if(!empty($menu_id) && !empty($category_id)){
             $this->db->select(array('id','name'));
-            $this->db->where(array('status'=>'1','menu_id'=>$menu_id,'category_id'=>$category_id));
+            $this->db->where(array('status' => '1','menu_id' => $menu_id,'category_id' => $category_id));
             $this->db->from($this->table);
             $this->db->order_by('sub_category_order','asc');
             $query = $this->db->get();

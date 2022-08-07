@@ -92,17 +92,17 @@ class PrepareShipmentTests extends TestCase{
 
     public function testGetSenderDetails(){
         $expected = [
-            "name"=> "ACME inc",
-            "attn"=> "Bob",
-            "address"=> "123 Main Street",
-            "suite"=> "227",
-            "department"=> "Reception",
-            "city"=> "Roxboro",
-            "country"=> "CA",
-            "state"=> "QC",
-            "postal_code"=> "H8Y 2T3",
-            "phone"=> "18663208383",
-            "phone_ext"=> null
+            "name" => "ACME inc",
+            "attn" => "Bob",
+            "address" => "123 Main Street",
+            "suite" => "227",
+            "department" => "Reception",
+            "city" => "Roxboro",
+            "country" => "CA",
+            "state" => "QC",
+            "postal_code" => "H8Y 2T3",
+            "phone" => "18663208383",
+            "phone_ext" => null
         ];
         $this->assertNotNull($this->preparedShipment->getSenderDetails());
         $this->assertNotEmpty($this->preparedShipment->getSenderDetails());
@@ -175,18 +175,18 @@ class PrepareShipmentTests extends TestCase{
 
     public function testGetReceiverDetails(){
         $expected = [
-            "name"=> "ACME inc",
-            "attn"=> "Bob",
-            "address"=> "123 Main Street",
-            "suite"=> "148",
-            "department"=> "Reception",
-            "is_commercial"=> true,
-            "city"=> "Pointe-Claire",
-            "country"=> "CA",
-            "state"=> "QC",
-            "postal_code"=> "H9R 5P9",
-            "phone"=> "18663208383",
-            "phone_ext"=> null
+            "name" => "ACME inc",
+            "attn" => "Bob",
+            "address" => "123 Main Street",
+            "suite" => "148",
+            "department" => "Reception",
+            "is_commercial" => true,
+            "city" => "Pointe-Claire",
+            "country" => "CA",
+            "state" => "QC",
+            "postal_code" => "H9R 5P9",
+            "phone" => "18663208383",
+            "phone_ext" => null
         ];
         $this->assertNotEmpty($this->preparedShipment->getReceiverDetails());
         $this->assertNotNull($this->preparedShipment->getReceiverDetails());

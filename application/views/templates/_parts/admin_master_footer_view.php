@@ -1,5 +1,5 @@
 <footer class="main-footer text-center">
-    <strong>&copy; <?php echo date('Y')?> Printingcoop</strong>
+    <strong>&copy; <?= date('Y') ?> Printingcoop</strong>
 </footer>
 <div class='control-sidebar-bg'></div>
 </div>
@@ -99,36 +99,36 @@
             </div>
         </div>
     </div>
-    <script src="<?php echo $BASE_URL;?>assets/admin/js/bootstrap.js" type="text/javascript"></script>
-    <script src="<?php echo $BASE_URL;?>assets/admin/js/bootstrap-select.js" type="text/javascript"></script>
-    <script src="<?php echo $BASE_URL;?>assets/admin/js/chart.js" type="text/javascript"></script>
-    <script src="<?php echo $BASE_URL;?>assets/admin/js/app.js" type="text/javascript"></script>
-    <script src="<?php echo $BASE_URL;?>assets/admin/js/jquery.js" type="text/javascript"></script>
-    <!-- <script src="<?php echo $BASE_URL;?>assets/admin/js/font-awesome.js" type="text/javascript"></script> -->
+    <script src="<?= $BASE_URL ?>assets/admin/js/bootstrap.js" type="text/javascript"></script>
+    <script src="<?= $BASE_URL ?>assets/admin/js/bootstrap-select.js" type="text/javascript"></script>
+    <script src="<?= $BASE_URL ?>assets/admin/js/chart.js" type="text/javascript"></script>
+    <script src="<?= $BASE_URL ?>assets/admin/js/app.js" type="text/javascript"></script>
+    <script src="<?= $BASE_URL ?>assets/admin/js/jquery.js" type="text/javascript"></script>
+    <!-- <script src="<?= $BASE_URL ?>assets/admin/js/font-awesome.js" type="text/javascript"></script> -->
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
     </script>
 
-    <script src="<?php echo $BASE_URL;?>assets/administration/fineuploader/jquery.fineuploader-4.2.2.min.js"></script>
-    <script src="<?php echo $BASE_URL;?>assets/administration/bootstrap/js/popper.min.js"></script>
-    <script src="<?php echo $BASE_URL;?>assets/administration/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<?php echo $BASE_URL;?>assets/administration/build/js/smartresize.js"></script>
-    <script src="<?php echo $BASE_URL;?>assets/administration/build/js/custom.js"></script>
-    <script src="<?php echo $BASE_URL;?>assets/administration/summernote/summernote.min.js"></script>
-    <script src="<?php echo $BASE_URL;?>assets/administration/elfinder/js/elfinder.min.js"></script>
-    <script src="<?php echo $BASE_URL;?>assets/administration/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="<?php echo $BASE_URL;?>assets/administration/jquery.tmpl.min.js"></script>
+    <script src="<?= $BASE_URL ?>assets/administration/fineuploader/jquery.fineuploader-4.2.2.min.js"></script>
+    <script src="<?= $BASE_URL ?>assets/administration/bootstrap/js/popper.min.js"></script>
+    <script src="<?= $BASE_URL ?>assets/administration/bootstrap/js/bootstrap.min.js"></script>
+    <script src="<?= $BASE_URL ?>assets/administration/build/js/smartresize.js"></script>
+    <script src="<?= $BASE_URL ?>assets/administration/build/js/custom.js"></script>
+    <script src="<?= $BASE_URL ?>assets/administration/summernote/summernote.min.js"></script>
+    <script src="<?= $BASE_URL ?>assets/administration/elfinder/js/elfinder.min.js"></script>
+    <script src="<?= $BASE_URL ?>assets/administration/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="<?= $BASE_URL ?>assets/administration/jquery.tmpl.min.js"></script>
 
-    <script src="<?php echo $BASE_URL;?>assets/js/kendo-util.js"></script>
+    <script src="<?= $BASE_URL ?>assets/js/kendo-util.js"></script>
 
 <script>
-$(document).ready(function(){
-    $("#a1").click(function(){
+$(document).ready(function() {
+    $("#a1").click(function() {
         $(".p-field").show();
     });
-    $("#a2").click(function(){
+    $("#a2").click(function() {
         $(".p-field").hide();
     });
-    $("#single").click(function(){
+    $("#single").click(function() {
         $(".single").toggle();
     });
 
@@ -147,12 +147,12 @@ $(document).ready(function(){
             .trigger('propertychange').focus();
     });
 });
-function showpersonale(id){
+function showpersonale(id) {
  // alert(id);
   $.ajax({
             type: 'POST',
             dataType: 'html',
-            url: '<?php echo $BASE_URL ?>admin/Orders/personaliseDetail',
+            url: '<?= $BASE_URL ?>admin/Orders/personaliseDetail',
             data: {id:id},
             dataType:'json',
             success: function (data) {
@@ -162,6 +162,6 @@ function showpersonale(id){
             });
 }
 </script>
-<?php echo $before_body;?>
+<?= $before_body ?>
   </body>
 </html>

@@ -6,7 +6,7 @@ Class ProductImage_Model extends MY_Model {
     public function getProductImageDataByProductId($product_id) {
         $this->db->select('*');
         $this->db->from($this->table);
-        $this->db->where(array('product_id'=>$product_id));
+        $this->db->where(array('product_id' => $product_id));
         $query = $this->db->get();
         $data=(array)$query->result_array();
         return $data;

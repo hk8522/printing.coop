@@ -54,6 +54,6 @@ Class Section_Model extends MY_Model {
 
   public function getSectionById($id)
   {
-      return $this->db->select('*')->from($this->table)->where(array('id'=>$id, 'status'=> 1))->get()->row_array();
+      return $this->db->select('*')->from($this->table)->where(array('id' => $id, 'status' => 1))->get()->row_array();
   }
 }
