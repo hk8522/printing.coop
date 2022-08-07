@@ -2988,6 +2988,8 @@ class Product_Model extends MY_Model
 
     public function getFullPrice($product_id, $quantity_id, $size_id, $attributes)
     {
+        if (empty($attributes))
+            return 0;
         $this->db->select('price');
         $this->db->from('product_full_prices');
         $this->db->where('product_id', $product_id);

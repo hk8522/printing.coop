@@ -497,6 +497,8 @@ class Products extends Public_Controller
             $price += $this->Product_Model->getSumExtraPriceOfQuantitySize($product_id, $quantity_id, $size_id);
             $price += $this->Product_Model->getSumExtraPriceOfMultipleAttributes($product_id, $quantity_id, $size_id, $multiple_attributes);
 
+            $Product = $this->Product_Model->getProductList($product_id);
+
             if (!empty($add_length_width)) {
                 $product_length = $this->input->post('product_length');
                 $product_width = $this->input->post('product_width');
@@ -504,7 +506,6 @@ class Products extends Public_Controller
                 $length_width_quantity_show = $this->input->post('length_width_quantity_show');
                 $length_width_color = $this->input->post('length_width_color');
 
-                $Product = $this->Product_Model->getProductList($product_id);
                 $min_length = $Product['min_length'];
                 $max_length = $Product['max_length'];
                 $min_width = $Product['min_width'];
@@ -602,7 +603,6 @@ class Products extends Public_Controller
                 $depth_width_length_quantity_show = $this->input->post('depth_width_length_quantity_show');
                 $depth_color = $this->input->post('depth_color');
 
-                $Product = $this->Product_Model->getProductList($product_id);
                 $min_depth = $Product['min_depth'];
                 $max_depth = $Product['max_depth'];
                 $depth_min_length = $Product['depth_min_length'];
@@ -726,7 +726,6 @@ class Products extends Public_Controller
 
                 $page_length_width_color = $this->input->post('page_length_width_color');
 
-                $Product = $this->Product_Model->getProductList($product_id);
                 $page_min_length = $Product['page_min_length'];
                 $page_max_length = $Product['page_max_length'];
                 $page_min_width = $Product['page_min_width'];
