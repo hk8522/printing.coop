@@ -1,14 +1,14 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Banners extends Admin_Controller
 {
     public $class_name = '';
 
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
-        $this->class_name         = 'admin/' . ucfirst(strtolower($this->router->fetch_class())) . '/';
+        $this->class_name = 'admin/' . ucfirst(strtolower($this->router->fetch_class())) . '/';
         $this->data['class_name'] = $this->class_name;
     }
 
@@ -16,16 +16,16 @@ class Banners extends Admin_Controller
     {
         $this->load->model('Banner_Model');
         $this->load->model('Store_Model');
-        $this->data['page_title']                   = 'Banners';
-        $this->data['sub_page_title']               = 'Add New Banner';
-        $this->data['sub_page_url']                 = 'addEditBanner';
-        $this->data['sub_page_view_url']            = 'viewBanner';
-        $this->data['sub_page_delete_url']          = 'deleteBanner';
+        $this->data['page_title'] = 'Banners';
+        $this->data['sub_page_title'] = 'Add New Banner';
+        $this->data['sub_page_url'] = 'addEditBanner';
+        $this->data['sub_page_view_url'] = 'viewBanner';
+        $this->data['sub_page_delete_url'] = 'deleteBanner';
         $this->data['sub_page_url_active_inactive'] = 'activeInactiveBanner';
-        $lists                                      = $this->Banner_Model->getBannerList();
-        $MainStoreList=$this->Store_Model->MainStoreList();
-        $this->data['MainStoreList']=$MainStoreList;
-        $this->data['lists']                        = $lists;
+        $lists = $this->Banner_Model->getBannerList();
+        $MainStoreList = $this->Store_Model->MainStoreList();
+        $this->data['MainStoreList'] = $MainStoreList;
+        $this->data['lists'] = $lists;
         $this->render($this->class_name . 'index');
     }
 
@@ -42,8 +42,8 @@ class Banners extends Admin_Controller
         $this->load->model('Menu_Model');
         $this->load->model('Banner_Model');
         $this->load->model('Store_Model');
-        $MainStoreList=$this->Store_Model->MainStoreList();
-        $this->data['MainStoreList']=$MainStoreList;
+        $MainStoreList = $this->Store_Model->MainStoreList();
+        $this->data['MainStoreList'] = $MainStoreList;
         $postData = array();
         if ($id) {
             $postData = $this->Banner_Model->getBannerDataById($id);
@@ -59,33 +59,33 @@ class Banners extends Admin_Controller
                 $postData['id'] = $this->input->post('id');
             }
 
-            $postData['name']              = $this->input->post('name');
+            $postData['name'] = $this->input->post('name');
             $postData['short_description'] = $this->input->post('short_description');
-            $postData['full_description']  = $this->input->post('full_description');
+            $postData['full_description'] = $this->input->post('full_description');
 
-           $postData['name_french']          = $this->input->post('name_french');
+            $postData['name_french'] = $this->input->post('name_french');
             $postData['short_description_french'] = $this->input->post('short_description_french');
-            $postData['full_description_french']  = $this->input->post('full_description_french');
+            $postData['full_description_french'] = $this->input->post('full_description_french');
 
-            $postData['main_store_id']=$this->input->post('main_store_id');
+            $postData['main_store_id'] = $this->input->post('main_store_id');
 
-            if ($this->form_validation->run() === TRUE) {
-                $saveData   = true;
-                $Filename   = $_FILES['files']['name'];
-                $FileNamefrench   = $_FILES['files_french']['name'];
+            if ($this->form_validation->run() === true) {
+                $saveData = true;
+                $Filename = $_FILES['files']['name'];
+                $FileNamefrench = $_FILES['files_french']['name'];
                 $uploadData = array();
                 $uploadDatafrench = array();
 
                 if (!empty($Filename)) {
-                    $_FILES['file']['name']     = $_FILES['files']['name'];
-                    $_FILES['file']['type']     = $_FILES['files']['type'];
+                    $_FILES['file']['name'] = $_FILES['files']['name'];
+                    $_FILES['file']['type'] = $_FILES['files']['type'];
                     $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'];
-                    $_FILES['file']['error']    = $_FILES['files']['error'];
-                    $_FILES['file']['size']     = $_FILES['files']['size'];
+                    $_FILES['file']['error'] = $_FILES['files']['error'];
+                    $_FILES['file']['size'] = $_FILES['files']['size'];
 
-                    $config['upload_path']   = BANNER_IMAGE_BASE_PATH;
+                    $config['upload_path'] = BANNER_IMAGE_BASE_PATH;
                     $config['allowed_types'] = FILE_ALLOWED_TYPES;
-                    $config['max_size']      = FILE_MAX_SIZE;
+                    $config['max_size'] = FILE_MAX_SIZE;
 
                     $this->load->library('upload', $config);
                     $this->upload->initialize($config);
@@ -99,16 +99,16 @@ class Banners extends Admin_Controller
                         $this->session->set_flashdata('file_message_error', 'maximum banner image size allowed on only 1Mb');
                         $saveData = false;
                     }
-                } else if(!empty($FileNamefrench)){
-                    $_FILES['file']['name']     = $_FILES['files_french']['name'];
-                    $_FILES['file']['type']     = $_FILES['files_french']['type'];
+                } else if (!empty($FileNamefrench)) {
+                    $_FILES['file']['name'] = $_FILES['files_french']['name'];
+                    $_FILES['file']['type'] = $_FILES['files_french']['type'];
                     $_FILES['file']['tmp_name'] = $_FILES['files_french']['tmp_name'];
-                    $_FILES['file']['error']    = $_FILES['files_french']['error'];
-                    $_FILES['file']['size']     = $_FILES['files_french']['size'];
+                    $_FILES['file']['error'] = $_FILES['files_french']['error'];
+                    $_FILES['file']['size'] = $_FILES['files_french']['size'];
 
-                    $config['upload_path']   = BANNER_IMAGE_BASE_PATH;
+                    $config['upload_path'] = BANNER_IMAGE_BASE_PATH;
                     $config['allowed_types'] = FILE_ALLOWED_TYPES;
-                    $config['max_size']      = FILE_MAX_SIZE;
+                    $config['max_size'] = FILE_MAX_SIZE;
 
                     $this->load->library('upload', $config);
                     $this->upload->initialize($config);
@@ -122,7 +122,7 @@ class Banners extends Admin_Controller
                         $this->session->set_flashdata('file_message_error_french', 'maximum banner image size allowed on only 1Mb');
                         $saveData = false;
                     }
-                }else {
+                } else {
                     if (empty($id)) {
                         $this->session->set_flashdata('file_message_error', 'Select  images of banner');
                         $saveData = false;
@@ -130,11 +130,11 @@ class Banners extends Admin_Controller
                 }
 
                 if ($saveData) {
-                    $old_image_french= !empty($this->input->post('old_image_french')) ?
+                    $old_image_french = !empty($this->input->post('old_image_french')) ?
                     $this->input->post('old_image_french') : '';
 
-                    if(!empty($FileNamefrench)){
-                        $postData['banner_image_french']=$uploadDatafrench['file_name'];
+                    if (!empty($FileNamefrench)) {
+                        $postData['banner_image_french'] = $uploadDatafrench['file_name'];
                     }
 
                     $old_image = !empty($this->input->post('old_image')) ? $this->input->post('old_image') : '';
@@ -148,18 +148,18 @@ class Banners extends Admin_Controller
                     if ($insert_id > 0) {
                         $this->session->set_flashdata('message_success', $page_title . ' Successfully.');
                         /*if (!empty($Filename) && !empty($old_image)) {
-                            $imageName = $old_image;
+                        $imageName = $old_image;
 
-                            if (file_exists(BANNER_IMAGE_SMALL_BASE_PATH . $imageName))
-                                unlink(BANNER_IMAGE_SMALL_BASE_PATH . $imageName);
-                            if (file_exists(BANNER_IMAGE_MEDIUM_BASE_PATH . $imageName))
-                                unlink(BANNER_IMAGE_MEDIUM_BASE_PATH . $imageName);
+                        if (file_exists(BANNER_IMAGE_SMALL_BASE_PATH . $imageName))
+                        unlink(BANNER_IMAGE_SMALL_BASE_PATH . $imageName);
+                        if (file_exists(BANNER_IMAGE_MEDIUM_BASE_PATH . $imageName))
+                        unlink(BANNER_IMAGE_MEDIUM_BASE_PATH . $imageName);
 
-                            if (file_exists(BANNER_IMAGE_LARGE_BASE_PATH . $imageName))
-                                unlink(BANNER_IMAGE_LARGE_BASE_PATH . $imageName);
+                        if (file_exists(BANNER_IMAGE_LARGE_BASE_PATH . $imageName))
+                        unlink(BANNER_IMAGE_LARGE_BASE_PATH . $imageName);
 
-                            if (file_exists(BANNER_IMAGE_BASE_PATH . $imageName))
-                                unlink(BANNER_IMAGE_BASE_PATH . $imageName);
+                        if (file_exists(BANNER_IMAGE_BASE_PATH . $imageName))
+                        unlink(BANNER_IMAGE_BASE_PATH . $imageName);
                         }*/
                         redirect('admin/Banners');
                     } else {
@@ -179,19 +179,25 @@ class Banners extends Admin_Controller
         if (!empty($id)) {
             $page_title = 'Banner Delete';
             $this->load->model('Banner_Model');
-            $data      = $this->Banner_Model->getBannerDataById($id);
+            $data = $this->Banner_Model->getBannerDataById($id);
             $imageName = $data['banner_image'];
             if ($this->Banner_Model->deleteBanner($id)) {
-                if (file_exists(BANNER_IMAGE_SMALL_BASE_PATH . $imageName))
+                if (file_exists(BANNER_IMAGE_SMALL_BASE_PATH . $imageName)) {
                     unlink(BANNER_IMAGE_SMALL_BASE_PATH . $imageName);
-                if (file_exists(BANNER_IMAGE_MEDIUM_BASE_PATH . $imageName))
+                }
+
+                if (file_exists(BANNER_IMAGE_MEDIUM_BASE_PATH . $imageName)) {
                     unlink(BANNER_IMAGE_MEDIUM_BASE_PATH . $imageName);
+                }
 
-                if (file_exists(BANNER_IMAGE_LARGE_BASE_PATH . $imageName))
+                if (file_exists(BANNER_IMAGE_LARGE_BASE_PATH . $imageName)) {
                     unlink(BANNER_IMAGE_LARGE_BASE_PATH . $imageName);
+                }
 
-                if (file_exists(BANNER_IMAGE_BASE_PATH . $imageName))
+                if (file_exists(BANNER_IMAGE_BASE_PATH . $imageName)) {
                     unlink(BANNER_IMAGE_BASE_PATH . $imageName);
+                }
+
                 $this->session->set_flashdata('message_success', $page_title . ' Successfully.');
             } else {
                 $this->session->set_flashdata('message_error', $page_title . ' Unsuccessfully.');
@@ -206,9 +212,9 @@ class Banners extends Admin_Controller
     public function activeInactiveBanner($id = null, $status = null)
     {
         if (!empty($id) && ($status == 1 || $status == 0)) {
-            $postData['id']     = $id;
+            $postData['id'] = $id;
             $postData['status'] = $status;
-            $page_title         = 'Banner Active';
+            $page_title = 'Banner Active';
             $this->load->model('Banner_Model');
             if ($status == 0) {
                 $page_title = 'Banner Inactive';
@@ -241,24 +247,24 @@ class Banners extends Admin_Controller
         }
 
         if ($type == 'medium') {
-            $width  = 400;
+            $width = 400;
             $height = 390;
         } else if ($type == 'large') {
-            $width  = $widthlarge;
+            $width = $widthlarge;
             $height = $heightlarge;
         } else {
-            $width  = 200;
+            $width = 200;
             $height = 200;
         }
         $config_manip = array(
             'image_library' => 'gd2',
             'source_image' => $source_path,
             'new_image' => $target_path,
-            'maintain_ratio' => FALSE,
-            'create_thumb' => TRUE,
-            'thumb_marker' => FALSE,
+            'maintain_ratio' => false,
+            'create_thumb' => true,
+            'thumb_marker' => false,
             'width' => $width,
-            'height' => $height
+            'height' => $height,
         );
         //pr($config_manip);
         $this->load->library('image_lib');

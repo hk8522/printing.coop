@@ -1,5 +1,5 @@
 <footer class="main-footer text-center">
-    <strong>&copy; <?= date('Y') ?> Printingcoop</strong>
+    <strong>&copy; <?=date('Y')?> Printingcoop</strong>
 </footer>
 <div class='control-sidebar-bg'></div>
 </div>
@@ -15,7 +15,8 @@
     </div>
 </div>
 
-<div class="cart-modal modal fade view-details-modal" id="personalisemodal" tabindex="-1" role="dialog" aria-labelledby="cartmodalTitle" aria-hidden="true">
+<div class="cart-modal modal fade view-details-modal" id="personalisemodal" tabindex="-1" role="dialog"
+    aria-labelledby="cartmodalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-body">
@@ -27,7 +28,7 @@
                         <div class="col-md-6">
                             <div class="product-img product-image-zoom single-image zoom-available">
                                 <div class="product-image-gallery">
-                                    <img id="zoom_05" src="" data-zoom-image=""/>
+                                    <img id="zoom_05" src="" data-zoom-image="" />
                                 </div>
                             </div>
                         </div>
@@ -79,14 +80,14 @@
                                                             <div class="personalised-single-upload-area">
                                                                 <div class="personalised-action-img">
                                                                     <span><i class="fas fa-plus"></i></span>
-                                                                    <img  class="personalised-display-img" src="">
+                                                                    <img class="personalised-display-img" src="">
                                                                 </div>
                                                             </div>
-                                                            <div class="personalised-image-num"><span>Photo </span></div>
+                                                            <div class="personalised-image-num"><span>Photo </span>
                                                             </div>
                                                         </div>
-                                                        <!-- end -->
                                                     </div>
+                                                    <!-- end -->
                                                 </div>
                                             </div>
                                         </div>
@@ -99,26 +100,27 @@
             </div>
         </div>
     </div>
-    <script src="<?= $BASE_URL ?>assets/admin/js/bootstrap.js" type="text/javascript"></script>
-    <script src="<?= $BASE_URL ?>assets/admin/js/bootstrap-select.js" type="text/javascript"></script>
-    <script src="<?= $BASE_URL ?>assets/admin/js/chart.js" type="text/javascript"></script>
-    <script src="<?= $BASE_URL ?>assets/admin/js/app.js" type="text/javascript"></script>
-    <script src="<?= $BASE_URL ?>assets/admin/js/jquery.js" type="text/javascript"></script>
-    <!-- <script src="<?= $BASE_URL ?>assets/admin/js/font-awesome.js" type="text/javascript"></script> -->
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
-    </script>
+</div>
+<script src="<?=$BASE_URL?>assets/admin/js/bootstrap.js" type="text/javascript"></script>
+<script src="<?=$BASE_URL?>assets/admin/js/bootstrap-select.js" type="text/javascript"></script>
+<script src="<?=$BASE_URL?>assets/admin/js/chart.js" type="text/javascript"></script>
+<script src="<?=$BASE_URL?>assets/admin/js/app.js" type="text/javascript"></script>
+<script src="<?=$BASE_URL?>assets/admin/js/jquery.js" type="text/javascript"></script>
+<!-- <script src="<?=$BASE_URL?>assets/admin/js/font-awesome.js" type="text/javascript"></script> -->
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js">
+</script>
 
-    <script src="<?= $BASE_URL ?>assets/administration/fineuploader/jquery.fineuploader-4.2.2.min.js"></script>
-    <script src="<?= $BASE_URL ?>assets/administration/bootstrap/js/popper.min.js"></script>
-    <script src="<?= $BASE_URL ?>assets/administration/bootstrap/js/bootstrap.min.js"></script>
-    <script src="<?= $BASE_URL ?>assets/administration/build/js/smartresize.js"></script>
-    <script src="<?= $BASE_URL ?>assets/administration/build/js/custom.js"></script>
-    <script src="<?= $BASE_URL ?>assets/administration/summernote/summernote.min.js"></script>
-    <script src="<?= $BASE_URL ?>assets/administration/elfinder/js/elfinder.min.js"></script>
-    <script src="<?= $BASE_URL ?>assets/administration/magnific-popup/jquery.magnific-popup.min.js"></script>
-    <script src="<?= $BASE_URL ?>assets/administration/jquery.tmpl.min.js"></script>
+<script src="<?=$BASE_URL?>assets/administration/fineuploader/jquery.fineuploader-4.2.2.min.js"></script>
+<script src="<?=$BASE_URL?>assets/administration/bootstrap/js/popper.min.js"></script>
+<script src="<?=$BASE_URL?>assets/administration/bootstrap/js/bootstrap.min.js"></script>
+<script src="<?=$BASE_URL?>assets/administration/build/js/smartresize.js"></script>
+<script src="<?=$BASE_URL?>assets/administration/build/js/custom.js"></script>
+<script src="<?=$BASE_URL?>assets/administration/summernote/summernote.min.js"></script>
+<script src="<?=$BASE_URL?>assets/administration/elfinder/js/elfinder.min.js"></script>
+<script src="<?=$BASE_URL?>assets/administration/magnific-popup/jquery.magnific-popup.min.js"></script>
+<script src="<?=$BASE_URL?>assets/administration/jquery.tmpl.min.js"></script>
 
-    <script src="<?= $BASE_URL ?>assets/js/kendo-util.js"></script>
+<script src="<?=$BASE_URL?>assets/js/kendo-util.js"></script>
 
 <script>
 $(document).ready(function() {
@@ -133,7 +135,7 @@ $(document).ready(function() {
     });
 
     if ($("#example1").length) {
-      $('#example1').DataTable();
+        $('#example1').DataTable();
     }
 
     $('.has-clear input[type="text"]').on('input propertychange', function() {
@@ -147,21 +149,25 @@ $(document).ready(function() {
             .trigger('propertychange').focus();
     });
 });
+
 function showpersonale(id) {
- // alert(id);
-  $.ajax({
-            type: 'POST',
-            dataType: 'html',
-            url: '<?= $BASE_URL ?>admin/Orders/personaliseDetail',
-            data: {id:id},
-            dataType:'json',
-            success: function (data) {
-             console.log(JSON.parse(data.personaliseDetail));
-                $('#personalisemodal').modal('show');
-            }
-            });
+    // alert(id);
+    $.ajax({
+        type: 'POST',
+        dataType: 'html',
+        url: '<?=$BASE_URL?>admin/Orders/personaliseDetail',
+        data: {
+            id: id
+        },
+        dataType: 'json',
+        success: function(data) {
+            console.log(JSON.parse(data.personaliseDetail));
+            $('#personalisemodal').modal('show');
+        }
+    });
 }
 </script>
-<?= $before_body ?>
-  </body>
+<?=$before_body?>
+</body>
+
 </html>

@@ -1,25 +1,22 @@
 <?php
 
-require_once(APPPATH . 'common/OrderStatus.php');
-require_once(APPPATH . 'common/PaymentStatus.php');
-require_once(APPPATH . 'common/ProviderOptionType.php');
+require_once APPPATH . 'common/OrderStatus.php';
+require_once APPPATH . 'common/PaymentStatus.php';
+require_once APPPATH . 'common/ProviderOptionType.php';
 
-use App\Common\OrderStatus;
-use App\Common\PaymentStatus;
-use App\Common\ProviderOptionType;
-
-Class ProductOrder_Model extends MY_Model {
+class ProductOrder_Model extends MY_Model
+{
     public $table = 'product_orders';
     public $config = array(
-         array(
+        array(
             'field' => 'name',
             'label' => 'name',
             'rules' => 'required|max_length[50]',
             'errors' => array(
                 'required' => 'Enter customer name',
             ),
-         ),
-         array(
+        ),
+        array(
             'field' => 'mobile',
             'label' => 'mobile',
             'rules' => 'required',
@@ -102,7 +99,8 @@ Class ProductOrder_Model extends MY_Model {
         ),
     );
 
-    public function getProductOrderList($user_id = null) {
+    public function getProductOrderList($user_id = null)
+    {
         $Orderdata = array();
         $this->db->select('*');
         $this->db->where(array('user_id' => $user_id, 'user_delete' => 1));
@@ -112,9 +110,9 @@ Class ProductOrder_Model extends MY_Model {
         $this->db->order_by('updated', 'desc');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
-            $data = (array)$query->result_array();
+            $data = (array) $query->result_array();
 
-            foreach($data as $key => $val) {
+            foreach ($data as $key => $val) {
                 $id = $val['id'];
                 $OrderItem = array();
                 $OrderItem = $this->getProductOrderItemDataById($id);
@@ -125,7 +123,8 @@ Class ProductOrder_Model extends MY_Model {
         return $Orderdata;
     }
 
-    public function getOrderList($status = null, $user_id = null, $fromDate = null, $toDate = null) {
+    public function getOrderList($status = null, $user_id = null, $fromDate = null, $toDate = null)
+    {
         $Orderdata = array();
         $this->db->select('*');
         $where = array('admin_delete' => 1);
@@ -134,11 +133,11 @@ Class ProductOrder_Model extends MY_Model {
         }
 
         if (!empty($fromDate)) {
-           $this->db->where('order_date >=', $fromDate);
+            $this->db->where('order_date >=', $fromDate);
         }
 
         if (!empty($toDate)) {
-           $this->db->where('order_date <=', $toDate);
+            $this->db->where('order_date <=', $toDate);
         }
 
         $this->db->where($where);
@@ -160,16 +159,15 @@ Class ProductOrder_Model extends MY_Model {
             $this->db->where_in('status', array(7));
         } else if (strtolower($status) == 'ready-for-pickup') {
             $this->db->where_in('status', array(9));
-        }
-        else {
-             $this->db->where_in('status', array(2, 3, 4, 5, 6, 7, 9));
+        } else {
+            $this->db->where_in('status', array(2, 3, 4, 5, 6, 7, 9));
         }
 
         $this->db->from($this->table);
         $this->db->order_by('updated', 'desc');
         $query = $this->db->get();
         if ($query->num_rows() > 0) {
-            $data = (array)$query->result_array();
+            $data = (array) $query->result_array();
             foreach ($data as $key => $val) {
                 $id = $val['id'];
                 $OrderItem = array();
@@ -180,7 +178,8 @@ Class ProductOrder_Model extends MY_Model {
         }
         return $Orderdata;
     }
-    public function getOrdersByStatus($status = null) {
+    public function getOrdersByStatus($status = null)
+    {
         $Orderdata = array();
         $this->db->select('*');
         $where = array('admin_delete' => 1);
@@ -195,25 +194,28 @@ Class ProductOrder_Model extends MY_Model {
         return $data;
     }
 
-    public function personaliseDetail($id) {
-         $this->db->select('*');
+    public function personaliseDetail($id)
+    {
+        $this->db->select('*');
         $this->db->from('product_personalise_by_user');
         $this->db->where(array('id' => $id));
         $query = $this->db->get();
-        $data = (array)$query->row();
+        $data = (array) $query->row();
         return $data;
     }
 
-    public function getProductOrderDataById($id) {
+    public function getProductOrderDataById($id)
+    {
         $this->db->select('*');
         $this->db->from($this->table);
         $this->db->where(array('id' => $id));
         $query = $this->db->get();
-        $data = (array)$query->row();
+        $data = (array) $query->row();
         return $data;
     }
 
-    public function getProductOrderItemDataById($order_id) {
+    public function getProductOrderItemDataById($order_id)
+    {
         $this->db->select('product_order_items.*, provider_products.provider_product_id');
         $this->db->where('product_order_items.order_id', $order_id);
         $this->db->from('product_order_items');
@@ -222,12 +224,13 @@ Class ProductOrder_Model extends MY_Model {
         return $query->result_array();
     }
 
-    public function deleteProductOrder($id, $type = 1) {
+    public function deleteProductOrder($id, $type = 1)
+    {
         $this->db->where('id', $id);
 
         $saveData['id'] = $id;
         if ($type == 1) {
-           $saveData['user_delete'] = 2;
+            $saveData['user_delete'] = 2;
         } else if ($type == 2) {
             $saveData['admin_delete'] = 2;
         }
@@ -239,14 +242,15 @@ Class ProductOrder_Model extends MY_Model {
         }
     }
 
-    public function saveProductOrder($data) {
-        $id = isset($data['id']) ? $data['id']:'';
+    public function saveProductOrder($data)
+    {
+        $id = isset($data['id']) ? $data['id'] : '';
         if (!empty($id)) {
             $data['updated'] = date('Y-m-d H:i:s');
             $this->db->where('id', $id);
             $query = $this->db->update($this->table, $data);
             if ($query) {
-               return $id;
+                return $id;
             } else {
                 return 0;
             }
@@ -256,14 +260,15 @@ Class ProductOrder_Model extends MY_Model {
             $data['updated'] = date('Y-m-d H:i:s');
             $query = $this->db->insert($this->table, $data);
             if ($query) {
-               return $insert_id = $this->db->insert_id();
+                return $insert_id = $this->db->insert_id();
             } else {
                 return 0;
             }
         }
     }
 
-    public function getCountOuder($status = null) {
+    public function getCountOuder($status = null)
+    {
         $this->db->select('id');
         $condition = array();
         if (!empty($status)) {
@@ -275,14 +280,15 @@ Class ProductOrder_Model extends MY_Model {
         return $query->num_rows();
     }
 
-    public function saveProductOrderItem($data) {
-        $id = isset($data['id']) ? $data['id']:'';
+    public function saveProductOrderItem($data)
+    {
+        $id = isset($data['id']) ? $data['id'] : '';
         if (!empty($id)) {
             $data['updated'] = date('Y-m-d H:i:s');
             $this->db->where('id', $id);
             $query = $this->db->update('product_order_items', $data);
             if ($query) {
-               return $id;
+                return $id;
             } else {
                 return 0;
             }
@@ -291,7 +297,7 @@ Class ProductOrder_Model extends MY_Model {
             $data['updated'] = date('Y-m-d H:i:s');
             $query = $this->db->insert('product_order_items', $data);
             if ($query) {
-               return $insert_id = $this->db->insert_id();
+                return $insert_id = $this->db->insert_id();
             } else {
                 return 0;
             }
@@ -316,21 +322,33 @@ Class ProductOrder_Model extends MY_Model {
     public function getOrders($status, $user_id, $from_no, $to_no, $from, $to, $take, $skip, &$data, &$total)
     {
         $where = array('product_orders.admin_delete' => 1);
-        if (!empty($user_id))
+        if (!empty($user_id)) {
             $where['product_orders.user_id'] = $user_id;
-        if (!empty($from_no))
-           $where['product_orders.id >='] = $from_no;
-        if (!empty($to_no))
-           $where['product_orders.id <='] = $to_no;
-        if (!empty($from))
-           $where['product_orders.order_date >='] = date('Y-m-d', strtotime($from));
-        if (!empty($to))
-           $where['product_orders.order_date <='] = date('Y-m-d', strtotime($to));
+        }
+
+        if (!empty($from_no)) {
+            $where['product_orders.id >='] = $from_no;
+        }
+
+        if (!empty($to_no)) {
+            $where['product_orders.id <='] = $to_no;
+        }
+
+        if (!empty($from)) {
+            $where['product_orders.order_date >='] = date('Y-m-d', strtotime($from));
+        }
+
+        if (!empty($to)) {
+            $where['product_orders.order_date <='] = date('Y-m-d', strtotime($to));
+        }
+
         if ($status) {
-            if (is_array($status) && count($status) > 1)
+            if (is_array($status) && count($status) > 1) {
                 $this->db->where_in('product_orders.status', $status);
-            else
+            } else {
                 $where['product_orders.status'] = is_array($status) ? $status[0] : $status;
+            }
+
         }
 
         $this->db->select('COUNT(*)');
@@ -350,10 +368,12 @@ Class ProductOrder_Model extends MY_Model {
         $this->db->order_by('product_orders.created', 'desc');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
-        if ($take > 0)
+        if ($take > 0) {
             $this->db->limit($take, $skip);
-        else
+        } else {
             $this->db->offset($skip);
+        }
+
         $data = $this->db->get()->result();
     }
 }

@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 $config['sina'] = array(
     'client_id' => 'd9L5eSnZGSvTPAzNRcMleHD0cFhIWCa2',

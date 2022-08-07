@@ -1,9 +1,7 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-require_once(APPPATH . 'common/ProviderOptionType.php');
-
-use App\Common\ProviderOptionType;
+require_once APPPATH . 'common/ProviderOptionType.php';
 
 class CronJob extends Admin_Controller
 {
@@ -22,7 +20,7 @@ class CronJob extends Admin_Controller
         echo "$provider->name product list was checked successful.";
     }
 
-    function check_sina($provider)
+    public function check_sina($provider)
     {
         if (!$this->session->has_userdata('sina_products') || !$this->session->sina_products) {
             $sina_products = sina_products();

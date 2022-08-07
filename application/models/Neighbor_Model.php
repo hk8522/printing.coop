@@ -22,88 +22,115 @@ class Neighbor_Model extends MY_Model
         ),
     );
 
-    public function getNeighbors($neighbor_id = null, $limit = null, $start = null, $order = 'desc') {
+    public function getNeighbors($neighbor_id = null, $limit = null, $start = null, $order = 'desc')
+    {
         $this->db->select('*');
         $this->db->from($this->table);
-        if ($neighbor_id)
+        if ($neighbor_id) {
             $this->db->where('id', $neighbor_id);
+        }
+
         $this->db->order_by('updated_at', $order);
-        if (!empty($limit))
+        if (!empty($limit)) {
             $this->db->limit($limit, $start);
+        }
+
         $query = $this->db->get();
         $result = $query->result_array();
         return $result;
     }
 
-    public function getNeighborsCount($neighbor_id = null) {
+    public function getNeighborsCount($neighbor_id = null)
+    {
         $this->db->select('COUNT(*)');
         $this->db->from($this->table);
-        if ($neighbor_id)
+        if ($neighbor_id) {
             $this->db->where('id', $neighbor_id);
+        }
+
         $query = $this->db->get();
         $result = $query->result_array();
         return $result[0]['COUNT(*)'];
     }
 
-    public function save($data, $table = null) {
-        if ($table == null)
+    public function save($data, $table = null)
+    {
+        if ($table == null) {
             $table = $this->table;
+        }
+
         if ($data['id'] > 0) {
             $this->db->where('id', $data['id']);
             $this->db->update($table, $data);
             return $data['id'];
         } else {
             $query = $this->db->insert($table, $data);
-            if ($query)
+            if ($query) {
                 return $this->db->insert_id();
+            }
+
         }
         return 0;
     }
 
-    public function saveAttribute($data) {
+    public function saveAttribute($data)
+    {
         return $this->save($data, 'n_attributes');
     }
 
-    public function saveAttributeItem($data) {
+    public function saveAttributeItem($data)
+    {
         return $this->save($data, 'n_attribute_items');
     }
 
-    public function getAttributeData($neighbor_id, $data_id = null, $limit = null, $start = null, $order = 'desc') {
+    public function getAttributeData($neighbor_id, $data_id = null, $limit = null, $start = null, $order = 'desc')
+    {
         $this->db->select('*');
         $this->db->from('n_attributes');
         $this->db->where('neighbor_id', $neighbor_id);
-        if ($data_id)
+        if ($data_id) {
             $this->db->where('id', $data_id);
+        }
+
         $this->db->order_by('updated_at', $order);
-        if (!empty($limit))
+        if (!empty($limit)) {
             $this->db->limit($limit, $start);
+        }
+
         $query = $this->db->get();
         $result = $query->result_array();
         return $result;
     }
 
-    public function getAttributeDataCount($neighbor_id, $data_id = null) {
+    public function getAttributeDataCount($neighbor_id, $data_id = null)
+    {
         $this->db->select('COUNT(*)');
         $this->db->from('n_attributes');
         $this->db->where('neighbor_id', $neighbor_id);
-        if ($data_id)
+        if ($data_id) {
             $this->db->where('id', $data_id);
+        }
+
         $query = $this->db->get();
         $result = $query->result_array();
         return $result[0]['COUNT(*)'];
     }
 
-    public function attribute($attribute_id) {
+    public function attribute($attribute_id)
+    {
         $this->db->select('*');
         $this->db->from('n_attributes');
         $this->db->where('id', $attribute_id);
         $result = $this->db->get()->result_array();
-        if (count($result) > 0)
+        if (count($result) > 0) {
             return $result[0];
+        }
+
         return false;
     }
 
-    public function attributes($neighbor_id) {
+    public function attributes($neighbor_id)
+    {
         $this->db->select('*');
         $this->db->from('n_attributes');
         $this->db->where('neighbor_id', $neighbor_id);
@@ -112,17 +139,21 @@ class Neighbor_Model extends MY_Model
         return $this->db->get()->result_array();
     }
 
-    public function attributeItem($attribute_item_id) {
+    public function attributeItem($attribute_item_id)
+    {
         $this->db->select('*');
         $this->db->from('n_attribute_items');
         $this->db->where('id', $attribute_item_id);
         $result = $this->db->get()->result_array();
-        if (count($result) > 0)
+        if (count($result) > 0) {
             return $result[0];
+        }
+
         return false;
     }
 
-    public function attributeItems($attribute_id) {
+    public function attributeItems($attribute_id)
+    {
         $this->db->select('*');
         $this->db->from('n_attribute_items');
         $this->db->where('attribute_id', $attribute_id);
@@ -131,7 +162,8 @@ class Neighbor_Model extends MY_Model
         return $this->db->get()->result_array();
     }
 
-    public function attributeItemsForNeighbor($neighbor_id) {
+    public function attributeItemsForNeighbor($neighbor_id)
+    {
         $this->db->select('n_attribute_items.*');
         $this->db->from('n_attribute_items');
         $this->db->join('n_attributes', 'n_attributes.id=n_attribute_items.attribute_id');
@@ -142,14 +174,17 @@ class Neighbor_Model extends MY_Model
         $result = [];
         foreach ($data as $item) {
             $attribute_id = $item['attribute_id'];
-            if (!array_key_exists($attribute_id, $result))
+            if (!array_key_exists($attribute_id, $result)) {
                 $result[$attribute_id] = [];
+            }
+
             $result[$attribute_id][] = $item;
         }
         return $result;
     }
 
-    public function attributesFull($neighbor_id) {
+    public function attributesFull($neighbor_id)
+    {
         $this->db->select(array('n_attributes.*', 'product_multiple_attributes.id AS attribute_id', 'product_multiple_attributes.name AS attribute_name'));
         $this->db->from('product_multiple_attributes');
         $this->db->join('n_attributes', "n_attributes.neighbor_id=$neighbor_id AND n_attributes.attribute_id=product_multiple_attributes.id", 'left');
@@ -158,7 +193,8 @@ class Neighbor_Model extends MY_Model
         return $result;
     }
 
-    public function sizesFull($neighbor_id) {
+    public function sizesFull($neighbor_id)
+    {
         $this->db->select(array('n_attribute_items.*',
             '0 AS attribute_id',
             'sizes.id AS attribute_item_id',
@@ -169,7 +205,8 @@ class Neighbor_Model extends MY_Model
         return $this->db->get()->result_array();
     }
 
-    public function attributeItemsFull($neighbor_id) {
+    public function attributeItemsFull($neighbor_id)
+    {
         $this->db->select(array('n_attribute_items.*',
             'product_multiple_attributes.id AS attribute_id',
             'product_multiple_attribute_items.id AS attribute_item_id',
@@ -186,8 +223,10 @@ class Neighbor_Model extends MY_Model
         $result[0] = $this->sizesFull($neighbor_id);
         foreach ($data as $item) {
             $attribute_id = $item['attribute_id'];
-            if (!array_key_exists($attribute_id, $result))
+            if (!array_key_exists($attribute_id, $result)) {
                 $result[$attribute_id] = [];
+            }
+
             $result[$attribute_id][] = $item;
         }
         // pr($this->db->last_query());
@@ -195,32 +234,45 @@ class Neighbor_Model extends MY_Model
         return $result;
     }
 
-    public function saveAttributes($attributesOrg, $attributesNew) {
-        if (count($attributesOrg) > 0)
+    public function saveAttributes($attributesOrg, $attributesNew)
+    {
+        if (count($attributesOrg) > 0) {
             $this->db->update_batch('n_attributes', $attributesOrg, 'id');
-        if (count($attributesNew) > 0)
+        }
+
+        if (count($attributesNew) > 0) {
             $this->db->insert_batch('n_attributes', $attributesNew);
+        }
+
     }
 
-    public function deleteAttribute($neighbor_id, $attribute_id) {
+    public function deleteAttribute($neighbor_id, $attribute_id)
+    {
         $this->db->trans_start();
         $this->db->delete('n_attribute_items', array('attribute_id' => $attribute_id));
         $this->db->delete('n_attributes', array('id' => $attribute_id, 'neighbor_id' => $neighbor_id));
         $this->db->trans_complete();
     }
 
-    public function deleteAttributeItem($neighbor_id, $attribute_id, $attribute_item_id) {
+    public function deleteAttributeItem($neighbor_id, $attribute_id, $attribute_item_id)
+    {
         $this->db->delete('n_attribute_items', array('id' => $attribute_item_id, 'attribute_id' => $attribute_id));
     }
 
-    public function saveAttributeItems($itemsOrg, $itemsNew) {
-        if (count($itemsOrg) > 0)
+    public function saveAttributeItems($itemsOrg, $itemsNew)
+    {
+        if (count($itemsOrg) > 0) {
             $this->db->update_batch('n_attribute_items', $itemsOrg, 'id');
-        if (count($itemsNew) > 0)
+        }
+
+        if (count($itemsNew) > 0) {
             $this->db->insert_batch('n_attribute_items', $itemsNew);
+        }
+
     }
 
-    public function attributeUpDown($attribute_id, $offset) {
+    public function attributeUpDown($attribute_id, $offset)
+    {
         $this->db->set('`index`', "`index`+($offset)", false);
         $this->db->where('id', $attribute_id);
         $this->db->update('n_attributes');
@@ -235,7 +287,8 @@ class Neighbor_Model extends MY_Model
             SET `index` = rownum * 2");
     }
 
-    public function attributeItemUpDown($attribute_item_id, $offset) {
+    public function attributeItemUpDown($attribute_item_id, $offset)
+    {
         $this->db->set('`index`', "`index`+($offset)", false);
         $this->db->where('id', $attribute_item_id);
         $this->db->update('n_attribute_items');

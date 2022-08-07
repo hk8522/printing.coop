@@ -1,14 +1,14 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
 class Blogs extends Admin_Controller
 {
     public $class_name = '';
 
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
-        $this->class_name         = 'admin/' . ucfirst(strtolower($this->router->fetch_class())) . '/';
+        $this->class_name = 'admin/' . ucfirst(strtolower($this->router->fetch_class())) . '/';
         $this->data['class_name'] = $this->class_name;
     }
 
@@ -16,13 +16,13 @@ class Blogs extends Admin_Controller
     {
         $this->load->model('Blog_Model');
         $this->load->helper('form');
-        $this->data['page_title']                   = 'Blogs';
-        $this->data['sub_page_title']               = 'Add New Blog';
-        $this->data['sub_page_view_url']            = 'viewBlog';
-        $this->data['sub_page_url']                 = 'addEdit';
+        $this->data['page_title'] = 'Blogs';
+        $this->data['sub_page_title'] = 'Add New Blog';
+        $this->data['sub_page_view_url'] = 'viewBlog';
+        $this->data['sub_page_url'] = 'addEdit';
         $this->data['sub_page_url_active_inactive'] = 'activeInactive';
-        $this->data['sub_page_delete_url']          = 'deleteBlog';
-        $this->data['blogs']                        = $this->Blog_Model->getBlogsList();
+        $this->data['sub_page_delete_url'] = 'deleteBlog';
+        $this->data['blogs'] = $this->Blog_Model->getBlogsList();
         $this->render($this->class_name . 'index');
     }
 
@@ -38,12 +38,12 @@ class Blogs extends Admin_Controller
 
         $this->data['main_page_url'] = '';
 
-        $categoryData=$this->Blog_Model->getBlogsCategoryList();
-        $this->data['categoryData']=$categoryData;
+        $categoryData = $this->Blog_Model->getBlogsCategoryList();
+        $this->data['categoryData'] = $categoryData;
 
         $this->load->model('Store_Model');
-        $StoreList=$this->Store_Model->getAllStoreList();
-        $this->data['StoreList']=$StoreList;
+        $StoreList = $this->Store_Model->getAllStoreList();
+        $this->data['StoreList'] = $StoreList;
         $postData = array();
         if ($id) {
             $postData = $this->Blog_Model->getBlogDataById($id);
@@ -57,29 +57,29 @@ class Blogs extends Admin_Controller
             if (!empty($id)) {
                 $postData['id'] = $this->input->post('id');
             }
-            $postData['title']              = $this->input->post('title');
-            $postData['content']            = $this->input->post('content');
-            $postData['title_french']       = $this->input->post('title_french');
-            $postData['content_french']     = $this->input->post('content_french');
-            $postData['populer']            = $this->input->post('populer');
-            $postData['category_id']        = $this->input->post('category_id');
-            $postData['store_id']           = implode(',',$this->input->post('store_id'));
+            $postData['title'] = $this->input->post('title');
+            $postData['content'] = $this->input->post('content');
+            $postData['title_french'] = $this->input->post('title_french');
+            $postData['content_french'] = $this->input->post('content_french');
+            $postData['populer'] = $this->input->post('populer');
+            $postData['category_id'] = $this->input->post('category_id');
+            $postData['store_id'] = implode(',', $this->input->post('store_id'));
 
-            if ($this->form_validation->run() === TRUE) {
-                $saveData   = true;
-                $Filename   = $_FILES['files']['name'];
+            if ($this->form_validation->run() === true) {
+                $saveData = true;
+                $Filename = $_FILES['files']['name'];
                 $uploadData = array();
 
                 if (!empty($Filename)) {
-                    $_FILES['file']['name']     = $_FILES['files']['name'];
-                    $_FILES['file']['type']     = $_FILES['files']['type'];
+                    $_FILES['file']['name'] = $_FILES['files']['name'];
+                    $_FILES['file']['type'] = $_FILES['files']['type'];
                     $_FILES['file']['tmp_name'] = $_FILES['files']['tmp_name'];
-                    $_FILES['file']['error']    = $_FILES['files']['error'];
-                    $_FILES['file']['size']     = $_FILES['files']['size'];
+                    $_FILES['file']['error'] = $_FILES['files']['error'];
+                    $_FILES['file']['size'] = $_FILES['files']['size'];
 
-                    $config['upload_path']   = BLOG_IMAGE_BASE_PATH;
+                    $config['upload_path'] = BLOG_IMAGE_BASE_PATH;
                     $config['allowed_types'] = FILE_ALLOWED_TYPES;
-                    $config['max_size']      = FILE_MAX_SIZE;
+                    $config['max_size'] = FILE_MAX_SIZE;
 
                     $this->load->library('upload', $config);
                     $this->upload->initialize($config);
@@ -111,18 +111,18 @@ class Blogs extends Admin_Controller
                     if ($insert_id > 0) {
                         $this->session->set_flashdata('message_success', $page_title . ' Successfully.');
                         /*if(!empty($Filename) && !empty($old_image)) {
-                            $imageName = $old_image;
+                        $imageName = $old_image;
 
-                            if (file_exists(BLOG_IMAGE_SMALL_BASE_PATH . $imageName))
-                                unlink(BLOG_IMAGE_SMALL_BASE_PATH . $imageName);
-                            if (file_exists(BLOG_IMAGE_MEDIUM_BASE_PATH . $imageName))
-                                unlink(BLOG_IMAGE_MEDIUM_BASE_PATH . $imageName);
+                        if (file_exists(BLOG_IMAGE_SMALL_BASE_PATH . $imageName))
+                        unlink(BLOG_IMAGE_SMALL_BASE_PATH . $imageName);
+                        if (file_exists(BLOG_IMAGE_MEDIUM_BASE_PATH . $imageName))
+                        unlink(BLOG_IMAGE_MEDIUM_BASE_PATH . $imageName);
 
-                            if (file_exists(BLOG_IMAGE_LARGE_BASE_PATH . $imageName))
-                                unlink(BLOG_IMAGE_LARGE_BASE_PATH . $imageName);
+                        if (file_exists(BLOG_IMAGE_LARGE_BASE_PATH . $imageName))
+                        unlink(BLOG_IMAGE_LARGE_BASE_PATH . $imageName);
 
-                            if (file_exists(BLOG_IMAGE_BASE_PATH . $imageName))
-                                unlink(BLOG_IMAGE_BASE_PATH . $imageName);
+                        if (file_exists(BLOG_IMAGE_BASE_PATH . $imageName))
+                        unlink(BLOG_IMAGE_BASE_PATH . $imageName);
                         }*/
 
                         redirect('admin/Blogs');
@@ -141,9 +141,9 @@ class Blogs extends Admin_Controller
     public function activeInactive($id = null, $status = null)
     {
         if (!empty($id) && ($status == 1 || $status == 0)) {
-            $postData['id']     = $id;
+            $postData['id'] = $id;
             $postData['status'] = $status;
-            $page_title         = 'Blog Active';
+            $page_title = 'Blog Active';
             $this->load->model('Blog_Model');
 
             if (!$status) {
@@ -167,24 +167,24 @@ class Blogs extends Admin_Controller
         $target_path = BLOG_IMAGE_BASE_PATH . $type . '/' . $filename;
 
         if ($type == 'medium') {
-            $width  = 400;
+            $width = 400;
             $height = 390;
         } else if ($type == 'large') {
-            $width  = $widthlarge;
+            $width = $widthlarge;
             $height = $heightlarge;
         } else {
-            $width  = 200;
+            $width = 200;
             $height = 200;
         }
         $config_manip = array(
             'image_library' => 'gd2',
             'source_image' => $source_path,
             'new_image' => $target_path,
-            'maintain_ratio' => FALSE,
-            'create_thumb' => TRUE,
-            'thumb_marker' => FALSE,
+            'maintain_ratio' => false,
+            'create_thumb' => true,
+            'thumb_marker' => false,
             'width' => $width,
-            'height' => $height
+            'height' => $height,
         );
         //pr($config_manip);
         $this->load->library('image_lib');
@@ -200,19 +200,25 @@ class Blogs extends Admin_Controller
         if (!empty($id)) {
             $page_title = 'Blog Delete';
             $this->load->model('Blog_Model');
-            $data      = $this->Blog_Model->getBlogDataById($id);
+            $data = $this->Blog_Model->getBlogDataById($id);
             $imageName = $data['image'];
             if ($this->Blog_Model->deleteBlog($id)) {
-                if (file_exists(BLOG_IMAGE_SMALL_BASE_PATH . $imageName))
+                if (file_exists(BLOG_IMAGE_SMALL_BASE_PATH . $imageName)) {
                     unlink(BLOG_IMAGE_SMALL_BASE_PATH . $imageName);
-                if (file_exists(BLOG_IMAGE_MEDIUM_BASE_PATH . $imageName))
+                }
+
+                if (file_exists(BLOG_IMAGE_MEDIUM_BASE_PATH . $imageName)) {
                     unlink(BLOG_IMAGE_MEDIUM_BASE_PATH . $imageName);
+                }
 
-                if (file_exists(BLOG_IMAGE_LARGE_BASE_PATH . $imageName))
+                if (file_exists(BLOG_IMAGE_LARGE_BASE_PATH . $imageName)) {
                     unlink(BLOG_IMAGE_LARGE_BASE_PATH . $imageName);
+                }
 
-                if (file_exists(BLOG_IMAGE_BASE_PATH . $imageName))
+                if (file_exists(BLOG_IMAGE_BASE_PATH . $imageName)) {
                     unlink(BLOG_IMAGE_BASE_PATH . $imageName);
+                }
+
                 $this->session->set_flashdata('message_success', $page_title . ' Successfully.');
             } else {
                 $this->session->set_flashdata('message_error', $page_title . ' Unsuccessfully.');
@@ -231,17 +237,17 @@ class Blogs extends Admin_Controller
         }
         $this->load->model('Blog_Model');
         $this->load->model('Blog_Comment_Model');
-        $this->data['page_title']    = 'Blog Details';
+        $this->data['page_title'] = 'Blog Details';
         $this->data['main_page_url'] = '';
         $this->load->model('ProductImage_Model');
 
         $this->load->model('Store_Model');
-        $StoreList=$this->Store_Model->getAllStoreList();
-        $this->data['StoreList']=$StoreList;
+        $StoreList = $this->Store_Model->getAllStoreList();
+        $this->data['StoreList'] = $StoreList;
 
-        $blog                       = $this->Blog_Model->getBlogDataById($id);
-        $blogComments               = $this->Blog_Comment_Model->getCommentsByBlogId($id);
-        $this->data['blog']         = $blog;
+        $blog = $this->Blog_Model->getBlogDataById($id);
+        $blogComments = $this->Blog_Comment_Model->getCommentsByBlogId($id);
+        $this->data['blog'] = $blog;
         $this->data['blogComments'] = $blogComments;
         $this->render($this->class_name . 'view');
     }
@@ -250,13 +256,13 @@ class Blogs extends Admin_Controller
     {
         $this->load->model('Blog_Model');
         $this->load->helper('form');
-        $this->data['page_title']                   = 'Blogs Category';
-        $this->data['sub_page_title']               = 'Add New Category';
-        $this->data['sub_page_view_url']            = '';
-        $this->data['sub_page_url']                 = 'addEditCategory';
+        $this->data['page_title'] = 'Blogs Category';
+        $this->data['sub_page_title'] = 'Add New Category';
+        $this->data['sub_page_view_url'] = '';
+        $this->data['sub_page_url'] = 'addEditCategory';
         $this->data['sub_page_url_active_inactive'] = 'activeInactiveCategory';
-        $this->data['sub_page_delete_url']          = 'deleteCategory';
-        $this->data['blogs']                        = $this->Blog_Model->getBlogsCategoryList();
+        $this->data['sub_page_delete_url'] = 'deleteCategory';
+        $this->data['blogs'] = $this->Blog_Model->getBlogsCategoryList();
         $this->render($this->class_name . 'category');
     }
 
@@ -272,8 +278,8 @@ class Blogs extends Admin_Controller
         $this->data['main_page_url'] = 'Category';
         $this->load->model('Blog_Model');
         $this->load->model('Store_Model');
-        $StoreList=$this->Store_Model->getAllStoreList();
-        $this->data['StoreList']=$StoreList;
+        $StoreList = $this->Store_Model->getAllStoreList();
+        $this->data['StoreList'] = $StoreList;
 
         $postData = array();
         if ($id) {
@@ -290,11 +296,11 @@ class Blogs extends Admin_Controller
                 $postData['id'] = $this->input->post('id');
             }
 
-            $postData['category_name']   = $this->input->post('category_name');
-            $postData['category_name_french']   = $this->input->post('category_name_french');
-            $postData['store_id']           = implode(',',$this->input->post('store_id'));
+            $postData['category_name'] = $this->input->post('category_name');
+            $postData['category_name_french'] = $this->input->post('category_name_french');
+            $postData['store_id'] = implode(',', $this->input->post('store_id'));
 
-            if ($this->form_validation->run() === TRUE) {
+            if ($this->form_validation->run() === true) {
                 $insert_id = $this->Blog_Model->saveBlogCategory($postData);
 
                 if ($insert_id > 0) {
@@ -331,9 +337,9 @@ class Blogs extends Admin_Controller
     public function activeInactiveCategory($id = null, $status = null)
     {
         if (!empty($id) && ($status == 1 || $status == 0)) {
-            $postData['id']     = $id;
+            $postData['id'] = $id;
             $postData['status'] = $status;
-            $page_title         = 'Category Active';
+            $page_title = 'Category Active';
             $this->load->model('Blog_Model');
 
             if (!$status) {

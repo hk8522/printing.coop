@@ -1,31 +1,32 @@
 <?php
 
-Class Blog_Comment_Model extends MY_Model {
-        public $table = 'blog_comments';
+class Blog_Comment_Model extends MY_Model
+{
+    public $table = 'blog_comments';
 
-        public $rules = [
-                [
-                        'field' => 'comment',
-                        'label' => 'comment',
-                        'rules' => 'required',
-                        'errors' => [
-                            'required' => 'Pleae Enter Comment',
-                        ],
-                ],
-        ];
+    public $rules = [
+        [
+            'field' => 'comment',
+            'label' => 'comment',
+            'rules' => 'required',
+            'errors' => [
+                'required' => 'Pleae Enter Comment',
+            ],
+        ],
+    ];
 
-        public function saveComment($data)
-        {
-            $data['created']=date('Y-m-d H:i:s');
-            $data['updated']=date('Y-m-d H:i:s');
-            $query = $this->db->insert('blog_comments', $data);
+    public function saveComment($data)
+    {
+        $data['created'] = date('Y-m-d H:i:s');
+        $data['updated'] = date('Y-m-d H:i:s');
+        $query = $this->db->insert('blog_comments', $data);
 
-            if ($query) {
-                   return $insert_id = $this->db->insert_id();
-            }
-
-            return 0;
+        if ($query) {
+            return $insert_id = $this->db->insert_id();
         }
+
+        return 0;
+    }
 
     public function getCommentsByBlogId($id)
     {

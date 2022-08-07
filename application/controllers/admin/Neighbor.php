@@ -1,20 +1,16 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-require_once(APPPATH.'libraries/xlsxwriter.class.php');
-
-use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
-use PhpOffice\PhpSpreadsheet\IOFactory;
+require_once APPPATH . 'libraries/xlsxwriter.class.php';
 
 class Neighbor extends Admin_Controller
 {
     public $class_name = '';
 
-    function __construct()
+    public function __construct()
     {
         parent::__construct();
-        $this->class_name='admin/' . ucfirst(strtolower($this->router->fetch_class())) . '/';
+        $this->class_name = 'admin/' . ucfirst(strtolower($this->router->fetch_class())) . '/';
         $this->data['class_name'] = $this->class_name;
 
         $this->load->model('Product_Model');
@@ -31,14 +27,14 @@ class Neighbor extends Admin_Controller
     public function index($neighbor_id = 0, $order = 'desc')
     {
         if ($this->input->post()) {
-            $order=$_POST['order'];
+            $order = $_POST['order'];
             redirect("admin/Neighbor/index/$neighbor_id/$order");
         }
 
         $this->data['page_title'] = 'Neighbor';
 
         $config = $this->config->item('pagination_config');
-        $config["base_url"] = base_url(). "admin/Neighbor/index/$neighbor_id/$order";
+        $config["base_url"] = base_url() . "admin/Neighbor/index/$neighbor_id/$order";
         $config["total_rows"] = $this->Neighbor_Model->getNeighborsCount($neighbor_id);
         //pr($this->uri,1);
         $config["per_page"] = 20;
@@ -52,21 +48,23 @@ class Neighbor extends Admin_Controller
         $this->render($this->class_name . 'index');
     }
 
-    public function edit($neighbor_id = 0, $attribute_id = 0, $attribute_item_id = 0, $order = 'asc') {
+    public function edit($neighbor_id = 0, $attribute_id = 0, $attribute_item_id = 0, $order = 'asc')
+    {
         if ($this->input->post()) {
             $set_rules = $this->Neighbor_Model->config;
 
             $data = [
                 'name' => $this->input->post('name'),
-                'url'  => $this->input->post('url'),
+                'url' => $this->input->post('url'),
             ];
-            if ($neighbor_id)
+            if ($neighbor_id) {
                 $data['id'] = $neighbor_id;
+            }
 
             $this->form_validation->set_rules($set_rules);
             $this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
 
-            if ($this->form_validation->run() === TRUE) {
+            if ($this->form_validation->run() === true) {
                 $new_id = $this->Neighbor_Model->save($data);
 
                 // if ($new_id > 0) {
@@ -130,12 +128,15 @@ class Neighbor extends Admin_Controller
 
         if ($neighbor_id > 0) {
             $neighbor = $this->Neighbor_Model->getNeighbors($neighbor_id);
-            if (count($neighbor) == 0)
+            if (count($neighbor) == 0) {
                 redirect("admin/Neighbor/index/$neighbor_id");
-            else
+            } else {
                 $neighbor = $neighbor[0];
-        } else
+            }
+
+        } else {
             $neighbor = null;
+        }
 
         $this->data['neighbor_id'] = $neighbor_id;
         $this->data['attribute_id'] = $attribute_id;
@@ -155,16 +156,20 @@ class Neighbor extends Admin_Controller
 
     public function delete($neighbor_id)
     {
-        if ($this->Neighbor_Model->delete($neighbor_id))
+        if ($this->Neighbor_Model->delete($neighbor_id)) {
             $this->session->set_flashdata('message_success', 'Deleted Successfully.');
-        else
+        } else {
             $this->session->set_flashdata('message_error', 'Delete Unsuccessful.');
+        }
+
         redirect('admin/Neighbor');
     }
 
-    public function attribute_put($neighbor_id, $attribute_id = 0) {
-        if (!$this->input->post())
+    public function attribute_put($neighbor_id, $attribute_id = 0)
+    {
+        if (!$this->input->post()) {
             die('You have no access.');
+        }
 
         $set_rules = array(
             array(
@@ -179,16 +184,17 @@ class Neighbor extends Admin_Controller
 
         $data = [
             'neighbor_id' => $neighbor_id,
-            'name'  => $this->input->post('name'),
+            'name' => $this->input->post('name'),
             'index' => $this->input->post('index'),
         ];
-        if ($attribute_id)
+        if ($attribute_id) {
             $data['id'] = $attribute_id;
+        }
 
         $this->form_validation->set_rules($set_rules);
         $this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
 
-        if ($this->form_validation->run() === TRUE) {
+        if ($this->form_validation->run() === true) {
             $new_id = $this->Neighbor_Model->saveAttribute($data);
         } else {
             $this->session->set_flashdata('errors', ['Missing information.']);
@@ -216,7 +222,8 @@ class Neighbor extends Admin_Controller
         }
     }
 
-    public function attributeEdit($neighbor_id, $data_id = 0, $order = 'asc') {
+    public function attributeEdit($neighbor_id, $data_id = 0, $order = 'asc')
+    {
         if ($this->input->post()) {
             $set_rules = array(
                 array(
@@ -240,14 +247,14 @@ class Neighbor extends Admin_Controller
             $data = [
                 'neighbor_id' => $neighbor_id,
                 'attribute_id' => $this->input->post('attribute_id'),
-                'name'  => $this->input->post('name'),
+                'name' => $this->input->post('name'),
             ];
             $data['id'] = $data_id;
 
             $this->form_validation->set_rules($set_rules);
             $this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
 
-            if ($this->form_validation->run() === TRUE) {
+            if ($this->form_validation->run() === true) {
                 $new_id = $this->Neighbor_Model->saveAttribute($data);
 
                 if ($new_id > 0) {
@@ -263,13 +270,15 @@ class Neighbor extends Admin_Controller
 
         if ($data_id > 0) {
             $attributeData = $this->Neighbor_Model->getAttributeData($neighbor_id, $data_id);
-            if (count($attributeData) == 0)
+            if (count($attributeData) == 0) {
                 redirect("admin/Neighbor/attributeEdit/$neighbor_id");
-            else
+            } else {
                 $attributeData = $attributeData[0];
+            }
+
         } else {
             $neighbor['attribute_id'] = '';
-            $neighbor['name']  = '';
+            $neighbor['name'] = '';
         }
         $this->data['neighbor'] = $this->Neighbor_Model->getNeighbors($neighbor_id)[0];
         $this->data['attributeData'] = $attributeData;
@@ -280,18 +289,24 @@ class Neighbor extends Admin_Controller
 
     public function attribute_delete($neighbor_id, $attribute_id)
     {
-        if (!$this->input->post())
+        if (!$this->input->post()) {
             die('You have no access.');
-        if ($this->Neighbor_Model->deleteAttribute($neighbor_id, $attribute_id))
+        }
+
+        if ($this->Neighbor_Model->deleteAttribute($neighbor_id, $attribute_id)) {
             $this->session->set_flashdata('message_success', 'Deleted Successfully.');
-        else
+        } else {
             $this->session->set_flashdata('message_error', 'Delete Unsuccessful.');
+        }
+
         redirect($this->class_name . "edit/$neighbor_id");
     }
 
-    public function attribute_item_put($neighbor_id, $attribute_id, $attribute_item_id = 0) {
-        if (!$this->input->post())
+    public function attribute_item_put($neighbor_id, $attribute_id, $attribute_item_id = 0)
+    {
+        if (!$this->input->post()) {
             die('You have no access.');
+        }
 
         $set_rules = array(
             array(
@@ -306,16 +321,17 @@ class Neighbor extends Admin_Controller
 
         $data = [
             'attribute_id' => $attribute_id,
-            'name'  => $this->input->post('name'),
+            'name' => $this->input->post('name'),
             'index' => $this->input->post('index'),
         ];
-        if ($attribute_item_id)
+        if ($attribute_item_id) {
             $data['id'] = $attribute_item_id;
+        }
 
         $this->form_validation->set_rules($set_rules);
         $this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
 
-        if ($this->form_validation->run() === TRUE) {
+        if ($this->form_validation->run() === true) {
             $new_id = $this->Neighbor_Model->saveAttributeItem($data);
         } else {
             $this->session->set_flashdata('errors', ['Missing information.']);
@@ -337,12 +353,16 @@ class Neighbor extends Admin_Controller
 
     public function attribute_item_delete($neighbor_id, $attribute_id, $attribute_item_id)
     {
-        if (!$this->input->post())
+        if (!$this->input->post()) {
             die('You have no access.');
-        if ($this->Neighbor_Model->deleteAttributeItem($neighbor_id, $attribute_id, $attribute_item_id))
+        }
+
+        if ($this->Neighbor_Model->deleteAttributeItem($neighbor_id, $attribute_id, $attribute_item_id)) {
             $this->session->set_flashdata('message_success', 'Deleted Successfully.');
-        else
+        } else {
             $this->session->set_flashdata('message_error', 'Delete Unsuccessful.');
+        }
+
         redirect($this->class_name . "edit/$neighbor_id/$attribute_id");
     }
 }
