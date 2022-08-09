@@ -28,7 +28,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                             <input class="form-control" type="text" placeholder="Search Attribute" onkeyup="searchAttribute($(this).val())" data:bind="value:attribute_name" name="attribute_name">
                         </div>
                         <div class="search-result" style="display:none">
-                            <a href="javascript:void(0)" onclick="hideSearchResult()"><i class="fas fa-times" ></i></a>
+                            <a href="javascript:void(0)" onclick="hideSearchResult()"><i class="fa fas fa-times" ></i></a>
                             <ul></ul>
                         </div>
                     </div>

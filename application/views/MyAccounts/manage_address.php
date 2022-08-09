@@ -228,7 +228,7 @@
 
                             </div>
                             <div class="dot-menu">
-                                <button type="submit"><i class="fas fa-ellipsis-v"></i></button>
+                                <button type="submit"><i class="fa fas fa-ellipsis-v"></i></button>
                                 <div class="dot-menu-section">
                                     <a href="<?= $BASE_URL ?>MyAccounts/addEditAddress/<?= base64_encode($list['id']) ?>">
                                     <button type="submit">

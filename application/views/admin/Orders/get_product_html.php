@@ -35,18 +35,18 @@ if (isset($_SESSION['product_list'])) {
                                     <div class="create-tab-action">
                                         <a onClick="closeCart('<?= $product_id_key ?>')" href="javascript:void(0)"
                                             id="close-<?= $product_id_key ?>">
-                                            <span class="custom-close"><i class="fas fa-minus"></i></span>
+                                            <span class="custom-close"><i class="fa fas fa-minus"></i></span>
                                         </a>
 
                                         <a onClick="openCart('<?= $product_id_key ?>')" href="javascript:void(0)"
                                             id="open-<?= $product_id_key ?>" style="display:none">
                                             <span class="custom-open">
-                                                <i class="fas fa-plus"></i>
+                                                <i class="fa fas fa-plus"></i>
                                             </span>
                                         </a>
 
                                         <a onClick="removeProduct('<?= $product_id_key ?>')" href="javascript:void(0)">
-                                            <span><i class="fas fa-trash"></i></span>
+                                            <span><i class="fa fas fa-trash"></i></span>
                                         </a>
                                     </div>
                                 </div>
@@ -251,7 +251,7 @@ if (isset($_SESSION['product_list'])) {
                                                                     <button type="button" title="Delete"
                                                                         onclick="delete_image('<?= $return_arr['skey'] ?>','<?= $return_arr['product_id'] ?>','<?= $return_arr['product_id_key'] ?>')"
                                                                         id="smd-<?= $return_arr['skey'] ?>">
-                                                                        <i class="fas fa-trash"></i>
+                                                                        <i class="fa fas fa-trash"></i>
                                                                     </button>
                                                                     <input type="hidden"
                                                                         value="<?= $return_arr['location'] ?>"

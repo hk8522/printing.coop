@@ -67,7 +67,7 @@
                                                                             <div class="col-3 col-md-2">
                                                                                 <div class="attribute-inner action-btns">
                                                                                     <button class="btn btn-success" type="button" onclick="addQuantity('<?= $id?>')">
-                                                                                        <i class="far fa-edit fa-lg"></i>
+                                                                                        <i class="fa far fa-edit fa-lg"></i>
                                                                                     </button>&nbsp;
                                                                                     <button class="btn btn-danger" type="button" onclick="deleteQuantity('<?= $id?>')">
                                                                                         <i class="fa fa-trash fa-lg"></i>
@@ -130,7 +130,7 @@
                                                                             <div class="col-3 col-md-2">
                                                                                 <div class="attribute-inner action-btns">
                                                                                     <button class="btn btn-success" type="button" onclick="addSize('<?= $id?>')">
-                                                                                        <i class="far fa-edit fa-lg"></i>
+                                                                                        <i class="fa far fa-edit fa-lg"></i>
                                                                                     </button>&nbsp;
                                                                                     <button class="btn btn-danger" type="button" onclick="deleteSize('<?= $id?>')">
                                                                                         <i class="fa fa-trash fa-lg"></i>
@@ -190,7 +190,7 @@
                                                                                             Item</button>
                                                                                     </div>&nbsp;
                                                                                     <button class="btn btn-success" type="button" onclick="addAttribute('<?= $attribute_id?>')">
-                                                                                        <i class="far fa-edit fa-lg"></i>
+                                                                                        <i class="fa far fa-edit fa-lg"></i>
                                                                                     </button>&nbsp;
                                                                                     <button class="btn btn-danger" type="button" onclick="deleteAttribute('<?= $attribute_id?>')">
                                                                                         <i class="fa fa-trash fa-lg"></i>
@@ -229,7 +229,7 @@
                                                                                                 <div class="col-2 col-md-2">
                                                                                                     <div class="attribute-inner action-btns">
                                                                                                         <button class="btn btn-success" type="button" onclick="addAttributeItem('<?= $attribute_id?>', '<?= $attribute_item_id?>')">
-                                                                                                            <i class="far fa-edit fa-lg"></i>
+                                                                                                            <i class="fa far fa-edit fa-lg"></i>
                                                                                                         </button>&nbsp;
                                                                                                         <button class="btn btn-danger" type="button" onclick="deleteAttributeItem('<?= $attribute_id?>', '<?= $attribute_item_id?>')">
                                                                                                             <i class="fa fa-trash fa-lg"></i>

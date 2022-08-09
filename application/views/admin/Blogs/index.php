@@ -20,7 +20,7 @@
                         <div class="col-md-6 col-xs-12 text-right">
                             <div class="all-vol-btn">
                             <a href="<?= $BASE_URL.$class_name.$sub_page_url ?>"><button>
-                            <i class="fas fa-plus-circle"></i><?= $sub_page_title ?></button>
+                            <i class="fa fas fa-plus-circle"></i><?= $sub_page_title ?></button>
                             </a>
                             </div>
                         </div>
@@ -95,10 +95,10 @@
                                             <td>
                                                 <div class="action-btns">
                                                    <a href="<?= $BASE_URL.$class_name.$sub_page_url?>/<?= $blog['id'] ?>" style="color:green;padding: 5px;" title="edit">
-                                                        <i class="far fa-edit fa-lg"></i>
+                                                        <i class="fa far fa-edit fa-lg"></i>
                                                    </a>
                                                <a href="<?= $BASE_URL.$class_name.$sub_page_view_url?>/<?= $blog['id'] ?>" style="color:#3c8dbc;padding: 5px;" title="view">
-                                                    <i class="far fa-eye fa-lg"></i>
+                                                    <i class="fa far fa-eye fa-lg"></i>
                                                </a>
                                                <a href="<?= $BASE_URL.$class_name.$sub_page_delete_url?>/<?= $blog['id'] ?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this blog?');">
                                                      <i class="fa fa-trash fa-lg"></i>

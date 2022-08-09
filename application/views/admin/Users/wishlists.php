@@ -21,7 +21,7 @@
                             <div class="all-vol-btn">
                                 <?php if (!empty($user_id)) { ?>
                                     <div class="upload-area">
-                                        <a href="<?= $BASE_URL?>admin/Users/index/<?= $page_status ?>"><button><i class="fas fa-arrow-left"></i> Back</button>
+                                        <a href="<?= $BASE_URL?>admin/Users/index/<?= $page_status ?>"><button><i class="fa fas fa-arrow-left"></i> Back</button>
                                         </a>
                                     </div>
                                 <?php

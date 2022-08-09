@@ -22,7 +22,7 @@
                             <div class="all-vol-btn">
                                 <div class="upload-area">
                                     <a href="<?= $BASE_URL?>admin/Users/exportCSV/<?= $status ?>"/>
-                                    <button><i class="fas fa-file-csv"></i> Export CSV</button>
+                                    <button><i class="fa fas fa-file-csv"></i> Export CSV</button>
                                     </a>
 
                                 </div>
@@ -30,13 +30,13 @@
                                     <form action="<?= $BASE_URL ?>admin/Users/ImportCSV" id="ImportCSVFROM" enctype='multipart/form-data' method="post">
                                         <input type="file" onchange="$('#ImportCSVFROM').submit()" name="csv" accept=".csv">
                                       <input type="hidden" name="page_status" value=<?php $status?>>
-                                        <button><i class="fas fa-plus-circle"></i> Import CSV</button>
+                                        <button><i class="fa fas fa-plus-circle"></i> Import CSV</button>
                                     </form>
                                 </div>
 
                                 <?php if (!empty($user_id)) { ?>
                                     <div class="upload-area">
-                                        <a href="<?= $BASE_URL ?>admin/Users"><button><i class="fas fa-arrow-left"></i> Back</button>
+                                        <a href="<?= $BASE_URL ?>admin/Users"><button><i class="fa fas fa-arrow-left"></i> Back</button>
                                         </a>
                                     </div>
                                 <?php
@@ -115,18 +115,18 @@
                                                 <div class="action-btns">
                                                     <!-- need a same popup view coming in All Orders(view button) -->
                                                     <a class="view-btn" href="<?= $BASE_URL?>admin/Users/changePassword/<?= $list['id']?>/<?= $page_status ?>" style="color:#3c8dbc" title="View orders">
-                                                         <i class="far fa-eye fa-lg"></i> Change Password
+                                                         <i class="fa far fa-eye fa-lg"></i> Change Password
                                                        </a>
                                                     <a class="view-btn" href="<?= $BASE_URL?>admin/Orders/index/all/<?= $list['id'] ?>" style="color:#3c8dbc" title="View orders">
-                                                         <i class="far fa-eye fa-lg"></i> View orders
+                                                         <i class="fa far fa-eye fa-lg"></i> View orders
                                                        </a>
 
                                                     <!--<a class="view-btn" href="<?= $BASE_URL?>admin/Users/wishlists/<?= $list['id']?>/<?= $page_status ?>" style="color:#3c8dbc" title="View Wishlists">
-                                                         <i class="far fa-eye fa-lg"></i> View Wishlists
+                                                         <i class="fa far fa-eye fa-lg"></i> View Wishlists
                                                        </a>-->
 
                                                        <!-- <a href="<?= $BASE_URL.$class_name.$sub_page_url?>/<?= $list['id'] ?>/<?= $page_status ?>" style="color:green" title="edit">
-                                                        <i class="far fa-edit fa-lg"></i>
+                                                        <i class="fa far fa-edit fa-lg"></i>
                                                        </a> -->
                                                        <a href="<?= $BASE_URL.$class_name.$sub_page_delete_url?>/<?= $list['id'] ?>/<?= $page_status ?>" style="color:#d71b23" title="delete" onclick="return confirm('Are you sure you want to delete this user?');">
                                                         <i class="fa fa-trash fa-lg"></i>

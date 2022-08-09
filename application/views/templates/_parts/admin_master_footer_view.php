@@ -79,7 +79,7 @@
                                                         <div class="personalised-single-upload">
                                                             <div class="personalised-single-upload-area">
                                                                 <div class="personalised-action-img">
-                                                                    <span><i class="fas fa-plus"></i></span>
+                                                                    <span><i class="fa fas fa-plus"></i></span>
                                                                     <img class="personalised-display-img" src="">
                                                                 </div>
                                                             </div>

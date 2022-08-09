@@ -9,7 +9,7 @@
                     <div class="col-md-5">
                         <div class="upload-action-btn">
                             <button type="button" onclick="update_cumment('<?= $return_arr['skey']?>','<?= $return_arr['product_id']?>','<?= $return_arr['product_id_key']?>')" id="smc-<?= $return_arr['skey'] ?>">Update Note</button>
-                            <button type="button" title="Delete" onclick="delete_image('<?= $return_arr['skey']?>','<?= $return_arr['product_id']?>','<?= $return_arr['product_id_key']?>')"  id="smd-<?= $return_arr['skey'] ?>"><i class="fas fa-trash"></i>
+                            <button type="button" title="Delete" onclick="delete_image('<?= $return_arr['skey']?>','<?= $return_arr['product_id']?>','<?= $return_arr['product_id_key']?>')"  id="smd-<?= $return_arr['skey'] ?>"><i class="fa fas fa-trash"></i>
                             </button>
                             <input type="hidden" value="<?= $return_arr['location'] ?>" id="location-<?= $return_arr['skey'] ?>">
                         </div>

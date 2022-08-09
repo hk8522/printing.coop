@@ -126,17 +126,17 @@
                                                 <div class="action-btns">
                                                     <!-- need a same popup view coming in All Orders(view button) -->
                                                     <a class="view-btn" href="<?= $BASE_URL?>admin/Orders/index/all/<?= $list['id'] ?>" style="color:#3c8dbc" title="View orders">
-                                                         <i class="far fa-eye fa-lg"></i> View orders
+                                                         <i class="fa far fa-eye fa-lg"></i> View orders
                                                        </a>
 
                                                     <!--<a class="view-btn" href="<?= $BASE_URL?>admin/Users/wishlists/<?= $list['id']?>/<?= $page_status ?>" style="color:#3c8dbc" title="View Wishlists">
-                                                         <i class="far fa-eye fa-lg"></i> View Wishlists
+                                                         <i class="fa far fa-eye fa-lg"></i> View Wishlists
                                                        </a>-->
                                                        <!-- <a href="<?= $BASE_URL.$class_name.$sub_page_url?>/<?= $list['id'] ?>/<?= $page_status ?>" style="color:green" title="edit">
-                                                        <i class="far fa-edit fa-lg"></i>
+                                                        <i class="fa far fa-edit fa-lg"></i>
                                                        </a> -->
                                                     <a class="view-btn" href="<?= $BASE_URL?>admin/Users/changePassword/<?= $list['id'] ?>/all/preferred-customer" style="color:#3c8dbc" title="View orders">
-                                                         <i class="far fa-eye fa-lg"></i> Change Password
+                                                         <i class="fa far fa-eye fa-lg"></i> Change Password
                                                        </a>
                                                        <a href="<?= $BASE_URL.$class_name.$sub_page_delete_url?>/<?= $list['id'] ?>/<?= $page_status ?>" style="color:#d71b23" title="delete" onclick="return confirm('Are you sure you want to delete this user?');">
                                                         <i class="fa fa-trash fa-lg"></i>

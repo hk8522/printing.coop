@@ -60,7 +60,7 @@
                                                         <div class="action-btns">
                                                             <a href="<?= $BASE_URL . $class_name . $sub_page_view_url ?>/<?= $list['id'] ?>"
                                                                 style="color:#3c8dbc;padding: 5px;" title="view">
-                                                                <i class="far fa-eye fa-lg"></i>
+                                                                <i class="fa far fa-eye fa-lg"></i>
                                                             </a>
                                                             <a href="<?= $BASE_URL . $class_name . $sub_page_delete_url ?>/<?= $list['id'] ?>"
                                                                 style="color:#d71b23;padding: 5px;" title="delete"

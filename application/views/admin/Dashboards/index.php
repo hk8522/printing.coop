@@ -3,7 +3,7 @@
         <div class="top-home">
             <div class="marque">
                 <marquee>
-                    <i class="fas fa-glass-martini-alt"></i> Welcome to <?= WEBSITE_NAME ?> admin panel
+                    <i class="fa fas fa-glass-martini-alt"></i> Welcome to <?= WEBSITE_NAME ?> admin panel
                 </marquee>
             </div>
         </div>
@@ -18,7 +18,7 @@
                     <div class="card card-stats">
                         <div class="card-header card-header-warning card-header-icon">
                             <div class="card-icon">
-                                <i class="fas fa-twitter"></i>
+                                <i class="fa fas fa-twitter"></i>
                             </div>
                             <p class="card-category">All Orders</p>
                             <h3 class="card-title"><?= $totalOrder ?></h3>
@@ -34,7 +34,7 @@
                     <div class="card card-stats">
                         <div class="card-header card-header-success card-header-icon">
                             <div class="card-icon">
-                                <i class="fas fa-twitter"></i>
+                                <i class="fa fas fa-twitter"></i>
                             </div>
                             <p class="card-category">Sales</p>
                             <h3 class="card-title">$<?= number_format($totalSale,2) ?></h3>
@@ -50,7 +50,7 @@
                     <div class="card card-stats">
                         <div class="card-header card-header-danger card-header-icon">
                             <div class="card-icon">
-                                <i class="fas fa-twitter"></i>
+                                <i class="fa fas fa-twitter"></i>
                             </div>
                             <p class="card-category">Cancelled Orders</p>
                             <h3 class="card-title"><?= $totalCancelOrder ?></h3>
@@ -66,7 +66,7 @@
                     <div class="card card-stats">
                         <div class="card-header card-header-info card-header-icon">
                             <div class="card-icon">
-                                <i class="fas fa-twitter"></i>
+                                <i class="fa fas fa-twitter"></i>
                             </div>
                             <p class="card-category">All Users</p>
                             <h3 class="card-title">+<?= $totalUser ?></h3>

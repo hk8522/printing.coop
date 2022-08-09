@@ -54,7 +54,7 @@
                                                     <a href="javascript:void(0)" class="comments-counts"
                                                         style="color:green; padding: 5px;" title="Message"
                                                         onclick="getChats('<?= base64_encode($list['id']) ?>')">
-                                                        <i class="fas fa-comment-dots fa-lg"></i>
+                                                        <i class="fa fas fa-comment-dots fa-lg"></i>
                                                         <span>
                                                             <?php
             echo $this->Ticket_Model->getMessageCount($list['id']);

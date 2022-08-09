@@ -280,7 +280,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 }, {
                     title: 'View Orders',
                     template: `<a class="view-btn" href="/<?= $class_name.$sub_page_view_url?>/#=id#">
-                    <i class="far fa-eye fa-lg"></i></a>`,
+                    <i class="fa far fa-eye fa-lg"></i></a>`,
                 }, {
                     title: 'Action',
                     template: '#=itemActions(id, status, shipment_id, tracking_number, labels_regular, labels_thermal)#',

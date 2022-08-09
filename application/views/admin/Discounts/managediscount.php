@@ -52,10 +52,10 @@
                                             <td>
                                                 <div class="action-btns">
                                                        <a href="#" style="color:#3c8dbc;padding: 5px;" title="view">
-                                                        <i class="far fa-eye fa-lg"></i>
+                                                        <i class="fa far fa-eye fa-lg"></i>
                                                        </a>
                                                        <a href="#" style="color:green;padding: 5px;" title="edit">
-                                                        <i class="far fa-edit fa-lg"></i>
+                                                        <i class="fa far fa-edit fa-lg"></i>
                                                        </a>
                                                        <a href="#" style="color:#d71b23;padding: 5px;" title="delete">
                                                          <i class="fa fa-trash fa-lg"></i>
@@ -84,10 +84,10 @@
                                             <td>
                                                 <div class="action-btns">
                                                        <a href="#" style="color:#3c8dbc;padding: 5px;" title="view">
-                                                        <i class="far fa-eye fa-lg"></i>
+                                                        <i class="fa far fa-eye fa-lg"></i>
                                                        </a>
                                                        <a href="#" style="color:green;padding: 5px;" title="edit">
-                                                        <i class="far fa-edit fa-lg"></i>
+                                                        <i class="fa far fa-edit fa-lg"></i>
                                                        </a>
                                                        <a href="#" style="color:#d71b23;padding: 5px;" title="delete">
                                                          <i class="fa fa-trash fa-lg"></i>

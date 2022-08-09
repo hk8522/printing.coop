@@ -21,13 +21,13 @@
                             <div class="all-vol-btn">
                                 <!--<div class="upload-area">
                                     <input type="file">
-                                    <button><i class="fas fa-plus-circle"></i> Upload CSV</button>
+                                    <button><i class="fa fas fa-plus-circle"></i> Upload CSV</button>
                                 </div>-->
                                 <a href="#">
-                                    <button class="dark-btn"><i class="fas fa-file-download"></i>Exporting PDF Reports</button>
+                                    <button class="dark-btn"><i class="fa fas fa-file-download"></i>Exporting PDF Reports</button>
                                 </a>
                                 <a href="<?= $BASE_URL.$this->router->fetch_class().'/'.$sub_page_url ?>">
-                                    <button><i class="fas fa-plus-circle"></i><?= $sub_page_title ?></button>
+                                    <button><i class="fa fas fa-plus-circle"></i><?= $sub_page_title ?></button>
                                 </a>
                             </div>
                         </div>
@@ -195,10 +195,10 @@
                                         <!--<td>
                                             <div class="action-btns">
                                                    <a href="<?= $BASE_URL.$class_name.$sub_page_view_url?>/<?= $list['id'] ?>" style="color:#3c8dbc;padding: 5px;" title="view">
-                                                    <i class="far fa-eye fa-lg"></i>
+                                                    <i class="fa far fa-eye fa-lg"></i>
                                                    </a>
                                                    <a href="<?= $BASE_URL.$class_name.$sub_page_url?>/<?= $list['id'] ?>" style="color:green;padding: 5px;" title="edit">
-                                                    <i class="far fa-edit fa-lg"></i>
+                                                    <i class="fa far fa-edit fa-lg"></i>
                                                    </a>
                                                    <a href="<?= $BASE_URL.$class_name.$sub_page_delete_url?>/<?= $list['id'] ?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this product?');">
                                                      <i class="fa fa-trash fa-lg"></i>

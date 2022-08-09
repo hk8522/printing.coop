@@ -136,22 +136,22 @@
                     <div class="social-icons">
                         <div>
                             <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
-                                <i class="fab fa-facebook-f"></i>
+                                <i class="fa fab fa-facebook-f"></i>
                             </a>
                             <a href="https://www.instagram.com/printing.coop/" target="_blank">
-                                <i class="fab fa-instagram"></i>
+                                <i class="fa fab fa-instagram"></i>
                             </a>
                             <a href="https://twitter.com/PrintingCoop" target="_blank">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fa fab fa-twitter"></i>
                             </a>
                             <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fa fab fa-linkedin"></i>
                             </a>
                             <a href="https://pinterest.com/imprimeurcoop" target="_blank">
-                                <i class="fab fa-pinterest"></i>
+                                <i class="fa fab fa-pinterest"></i>
                             </a>
                             <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
-                                <i class="fab fa-youtube"></i>
+                                <i class="fa fab fa-youtube"></i>
                             </a>
                         </div>
                     </div>
@@ -160,22 +160,22 @@
                     <div class="social-icons">
                         <div>
                             <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
-                                <i class="fab fa-facebook-f"></i>
+                                <i class="fa fab fa-facebook-f"></i>
                             </a>
                             <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
-                                <i class="fab fa-instagram"></i>
+                                <i class="fa fab fa-instagram"></i>
                             </a>
                             <a href="https://twitter.com/PrintingCoop" target="_blank">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fa fab fa-twitter"></i>
                             </a>
                             <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fa fab fa-linkedin"></i>
                             </a>
                             <a href="https://pinterest.com/imprimeurcoop" target="_blank">
-                                <i class="fab fa-pinterest"></i>
+                                <i class="fa fab fa-pinterest"></i>
                             </a>
                             <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
-                                <i class="fab fa-youtube"></i>
+                                <i class="fa fab fa-youtube"></i>
                             </a>
                         </div>
                     </div>
@@ -184,22 +184,22 @@
                     <div class="social-icons">
                         <div>
                             <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
-                                <i class="fab fa-facebook-f"></i>
+                                <i class="fa fab fa-facebook-f"></i>
                             </a>
                             <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
-                                <i class="fab fa-instagram"></i>
+                                <i class="fa fab fa-instagram"></i>
                             </a>
                             <a href="https://twitter.com/PrintingCoop" target="_blank">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fa fab fa-twitter"></i>
                             </a>
                             <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fa fab fa-linkedin"></i>
                             </a>
                             <a href="https://pinterest.com/imprimeurcoop" target="_blank">
-                                <i class="fab fa-pinterest"></i>
+                                <i class="fa fab fa-pinterest"></i>
                             </a>
                             <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
-                                <i class="fab fa-youtube"></i>
+                                <i class="fa fab fa-youtube"></i>
                             </a>
                         </div>
                     </div>
@@ -208,22 +208,22 @@
                     <div class="social-icons">
                         <div>
                             <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
-                                <i class="fab fa-facebook-f"></i>
+                                <i class="fa fab fa-facebook-f"></i>
                             </a>
                             <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
-                                <i class="fab fa-instagram"></i>
+                                <i class="fa fab fa-instagram"></i>
                             </a>
                             <a href="https://twitter.com/PrintingCoop" target="_blank">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fa fab fa-twitter"></i>
                             </a>
                             <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fa fab fa-linkedin"></i>
                             </a>
                             <a href="https://pinterest.com/imprimeurcoop" target="_blank">
-                                <i class="fab fa-pinterest"></i>
+                                <i class="fa fab fa-pinterest"></i>
                             </a>
                             <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
-                                <i class="fab fa-youtube"></i>
+                                <i class="fa fab fa-youtube"></i>
                             </a>
                         </div>
                     </div>
@@ -232,22 +232,22 @@
                     <div class="social-icons">
                         <div>
                             <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
-                                <i class="fab fa-facebook-f"></i>
+                                <i class="fa fab fa-facebook-f"></i>
                             </a>
                             <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
-                                <i class="fab fa-instagram"></i>
+                                <i class="fa fab fa-instagram"></i>
                             </a>
                             <a href="https://twitter.com/PrintingCoop" target="_blank">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fa fab fa-twitter"></i>
                             </a>
                             <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fa fab fa-linkedin"></i>
                             </a>
                             <a href="https://pinterest.com/imprimeurcoop" target="_blank">
-                                <i class="fab fa-pinterest"></i>
+                                <i class="fa fab fa-pinterest"></i>
                             </a>
                             <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
-                                <i class="fab fa-youtube"></i>
+                                <i class="fa fab fa-youtube"></i>
                             </a>
                         </div>
                     </div>
@@ -256,22 +256,22 @@
                     <div class="social-icons">
                         <div>
                             <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
-                                <i class="fab fa-facebook-f"></i>
+                                <i class="fa fab fa-facebook-f"></i>
                             </a>
                             <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
-                                <i class="fab fa-instagram"></i>
+                                <i class="fa fab fa-instagram"></i>
                             </a>
                             <a href="https://twitter.com/PrintingCoop" target="_blank">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fa fab fa-twitter"></i>
                             </a>
                             <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
-                                <i class="fab fa-linkedin"></i>
+                                <i class="fa fab fa-linkedin"></i>
                             </a>
                             <a href="https://pinterest.com/imprimeurcoop" target="_blank">
-                                <i class="fab fa-pinterest"></i>
+                                <i class="fa fab fa-pinterest"></i>
                             </a>
                             <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
-                                <i class="fab fa-youtube"></i>
+                                <i class="fa fab fa-youtube"></i>
                             </a>
                         </div>
                     </div>
@@ -323,7 +323,7 @@
             </div>
         </div>
         <div class="floating-icon" id="back-top" style="display: none;">
-            <span><i class="fas fa-arrow-up"></i></span>
+            <span><i class="fa fas fa-arrow-up"></i></span>
         </div>
     </div>
 </div>
@@ -2533,7 +2533,7 @@ function addProductWishList(product_id) {
                 if (status == 1) {
                     $('#WishlistsCount').html(json.count);
                     $('#msg-modal .modal-body').html(
-                        '<label><i class="fas fa-check-circle"></i><span class="msg-modal-text">' +
+                        '<label><i class="fa fas fa-check-circle"></i><span class="msg-modal-text">' +
                         msg +
                         '</span></label><div class="text-center msg-btn"><a href="<?=$BASE_URL?>Products"><button class="btn btn-sm btn-success continue-shopping-btn">Continue Shopping</button></a>&nbsp;&nbsp;<a href="<?=$BASE_URL?>Wishlists"><button class="btn btn-sm btn-success msg-cart-btn-clr">Go To Wishlist</button></div></a>'
                     );

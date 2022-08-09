@@ -86,7 +86,7 @@
                                                         <input class="form-control" type="text" id="discount_valid_from"
                                                             readonly name="discount_valid_from"
                                                             value="<?= isset($postData['discount_valid_from']) ? $postData['discount_valid_from']:date('Y/m/d H:i') ?>">
-                                                        <i class="fas fa-calendar-week"></i>
+                                                        <i class="fa fas fa-calendar-week"></i>
                                                         <?= form_error('discount_valid_from') ?>
                                                     </div>
                                                 </div>
@@ -102,7 +102,7 @@
                                                         <input class="form-control" type="text" id="discount_valid_to"
                                                             name="discount_valid_to" readonly
                                                             value="<?= isset($postData['discount_valid_to']) ? $postData['discount_valid_to']:date('Y/m/d H:i') ?>">
-                                                        <i class="fas fa-calendar-week"></i>
+                                                        <i class="fa fas fa-calendar-week"></i>
                                                         <?= form_error('discount_valid_to') ?>
                                                     </div>
                                                 </div>

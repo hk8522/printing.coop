@@ -315,7 +315,7 @@ $order_currency_currency_symbol = $OrderCurrencyData['symbols'];
                                                             ?>
                                                             <a href="<?= $linkInvoice ?>">
                                                                 <button type="button" class="btn btn-sm btn-danger">
-                                                                    <i class="fas fa-file-download"></i>
+                                                                    <i class="fa fas fa-file-download"></i>
                                                                     <?= ($language_name == 'French') ? 'Télécharger' : 'Download' ?>
                                                                 </button>
                                                             </a>
@@ -347,7 +347,7 @@ $order_currency_currency_symbol = $OrderCurrencyData['symbols'];
                                                             ?>
                                                             <a href="<?= $linkOrder ?>">
                                                                 <button type="button" class="btn btn-sm btn-danger">
-                                                                    <i class="fas fa-file-download"></i>
+                                                                    <i class="fa fas fa-file-download"></i>
                                                                     <?= ($language_name == 'French') ? 'Télécharger' : 'Download' ?></button>
                                                             </a>
                                                         </strong>
@@ -594,7 +594,7 @@ $order_currency_currency_symbol = $OrderCurrencyData['symbols'];
 
                                                                             <div class="uploaded-file-info">
                                                                                 <a href="<?= $link ?>">
-                                                                                    <i class="fas fa-file-download"></i>
+                                                                                    <i class="fa fas fa-file-download"></i>
                                                                                     <?= ($language_name == 'French') ? 'Télécharger' : 'Download' ?>
                                                                                 </a>
 

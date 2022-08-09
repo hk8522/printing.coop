@@ -79,7 +79,7 @@
 
                                                 <a href="<?= $linkInvoice ?>">
                                                     <button class="view-details-btn" type="button">
-                                                        <i class="fas fa-file-download"></i> <?= $InvoiceText ?>
+                                                        <i class="fa fas fa-file-download"></i> <?= $InvoiceText ?>
                                                     </button>
                                                 </a>
                                                 <?php
@@ -98,7 +98,7 @@
                                                 ?>
                                                 <a href="<?= $linkOrder ?>">
                                                     <button class="view-details-btn" type="button">
-                                                        <i class="fas fa-file-download"></i> <?= ($language_name == 'French') ? 'Commander Pdf' : 'Order Pdf' ?>
+                                                        <i class="fa fas fa-file-download"></i> <?= ($language_name == 'French') ? 'Commander Pdf' : 'Order Pdf' ?>
                                                     </button>
                                                 </a>
                                             </div>

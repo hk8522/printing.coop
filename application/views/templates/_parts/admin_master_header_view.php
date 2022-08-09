@@ -67,7 +67,7 @@
             </a>
             <nav class="navbar navbar-static-top" role="navigation">
                 <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
-                    <i class="fas fa-bars"></i>
+                    <i class="fa fas fa-bars"></i>
                 </a>
                 <div class="logo-section for-mobile text-center">
                     <img src="<?=$BASE_URL?>assets/admin/images/printing.coopLogo.png">
@@ -112,7 +112,7 @@
                 <ul class="sidebar-menu">
                     <li class="treeview <?php if (in_array($CLASS_NAME, array('dashboards'))) { echo 'active'; } ?>">
                         <a href="<?=$BASE_URL_ADMIN?>Dashboards">
-                            <i class="fas fa-tachometer-alt"></i>
+                            <i class="fa fas fa-tachometer-alt"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>

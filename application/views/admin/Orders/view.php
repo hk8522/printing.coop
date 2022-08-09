@@ -475,7 +475,7 @@ $order_currency_currency_symbol = $OrderCurrencyData['symbols'];
                                                                                 $linkInvoice = $BASE_URL."admin/Orders/downloadOrderPdf/".urlencode($location)."/".urlencode($file_name).'/'.urlencode($orderData['id']);
                                                                                 ?>
                                                                                 <a href="<?= $linkInvoice?>">
-                                                                                    <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-file-download"></i> Download</button>
+                                                                                    <button type="button" class="btn btn-sm btn-danger"><i class="fa fas fa-file-download"></i> Download</button>
                                                                                 </a>
                                                                             </strong>
                                                                         </div>
@@ -496,7 +496,7 @@ $order_currency_currency_symbol = $OrderCurrencyData['symbols'];
                                                                                 //$linkOrder=$BASE_URL."admin/Orders/download/".urlencode($location);
                                                                                 ?>
                                                                                 <a href="<?= $linkOrder?>">
-                                                                                    <button type="button" class="btn btn-sm btn-danger"><i class="fas fa-file-download"></i> Download</button>
+                                                                                    <button type="button" class="btn btn-sm btn-danger"><i class="fa fas fa-file-download"></i> Download</button>
                                                                                 </a>
                                                                             </strong>
                                                                         </div>
@@ -715,7 +715,7 @@ $order_currency_currency_symbol = $OrderCurrencyData['symbols'];
                                                                                         <?php } ?>
 
                                                                                         <a href="<?= $link?>">
-                                                                                            <i class="fas fa-file-download"></i> Download
+                                                                                            <i class="fa fas fa-file-download"></i> Download
                                                                                         </a>
                                                                                     </div>
                                                                                 </div>

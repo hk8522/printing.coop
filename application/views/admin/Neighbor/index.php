@@ -26,7 +26,7 @@
                                         <input class="form-control" type="text" placeholder="Search Neighbor"  onkeyup="searchNeighbor($(this).val())" id="searchSgedNeighborTextBox" name="searchSgedNeighborTextBox">
                                     </div>
                                     <div class="search-result" id="searchDiv" style="display:none"><!-- Add "active" class to show -->
-                                        <a href="javascript:void(0)" onclick="hidesearchDiv()"><i class="fas fa-times" ></i></a>
+                                        <a href="javascript:void(0)" onclick="hidesearchDiv()"><i class="fa fas fa-times" ></i></a>
                                         <ul id="NeighborListUl"></ul>
                                     </div>
                                 </div>
@@ -52,9 +52,9 @@
                                 <div class="all-vol-btn">
             <form action="<?= $BASE_URL?>admin/Neighbor/deleteAll" method="post">
                                     <a href="<?= $BASE_URL . $class_name?>edit" style="margin-right: 5px;">
-                                        <button type="button"><i class="fas fa-plus-circle"></i> Add New Neighbor</button>
+                                        <button type="button"><i class="fa fas fa-plus-circle"></i> Add New Neighbor</button>
                                     </a>
-                                    <button><i class="fas fa-trash fa-lg"></i> Delete All</button>
+                                    <button><i class="fa fas fa-trash fa-lg"></i> Delete All</button>
                                 </div>
                             </div>
                         </div>
@@ -85,10 +85,10 @@
                                             <td>
                                                 <div class="action-btns">
                                                     <!-- <a href="<?= $BASE_URL.$class_name?>view/<?= $item['id']?>" style="color:#3c8dbc;padding: 5px;" title="view">
-                                                        <i class="far fa-eye fa-lg"></i>
+                                                        <i class="fa far fa-eye fa-lg"></i>
                                                     </a> -->
                                                     <a href="<?= $BASE_URL.$class_name?>edit/<?= $item['id']?>" style="color:green;padding: 5px;" title="edit">
-                                                        <i class="far fa-edit fa-lg"></i>
+                                                        <i class="fa far fa-edit fa-lg"></i>
                                                     </a>
                                                     <a href="<?= $BASE_URL.$class_name?>delete/<?= $item['id']?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this neighbor?');">
                                                         <i class="fa fa-trash fa-lg"></i>

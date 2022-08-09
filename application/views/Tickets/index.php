@@ -33,7 +33,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="new-ticket-btn">
-                                        <a href="javascript:void(0)" id="newTicketFromOpen"><button><i class="fas fa-plus-circle"></i> Create New Ticket</button>
+                                        <a href="javascript:void(0)" id="newTicketFromOpen"><button><i class="fa fas fa-plus-circle"></i> Create New Ticket</button>
                                         </a>
                                     </div>
 
@@ -82,7 +82,7 @@
                               <div class="message-chat-title">
                                   <span>Support</span>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <i class="fas fa-times"></i>
+                                    <i class="fa fas fa-times"></i>
                                 </button>
                               </div>
                               <div class="message-chat-box" id="TicketChatData">

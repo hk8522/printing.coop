@@ -53,7 +53,7 @@
                               <div class="message-chat-title">
                                   <span>Support</span>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <i class="fas fa-times"></i>
+                                    <i class="fa fas fa-times"></i>
                                 </button>
                               </div>
                               <div class="message-chat-box" id="TicketChatData">

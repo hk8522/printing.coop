@@ -59,7 +59,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <div class="new-ticket-btn">
-                                        <button data-toggle="modal" data-target="#newTicketModal"><i class="fas fa-plus-circle"></i> Create New Ticket</button>
+                                        <button data-toggle="modal" data-target="#newTicketModal"><i class="fa fas fa-plus-circle"></i> Create New Ticket</button>
                                     </div>
                                 </div>
                             </div>
@@ -82,7 +82,7 @@
                                             <td>
                                                 <div class="action-btns">
                                                     <a href="#" class="comments-counts" style="color:green; padding: 5px;" title="Message" data-toggle="modal" data-target="#message-view-modal">
-                                                        <i class="fas fa-comment-dots fa-lg"></i>
+                                                        <i class="fa fas fa-comment-dots fa-lg"></i>
                                                         <span>10</span>
                                                        </a>
                                                    </div>
@@ -101,7 +101,7 @@
                                             <td>
                                                 <div class="action-btns">
                                                     <a href="#" class="comments-counts" style="color:green; padding: 5px;" title="Message" data-toggle="modal" data-target="#message-view-modal">
-                                                        <i class="fas fa-comment-dots fa-lg"></i>
+                                                        <i class="fa fas fa-comment-dots fa-lg"></i>
                                                         <span>10</span>
                                                        </a>
                                                    </div>
@@ -135,7 +135,7 @@
                               <div class="message-chat-title">
                                   <span>Support</span>
                                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <i class="fas fa-times"></i>
+                                    <i class="fa fas fa-times"></i>
                                 </button>
                               </div>
                               <div class="message-chat-box">

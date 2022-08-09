@@ -20,7 +20,7 @@
                                 <div class="col-md-6 col-xs-12 text-right">
                                     <div class="all-vol-btn">
                                         <a href="<?= $BASE_URL . $class_name . $sub_page_url ?>/0/<?= $type ?>">
-                                            <button><i class="fas fa-plus-circle"></i><?= $sub_page_title ?></button>
+                                            <button><i class="fa fas fa-plus-circle"></i><?= $sub_page_title ?></button>
                                         </a>
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                                                     <td>
                                                         <a href="<?= $BASE_URL . $class_name . $sub_page_url ?>/<?= $list['id'] ?>/<?= $type ?>"
                                                             style="color:green;padding: 5px;" title="edit">
-                                                            <i class="far fa-edit fa-lg"></i>
+                                                            <i class="fa far fa-edit fa-lg"></i>
                                                         </a>
 
                                                         <a href="<?= $BASE_URL . $class_name . $sub_page_delete_url ?>/<?= $list['id'] ?>/<?= $type ?>"
