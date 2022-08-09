@@ -31,23 +31,23 @@
 
   INSERT INTO `attribute_items` (`attribute_id`, `name`, `name_fr`)
   SELECT * FROM (
-    SELECT `attributes`.`id` AS `attribute_id`, `item_name` AS `name`, `item_name_french` AS `name_french` FROM `product_attribute_items` INNER JOIN `product_attributes` ON `product_attributes`.`id`=`product_attribute_items`.`product_attribute_id` INNER JOIN `attributes` ON `attributes`.`name`=`product_attributes`.`name` GROUP BY `product_attribute_items`.`product_attribute_id`, `product_attribute_items`.`item_name`
+    SELECT `attributes`.`id` AS `attribute_id`, TRIM(`item_name`) AS `name`, TRIM(`item_name_french`) AS `name_french` FROM `product_attribute_items` INNER JOIN `product_attributes` ON `product_attributes`.`id`=`product_attribute_items`.`product_attribute_id` INNER JOIN `attributes` ON `attributes`.`name`=`product_attributes`.`name` GROUP BY `product_attribute_items`.`product_attribute_id`, `product_attribute_items`.`item_name`
     UNION ALL
-    SELECT `attributes`.`id` AS `attribute_id`, `item_name` AS `name`, `item_name_french` AS `name_french` FROM `product_multiple_attribute_items` INNER JOIN `product_multiple_attributes` ON `product_multiple_attributes`.`id`=`product_multiple_attribute_items`.`product_attribute_id` INNER JOIN `attributes` ON `attributes`.`name`=`product_multiple_attributes`.`name` GROUP BY `product_multiple_attribute_items`.`product_attribute_id`, `product_multiple_attribute_items`.`item_name`
+    SELECT `attributes`.`id` AS `attribute_id`, TRIM(`item_name`) AS `name`, TRIM(`item_name_french`) AS `name_french` FROM `product_multiple_attribute_items` INNER JOIN `product_multiple_attributes` ON `product_multiple_attributes`.`id`=`product_multiple_attribute_items`.`product_attribute_id` INNER JOIN `attributes` ON `attributes`.`name`=`product_multiple_attributes`.`name` GROUP BY `product_multiple_attribute_items`.`product_attribute_id`, `product_multiple_attribute_items`.`item_name`
   ) `t`
   GROUP BY `attribute_id`, `name`;
 
   INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `show_order`)
   SELECT `product_attribute_datas`.`product_id`, `attributes`.`id` AS `attribute_id`, `product_attribute_datas`.`show_order`
   FROM `product_attribute_datas` INNER JOIN `product_attributes` ON `product_attribute_datas`.`attribute_id`=`product_attributes`.`id`
-    INNER JOIN `attributes` ON `attributes`.`name`=`product_attributes`.`name`
+    INNER JOIN `attributes` ON `attributes`.`name`=TRIM(`product_attributes`.`name`)
   GROUP BY `product_attribute_datas`.`product_id`, `attributes`.`id`;
 
   INSERT INTO `product_attribute_item_map` (`product_id`, `attribute_id`, `attribute_item_id`, `show_order`, `additional_fee`)
   SELECT `product_attribute_item_datas`.`product_id`, `attributes`.`id` AS `attribute_id`, `attribute_items`.`id` AS `attribute_item_id`, `product_attribute_item_datas`.`show_order`, `product_attribute_item_datas`.`extra_price` AS `additional_fee`
   FROM `product_attribute_item_datas`
     INNER JOIN `product_attributes` ON `product_attribute_item_datas`.`attribute_id`=`product_attributes`.`id`
-    INNER JOIN `attributes` ON `attributes`.`name`=`product_attributes`.`name`
+    INNER JOIN `attributes` ON `attributes`.`name`=TRIM(`product_attributes`.`name`)
     INNER JOIN `product_attribute_items` ON `product_attribute_items`.`id`=`product_attribute_item_datas`.`attribute_item_id`
-    INNER JOIN `attribute_items` ON `attribute_items`.`attribute_id`=`attributes`.`id` AND `attribute_items`.`name`=`product_attribute_items`.`item_name`
+    INNER JOIN `attribute_items` ON `attribute_items`.`attribute_id`=`attributes`.`id` AND `attribute_items`.`name`=TRIM(`product_attribute_items`.`item_name`)
   GROUP BY `product_attribute_item_datas`.`product_id`, `attributes`.`id`, `attribute_items`.`id`;

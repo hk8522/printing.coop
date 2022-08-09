@@ -89,6 +89,33 @@ CREATE TABLE `admins` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+/*Table structure for table `attribute_items` */
+
+DROP TABLE IF EXISTS `attribute_items`;
+
+CREATE TABLE `attribute_items` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `attribute_id` bigint(20) unsigned NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `name_fr` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `item` (`attribute_id`,`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Table structure for table `attributes` */
+
+DROP TABLE IF EXISTS `attributes`;
+
+CREATE TABLE `attributes` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `label` varchar(255) NOT NULL,
+  `label_fr` varchar(255) DEFAULT NULL,
+  `type` int(10) unsigned DEFAULT 999,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name` (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
 /*Table structure for table `banners` */
 
 DROP TABLE IF EXISTS `banners`;
@@ -184,7 +211,7 @@ CREATE TABLE `book` (
   `title` varchar(200) NOT NULL,
   `tags` longtext DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `brands` */
 
@@ -821,7 +848,7 @@ CREATE TABLE `product_attribute_datas` (
   `attribute_id` int(11) DEFAULT NULL,
   `show_order` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `product_attribute_item_datas` */
 
@@ -839,7 +866,22 @@ CREATE TABLE `product_attribute_item_datas` (
   PRIMARY KEY (`id`),
   KEY `attribute` (`product_id`,`attribute_id`,`attribute_item_id`),
   KEY `attribute_item` (`product_id`,`attribute_item_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Table structure for table `product_attribute_item_map` */
+
+DROP TABLE IF EXISTS `product_attribute_item_map`;
+
+CREATE TABLE `product_attribute_item_map` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `product_id` bigint(20) unsigned DEFAULT NULL,
+  `attribute_id` bigint(20) unsigned DEFAULT NULL,
+  `attribute_item_id` bigint(20) unsigned DEFAULT NULL,
+  `show_order` int(10) unsigned DEFAULT 0,
+  `additional_fee` decimal(10,2) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `attribute_item` (`product_id`,`attribute_id`,`attribute_item_id`,`show_order`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `product_attribute_items` */
 
@@ -853,7 +895,30 @@ CREATE TABLE `product_attribute_items` (
   `created` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+/*Table structure for table `product_attribute_map` */
+
+DROP TABLE IF EXISTS `product_attribute_map`;
+
+CREATE TABLE `product_attribute_map` (
+  `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `product_id` bigint(20) unsigned DEFAULT NULL,
+  `attribute_id` bigint(20) unsigned DEFAULT NULL,
+  `show_order` int(10) unsigned DEFAULT NULL,
+  `use_items` tinyint(4) unsigned DEFAULT 1,
+  `value_min` decimal(10,2) DEFAULT 0.00,
+  `value_max` decimal(10,2) DEFAULT 0.00,
+  `additional_fee` decimal(10,2) DEFAULT NULL,
+  `fee_apply_size` tinyint(3) unsigned DEFAULT 0,
+  `fee_apply_width` tinyint(3) unsigned DEFAULT 0,
+  `fee_apply_length` tinyint(3) unsigned DEFAULT 0,
+  `fee_apply_depth` tinyint(3) unsigned DEFAULT 0,
+  `fee_apply_diameter` tinyint(3) unsigned DEFAULT 0,
+  `fee_apply_pages` tinyint(3) unsigned DEFAULT 0,
+  PRIMARY KEY (`id`),
+  KEY `attribute` (`product_id`,`attribute_id`,`show_order`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `product_attributes` */
 
@@ -867,7 +932,7 @@ CREATE TABLE `product_attributes` (
   `created` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `product_category` */
 
@@ -1089,7 +1154,7 @@ CREATE TABLE `product_personalise` (
   `writeown` tinyint(1) NOT NULL DEFAULT 0,
   `writeown_paragraph_char` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `product_personalise_by_user` */
 
@@ -1102,7 +1167,7 @@ CREATE TABLE `product_personalise_by_user` (
   `productImage` varchar(100) NOT NULL,
   `personaliseDetail` longtext NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `product_quantity` */
 
@@ -1343,7 +1408,7 @@ CREATE TABLE `provider_options` (
   `provider_option_id` bigint(20) unsigned DEFAULT NULL,
   `name` varchar(255) NOT NULL,
   `label` varchar(255) NOT NULL,
-  `type` int(11) DEFAULT 2,
+  `type` int(11) DEFAULT 999,
   `attribute_id` bigint(20) unsigned DEFAULT NULL,
   `html_type` varchar(16) DEFAULT NULL,
   `sort_order` int(11) DEFAULT 0,
