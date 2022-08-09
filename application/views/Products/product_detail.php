@@ -337,7 +337,7 @@
     function showAttribute(cid, nid) {
         $('#loader-img').show();
         $('.new-price-img').hide();
-        var item_val = $("#attribute_id_" + cid).val();
+        var item_val = $('#attribute_id_' + cid).val();
         var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
@@ -354,7 +354,7 @@
 
                 var json = JSON.parse(data);
                 if (json.success == 1) {
-                    $("#attribute_id_" + nid).attr("disabled", false);
+                    $('#attribute_id_' + nid).attr("disabled", false);
                     $('#total-price').html(json.price);
                 }
             },
@@ -368,7 +368,7 @@
     function showQuantity() {
         $('#loader-img').show();
         $('.new-price-img').hide();
-        $(".multipal_size").html('<option value="">Choose an option...</option>');
+        $('.multipal_size').html('<option value="">Choose an option...</option>');
         var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
@@ -385,10 +385,10 @@
                 $('.new-price-img').show();
                 if (json.success == 1) {
                     if (json.sizeoptions == '0') {
-                        $("#attribute_id_2").attr("disabled", false);
-                        $("#SizeOptions").html('');
+                        $('#attribute_id_2').attr("disabled", false);
+                        $('#SizeOptions').html('');
                     } else {
-                        $("#SizeOptions").html(json.sizeoptions);
+                        $('#SizeOptions').html(json.sizeoptions);
                     }
                     $('#total-price').html(json.price);
                 }
@@ -399,7 +399,7 @@
     function showSizeQuantity() {
         $('#loader-img').show();
         $('.new-price-img').hide();
-        $(".multipal_size_item").html('<option value="">Choose an option...</option>');
+        $('.multipal_size_item').html('<option value="">Choose an option...</option>');
         var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
@@ -415,7 +415,7 @@
                 $('#loader-img').hide();
                 $('.new-price-img').show();
                 if (json.success == 1) {
-                    $("#SizeOptions").html(json.sizeoptions);
+                    $('#SizeOptions').html(json.sizeoptions);
                     $('#total-price').html(json.price);
                 }
             }
@@ -433,7 +433,7 @@
             processData: false,
             success: function(data) {
                 $('#loader-img').hide();
-                $("#SizeOptions").html(data);
+                $('#SizeOptions').html(data);
             }
         });
     }
@@ -459,15 +459,15 @@
                 if (json.success == 1) {
                     $('#total-price').html(json.price);
 
-                    $("#product_width").val(json.product_width);
-                    $("#product_length").val(json.product_length);
+                    $('#product_width').val(json.product_width);
+                    $('#product_length').val(json.product_length);
 
-                    $("#product_total_page").val(json.product_total_page);
+                    $('#product_total_page').val(json.product_total_page);
 
-                    $("#product_width_error").html(json.product_width_error);
-                    $("#product_length_error").html(json.product_length_error);
+                    $('#product_width_error').html(json.product_width_error);
+                    $('#product_length_error').html(json.product_length_error);
 
-                    $("#product_total_page_error").html(json.product_total_page_error);
+                    $('#product_total_page_error').html(json.product_total_page_error);
                 }
             }
         });
@@ -494,19 +494,19 @@
                 if (json.success == 1) {
                     $('#total-price').html(json.price);
 
-                    $("#product_depth_width").val(json.product_depth_width);
-                    $("#product_depth_length").val(json.product_depth_length);
+                    $('#product_depth_width').val(json.product_depth_width);
+                    $('#product_depth_length').val(json.product_depth_length);
 
-                    $("#product_depth_total_page").val(json.product_depth_total_page);
+                    $('#product_depth_total_page').val(json.product_depth_total_page);
 
-                    $("#product_depth").val(json.product_depth);
+                    $('#product_depth').val(json.product_depth);
 
-                    $("#product_depth_width_error").html(json.product_depth_width_error);
-                    $("#product_depth_length_error").html(json.product_depth_length_error);
+                    $('#product_depth_width_error').html(json.product_depth_width_error);
+                    $('#product_depth_length_error').html(json.product_depth_length_error);
 
-                    $("#product_depth_total_page_error").html(json.product_depth_total_page_error);
+                    $('#product_depth_total_page_error').html(json.product_depth_total_page_error);
 
-                    $("#product_depth_error").html(json.product_depth_error);
+                    $('#product_depth_error').html(json.product_depth_error);
                 }
             }
         });
@@ -533,40 +533,40 @@
                 if (json.success == 1) {
                     $('#total-price').html(json.price);
 
-                    $("#page_product_width").val(json.page_product_width);
-                    $("#page_product_length").val(json.page_product_length);
+                    $('#page_product_width').val(json.page_product_width);
+                    $('#page_product_length').val(json.page_product_length);
 
-                    $("#page_product_total_page").val(json.page_product_total_page);
-                    $("#page_product_total_sheets").val(json.page_product_total_sheets);
+                    $('#page_product_total_page').val(json.page_product_total_page);
+                    $('#page_product_total_sheets').val(json.page_product_total_sheets);
 
-                    $("#page_product_total_quantity").val(json.page_product_total_quantity);
+                    $('#page_product_total_quantity').val(json.page_product_total_quantity);
 
-                    $("#page_product_width_error").html(json.page_product_width_error);
-                    $("#page_product_length_error").html(json.page_product_length_error);
-                    $("#page_product_total_page_error").html(json.page_product_total_page_error);
-                    $("#page_product_total_quantity_error").html(json.page_product_total_quantity_error);
-                    $("#page_product_total_sheets_error").html(json.page_product_total_sheets_error);
+                    $('#page_product_width_error').html(json.page_product_width_error);
+                    $('#page_product_length_error').html(json.page_product_length_error);
+                    $('#page_product_total_page_error').html(json.page_product_total_page_error);
+                    $('#page_product_total_quantity_error').html(json.page_product_total_quantity_error);
+                    $('#page_product_total_sheets_error').html(json.page_product_total_sheets_error);
                 }
             }
         });
     }
 
-    $("#product_width, #product_total_page").change(function() {
+    $('#product_width, #product_total_page').change(function() {
         product_width = $(this).val();
         getLengthWidthPrice();
     });
 
-    $("#product_length, #length_width_color").change(function() {
+    $('#product_length, #length_width_color').change(function() {
         product_length = $(this).val();
         getLengthWidthPrice();
     });
 
-    $("#page_product_width, #page_product_length, #page_product_total_page, #page_product_total_sheets, #page_length_width_color, #page_product_total_quantity")
+    $('#page_product_width, #page_product_length, #page_product_total_page, #page_product_total_sheets, #page_length_width_color, #page_product_total_quantity')
         .change(function() {
             getPageLengthWidthPrice();
         });
 
-    $("#product_depth_width, #product_depth_total_page, #product_depth_length, #product_depth, #depth_color").change(
+    $('#product_depth_width, #product_depth_total_page, #product_depth_length, #product_depth, #depth_color').change(
         function() {
             getDepthLengthWidthPrice();
         });

@@ -10,7 +10,7 @@
 
                         <div class="row">
                         <div class="control-group info col-sm-4">
-                            <label class="span2 " for="inputMame">Website</label>
+                            <label class="span2" for="inputMame">Website</label>
                         </div>
                         <div class="control-group info col-sm-8">
                           <div class="controls">
@@ -35,7 +35,7 @@
                         </div>
                         <div class="row">
                                 <div class="control-group info col-sm-4">
-                                    <label class="span2 " for="inputMame">Title</label>
+                                    <label class="span2" for="inputMame">Title</label>
                                 </div>
                 <div class="control-group info col-sm-8">
                   <div class="controls">
@@ -48,7 +48,7 @@
 
             <div class="row">
                                 <div class="control-group info col-sm-4">
-                                    <label class="span2 " for="inputMame">Content</label>
+                                    <label class="span2" for="inputMame">Content</label>
                                 </div>
                 <div class="control-group info col-sm-8">
                   <div class="controls">
@@ -61,7 +61,7 @@
 
             <div class="row">
                                 <div class="control-group info col-sm-4">
-                                    <label class="span2 " for="inputMame">Image</label>
+                                    <label class="span2" for="inputMame">Image</label>
                                 </div>
                 <div class="control-group info col-sm-8">
                   <div class="controls">
@@ -76,11 +76,11 @@
 
             <!--<div class="row">
                                 <div class="control-group info col-sm-4">
-                                    <label class="span2 " for="inputMame">Comments</label>
+                                    <label class="span2" for="inputMame">Comments</label>
                                 </div>
                                 <div class="control-group info col-sm-8">
                                   <?php foreach ($blogComments as $key => $blogComment): ?>
-                                    <p class="mt-5 font-weight-bold"> By   <?= $blogComment['user_name'] ?> <span> <?= date('d/m/Y', strtotime($blogComment['created'])) ?></span></p>
+                                    <p class="mt-5 font-weight-bold">By <?= $blogComment['user_name'] ?> <span> <?= date('d/m/Y', strtotime($blogComment['created'])) ?></span></p>
                                     <div class="controls">
                                        <?= $blogComment['comment'] ?>
                                     </div>

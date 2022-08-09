@@ -28,7 +28,7 @@
         <input class="form-control" type="text" placeholder="Search Product" value="<?= $product->product_name?>" onkeyup="searchProduct($(this).val())">
         <!--<button type="button"><i class="fas fa-search"></i></button>-->
     </div>
-    <div class="search-result" style="display:none"> <!-- Add "active" class to show -->
+    <div class="search-result" style="display:none"><!-- Add "active" class to show -->
         <a href="javascript:void(0)" onclick="hideSearchResult()"><i class="fas fa-times" ></i></a>
         <ul></ul>
     </div>

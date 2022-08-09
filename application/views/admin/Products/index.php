@@ -44,8 +44,12 @@
                                             <div>
                                                 <label class="span2">Order By</label>
                                                 <select class="form-control" onchange="this.form.submit()" name="order">
-                                                    <option value="desc" <?= $order == 'desc' ? 'selected="selected"' : '' ?>>Latest Product</option>
-                                                    <option value="asc" <?= $order == 'asc' ? 'selected="selected"' : '' ?>>Oldest Product</option>
+                                                    <option value="desc"
+                                                        <?= $order == 'desc' ? 'selected="selected"' : '' ?>>Latest
+                                                        Product</option>
+                                                    <option value="asc"
+                                                        <?= $order == 'asc' ? 'selected="selected"' : '' ?>>Oldest
+                                                        Product</option>
                                                 </select>
                                             </div>
                                             <div style="margin-left: 10px;">
@@ -58,8 +62,7 @@
                                 </div>
                                 <div class="col-md-12 col-lg-12 col-xl-4 col-xs-12 text-right">
                                     <div class="all-vol-btn">
-                                        <form action="<?= $BASE_URL ?>admin/Products/deleteAllProduct"
-                                            method="post">
+                                        <form action="<?= $BASE_URL ?>admin/Products/deleteAllProduct" method="post">
                                             <a href="<?= $BASE_URL . $class_name . $sub_page_url ?>"
                                                 style="margin-right: 5px;">
                                                 <button type="button">
@@ -101,21 +104,21 @@
                                         if (count($lists) > 0) {
                                             foreach ($lists as $key => $list) {
                                                 ?>
-                                                <tr>
-                                                    <td><input type="checkbox" name="product_ids[]" class="product_ids"
-                                                            value="<?= $list['id'] ?>">
-                                                    </td>
-                                                    <td>
-                                                        <?= ucfirst($list['name']) ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php $imageurl = getProductImage($list['product_image']);?>
-                                                        <img src="<?= $imageurl ?>" width="auto" height="80">
-                                                    </td>
-                                                    <td>
-                                                        <?= number_format($list['price'], 2) ?>
-                                                    </td>
-                                                    <!--<td>
+                                        <tr>
+                                            <td><input type="checkbox" name="product_ids[]" class="product_ids"
+                                                    value="<?= $list['id'] ?>">
+                                            </td>
+                                            <td>
+                                                <?= ucfirst($list['name']) ?>
+                                            </td>
+                                            <td>
+                                                <?php $imageurl = getProductImage($list['product_image']);?>
+                                                <img src="<?= $imageurl ?>" width="auto" height="80">
+                                            </td>
+                                            <td>
+                                                <?= number_format($list['price'], 2) ?>
+                                            </td>
+                                            <!--<td>
                                                         <?= number_format($list['price_euro'], 2) ?>
                                                     </td>
                                                     <td>
@@ -125,77 +128,81 @@
                                                         <?= number_format($list['price_usd'], 2) ?>
                                                     </td>-->
 
-                                                    <td>
-                                                        <?= ucfirst($list['sub_category_name']) ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= ucfirst($list['category_name']) ?>
-                                                    </td>
-                                                    <td>
-                                                        <?php if (empty($list['is_stock'])) {
+                                            <td>
+                                                <?= ucfirst($list['sub_category_name']) ?>
+                                            </td>
+                                            <td>
+                                                <?= ucfirst($list['category_name']) ?>
+                                            </td>
+                                            <td>
+                                                <?php if (empty($list['is_stock'])) {
                                                             echo 'In Stock';
                                                         } else {
                                                             echo 'Out of Stock';
                                                        } ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $list['code'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= $list['model'] ?>
-                                                    </td>
-                                                    <td>
-                                                        <?= dateFormate($list['updated']) ?>
-                                                    </td>
+                                            </td>
+                                            <td>
+                                                <?= $list['code'] ?>
+                                            </td>
+                                            <td>
+                                                <?= $list['model'] ?>
+                                            </td>
+                                            <td>
+                                                <?= dateFormate($list['updated']) ?>
+                                            </td>
 
-                                                    <td>
-                                                        <?php if ($list['status'] == 1) { ?>
-                                                            <a href="<?= $BASE_URL . $class_name . $sub_page_url_active_inactive ?>/<?php ?><?= $list['id'] ?>/0">
-                                                                <button type="button" class="custon-active">Active</button>
-                                                            </a>
-                                                        <?php } else{ ?>
-                                                            <a href="<?= $BASE_URL . $class_name . $sub_page_url_active_inactive ?>/<?php ?><?= $list['id'] ?>/1">
-                                                                <button type="button" class="custon-delete">Inactive</button>
-                                                            </a>
-                                                        <?php } ?>
-                                                    </td>
-                                                    <td>
-                                                        <div class="action-btns">
-                                                            <a href="<?= $BASE_URL . $class_name . $sub_page_view_url ?>/<?= $list['id'] ?>"
-                                                                style="color:#3c8dbc;padding: 5px;" title="view">
-                                                                <i class="fa far fa-eye fa-lg"></i>
-                                                            </a>
-                                                            <a href="<?= $BASE_URL . $class_name . $sub_page_url ?>/<?= $list['id'] ?>"
-                                                                style="color:green;padding: 5px;" title="edit">
-                                                                <i class="fa far fa-edit fa-lg"></i>
-                                                            </a>
+                                            <td>
+                                                <?php if ($list['status'] == 1) { ?>
+                                                <a
+                                                    href="<?= $BASE_URL . $class_name . $sub_page_url_active_inactive ?>/<?php ?><?= $list['id'] ?>/0">
+                                                    <button type="button" class="custon-active">Active</button>
+                                                </a>
+                                                <?php } else{ ?>
+                                                <a
+                                                    href="<?= $BASE_URL . $class_name . $sub_page_url_active_inactive ?>/<?php ?><?= $list['id'] ?>/1">
+                                                    <button type="button" class="custon-delete">Inactive</button>
+                                                </a>
+                                                <?php } ?>
+                                            </td>
+                                            <td>
+                                                <div class="action-btns">
+                                                    <a href="<?= $BASE_URL . $class_name . $sub_page_view_url ?>/<?= $list['id'] ?>"
+                                                        style="color:#3c8dbc;padding: 5px;" title="view">
+                                                        <i class="fa far fa-eye fa-lg"></i>
+                                                    </a>
+                                                    <a href="<?= $BASE_URL . $class_name . $sub_page_url ?>/<?= $list['id'] ?>"
+                                                        style="color:green;padding: 5px;" title="edit">
+                                                        <i class="fa far fa-edit fa-lg"></i>
+                                                    </a>
 
-                                                            <a href="<?= $BASE_URL . $class_name . $sub_page_delete_url ?>/<?= $list['id'] ?>"
-                                                                style="color:#d71b23;padding: 5px;" title="delete"
-                                                                onclick="return confirm('Are you sure you want to delete this product?');">
-                                                                <i class="fa fa-trash fa-lg"></i>
-                                                            </a>
-                                                            <a href="<?= $BASE_URL . $class_name ?>SetMultipleAttributes/<?= $list['id'] ?>"
-                                                                style="color:geen;padding: 5px;" title="Set Single Attribute">
-                                                                <button type="button" class="custon-active">Multiple Attribute</button>
-                                                            </a>
-                                                            <!-- <a href="<?= $BASE_URL . $class_name ?>SetMultipleAttributesAuto/<?= $list['id'] ?>"
+                                                    <a href="<?= $BASE_URL . $class_name . $sub_page_delete_url ?>/<?= $list['id'] ?>"
+                                                        style="color:#d71b23;padding: 5px;" title="delete"
+                                                        onclick="return confirm('Are you sure you want to delete this product?');">
+                                                        <i class="fa fa-trash fa-lg"></i>
+                                                    </a>
+                                                    <a href="<?= $BASE_URL . $class_name ?>SetMultipleAttributes/<?= $list['id'] ?>"
+                                                        style="color:geen;padding: 5px;" title="Set Single Attribute">
+                                                        <button type="button" class="custon-active">Multiple
+                                                            Attribute</button>
+                                                    </a>
+                                                    <!-- <a href="<?= $BASE_URL . $class_name ?>SetMultipleAttributesAuto/<?= $list['id'] ?>"
                                                                 style="color:geen;padding: 5px;" title="Set Single Attribute">
                                                                 <button type="button" class="custon-active">Multiple Attribute (Automatic)</button>
                                                             </a> -->
-                                                            <a href="<?= $BASE_URL . $class_name ?>SetSingleAttributes/<?= $list['id'] ?>"
-                                                                style="color:#geen;padding: 5px;" title="Set Single Attribute">
-                                                                <button type="button" class="custon-active">Single Attribute</button>
-                                                            </a>
-                                                        </div>
-                                                    </td>
-                                                </tr>
-                                            <?php
+                                                    <a href="<?= $BASE_URL . $class_name ?>SetSingleAttributes/<?= $list['id'] ?>"
+                                                        style="color:#geen;padding: 5px;" title="Set Single Attribute">
+                                                        <button type="button" class="custon-active">Single
+                                                            Attribute</button>
+                                                    </a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php
                                             }
                                         } else{ ?>
-                                            <tr>
-                                                <td colspan="10" class="text-center">List Empty.</td>
-                                            </tr>
+                                        <tr>
+                                            <td colspan="10" class="text-center">List Empty.</td>
+                                        </tr>
                                         <?php } ?>
                                     </tbody>
                                 </table>
@@ -222,8 +229,8 @@ function searchProduct(searchtext) {
     if (searchtext != '') {
         $('#loader-img').show();
         var url = '<?= $BASE_URL ?>admin/Products/searchProduct';
-        $("#searchDiv").show();
-        $("#ProductListUl").html('');
+        $('#searchDiv').show();
+        $('#ProductListUl').html('');
         $.ajax({
             type: "POST",
             url: url,
@@ -232,27 +239,27 @@ function searchProduct(searchtext) {
             }, // serializes the form's elements.
             success: function(data) {
                 $('#loader-img').hide();
-                $("#ProductListUl").html(data);
+                $('#ProductListUl').html(data);
             },
             error: function(error) {}
         });
     } else {
-        $("#searchDiv").hide();
-        $("#ProductListUl").html('');
-        $("#searchSgedProductTextBox").val('');
+        $('#searchDiv').hide();
+        $('#ProductListUl').html('');
+        $('#searchSgedProductTextBox').val('');
     }
 }
 
 function hidesearchDiv() {
-    $("#searchDiv").hide();
-    $("#ProductListUl").html('');
+    $('#searchDiv').hide();
+    $('#ProductListUl').html('');
 }
 
-$("#select-all").click(function() {
-    if ($(this).prop("checked") == true) {
-        $(".product_ids").prop('checked', true);
+$('#select-all').click(function() {
+    if ($(this).prop('checked') == true) {
+        $('.product_ids').prop('checked', true);
     } else {
-        $(".product_ids").prop('checked', false);
+        $('.product_ids').prop('checked', false);
     }
 });
 </script>

@@ -35,7 +35,7 @@
                                     <th style="display:none"></th>
                                     <th>Name</th>
                                     <th>Email</th>
-                                    <th>Phone </th>
+                                    <th>Phone</th>
                                     <th>Url</th>
                                     <th>Address</th>
                                     <!--<th>Currency</th>-->

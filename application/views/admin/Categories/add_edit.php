@@ -22,7 +22,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Name</label>
+                                                    <label class="span2" for="inputMame">Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -36,7 +36,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Name</label>
+                                                    <label class="span2" for="inputMame">French Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -50,7 +50,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Category Order</label>
+                                                    <label class="span2" for="inputMame">Category Order</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -63,7 +63,7 @@
                                                                                 <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Category Page Title</label>
+                                                    <label class="span2" for="inputMame">Category Page Title</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -77,7 +77,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Category Page Title</label>
+                                                    <label class="span2" for="inputMame">French Category Page Title</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -90,7 +90,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Category Page Meta Description Content</label>
+                                                    <label class="span2" for="inputMame">Category Page Meta Description Content</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -104,7 +104,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">France Category Page Meta Description Content</label>
+                                                    <label class="span2" for="inputMame">France Category Page Meta Description Content</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -118,7 +118,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Category Page Meta Keywords Content</label>
+                                                    <label class="span2" for="inputMame">Category Page Meta Keywords Content</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -132,7 +132,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">France Category Page Meta Keywords Content</label>
+                                                    <label class="span2" for="inputMame">France Category Page Meta Keywords Content</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -146,7 +146,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Category Dispersion</label>
+                                                    <label class="span2" for="inputMame">Category Dispersion</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -160,7 +160,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Category Dispersion</label>
+                                                    <label class="span2" for="inputMame">French Category Dispersion</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -175,7 +175,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Show Category</label>
+                                                    <label class="span2" for="inputMame">Show Category</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -202,7 +202,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"><?= $val ?> Image</label>
+                                                    <label class="span2" for="inputMame"><?= $val ?> Image</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -240,7 +240,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"><?= $val ?> Image French</label>
+                                                    <label class="span2" for="inputMame"><?= $val ?> Image French</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -280,7 +280,7 @@
                                         <!--<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Category Image</label>
+                                                    <label class="span2" for="inputMame">Category Image</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -318,7 +318,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Category Image French</label>
+                                                    <label class="span2" for="inputMame">Category Image French</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">

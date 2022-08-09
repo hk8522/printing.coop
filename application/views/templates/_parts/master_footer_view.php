@@ -22,7 +22,8 @@
                             <input type="email"
                                 placeholder="<?=$language_name == 'French' ? 'Entrez votre adresse email' : 'Enter your email address'?>"
                                 name="email" id="subscribe-email">
-                            <button type="submit"><?= ($language_name == 'French') ? 'Souscrire' : 'Subscribe' ?></button>
+                            <button
+                                type="submit"><?= ($language_name == 'French') ? 'Souscrire' : 'Subscribe' ?></button>
                         </div>
                     </form>
                 </div>
@@ -41,8 +42,10 @@
                             <span><?= ($language_name == 'French') ? 'Souscrire' : 'NAVIGATION' ?></span>
                         </div>
                         <div class="universal-dark-info">
-                            <span><a href="<?=$BASE_URL?>"><?= ($language_name == 'French') ? 'Accueil' : 'Home' ?></a></span>
-                            <span><a href="<?=$BASE_URL?>Products"><?= ($language_name == 'French') ? 'Des produits' : 'Products' ?></a></span>
+                            <span><a
+                                    href="<?=$BASE_URL?>"><?= ($language_name == 'French') ? 'Accueil' : 'Home' ?></a></span>
+                            <span><a
+                                    href="<?=$BASE_URL?>Products"><?= ($language_name == 'French') ? 'Des produits' : 'Products' ?></a></span>
 
                             <?php
                             $pages = $this->Page_Model->getPageList(true, '', 1, 0, $website_store_id);
@@ -57,17 +60,17 @@
                                     $url = $BASE_URL . $dataUrl['class'] . '/' . $dataUrl['action'];
                                 }
                                 ?>
-                                <span>
-                                    <a href="<?=$url?>">
-                                        <?php
+                            <span>
+                                <a href="<?=$url?>">
+                                    <?php
                                         if ($language_name == 'French') {
                                             echo ucfirst($page['title_france']);
                                         } else {
                                             echo ucfirst($page['title']);
                                         }
                                         ?>
-                                    </a>
-                                </span>
+                                </a>
+                            </span>
                             <?php } ?>
                         </div>
                     </div>
@@ -79,42 +82,45 @@
                             <span><?= ($language_name == 'French') ? 'Catégorie' : 'Category' ?></span>
                         </div>
                         <?php if ($website_store_id == 1 || $website_store_id == 3) {?>
-                            <div class="universal-dark-info">
-                                <div class="row">
-                                    <?php foreach ($footerCategory as $Category) { ?>
-                                        <div class="col-6 col-md-6">
-                                            <span>
-                                                <a href="<?=$BASE_URL?>Products?category_id=<?=base64_encode($Category['id'])?>">
-                                                    <?= ($language_name == 'French') ? ucfirst($Category['name_french']) : ucfirst($Category['name']) ?>
-                                                </a>
-                                            </span>
-                                        </div>
-                                    <?php }?>
+                        <div class="universal-dark-info">
+                            <div class="row">
+                                <?php foreach ($footerCategory as $Category) { ?>
+                                <div class="col-6 col-md-6">
+                                    <span>
+                                        <a
+                                            href="<?=$BASE_URL?>Products?category_id=<?=base64_encode($Category['id'])?>">
+                                            <?= ($language_name == 'French') ? ucfirst($Category['name_french']) : ucfirst($Category['name']) ?>
+                                        </a>
+                                    </span>
                                 </div>
+                                <?php }?>
                             </div>
+                        </div>
                         <?php }
                         if ($website_store_id == 5) { ?>
-                            <div class="universal-dark-info">
-                                <div class="row">
-                                    <?php foreach ($categories['categories'] as $Category) { ?>
-                                        <div class="col-6 col-md-6">
-                                            <span>
-                                                <a href="<?=$BASE_URL?>Products?category_id=<?=base64_encode($Category['id'])?>">
-                                                    <?= ($language_name == 'French') ? ucfirst($Category['name_french']) : ucfirst($Category['name']) ?>
-                                                </a>
-                                            </span>
+                        <div class="universal-dark-info">
+                            <div class="row">
+                                <?php foreach ($categories['categories'] as $Category) { ?>
+                                <div class="col-6 col-md-6">
+                                    <span>
+                                        <a
+                                            href="<?=$BASE_URL?>Products?category_id=<?=base64_encode($Category['id'])?>">
+                                            <?= ($language_name == 'French') ? ucfirst($Category['name_french']) : ucfirst($Category['name']) ?>
+                                        </a>
+                                    </span>
 
-                                            <?php foreach ($Category['sub_categories'] as $subCategory) { ?>
-                                                <span style="margin-left: 20px;">
-                                                    <a href="<?=$BASE_URL?>Products?category_id=<?=base64_encode($Category['id'])?>&sub_category_id<?=base64_encode($subCategory['id'])?>">
-                                                        <?= ($language_name == 'French') ? ucfirst($subCategory['name_french']) : ucfirst($subCategory['name']) ?>
-                                                    </a>
-                                                </span>
-                                            <?php } ?>
-                                        </div>
-                                    <?php }?>
+                                    <?php foreach ($Category['sub_categories'] as $subCategory) { ?>
+                                    <span style="margin-left: 20px;">
+                                        <a
+                                            href="<?=$BASE_URL?>Products?category_id=<?=base64_encode($Category['id'])?>&sub_category_id<?=base64_encode($subCategory['id'])?>">
+                                            <?= ($language_name == 'French') ? ucfirst($subCategory['name_french']) : ucfirst($subCategory['name']) ?>
+                                        </a>
+                                    </span>
+                                    <?php } ?>
                                 </div>
+                                <?php }?>
                             </div>
+                        </div>
                         <?php } ?>
                     </div>
                 </div>
@@ -127,148 +133,148 @@
                         <?= ($language_name == 'French') ? $configrations['address_one_french'] : $configrations['address_one'] ?>
                     </div>
                     <?php if ($main_store_id == 1) {?>
-                        <div class="social-icons">
-                            <div>
-                                <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://www.instagram.com/printing.coop/" target="_blank">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://twitter.com/PrintingCoop" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <a href="https://pinterest.com/imprimeurcoop" target="_blank">
-                                    <i class="fab fa-pinterest"></i>
-                                </a>
-                                <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
+                    <div class="social-icons">
+                        <div>
+                            <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/printing.coop/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com/PrintingCoop" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://pinterest.com/imprimeurcoop" target="_blank">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
                         </div>
+                    </div>
                     <?php } ?>
                     <?php if ($main_store_id == 2) {?>
-                        <div class="social-icons">
-                            <div>
-                                <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://twitter.com/PrintingCoop" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <a href="https://pinterest.com/imprimeurcoop" target="_blank">
-                                    <i class="fab fa-pinterest"></i>
-                                </a>
-                                <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
+                    <div class="social-icons">
+                        <div>
+                            <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com/PrintingCoop" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://pinterest.com/imprimeurcoop" target="_blank">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
                         </div>
+                    </div>
                     <?php } ?>
                     <?php if ($main_store_id == 3) {?>
-                        <div class="social-icons">
-                            <div>
-                                <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://twitter.com/PrintingCoop" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <a href="https://pinterest.com/imprimeurcoop" target="_blank">
-                                    <i class="fab fa-pinterest"></i>
-                                </a>
-                                <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
+                    <div class="social-icons">
+                        <div>
+                            <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com/PrintingCoop" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://pinterest.com/imprimeurcoop" target="_blank">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
                         </div>
+                    </div>
                     <?php } ?>
                     <?php if ($main_store_id == 4) {?>
-                        <div class="social-icons">
-                            <div>
-                                <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://twitter.com/PrintingCoop" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <a href="https://pinterest.com/imprimeurcoop" target="_blank">
-                                    <i class="fab fa-pinterest"></i>
-                                </a>
-                                <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
+                    <div class="social-icons">
+                        <div>
+                            <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com/PrintingCoop" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://pinterest.com/imprimeurcoop" target="_blank">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
                         </div>
+                    </div>
                     <?php } ?>
                     <?php if ($main_store_id == 5) {?>
-                        <div class="social-icons">
-                            <div>
-                                <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://twitter.com/PrintingCoop" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <a href="https://pinterest.com/imprimeurcoop" target="_blank">
-                                    <i class="fab fa-pinterest"></i>
-                                </a>
-                                <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
+                    <div class="social-icons">
+                        <div>
+                            <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com/PrintingCoop" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://pinterest.com/imprimeurcoop" target="_blank">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
                         </div>
+                    </div>
                     <?php } ?>
                     <?php if ($main_store_id == 6) {?>
-                        <div class="social-icons">
-                            <div>
-                                <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
-                                    <i class="fab fa-facebook-f"></i>
-                                </a>
-                                <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="https://twitter.com/PrintingCoop" target="_blank">
-                                    <i class="fab fa-twitter"></i>
-                                </a>
-                                <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
-                                    <i class="fab fa-linkedin"></i>
-                                </a>
-                                <a href="https://pinterest.com/imprimeurcoop" target="_blank">
-                                    <i class="fab fa-pinterest"></i>
-                                </a>
-                                <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
-                                    <i class="fab fa-youtube"></i>
-                                </a>
-                            </div>
+                    <div class="social-icons">
+                        <div>
+                            <a href="https://www.facebook.com/imprimeriecoop/" target="_blank">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/imprimeurcoop/" target="_blank">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://twitter.com/PrintingCoop" target="_blank">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/company/printingcoop" target="_blank">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://pinterest.com/imprimeurcoop" target="_blank">
+                                <i class="fab fa-pinterest"></i>
+                            </a>
+                            <a href="https://www.youtube.com/channel/UC0UzU22tH8SRUaTuLeNGc_g" target="_blank">
+                                <i class="fab fa-youtube"></i>
+                            </a>
                         </div>
+                    </div>
                     <?php } ?>
                 </div>
             </div>
@@ -298,7 +304,8 @@
                                     $url = $BASE_URL . $dataUrl['class'] . '/' . $dataUrl['action'];
                                 }
                                 ?>
-                                <a href="<?=$url?>"><?= ($language_name == 'French') ? ucfirst($page['title_france']) : ucfirst($page['title']) ?></a>
+                            <a
+                                href="<?=$url?>"><?= ($language_name == 'French') ? ucfirst($page['title_france']) : ucfirst($page['title']) ?></a>
                             <?php }?>
                         </div>
                     </div>
@@ -329,7 +336,7 @@
 <script src="<?=$BASE_URL?>/assets/js/jquery.mask.min.js"></script>
 <script>
 $(document).ready(function() {
-    $("#back-top").hide();
+    $('#back-top').hide();
     $(function() {
         $(window).scroll(function() {
             if ($(this).scrollTop() > 100) {
@@ -351,31 +358,31 @@ $(document).ready(function() {
 </script>
 
 <?php if ($language_name == 'French') {?>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-L7V7YLFS15"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7V7YLFS15"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
 
-    gtag('config', 'G-L7V7YLFS15');
-    </script>
+gtag('config', 'G-L7V7YLFS15');
+</script>
 <?php } else {?>
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-S5JX3QGBRH"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-S5JX3QGBRH"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
 
-    function gtag() {
-        dataLayer.push(arguments);
-    }
-    gtag('js', new Date());
+function gtag() {
+    dataLayer.push(arguments);
+}
+gtag('js', new Date());
 
-    gtag('config', 'G-S5JX3QGBRH');
-    </script>
+gtag('config', 'G-S5JX3QGBRH');
+</script>
 <?php }?>
 
 <script>
@@ -389,55 +396,55 @@ $(document).ready(function() {
             $('.main-header').removeClass('scrolled');
         }
     });
-    /*$(".wishlist-area").click(function() {
-        $(this).toggleClass("active");
-        $(".addwishlist-message").addClass("active");
+    /*$('.wishlist-area').click(function() {
+        $(this).toggleClass('active');
+        $('.addwishlist-message').addClass('active');
     });*/
 
-    $("#show-adress-field").click(function() {
-        $(".edit-address").show();
-        $(".add-address-field").hide();
+    $('#show-adress-field').click(function() {
+        $('.edit-address').show();
+        $('.add-address-field').hide();
     });
-    $("#cancel-address").click(function() {
-        $(".edit-address").hide();
-        $(".add-address-field").show();
-        $("#checkout-new-address").hide();
+    $('#cancel-address').click(function() {
+        $('.edit-address').hide();
+        $('.add-address-field').show();
+        $('#checkout-new-address').hide();
     });
-    $("#new-address").click(function() {
-        $("#checkout-new-address").show();
+    $('#new-address').click(function() {
+        $('#checkout-new-address').show();
     });
-    $("#exsiting-address").click(function() {
-        $("#checkout-new-address").hide();
+    $('#exsiting-address').click(function() {
+        $('#checkout-new-address').hide();
     });
-    $("#login-signup").click(function() {
-        $("#login-signup-show").show();
+    $('#login-signup').click(function() {
+        $('#login-signup-show').show();
     });
-    $("#guest-signup").click(function() {
-        $("#login-signup-show").hide();
-    });
-
-    $(".nav-pills a:first").tab('show');
-
-    $(".all-menu li").hover(function() {
-        $(".nav-pills a:first").tab('show');
+    $('#guest-signup').click(function() {
+        $('#login-signup-show').hide();
     });
 
-    $(".announcements-bar i").click(function() {
-        $(".announcements-bar").slideToggle();
+    $('.nav-pills a:first').tab('show');
+
+    $('.all-menu li').hover(function() {
+        $('.nav-pills a:first').tab('show');
+    });
+
+    $('.announcements-bar i').click(function() {
+        $('.announcements-bar').slideToggle();
     });
     $('.account-icon').click(function() {
-        $(".account-single-points").toggleClass("active");
+        $('.account-single-points').toggleClass('active');
     });
     $('.mob-drop-icon').click(function() {
-        $(".mobile-drop").toggleClass("active");
-        $(".mob-drop-cat").slideToggle();
+        $('.mobile-drop').toggleClass('active');
+        $('.mob-drop-cat').slideToggle();
     });
 });
 </script>
 
 <script>
 function openNav01(slow) {
-    var e = document.getElementById("mySidenav");
+    var e = document.getElementById('mySidenav');
     if (e.style.width == '100%') {
         e.style.width = '0px';
     } else {
@@ -446,7 +453,7 @@ function openNav01(slow) {
 }
 
 function closeNav01() {
-    document.getElementById("mySidenav").style.width = "0";
+    document.getElementById('mySidenav').style.width = '0';
 }
 </script>
 <script>
@@ -498,7 +505,7 @@ function myFunction(x) {
     }
 }
 
-var x = window.matchMedia("(max-width: 768px)")
+var x = window.matchMedia('(max-width: 768px)')
 myFunction(x) // Call listener function at run time
 x.addListener(myFunction) // Attach listener function on state changes
 </script>
@@ -506,18 +513,18 @@ x.addListener(myFunction) // Attach listener function on state changes
 <script>
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
+    tabcontent = document.getElementsByClassName('tabcontent');
     for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
+        tabcontent[i].style.display = 'none';
     }
-    tablinks = document.getElementsByClassName("tablinks");
+    tablinks = document.getElementsByClassName('tablinks');
     for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
+        tablinks[i].className = tablinks[i].className.replace(' active', "");
     }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
+    document.getElementById(cityName).style.display = 'block';
+    evt.currentTarget.className += ' active';
 }
-//document.getElementById("defaultOpen").click();
+//document.getElementById('defaultOpen').click();
 </script>
 
 <script>
@@ -545,9 +552,9 @@ if (language_name == 'French') {
         submitHandler: function(form) {
             $('#loader-img').show();
             var url = '<?=$BASE_URL?>Logins/checkLoginByAjax';
-            $("#login-msg").html('');
+            $('#login-msg').html('');
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: $(form).serialize(), // serializes the form's elements.
                 beforeSend: function() {
@@ -560,7 +567,7 @@ if (language_name == 'French') {
                     let errors = response.errors;
                     let msg = response.msg;
                     let status = response.status;
-                    $("#login-password").val('');
+                    $('#login-password').val('');
                     if (errors && Object.keys(errors).length) {
                         var validator = $(form).validate();
                         $.each(response.errors, function(key, value) {
@@ -571,15 +578,15 @@ if (language_name == 'French') {
                     } else if (status === 'success') {
                         let url = response.url;
                         location.assign(url);
-                        //location.assign("<?=$BASE_URL?>MyOrders");
+                        //location.assign('<?=$BASE_URL?>MyOrders');
                     } else {
-                        $("#login-msg").html('<span><label style="color:red">' + msg +
+                        $('#login-msg').html('<span><label style="color:red">' + msg +
                             '</label></span>');
                     }
                 },
                 error: function(error) {
                     $('button[type=submit]').attr('disabled', false);
-                    $("#login-msg").html('<span><label style="color:red">' + msg +
+                    $('#login-msg').html('<span><label style="color:red">' + msg +
                         '</label></span>');
                 },
             });
@@ -607,9 +614,9 @@ if (language_name == 'French') {
         submitHandler: function(form) {
             $('#loader-img').show();
             var url = '<?=$BASE_URL?>Logins/checkLoginByAjax';
-            $("#login-msg").html('');
+            $('#login-msg').html('');
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: $(form).serialize(), // serializes the form's elements.
                 beforeSend: function() {
@@ -622,7 +629,7 @@ if (language_name == 'French') {
                     let errors = response.errors;
                     let msg = response.msg;
                     let status = response.status;
-                    $("#login-password").val('');
+                    $('#login-password').val('');
                     if (errors && Object.keys(errors).length) {
                         var validator = $(form).validate();
                         $.each(response.errors, function(key, value) {
@@ -631,15 +638,15 @@ if (language_name == 'French') {
                             });
                         });
                     } else if (status === 'success') {
-                        location.assign("<?=$BASE_URL?>MyOrders");
+                        location.assign('<?=$BASE_URL?>MyOrders');
                     } else {
-                        $("#login-msg").html('<span><label style="color:red">' + msg +
+                        $('#login-msg').html('<span><label style="color:red">' + msg +
                             '</label></span>');
                     }
                 },
                 error: function(error) {
                     $('button[type=submit]').attr('disabled', false);
-                    $("#login-msg").html('<span><label style="color:red">' + msg +
+                    $('#login-msg').html('<span><label style="color:red">' + msg +
                         '</label></span>');
                 },
             });
@@ -701,9 +708,9 @@ if (language_name == 'French') {
         submitHandler: function(form) {
             $('#loader-img').show();
             var url = '<?=$BASE_URL?>Logins/signup';
-            $("#signup-msg").html('');
+            $('#signup-msg').html('');
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: $(form).serialize(), // serializes the form's elements.
                 beforeSend: function() {
@@ -716,8 +723,8 @@ if (language_name == 'French') {
                     let errors = response.errors;
                     let msg = response.msg;
                     let status = response.status;
-                    $("#signup-password").val('');
-                    $("#confirm-password").val('');
+                    $('#signup-password').val('');
+                    $('#confirm-password').val('');
                     if (errors && Object.keys(errors).length) {
                         var validator = $(form).validate();
                         $.each(response.errors, function(key, value) {
@@ -726,20 +733,20 @@ if (language_name == 'French') {
                             });
                         });
                     } else if (status === 'success') {
-                        $("#msg-modal .modal-body").html('<span style="color:green">' + msg +
+                        $('#msg-modal .modal-body').html('<span style="color:green">' + msg +
                             '</span>');
-                        $("#msg-modal").modal('show');
+                        $('#msg-modal').modal('show');
                         setTimeout(function() {
                             location.reload();
                         }, 2000);
                     } else {
-                        $("#signup-msg").html('<span><label style="color:red">' + msg +
+                        $('#signup-msg').html('<span><label style="color:red">' + msg +
                             '</label></span>');
                     }
                 },
                 error: function(error) {
                     $('button[type=submit]').attr('disabled', false);
-                    $("#signup-msg").html('<span><label style="color:red">' + msg +
+                    $('#signup-msg').html('<span><label style="color:red">' + msg +
                         '</label></span>');
                 },
             });
@@ -791,9 +798,9 @@ if (language_name == 'French') {
         submitHandler: function(form) {
             $('#loader-img').show();
             var url = '<?=$BASE_URL?>Logins/signup';
-            $("#signup-msg").html('');
+            $('#signup-msg').html('');
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: $(form).serialize(), // serializes the form's elements.
                 beforeSend: function() {
@@ -806,8 +813,8 @@ if (language_name == 'French') {
                     let errors = response.errors;
                     let msg = response.msg;
                     let status = response.status;
-                    $("#signup-password").val('');
-                    $("#confirm-password").val('');
+                    $('#signup-password').val('');
+                    $('#confirm-password').val('');
                     if (errors && Object.keys(errors).length) {
                         var validator = $(form).validate();
                         $.each(response.errors, function(key, value) {
@@ -816,20 +823,20 @@ if (language_name == 'French') {
                             });
                         });
                     } else if (status === 'success') {
-                        $("#msg-modal .modal-body").html('<span style="color:green">' + msg +
+                        $('#msg-modal .modal-body').html('<span style="color:green">' + msg +
                             '</span>');
-                        $("#msg-modal").modal('show');
+                        $('#msg-modal').modal('show');
                         setTimeout(function() {
                             location.reload();
                         }, 2000);
                     } else {
-                        $("#signup-msg").html('<span><label style="color:red">' + msg +
+                        $('#signup-msg').html('<span><label style="color:red">' + msg +
                             '</label></span>');
                     }
                 },
                 error: function(error) {
                     $('button[type=submit]').attr('disabled', false);
-                    $("#signup-msg").html('<span><label style="color:red">' + msg +
+                    $('#signup-msg').html('<span><label style="color:red">' + msg +
                         '</label></span>');
                 },
             });
@@ -885,34 +892,34 @@ if (language_name == 'French') {
                 required: "veuillez entrer le nom de l'entreprise",
             },
             responsible_name: {
-                required: "veuillez entrer le nom du responsable",
+                required: 'veuillez entrer le nom du responsable',
             },
             cp: {
-                required: "veuillez entrer cp",
+                required: 'veuillez entrer cp',
             },
             active_area: {
-                required: "veuillez entrer dans la zone active",
+                required: 'veuillez entrer dans la zone active',
             },
             address: {
                 required: "veuillez entrer l'adresse",
             },
             mobile: {
-                required: "veuillez entrer mobile",
+                required: 'veuillez entrer mobile',
             },
             country: {
-                required: "choisissez le pays",
+                required: 'choisissez le pays',
             },
             region: {
-                required: "choisissez une région",
+                required: 'choisissez une région',
             },
             city: {
-                required: "entrer dans la ville",
+                required: 'entrer dans la ville',
             },
             zip_code: {
-                required: "entrer le code postal",
+                required: 'entrer le code postal',
             },
             request: {
-                required: "entrer la demande",
+                required: 'entrer la demande',
             }
 
             /*confirm_password: {
@@ -923,10 +930,10 @@ if (language_name == 'French') {
         submitHandler: function(form) {
             $('#loader-img').show();
             var url = '<?=$BASE_URL?>Logins/preferred_customer_signup';
-            $("#signup-msg").html('');
+            $('#signup-msg').html('');
 
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: $(form).serialize(), // serializes the form's elements.
                 beforeSend: function() {
@@ -939,17 +946,17 @@ if (language_name == 'French') {
                     var errors = response.errors;
                     var msg = response.msg;
                     var status = response.status;
-                    $("#signup-password").val('');
+                    $('#signup-password').val('');
                     //console.log(response);
                     if (status == 'success') {
-                        $("#msg-modal .modal-body").html('<span style="color:green">' + msg +
+                        $('#msg-modal .modal-body').html('<span style="color:green">' + msg +
                             '</span>');
-                        $("#msg-modal").modal('show');
+                        $('#msg-modal').modal('show');
                         setTimeout(function() {
                             location.reload();
                         }, 2000);
                     } else {
-                        $("#signup-msg").html('<span><label style="color:red">' + msg +
+                        $('#signup-msg').html('<span><label style="color:red">' + msg +
                             '</label></span>');
                     }
                 },
@@ -1005,10 +1012,10 @@ if (language_name == 'French') {
         submitHandler: function(form) {
             $('#loader-img').show();
             var url = '<?=$BASE_URL?>Logins/preferred_customer_signup';
-            $("#signup-msg").html('');
+            $('#signup-msg').html('');
 
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: $(form).serialize(), // serializes the form's elements.
                 beforeSend: function() {
@@ -1021,17 +1028,17 @@ if (language_name == 'French') {
                     var errors = response.errors;
                     var msg = response.msg;
                     var status = response.status;
-                    $("#signup-password").val('');
+                    $('#signup-password').val('');
                     //console.log(response);
                     if (status == 'success') {
-                        $("#msg-modal .modal-body").html('<span style="color:green">' + msg +
+                        $('#msg-modal .modal-body').html('<span style="color:green">' + msg +
                             '</span>');
-                        $("#msg-modal").modal('show');
+                        $('#msg-modal').modal('show');
                         setTimeout(function() {
                             location.reload();
                         }, 2000);
                     } else {
-                        $("#signup-msg").html('<span><label style="color:red">' + msg +
+                        $('#signup-msg').html('<span><label style="color:red">' + msg +
                             '</label></span>');
                     }
                 },
@@ -1060,7 +1067,7 @@ if (language_name == 'French') {
         submitHandler: function(form) {
             var url = '<?=$BASE_URL?>Products/emailSubscribe';
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: $(form).serialize(), // serializes the form's elements.
                 beforeSend: function() {
@@ -1072,7 +1079,7 @@ if (language_name == 'French') {
                     let errors = response.errors;
                     let msg = response.msg;
                     let status = response.status;
-                    $("#subscribe-email").val('');
+                    $('#subscribe-email').val('');
                     if (errors && Object.keys(errors).length) {
                         var validator = $(form).validate();
                         $.each(response.errors, function(key, value) {
@@ -1081,18 +1088,18 @@ if (language_name == 'French') {
                             });
                         });
                     } else if (status === 'success') {
-                        $("#msg-modal .modal-body").html('<span style="color:green">' + msg +
+                        $('#msg-modal .modal-body').html('<span style="color:green">' + msg +
                             '</span>');
-                        $("#msg-modal").modal('show');
+                        $('#msg-modal').modal('show');
                     } else {
-                        $("#subscribe-message").html(
+                        $('#subscribe-message').html(
                             '<span class="text-light"><label class="mt-2">' + msg +
                             '</label></span>');
                     }
                 },
                 error: function(error) {
                     $('button[type=submit]').attr('disabled', false);
-                    $("#subscribe-message").html(
+                    $('#subscribe-message').html(
                         '<span class="text-light"><label class="mt-2">' + msg +
                         '</label></span>');
                 },
@@ -1115,7 +1122,7 @@ if (language_name == 'French') {
         submitHandler: function(form) {
             var url = '<?=$BASE_URL?>Products/emailSubscribe';
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: $(form).serialize(), // serializes the form's elements.
                 beforeSend: function() {
@@ -1127,7 +1134,7 @@ if (language_name == 'French') {
                     let errors = response.errors;
                     let msg = response.msg;
                     let status = response.status;
-                    $("#subscribe-email").val('');
+                    $('#subscribe-email').val('');
                     if (errors && Object.keys(errors).length) {
                         var validator = $(form).validate();
                         $.each(response.errors, function(key, value) {
@@ -1136,18 +1143,18 @@ if (language_name == 'French') {
                             });
                         });
                     } else if (status === 'success') {
-                        $("#msg-modal .modal-body").html('<span style="color:green">' + msg +
+                        $('#msg-modal .modal-body').html('<span style="color:green">' + msg +
                             '</span>');
-                        $("#msg-modal").modal('show');
+                        $('#msg-modal').modal('show');
                     } else {
-                        $("#subscribe-message").html(
+                        $('#subscribe-message').html(
                             '<span class="text-light"><label class="mt-2">' + msg +
                             '</label></span>');
                     }
                 },
                 error: function(error) {
                     $('button[type=submit]').attr('disabled', false);
-                    $("#subscribe-message").html(
+                    $('#subscribe-message').html(
                         '<span class="text-light"><label class="mt-2">' + msg +
                         '</label></span>');
                 },
@@ -1187,7 +1194,7 @@ $('#ratting-form').validate({
     submitHandler: function(form) {
         var url = '<?=$BASE_URL?>Products/addRating';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: $(form).serialize(), // serializes the form's elements.
             beforeSend: function() {
@@ -1199,7 +1206,7 @@ $('#ratting-form').validate({
                 let errors = response.errors;
                 let msg = response.msg;
                 let status = response.status;
-                $("#review").val('');
+                $('#review').val('');
                 $('input[name="rate"]').prop('checked', false);
                 if (errors && Object.keys(errors).length) {
                     var validator = $(form).validate();
@@ -1209,22 +1216,22 @@ $('#ratting-form').validate({
                         });
                     });
                 } else if (status === 'success') {
-                    $("#msg-modal .modal-body").html('<span style="color:green">' + msg +
+                    $('#msg-modal .modal-body').html('<span style="color:green">' + msg +
                         '</span>');
-                    $("#msg-modal").modal('show');
+                    $('#msg-modal').modal('show');
                     setTimeout(function() {
                         location.reload();
                     }, 2000);
                 } else {
-                    $("#msg-modal .modal-body").html('<span style="color:red">' + msg +
+                    $('#msg-modal .modal-body').html('<span style="color:red">' + msg +
                         '</span>');
-                    $("#msg-modal").modal('show');
+                    $('#msg-modal').modal('show');
                 }
             },
             error: function(error) {
                 $('button[type=submit]').attr('disabled', false);
-                $("#msg-modal .modal-body").html('<span style="color:red">' + msg + '</span>');
-                $("#msg-modal").modal('show');
+                $('#msg-modal .modal-body').html('<span style="color:red">' + msg + '</span>');
+                $('#msg-modal').modal('show');
             },
         });
     },
@@ -1234,7 +1241,7 @@ function updateCartItem(product_id, rowId, quantity) {
     if (rowId != '' && quantity != '') {
         var url = '<?=$BASE_URL?>ShoppingCarts/updateCartItem';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: {
                 'product_id': product_id,
@@ -1251,22 +1258,22 @@ function updateCartItem(product_id, rowId, quantity) {
                     $('#shop-cart-table').html('');
                 }
                 if (status == 1) {
-                    $(".cart-contents-count").html(json.total_item);
-                    $(".cart-sub-total").html(json.sub_total);
-                    $("." + rowId + "-product-row-sub-total").html(json.row_sub_total);
+                    $('.cart-contents-count').html(json.total_item);
+                    $('.cart-sub-total').html(json.sub_total);
+                    $('.' + rowId + '-product-row-sub-total').html(json.row_sub_total);
                     getCartItem();
-                    //$(".after-click").show();
-                    //$(".before-click").hide();
+                    //$('.after-click').show();
+                    //$('.before-click').hide();
                     $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg + '.</span>')
-                        .addClass("active");
+                        .addClass('active');
                     setTimeout(function() {
-                        $('.addtocart-message').removeClass("active");
+                        $('.addtocart-message').removeClass('active');
                     }, 2000);
                 } else {
                     $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg + '.</span>')
-                        .addClass("active");
+                        .addClass('active');
                     setTimeout(function() {
-                        $('.addtocart-message').removeClass("active");
+                        $('.addtocart-message').removeClass('active');
                     }, 2000);
                 }
             },
@@ -1278,85 +1285,85 @@ function updateCartItem(product_id, rowId, quantity) {
 function getCartItem() {
     var url = '<?=$BASE_URL?>ShoppingCarts/getCartItemByAjax';
     $.ajax({
-        type: "GET",
+        type: 'GET',
         url: url,
         success: function(data) {
-            $(".cart-items-table").html(data);
+            $('.cart-items-table').html(data);
         },
         error: function(error) {}
     });
 }
 
-$("#checkoutForm").submit(function(e) {
+$('#checkoutForm').submit(function(e) {
     e.preventDefault(); // avoid to execute the actual submit of the form.
     var form = $(this);
-    var ck_moblie_number = $("#ck_moblie_number").val();
-    $("#ck_moblie_number_error").html('');
+    var ck_moblie_number = $('#ck_moblie_number').val();
+    $('#ck_moblie_number_error').html('');
     var formsubmit = true;
-    $("#checkoutContinue").attr("disabled", true);
+    $('#checkoutContinue').attr('disabled', true);
 
     if (ck_moblie_number == '') {
-        $("#ck_moblie_number_error").html("Please enter email id.");
+        $('#ck_moblie_number_error').html('Please enter email id.');
         formsubmit = false;
     } else if (ValidateEmail(ck_moblie_number)) {
-        $("#ck_moblie_number_error").html("Please enter valied email id.");
+        $('#ck_moblie_number_error').html('Please enter valied email id.');
         formsubmit = false;
     }
     if (formsubmit == true) {
         $('#loader-img').show();
         var url = '<?=$BASE_URL?>Logins/checkMobileByAjax';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
                 $('#loader-img').hide();
-                $("#checkoutContinue").attr("disabled", true);
+                $('#checkoutContinue').attr('disabled', true);
                 var json = JSON.parse(data);
                 var status = json.status;
                 var msg = json.msg;
                 if (status == 1) {
                     if (json.login == 1) {
-                        $("#checkoutFormPenal").hide();
-                        $("#LoginFormPenal").show();
-                        $("#ck_login_mobile").val(ck_moblie_number);
+                        $('#checkoutFormPenal').hide();
+                        $('#LoginFormPenal').show();
+                        $('#ck_login_mobile').val(ck_moblie_number);
                     } else if (json.login == 2) {
-                        $("#ck_signup_mobile").val(ck_moblie_number);
+                        $('#ck_signup_mobile').val(ck_moblie_number);
                         if (json.otp != '') {
-                            $("#checkoutFormPenal").hide();
-                            $("#signupFormPanel").show();
-                            $("#ck_signupOtp").val(json.otp);
-                            $("#ck_signupOtpMobile").val(ck_moblie_number);
-                            $("#ck_signup_mobile_error").html('<label style="color:green">' + json
+                            $('#checkoutFormPenal').hide();
+                            $('#signupFormPanel').show();
+                            $('#ck_signupOtp').val(json.otp);
+                            $('#ck_signupOtpMobile').val(ck_moblie_number);
+                            $('#ck_signup_mobile_error').html('<label style="color:green">' + json
                                 .msg + '</label>');
                         } else {
-                            $("#ck_moblie_number_error").html('<label style="color:red">' + json
+                            $('#ck_moblie_number_error').html('<label style="color:red">' + json
                                 .msg + '</label>');
                         }
                     }
                 } else {
-                    $("#checkoutContinue").attr("disabled", false);
+                    $('#checkoutContinue').attr('disabled', false);
                 }
             },
             error: function(error) {
-                $("#checkoutContinue").attr("disabled", false);
+                $('#checkoutContinue').attr('disabled', false);
             }
         });
     } else {
-        $("#checkoutContinue").attr("disabled", false);
+        $('#checkoutContinue').attr('disabled', false);
     }
 });
 
 function removeCartItem(rowId, product_id) {
     if (language_name == 'French') {
-        var result = confirm("Voulez-vous vraiment supprimer l'article du panier ?");
+        var result = confirm("Voulez-vous vraiment supprimer l'article du panier?");
     } else {
-        var result = confirm("Are you sure you want to delete cart item ?");
+        var result = confirm('Are you sure you want to delete cart item?');
     }
     if (rowId != '' && result == true) {
         var url = '<?=$BASE_URL?>ShoppingCarts/removeCartItem';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: {
                 'rowId': rowId
@@ -1379,22 +1386,22 @@ function removeCartItem(rowId, product_id) {
 
                         $('#shop-cart-table').html('');
                     }
-                    $(".cart-contents-count").html(json.total_item);
-                    $(".cart-sub-total").html(json.sub_total);
-                    $("." + rowId).remove();
+                    $('.cart-contents-count').html(json.total_item);
+                    $('.cart-sub-total').html(json.sub_total);
+                    $('.' + rowId).remove();
                     getCartItem();
-                    $(".after-click").show();
-                    $(".before-click").hide();
+                    $('.after-click').show();
+                    $('.before-click').hide();
                     $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg + '.</span>')
-                        .addClass("active");
+                        .addClass('active');
                     setTimeout(function() {
-                        $('.addtocart-message').removeClass("active");
+                        $('.addtocart-message').removeClass('active');
                     }, 2000);
                 } else {
                     $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg + '.</span>')
-                        .addClass("active");
+                        .addClass('active');
                     setTimeout(function() {
-                        $('.addtocart-message').removeClass("active");
+                        $('.addtocart-message').removeClass('active');
                     }, 2000);
                 }
             },
@@ -1411,22 +1418,22 @@ function ValidateEmail(email) {
     }
 }
 
-$("#CkLoginForm").submit(function(e) {
+$('#CkLoginForm').submit(function(e) {
     e.preventDefault(); // avoid to execute the actual submit of the form.
     var form = $(this);
-    var ck_login_mobile = $("#ck_login_mobile").val();
-    var ck_login_password = $("#ck_login_password").val();
-    $("#ck_login_mobile_error,#ck_login_password_error").html('');
+    var ck_login_mobile = $('#ck_login_mobile').val();
+    var ck_login_password = $('#ck_login_password').val();
+    $('#ck_login_mobile_error,#ck_login_password_error').html('');
     var formsubmit = true;
-    $("#ckloginSubmit").attr("disabled", true);
+    $('#ckloginSubmit').attr('disabled', true);
 
     if (ck_login_mobile == '') {
-        $("#ck_login_mobile_error").html("Please enter email id.");
+        $('#ck_login_mobile_error').html('Please enter email id.');
         formsubmit = false;
     }
 
     if (ck_login_password == '') {
-        $("#ck_login_password_error").html("Please enter password.");
+        $('#ck_login_password_error').html('Please enter password.');
         formsubmit = false;
     }
 
@@ -1434,7 +1441,7 @@ $("#CkLoginForm").submit(function(e) {
         $('#loader-img').show();
         var url = '<?=$BASE_URL?>Logins/checkLoginByAjax';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
@@ -1442,74 +1449,74 @@ $("#CkLoginForm").submit(function(e) {
                 var status = response.status;
                 var msg = response.msg;
                 var errors = response.errors;
-                $("#ck_login_password").val('');
+                $('#ck_login_password').val('');
                 if (errors && Object.keys(errors).length) {
                     $('#loader-img').hide();
-                    $("#ck_login_mobile_error").html(errors.loginemail);
-                    $("#ck_login_password_error").html(errors.loginpassword);
-                    $("#ckloginSubmit").attr("disabled", false);
-                    $("#ck_login_msg").html('');
+                    $('#ck_login_mobile_error').html(errors.loginemail);
+                    $('#ck_login_password_error').html(errors.loginpassword);
+                    $('#ckloginSubmit').attr('disabled', false);
+                    $('#ck_login_msg').html('');
                 } else if (status === 'success') {
                     location.reload();
                 } else {
                     $('#loader-img').hide();
-                    $("#ck_login_msg").html('<label style="color:red;padding:0px;">' + msg +
+                    $('#ck_login_msg').html('<label style="color:red;padding:0px;">' + msg +
                         '</label>');
-                    $("#ckloginSubmit").attr("disabled", false);
+                    $('#ckloginSubmit').attr('disabled', false);
                 }
             },
             error: function(error) {
-                $("#ckloginSubmit").attr("disabled", false);
+                $('#ckloginSubmit').attr('disabled', false);
             }
         });
     } else {
-        $("#ckloginSubmit").attr("disabled", false);
+        $('#ckloginSubmit').attr('disabled', false);
     }
 });
 
-$("#CksignupForm").submit(function(e) {
+$('#CksignupForm').submit(function(e) {
     e.preventDefault(); // avoid to execute the actual submit of the form.
     var form = $(this);
     $('#ck_signup_mobile_error,#ck_singup_inputOtp_error,#ck_signup_fname_error,#ck_signup_lname_error,#ck_signup_password_error,#ck_signup_email_error')
         .html('');
 
-    var mobile = $("#ck_signup_mobile").val();
-    var inputOtp = $("#ck_singup_inputOtp").val();
-    var signupOtp = $("#ck_signupOtp").val();
-    var signupOtpMobile = $("#ck_signupOtpMobile").val();
-    var fname = $("#ck_fname").val();
-    var lname = $("#ck_lname").val();
-    //var email=$("#ck_signup_email").val();
-    var signup_password = $("#ck_signup_password").val();
-    $("#cksignupSubmit").attr("disabled", true);
+    var mobile = $('#ck_signup_mobile').val();
+    var inputOtp = $('#ck_singup_inputOtp').val();
+    var signupOtp = $('#ck_signupOtp').val();
+    var signupOtpMobile = $('#ck_signupOtpMobile').val();
+    var fname = $('#ck_fname').val();
+    var lname = $('#ck_lname').val();
+    //var email=$('#ck_signup_email').val();
+    var signup_password = $('#ck_signup_password').val();
+    $('#cksignupSubmit').attr('disabled', true);
     formsubmit = true;
 
     if (mobile == '') {
-        $("#ck_signup_email_error").html("Please enter email number.");
+        $('#ck_signup_email_error').html('Please enter email number.');
         formsubmit = false;
     } else if (ValidateEmail(mobile)) {
-        $("#ck_signup_email_error").html("Please enter valied email id.");
+        $('#ck_signup_email_error').html('Please enter valied email id.');
         formsubmit = false;
     }
 
     if (fname == '') {
-        $("#ck_signup_fname_error").html("Please enter first name.");
+        $('#ck_signup_fname_error').html('Please enter first name.');
         formsubmit = false;
     }
 
     if (inputOtp == '') {
-        $("#ck_singup_inputOtp_error").html("Please enter code.");
+        $('#ck_singup_inputOtp_error').html('Please enter code.');
         formsubmit = false;
     } else if (signupOtp == '' || signupOtp != inputOtp || signupOtpMobile != mobile) {
-        $("#ck_singup_inputOtp_error").html("Invalid  code.");
+        $('#ck_singup_inputOtp_error').html('Invalid  code.');
         formsubmit = false;
     }
 
     if (signup_password == '') {
-        $("#ck_signup_password_error").html("Please enter Password.");
+        $('#ck_signup_password_error').html('Please enter Password.');
         formsubmit = false;
     } else if (signup_password.length < 8) {
-        $("#ck_signup_password_error").html("Password length must be exactly 8 characters");
+        $('#ck_signup_password_error').html('Password length must be exactly 8 characters');
         formsubmit = false;
     }
 
@@ -1517,26 +1524,26 @@ $("#CksignupForm").submit(function(e) {
         $('#loader-img').show();
         var url = '<?=$BASE_URL?>Logins/signup';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
                 $('#loader-img').hide();
-                $("#cksignupSubmit").attr("disabled", false);
-                $("#signup_password").val('');
+                $('#cksignupSubmit').attr('disabled', false);
+                $('#signup_password').val('');
                 var response = JSON.parse(data);
                 var status = response.status;
                 var msg = response.msg;
                 var errors = response.errors;
-                $("#ck_signup_confirm_password").val('');
+                $('#ck_signup_confirm_password').val('');
                 if (errors && Object.keys(errors).length) {
                     $.each(errors, function(id, message) {
-                        $("#ck_signup_" + id + "_error").html(message);
+                        $('#ck_signup_' + id + '_error').html(message);
                     });
                 } else if (status === 'success') {
                     var url = '<?=$BASE_URL?>Logins/checkLoginByAjax';
                     $.ajax({
-                        type: "POST",
+                        type: 'POST',
                         url: url,
                         data: {
                             'loginemail': mobile,
@@ -1547,65 +1554,65 @@ $("#CksignupForm").submit(function(e) {
                             var status = response.status;
                             var msg = response.msg;
                             var errors = response.errors;
-                            $("#ck_signup_password").val('');
-                            $("#ck_signup_mobile_error").val('');
+                            $('#ck_signup_password').val('');
+                            $('#ck_signup_mobile_error').val('');
                             if (errors && Object.keys(errors).length) {
-                                $("#cksignupSubmit").attr("disabled", false);
-                                $("#ck_login_mobile_error").html(errors.loginemail);
-                                $("#ck_login_password_error").html(errors
+                                $('#cksignupSubmit').attr('disabled', false);
+                                $('#ck_login_mobile_error').html(errors.loginemail);
+                                $('#ck_login_password_error').html(errors
                                     .loginpassword);
                             } else if (status === 'success') {
                                 setTimeout(function() {
                                     location.reload();
                                 }, 2000);
                             } else {
-                                $("#ck_signup_msg").html('<label style="color:red">' +
+                                $('#ck_signup_msg').html('<label style="color:red">' +
                                     msg + '</label>');
-                                $("#cksignupSubmit").attr("disabled", false);
+                                $('#cksignupSubmit').attr('disabled', false);
                             }
                         },
                         error: function(error) {}
                     });
                 } else {
-                    $("#ck_signup_msg").html('<label style="color:red">' + msg + '</label>');
+                    $('#ck_signup_msg').html('<label style="color:red">' + msg + '</label>');
                 }
             },
             error: function(error) {
-                $("#cksignupSubmit").attr("disabled", false);
+                $('#cksignupSubmit').attr('disabled', false);
             }
         });
     } else {
-        $("#cksignupSubmit").attr("disabled", false);
+        $('#cksignupSubmit').attr('disabled', false);
     }
 });
 
 function sendOptToEmail() {
-    $("#account-change-pswd").attr("disabled", true);
-    $("#send-otp").val('');
-    $("#account-email-error,#input-otp-error,#new-password-error,#g-recaptcha-error").html('');
+    $('#account-change-pswd').attr('disabled', true);
+    $('#send-otp').val('');
+    $('#account-email-error,#input-otp-error,#new-password-error,#g-recaptcha-error').html('');
 
-    var accountEmail = $("#account-email").val();
-    var g_recaptcha_response = $("#g-recaptcha-response").val();
+    var accountEmail = $('#account-email').val();
+    var g_recaptcha_response = $('#g-recaptcha-response').val();
     formsubmit = true;
 
     if (accountEmail == '') {
-        $("#account-email-error").html("Please enter email id.");
+        $('#account-email-error').html('Please enter email id.');
         if (language_name == 'French') {
-            $("#account-email-error").html("Veuillez saisir votre adresse e-mail.");
+            $('#account-email-error').html('Veuillez saisir votre adresse e-mail.');
         }
 
         formsubmit = false;
     } else if (ValidateEmail(accountEmail)) {
-        $("#account-email-error").html("Please enter valied email id.");
+        $('#account-email-error').html('Please enter valied email id.');
         if (language_name == 'French') {
-            $("#account-email-error").html("Veuillez saisir une adresse e-mail valide.");
+            $('#account-email-error').html('Veuillez saisir une adresse e-mail valide.');
         }
         formsubmit = false;
     }
     if (g_recaptcha_response == '') {
-        $("#g-recaptcha-error").html("Please select recaptcha");
+        $('#g-recaptcha-error').html('Please select recaptcha');
         if (language_name == 'French') {
-            $("#g-recaptcha-error").html("Veuillez sélectionner recaptcha.");
+            $('#g-recaptcha-error').html('Veuillez sélectionner recaptcha.');
         }
         formsubmit = false;
     }
@@ -1614,7 +1621,7 @@ function sendOptToEmail() {
         $('#loader-img').show();
         var url = '<?=$BASE_URL?>MyAccounts/sendOtp';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: {
                 'account_email': accountEmail,
@@ -1622,68 +1629,68 @@ function sendOptToEmail() {
             }, // serializes the form's elements.
             success: function(data) {
                 $('#loader-img').hide();
-                $("#login_password").val('');
+                $('#login_password').val('');
                 var response = JSON.parse(data);
                 var status = response.status;
                 var msg = response.msg;
                 var errors = response.errors;
-                $("#account-change-pswd").attr("disabled", false);
+                $('#account-change-pswd').attr('disabled', false);
                 if (errors && Object.keys(errors).length) {
                     $('#account-email-error').html(errors['account-email-error']);
                 } else if (status) {
                     $('.g-recaptcha').hide();
-                    $("#account-email-error").html('<label style="color:green">' + msg + '</label>');
-                    $("#send-otp").val(response.otp);
-                    $("#otp-container").show();
-                    $("#account-change-pswd").text('Resend');
+                    $('#account-email-error').html('<label style="color:green">' + msg + '</label>');
+                    $('#send-otp').val(response.otp);
+                    $('#otp-container').show();
+                    $('#account-change-pswd').text('Resend');
                 } else {
-                    $("#account-email-error").html('<label style="color:red">' + msg + '</label>');
+                    $('#account-email-error').html('<label style="color:red">' + msg + '</label>');
                 }
             },
             error: function(error) {
-                $("#account-change-pswd").attr("disabled", false);
+                $('#account-change-pswd').attr('disabled', false);
             }
         });
     } else {
-        $("#account-change-pswd").attr("disabled", false);
+        $('#account-change-pswd').attr('disabled', false);
     }
 }
 
 //For password-form Code
 if (language_name == 'French') {
-    $("#password-form").submit(function(e) {
+    $('#password-form').submit(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
         var form = $(this);
-        $("#account-email-error, #input-otp-error, #new-password-error").html('');
-        var email = $("#account-email").val();
-        var inputOtp = $("#input-otp").val();
-        var sendOtp = $("#send-otp").val();
-        var newPassword = $("#new-password").val();
+        $('#account-email-error, #input-otp-error, #new-password-error').html('');
+        var email = $('#account-email').val();
+        var inputOtp = $('#input-otp').val();
+        var sendOtp = $('#send-otp').val();
+        var newPassword = $('#new-password').val();
 
-        $("#Fsubmit").attr("disabled", true);
+        $('#Fsubmit').attr('disabled', true);
         formsubmit = true;
 
         if (email == '') {
-            $("#account-email-error").html("Veuillez saisir votre adresse e-mail.");
+            $('#account-email-error').html('Veuillez saisir votre adresse e-mail.');
             formsubmit = false;
         } else if (ValidateEmail(email)) {
-            $("#account-email-error").html("Veuillez saisir une adresse e-mail valide.");
+            $('#account-email-error').html('Veuillez saisir une adresse e-mail valide.');
             formsubmit = false;
         }
 
         if (inputOtp == '') {
-            $("#input-otp-error").html("Veuillez entrer le code Otp.");
+            $('#input-otp-error').html('Veuillez entrer le code Otp.');
             formsubmit = false;
         } else if (sendOtp == '' || sendOtp != inputOtp) {
-            $("#input-otp-error").html("Code invalide.");
+            $('#input-otp-error').html('Code invalide.');
             formsubmit = false;
         }
 
         if (newPassword == '') {
-            $("#new-password-error").html("Veuillez entrer le mot de passe.");
+            $('#new-password-error').html('Veuillez entrer le mot de passe.');
             formsubmit = false;
         } else if (newPassword.length < 8) {
-            $("#new-password-error").html("La longueur du mot de passe doit contenir exactement 8 caractères");
+            $('#new-password-error').html('La longueur du mot de passe doit contenir exactement 8 caractères');
             formsubmit = false;
         }
 
@@ -1691,24 +1698,24 @@ if (language_name == 'French') {
             $('#loader-img').show();
             var url = '<?=$BASE_URL?>MyAccounts/saveChangePassword';
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: form.serialize(), // serializes the form's elements.
                 success: function(data) {
-                    $("#Fsubmit").attr("disabled", false);
-                    $("#new-password").val('');
+                    $('#Fsubmit').attr('disabled', false);
+                    $('#new-password').val('');
                     var response = JSON.parse(data);
                     var status = response.status;
                     var msg = response.msg;
                     var errors = response.errors;
 
                     $.each(errors, function(id, message) {
-                        $("#" + id).html(message);
+                        $('#' + id).html(message);
                     });
 
                     if (status == 1) {
                         $('#loader-img').hide();
-                        $("#forgot_msg").html('<label style="color:green">' + msg + '</label>');
+                        $('#forgot_msg').html('<label style="color:green">' + msg + '</label>');
                         if (loginId != '') {
                             setTimeout(function() {
                                 window.location.href = '<?=$BASE_URL?>MyAccounts/logout'
@@ -1719,51 +1726,51 @@ if (language_name == 'French') {
                             }, 2000);
                         }
                     } else {
-                        $("#forgot_msg").html('<label style="color:red">' + msg + '</label>');
+                        $('#forgot_msg').html('<label style="color:red">' + msg + '</label>');
                     }
                 },
                 error: function(error) {
-                    $("#Fsubmit").attr("disabled", false);
+                    $('#Fsubmit').attr('disabled', false);
                 }
             });
         } else {
-            $("#Fsubmit").attr("disabled", false);
+            $('#Fsubmit').attr('disabled', false);
         }
     });
 } else {
-    $("#password-form").submit(function(e) {
+    $('#password-form').submit(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
         var form = $(this);
-        $("#account-email-error, #input-otp-error, #new-password-error").html('');
-        var email = $("#account-email").val();
-        var inputOtp = $("#input-otp").val();
-        var sendOtp = $("#send-otp").val();
-        var newPassword = $("#new-password").val();
+        $('#account-email-error, #input-otp-error, #new-password-error').html('');
+        var email = $('#account-email').val();
+        var inputOtp = $('#input-otp').val();
+        var sendOtp = $('#send-otp').val();
+        var newPassword = $('#new-password').val();
 
-        $("#Fsubmit").attr("disabled", true);
+        $('#Fsubmit').attr('disabled', true);
         formsubmit = true;
 
         if (email == '') {
-            $("#account-email-error").html("Please enter email id.");
+            $('#account-email-error').html('Please enter email id.');
             formsubmit = false;
         } else if (ValidateEmail(email)) {
-            $("#account-email-error").html("Please enter valied email id.");
+            $('#account-email-error').html('Please enter valied email id.');
             formsubmit = false;
         }
 
         if (inputOtp == '') {
-            $("#input-otp-error").html("Please Enter Otp code.");
+            $('#input-otp-error').html('Please Enter Otp code.');
             formsubmit = false;
         } else if (sendOtp == '' || sendOtp != inputOtp) {
-            $("#input-otp-error").html("Invalid  code.");
+            $('#input-otp-error').html('Invalid  code.');
             formsubmit = false;
         }
 
         if (newPassword == '') {
-            $("#new-password-error").html("Please enter Password.");
+            $('#new-password-error').html('Please enter Password.');
             formsubmit = false;
         } else if (newPassword.length < 8) {
-            $("#new-password-error").html("Password length must be exactly 8 characters");
+            $('#new-password-error').html('Password length must be exactly 8 characters');
             formsubmit = false;
         }
 
@@ -1771,24 +1778,24 @@ if (language_name == 'French') {
             $('#loader-img').show();
             var url = '<?=$BASE_URL?>MyAccounts/saveChangePassword';
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: form.serialize(), // serializes the form's elements.
                 success: function(data) {
-                    $("#Fsubmit").attr("disabled", false);
-                    $("#new-password").val('');
+                    $('#Fsubmit').attr('disabled', false);
+                    $('#new-password').val('');
                     var response = JSON.parse(data);
                     var status = response.status;
                     var msg = response.msg;
                     var errors = response.errors;
 
                     $.each(errors, function(id, message) {
-                        $("#" + id).html(message);
+                        $('#' + id).html(message);
                     });
 
                     if (status == 1) {
                         $('#loader-img').hide();
-                        $("#forgot_msg").html('<label style="color:green">' + msg + '</label>');
+                        $('#forgot_msg').html('<label style="color:green">' + msg + '</label>');
                         if (loginId != '') {
                             setTimeout(function() {
                                 window.location.href = '<?=$BASE_URL?>MyAccounts/logout'
@@ -1799,32 +1806,32 @@ if (language_name == 'French') {
                             }, 2000);
                         }
                     } else {
-                        $("#forgot_msg").html('<label style="color:red">' + msg + '</label>');
+                        $('#forgot_msg').html('<label style="color:red">' + msg + '</label>');
                     }
                 },
                 error: function(error) {
-                    $("#Fsubmit").attr("disabled", false);
+                    $('#Fsubmit').attr('disabled', false);
                 }
             });
         } else {
-            $("#Fsubmit").attr("disabled", false);
+            $('#Fsubmit').attr('disabled', false);
         }
     });
 }
 //For password-form Code end
 
 function cksendOptSignupMobile() {
-    $("#ck-signup-continue").attr("disabled", true);
-    $("ck_signupOtp").val('');
+    $('#ck-signup-continue').attr('disabled', true);
+    $('ck_signupOtp').val('');
 
-    var mobile = $("#ck_signup_mobile").val();
+    var mobile = $('#ck_signup_mobile').val();
     formsubmit = true;
 
     if (mobile == '') {
-        $("#ck_signup_email_error").html("Please enter email id.");
+        $('#ck_signup_email_error').html('Please enter email id.');
         formsubmit = false;
     } else if (ValidateEmail(mobile)) {
-        $("#ck_signup_email_error").html("Please enter valied email id.");
+        $('#ck_signup_email_error').html('Please enter valied email id.');
         formsubmit = false;
     }
 
@@ -1832,7 +1839,7 @@ function cksendOptSignupMobile() {
         $('#loader-img').show();
         var url = '<?=$BASE_URL?>Logins/sendOtpSingup/';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: {
                 'mobile': mobile,
@@ -1840,26 +1847,26 @@ function cksendOptSignupMobile() {
             }, // serializes the form's elements.
             success: function(data) {
                 $('#loader-img').hide();
-                $("#ck-signup-continue").attr("disabled", false);
+                $('#ck-signup-continue').attr('disabled', false);
                 var json = JSON.parse(data);
                 var status = json.status;
                 var msg = json.msg;
 
                 if (status == 1) {
                     var status =
-                        $("#ck_signup_email_error").html('<label style="color:green">' + msg + '</label>');
-                    $("#ck_signupOtp").val(json.otp);
-                    $("#ck_signupOtpMobile").val(mobile);
+                        $('#ck_signup_email_error').html('<label style="color:green">' + msg + '</label>');
+                    $('#ck_signupOtp').val(json.otp);
+                    $('#ck_signupOtpMobile').val(mobile);
                 } else {
-                    $("#ck_signup_email_error").html('<label style="color:red">' + msg + '</label>');
+                    $('#ck_signup_email_error').html('<label style="color:red">' + msg + '</label>');
                 }
             },
             error: function(error) {
-                $("#ck-signup-continue").attr("disabled", false);
+                $('#ck-signup-continue').attr('disabled', false);
             }
         });
     } else {
-        $("#ck-signup-continue").attr("disabled", false);
+        $('#ck-signup-continue').attr('disabled', false);
     }
 }
 
@@ -1925,7 +1932,7 @@ $('#checkout-address').validate({
         $('#loader-img').show();
         var url = '<?=$BASE_URL?>MyAccounts/addEditAddress';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: $(form).serialize(), // serializes the form's elements.
             beforeSend: function() {
@@ -1938,7 +1945,7 @@ $('#checkout-address').validate({
                 let errors = response.errors;
                 let msg = response.msg;
                 let status = response.status;
-                $("#login-password").val('');
+                $('#login-password').val('');
                 $('#loader-img').hide();
                 if (errors && Object.keys(errors).length) {
                     var validator = $(form).validate();
@@ -1954,13 +1961,13 @@ $('#checkout-address').validate({
                     $('#checkout-new-address').hide();
                     location.reload();
                 } else {
-                    $("#login-msg").html('<span><label style="color:red">' + msg +
+                    $('#login-msg').html('<span><label style="color:red">' + msg +
                         '</label></span>');
                 }
             },
             error: function(error) {
                 $('button[type=submit]').attr('disabled', false);
-                $("#login-msg").html('<span><label style="color:red">' + msg +
+                $('#login-msg').html('<span><label style="color:red">' + msg +
                     '</label></span>');
             },
         });
@@ -2029,7 +2036,7 @@ $('#add-new-address').validate({
         $('#loader-img').show();
         var url = '<?=$BASE_URL?>MyAccounts/addEditAddress';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: $(form).serialize(), // serializes the form's elements.
             beforeSend: function() {
@@ -2042,7 +2049,7 @@ $('#add-new-address').validate({
                 let errors = response.errors;
                 let msg = response.msg;
                 let status = response.status;
-                $("#login-password").val('');
+                $('#login-password').val('');
                 $('#loader-img').hide();
                 if (errors && Object.keys(errors).length) {
                     var validator = $(form).validate();
@@ -2059,18 +2066,18 @@ $('#add-new-address').validate({
                     url = '<?=$BASE_URL?>MyAccounts/manageAddress';
                     location.assign(url);
 
-                    /*if (response.updated=="1") {
+                    /*if (response.updated=='1') {
                         url='<?=$BASE_URL?>MyAccounts/manageAddress';
                         location.assign(url);
                     }*/
                 } else {
-                    $("#login-msg").html('<span><label style="color:red">' + msg +
+                    $('#login-msg').html('<span><label style="color:red">' + msg +
                         '</label></span>');
                 }
             },
             error: function(error) {
                 $('button[type=submit]').attr('disabled', false);
-                $("#login-msg").html('<span><label style="color:red">' + msg +
+                $('#login-msg').html('<span><label style="color:red">' + msg +
                     '</label></span>');
             },
         });
@@ -2117,7 +2124,7 @@ if (language_name == 'French') {
             $('#loader-img').show();
             var url = '<?=$BASE_URL?>Pages/saveContactUs';
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: $(form).serialize(), // serializes the form's elements.
                 beforeSend: function() {
@@ -2134,7 +2141,7 @@ if (language_name == 'French') {
                         var validator = $(form).validate();
                         $.each(response.errors, function(key, value) {
                             if (key == 'captcha') {
-                                $("#recaptcha-error").show();
+                                $('#recaptcha-error').show();
                             } else {
                                 validator.showErrors({
                                     [key]: value
@@ -2142,21 +2149,21 @@ if (language_name == 'French') {
                             }
                         });
                     } else if (status === 'success') {
-                        $("#msg-modal .modal-body").html('<span style="color:green">' + msg +
+                        $('#msg-modal .modal-body').html('<span style="color:green">' + msg +
                             '</span>');
-                        $("#msg-modal").modal('show');
+                        $('#msg-modal').modal('show');
                         setTimeout(function() {
                             location.reload()
                         }, 2000);
-                        $("#contact-us")[0].reset();
+                        $('#contact-us')[0].reset();
                     } else {
-                        $("#contact-us-message").html(
+                        $('#contact-us-message').html(
                             '<span class="text-danger"><label class="mt-2">' + msg +
                             '</label></span>');
                     }
                 },
                 error: function(error) {
-                    $("#contact-us-message").html(
+                    $('#contact-us-message').html(
                         '<span class="text-danger"><label class="mt-2">' + msg +
                         '</label></span>');
                     $('button[type=submit]').attr('disabled', false);
@@ -2203,7 +2210,7 @@ if (language_name == 'French') {
             var url = '<?=$BASE_URL?>Pages/saveContactUs';
 
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: $(form).serialize(), // serializes the form's elements.
                 beforeSend: function() {
@@ -2220,7 +2227,7 @@ if (language_name == 'French') {
                         var validator = $(form).validate();
                         $.each(response.errors, function(key, value) {
                             if (key == 'captcha') {
-                                $("#recaptcha-error").show();
+                                $('#recaptcha-error').show();
                             } else {
                                 validator.showErrors({
                                     [key]: value
@@ -2228,21 +2235,21 @@ if (language_name == 'French') {
                             }
                         });
                     } else if (status === 'success') {
-                        $("#msg-modal .modal-body").html('<span style="color:green">' + msg +
+                        $('#msg-modal .modal-body').html('<span style="color:green">' + msg +
                             '</span>');
-                        $("#msg-modal").modal('show');
-                        $("#contact-us")[0].reset();
+                        $('#msg-modal').modal('show');
+                        $('#contact-us')[0].reset();
                         setTimeout(function() {
                             location.reload()
                         }, 2000);
                     } else {
-                        $("#contact-us-message").html(
+                        $('#contact-us-message').html(
                             '<span class="text-danger"><label class="mt-2">' + msg +
                             '</label></span>');
                     }
                 },
                 error: function(error) {
-                    $("#contact-us-message").html(
+                    $('#contact-us-message').html(
                         '<span class="text-danger"><label class="mt-2">' + msg +
                         '</label></span>');
                     $('button[type=submit]').attr('disabled', false);
@@ -2253,7 +2260,7 @@ if (language_name == 'French') {
 }
 
 function contactus_recaptcha() {
-    $("#submit-contact-us-btn").removeAttr('disabled');
+    $('#submit-contact-us-btn').removeAttr('disabled');
 }
 //contact code end
 //estimate code Start
@@ -2335,7 +2342,7 @@ if (language_name == 'French') {
             $('#loader-img').show();
             var url = '<?=$BASE_URL?>Products/saveEstimate';
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: $(form).serialize(), // serializes the form's elements.
                 beforeSend: function() {
@@ -2356,21 +2363,21 @@ if (language_name == 'French') {
                             });
                         });
                     } else if (status === 'success') {
-                        $("#msg-modal .modal-body").html('<span style="color:green">' + msg +
+                        $('#msg-modal .modal-body').html('<span style="color:green">' + msg +
                             '</span>');
-                        $("#msg-modal").modal('show');
+                        $('#msg-modal').modal('show');
                         setTimeout(function() {
                             location.reload()
                         }, 2000);
                     } else {
-                        $("#estimate-message").html(
+                        $('#estimate-message').html(
                             '<span class="text-danger mb-5"><label class="mt-2">' + msg +
                             '</label></span>');
                     }
-                    $("#estimate-form")[0].reset();
+                    $('#estimate-form')[0].reset();
                 },
                 error: function(error) {
-                    $("#estimate-message").html(
+                    $('#estimate-message').html(
                         '<span class="text-danger mb-5"><label class="mt-2">' + msg +
                         '</label></span>');
                     $('button[type=submit]').attr('disabled', false);
@@ -2454,7 +2461,7 @@ if (language_name == 'French') {
             $('#loader-img').show();
             var url = '<?=$BASE_URL?>Products/saveEstimate';
             $.ajax({
-                type: "POST",
+                type: 'POST',
                 url: url,
                 data: $(form).serialize(), // serializes the form's elements.
                 beforeSend: function() {
@@ -2475,21 +2482,21 @@ if (language_name == 'French') {
                             });
                         });
                     } else if (status === 'success') {
-                        $("#msg-modal .modal-body").html('<span style="color:green">' + msg +
+                        $('#msg-modal .modal-body').html('<span style="color:green">' + msg +
                             '</span>');
-                        $("#msg-modal").modal('show');
+                        $('#msg-modal').modal('show');
                         setTimeout(function() {
                             location.reload()
                         }, 2000);
                     } else {
-                        $("#estimate-message").html(
+                        $('#estimate-message').html(
                             '<span class="text-danger mb-5"><label class="mt-2">' + msg +
                             '</label></span>');
                     }
-                    $("#estimate-form")[0].reset();
+                    $('#estimate-form')[0].reset();
                 },
                 error: function(error) {
-                    $("#estimate-message").html(
+                    $('#estimate-message').html(
                         '<span class="text-danger mb-5"><label class="mt-2">' + msg +
                         '</label></span>');
                     $('button[type=submit]').attr('disabled', false);
@@ -2513,7 +2520,7 @@ function addProductWishList(product_id) {
         $('#loader-img').show();
         var url = '<?=$BASE_URL?>Wishlists/addByAjax';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: {
                 'product_id': product_id
@@ -2524,16 +2531,16 @@ function addProductWishList(product_id) {
                 var status = json.status;
                 var msg = json.msg;
                 if (status == 1) {
-                    $("#WishlistsCount").html(json.count);
-                    $("#msg-modal .modal-body").html(
+                    $('#WishlistsCount').html(json.count);
+                    $('#msg-modal .modal-body').html(
                         '<label><i class="fas fa-check-circle"></i><span class="msg-modal-text">' +
                         msg +
                         '</span></label><div class="text-center msg-btn"><a href="<?=$BASE_URL?>Products"><button class="btn btn-sm btn-success continue-shopping-btn">Continue Shopping</button></a>&nbsp;&nbsp;<a href="<?=$BASE_URL?>Wishlists"><button class="btn btn-sm btn-success msg-cart-btn-clr">Go To Wishlist</button></div></a>'
                     );
-                    $("#msg-modal").modal('show');
+                    $('#msg-modal').modal('show');
                 } else {
-                    $("#msg-modal .modal-body").html('<span style="color:red">' + msg + '</span>');
-                    $("#msg-modal").modal('show');
+                    $('#msg-modal .modal-body').html('<span style="color:red">' + msg + '</span>');
+                    $('#msg-modal').modal('show');
                 }
             },
             error: function(error) {}
@@ -2544,12 +2551,12 @@ function addProductWishList(product_id) {
 function deleteWishlist(wishlist_id, type) {
     var result = true;
     if (type == 1) {
-        var result = confirm("Are you sure you want to delete wishlist item ?");
+        var result = confirm('Are you sure you want to delete wishlist item ?');
     }
     if (wishlist_id != '' && result == true) {
         var url = '<?=$BASE_URL?>Wishlists/deleteWishlist';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: {
                 'wishlist_id': wishlist_id
@@ -2560,16 +2567,16 @@ function deleteWishlist(wishlist_id, type) {
                 var msg = json.msg;
 
                 if (status == 1) {
-                    $("#" + wishlist_id).remove();
-                    $("#WishlistsCount").html(json.count);
+                    $('#' + wishlist_id).remove();
+                    $('#WishlistsCount').html(json.count);
                     if (json.count == 0) {
-                        $("#tableWishList").html(
+                        $('#tableWishList').html(
                             '<tr><td colspan="5" class="text-center">Wishlist empty</td></tr>');
                     }
                     location.reload();
                 } else {
-                    $("#msg-modal .modal-body").html('<span style="color:red">' + msg + '</span>');
-                    $("#msg-modal").modal('show');
+                    $('#msg-modal .modal-body').html('<span style="color:red">' + msg + '</span>');
+                    $('#msg-modal').modal('show');
                 }
             },
             error: function(error) {}
@@ -2578,35 +2585,35 @@ function deleteWishlist(wishlist_id, type) {
 }
 
 function getState(country_id) {
-    $("#stateiD").val('');
-    $("#cityId").val('');
-    $("#stateiD").html('<option value="">Loding..</option>');
+    $('#stateiD').val('');
+    $('#cityId').val('');
+    $('#stateiD').html('<option value="">Loding..</option>');
     if (country_id != '') {
         var url = '<?=$BASE_URL?>MyAccounts/getStateDropDownListByAjax/' + country_id;
         $.ajax({
-            type: "GET",
+            type: 'GET',
             url: url,
-            contentType: "html",
+            contentType: 'html',
             //data:{'country_id':country_id}, // serializes the form's elements.
             success: function(data) {
-                $("#stateiD").html(data);
+                $('#stateiD').html(data);
             }
         });
     }
 }
 
 function getCity(state_id) {
-    $("#cityId").val('');
-    $("#cityId").html('<option value="">Loding..</option>');
+    $('#cityId').val('');
+    $('#cityId').html('<option value="">Loding..</option>');
     if (state_id != '') {
         var url = '<?=$BASE_URL?>MyAccounts/getCityDropDownListByAjax/' + state_id;
         $.ajax({
-            type: "GET",
+            type: 'GET',
             url: url,
-            contentType: "html",
+            contentType: 'html',
             //data:{'country_id':country_id}, // serializes the form's elements.
             success: function(data) {
-                $("#cityId").html(data);
+                $('#cityId').html(data);
             }
         });
     }
@@ -2614,29 +2621,29 @@ function getCity(state_id) {
 
 function changeOrderStatus(order_id, status) {
     var mobileMsg = '';
-    $("#mobileMsg").html(mobileMsg);
-    $("#cl_order_id").val(order_id);
-    $("#cl_status").val(status);
-    $("#myModal").modal('show');
+    $('#mobileMsg').html(mobileMsg);
+    $('#cl_order_id').val(order_id);
+    $('#cl_status').val(status);
+    $('#myModal').modal('show');
 }
 
-$("#changeOrderStatusForm").submit(function(e) {
+$('#changeOrderStatusForm').submit(function(e) {
     e.preventDefault(); // avoid to execute the actual submit of the form.
     var form = $(this);
     var formsubmit = true;
-    $("#btnSubmit").attr("disabled", true);
-    var order_id = $("#cl_order_id").val();
-    var status = $("#cl_status").val();
+    $('#btnSubmit').attr('disabled', true);
+    var order_id = $('#cl_order_id').val();
+    var status = $('#cl_status').val();
     if (formsubmit == true) {
         var url = '<?=$BASE_URL?>MyOrders/changeOrderStatus';
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: form.serialize(), // serializes the form's elements.
 
             success: function(data) {
-                $("#myModal").modal('hide');
-                $("#btnSubmit").attr("disabled", false);
+                $('#myModal').modal('hide');
+                $('#btnSubmit').attr('disabled', false);
                 var json = JSON.parse(data);
                 var res = json.status;
                 var msg = json.msg;
@@ -2644,63 +2651,63 @@ $("#changeOrderStatusForm").submit(function(e) {
                     setTimeout(function() {
                         location.reload();
                     }, 2000);
-                    $("#MsgModal .modal-body").html('<span style="color:green">' + msg + '</span>');
-                    $("#MsgModal").modal('show');
+                    $('#MsgModal .modal-body').html('<span style="color:green">' + msg + '</span>');
+                    $('#MsgModal').modal('show');
                 } else {
-                    $("#MsgModal .modal-body").html('<span style="color:red">' + msg + '</span>');
-                    $("#MsgModal").modal('show');
+                    $('#MsgModal .modal-body').html('<span style="color:red">' + msg + '</span>');
+                    $('#MsgModal').modal('show');
                 }
             },
             error: function(error) {
-                $("#btnSubmit").attr("disabled", false);
+                $('#btnSubmit').attr('disabled', false);
             }
         });
     } else {
-        $("#btnSubmit").attr("disabled", false);
+        $('#btnSubmit').attr('disabled', false);
     }
 });
 
 function searchProduct(searchtext) {
-    $("#ProductListUl").html('');
+    $('#ProductListUl').html('');
     if (searchtext != '') {
-        $("#searchDiv").show();
-        $("#coming-res-data").show();
+        $('#searchDiv').show();
+        $('#coming-res-data').show();
 
         var url = '<?=$BASE_URL?>Products/searchProduct';
-        $("#searchDiv").show();
+        $('#searchDiv').show();
         $.ajax({
-            type: "POST",
+            type: 'POST',
             url: url,
             data: {
                 'searchtext': searchtext
             }, // serializes the form's elements.
             success: function(data) {
-                $("#coming-res-data").hide();
-                $("#ProductListUl").html(data);
+                $('#coming-res-data').hide();
+                $('#ProductListUl').html(data);
             },
             error: function(error) {}
         });
     } else {
-        $("#searchDiv").hide();
-        $("#coming-res-data").hide();
+        $('#searchDiv').hide();
+        $('#coming-res-data').hide();
     }
 }
 
 function removeSerchProduct() {
-    $("#ToSeachBox").val('');
-    $("#ProductListUl").html('');
-    $("#searchDiv").hide();
+    $('#ToSeachBox').val('');
+    $('#ProductListUl').html('');
+    $('#searchDiv').hide();
 }
 
 $(document).mouseup(function(e) {
-    var container = $(".mid-search-bar");
+    var container = $('.mid-search-bar');
     // if the target of the click isn't the container nor a descendant of the container
     if (!container.is(e.target) && container.has(e.target).length === 0) {
         removeSerchProduct();
     }
 });
 <?php if ($showCOVID19MSG) {?>
-$("#WarningModal").modal('show');
+$('#WarningModal').modal('show');
 <?php
 }?>
 
@@ -2708,11 +2715,11 @@ function COVIDMSGClose() {
     $('#loader-img').show();
     var url = '<?=$BASE_URL?>Homes/COVIDMSGClose';
     $.ajax({
-        type: "GET",
+        type: 'GET',
         url: url,
         success: function(data) {
             $('#loader-img').hide();
-            $("#WarningModal").modal('hide');
+            $('#WarningModal').modal('hide');
         },
         error: function(error) {}
     });
@@ -2720,38 +2727,38 @@ function COVIDMSGClose() {
 if (language_name == 'French') {
     function PrinterSeries(printer_brand) {
         //alert(printer_brand);
-        $("#printer_series").html("<option value=''>Sélectionnez une série d'imprimantes</option>");
-        $("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
+        $('#printer_series').html("<option value=''>Sélectionnez une série d'imprimantes</option>");
+        $('#printer_models').html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
 
         if (printer_brand != '') {
-            $("#printer_series").html('<option value="">Hébergement ..</option>');
-            //$("#printer_models").html('<option value="">Loding..</option>');
+            $('#printer_series').html('<option value="">Hébergement ..</option>');
+            //$('#printer_models').html('<option value="">Loding..</option>');
             var url = '<?=$BASE_URL?>Products/PrinterSeries/' + printer_brand;
             $.ajax({
-                type: "GET",
+                type: 'GET',
                 url: url,
-                contentType: "html",
+                contentType: 'html',
                 success: function(data) {
-                    $("#printer_series").html(data);
+                    $('#printer_series').html(data);
                 }
             });
         }
     }
 
     function PrinterModel(printer_series) {
-        var printer_brand = $("#printer_brand").val();
-        $("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
+        var printer_brand = $('#printer_brand').val();
+        $('#printer_models').html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
 
         if (printer_series != '') {
-            $("#printer_models").html('<option value="">Hébergement ..</option>');
+            $('#printer_models').html('<option value="">Hébergement ..</option>');
             var url = '<?=$BASE_URL?>Products/PrinterModel/' + printer_brand + '/' + printer_series;
             $.ajax({
-                type: "GET",
+                type: 'GET',
                 url: url,
-                contentType: "html",
+                contentType: 'html',
                 //data:{'country_id':country_id}, // serializes the form's elements.
                 success: function(data) {
-                    $("#printer_models").html(data);
+                    $('#printer_models').html(data);
                 }
             });
         }
@@ -2759,38 +2766,38 @@ if (language_name == 'French') {
 } else {
     function PrinterSeries(printer_brand) {
         //alert(printer_brand);
-        $("#printer_series").html('<option value="">Select a Printer Series</option>');
-        $("#printer_models").html('<option value="">Select a Printer Model</option>');
+        $('#printer_series').html('<option value="">Select a Printer Series</option>');
+        $('#printer_models').html('<option value="">Select a Printer Model</option>');
 
         if (printer_brand != '') {
-            $("#printer_series").html('<option value="">Loding..</option>');
-            //$("#printer_models").html('<option value="">Loding..</option>');
+            $('#printer_series').html('<option value="">Loding..</option>');
+            //$('#printer_models').html('<option value="">Loding..</option>');
             var url = '<?=$BASE_URL?>Products/PrinterSeries/' + printer_brand;
             $.ajax({
-                type: "GET",
+                type: 'GET',
                 url: url,
-                contentType: "html",
+                contentType: 'html',
                 success: function(data) {
-                    $("#printer_series").html(data);
+                    $('#printer_series').html(data);
                 }
             });
         }
     }
 
     function PrinterModel(printer_series) {
-        var printer_brand = $("#printer_brand").val();
-        $("#printer_models").html('<option value="">Select a Printer Model</option>');
+        var printer_brand = $('#printer_brand').val();
+        $('#printer_models').html('<option value="">Select a Printer Model</option>');
 
         if (printer_series != '') {
-            $("#printer_models").html('<option value="">Loding..</option>');
+            $('#printer_models').html('<option value="">Loding..</option>');
             var url = '<?=$BASE_URL?>Products/PrinterModel/' + printer_brand + '/' + printer_series;
             $.ajax({
-                type: "GET",
+                type: 'GET',
                 url: url,
-                contentType: "html",
+                contentType: 'html',
                 //data:{'country_id':country_id}, // serializes the form's elements.
                 success: function(data) {
-                    $("#printer_models").html(data);
+                    $('#printer_models').html(data);
                 }
             });
         }
@@ -2804,15 +2811,15 @@ function expiryMask() {
     if (allowedKeys.indexOf(code) !== -1) {
         return false;
     } else {
-        if ($("#ExpDate").val().length > 7) {
+        if ($('#ExpDate').val().length > 7) {
             return false;
         } else {
             const key = event.keyCode;
-            if (typeof key == "undefined" || key === 46) {
+            if (typeof key == 'undefined' || key === 46) {
                 var id = event.target.value;
                 var lastChar = id.substr(id.length - 1);
-                if (typeof lastChar != "undefined" && lastChar == '/') {
-                    event.target.value = event.target.value.replace("/", "");
+                if (typeof lastChar != 'undefined' && lastChar == '/') {
+                    event.target.value = event.target.value.replace('/', "");
                     return true;
                 } else {
                     event.target.value = event.target.value.replace(
@@ -2861,50 +2868,50 @@ function expiryMask() {
 function cardFormValidate() {
     var cardValid = 1;
     if ($('#CardNumber').val().length < 14 || $('#CardNumber').val().length > 20) {
-        $("#CardNumber").addClass('is-invalid');
+        $('#CardNumber').addClass('is-invalid');
         cardValid = 0;
     } else {
-        $("#CardNumber").removeClass('is-invalid');
+        $('#CardNumber').removeClass('is-invalid');
         cardValid = 1;
     }
     //card details validation
-    var expMonth = $("#ExpMonth").val();
-    var ExpDate = $("#ExpDate").val();
-    var ExpYear = $("#ExpYear").val();
-    var cvv = $("#cvv").val();
+    var expMonth = $('#ExpMonth').val();
+    var ExpDate = $('#ExpDate').val();
+    var ExpYear = $('#ExpYear').val();
+    var cvv = $('#cvv').val();
     var regMonth = /^01|02|03|04|05|06|07|08|09|10|11|12$/;
-    var regYear = new RegExp("/^" + generateOfYears() + "$/");
+    var regYear = new RegExp('/^' + generateOfYears() + '$/');
     var regcvv = /^[0-9]{3,3}$/;
     if (!regMonth.test(expMonth) || !expMonth.length || !ExpDate.length) {
-        $("#ExpDate").addClass('is-invalid');
+        $('#ExpDate').addClass('is-invalid');
         cardValid = 0;
     } else {
         var date = new Date();
         var month = parseInt(date.getMonth()) + 1
         var year = date.getFullYear()
         if (ExpYear.length && ExpYear == year && expMonth < month) {
-            $("#ExpDate").addClass('is-invalid');
+            $('#ExpDate').addClass('is-invalid');
             cardValid = 0;
         } else {
-            $("#ExpDate").removeClass('is-invalid');
+            $('#ExpDate').removeClass('is-invalid');
         }
     }
     var y = new Date().getFullYear();
     if (!ExpDate.length || !ExpYear.length || !regYear.test(ExpYear)) {
         if (y == ExpYear) {
-            $("#ExpDate").removeClass('is-invalid');
+            $('#ExpDate').removeClass('is-invalid');
         } else {
-            $("#ExpDate").addClass('is-invalid');
+            $('#ExpDate').addClass('is-invalid');
             cardValid = 0;
         }
     } else {
-        $("#ExpDate").removeClass('is-invalid');
+        $('#ExpDate').removeClass('is-invalid');
     }
     if (!regcvv.test(cvv) || !cvv.length) {
-        $("#cvv").addClass('is-invalid');
+        $('#cvv').addClass('is-invalid');
         cardValid = 0;
     } else {
-        $("#cvv").removeClass('is-invalid');
+        $('#cvv').removeClass('is-invalid');
     }
     if (cardValid == 1) {
         return true;
@@ -2918,7 +2925,7 @@ function splitDate(value) {
     var matches = regExp.exec(value);
     if (matches != null) {
         $('#ExpMonth').val(matches[1]);
-        $('#ExpYear').val("20" + matches[2]);
+        $('#ExpYear').val('20' + matches[2]);
     }
 }
 
@@ -2933,24 +2940,24 @@ function generateOfYears() {
 }
 $(document).ready(function() {
     if (language_name == 'French') {
-        $("#printer_brand").val('');
-        $("#printer_series").html("<option value=''>Sélectionnez une série d'imprimantes</option>");
-        $("#printer_models").html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
+        $('#printer_brand').val('');
+        $('#printer_series').html("<option value=''>Sélectionnez une série d'imprimantes</option>");
+        $('#printer_models').html("<option value=''>Sélectionnez un modèle d'imprimante</option>");
     } else {
-        $("#printer_brand").val('');
-        $("#printer_series").html('<option value="">Select a Printer Series</option>');
-        $("#printer_models").html('<option value="">Select a Printer Model</option>');
+        $('#printer_brand').val('');
+        $('#printer_series').html('<option value="">Select a Printer Series</option>');
+        $('#printer_models').html('<option value="">Select a Printer Model</option>');
     }
     $('#CardNumber').mask('0000 0000 0000 0000');
-    $(".pos input").keyup(function() {
+    $('.pos input').keyup(function() {
         cardFormValidate()
     })
-    $("#place-order-form").submit(function(e) {
+    $('#place-order-form').submit(function(e) {
         e.preventDefault()
-        if ($('#4payment').is(":checked") && cardFormValidate() == true) {
-            $("#place-order-form")[0].submit()
+        if ($('#4payment').is(':checked') && cardFormValidate() == true) {
+            $('#place-order-form')[0].submit()
         } else {
-            $("#place-order-form")[0].submit()
+            $('#place-order-form')[0].submit()
         }
     })
     $(document).on('keyup change input paste', '#ExpDate', function() {
@@ -2966,4 +2973,5 @@ $(document).ready(function() {
 });
 </script>
 </body>
+
 </html>

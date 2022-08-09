@@ -26,20 +26,20 @@
                                     </td>
                                 </tr>
                                 <!--<tr>
-                                   <td>Order Amount </td>
+                                   <td>Order Amount</td>
                                    <td>
                                      <?php CURREBCY_SYMBOL . number_format($orderData['total_amount'], 2)?>
                                    </td>
                                 </tr>-->
 
                                 <tr>
-                                    <td>Payment Status </td>
+                                    <td>Payment Status</td>
                                     <td>
                                         <?= $orderData["payment_status"] == '2' ? 'Success' : 'Failed' ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Payment Transition Id </td>
+                                    <td>Payment Transition Id</td>
                                     <td>
                                         <?= isset($orderData['transition_id']) ? $orderData['transition_id'] : '' ?>
                                     </td>

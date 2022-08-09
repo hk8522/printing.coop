@@ -73,7 +73,7 @@
                                             <?php } else{ ?>
                                               Enter OTP
                                             <?php
-                                           } ?> <span class="text-danger">  *</span></label>
+                                           } ?> <span class="text-danger">*</span></label>
                                         <input type="text" name="input_otp" id="input-otp" placeholder="Enter Otp" maxlength="6">
                                         <label id="input-otp-error" style="color:red"></label>
                                     </div>
@@ -85,7 +85,7 @@
                                             <?php } else{ ?>
                                               Set New Password
                                             <?php
-                                           } ?> <span class="text-danger">  *</span></label>
+                                           } ?> <span class="text-danger">*</span></label>
                                         <input type="password" placeholder="Set Password" name="new_password" id="new-password" maxlength="20"  minlength="8">
                                         <label id="new-password-error" style="color:red"></label>
                                     </div>

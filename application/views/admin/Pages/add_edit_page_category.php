@@ -22,7 +22,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Category Name</label>
+                                                    <label class="span2" for="inputMame">Category Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -36,7 +36,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Category Order</label>
+                                                    <label class="span2" for="inputMame">Category Order</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">

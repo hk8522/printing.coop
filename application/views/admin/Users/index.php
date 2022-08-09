@@ -30,7 +30,7 @@
                                     <form action="<?= $BASE_URL ?>admin/Users/ImportCSV" id="ImportCSVFROM" enctype='multipart/form-data' method="post">
                                         <input type="file" onchange="$('#ImportCSVFROM').submit()" name="csv" accept=".csv">
                                       <input type="hidden" name="page_status" value=<?php $status?>>
-                                        <button><i class="fas fa-plus-circle"></i>  Import CSV</button>
+                                        <button><i class="fas fa-plus-circle"></i> Import CSV</button>
                                     </form>
                                 </div>
 

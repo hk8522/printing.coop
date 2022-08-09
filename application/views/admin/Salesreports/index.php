@@ -61,7 +61,7 @@
                                         </div>
                                         <div class="col-md-12 col-lg-3">
                                             <div class="table-filter-fields">
-                                                <label>Keywords </label>
+                                                <label>Keywords</label>
                                                 <select class="form-control" name="keywords" required>
                                                 <option value="">Select Keywords</option>
 
@@ -90,23 +90,23 @@
                                 <tr role="row">
                                     <th style="display:none"></th>
                                     <th>Start Date</th>
-                                    <th>end Date </th>
-                                    <th>Portfolio Name </th>
+                                    <th>end Date</th>
+                                    <th>Portfolio Name</th>
                                     <th>Currency</th>
-                                    <th>Campaign Name </th>
+                                    <th>Campaign Name</th>
                                     <th>Ad grou Name</th>
-                                    <th>Targeting </th>
-                                    <th>Match Type </th>
-                                    <th>Impressions </th>
+                                    <th>Targeting</th>
+                                    <th>Match Type</th>
+                                    <th>Impressions</th>
                                     <th>Clicks</th>
-                                    <th>Click Thru Rate </th>
+                                    <th>Click Thru Rate</th>
                                     <th>Cost Per Click</th>
                                     <th>Spend</th>
                                     <th>Total Advertising Cost of Sales</th>
                                     <th>Total Return On Advertising Spend</th>
                                     <th>7 Day Total Sales</th>
                                     <th>7 Day total Orders</th>
-                                    <th>7 Day total Units </th>
+                                    <th>7 Day total Units</th>
                                     <th>7 Day Conversion Rate</th>
                                     <th>7 Day Advertised SKU Units</th>
                                     <th>7 Day Other SKU Units</th>

@@ -15,7 +15,7 @@
                 <div class="control-group info">
                     <div class="row align-items-center">
                         <div class="col-md-4">
-                            <label class="span2 " for="inputMame">Attributes</label>
+                            <label class="span2" for="inputMame">Attributes</label>
                         </div>
                         <div class="col-md-8">
                             <div class="controls">
@@ -70,7 +70,7 @@ $('#auto_attribute_add_form').validate({
             success: function(data) {
                 $('button[type=submit]').attr('disabled', false);
                 $('#loader-img').hide();
-                $("#ItemModal .modal-body").html(data);
+                $('#ItemModal .modal-body').html(data);
                 if (success == 1) {
                     location.reload();
                 }

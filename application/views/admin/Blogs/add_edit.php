@@ -23,7 +23,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">WebSite</label>
+                                                    <label class="span2" for="inputMame">WebSite</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -53,7 +53,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Blog Title</label>
+                                                    <label class="span2" for="inputMame">Blog Title</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -66,7 +66,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Blog Title</label>
+                                                    <label class="span2" for="inputMame">Blog Title</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -79,7 +79,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Blog Category</label>
+                                                    <label class="span2" for="inputMame">Blog Category</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -111,7 +111,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Populer</label>
+                                                    <label class="span2" for="inputMame">Populer</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -124,7 +124,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Blog Content</label>
+                                                    <label class="span2" for="inputMame">Blog Content</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -141,7 +141,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Blog Content</label>
+                                                    <label class="span2" for="inputMame">French Blog Content</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -158,7 +158,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                               <div class="col-md-4">
-                                                <label class="span2 " for="inputMame"> Blog Image</label>
+                                                <label class="span2" for="inputMame">Blog Image</label>
 
                                               </div>
                                               <div class="col-md-8">
@@ -247,8 +247,8 @@
 
                 //alert(imagesize);
                 /*if (FILE_MAX_SIZE_JS < imagesize) {
-                    $("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
-                    $("#MsgModal").modal('show');
+                    $('#MsgModal .modal-body').html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
+                    $('#MsgModal').modal('show');
                           return false;
                 }*/
                   };

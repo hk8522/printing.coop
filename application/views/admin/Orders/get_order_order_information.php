@@ -289,7 +289,7 @@
                 <div class="col-md-6">
                     <div class="step-fields-inner universal-bg-white">
                         <div class="universal-small-dark-title">
-                            <span>Order Information </span>
+                            <span>Order Information</span>
                         </div>
                         <div class="quote-bottom-row summary-deatil">
                             <div class="summary-deatil-inner control-group">
@@ -314,8 +314,8 @@
     <script>
 
     function getState(country_id) {
-        $("#stateiD").val('');
-        $("#stateiD").html('<option value="">Loding..</option>');
+        $('#stateiD').val('');
+        $('#stateiD').html('<option value="">Loding..</option>');
         if (country_id !='') {
             var url ='<?= $BASE_URL ?>MyAccounts/getStateDropDownListByAjax/'+country_id;
             $.ajax({
@@ -325,15 +325,15 @@
                    //data:{'country_id':country_id}, // serializes the form's elements.
                    success: function(data)
                    {
-                       $("#stateiD").html(data);
+                       $('#stateiD').html(data);
                    }
             });
         }
     }
 
     function getCity(state_id) {
-        $("#cityId").val('');
-        $("#cityId").html('<option value="">Loding..</option>');
+        $('#cityId').val('');
+        $('#cityId').html('<option value="">Loding..</option>');
         if (state_id !='') {
             var url ='<?= $BASE_URL ?>/admin/Orders/getCityDropDownListByAjax/'+state_id;
             $.ajax({
@@ -346,9 +346,9 @@
                     var json=JSON.parse(data);
                     var orderinformation = json.orderinformation;
                     var confirmbtn=json.confirmbtn;
-                    $("#Order-Information").html(orderinformation);
-                    $("#confirmbtn").html(confirmbtn);
-                    $("#cityId").html(json.options);
+                    $('#Order-Information').html(orderinformation);
+                    $('#confirmbtn').html(confirmbtn);
+                    $('#cityId').html(json.options);
                    }
             });
         }

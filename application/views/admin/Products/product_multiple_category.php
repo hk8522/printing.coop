@@ -139,7 +139,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3" style="">
-                                                    <label class="span2 " for="inputMame">Select Product Multiple Category</label>
+                                                    <label class="span2" for="inputMame">Select Product Multiple Category</label>
                                                 </div>
 
                                                 <div class="col-md-9">
@@ -220,36 +220,36 @@
 </div>
 <script>
 function addActiveClass(id) {
-    if ($("#attribute_id_" + id).prop("checked") == true) {
-        $("#attribute_id_div_" + id).addClass('active');
+    if ($('#attribute_id_' + id).prop('checked') == true) {
+        $('#attribute_id_div_' + id).addClass('active');
     } else {
-        $("#attribute_id_div_" + id).removeClass('active');
+        $('#attribute_id_div_' + id).removeClass('active');
     }
 }
 
 function setAttributesetItemId(id) {
     //alert(id);
 
-    if ($("#" + id).prop("checked") == true) {
-        $("#hidden_" + id).val($("#" + id).val());
+    if ($('#' + id).prop('checked') == true) {
+        $('#hidden_' + id).val($('#' + id).val());
     } else {
-        $("#hidden_" + id).val('');
+        $('#hidden_' + id).val('');
     }
 }
 
 function addActiveSizeClass(id) {
-    if ($("#size_attribute_id_" + id).prop("checked") == true) {
-        $("#size_attribute_id_div_" + id).addClass('active');
+    if ($('#size_attribute_id_' + id).prop('checked') == true) {
+        $('#size_attribute_id_div_' + id).addClass('active');
     } else {
-        $("#size_attribute_id_div_" + id).removeClass('active');
+        $('#size_attribute_id_div_' + id).removeClass('active');
     }
 }
 
 function addActiveQuantitySizeClass(id) {
-    if ($("#category_id_" + id).prop("checked") == true) {
-        $("#quantity_attribute_id_div_" + id).show();
+    if ($('#category_id_' + id).prop('checked') == true) {
+        $('#quantity_attribute_id_div_' + id).show();
     } else {
-        $("#quantity_attribute_id_div_" + id).hide();
+        $('#quantity_attribute_id_div_' + id).hide();
     }
 }
 </script>

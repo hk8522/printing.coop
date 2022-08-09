@@ -149,14 +149,13 @@
                                     </div>
                                     <?= form_open_multipart('', array('class' => 'form-horizontal')) ?>
                                     <input class="form-control" name="id" type="hidden"
-                                        value="<?= isset($postData['id']) ? $postData['id'] : '' ?>"
-                                        id="product_id">
+                                        value="<?= isset($postData['id']) ? $postData['id'] : '' ?>" id="product_id">
                                     <div class="form-role-area">
 
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame"> Product Name</label>
+                                                    <label class="span2" for="inputMame">Product Name</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -173,7 +172,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame"> French Product Name </label>
+                                                    <label class="span2" for="inputMame">French Product Name</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -190,7 +189,8 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
-                                                    <label class="span2" for="inputMame">Product Short Description</label>
+                                                    <label class="span2" for="inputMame">Product Short
+                                                        Description</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -207,7 +207,8 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
-                                                    <label class="span2" for="inputMame">French Product Short Description</label>
+                                                    <label class="span2" for="inputMame">French Product Short
+                                                        Description</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -225,7 +226,8 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Product Full Description</label>
+                                                    <label class="span2" for="inputMame">Product Full
+                                                        Description</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -241,7 +243,8 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">French Product Full Description</label>
+                                                    <label class="span2" for="inputMame">French Product Full
+                                                        Description</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -257,7 +260,8 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Extra Product Full Description</label>
+                                                    <label class="span2" for="inputMame">Extra Product Full
+                                                        Description</label>
                                                 </div>
                                                 <div class="col-md-9 description-data">
                                                     <?php
@@ -270,9 +274,9 @@
                                                             //echo $key;
                                                             ?>
 
-                                                            <div class="controls description-class ddata">
-                                                                <div class="description-single">
-                                                                    <?php
+                                                    <div class="controls description-class ddata">
+                                                        <div class="description-single">
+                                                            <?php
                                                                     $displayplusnbtn = 'none';
                                                                     $displayminusbtn = '';
                                                                     if ($last == 0) {
@@ -283,71 +287,66 @@
                                                                         $displayminusbtn = '';
                                                                     }
                                                                     ?>
-                                                                    <div class="add-new-btn">
-                                                                        <button class="btn-danger dbtn-remove" type="button" style="display:<?= $displayminusbtn ?>">
-                                                                            <i class="fa fa-minus"></i>
-                                                                        </button>
+                                                            <div class="add-new-btn">
+                                                                <button class="btn-danger dbtn-remove" type="button"
+                                                                    style="display:<?= $displayminusbtn ?>">
+                                                                    <i class="fa fa-minus"></i>
+                                                                </button>
 
-                                                                        <button class="btn-success dbtn-add" type="button" style="display:<?= $displayplusnbtn ?>">
-                                                                            <i class="fa fa-plus"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                    <label>Description Title</label>
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Description Title" name="title[]"
-                                                                        value="<?= $val['title'] ?>">
-
-                                                                    <label>French Description Title</label>
-
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Title french" name="title_french[]"
-                                                                        value="<?= $val['title_french'] ?>">
-
-                                                                    <label>Description </label>
-
-                                                                    <textarea class="form-control description ckeditor"
-                                                                        name="description[]" placeholder="Full Description"
-                                                                        id="editor<?= $DescriptionsIds ?>"><?= $val['description'] ?></textarea>
-                                                                    <label>French Description </label>
-                                                                    <textarea class="form-control description-f ckeditor"
-                                                                        name="description_french[]"
-                                                                        placeholder="Description French"
-                                                                        id="editorf<?= $DescriptionsIds ?>"><?= $val['description_french'] ?></textarea>
-                                                                </div>
+                                                                <button class="btn-success dbtn-add" type="button"
+                                                                    style="display:<?= $displayplusnbtn ?>">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </button>
                                                             </div>
+                                                            <label>Description Title</label>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Description Title" name="title[]"
+                                                                value="<?= $val['title'] ?>">
 
-                                                            <?php
+                                                            <label>French Description Title</label>
+
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Title french" name="title_french[]"
+                                                                value="<?= $val['title_french'] ?>">
+
+                                                            <label>Description</label>
+
+                                                            <textarea class="form-control description ckeditor"
+                                                                name="description[]" placeholder="Full Description"
+                                                                id="editor<?= $DescriptionsIds ?>"><?= $val['description'] ?></textarea>
+                                                            <label>French Description</label>
+                                                            <textarea class="form-control description-f ckeditor"
+                                                                name="description_french[]"
+                                                                placeholder="Description French"
+                                                                id="editorf<?= $DescriptionsIds ?>"><?= $val['description_french'] ?></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <?php
                                                             $DescriptionsIds++;
                                                         }
                                                     } else{ ?>
-                                                        <div class="controls description-class ddata">
-                                                            <div class="description-single">
-                                                                <div class="add-new-btn">
-                                                                    <button class="btn-danger dbtn-remove" type="button" style="display:none">
-                                                                        <i class="fa fa-minus"></i>
-                                                                    </button>
-                                                                    <button class="btn-success dbtn-add" type="button">
-                                                                        <i class="fa fa-plus"></i>
-                                                                    </button>
-                                                                </div>
-                                                                <label>Description Title</label>
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Description Title" name="title[]">
-                                                                <label>French Description Title</label>
-
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Title french" name="title_french[]">
-                                                                <label>Description </label>
-                                                                <textarea class="form-control description ckeditor"
-                                                                    name="description[]" placeholder="Full Description"
-                                                                    id="editor"></textarea>
-                                                                <label>French Description </label>
-                                                                <textarea class="form-control ckeditor description-f"
-                                                                    name="description_french[]"
-                                                                    placeholder="Description French"
-                                                                    id="editorf"></textarea>
+                                                    <div class="controls description-class ddata">
+                                                        <div class="description-single">
+                                                            <div class="add-new-btn">
+                                                                <button class="btn-danger dbtn-remove" type="button" style="display:none">
+                                                                    <i class="fa fa-minus"></i>
+                                                                </button>
+                                                                <button class="btn-success dbtn-add" type="button">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </button>
                                                             </div>
+                                                            <label>Description Title</label>
+                                                            <input type="text" class="form-control" placeholder="Description Title" name="title[]">
+                                                            <label>French Description Title</label>
+
+                                                            <input type="text" class="form-control" placeholder="Title french" name="title_french[]">
+                                                            <label>Description</label>
+                                                            <textarea class="form-control description ckeditor" name="description[]" placeholder="Full Description" id="editor"></textarea>
+                                                            <label>French Description</label>
+                                                            <textarea class="form-control ckeditor description-f" name="description_french[]" placeholder="Description French" id="editorf"></textarea>
                                                         </div>
+                                                    </div>
 
                                                     <?php } ?>
 
@@ -357,7 +356,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Product Templates</label>
+                                                    <label class="span2" for="inputMame">Product Templates</label>
                                                 </div>
                                                 <div class="col-md-9 template-description">
                                                     <?php
@@ -369,9 +368,9 @@
                                                         foreach ($ProductTemplates as $key => $val) {
                                                             ?>
 
-                                                            <div class="controls description-class tmds">
-                                                                <div class="description-single">
-                                                                    <?php
+                                                    <div class="controls description-class tmds">
+                                                        <div class="description-single">
+                                                            <?php
                                                                     $displayplusnbtn = 'none';
                                                                     $displayminusbtn = '';
                                                                     if ($last == 0) {
@@ -382,91 +381,95 @@
                                                                         $displayminusbtn = '';
                                                                     }
                                                                     ?>
-                                                                    <div class="add-new-btn">
-                                                                        <button class="btn-danger tdtn-remove" type="button" style="display:<?= $displayminusbtn ?>">
-                                                                            <i class="fa fa-minus"></i>
-                                                                        </button>
+                                                            <div class="add-new-btn">
+                                                                <button class="btn-danger tdtn-remove" type="button"
+                                                                    style="display:<?= $displayminusbtn ?>">
+                                                                    <i class="fa fa-minus"></i>
+                                                                </button>
 
-                                                                        <button class="btn-success tdtn-add" type="button" style="display:<?= $displayplusnbtn ?>">
-                                                                            <i class="fa fa-plus"></i>
-                                                                        </button>
-                                                                    </div>
+                                                                <button class="btn-success tdtn-add" type="button"
+                                                                    style="display:<?= $displayplusnbtn ?>">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </button>
+                                                            </div>
 
-                                                                    <label>Final Dimensions</label>
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Final Dimensions" name="final_dimensions[]"
-                                                                        value='<?= $val['final_dimensions'] ?>'>
+                                                            <label>Final Dimensions</label>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Final Dimensions" name="final_dimensions[]"
+                                                                value='<?= $val['final_dimensions'] ?>'>
 
-                                                                    <label>French Final Dimensions</label>
-                                                                    <input type="text" class="form-control"
-                                                                        placeholder="Final Dimensions French"
-                                                                        name="final_dimensions_french[]"
-                                                                        value='<?= $val['final_dimensions_french'] ?>'>
+                                                            <label>French Final Dimensions</label>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Final Dimensions French"
+                                                                name="final_dimensions_french[]"
+                                                                value='<?= $val['final_dimensions_french'] ?>'>
 
-                                                                    <label>Template Description</label>
-                                                                    <textarea class="form-control" name="template_description[]"
-                                                                        placeholder="Template Description"><?= $val['template_description'] ?></textarea>
+                                                            <label>Template Description</label>
+                                                            <textarea class="form-control" name="template_description[]"
+                                                                placeholder="Template Description"><?= $val['template_description'] ?></textarea>
 
-                                                                    <label>French Template Description</label>
-                                                                    <textarea class="form-control"
-                                                                        name="template_description_french[]"
-                                                                        placeholder="French Template Description"><?= $val['template_description_french'] ?></textarea>
+                                                            <label>French Template Description</label>
+                                                            <textarea class="form-control"
+                                                                name="template_description_french[]"
+                                                                placeholder="French Template Description"><?= $val['template_description_french'] ?></textarea>
 
-                                                                    <input class="btn btn-primary" name="template_file_old[]"
-                                                                        type="hidden"
-                                                                        value="<?= $val['template_file'] ?>" />
-                                                                    <?php if ($val['template_file']) {
+                                                            <input class="btn btn-primary" name="template_file_old[]"
+                                                                type="hidden" value="<?= $val['template_file'] ?>" />
+                                                            <?php if ($val['template_file']) {
                                                                         $link = $BASE_URL . "admin/Orders/download/" . urlencode(TEMPLATE_FILE_BASE_PATH . $val['template_file']) . "/" . urlencode($val['template_file']);
                                                                         ?>
-                                                                        <label class="file_name">File Name:<?= $val['template_file'] ?>
-                                                                            <a href="<?= $link ?>">
-                                                                                <i class="fa fa-download" aria-hidden="true"></i>
-                                                                            </a>
-                                                                        </label>
-                                                                    <?php } ?><br>
-                                                                    <input class="btn btn-primary" name="template_file[]" type="file"
-                                                                        style="background-color:#3c8dbc !important;" />
-                                                                </div>
-                                                            </div>
-
-                                                        <?php }
-                                                    } else{ ?>
-                                                        <div class="controls description-class tmds">
-                                                            <div class="description-single">
-                                                                <div class="add-new-btn">
-                                                                    <button class="btn-danger tdtn-remove" type="button" style="display:none">
-                                                                        <i class="fa fa-minus"></i>
-                                                                    </button>
-
-                                                                    <button class="btn-success tdtn-add" type="button">
-                                                                        <i class="fa fa-plus"></i>
-                                                                    </button>
-                                                                </div>
-                                                                <label>Final Dimensions</label>
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Final Dimensions"
-                                                                    name="final_dimensions[]">
-
-                                                                <label>French Final Dimensions</label>
-                                                                <input type="text" class="form-control"
-                                                                    placeholder="Final Dimensions French"
-                                                                    name="final_dimensions_french[]">
-                                                                <label>Template Description</label>
-                                                                <textarea class="form-control" name="template_description[]"
-                                                                    placeholder="Template Description"></textarea>
-                                                                <label>French Template Description</label>
-                                                                <textarea class="form-control"
-                                                                    name="template_description_french[]"
-                                                                    placeholder="French Template Description"></textarea>
-
-                                                                <br>
-                                                                <input class="btn btn-primary" name="template_file_old[]"
-                                                                    type="hidden" />
-                                                                <input class="btn btn-primary" name="template_file[]"
-                                                                    type="file"
-                                                                    style="background-color:#3c8dbc !important;" />
-                                                            </div>
+                                                            <label class="file_name">File
+                                                                Name:<?= $val['template_file'] ?>
+                                                                <a href="<?= $link ?>">
+                                                                    <i class="fa fa-download" aria-hidden="true"></i>
+                                                                </a>
+                                                            </label>
+                                                            <?php } ?><br>
+                                                            <input class="btn btn-primary" name="template_file[]"
+                                                                type="file"
+                                                                style="background-color:#3c8dbc !important;" />
                                                         </div>
+                                                    </div>
+
+                                                    <?php }
+                                                    } else{ ?>
+                                                    <div class="controls description-class tmds">
+                                                        <div class="description-single">
+                                                            <div class="add-new-btn">
+                                                                <button class="btn-danger tdtn-remove" type="button"
+                                                                    style="display:none">
+                                                                    <i class="fa fa-minus"></i>
+                                                                </button>
+
+                                                                <button class="btn-success tdtn-add" type="button">
+                                                                    <i class="fa fa-plus"></i>
+                                                                </button>
+                                                            </div>
+                                                            <label>Final Dimensions</label>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Final Dimensions"
+                                                                name="final_dimensions[]">
+
+                                                            <label>French Final Dimensions</label>
+                                                            <input type="text" class="form-control"
+                                                                placeholder="Final Dimensions French"
+                                                                name="final_dimensions_french[]">
+                                                            <label>Template Description</label>
+                                                            <textarea class="form-control" name="template_description[]"
+                                                                placeholder="Template Description"></textarea>
+                                                            <label>French Template Description</label>
+                                                            <textarea class="form-control"
+                                                                name="template_description_french[]"
+                                                                placeholder="French Template Description"></textarea>
+
+                                                            <br>
+                                                            <input class="btn btn-primary" name="template_file_old[]"
+                                                                type="hidden" />
+                                                            <input class="btn btn-primary" name="template_file[]"
+                                                                type="file"
+                                                                style="background-color:#3c8dbc !important;" />
+                                                        </div>
+                                                    </div>
 
                                                     <?php } ?>
 
@@ -476,7 +479,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Product Price</label>
+                                                    <label class="span2" for="inputMame">Product Price</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -516,7 +519,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Product Attributes</label>
+                                                    <label class="span2" for="inputMame">Product Attributes</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -574,7 +577,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Product Tags</label>
+                                                    <label class="span2" for="inputMame">Product Tags</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls small-controls">
@@ -586,19 +589,20 @@
                                                                 $tag_id = $val['id'];
                                                                 $tag_name = $val['name'];
                                                                 ?>
-                                                                <div class="col-md-4">
-                                                                    <?php
+                                                            <div class="col-md-4">
+                                                                <?php
                                                                     $cehecked = '';
                                                                     if (in_array($tag_id, $product_tags)) {
                                                                         $cehecked = 'checked';
                                                                     }
                                                                     ?>
-                                                                    <label class="span2"><input name="product_tag[]" type="checkbox" value="<?= $tag_id ?>"
+                                                                <label class="span2"><input name="product_tag[]"
+                                                                        type="checkbox" value="<?= $tag_id ?>"
                                                                         <?= $cehecked ?>>
-                                                                        <?= $tag_name ?>
-                                                                    </label>
-                                                                    <?= form_error('product_tag[]') ?>
-                                                                </div>
+                                                                    <?= $tag_name ?>
+                                                                </label>
+                                                                <?= form_error('product_tag[]') ?>
+                                                            </div>
                                                             <?php } ?>
 
                                                         </div>
@@ -609,7 +613,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Your TEXT - Votre TEXT</label>
+                                                    <label class="span2" for="inputMame">Your TEXT - Votre TEXT</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls small-controls">
@@ -623,7 +627,8 @@
                                                                     $cehecked = 'checked';
                                                                 }
                                                                 ?>
-                                                                <label class="span2"><input name="votre_text" type="checkbox" value="1" <?= $cehecked ?>> Add
+                                                                <label class="span2"><input name="votre_text"
+                                                                        type="checkbox" value="1" <?= $cehecked ?>> Add
                                                                 </label>
                                                                 <?= form_error('votre_text') ?>
                                                             </div>
@@ -637,7 +642,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Recto/Verso</label>
+                                                    <label class="span2" for="inputMame">Recto/Verso</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls small-controls">
@@ -651,9 +656,10 @@
                                                                     $cehecked = 'checked';
                                                                 }
                                                                 ?>
-                                                                <label class="span2"><input name="recto_verso" type="checkbox" value="1" <?= $cehecked ?>
+                                                                <label class="span2"><input name="recto_verso"
+                                                                        type="checkbox" value="1" <?= $cehecked ?>
                                                                         onchange="RectoVersoSection(recto_verso)"
-                                                                        id="recto_verso"> Add
+                                                                        id="recto_verso">Add
                                                                 </label>
                                                                 <?= form_error('votre_text') ?>
                                                             </div>
@@ -668,7 +674,7 @@
                                                                 <div class="attribute-info">
                                                                     <div class="row align-items-center">
                                                                         <div class="col-md-6">
-                                                                            <label class="form-inner-label">Recto/Verso Percentage </label>
+                                                                            <label class="form-inner-label">Recto/Verso Percentage</label>
                                                                         </div>
                                                                         <div class="col-md-6">
                                                                             <div class="attribute-info-inner">
@@ -694,7 +700,8 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Product Custom Add Length And Width</label>
+                                                    <label class="span2" for="inputMame">Product Custom Add Length And
+                                                        Width</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls small-controls">
@@ -706,9 +713,10 @@
                                                                     $cehecked = 'checked';
                                                                 }
                                                                 ?>
-                                                                <label class="span2"><input name="add_length_width" type="checkbox" value="1" <?= $cehecked ?>
+                                                                <label class="span2"><input name="add_length_width"
+                                                                        type="checkbox" value="1" <?= $cehecked ?>
                                                                         onchange="showWidthAndLength(add_length_width)"
-                                                                        id="add_length_width"> Add
+                                                                        id="add_length_width">Add
                                                                 </label>
                                                                 <?= form_error('add_length_width') ?>
                                                             </div>
@@ -722,7 +730,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Minimum Length</label>
+                                                                                <label class="form-inner-label">Minimum
+                                                                                    Length</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -741,7 +750,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Maximum Length</label>
+                                                                                <label class="form-inner-label">Maximum
+                                                                                    Length</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -780,7 +790,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Maximum Width</label>
+                                                                                <label class="form-inner-label">Maximum
+                                                                                    Width</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -799,7 +810,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Length X Width Price</label>
+                                                                                <label class="form-inner-label">Length X
+                                                                                    Width Price</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -818,7 +830,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Unit Price Color</label>
+                                                                                <label class="form-inner-label">Unit
+                                                                                    Price Color</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -837,7 +850,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Unit Price Black</label>
+                                                                                <label class="form-inner-label">Unit
+                                                                                    Price Black</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -868,7 +882,8 @@
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
-                                                                                    <input name="length_width_color_show"
+                                                                                    <input
+                                                                                        name="length_width_color_show"
                                                                                         type="checkbox" value="1"
                                                                                         <?= $cehecked ?>
                                                                                         id="length_width_color_show">
@@ -882,7 +897,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Quantity</label>
+                                                                                <label
+                                                                                    class="form-inner-label">Quantity</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -890,7 +906,8 @@
                                                                                     <select class="form-control"
                                                                                         name="length_width_pages_type">
 
-                                                                                        <option value="input" <?= $postData['length_width_pages_type'] == 'input' ? 'selected' : '' ?>>
+                                                                                        <option value="input"
+                                                                                            <?= $postData['length_width_pages_type'] == 'input' ? 'selected' : '' ?>>
                                                                                             Input
                                                                                         </option>
                                                                                     </select>
@@ -903,7 +920,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Quantity Show</label>
+                                                                                <label class="form-inner-label">Quantity
+                                                                                    Show</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -917,7 +935,10 @@
                                                                                         $cehecked = 'checked';
                                                                                     }
                                                                                     ?>
-                                                                                    <label class="span2"><input name="length_width_quantity_show" type="checkbox" value="1" <?= $cehecked ?>
+                                                                                    <label class="span2"><input
+                                                                                            name="length_width_quantity_show"
+                                                                                            type="checkbox" value="1"
+                                                                                            <?= $cehecked ?>
                                                                                             id="length_width_quantity_show">
                                                                                     </label>
                                                                                 </div>
@@ -929,7 +950,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Minimum Quantity</label>
+                                                                                <label class="form-inner-label">Minimum
+                                                                                    Quantity</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -949,7 +971,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Maximum Quantity</label>
+                                                                                <label class="form-inner-label">Maximum
+                                                                                    Quantity</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -973,7 +996,8 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Page Size Length And Width</label>
+                                                    <label class="span2" for="inputMame">Page Size Length And
+                                                        Width</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls small-controls">
@@ -987,9 +1011,10 @@
                                                                     $cehecked = 'checked';
                                                                 }
                                                                 ?>
-                                                                <label class="span2"><input name="page_add_length_width" type="checkbox" value="1" <?= $cehecked ?>
+                                                                <label class="span2"><input name="page_add_length_width"
+                                                                        type="checkbox" value="1" <?= $cehecked ?>
                                                                         onchange="pageShowWidthAndLength(page_add_length_width)"
-                                                                        id="page_add_length_width"> Add
+                                                                        id="page_add_length_width">Add
                                                                 </label>
                                                                 <?= form_error('page_add_length_width') ?>
                                                             </div>
@@ -1003,7 +1028,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Minimum Length</label>
+                                                                                <label class="form-inner-label">Minimum
+                                                                                    Length</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1022,7 +1048,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Maximum Length</label>
+                                                                                <label class="form-inner-label">Maximum
+                                                                                    Length</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1041,7 +1068,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Minimum Width</label>
+                                                                                <label class="form-inner-label">Minimum
+                                                                                    Width</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1060,7 +1088,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Maximum Width</label>
+                                                                                <label class="form-inner-label">Maximum
+                                                                                    Width</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1079,7 +1108,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Length X Width Price</label>
+                                                                                <label class="form-inner-label">Length X
+                                                                                    Width Price</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1098,7 +1128,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Unit Price Color</label>
+                                                                                <label class="form-inner-label">Unit
+                                                                                    Price Color</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1117,7 +1148,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Unit Price Black</label>
+                                                                                <label class="form-inner-label">Unit
+                                                                                    Price Black</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1142,11 +1174,13 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Show Colors</label>
+                                                                                <label class="form-inner-label">Show
+                                                                                    Colors</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
-                                                                                    <input name="page_length_width_color_show"
+                                                                                    <input
+                                                                                        name="page_length_width_color_show"
                                                                                         type="checkbox" value="1"
                                                                                         <?= $cehecked ?>
                                                                                         id="page_length_width_color_show">
@@ -1160,7 +1194,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Pages Type</label>
+                                                                                <label class="form-inner-label">Pages
+                                                                                    Type</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1172,7 +1207,8 @@
                                               Dropdown
                                             </option>-->
 
-                                                                                        <option value="input" <?= $postData['page_length_width_pages_type'] == 'input' ? 'selected' : '' ?>>
+                                                                                        <option value="input"
+                                                                                            <?= $postData['page_length_width_pages_type'] == 'input' ? 'selected' : '' ?>>
                                                                                             Input
                                                                                         </option>
 
@@ -1186,7 +1222,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Pages Show</label>
+                                                                                <label class="form-inner-label">Pages
+                                                                                    Show</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1201,7 +1238,11 @@
                                                                                     }
                                                                                     ?>
                                                                                     <label class="span2">
-                                                                                        <input name="page_length_width_pages_show" type="checkbox" value="1" <?= $cehecked ?> id="page_length_width_pages_show">
+                                                                                        <input
+                                                                                            name="page_length_width_pages_show"
+                                                                                            type="checkbox" value="1"
+                                                                                            <?= $cehecked ?>
+                                                                                            id="page_length_width_pages_show">
                                                                                     </label>
                                                                                 </div>
                                                                             </div>
@@ -1212,7 +1253,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Sheets Type</label>
+                                                                                <label class="form-inner-label">Sheets
+                                                                                    Type</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1239,7 +1281,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Sheets Show</label>
+                                                                                <label class="form-inner-label">Sheets
+                                                                                    Show</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1252,7 +1295,8 @@
                                                                                     }
                                                                                     ?>
                                                                                     <label class="span2">
-                                                                                        <input name="page_length_width_sheets_show"
+                                                                                        <input
+                                                                                            name="page_length_width_sheets_show"
                                                                                             type="checkbox" value="1"
                                                                                             <?= $cehecked ?>
                                                                                             id="page_length_width_sheets_show">
@@ -1266,7 +1310,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Quantity</label>
+                                                                                <label
+                                                                                    class="form-inner-label">Quantity</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1295,7 +1340,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Quantity Show</label>
+                                                                                <label class="form-inner-label">Quantity
+                                                                                    Show</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1309,7 +1355,9 @@
                                                                                         $cehecked = 'checked';
                                                                                     }
                                                                                     ?>
-                                                                                    <label class="span2"><input name="page_length_width_quantity_show" type="checkbox" value="1"
+                                                                                    <label class="span2"><input
+                                                                                            name="page_length_width_quantity_show"
+                                                                                            type="checkbox" value="1"
                                                                                             <?= $cehecked ?>
                                                                                             id="page_length_width_quantity_show">
                                                                                     </label>
@@ -1322,7 +1370,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Minimum Quantity</label>
+                                                                                <label class="form-inner-label">Minimum
+                                                                                    Quantity</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1342,7 +1391,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Maximum Quantity</label>
+                                                                                <label class="form-inner-label">Maximum
+                                                                                    Quantity</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1366,7 +1416,8 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Add Length X Width X Depth</label>
+                                                    <label class="span2" for="inputMame">Add Length X Width X
+                                                        Depth</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls small-controls">
@@ -1380,9 +1431,11 @@
                                                                     $cehecked = 'checked';
                                                                 }
                                                                 ?>
-                                                                <label class="span2"><input name="depth_add_length_width" type="checkbox" value="1" <?= $cehecked ?>
+                                                                <label class="span2"><input
+                                                                        name="depth_add_length_width" type="checkbox"
+                                                                        value="1" <?= $cehecked ?>
                                                                         onchange="showDepthWidthAndLength(depth_add_length_width)"
-                                                                        id="depth_add_length_width"> Add
+                                                                        id="depth_add_length_width">Add
                                                                 </label>
                                                                 <?= form_error('depth_add_length_width') ?>
                                                             </div>
@@ -1396,7 +1449,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Minimum Length</label>
+                                                                                <label class="form-inner-label">Minimum
+                                                                                    Length</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1435,7 +1489,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Minimum Width</label>
+                                                                                <label class="form-inner-label">Minimum
+                                                                                    Width</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1454,7 +1509,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Maximum Width</label>
+                                                                                <label class="form-inner-label">Maximum
+                                                                                    Width</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1473,7 +1529,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Minimum Depth</label>
+                                                                                <label class="form-inner-label">Minimum
+                                                                                    Depth</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1492,7 +1549,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Maximum Depth</label>
+                                                                                <label class="form-inner-label">Maximum
+                                                                                    Depth</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1511,7 +1569,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Length X Width X Depth Price</label>
+                                                                                <label class="form-inner-label">Length X
+                                                                                    Width X Depth Price</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1530,7 +1589,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Unit Price Color</label>
+                                                                                <label class="form-inner-label">Unit
+                                                                                    Price Color</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1549,7 +1609,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Unit Price Black</label>
+                                                                                <label class="form-inner-label">Unit
+                                                                                    Price Black</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1574,7 +1635,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Show Colors</label>
+                                                                                <label class="form-inner-label">Show
+                                                                                    Colors</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1592,7 +1654,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Quantity</label>
+                                                                                <label
+                                                                                    class="form-inner-label">Quantity</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1614,7 +1677,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Quantity Show</label>
+                                                                                <label class="form-inner-label">Quantity
+                                                                                    Show</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1628,7 +1692,9 @@
                                                                                         $cehecked = 'checked';
                                                                                     }
                                                                                     ?>
-                                                                                    <label class="span2"><input name="depth_width_length_quantity_show" type="checkbox" value="1"
+                                                                                    <label class="span2"><input
+                                                                                            name="depth_width_length_quantity_show"
+                                                                                            type="checkbox" value="1"
                                                                                             <?= $cehecked ?>
                                                                                             id="depth_width_length_quantity_show">
                                                                                     </label>
@@ -1641,7 +1707,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Minimum Quantity</label>
+                                                                                <label class="form-inner-label">Minimum
+                                                                                    Quantity</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1661,7 +1728,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Maximum Quantity</label>
+                                                                                <label class="form-inner-label">Maximum
+                                                                                    Quantity</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1685,7 +1753,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Call</label>
+                                                    <label class="span2" for="inputMame">Call</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls small-controls">
@@ -1699,9 +1767,10 @@
                                                                     $cehecked = 'checked';
                                                                 }
                                                                 ?>
-                                                                <label class="span2"><input name="call" type="checkbox" value="1" <?= $cehecked ?>
+                                                                <label class="span2"><input name="call" type="checkbox"
+                                                                        value="1" <?= $cehecked ?>
                                                                         onchange="pageShowCall(product_call)"
-                                                                        id="product_call"> Add
+                                                                        id="product_call">Add
                                                                 </label>
                                                                 <?= form_error('call') ?>
                                                             </div>
@@ -1715,7 +1784,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Phone Number</label>
+                                                                                <label class="form-inner-label">Phone
+                                                                                    Number</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1738,7 +1808,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Shipping Box Size</label>
+                                                    <label class="span2" for="inputMame">Shipping Box Size</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls small-controls">
@@ -1751,7 +1821,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Box Length (Inch)</label>
+                                                                                <label class="form-inner-label">Box
+                                                                                    Length (Inch)</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1770,7 +1841,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Box Width (Inch)</label>
+                                                                                <label class="form-inner-label">Box
+                                                                                    Width (Inch)</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1789,7 +1861,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Box Height (Inch)</label>
+                                                                                <label class="form-inner-label">Box
+                                                                                    Height (Inch)</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1808,7 +1881,8 @@
                                                                     <div class="attribute-info">
                                                                         <div class="row align-items-center">
                                                                             <div class="col-md-6">
-                                                                                <label class="form-inner-label">Box Weight (LB)</label>
+                                                                                <label class="form-inner-label">Box
+                                                                                    Weight (LB)</label>
                                                                             </div>
                                                                             <div class="col-md-6">
                                                                                 <div class="attribute-info-inner">
@@ -1832,7 +1906,8 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3" style="">
-                                                    <label class="span2 " for="inputMame">Select Product Multiple Category</label>
+                                                    <label class="span2" for="inputMame">Select Product Multiple
+                                                        Category</label>
                                                 </div>
 
                                                 <div class="col-md-9">
@@ -1845,47 +1920,51 @@
                                                             $sub_categories = $qval['sub_categories'];
                                                             $ProductSubCategory = isset($ProductCategory[$category_id]) ? $ProductCategory[$category_id] : array();
                                                             ?>
-                                                            <div class="attribute">
-                                                                <div class="attribute-title">
-                                                                    <div class="row align-items-center">
-                                                                        <div class="col-md-12">
-                                                                            <label class="span2">
-                                                                                <input type="checkbox"
-                                                                                    value="<?= $category_id ?>"
-                                                                                    name="category_id_<?= $category_id ?>"
-                                                                                    id="category_id_<?= $category_id ?>" <?php if (array_key_exists($category_id, $ProductCategory)) { echo "checked"; } ?> onchange="addActiveCategory('<?= $category_id ?>')" class="Category-Ids">
-                                                                                <?= $category_name ?>
-                                                                            </label>
-                                                                        </div>
+                                                        <div class="attribute">
+                                                            <div class="attribute-title">
+                                                                <div class="row align-items-center">
+                                                                    <div class="col-md-12">
+                                                                        <label class="span2">
+                                                                            <input type="checkbox"
+                                                                                value="<?= $category_id ?>"
+                                                                                name="category_id_<?= $category_id ?>"
+                                                                                id="category_id_<?= $category_id ?>"
+                                                                                <?php if (array_key_exists($category_id, $ProductCategory)) { echo "checked"; } ?>
+                                                                                onchange="addActiveCategory('<?= $category_id ?>')"
+                                                                                class="Category-Ids">
+                                                                            <?= $category_name ?>
+                                                                        </label>
                                                                     </div>
                                                                 </div>
-                                                                <div class="attribute"
-                                                                    id="quantity_attribute_id_div_<?= $category_id ?>"
-                                                                    style="display:<?= array_key_exists($category_id, $ProductCategory) ? '' : 'none' ?>; padding: 10px 10px 10px 25px; background: #f5f5f5">
-                                                                    <?php
+                                                            </div>
+                                                            <div class="attribute"
+                                                                id="quantity_attribute_id_div_<?= $category_id ?>"
+                                                                style="display:<?= array_key_exists($category_id, $ProductCategory) ? '' : 'none' ?>; padding: 10px 10px 10px 25px; background: #f5f5f5">
+                                                                <?php
                                                                     foreach ($sub_categories as $key => $val) {
                                                                         $sub_category_id = $val['id'];
                                                                         $sub_category_name = $val['name'];
                                                                         ?>
-                                                                        <div class="attribute">
+                                                                <div class="attribute">
 
-                                                                            <div class="attribute-title">
-                                                                                <div class="row align-items-center">
-                                                                                    <div class="col-md-12">
-                                                                                        <label class="span2">
-                                                                                            <input type="checkbox"
-                                                                                                value="<?= $sub_category_id ?>"
-                                                                                                name="sub_category_id_<?= $category_id ?>_<?= $sub_category_id ?>"
-                                                                                                id="sub_category_id_<?= $category_id ?>_<?= $sub_category_id ?>" <?php if (in_array($sub_category_id, $ProductSubCategory)) { echo "checked"; } ?>>
-                                                                                            <?= $sub_category_name ?>
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </div>
+                                                                    <div class="attribute-title">
+                                                                        <div class="row align-items-center">
+                                                                            <div class="col-md-12">
+                                                                                <label class="span2">
+                                                                                    <input type="checkbox"
+                                                                                        value="<?= $sub_category_id ?>"
+                                                                                        name="sub_category_id_<?= $category_id ?>_<?= $sub_category_id ?>"
+                                                                                        id="sub_category_id_<?= $category_id ?>_<?= $sub_category_id ?>"
+                                                                                        <?php if (in_array($sub_category_id, $ProductSubCategory)) { echo "checked"; } ?>>
+                                                                                    <?= $sub_category_name ?>
+                                                                                </label>
                                                                             </div>
                                                                         </div>
-                                                                    <?php } ?>
+                                                                    </div>
                                                                 </div>
+                                                                <?php } ?>
                                                             </div>
+                                                        </div>
 
                                                         <?php } ?>
                                                     </div>
@@ -1895,27 +1974,27 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3" style="">
-                                                    <label class="span2 " for="inputMame">Upload Product Image</label>
+                                                    <label class="span2" for="inputMame">Upload Product Image</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
                                                         <?php foreach ($ProductImages as $key => $list) { ?>
-                                                            <div class="col-xs-4" style="margin-bottom:15px;"
-                                                                id="img_<?= $list['id'] ?>">
-                                                                <?php $imageurl = getProductImage($list['image']);?>
-                                                                <img src="<?= $imageurl ?>" width="100" height="80">
-                                                                <input name="old_image[]"
-                                                                    value="<?= $list['image'] ?>" type="hidden">
-                                                                &nbsp;&nbsp;
-                                                                <span class="input-group-btn">
-                                                                    <button class="btn btn-danger" type="button"
-                                                                        title="remove image"
-                                                                        onclick="remove_image('<?= $list['id'] ?>','<?= $list['image'] ?>')"
-                                                                        id="img_remove_btn">
-                                                                        <span class="fa fa-minus"></span>
-                                                                    </button>
-                                                                </span>
-                                                            </div>
+                                                        <div class="col-xs-4" style="margin-bottom:15px;"
+                                                            id="img_<?= $list['id'] ?>">
+                                                            <?php $imageurl = getProductImage($list['image']);?>
+                                                            <img src="<?= $imageurl ?>" width="100" height="80">
+                                                            <input name="old_image[]" value="<?= $list['image'] ?>"
+                                                                type="hidden">
+                                                            &nbsp;&nbsp;
+                                                            <span class="input-group-btn">
+                                                                <button class="btn btn-danger" type="button"
+                                                                    title="remove image"
+                                                                    onclick="remove_image('<?= $list['id'] ?>','<?= $list['image'] ?>')"
+                                                                    id="img_remove_btn">
+                                                                    <span class="fa fa-minus"></span>
+                                                                </button>
+                                                            </span>
+                                                        </div>
                                                         <?php } ?>
                                                     </div>
                                                     <div class="controls file-data">
@@ -1943,7 +2022,8 @@
                                                             &nbsp;&nbsp;
                                                             <span class="input-group-btn">
 
-                                                                <button class="btn btn-danger btn-remove" type="button" style="display:none">
+                                                                <button class="btn btn-danger btn-remove" type="button"
+                                                                    style="display:none">
                                                                     <span class="fa fa-minus"></span>
                                                                 </button>
                                                                 <button class="btn btn-success btn-add" type="button">
@@ -1984,8 +2064,8 @@ var default_url_image = '<?= $BASE_URL ?>/assets/images/no-image.png'
 
 $('#menu_id').on('change', function(e) {
     var menu_id = $(this).val();
-    $("#category_id").html('<option value="">Select Category</option>');
-    $("#sub_category_id").html('<option value="">Select Sub Category</option>');
+    $('#category_id').html('<option value="">Select Category</option>');
+    $('#sub_category_id').html('<option value="">Select Sub Category</option>');
     $.ajax({
         type: 'GET',
         dataType: 'html',
@@ -1995,17 +2075,17 @@ $('#menu_id').on('change', function(e) {
         contentType: false,
         processData: false,
         success: function(data) {
-            $("#category_id").html(data);
+            $('#category_id').html(data);
         }
     });
 });
 
 $('#category_id').on('change', function(e) {
-    $("#sub_category_id").html('<option value="">Select Sub Category</option>');
+    $('#sub_category_id').html('<option value="">Select Sub Category</option>');
 
-    var menu_id = $("#menu_id").val();
+    var menu_id = $('#menu_id').val();
     var category_id = $(this).val();
-    $("#sub_category_id").html('<option value="">Select Sub Category</option>');
+    $('#sub_category_id').html('<option value="">Select Sub Category</option>');
     $.ajax({
         type: 'GET',
         dataType: 'html',
@@ -2015,7 +2095,7 @@ $('#category_id').on('change', function(e) {
         contentType: false,
         processData: false,
         success: function(data) {
-            $("#sub_category_id").html(data);
+            $('#sub_category_id').html(data);
         }
     });
 });
@@ -2068,9 +2148,9 @@ $(function() {
 });
 
 function remove_image(id, image_name) {
-    $("#submitBtn").attr("disabled", true);
-    $("#img_remove_btn").attr("disabled", true);
-    var product_id = $("#product_id").val();
+    $('#submitBtn').attr("disabled", true);
+    $('#img_remove_btn').attr("disabled", true);
+    var product_id = $('#product_id').val();
     $.ajax({
         type: 'POST',
         dataType: 'html',
@@ -2083,23 +2163,23 @@ function remove_image(id, image_name) {
         },
         success: function(data) {
             if (data == 1) {
-                $("#img_" + id).remove();
-                $("#img_remove_btn").attr("disabled", false);
+                $('#img_' + id).remove();
+                $('#img_remove_btn').attr("disabled", false);
             } else {
-                $("#img_remove_btn").attr("disabled", false);
+                $('#img_remove_btn').attr("disabled", false);
             }
 
-            $("#submitBtn").attr("disabled", false);
+            $('#submitBtn').attr("disabled", false);
         },
         error: function(error) {
-            $("img_remove_btn").attr("disabled", false);
-            $("#submitBtn").attr("disabled", false);
+            $('img_remove_btn').attr("disabled", false);
+            $('#submitBtn').attr("disabled", false);
         }
     });
 }
 
 function bntInActive(id) {
-    $("#" + id).attr("disabled", true);
+    $('#' + id).attr("disabled", true);
 }
 </script>
 <script>
@@ -2122,7 +2202,7 @@ function Upload(imageId) {
             //Set the Base64 string return from FileReader as source.
             image.src = e.target.result;
             //alert(e.target.result);
-            $("#" + imageId + "-Image").attr('src', e.target.result);
+            $('#' + imageId + "-Image").attr('src', e.target.result);
             //Validate the File Height and Width.
             image.onload = function() {
                 var height = this.height;
@@ -2132,14 +2212,14 @@ function Upload(imageId) {
 
                 //alert(imagesize);
                 /*if (FILE_MAX_SIZE_JS < imagesize) {
-                    $("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
-                    $("#MsgModal").modal('show');
+                    $('#MsgModal .modal-body').html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
+                    $('#MsgModal').modal('show');
                        return false;
                 }
                 else if (height != width || height < 800 || width <800  || height > 1500 || width > 1500) {
                     document.getElementById(imageId).value='';
-                    $("#MsgModal .modal-body").html('<span style="color:red"> Allowed image in only square :minimum image dimensions 800pxX800px and maximum mindimensions 1500pxX1500px</b></span>');
-                    $("#MsgModal").modal('show');
+                    $('#MsgModal .modal-body').html('<span style="color:red">Allowed image in only square :minimum image dimensions 800pxX800px and maximum mindimensions 1500pxX1500px</b></span>');
+                    $('#MsgModal').modal('show');
                        return false;
                 }*/
             };
@@ -2150,11 +2230,11 @@ function Upload(imageId) {
 </script>
 <script>
 $(document).ready(function() {
-    $("#show-shipping-amount").click(function() {
-        $(".shipping-amount-area").show();
+    $('#show-shipping-amount').click(function() {
+        $('.shipping-amount-area').show();
     });
-    $("#hide-shipping-amount").click(function() {
-        $(".shipping-amount-area").hide();
+    $('#hide-shipping-amount').click(function() {
+        $('.shipping-amount-area').hide();
     });
 });
 
@@ -2293,77 +2373,77 @@ function isNumber(evt) {
 }
 
 function addActiveClass(id) {
-    if ($("#attribute_id_" + id).prop("checked") == true) {
-        $("#attribute_id_div_" + id).addClass('active');
+    if ($('#attribute_id_' + id).prop('checked') == true) {
+        $('#attribute_id_div_' + id).addClass('active');
     } else {
-        $("#attribute_id_div_" + id).removeClass('active');
+        $('#attribute_id_div_' + id).removeClass('active');
     }
 }
 
 function showWidthAndLength(id) {
-    if ($(id).prop("checked") == true) {
-        $("#WidthAndLengthSection").show();
-        //$(".LengthWidth").attr("required", true);
+    if ($(id).prop('checked') == true) {
+        $('#WidthAndLengthSection').show();
+        //$('.LengthWidth').attr("required", true);
     } else {
-        //$(".LengthWidth").attr("required", false);
-        $("#WidthAndLengthSection").hide();
+        //$('.LengthWidth').attr("required", false);
+        $('#WidthAndLengthSection').hide();
     }
 }
 
 function showDepthWidthAndLength(id) {
-    if ($(id).prop("checked") == true) {
-        $("#DepthWidthAndLengthSection").show();
-        //$(".LengthWidth").attr("required", true);
+    if ($(id).prop('checked') == true) {
+        $('#DepthWidthAndLengthSection').show();
+        //$('.LengthWidth').attr("required", true);
     } else {
-        //$(".LengthWidth").attr("required", false);
-        $("#DepthWidthAndLengthSection").hide();
+        //$('.LengthWidth').attr("required", false);
+        $('#DepthWidthAndLengthSection').hide();
     }
 }
 
 function pageShowWidthAndLength(id) {
-    if ($(id).prop("checked") == true) {
-        $("#PageWidthAndLengthSection").show();
-        //$(".PageLengthWidth").attr("required", true);
+    if ($(id).prop('checked') == true) {
+        $('#PageWidthAndLengthSection').show();
+        //$('.PageLengthWidth').attr("required", true);
     } else {
-        //$(".PageLengthWidth").attr("required", false);
-        $("#PageWidthAndLengthSection").hide();
+        //$('.PageLengthWidth').attr("required", false);
+        $('#PageWidthAndLengthSection').hide();
     }
 }
 
 function pageShowCall(id) {
-    if ($(id).prop("checked") == true) {
-        $("#PagePhoneSection").show();
+    if ($(id).prop('checked') == true) {
+        $('#PagePhoneSection').show();
     } else {
-        $("#PagePhoneSection").hide();
+        $('#PagePhoneSection').hide();
     }
 }
 
 function setAttributesetItemId(id) {
     //alert(id);
 
-    if ($("#" + id).prop("checked") == true) {
-        $("#hidden_" + id).val($("#" + id).val());
+    if ($('#' + id).prop('checked') == true) {
+        $('#hidden_' + id).val($('#' + id).val());
     } else {
-        $("#hidden_" + id).val('');
+        $('#hidden_' + id).val('');
     }
 }
 
 function RectoVersoSection(id) {
-    if ($(id).prop("checked") == true) {
-        $("#RectoVersoSection").show();
+    if ($(id).prop('checked') == true) {
+        $('#RectoVersoSection').show();
     } else {
-        $("#RectoVersoSection").hide();
+        $('#RectoVersoSection').hide();
     }
 }
 
 function addActiveCategory(id) {
-    if ($("#category_id_" + id).prop("checked") == true) {
-        $("#quantity_attribute_id_div_" + id).show();
+    if ($('#category_id_' + id).prop('checked') == true) {
+        $('#quantity_attribute_id_div_' + id).show();
     } else {
-        $("#quantity_attribute_id_div_" + id).hide();
+        $('#quantity_attribute_id_div_' + id).hide();
     }
 }
-$("form.form-horizontal").submit(function(e) {
+$('form.form-horizontal').submit(function(e) {
     var numberOfChecked = $('.Category-Ids:checked').length;
     if (numberOfChecked == 0) {
         alert('Please selected at least one product category');
@@ -2391,21 +2471,21 @@ CKEDITOR.dtd.$removeEmpty.i = 0;
 <?php
 for ($i = 1; $i <= $DescriptionsIds; $i++) {
     ?>
-    CKEDITOR.replace('editor<?= $i ?>', {
-        height: 300,
-        filebrowserUploadUrl: "<?= $BASE_URL ?>upload.php",
-        allowedContent: true,
-        extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
-    });
-    CKEDITOR.dtd.$removeEmpty.i = 0;
+CKEDITOR.replace('editor<?= $i ?>', {
+    height: 300,
+    filebrowserUploadUrl: "<?= $BASE_URL ?>upload.php",
+    allowedContent: true,
+    extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
+});
+CKEDITOR.dtd.$removeEmpty.i = 0;
 
-    CKEDITOR.replace('editorf<?= $i ?>', {
-        height: 300,
-        filebrowserUploadUrl: "<?= $BASE_URL ?>upload.php",
-        allowedContent: true,
-        extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
-    });
-    CKEDITOR.dtd.$removeEmpty.i = 0;
+CKEDITOR.replace('editorf<?= $i ?>', {
+    height: 300,
+    filebrowserUploadUrl: "<?= $BASE_URL ?>upload.php",
+    allowedContent: true,
+    extraAllowedContent: 'p(*)[*]{*};div(*)[*]{*};li(*)[*]{*};ul(*)[*]{*}',
+});
+CKEDITOR.dtd.$removeEmpty.i = 0;
 
 <?php } ?>
 CKEDITOR.replace('editor', {

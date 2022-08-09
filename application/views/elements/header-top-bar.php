@@ -69,7 +69,7 @@
 
                         foreach ($CurrencyList as $key => $val) {
                                                         ?>
-                        <a href="<?= $BASE_URL?>?currency_id=<?= $key ?>&REDIRECT_URL=<?= $_SERVER['REQUEST_URI'] ?>">               <?= $val['currency_name'] ?>
+                        <a href="<?= $BASE_URL?>?currency_id=<?= $key ?>&REDIRECT_URL=<?= $_SERVER['REQUEST_URI'] ?>"><?= $val['currency_name'] ?>
                         </a>
 
                                                   <?php

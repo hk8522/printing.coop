@@ -40,20 +40,20 @@
                                     </td>
                                 </tr>
                                 <!--<tr>
-                                   <td>Order Amount </td>
+                                   <td>Order Amount</td>
                                    <td>
                                      <?php CURREBCY_SYMBOL . number_format($orderData['total_amount'], 2)?>
                                    </td>
                                 </tr>-->
 
                                 <tr>
-                                    <td>Payment Status </td>
+                                    <td>Payment Status</td>
                                     <td>
                                         <?= $_POST["status"] == 'Success' ? 'success' : 'Failed' ?>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>Payment Transition Id </td>
+                                    <td>Payment Transition Id</td>
                                     <td>
                                         <?= isset($_POST['payuMoneyId']) ? $_POST['payuMoneyId'] : '' ?>
                                     </td>

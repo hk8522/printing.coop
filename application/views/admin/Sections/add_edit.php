@@ -22,7 +22,7 @@
                                         <!--<div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">WebSite</label>
+                                                    <label class="span2" for="inputMame">WebSite</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -47,7 +47,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 "for="inputMame">Section Name</label>
+                                                    <label class="span2"for="inputMame">Section Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -60,7 +60,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 "for="inputMame">French Section Name</label>
+                                                    <label class="span2"for="inputMame">French Section Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -73,7 +73,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Section Description</label>
+                                                    <label class="span2" for="inputMame">Section Description</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -86,7 +86,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Section Description</label>
+                                                    <label class="span2" for="inputMame">French Section Description</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -99,7 +99,7 @@
                                         <div class="control-group info mt-2">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label class="span2 " for="inputMame">Section Content</label>
+                                                    <label class="span2" for="inputMame">Section Content</label>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="controls">
@@ -114,7 +114,7 @@
                                         <div class="control-group info mt-2">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label class="span2 " for="inputMame">French Section Content</label>
+                                                    <label class="span2" for="inputMame">French Section Content</label>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="controls">
@@ -129,7 +129,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                               <div class="col-md-4">
-                                                <label class="span2 " for="inputMame">Section Background image </label>
+                                                <label class="span2" for="inputMame">Section Background image</label>
                                               </div>
                                               <div class="col-md-8">
                                                 <div class="controls">
@@ -171,7 +171,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                               <div class="col-md-4">
-                                                <label class="span2 " for="inputMame">French Section Background Image </label>
+                                                <label class="span2" for="inputMame">French Section Background Image</label>
                                               </div>
                                               <div class="col-md-8">
                                                 <div class="controls">

@@ -19,7 +19,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Selected Fields</label>
+                                                    <label class="span2" for="inputMame">Selected Fields</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -28,7 +28,7 @@
                                                                 <div class="product-view-display">
                                                                     <span><?= ucfirst($Product['menu_name']) ?></span>
                                                                 </div>
-                                                                <label class="form-inner-label">Menu </label>
+                                                                <label class="form-inner-label">Menu</label>
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <div class="product-view-display">
@@ -50,7 +50,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"> Product Name</label>
+                                                    <label class="span2" for="inputMame">Product Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -78,7 +78,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                     <label class="span2 " for="inputMame">Product Full Description</label>
+                                                     <label class="span2" for="inputMame">Product Full Description</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -92,7 +92,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Product Price</label>
+                                                    <label class="span2" for="inputMame">Product Price</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -117,7 +117,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Product Attributes</label>
+                                                    <label class="span2" for="inputMame">Product Attributes</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -178,7 +178,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Product Tags</label>
+                                                    <label class="span2" for="inputMame">Product Tags</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls small-controls">

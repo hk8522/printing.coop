@@ -23,7 +23,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">WebSite</label>
+                                                    <label class="span2" for="inputMame">WebSite</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -47,7 +47,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Page Name</label>
+                                                    <label class="span2" for="inputMame">Page Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -61,7 +61,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Page Name</label>
+                                                    <label class="span2" for="inputMame">French Page Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -75,7 +75,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Page Order</label>
+                                                    <label class="span2" for="inputMame">Page Order</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -89,7 +89,7 @@
                     <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Show On Menu</label>
+                                                    <label class="span2" for="inputMame">Show On Menu</label>
                                                 </div>
                         <div class="col-md-6">
 
@@ -130,7 +130,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Page Title</label>
+                                                    <label class="span2" for="inputMame">Page Title</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -144,7 +144,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Page Title</label>
+                                                    <label class="span2" for="inputMame">French Page Title</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -157,7 +157,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Page Meta Description Content</label>
+                                                    <label class="span2" for="inputMame">Page Meta Description Content</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -171,7 +171,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">France Page Meta Description Content</label>
+                                                    <label class="span2" for="inputMame">France Page Meta Description Content</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -185,7 +185,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Page Meta Keywords Content</label>
+                                                    <label class="span2" for="inputMame">Page Meta Keywords Content</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -199,7 +199,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">France Page Meta Keywords Content</label>
+                                                    <label class="span2" for="inputMame">France Page Meta Keywords Content</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -213,7 +213,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label class="span2 " for="inputMame">Page Description</label>
+                                                    <label class="span2" for="inputMame">Page Description</label>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="controls">
@@ -228,7 +228,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label class="span2 " for="inputMame">French Page Description</label>
+                                                    <label class="span2" for="inputMame">French Page Description</label>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="controls">

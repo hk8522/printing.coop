@@ -28,7 +28,7 @@
                             </div>
 
                             <div class="col-md-12">
-                                <span><font color="red">*</font>Subject </span>
+                                <span><font color="red">*</font>Subject</span>
                                 <input type="text" name="subject" value="<?= isset($postData['subject']) ? $postData['subject']:'' ?>">
                                 <?= form_error('subject') ?>
                             </div>
@@ -47,11 +47,11 @@
                          <?= form_close() ?>
                     </div>
 <script>
-  $("#TicketCreateFrom").submit(function(e) {
+  $('#TicketCreateFrom').submit(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
         var form = $(this);
         var formsubmit=true;
-        $("#TicketCreateFromSubmit").attr("disabled",true);
+        $('#TicketCreateFromSubmit').attr("disabled",true);
 
         if (formsubmit==true) {
             var url =BASE_URL+'Tickets/createTicket';
@@ -61,9 +61,9 @@
                    data: form.serialize(), // serializes the form's elements.
                    success: function(data)
                     {
-                        $("#conntent").html(data);
-                        /*$("#myModal").modal('hide');
-                        $("#btnSubmit").attr("disabled",false);
+                        $('#conntent').html(data);
+                        /*$('#myModal').modal('hide');
+                        $('#btnSubmit').attr("disabled",false);
                         var json = JSON.parse(data);
                         var res=json.status;
                         var msg=json.msg;
@@ -72,19 +72,19 @@
                                 location.reload();
                               }, 2000
                         );
-                        $("#MsgModal .modal-body").html('<span style="color:green">'+msg+'</span>');
-                        $("#MsgModal").modal('show');
+                        $('#MsgModal .modal-body').html('<span style="color:green">'+msg+'</span>');
+                        $('#MsgModal').modal('show');
                         } else{
-                            $("#MsgModal .modal-body").html('<span style="color:red">'+msg+'</span>');
-                            $("#MsgModal").modal('show');
+                            $('#MsgModal .modal-body').html('<span style="color:red">'+msg+'</span>');
+                            $('#MsgModal').modal('show');
                         }*/
                     },
                     error: function (error) {
-                      $("#TicketCreateFromSubmit").attr("disabled",false);
+                      $('#TicketCreateFromSubmit').attr("disabled",false);
                    }
             });
         } else{
-            $("#TicketCreateFromSubmit").attr("disabled",false);
+            $('#TicketCreateFromSubmit').attr("disabled",false);
         }
     });
 

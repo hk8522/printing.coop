@@ -21,7 +21,7 @@
                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">WebSite</label>
+                                                    <label class="span2" for="inputMame">WebSite</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -45,7 +45,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"> Banner Name</label>
+                                                    <label class="span2" for="inputMame">Banner Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -58,7 +58,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"> French Banner Name</label>
+                                                    <label class="span2" for="inputMame">French Banner Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -71,7 +71,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Banner Description</label>
+                                                    <label class="span2" for="inputMame">Banner Description</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -85,7 +85,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Banner Description</label>
+                                                    <label class="span2" for="inputMame">French Banner Description</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -225,14 +225,14 @@
 
                 //alert(imagesize);
                 /*if (FILE_MAX_SIZE_JS < imagesize) {
-                    $("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
-                    $("#MsgModal").modal('show');
+                    $('#MsgModal .modal-body').html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
+                    $('#MsgModal').modal('show');
                           return false;
                 }
                 else if (height != 428 || width !=1920) {
                     document.getElementById(imageId).value='';
-                    $("#MsgModal .modal-body").html('<span style="color:red"> Allowed image in only  dimensions(WXH) 1920pxX428px</b></span>');
-                    $("#MsgModal").modal('show');
+                    $('#MsgModal .modal-body').html('<span style="color:red">Allowed image in only  dimensions(WXH) 1920pxX428px</b></span>');
+                    $('#MsgModal').modal('show');
                           return false;
                 }*/
                 };

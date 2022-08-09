@@ -43,7 +43,7 @@
                                           ?>
                                           <div class="shipping-metthod-single">
                                               <label>
-                                                  <input type="radio" name="shipping_method_formate" value="<?= $value?>" <?= $shipping_method_formate==$value ? "checked":"" ?>  class="shipping_method_formate">
+                                                  <input type="radio" name="shipping_method_formate" value="<?= $value?>" <?= $shipping_method_formate==$value ? "checked":"" ?> class="shipping_method_formate">
                                                   <div class="row">
                                                       <div class="col-md-12 col-lg-3 col-xl-2">
                                                           <strong><?= CURREBCY_SYMBOL.$val['price'] ?></strong>

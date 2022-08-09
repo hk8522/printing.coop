@@ -19,7 +19,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <label class="span2 " for="inputMame">Customer information</label>
+                                                    <label class="span2" for="inputMame">Customer information</label>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="controls">
@@ -65,7 +65,7 @@
                                                                 <div class="product-view-display">
                                                                     <span><?= ucfirst($Product['city']) ?></span>
                                                                 </div>
-                                                                <label class="form-inner-label">City </label>
+                                                                <label class="form-inner-label">City</label>
                                                             </div>
 
                                                             <div class="col-md-4">
@@ -79,13 +79,13 @@
                                                                 <div class="product-view-display">
                                                                     <span><?= ucfirst($Product['country']) ?></span>
                                                                 </div>
-                                                                <label class="form-inner-label">Country </label>
+                                                                <label class="form-inner-label">Country</label>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="product-view-display">
                                                                     <span><?= ucfirst($Product['postal_code']) ?></span>
                                                                 </div>
-                                                                <label class="form-inner-label">Postal Code </label>
+                                                                <label class="form-inner-label">Postal Code</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -96,7 +96,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-12">
-                                                    <label class="span2 " for="inputMame"> Product Information</label>
+                                                    <label class="span2" for="inputMame">Product Information</label>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="controls">
@@ -136,7 +136,7 @@
                                                                 <div class="product-view-display">
                                                                     <span><?= ucfirst($Product['qty_3']) ?></span>
                                                                 </div>
-                                                                <label class="form-inner-label">Qty3 </label>
+                                                                <label class="form-inner-label">Qty3</label>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="product-view-display">
@@ -162,7 +162,7 @@
                                                                 <div class="product-view-display">
                                                                     <span><?= ucfirst($Product['paper_stock']) ?></span>
                                                                 </div>
-                                                                <label class="form-inner-label">Paper/Stock </label>
+                                                                <label class="form-inner-label">Paper/Stock</label>
                                                             </div>
                                                             <div class="col-md-4">
                                                                 <div class="product-view-display">
@@ -179,7 +179,7 @@
                                             <div class="control-group info">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <label class="span2 " for="inputMame">Side Size</label>
+                                                        <label class="span2" for="inputMame">Side Size</label>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="controls">
@@ -188,7 +188,7 @@
                                                                     <div class="product-view-display">
                                                                         <span><?= ucfirst($Product['no_of_sides']) ?></span>
                                                                     </div>
-                                                                    <label class="form-inner-label"> Number Of Sides</label>
+                                                                    <label class="form-inner-label">Number Of Sides</label>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="product-view-display">
@@ -206,7 +206,7 @@
                                             <div class="control-group info">
                                                 <div class="row">
                                                     <div class="col-md-12">
-                                                        <label class="span2 " for="inputMame">FINISHING</label>
+                                                        <label class="span2" for="inputMame">FINISHING</label>
                                                     </div>
                                                     <div class="col-md-12">
                                                         <div class="controls">

@@ -20,13 +20,13 @@
                 <div class="ecosearch-select-single">
                     <span>2.</span>
                     <select name="printer_series" id="printer_series" onchange="PrinterModel($(this).val())">
-                        <option value=""> <?= $language_name == 'French' ? "Sélectionnez une série d'imprimantes":'Select a Printer Series' ?></option>
+                        <option value=""><?= $language_name == 'French' ? "Sélectionnez une série d'imprimantes":'Select a Printer Series' ?></option>
                     </select>
                 </div>
                 <div class="ecosearch-select-single">
                     <span>3.</span>
                     <select name="printer_models" id="printer_models">
-                        <option value=""> <?= $language_name == 'French' ? "Sélectionnez un modèle d'imprimante":'Select a Printer Model' ?></option>
+                        <option value=""><?= $language_name == 'French' ? "Sélectionnez un modèle d'imprimante":'Select a Printer Model' ?></option>
 
                     </select>
                 </div>

@@ -19,7 +19,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Brand Name</label>
+                                                    <label class="span2" for="inputMame">Brand Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -33,7 +33,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Brand Short Description</label>
+                                                    <label class="span2" for="inputMame">Brand Short Description</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -47,7 +47,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Brand Full Description</label>
+                                                    <label class="span2" for="inputMame">Brand Full Description</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -61,7 +61,7 @@
                                            <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Brand Image</label>
+                                                    <label class="span2" for="inputMame">Brand Image</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">

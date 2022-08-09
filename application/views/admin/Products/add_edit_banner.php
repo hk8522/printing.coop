@@ -22,7 +22,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Select Product To Link</label>
+                                                    <label class="span2" for="inputMame">Select Product To Link</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -77,7 +77,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"> Banner Name</label>
+                                                    <label class="span2" for="inputMame">Banner Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -93,7 +93,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Banner Description</label>
+                                                    <label class="span2" for="inputMame">Banner Description</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -108,7 +108,7 @@
                                             </div>
                                         </div>
                                         <!--<div class="control-group info col-sm-12">
-                                             <label class="span2 " for="inputMame">   	Product  Full Description  </label>
+                                             <label class="span2" for="inputMame">Product Full Description</label>
                                             <div class="controls">
                                                 <textarea name="full_description"><?= isset($postData['full_description']) ? $postData['full_description'] : '' ?>
 
@@ -173,7 +173,7 @@
 <script>
 $('#menu_id').on('change', function(e) {
     var menu_id = $(this).val();
-    $("#product_id").html('<option value="">Select Product Name </option>');
+    $('#product_id').html('<option value="">Select Product Name</option>');
     $.ajax({
         type: 'GET',
         dataType: 'html',
@@ -183,7 +183,7 @@ $('#menu_id').on('change', function(e) {
         contentType: false,
         processData: false,
         success: function(data) {
-            $("#product_id").html(data);
+            $('#product_id').html(data);
         }
     });
 });
@@ -212,15 +212,15 @@ var imagesize=fileUpload.files[0].size;
 var FILE_MAX_SIZE_JS='<?= FILE_MAX_SIZE_JS ?>';
 
 //alert(imagesize);
-if (FILE_MAX_SIZE_JS < imagesize) { $("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum
+if (FILE_MAX_SIZE_JS < imagesize) { $('#MsgModal .modal-body').html('<span style="color:red">Allowed image size maximum
     :1Mb</b></span>');
-    $("#MsgModal").modal('show');
+    $('#MsgModal').modal('show');
     return false;
     } else if (height != 570 || width !=1500) {
     document.getElementById(imageId).value='';
-    $("#MsgModal .modal-body").html('<span style="color:red"> Allowed image in only dimensions(WXH)
+    $('#MsgModal .modal-body').html('<span style="color:red">Allowed image in only dimensions(WXH)
         1500pxX570px</b></span>');
-    $("#MsgModal").modal('show');
+    $('#MsgModal').modal('show');
     return false;
     }
     };

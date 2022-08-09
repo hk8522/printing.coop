@@ -14,7 +14,7 @@
                         </div>
                         <div class="shipping-form">
                             <div class="single-review">
-                                <label>Adresse électronique: </label>
+                                <label>Adresse électronique:</label>
                                 <input type="text" name="forgot-pass-username" >
                             </div>
                             <div class="change-pswd-field-show" style="display: none;">

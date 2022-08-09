@@ -140,7 +140,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <!--<div class="col-md-12 col-lg-12 col-xl-12" style="">
-                                                    <label class="span2 " for="inputMame">Product Multiple Extra Attributes</label>
+                                                    <label class="span2" for="inputMame">Product Multiple Extra Attributes</label>
                                                 </div>-->
                                                 <div class="col-md-12 col-lg-12 col-xl-12">
                                                     <div class="controls small-controls">
@@ -391,7 +391,7 @@
 </div>
 <script>
 function bntInActive(id) {
-    $("#" + id).attr("disabled", true);
+    $('#' + id).attr("disabled", true);
 }
 </script>
 <script>
@@ -406,55 +406,55 @@ function isNumber(evt) {
 }
 
 function addActiveClass(id) {
-    if ($("#attribute_id_" + id).prop("checked") == true) {
-        $("#attribute_id_div_" + id).addClass('active');
+    if ($('#attribute_id_' + id).prop('checked') == true) {
+        $('#attribute_id_div_' + id).addClass('active');
     } else {
-        $("#attribute_id_div_" + id).removeClass('active');
+        $('#attribute_id_div_' + id).removeClass('active');
     }
 }
 
 function setAttributesetItemId(id) {
     //alert(id);
 
-    if ($("#" + id).prop("checked") == true) {
-        $("#hidden_" + id).val($("#" + id).val());
+    if ($('#' + id).prop('checked') == true) {
+        $('#hidden_' + id).val($('#' + id).val());
     } else {
-        $("#hidden_" + id).val('');
+        $('#hidden_' + id).val('');
     }
 }
 
 function addActiveSizeClass(id) {
-    if ($("#size_attribute_id_" + id).prop("checked") == true) {
-        //$("#size_attribute_id_div_"+id).addClass('active');
-        $(".attribute_id_div_" + id).show();
+    if ($('#size_attribute_id_' + id).prop('checked') == true) {
+        //$('#size_attribute_id_div_'+id).addClass('active');
+        $('.attribute_id_div_' + id).show();
     } else {
-        $(".attribute_id_div_" + id).hide();
-        //$("#size_attribute_id_div_"+id).removeClass('active');
+        $('.attribute_id_div_' + id).hide();
+        //$('#size_attribute_id_div_'+id).removeClass('active');
     }
 }
 
 function addActiveAttributeClass(id) {
-    if ($("#attribute_id_" + id).prop("checked") == true) {
-        $("#attribute_item_id_" + id).show();
+    if ($('#attribute_id_' + id).prop('checked') == true) {
+        $('#attribute_item_id_' + id).show();
     } else {
-        $("#attribute_item_id_" + id).hide();
+        $('#attribute_item_id_' + id).hide();
     }
 }
 
 function addActiveQuantitySizeClass(id) {
-    if ($("#quantity_attribute_id_" + id).prop("checked") == true) {
-        $("#quantity_attribute_id_div_" + id).show();
+    if ($('#quantity_attribute_id_' + id).prop('checked') == true) {
+        $('#quantity_attribute_id_div_' + id).show();
     } else {
-        $("#quantity_attribute_id_div_" + id).hide();
+        $('#quantity_attribute_id_div_' + id).hide();
     }
 }
 
 function addQuantity(quantity_id) {
-    $("#QualityModal .modal-title").html('Add Quantity');
+    $('#QualityModal .modal-title').html('Add Quantity');
     if (quantity_id != '') {
-        $("#QualityModal .modal-title").html('Edit Quantity');
+        $('#QualityModal .modal-title').html('Edit Quantity');
     }
-    $("#QualityModal").modal('show');
+    $('#QualityModal').modal('show');
 
     //$('#loader-img').show();
     var url = '<?= $BASE_URL ?>admin/Products/AddEditProductQuantity/' + product_id + '/' + quantity_id;
@@ -462,7 +462,7 @@ function addQuantity(quantity_id) {
         type: "GET",
         url: url,
         success: function(data) {
-            $("#QualityModal .modal-body").html(data);
+            $('#QualityModal .modal-body').html(data);
         }
     });
 }
@@ -484,11 +484,11 @@ function deleteQuantity(quantity_id) {
 }
 
 function addSize(quantity_id, size_id) {
-    $("#QualityModal .modal-title").html('Add Size');
+    $('#QualityModal .modal-title').html('Add Size');
     if (size_id != '') {
-        $("#QualityModal .modal-title").html('Edit Size');
+        $('#QualityModal .modal-title').html('Edit Size');
     }
-    $("#QualityModal").modal('show');
+    $('#QualityModal').modal('show');
     //$('#loader-img').show();
     var url = '<?= $BASE_URL ?>admin/Products/AddEditProductSize/' + product_id + '/' + quantity_id + '/' +
         size_id;
@@ -496,24 +496,24 @@ function addSize(quantity_id, size_id) {
         type: "GET",
         url: url,
         success: function(data) {
-            $("#QualityModal .modal-body").html(data);
+            $('#QualityModal .modal-body').html(data);
         }
     });
 }
 
 function addEditAttribute(quantity_id, size_id, attribute_id, attribute_id_item) {
-    $("#ItemModal .modal-title").html('Add Attribute');
+    $('#ItemModal .modal-title').html('Add Attribute');
     if (attribute_id_item != '') {
-        $("#ItemModal .modal-title").html('Edit Attribute');
+        $('#ItemModal .modal-title').html('Edit Attribute');
     }
-    $("#ItemModal").modal('show');
+    $('#ItemModal').modal('show');
     var url = '<?= $BASE_URL ?>admin/Products/AddEditProductAttribute/' + product_id + '/' + quantity_id + '/' +
         size_id + '/' + attribute_id + '/' + attribute_id_item;
     $.ajax({
         type: "GET",
         url: url,
         success: function(data) {
-            $("#ItemModal .modal-body").html(data);
+            $('#ItemModal .modal-body').html(data);
         }
     });
 }

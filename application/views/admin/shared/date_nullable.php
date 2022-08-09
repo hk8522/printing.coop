@@ -15,7 +15,7 @@
 <input id="<?= $id?>" name="<?= $name?>" value="<?= isset($value) && $value != null ? date(isset($format) ? $format : 'l, F j, Y g:i:s a', strtotime($value)) : ''?>" class="<?= isset($class) ? $class : ''?>" placeholder="<?= isset($placeholder) ? $placeholder : ''?>" <?= isset($required) && $required ? 'required' : ''?> />
 <script>
     $(document).ready(function () {
-        $("#<?= str_replace(['[', ']'], ['\\\\[', '\\\\]'], $id)?>").kendoDatePicker({
+        $('#<?= name2id($id)?>').kendoDatePicker({
             //culture: "@System.Globalization.CultureInfo.CurrentCulture.Name"
             parseFormat: "yyyy-MM-dd",
             format: "yyyy-MM-dd",

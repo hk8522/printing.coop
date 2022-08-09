@@ -891,17 +891,17 @@
                                                 <?php
                                                 $upsServiceCode = upsServiceCode();
                                                 if ($shipping_method_formate[0] === 'ups') {
-                                                    echo $upsServiceCode[$shipping_method_formate[2]] . " (UPS)";
-                                                } elseif ($shipping_method_formate[0] == "canadapost") {
-                                                    echo $shipping_method_formate[2] . "(Canada Post)";
+                                                    echo $upsServiceCode[$shipping_method_formate[2]] . ' (UPS)';
+                                                } elseif ($shipping_method_formate[0] == 'canadapost') {
+                                                    echo $shipping_method_formate[2] . '(Canada Post)';
                                                 }
-                                                elseif ($shipping_method_formate[0] == "flagship") {
+                                                elseif ($shipping_method_formate[0] == 'flagship') {
                                                     $codeData = FlagShipServiceCode($shipping_method_formate[2]);
-                                                    echo $codeData['courier_name'] . '<br>' . $codeData['courier_desc'] . "</br>(FlagShip)";
+                                                    echo $codeData['courier_name'] . '<br>' . $codeData['courier_desc'] . '</br>(FlagShip)';
                                                 }
-                                                elseif ($shipping_method_formate[0] == "pickupinstore") {
+                                                elseif ($shipping_method_formate[0] == 'pickupinstore') {
                                                     $pickupStore = $this->Store_Model->getPickupStoreDataById($shipping_method_formate[2]);
-                                                    echo 'Pickup In Store<br>' . $pickupStore['name'] . "<br>" . $pickupStore['address'] . "<br>" . $pickupStore['phone'];
+                                                    echo 'Pickup In Store<br>' . $pickupStore['name'] . '<br>' . $pickupStore['address'] . '<br>' . $pickupStore['phone'];
                                                 }
                                                 ?>
                                                 <br><strong><?= $product_price_currency_symbol.ucfirst($shipping_method_formate[1])?></strong></span>

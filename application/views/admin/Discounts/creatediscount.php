@@ -16,7 +16,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"> Generate Code</label>
+                                                    <label class="span2" for="inputMame">Generate Code</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -28,7 +28,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Select Fields</label>
+                                                    <label class="span2" for="inputMame">Select Fields</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -74,15 +74,15 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"> Discount Type</label>
+                                                    <label class="span2" for="inputMame">Discount Type</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <label class="span2" id="show-discount-percent"><input type="radio" name="discount" value="discountpercent" checked=""> Discount Percent</label>
+                                                            <label class="span2" id="show-discount-percent"><input type="radio" name="discount" value="discountpercent" checked="">Discount Percent</label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label class="span2" id="show-discount-amount"><input type="radio" name="discount" value="discountamount"> Discount Amount</label>
+                                                            <label class="span2" id="show-discount-amount"><input type="radio" name="discount" value="discountamount">Discount Amount</label>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="discount-percent">
@@ -101,7 +101,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"> Discount Valid</label>
+                                                    <label class="span2" for="inputMame">Discount Valid</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -136,15 +136,15 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"> Discount Requirements</label>
+                                                    <label class="span2" for="inputMame">Discount Requirements</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="row">
                                                         <div class="col-md-6">
-                                                            <label class="span2" id="show-minimum"><input type="radio" name="quantity" value="minimum" checked=""> Minimum Quantity</label>
+                                                            <label class="span2" id="show-minimum"><input type="radio" name="quantity" value="minimum" checked="">Minimum Quantity</label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <label class="span2" id="show-maximum"><input type="radio" name="quantity" value="maximum"> Maximum Quantity</label>
+                                                            <label class="span2" id="show-maximum"><input type="radio" name="quantity" value="maximum">Maximum Quantity</label>
                                                         </div>
                                                         <div class="col-md-12">
                                                             <div class="minimum-quantity">
@@ -163,7 +163,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Discount Code Limit</label>
+                                                    <label class="span2" for="inputMame">Discount Code Limit</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -189,22 +189,22 @@
  <script src="<?= $BASE_URL ?>assets/admin/js/jquery.datetimepicker.full.js"></script>
 <script>
 $(document).ready(function() {
-    $("#show-discount-percent").click(function() {
-        $(".discount-percent").show();
-        $(".discount-amount").hide();
+    $('#show-discount-percent').click(function() {
+        $('.discount-percent').show();
+        $('.discount-amount').hide();
     });
-    $("#show-discount-amount").click(function() {
-        $(".discount-percent").hide();
-        $(".discount-amount").show();
+    $('#show-discount-amount').click(function() {
+        $('.discount-percent').hide();
+        $('.discount-amount').show();
     });
 
-    $("#show-minimum").click(function() {
-        $(".minimum-quantity").show();
-        $(".maximum-quantity").hide();
+    $('#show-minimum').click(function() {
+        $('.minimum-quantity').show();
+        $('.maximum-quantity').hide();
     });
-    $("#show-maximum").click(function() {
-        $(".minimum-quantity").hide();
-        $(".maximum-quantity").show();
+    $('#show-maximum').click(function() {
+        $('.minimum-quantity').hide();
+        $('.maximum-quantity').show();
     });
 
     /*$('#multiple-category').selectpicker1();

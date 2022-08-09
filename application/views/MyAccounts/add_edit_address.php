@@ -164,7 +164,7 @@
                                        } ?>)</label>
                                 </div>
                                 <div class="col-md-6">
-                                    <label id="work"><input name="address_type" value="work" for="work" type="radio"  <?php if ($address_type=='work') { echo 'checked';}?>>
+                                    <label id="work"><input name="address_type" value="work" for="work" type="radio" <?php if ($address_type=='work') { echo 'checked';}?>>
                                     <?php
                                         if ($language_name == 'French') { ?>
                                           Travail (livraison entre 10h et 17h)

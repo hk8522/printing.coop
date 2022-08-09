@@ -103,7 +103,7 @@
                           </div>
                           <div class="col-md-6">
                               <div class="single-review">
-                                  <label><input type="checkbox" id="upload-option-btn" name="has_quote_form"> J'ai mon propre formulaire de soumission de devis à télécharger</label>
+                                  <label><input type="checkbox" id="upload-option-btn" name="has_quote_form">J'ai mon propre formulaire de soumission de devis à télécharger</label>
                               </div>
                           </div>
                       </div>
@@ -244,10 +244,10 @@
                                   <label>Nombre de côtés</label>
                                   <div class="row">
                                       <div class="col-md-2">
-                                          <label><input class="radio" name="no_of_sides" value="1" type="radio" checked=""> 1 face (pouces)</label>
+                                          <label><input class="radio" name="no_of_sides" value="1" type="radio" checked="">1 face (pouces)</label>
                                       </div>
                                        <div class="col-md-10">
-                                          <label><input class="radio" name="no_of_sides" value="2" type="radio"> Format plat (2 faces)</label>
+                                          <label><input class="radio" name="no_of_sides" value="2" type="radio">Format plat (2 faces)</label>
                                       </div>
                                   </div>
                               </div>
@@ -256,17 +256,17 @@
                               <div class="single-review">
                                   <label>Pliant</label>
                                   <select name="folding">
-                                      <option value="No Fold">No Fold </option>
-                                      <option value="Half Fold">Half Fold </option>
-                                      <option value="3 Pannel Z Fold">3 Pannel Z Fold </option>
-                                      <option value="3 Pannel Roll Fold">3 Pannel Roll Fold </option>
-                                      <option value="Double Parallel Fold">Double Parallel Fold </option>
+                                      <option value="No Fold">No Fold</option>
+                                      <option value="Half Fold">Half Fold</option>
+                                      <option value="3 Pannel Z Fold">3 Pannel Z Fold</option>
+                                      <option value="3 Pannel Roll Fold">3 Pannel Roll Fold</option>
+                                      <option value="Double Parallel Fold">Double Parallel Fold</option>
                                       <option value="Gate Fold">Gate Fold</option>
                                       <option value="Double Gate Fold">Double Gate Fold</option>
                                       <option value="Four Pannel Accordian Fold">Four Pannel Accordian Fold</option>
-                                      <option value="8 Pg Fold">8 Pg Fold </option>
-                                      <option value="12 Pg Fold">12 Pg Fold </option>
-                                      <option value="Other">Other </option>
+                                      <option value="8 Pg Fold">8 Pg Fold</option>
+                                      <option value="12 Pg Fold">12 Pg Fold</option>
+                                      <option value="Other">Other</option>
                                  </select>
                               </div>
                           </div>
@@ -291,19 +291,19 @@
                               </div>
                               <div class="col-md-6">
                                   <div class="single-review">
-                                      <label>Coin arrondi </label>
+                                      <label>Coin arrondi</label>
                                       <select>
-                                          <option value=""> Veuillez sélectionner ...</option>
-                                          <option value="1 Corner"> 1 Corner</option>
-                                          <option value="2 Corners"> 2 Corners</option>
-                                          <option value="3 Corners"> 3 Corners</option>
+                                          <option value="">Veuillez sélectionner ...</option>
+                                          <option value="1 Corner">1 Corner</option>
+                                          <option value="2 Corners">2 Corners</option>
+                                          <option value="3 Corners">3 Corners</option>
                                           <option value="4 Corners">4 Corners</option>
                                       </select>
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="single-review">
-                                      <label>Collationner </label>
+                                      <label>Collationner</label>
                                       <input type="text">
                                   </div>
                               </div>
@@ -321,7 +321,7 @@
                               </div>
                               <div class="col-md-6">
                                   <div class="single-review">
-                                      <label>Regroupement </label>
+                                      <label>Regroupement</label>
                                       <select>
                                           <option value="">Veuillez sélectionner ...</option>
                                           <option value="Single Band - 25s">Single Band - 25s</option>
@@ -340,10 +340,10 @@
                                       <label>Numérotage</label>
                                         <div class="row">
                                           <div class="col-md-2">
-                                              <label><input class="radio" name="numbering" value="numberingNO" type="radio" checked=""> Non</label>
+                                              <label><input class="radio" name="numbering" value="numberingNO" type="radio" checked="">Non</label>
                                           </div>
                                           <div class="col-md-10">
-                                              <label><input class="radio" name="numbering" value="numberingYES" type="radio"> Oui</label>
+                                              <label><input class="radio" name="numbering" value="numberingYES" type="radio">Oui</label>
                                           </div>
                                       </div>
 
@@ -351,7 +351,7 @@
                               </div>
                               <div class="col-md-6">
                                   <div class="single-review">
-                                      <label>Notation </label>
+                                      <label>Notation</label>
                                       <select>
                                           <option value="">Veuillez sélectionner ...</option>
                                           <option value="1 Score">1 Les scores</option>
@@ -535,7 +535,7 @@
                           </div>
                           <div class="col-md-6">
                               <div class="single-review">
-                                  <label><input type="checkbox" id="upload-option-btn" name="has_quote_form"> I have my own quote submission form to upload</label>
+                                  <label><input type="checkbox" id="upload-option-btn" name="has_quote_form">I have my own quote submission form to upload</label>
                               </div>
                           </div>
                       </div>
@@ -676,10 +676,10 @@
                                   <label>Number of Sides</label>
                                   <div class="row">
                                       <div class="col-md-2">
-                                          <label><input class="radio" name="no_of_sides" value="1" type="radio" checked=""> 1 Sided ( inches)</label>
+                                          <label><input class="radio" name="no_of_sides" value="1" type="radio" checked="">1 Sided ( inches)</label>
                                       </div>
                                        <div class="col-md-10">
-                                          <label><input class="radio" name="no_of_sides" value="2" type="radio"> Flat Size ( 2 Sided)</label>
+                                          <label><input class="radio" name="no_of_sides" value="2" type="radio">Flat Size ( 2 Sided)</label>
                                       </div>
                                   </div>
                               </div>
@@ -688,17 +688,17 @@
                               <div class="single-review">
                                   <label>Folding</label>
                                   <select name="folding">
-                                      <option value="No Fold">No Fold </option>
-                                      <option value="Half Fold">Half Fold </option>
-                                      <option value="3 Pannel Z Fold">3 Pannel Z Fold </option>
-                                      <option value="3 Pannel Roll Fold">3 Pannel Roll Fold </option>
-                                      <option value="Double Parallel Fold">Double Parallel Fold </option>
+                                      <option value="No Fold">No Fold</option>
+                                      <option value="Half Fold">Half Fold</option>
+                                      <option value="3 Pannel Z Fold">3 Pannel Z Fold</option>
+                                      <option value="3 Pannel Roll Fold">3 Pannel Roll Fold</option>
+                                      <option value="Double Parallel Fold">Double Parallel Fold</option>
                                       <option value="Gate Fold">Gate Fold</option>
                                       <option value="Double Gate Fold">Double Gate Fold</option>
                                       <option value="Four Pannel Accordian Fold">Four Pannel Accordian Fold</option>
-                                      <option value="8 Pg Fold">8 Pg Fold </option>
-                                      <option value="12 Pg Fold">12 Pg Fold </option>
-                                      <option value="Other">Other </option>
+                                      <option value="8 Pg Fold">8 Pg Fold</option>
+                                      <option value="12 Pg Fold">12 Pg Fold</option>
+                                      <option value="Other">Other</option>
                                  </select>
                               </div>
                           </div>
@@ -723,19 +723,19 @@
                               </div>
                               <div class="col-md-6">
                                   <div class="single-review">
-                                      <label>Rounded Corner </label>
+                                      <label>Rounded Corner</label>
                                       <select>
-                                          <option value=""> Please select ...</option>
-                                          <option value="1 Corner"> 1 Corner</option>
-                                          <option value="2 Corners"> 2 Corners</option>
-                                          <option value="3 Corners"> 3 Corners</option>
+                                          <option value="">Please select ...</option>
+                                          <option value="1 Corner">1 Corner</option>
+                                          <option value="2 Corners">2 Corners</option>
+                                          <option value="3 Corners">3 Corners</option>
                                           <option value="4 Corners">4 Corners</option>
                                       </select>
                                   </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="single-review">
-                                      <label>Collate </label>
+                                      <label>Collate</label>
                                       <input type="text">
                                   </div>
                               </div>
@@ -753,7 +753,7 @@
                               </div>
                               <div class="col-md-6">
                                   <div class="single-review">
-                                      <label>Bundling </label>
+                                      <label>Bundling</label>
                                       <select>
                                           <option value="">Please select ...</option>
                                           <option value="Single Band - 25s">Single Band - 25s</option>
@@ -772,10 +772,10 @@
                                       <label>Numbering</label>
                                         <div class="row">
                                           <div class="col-md-2">
-                                              <label><input class="radio" name="numbering" value="numberingNO" type="radio" checked=""> No</label>
+                                              <label><input class="radio" name="numbering" value="numberingNO" type="radio" checked="">No</label>
                                           </div>
                                           <div class="col-md-10">
-                                              <label><input class="radio" name="numbering" value="numberingYES" type="radio"> Yes</label>
+                                              <label><input class="radio" name="numbering" value="numberingYES" type="radio">Yes</label>
                                           </div>
                                       </div>
 
@@ -783,7 +783,7 @@
                               </div>
                               <div class="col-md-6">
                                   <div class="single-review">
-                                      <label>Scoring </label>
+                                      <label>Scoring</label>
                                       <select>
                                           <option value="">Please select ...</option>
                                           <option value="1 Score">1 Score</option>

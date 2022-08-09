@@ -23,7 +23,7 @@
                 <span>Quotes and Estimates</span>
             </div>
             <div class="universal-dark-info">
-                <span>Written estimates are good for 30 days. An estimate not accepted within 30 days may be changed </span>
+                <span>Written estimates are good for 30 days. An estimate not accepted within 30 days may be changed</span>
             </div>
             <div class="universal-small-dark-title">
                 <span>Payment Terms</span>
@@ -38,7 +38,7 @@
                 <span>Since each job is custom created for its owner, it cannot be reused or resold. After production has commenced, ALL SALES ARE FINAL. Customer must notify Printing.coop within 7 business days of order acceptance to notify any defects discovered in the ordered product. In order to receive a replacement the customer must return 100% of the received product within 15 days (at their own expense) from the time when the delivery was received. All new charges related to expediting printing (Rush Printing or Shipping) are NON REFUNDABLE, including those orders that are returned for any reason</span>
             </div>
             <div class="universal-small-dark-title">
-                <span>Right To Refuse </span>
+                <span>Right To Refuse</span>
             </div>
             <div class="universal-dark-info">
                 <span>Printing.coop reserves the right to use its sole discretion in refusing to print anything it deems improper or known to be illegal. We are not liable for any damages resulting from unwitting violation of copyright laws or illegal use of trade names or slogans. The client guarantees the legal title of all matter submitted to Printing.coop for printing and/or publication. Quotations are based on the accuracy of the specifications provided. Printing.coop can requote a job at the time of submission if the art does not conform to the information on which the original estimate was based. Orders placed with Printing.coop are to the client knowledge correct, and there are no conditions or agreements relating to the order which are not written or accompanying said order.Alterations and/or Corrections You may not change artwork after it has been submitted. If you need to make changes to your order you must call and cancel the order placed and resubmit the proper artwork by placing a new order.</span>
@@ -80,7 +80,7 @@
                 <span>For legal purposes, the venue for any dispute shall be Montreal, Quebec Canada.</span>
             </div>
             <div class="universal-small-dark-title">
-                <span>Shipping and Delivery </span>
+                <span>Shipping and Delivery</span>
             </div>
             <div class="universal-dark-info">
                 <span>Customers may pick-up their order at the Printing.coop office during business hours. Charges for delivery/shipping of printing and supplies from Printing.coop are not included in quotations unless specified. Because shipping carriers are beyond our control, Printing.coop is not responsible for delays and/or damage incurred during shipping . Title for finished work passes to the customer upon delivery to the carrier at shipping point.<br> In situations where the client has incorrectly entered the shipping address or changed the original delivery address, the client will be responsible to pay the supplemental charges charged by the various courrier services at cost plus 5% plus a 5$ administrative fee.( Please note that these fees apply at a per box rate; 5 boxes shipped= 5 separate fees) F.O.B.: Montreal, Quebec Canada</span>

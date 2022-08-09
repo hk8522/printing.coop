@@ -21,7 +21,7 @@
                                        <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">WebSite</label>
+                                                    <label class="span2" for="inputMame">WebSite</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -45,7 +45,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 "for="inputMame">Service Name</label>
+                                                    <label class="span2"for="inputMame">Service Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -58,7 +58,7 @@
                                          <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 "for="inputMame">French Service Name</label>
+                                                    <label class="span2"for="inputMame">French Service Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -71,7 +71,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Service Description</label>
+                                                    <label class="span2" for="inputMame">Service Description</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -84,7 +84,7 @@
                                          <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Service Description</label>
+                                                    <label class="span2" for="inputMame">French Service Description</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -99,7 +99,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                        <label class="span2 " for="inputMame">Service Image</label>
+                                                        <label class="span2" for="inputMame">Service Image</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -140,7 +140,7 @@
 
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                        <label class="span2 " for="inputMame">Service Image French</label>
+                                                        <label class="span2" for="inputMame">Service Image French</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -219,14 +219,14 @@
 
                 //alert(imagesize);
                 /*if (FILE_MAX_SIZE_JS < imagesize) {
-                    $("#MsgModal .modal-body").html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
-                    $("#MsgModal").modal('show');
+                    $('#MsgModal .modal-body').html('<span style="color:red">Allowed image size maximum  :1Mb</b></span>');
+                    $('#MsgModal').modal('show');
                           return false;
                 }
                else if (height != 428 || width !=1920) {
                     document.getElementById(imageId).value='';
-                    $("#MsgModal .modal-body").html('<span style="color:red"> Allowed image in only  dimensions(WXH) 1920pxX428px</b></span>');
-                    $("#MsgModal").modal('show');
+                    $('#MsgModal .modal-body').html('<span style="color:red">Allowed image in only  dimensions(WXH) 1920pxX428px</b></span>');
+                    $('#MsgModal').modal('show');
                           return false;
                 }*/
                   }

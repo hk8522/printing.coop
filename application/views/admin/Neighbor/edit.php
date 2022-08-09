@@ -237,36 +237,36 @@ function searchAttribute(searchtext) {
     if (searchtext !='') {
         $('#loader-img').show();
         var url ='<?= $BASE_URL?>admin/Neighbor/searchAttribute/<?= $neighbor_id?>';
-        $("#searchDiv").show();
-        $("#AttributeListUl").html('');
+        $('#searchDiv').show();
+        $('#AttributeListUl').html('');
         $.ajax({
             type: "POST",
             url: url,
             data:{'searchtext':searchtext}, // serializes the form's elements.
                 success: function(data)
                 {   $('#loader-img').hide();
-                    $("#AttributeListUl").html(data);
+                    $('#AttributeListUl').html(data);
                 },
                 error: function (error) {
                 }
         });
     } else {
-        $("#searchDiv").hide();
-        $("#AttributeListUl").html('');
-        $("#searchSgedAttributeTextBox").val('');
+        $('#searchDiv').hide();
+        $('#AttributeListUl').html('');
+        $('#searchSgedAttributeTextBox').val('');
     }
 }
 
 function hidesearchDiv() {
-    $("#searchDiv").hide();
-    $("#AttributeListUl").html('');
+    $('#searchDiv').hide();
+    $('#AttributeListUl').html('');
 }
 
-$("#select-all").click(function () {
-    if ($(this).prop("checked") == true) {
-        $(".attribute_ids").prop('checked', true);
+$('#select-all').click(function () {
+    if ($(this).prop('checked') == true) {
+        $('.attribute_ids').prop('checked', true);
     } else {
-        $(".attribute_ids").prop('checked', false);
+        $('.attribute_ids').prop('checked', false);
     }
 });
 //$('form').last().find('input:visible:first').focus();

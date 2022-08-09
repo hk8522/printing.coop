@@ -89,7 +89,7 @@ function getQuantityPrice(nid) {
 
             var json = JSON.parse(data);
             if (json.success == 1) {
-                $("#" + nid).attr("disabled", false);
+                $('#' + nid).attr("disabled", false);
 
                 $('#total-price').html(json.price);
             }
@@ -121,7 +121,7 @@ function getPaperPrice(nid) {
 
             var json = JSON.parse(data);
             if (json.success == 1) {
-                $("#attribute_id_" + nid).attr("disabled", false);
+                $('#attribute_id_' + nid).attr("disabled", false);
                 $('#total-price').html(json.price);
             }
         }

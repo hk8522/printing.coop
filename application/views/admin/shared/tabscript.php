@@ -15,7 +15,7 @@
         }).data('kendoTabStrip');
     });
     function tabstrip_on_tab_select_ex(e) {
-        $("#selected-tab-index").val($(e.item).index());
+        $('#selected-tab-index').val($(e.item).index());
         // $.ajax({
         //     type: "POST",
         //     url: '/admin/Home/SetTab',

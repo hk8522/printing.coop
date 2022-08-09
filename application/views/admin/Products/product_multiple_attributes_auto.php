@@ -371,15 +371,15 @@ function isNumber(evt) {
 }
 
 function addQuantity(quantity_id) {
-    $("#ItemModal .modal-title").html('Add Quantity');
+    $('#ItemModal .modal-title').html('Add Quantity');
     if (quantity_id != '') {
-        $("#ItemModal .modal-title").html('Edit Quantity');
+        $('#ItemModal .modal-title').html('Edit Quantity');
     }
-    $("#ItemModal").modal('show');
+    $('#ItemModal').modal('show');
 
     $.get('<?= $BASE_URL?>admin/Products/AddEditProductQuantity/<?= $product_id?>/' + quantity_id,
         function(data) {
-            $("#ItemModal .modal-body").html(data);
+            $('#ItemModal .modal-body').html(data);
         }
     );
 }
@@ -400,15 +400,15 @@ function deleteQuantity(quantity_id) {
 }
 
 function addSize(size_id) {
-    $("#ItemModal .modal-title").html('Add Size');
+    $('#ItemModal .modal-title').html('Add Size');
     if (size_id != '') {
-        $("#ItemModal .modal-title").html('Edit Size');
+        $('#ItemModal .modal-title').html('Edit Size');
     }
-    $("#ItemModal").modal('show');
+    $('#ItemModal').modal('show');
 
     $.get('<?= $BASE_URL?>admin/Products/AutoSizeAdd/<?= $product_id?>/' + size_id,
         function(data) {
-            $("#ItemModal .modal-body").html(data);
+            $('#ItemModal .modal-body').html(data);
         }
     );
 }
@@ -430,15 +430,15 @@ function deleteSize(size_id) {
 }
 
 function addAttribute(attribute_id) {
-    $("#ItemModal .modal-title").html('Add Attribute');
+    $('#ItemModal .modal-title').html('Add Attribute');
     if (attribute_id != '') {
-        $("#ItemModal .modal-title").html('Edit Attribute');
+        $('#ItemModal .modal-title').html('Edit Attribute');
     }
-    $("#ItemModal").modal('show');
+    $('#ItemModal').modal('show');
 
     $.get('<?= $BASE_URL?>admin/Products/AutoAttributeAdd/<?= $product_id?>/' + attribute_id,
         function(data) {
-            $("#ItemModal .modal-body").html(data);
+            $('#ItemModal .modal-body').html(data);
         }
     );
 }
@@ -460,16 +460,16 @@ function deleteAttribute(attribute_id) {
 }
 
 function addAttributeItem(attribute_id, attribute_item_id) {
-    $("#ItemModal .modal-title").html('Add Attribute Item');
+    $('#ItemModal .modal-title').html('Add Attribute Item');
     if (attribute_item_id != '') {
-        $("#ItemModal .modal-title").html('Edit Attribute Item');
+        $('#ItemModal .modal-title').html('Edit Attribute Item');
     }
-    $("#ItemModal").modal('show');
+    $('#ItemModal').modal('show');
 
     $.get('<?= $BASE_URL?>admin/Products/autoAttributeItemAdd/<?= $product_id?>/' + attribute_id + '/' +
         attribute_item_id,
         function(data) {
-            $("#ItemModal .modal-body").html(data);
+            $('#ItemModal .modal-body').html(data);
         }
     );
 }
@@ -497,11 +497,11 @@ function generateAttributes() {
     $.post('<?= $BASE_URL?>admin/Products/autoGenerateAttributes/<?= $product_id?>',
         function(data) {
             if (data == 1) {
-                $("#ItemModal .modal-title").html('Multiple Attributes Generated');
-                $("#ItemModal .modal-body").html(
+                $('#ItemModal .modal-title').html('Multiple Attributes Generated');
+                $('#ItemModal .modal-body').html(
                     '<div class="inner-content-area"><div class="row justify-content-center"><div class="col-md-12 center"><button type="button" class="btn btn-success" onclick="$(\'#ItemModal\').modal(\'hide\');return false;">Ok</button></div></div>'
                     );
-                $("#ItemModal").modal('show');
+                $('#ItemModal').modal('show');
             }
             $('#loader-img').hide();
         }
@@ -535,11 +535,11 @@ function uploadAttributes(file) {
                 msg = 'Error occurred.';
             $('#upload-attributes').files = [null];
 
-            $("#ItemModal .modal-title").html(msg);
-            $("#ItemModal .modal-body").html(
+            $('#ItemModal .modal-title').html(msg);
+            $('#ItemModal .modal-body').html(
                 '<div class="inner-content-area"><div class="row justify-content-center"><div class="col-md-12 center"><button type="button" class="btn btn-success" onclick="$(\'#ItemModal\').modal(\'hide\');return false;">Ok</button></div></div>'
                 );
-            $("#ItemModal").modal('show');
+            $('#ItemModal').modal('show');
         }
     });
 }
@@ -571,11 +571,11 @@ function uploadFullPriceList(file) {
                 msg = 'Error occurred.';
             $('#upload-full-pricelist').files = [null];
 
-            $("#ItemModal .modal-title").html(msg);
-            $("#ItemModal .modal-body").html(
+            $('#ItemModal .modal-title').html(msg);
+            $('#ItemModal .modal-body').html(
                 '<div class="inner-content-area"><div class="row justify-content-center"><div class="col-md-12 center"><button type="button" class="btn btn-success" onclick="$(\'#ItemModal\').modal(\'hide\');return false;">Ok</button></div></div>'
                 );
-            $("#ItemModal").modal('show');
+            $('#ItemModal').modal('show');
         }
     });
 }

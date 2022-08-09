@@ -24,7 +24,7 @@
                         <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
                              <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>" id="product_id">
                                 <div class="control-group info">
-                                    <label class="span2 " for="inputMame">Email Id</label>
+                                    <label class="span2" for="inputMame">Email Id</label>
                                     <div class="controls">
                                         <input class="form-control" name="email" id="email" type="text" placeholder="Email Id" value="<?= isset($postData['email']) ? $postData['email']:'' ?>" maxlength="50" readonly>
                                         <?= form_error('email') ?>

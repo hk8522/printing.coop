@@ -31,7 +31,7 @@
 </select>
 <script>
     $(document).ready(function() {
-        $("#<?= str_replace(['[', ']'], ['\\\\[', '\\\\]'], $id)?>").kendoMultiSelect({
+        $('#<?= name2id($id)?>').kendoMultiSelect({
             select: function (e) {
                 var current = this.value();
                 if (this.dataSource.view()[e.item.index()].value === "0") {

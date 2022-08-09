@@ -3,7 +3,7 @@
         <div class="top-home">
             <div class="marque">
                 <marquee>
-                    <i class="fas fa-glass-martini-alt"></i> Welcome to  <?= WEBSITE_NAME ?>  admin panel
+                    <i class="fas fa-glass-martini-alt"></i> Welcome to <?= WEBSITE_NAME ?> admin panel
 
                 </marquee>
             </div>
@@ -92,7 +92,7 @@
                         <!--<div class="card-body">
                             <h4 class="card-title">Support  Queries</h4>
 
-                            <p class="card-category"> Unresolved tickets</p>
+                            <p class="card-category">Unresolved tickets</p>
                             <div class="product-number">
                                 <span>100</span>
                             </div>
@@ -287,7 +287,7 @@ function getOrdersByStatus(order_status) {
                 url: url,
                 success: function(data)
                 {
-                  $("#listOrderData").html(data);
+                  $('#listOrderData').html(data);
                 },
                 error: function (error) {
                 }

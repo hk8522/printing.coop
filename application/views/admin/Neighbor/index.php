@@ -25,7 +25,7 @@
                                         <label class="span2">Search</label>
                                         <input class="form-control" type="text" placeholder="Search Neighbor"  onkeyup="searchNeighbor($(this).val())" id="searchSgedNeighborTextBox" name="searchSgedNeighborTextBox">
                                     </div>
-                                    <div class="search-result" id="searchDiv" style="display:none"> <!-- Add "active" class to show -->
+                                    <div class="search-result" id="searchDiv" style="display:none"><!-- Add "active" class to show -->
                                         <a href="javascript:void(0)" onclick="hidesearchDiv()"><i class="fas fa-times" ></i></a>
                                         <ul id="NeighborListUl"></ul>
                                     </div>
@@ -123,36 +123,36 @@ function searchNeighbor(searchtext) {
     if (searchtext !='') {
         $('#loader-img').show();
         var url ='<?= $BASE_URL?>admin/Neighbor/search';
-        $("#searchDiv").show();
-        $("#NeighborListUl").html('');
+        $('#searchDiv').show();
+        $('#NeighborListUl').html('');
         $.ajax({
             type: "POST",
             url: url,
             data:{'searchtext':searchtext}, // serializes the form's elements.
                 success: function(data)
                 {   $('#loader-img').hide();
-                    $("#NeighborListUl").html(data);
+                    $('#NeighborListUl').html(data);
                 },
                 error: function (error) {
                 }
         });
     } else {
-        $("#searchDiv").hide();
-        $("#NeighborListUl").html('');
-        $("#searchSgedNeighborTextBox").val('');
+        $('#searchDiv').hide();
+        $('#NeighborListUl').html('');
+        $('#searchSgedNeighborTextBox').val('');
     }
 }
 
 function hidesearchDiv() {
-    $("#searchDiv").hide();
-    $("#NeighborListUl").html('');
+    $('#searchDiv').hide();
+    $('#NeighborListUl').html('');
 }
 
-$("#select-all").click(function () {
-    if ($(this).prop("checked") == true) {
-        $(".neighbor_ids").prop('checked', true);
+$('#select-all').click(function () {
+    if ($(this).prop('checked') == true) {
+        $('.neighbor_ids').prop('checked', true);
     } else {
-        $(".neighbor_ids").prop('checked', false);
+        $('.neighbor_ids').prop('checked', false);
     }
 });
 </script>

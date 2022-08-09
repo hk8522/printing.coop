@@ -17,7 +17,7 @@
                 <div class="control-group info">
                     <div class="row align-items-center">
                         <div class="col-md-4">
-                            <label class="span2 " for="inputMame">Sizes</label>
+                            <label class="span2" for="inputMame">Sizes</label>
                         </div>
                         <div class="col-md-8">
                             <div class="controls">
@@ -42,7 +42,7 @@
                 <div class="control-group info">
                     <div class="row align-items-center">
                         <div class="col-md-4">
-                            <label class="span2 " for="inputMame">Extra Price</label>
+                            <label class="span2" for="inputMame">Extra Price</label>
                         </div>
                         <div class="col-md-8">
                             <div class="controls">
@@ -89,7 +89,7 @@ $('#AddEditProductSize').validate({
             success: function(data) {
                 $('button[type=submit]').attr('disabled', false);
                 $('#loader-img').hide();
-                $("#QualityModal .modal-body").html(data);
+                $('#QualityModal .modal-body').html(data);
                 if (success == 1) {
                     location.reload();
                 }

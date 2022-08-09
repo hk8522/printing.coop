@@ -11,7 +11,7 @@
                         <div class="row">
                             <div class="control-group info col-sm-4">
                                 <div class="product-details-data">
-                                    <label class="span2 " for="inputMame">Menu</label>
+                                    <label class="span2" for="inputMame">Menu</label>
                                     <div class="controls">
                                         <p><?= ucfirst($Product['menu_name']) ?></p>
                                     </div>
@@ -20,7 +20,7 @@
 
                             <div class="control-group info col-sm-4">
                                 <div class="product-details-data">
-                                    <label class="span2 " for="inputMame">Category</label>
+                                    <label class="span2" for="inputMame">Category</label>
                                     <div class="controls">
                                         <p><?= ucfirst($Product['category_name']) ?></p>
                                     </div>
@@ -29,7 +29,7 @@
 
                             <div class="control-group info col-sm-4">
                                 <div class="product-details-data">
-                                    <label class="span2 " for="inputMame">Sub Category</label>
+                                    <label class="span2" for="inputMame">Sub Category</label>
                                     <div class="controls">
                                         <p><?= ucfirst($Product['sub_category_name']) ?></p>
                                     </div>
@@ -39,7 +39,7 @@
                         <div class="row">
                             <div class="control-group info col-sm-6">
                                 <div class="product-details-data">
-                                    <label class="span2 " for="inputMame"> Product Name</label>
+                                    <label class="span2" for="inputMame">Product Name</label>
                                     <div class="controls">
                                         <p><?= ucfirst($Product['product_name']) ?></p>
                                     </div>
@@ -48,7 +48,7 @@
 
                             <div class="control-group info col-sm-6">
                                 <div class="product-details-data">
-                                    <label class="span2 " for="inputMame"> Banner Name</label>
+                                    <label class="span2" for="inputMame">Banner Name</label>
                                     <div class="controls">
                                         <p><?= ucfirst($Product['name']) ?></p>
                                     </div>
@@ -59,7 +59,7 @@
 
                         <div class="row">
                             <div class="control-group info col-sm-12">
-                                <label class="span2 " for="inputMame"> Banner Description </label>
+                                <label class="span2" for="inputMame">Banner Description</label>
                                 <div class="controls">
                                     <p><?= ucfirst($Product['short_description']) ?></p>
                                 </div>

@@ -192,9 +192,9 @@ if (!empty($bundling)) {
 
                 var json = JSON.parse(data);
                 if (json.success == 1) {
-                    $("#" + nid).attr("disabled", false);
+                    $('#' + nid).attr("disabled", false);
 
-                    $("#total-price-" + product_id_key).html(json.price);
+                    $('#total-price-' + product_id_key).html(json.price);
                 }
             }
         });
@@ -221,9 +221,9 @@ if (!empty($bundling)) {
 
                 var json = JSON.parse(data);
                 if (json.success == 1) {
-                    $("#attribute_id_" + nid).attr("disabled", false);
+                    $('#attribute_id_' + nid).attr("disabled", false);
 
-                    $("#total-price-" + product_id_key).html(json.price);
+                    $('#total-price-' + product_id_key).html(json.price);
                 }
             }
         });

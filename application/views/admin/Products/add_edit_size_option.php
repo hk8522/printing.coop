@@ -22,7 +22,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Name</label>
+                                                    <label class="span2" for="inputMame">Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -38,7 +38,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Name</label>
+                                                    <label class="span2" for="inputMame">French Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -56,7 +56,7 @@
                                                 <div class="control-group info">
                                                     <div class="row align-items-center">
                                                         <div class="col-md-4">
-                                                            <label class="span2 " for="inputMame">Total Page</label>
+                                                            <label class="span2" for="inputMame">Total Page</label>
                                                         </div>
                                                         <div class="col-md-8">
                                                             <div class="controls">
@@ -88,13 +88,13 @@
     </section><!-- /.content -->
 </div>
 <script>
-//$("#submitBtn").attr("disabled", false);
+//$('#submitBtn').attr("disabled", false);
 
 $('#menu_id').on('change', function(e) {
     var menu_id = $(this).val();
-    $("#category_id").html('<option value="">Select Category</option>');
-    $("#sub_category_id").html('<option value="">Select Sub Category</option>');
-    $("#product_id").html('<option value="">Select Product Name </option>');
+    $('#category_id').html('<option value="">Select Category</option>');
+    $('#sub_category_id').html('<option value="">Select Sub Category</option>');
+    $('#product_id').html('<option value="">Select Product Name</option>');
 
     $.ajax({
         type: 'GET',
@@ -105,19 +105,19 @@ $('#menu_id').on('change', function(e) {
         contentType: false,
         processData: false,
         success: function(data) {
-            $("#category_id").html(data);
+            $('#category_id').html(data);
         }
     });
 });
 
 $('#category_id').on('change', function(e) {
-    $("#sub_category_id").html('<option value="">Select Sub Category</option>');
+    $('#sub_category_id').html('<option value="">Select Sub Category</option>');
 
-    $("#product_id").html('<option value="">Select Product Name </option>');
+    $('#product_id').html('<option value="">Select Product Name</option>');
 
-    var menu_id = $("#menu_id").val();
+    var menu_id = $('#menu_id').val();
     var category_id = $(this).val();
-    $("#sub_category_id").html('<option value="">Select Sub Category</option>');
+    $('#sub_category_id').html('<option value="">Select Sub Category</option>');
     $.ajax({
         type: 'GET',
         dataType: 'html',
@@ -127,16 +127,16 @@ $('#category_id').on('change', function(e) {
         contentType: false,
         processData: false,
         success: function(data) {
-            $("#sub_category_id").html(data);
+            $('#sub_category_id').html(data);
         }
     });
 });
 
 $('#sub_category_id').on('change', function(e) {
-    $("#product_id").html('<option value="">Select Product Name </option>');
+    $('#product_id').html('<option value="">Select Product Name</option>');
 
-    var menu_id = $("#menu_id").val();
-    var category_id = $("#category_id").val();
+    var menu_id = $('#menu_id').val();
+    var category_id = $('#category_id').val();
     var sub_category_id = $(this).val();
     $.ajax({
         type: 'GET',
@@ -148,7 +148,7 @@ $('#sub_category_id').on('change', function(e) {
         contentType: false,
         processData: false,
         success: function(data) {
-            $("#product_id").html(data);
+            $('#product_id').html(data);
         }
     });
 });

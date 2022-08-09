@@ -51,7 +51,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="office-timing">Office Timing</label>
+                                                    <label class="span2" for="office-timing">Office Timing</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -64,7 +64,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="office-timing">French Office Timing</label>
+                                                    <label class="span2" for="office-timing">French Office Timing</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -77,7 +77,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="announcement">Announcement</label>
+                                                    <label class="span2" for="announcement">Announcement</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -90,7 +90,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="announcement">French Announcement </label>
+                                                    <label class="span2" for="announcement">French Announcement</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -103,7 +103,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="announcement">Copy Right</label>
+                                                    <label class="span2" for="announcement">Copy Right</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -116,7 +116,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="announcement">French Copy Right</label>
+                                                    <label class="span2" for="announcement">French Copy Right</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -129,7 +129,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="announcement">Address</label>
+                                                    <label class="span2" for="announcement">Address</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -142,7 +142,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="announcement">French Address</label>
+                                                    <label class="span2" for="announcement">French Address</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -216,7 +216,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 ">Logo</label>
+                                                    <label class="span2">Logo</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                   <div class="controls">
@@ -249,7 +249,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="office-timing">Logo Alt Teg</label>
+                                                    <label class="span2" for="office-timing">Logo Alt Teg</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -263,7 +263,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 ">French Logo</label>
+                                                    <label class="span2">French Logo</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                   <div class="controls">
@@ -296,7 +296,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="office-timing">French Logo Alt Teg</label>
+                                                    <label class="span2" for="office-timing">French Logo Alt Teg</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -346,7 +346,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 ">French Favicon</label>
+                                                    <label class="span2">French Favicon</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                   <div class="controls">

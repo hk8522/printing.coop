@@ -140,7 +140,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-12 col-lg-12 col-xl-3" style="">
-                                                    <label class="span2 " for="inputMame">Product Single Extra
+                                                    <label class="span2" for="inputMame">Product Single Extra
                                                         Attributes</label>
                                                 </div>
                                                 <div class="col-md-12 col-lg-12 col-xl-9">
@@ -236,7 +236,7 @@
 </div>
 <script>
 function bntInActive(id) {
-    $("#" + id).attr("disabled", true);
+    $('#' + id).attr("disabled", true);
 }
 </script>
 <script>
@@ -281,41 +281,41 @@ function isNumber(evt) {
 }
 
 function addActiveClass(id) {
-    if ($("#attribute_id_" + id).prop("checked") == true) {
-        $("#attribute_id_div_" + id).addClass('active');
+    if ($('#attribute_id_' + id).prop('checked') == true) {
+        $('#attribute_id_div_' + id).addClass('active');
     } else {
-        $("#attribute_id_div_" + id).removeClass('active');
+        $('#attribute_id_div_' + id).removeClass('active');
     }
 }
 
 function setAttributesetItemId(id) {
     //alert(id);
 
-    if ($("#" + id).prop("checked") == true) {
-        $("#hidden_" + id).val($("#" + id).val());
+    if ($('#' + id).prop('checked') == true) {
+        $('#hidden_' + id).val($('#' + id).val());
     } else {
-        $("#hidden_" + id).val('');
+        $('#hidden_' + id).val('');
     }
 }
 
 function addActiveSizeClass(id) {
-    if ($("#size_attribute_id_" + id).prop("checked") == true) {
-        $("#size_attribute_id_div_" + id).addClass('active');
+    if ($('#size_attribute_id_' + id).prop('checked') == true) {
+        $('#size_attribute_id_div_' + id).addClass('active');
     } else {
-        $("#size_attribute_id_div_" + id).removeClass('active');
+        $('#size_attribute_id_div_' + id).removeClass('active');
     }
 }
 
 function addActiveQuantitySizeClass(id) {
-    if ($("#quantity_attribute_id_" + id).prop("checked") == true) {
-        $("#quantity_attribute_id_div_" + id).show();
+    if ($('#quantity_attribute_id_' + id).prop('checked') == true) {
+        $('#quantity_attribute_id_div_' + id).show();
     } else {
-        $("#quantity_attribute_id_div_" + id).hide();
+        $('#quantity_attribute_id_div_' + id).hide();
     }
 }
 $(document).on('change', '.make_a_default', function(e) {
     e.preventDefault();
-    if ($(this).prop("checked") == true) {
+    if ($(this).prop('checked') == true) {
         $('.make_a_default').prop("checked", false);
         $(this).prop("checked", true);
     } else {

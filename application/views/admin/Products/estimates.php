@@ -26,7 +26,7 @@
                                     <thead>
                                         <tr role="row">
                                             <th width="20%">Website</th>
-                                            <th width="20%">Contact Name </th>
+                                            <th width="20%">Contact Name</th>
                                             <th width="15%">Company Name</th>
                                             <th width="15%">Email</th>
                                             <th width="10%">Product Type</th>

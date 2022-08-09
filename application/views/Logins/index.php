@@ -25,11 +25,11 @@
                             <form id="login-form" method="post"  autocomplete="off">
                                 <div class="shipping-form">
                                     <div class="single-review">
-                                        <label>Adresse électronique <span class="text-danger"> * </span></label>
+                                        <label>Adresse électronique <span class="text-danger">*</span></label>
                                         <input type="email" name="loginemail"  value="" >
                                     </div>
                                     <div class="single-review">
-                                        <label>Mot de passe  <span class="text-danger"> * </span></label>
+                                        <label>Mot de passe <span class="text-danger">*</span></label>
                                         <input type="password" name="loginpassword" id="login-password"  value="">
                                     </div>
                                     <div class="row align-items-center">
@@ -63,11 +63,11 @@
                             <form id="login-form" method="post"  autocomplete="off">
                                 <div class="shipping-form">
                                     <div class="single-review">
-                                        <label>Email Address <span class="text-danger"> * </span></label>
+                                        <label>Email Address <span class="text-danger">*</span></label>
                                         <input type="email" name="loginemail"  value="" >
                                     </div>
                                     <div class="single-review">
-                                        <label>Password  <span class="text-danger"> * </span></label>
+                                        <label>Password <span class="text-danger">*</span></label>
                                         <input type="password" name="loginpassword" id="login-password"  value="">
                                     </div>
                                     <div class="row align-items-center">
@@ -120,31 +120,31 @@
                                     <div class="row">
                                         <div class="col-6 col-md-6">
                                             <div class="single-review">
-                                                <label>Ton prénom  <span class="text-danger"> * </span></label>
+                                                <label>Ton prénom <span class="text-danger">*</span></label>
                                                 <input type="text" name="fname">
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-6">
                                             <div class="single-review">
-                                                <label>Votre nom de famille  <span class="text-danger"> * </span></label>
+                                                <label>Votre nom de famille <span class="text-danger">*</span></label>
                                                 <input type="text" name="lname">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="single-review">
-                                                <label>Votre adresse email  <span class="text-danger"> * </span></label>
+                                                <label>Votre adresse email <span class="text-danger">*</span></label>
                                                 <input type="email" name="email">
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-6">
                                             <div class="single-review">
-                                                <label>Choisissez un mot de passe  <span class="text-danger"> * </span></label>
+                                                <label>Choisissez un mot de passe <span class="text-danger">*</span></label>
                                                 <input type="password" name="password" id="signup-password">
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-6">
                                             <div class="single-review">
-                                                <label>Confirmez le mot de passe  <span class="text-danger"> * </span></label>
+                                                <label>Confirmez le mot de passe <span class="text-danger">*</span></label>
                                                 <input type="password" name="confirm_password" id="confirm-password">
                                             </div>
                                         </div>
@@ -160,31 +160,31 @@
                                     <div class="row">
                                         <div class="col-6 col-md-6">
                                             <div class="single-review">
-                                                <label>Your First Name  <span class="text-danger"> * </span></label>
+                                                <label>Your First Name <span class="text-danger">*</span></label>
                                                 <input type="text" name="fname">
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-6">
                                             <div class="single-review">
-                                                <label>Your Last Name  <span class="text-danger"> * </span></label>
+                                                <label>Your Last Name <span class="text-danger">*</span></label>
                                                 <input type="text" name="lname">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
                                             <div class="single-review">
-                                                <label>Your Email Address  <span class="text-danger"> * </span></label>
+                                                <label>Your Email Address <span class="text-danger">*</span></label>
                                                 <input type="email" name="email">
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-6">
                                             <div class="single-review">
-                                                <label>Choose Password  <span class="text-danger"> * </span></label>
+                                                <label>Choose Password <span class="text-danger">*</span></label>
                                                 <input type="password" name="password" id="signup-password">
                                             </div>
                                         </div>
                                         <div class="col-6 col-md-6">
                                             <div class="single-review">
-                                                <label>Confirm Password  <span class="text-danger"> * </span></label>
+                                                <label>Confirm Password <span class="text-danger">*</span></label>
                                                 <input type="password" name="confirm_password" id="confirm-password">
                                             </div>
                                         </div>

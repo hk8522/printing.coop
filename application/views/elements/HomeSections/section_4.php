@@ -89,7 +89,7 @@
 
         ?>
 
-            <div id="<?= $div_id?>" class="tab-pane fade  <?= $active ?>">
+            <div id="<?= $div_id?>" class="tab-pane fade <?= $active ?>">
                 <div class="trend-all-products">
                   <div class="row">
                     <?php

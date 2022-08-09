@@ -25,7 +25,7 @@
                                 <span>General Information</span>
                             </div>
                             <div class="main-single-info">
-                                <span>All orders are subject to product availability. If an item is not in stock at the time you place your order, we will notify you and refund you the total amount of your order, using the original method of payment. </span>
+                                <span>All orders are subject to product availability. If an item is not in stock at the time you place your order, we will notify you and refund you the total amount of your order, using the original method of payment.</span>
                             </div>
                         </div>
                         <div class="main-single">

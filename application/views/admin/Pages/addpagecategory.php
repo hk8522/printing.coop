@@ -16,7 +16,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"> Category Name</label>
+                                                    <label class="span2" for="inputMame">Category Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">

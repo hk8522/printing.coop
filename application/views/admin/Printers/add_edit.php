@@ -25,7 +25,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Printer Brands</label>
+                                                    <label class="span2" for="inputMame">Printer Brands</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -55,7 +55,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Printer Series</label>
+                                                    <label class="span2" for="inputMame">Printer Series</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -83,7 +83,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Name</label>
+                                                    <label class="span2" for="inputMame">Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -96,7 +96,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Name</label>
+                                                    <label class="span2" for="inputMame">French Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -124,7 +124,7 @@
  <script>
   $('#printer_brand_id').on('change', function (e) {
         var printer_brand_id=$(this).val();
-        $("#printer_series_id").html('<option value="">Select Printer Series</option>');
+        $('#printer_series_id').html('<option value="">Select Printer Series</option>');
         $.ajax({
         type: 'GET',
         dataType: 'html',
@@ -133,7 +133,7 @@
         contentType: false,
         processData: false,
         success: function (data) {
-            $("#printer_series_id").html(data);
+            $('#printer_series_id').html(data);
         }
         });
     });

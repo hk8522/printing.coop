@@ -107,7 +107,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Store</label>
+                                                    <label class="span2" for="inputMame">Store</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -136,7 +136,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame"> Name</label>
+                                                    <label class="span2" for="inputMame">Name</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -152,7 +152,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Email</label>
+                                                    <label class="span2" for="inputMame">Email</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -167,7 +167,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Mobile</label>
+                                                    <label class="span2" for="inputMame">Mobile</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -182,7 +182,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">User Name</label>
+                                                    <label class="span2" for="inputMame">User Name</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -198,7 +198,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-3">
-                                                    <label class="span2 " for="inputMame">Password</label>
+                                                    <label class="span2" for="inputMame">Password</label>
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
@@ -230,7 +230,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-3" style="">
-                                                    <label class="span2 " for="inputMame">Module Access
+                                                    <label class="span2" for="inputMame">Module Access
                                                         Permission</label>
                                                 </div>
                                                 <div class="col-md-9">
@@ -307,10 +307,10 @@ function isNumber(evt) {
 }
 
 function addActiveClass(id) {
-    if ($("#attribute_id_" + id).prop("checked") == true) {
-        $("#attribute_id_div_" + id).addClass('active');
+    if ($('#attribute_id_' + id).prop('checked') == true) {
+        $('#attribute_id_div_' + id).addClass('active');
     } else {
-        $("#attribute_id_div_" + id).removeClass('active');
+        $('#attribute_id_div_' + id).removeClass('active');
     }
 }
 </script>

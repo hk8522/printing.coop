@@ -45,7 +45,7 @@
                         <div class="form-group captcha-container">
 
                             <div class="g-recaptcha" id="rcaptcha" data-callback="contactus_recaptcha"  data-sitekey="6LepWXUdAAAAAPD3k1KAu0Hko9bCGHoKN9YKVT1Y" ></div>
-                            <span id="recaptcha-error"  style="display:none; color:red" >Captcha is required. </span>
+                            <span id="recaptcha-error"  style="display:none; color:red" >Captcha is required.</span>
                         </div>
                         <div class="col-md-12">
                             <div class="order-btn">
@@ -87,12 +87,12 @@
                         <div class="form-group captcha-container">
 
                             <div class="g-recaptcha" id="rcaptcha" data-callback="contactus_recaptcha"  data-sitekey="6LepWXUdAAAAAPD3k1KAu0Hko9bCGHoKN9YKVT1Y" ></div>
-                            <span id="recaptcha-error"  style="display:none; color:red" >Captcha is required. </span>
+                            <span id="recaptcha-error"  style="display:none; color:red" >Captcha is required.</span>
                         </div>
 
                         <div class="col-md-12">
                             <div class="order-btn">
-                                <button type="submit" disabled="disabled" id="submit-contact-us-btn"> Submit</button>
+                                <button type="submit" disabled="disabled" id="submit-contact-us-btn">Submit</button>
                             </div>
                         </div>
                     </div>

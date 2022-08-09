@@ -24,7 +24,7 @@
                             <div class="main-single-info">
                                 <span>PLEASE READ THIS TERMS OF SERVICE AGREEMENT CAREFULLY. BY USING THIS WEBSITE OR ORDERING PRODUCTS FROM THIS WEBSITE YOU AGREE TO BE BOUND BY ALL OF THE TERMS AND CONDITIONS OF THIS AGREEMENT.
                                 <br>
-                                    This Terms of Service Agreement governs your use of this website,<a href="index.php"> http://uniquely.pickseoexpert.com</a>,
+                                    This Terms of Service Agreement governs your use of this website,<a href="index.php">http://uniquely.pickseoexpert.com</a>,
                                     the "http://uniquely.pickseoexpert.com", http://uniquely.pickseoexpert.com, http://uniquely.pickseoexpert.com offer of products for purchase on this Website,
                                     or your purchase of products available on this Website. This Agreement includes, and incorporates by this reference,
                                     the policies and guidelines referenced below. http://uniquely.pickseoexpert.com reserves the right to change or revise the terms and
@@ -40,7 +40,7 @@
                         </div>
                         <div class="main-single">
                             <div class="main-single-title">
-                                <span>Proprietary Rights. </span>
+                                <span>Proprietary Rights.</span>
                             </div>
                             <div class="main-single-info">
                                 <span>http://uniquely.pickseoexpert.com has proprietary rights and trade secrets in the Products. You may not copy, reproduce, resell or redistribute any Product manufactured

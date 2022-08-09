@@ -22,7 +22,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Name</label>
+                                                    <label class="span2" for="inputMame">Store Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -35,7 +35,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Phone</label>
+                                                    <label class="span2" for="inputMame">Store Phone</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -48,7 +48,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Email</label>
+                                                    <label class="span2" for="inputMame">Store Email</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -61,7 +61,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Url</label>
+                                                    <label class="span2" for="inputMame">Store Url</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -74,7 +74,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">
+                                                    <label class="span2" for="inputMame">
                                                     Store Langue
                                                     </label>
                                                 </div>
@@ -109,7 +109,7 @@
                                         <!--<div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">
+                                                    <label class="span2" for="inputMame">
                                                     Store Currency
                                                     </label>
                                                 </div>
@@ -139,7 +139,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Address</label>
+                                                    <label class="span2" for="inputMame">Store Address</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -154,7 +154,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Order Id Prefix</label>
+                                                    <label class="span2" for="inputMame">Store Order Id Prefix</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -168,7 +168,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Show Language Translation</label>
+                                                    <label class="span2" for="inputMame">Store Show Language Translation</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -184,7 +184,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Show All Categories</label>
+                                                    <label class="span2" for="inputMame">Store Show All Categories</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -200,7 +200,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store From Email</label>
+                                                    <label class="span2" for="inputMame">Store From Email</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -213,7 +213,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Admin Email-1</label>
+                                                    <label class="span2" for="inputMame">Store Admin Email-1</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -226,7 +226,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Admin Email-2</label>
+                                                    <label class="span2" for="inputMame">Store Admin Email-2</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -240,7 +240,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Admin Email-3</label>
+                                                    <label class="span2" for="inputMame">Store Admin Email-3</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -254,7 +254,7 @@
                                             <div class="control-group info">
                                                 <div class="row align-items-center">
                                                     <div class="col-md-4">
-                                                        <label class="span2 " for="inputMame">Clover Payment Mode</label>
+                                                        <label class="span2" for="inputMame">Clover Payment Mode</label>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="controls">
@@ -269,7 +269,7 @@
                                             <div class="control-group info">
                                                 <div class="row align-items-center">
                                                     <div class="col-md-4">
-                                                        <label class="span2 " for="inputMame">Clover Sandbox Payment Api Key</label>
+                                                        <label class="span2" for="inputMame">Clover Sandbox Payment Api Key</label>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="controls">
@@ -282,7 +282,7 @@
                                             <div class="control-group info">
                                                 <div class="row align-items-center">
                                                     <div class="col-md-4">
-                                                        <label class="span2 " for="inputMame">Clover Sandbox Payment Secret</label>
+                                                        <label class="span2" for="inputMame">Clover Sandbox Payment Secret</label>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="controls">
@@ -295,7 +295,7 @@
                                             <div class="control-group info">
                                                 <div class="row align-items-center">
                                                     <div class="col-md-4">
-                                                        <label class="span2 " for="inputMame">Clover Live Payment Api Key</label>
+                                                        <label class="span2" for="inputMame">Clover Live Payment Api Key</label>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="controls">
@@ -308,7 +308,7 @@
                                             <div class="control-group info">
                                                 <div class="row align-items-center">
                                                     <div class="col-md-4">
-                                                        <label class="span2 " for="inputMame">Clover Live Payment Secret</label>
+                                                        <label class="span2" for="inputMame">Clover Live Payment Secret</label>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="controls">
@@ -322,7 +322,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Paypal Payment Mode</label>
+                                                    <label class="span2" for="inputMame">Paypal Payment Mode</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -338,7 +338,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Sandbox Payment Paypal Business Email</label>
+                                                    <label class="span2" for="inputMame">Sandbox Payment Paypal Business Email</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -352,7 +352,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Live Payment Paypal Business Email</label>
+                                                    <label class="span2" for="inputMame">Live Payment Paypal Business Email</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -365,7 +365,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Show Flagship </label>
+                                                    <label class="span2" for="inputMame">Show Flagship</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -381,7 +381,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Email Footer Line</label>
+                                                    <label class="span2" for="inputMame">Store Email Footer Line</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -395,7 +395,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 ">Store Email Template Logo</label>
+                                                    <label class="span2">Store Email Template Logo</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                   <div class="controls">
@@ -429,7 +429,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Company Details For Invoice Pdf</label>
+                                                    <label class="span2" for="inputMame">Store Company Details For Invoice Pdf</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -442,7 +442,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Store Company Details For Order Pdf</label>
+                                                    <label class="span2" for="inputMame">Store Company Details For Order Pdf</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -456,7 +456,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 ">Store Pdf Logo</label>
+                                                    <label class="span2">Store Pdf Logo</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                   <div class="controls">

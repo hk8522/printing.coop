@@ -32,7 +32,7 @@
 </select>
 <script>
     $(document).ready(function() {
-        $("#<?= str_replace(['[', ']'], ['\\\\[', '\\\\]'], $id)?>").kendoDropDownList();
+        $('#<?= name2id($id)?>').kendoDropDownList();
     });
 </script>
 <?php } ?>

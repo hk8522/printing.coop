@@ -22,7 +22,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Parent Category</label>
+                                                    <label class="span2" for="inputMame">Parent Category</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -49,7 +49,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Name</label>
+                                                    <label class="span2" for="inputMame">Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -63,7 +63,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Name</label>
+                                                    <label class="span2" for="inputMame">French Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -77,7 +77,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Sub Category Order</label>
+                                                    <label class="span2" for="inputMame">Sub Category Order</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -90,7 +90,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Sub Category Dispersion</label>
+                                                    <label class="span2" for="inputMame">Sub Category Dispersion</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -103,7 +103,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">French Sub Category Dispersion</label>
+                                                    <label class="span2" for="inputMame">French Sub Category Dispersion</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -117,7 +117,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame">Show Sub Category</label>
+                                                    <label class="span2" for="inputMame">Show Sub Category</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">

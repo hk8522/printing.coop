@@ -46,11 +46,11 @@
 <script>
 var $chatWindow = $('#messages');
 var $container = $('<ul>');
-$("#SendMessageFrom").submit(function(e) {
+$('#SendMessageFrom').submit(function(e) {
         e.preventDefault(); // avoid to execute the actual submit of the form.
         var form = $(this);
         var formsubmit=true;
-        $("#SendMessageFromSubmit").attr("disabled",true);
+        $('#SendMessageFromSubmit').attr("disabled",true);
         if (formsubmit==true) {
             var url =BASE_URL+'Tickets/getChat/'+'<?= base64_encode($ticket_id) ?>';
             $.ajax({
@@ -59,18 +59,18 @@ $("#SendMessageFrom").submit(function(e) {
                    data: form.serialize(), // serializes the form's elements.
                    success: function(data)
                     {
-                      $("#messageText").val('');
-                      //$("#ChatList").append(data);
+                      $('#messageText').val('');
+                      //$('#ChatList').append(data);
                       $container.append(data);
                       $chatWindow.append($container);
                       $chatWindow.scrollTop($chatWindow[0].scrollHeight);
                     },
                     error: function (error) {
-                      $("#SendMessageFromSubmit").attr("disabled",false);
+                      $('#SendMessageFromSubmit').attr("disabled",false);
                    }
             });
         } else{
-            $("#SendMessageFromSubmit").attr("disabled",false);
+            $('#SendMessageFromSubmit').attr("disabled",false);
         }
     });
 
@@ -83,7 +83,7 @@ $("#SendMessageFrom").submit(function(e) {
                url: url,
                success: function(data)
                 {
-                  //$("#ChatList").append(data);
+                  //$('#ChatList').append(data);
                       $container.append(data);
                       $chatWindow.append($container);
                       $chatWindow.scrollTop($chatWindow[0].scrollHeight);

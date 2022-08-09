@@ -10,7 +10,7 @@
                         <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
 
                                 <div class="control-group info">
-                                    <label class="span2 " for="inputMame">Enter New Password</label>
+                                    <label class="span2" for="inputMame">Enter New Password</label>
                                     <div class="controls">
                                         <input class="form-control" name="id"  type="hidden" value="<?= $id ?>" >
 

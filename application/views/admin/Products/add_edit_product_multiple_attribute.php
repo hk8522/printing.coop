@@ -8,10 +8,8 @@
                 <?= $this->session->flashdata('message_success') ?>
             </div>
             <?= form_open_multipart('', array('class' => 'form-horizontal', 'id' => 'AddEditProductAttribute')) ?>
-            <input class="form-control" type="hidden" value="<?= $product_id ?>" id="product_id"
-                name="product_id">
-            <input class="form-control" type="hidden" value="<?= $quantity_id ?>" id="quantity_id"
-                name="quantity_id">
+            <input class="form-control" type="hidden" value="<?= $product_id ?>" id="product_id" name="product_id">
+            <input class="form-control" type="hidden" value="<?= $quantity_id ?>" id="quantity_id" name="quantity_id">
             <input class="form-control" type="hidden" value="<?= $size_id ?>" id="size_id" name="size_id">
             <input class="form-control" type="hidden" value="<?= $attribute_id ?>" id="attribute_id"
                 name="attribute_id">
@@ -24,7 +22,7 @@
                 <div class="control-group info">
                     <div class="row align-items-center">
                         <div class="col-md-4">
-                            <label class="span2 " for="inputMame"><?= $MultipleAttribute['name'] ?></label>
+                            <label class="span2" for="inputMame"><?= $MultipleAttribute['name'] ?></label>
                         </div>
                         <div class="col-md-8">
                             <div class="controls">
@@ -37,8 +35,8 @@
                                             $selected = 'selected="selected"';
                                         }
                                         ?>
-                                        <option value="<?= $key ?>" <?= $selected ?>><?= $val ?>
-                                        </option>
+                                    <option value="<?= $key ?>" <?= $selected ?>><?= $val ?>
+                                    </option>
                                     <?php } ?>
                                 </select>
 
@@ -49,7 +47,7 @@
                 <div class="control-group info">
                     <div class="row align-items-center">
                         <div class="col-md-4">
-                            <label class="span2 " for="inputMame">Extra Price</label>
+                            <label class="span2" for="inputMame">Extra Price</label>
                         </div>
                         <div class="col-md-8">
                             <div class="controls">
@@ -96,7 +94,7 @@ $('#AddEditProductAttribute').validate({
             success: function(data) {
                 $('button[type=submit]').attr('disabled', false);
                 $('#loader-img').hide();
-                $("#ItemModal .modal-body").html(data);
+                $('#ItemModal .modal-body').html(data);
                 if (success == 1) {
                     location.reload();
                 }

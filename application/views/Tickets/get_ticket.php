@@ -12,67 +12,72 @@
                                     </thead>
                                     <tbody>
 
-                                    <?php
+                                        <?php
                                 if (count($lists) >0) {
                                     foreach ($lists as $list) {
                                 ?>
 
                                         <tr>
                                             <td>
-                                            <?= "#".$list['id'] ?>
+                                                <?= "#".$list['id'] ?>
                                             </td>
                                             <td>
-                                            <?= $list['subject'] ?>
+                                                <?= $list['subject'] ?>
                                             </td>
                                             <td>
-                                            <?= $list['message'] ?>
+                                                <?= $list['message'] ?>
                                             </td>
 
                                             <td>
-                                              <?= dateFormate($list['created']) ?>
+                                                <?= dateFormate($list['created']) ?>
                                             </td>
                                             <td>
-                                              <?= dateFormate($list['updated']) ?>
+                                                <?= dateFormate($list['updated']) ?>
                                             </td>
                                             <td>
 
                                                 <?php if ($list['status']==1) { ?>
 
-                                                    <button type="submit" class="custon-active btn-success">Resolved
-                                                    </button>
+                                                <button type="submit" class="custon-active btn-success">Resolved
+                                                </button>
 
                                                 <?php
                                                 } else{?>
-                                                      <button type="submit" class="custon-delete btn-danger">Unresolved</button>
+                                                <button type="submit"
+                                                    class="custon-delete btn-danger">Unresolved</button>
                                                 <?php } ?>
                                             </td>
                                             <td>
 
                                                 <div class="action-btns">
                                                     <?php if ($list['status']==0) { ?>
-                                                    <a href="javascript:void(0)" class="comments-counts" style="color:green; padding: 5px;" title="Message" onclick="getChats('<?= base64_encode($list['id']) ?>')">
+                                                    <a href="javascript:void(0)" class="comments-counts"
+                                                        style="color:green; padding: 5px;" title="Message"
+                                                        onclick="getChats('<?= base64_encode($list['id']) ?>')">
                                                         <i class="fas fa-comment-dots fa-lg"></i>
                                                         <span>
-                                                    <?php
+                                                            <?php
             echo $this->Ticket_Model->getMessageCount($list['id']);
                                                     ?>
                                                         </span>
-                                                       </a>
+                                                    </a>
                                                     <?php } ?>
-                                                    <a href="<?= $BASE_URL ?>/Tickets/deleteTicket/<?= base64_encode($list['id']) ?>" style="color:#d71b23; padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this ticket?');">
-                                                         <i class="fa fa-trash fa-lg"></i>
-                                                       </a>
-                                                   </div>
+                                                    <a href="<?= $BASE_URL ?>/Tickets/deleteTicket/<?= base64_encode($list['id']) ?>"
+                                                        style="color:#d71b23; padding: 5px;" title="delete"
+                                                        onclick="return confirm('Are you sure you want to delete this ticket?');">
+                                                        <i class="fa fa-trash fa-lg"></i>
+                                                    </a>
+                                                </div>
 
                                             </td>
                                         </tr>
-                                    <?php
+                                        <?php
                                 }
                                 } else{?>
                                         <tr>
-                                            <td colspan="6"> Ticket list empty</td>
+                                            <td colspan="6">Ticket list empty</td>
                                         </tr>
-                                <?php
+                                        <?php
                                } ?>
                                     </tbody>
                                 </table>

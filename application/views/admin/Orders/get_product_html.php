@@ -125,7 +125,7 @@ if (isset($_SESSION['product_list'])) {
                                                                     $selected = '';
                                                                     $extra_price = '';
                                                                     if (!empty($subval['extra_price']) && $subval['extra_price'] != '0.00') {
-                                                                        $extra_price = " (+ " . CURREBCY_SYMBOL . $subval['extra_price'] . ")";
+                                                                        $extra_price = ' (+ ' . CURREBCY_SYMBOL . $subval['extra_price'] . ")";
                                                                     }if ($select_item_id == $subval['attribute_item_id']) {
                                                                         $selected = 'selected="selected"';
                                                                     }
@@ -310,8 +310,8 @@ if (isset($_SESSION['product_list'])) {
                             msg +
                             '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>'
                             );
-                        $("#Order-Information").html(orderinformation);
-                        $("#confirmbtn").html(json.confirmbtn);
+                        $('#Order-Information').html(orderinformation);
+                        $('#confirmbtn').html(json.confirmbtn);
                     } else {
                         $('#addtocart-message<?= $product_id_key ?>').html(
                             '<div class="alert alert-danger alert-dismissible fade show" role="alert">' +
@@ -326,13 +326,13 @@ if (isset($_SESSION['product_list'])) {
 
         $(function() {
             // preventing page from redirecting
-            $("html").on("dragover", function(e) {
+            $('html').on("dragover", function(e) {
                 e.preventDefault();
                 e.stopPropagation();
-                $("#file-drop<?= $product_id_key ?>").text("Drag here");
+                $('#file-drop<?= $product_id_key ?>').text("Drag here");
             });
 
-            $("html").on("drop", function(e) {
+            $('html').on("drop", function(e) {
                 e.preventDefault();
                 e.stopPropagation();
             });
@@ -341,25 +341,25 @@ if (isset($_SESSION['product_list'])) {
             $('#uploadfile<?= $product_id_key ?>').on('dragenter', function(e) {
                 e.stopPropagation();
                 e.preventDefault();
-                $("#file-drop<?= $product_id_key ?>").text("Drop");
+                $('#file-drop<?= $product_id_key ?>').text("Drop");
             });
 
             // Drag over
             $('#uploadfile<?= $product_id_key ?>').on('dragover', function(e) {
                 e.stopPropagation();
                 e.preventDefault();
-                $("#file-drop<?= $product_id_key ?>").text("Drop");
+                $('#file-drop<?= $product_id_key ?>').text("Drop");
             });
 
             // Drop
             $('#uploadfile<?= $product_id_key ?>').on('drop', function(e) {
                 e.stopPropagation();
                 e.preventDefault();
-                var product_id = $("#product_id-<?= $product_id_key ?>").val();
+                var product_id = $('#product_id-<?= $product_id_key ?>').val();
                 var product_id_key = '<?= $product_id_key ?>';
                 $('#file<?= $product_id_key ?>').prop('disabled', true);
-                $("#file-btn<?= $product_id_key ?>").hide();
-                $("#file-drop<?= $product_id_key ?>").text("file uploading please wait...");
+                $('#file-btn<?= $product_id_key ?>').hide();
+                $('#file-drop<?= $product_id_key ?>').text("file uploading please wait...");
                 var file = e.originalEvent.dataTransfer.files;
                 var fd = new FormData();
                 fd.append('file', file[0]);
@@ -369,17 +369,17 @@ if (isset($_SESSION['product_list'])) {
             });
 
             // Open file selector on div click
-            $("#uploadfile<?= $product_id_key ?>").click(function() {
-                $("#file<?= $product_id_key ?>").click();
+            $('#uploadfile<?= $product_id_key ?>').click(function() {
+                $('#file<?= $product_id_key ?>').click();
             });
 
             // file selected
-            $("#file<?= $product_id_key ?>").change(function() {
-                var product_id = $("#product_id-<?= $product_id_key ?>").val();
+            $('#file<?= $product_id_key ?>').change(function() {
+                var product_id = $('#product_id-<?= $product_id_key ?>').val();
                 var product_id_key = '<?= $product_id_key ?>';
                 $('#file<?= $product_id_key ?>').prop('disabled', true);
-                $("#file-btn<?= $product_id_key ?>").hide();
-                $("#file-drop<?= $product_id_key ?>").text("file uploading please wait...");
+                $('#file-btn<?= $product_id_key ?>').hide();
+                $('#file-drop<?= $product_id_key ?>').text("file uploading please wait...");
                 var fd = new FormData();
                 var files = $('#file<?= $product_id_key ?>')[0].files[0];
                 fd.append('file', files);
@@ -392,7 +392,7 @@ if (isset($_SESSION['product_list'])) {
         function showAttribute(cid, nid) {
             $('#loader-img').show();
             $('.new-price-img').hide();
-            var item_val = $("#attribute_id_" + cid).val();
+            var item_val = $('#attribute_id_' + cid).val();
             var myForm = document.getElementById('cartForm');
             var formData = new FormData(myForm);
             $.ajax({
@@ -409,7 +409,7 @@ if (isset($_SESSION['product_list'])) {
 
                     var json = JSON.parse(data);
                     if (json.success == 1) {
-                        $("#attribute_id_" + nid).attr("disabled", false);
+                        $('#attribute_id_' + nid).attr("disabled", false);
                         $('#total-price').html(json.price);
                     }
                 },
@@ -424,7 +424,7 @@ if (isset($_SESSION['product_list'])) {
         function showQuantity() {
             $('#loader-img').show();
             $('.new-price-img').hide();
-            $(".multipal_size").html('<option value="">Choose an option...</option>');
+            $('.multipal_size').html('<option value="">Choose an option...</option>');
             var myForm = document.getElementById('cartForm');
             var formData = new FormData(myForm);
             $.ajax({
@@ -441,10 +441,10 @@ if (isset($_SESSION['product_list'])) {
                     $('.new-price-img').show();
                     if (json.success == 1) {
                         if (json.sizeoptions == '0') {
-                            $("#attribute_id_2").attr("disabled", false);
-                            $("#SizeOptions").html('');
+                            $('#attribute_id_2').attr("disabled", false);
+                            $('#SizeOptions').html('');
                         } else {
-                            $("#SizeOptions").html(json.sizeoptions);
+                            $('#SizeOptions').html(json.sizeoptions);
                         }
                         $('#total-price').html(json.price);
                     }

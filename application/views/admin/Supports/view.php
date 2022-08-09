@@ -19,7 +19,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"> Website</label>
+                                                    <label class="span2" for="inputMame">Website</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -33,7 +33,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"> Name</label>
+                                                    <label class="span2" for="inputMame">Name</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -47,7 +47,7 @@
                                         <div class="control-group info">
                                             <div class="row align-items-center">
                                                 <div class="col-md-4">
-                                                    <label class="span2 " for="inputMame"> Email ID</label>
+                                                    <label class="span2" for="inputMame">Email ID</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
@@ -75,7 +75,7 @@
                                         <div class="control-group info">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                     <label class="span2 " for="inputMame">Message</label>
+                                                     <label class="span2" for="inputMame">Message</label>
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">

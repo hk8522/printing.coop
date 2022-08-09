@@ -83,7 +83,7 @@
                                                                     <img class="personalised-display-img" src="">
                                                                 </div>
                                                             </div>
-                                                            <div class="personalised-image-num"><span>Photo </span>
+                                                            <div class="personalised-image-num"><span>Photo</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -124,17 +124,17 @@
 
 <script>
 $(document).ready(function() {
-    $("#a1").click(function() {
-        $(".p-field").show();
+    $('#a1').click(function() {
+        $('.p-field').show();
     });
-    $("#a2").click(function() {
-        $(".p-field").hide();
+    $('#a2').click(function() {
+        $('.p-field').hide();
     });
-    $("#single").click(function() {
-        $(".single").toggle();
+    $('#single').click(function() {
+        $('.single').toggle();
     });
 
-    if ($("#example1").length) {
+    if ($('#example1').length) {
         $('#example1').DataTable();
     }
 

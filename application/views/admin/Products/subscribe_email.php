@@ -35,7 +35,7 @@
                                     <thead>
                                         <tr role="row">
                                             <!--<th width="10%">Sn</th>-->
-                                            <th width="50%">Subscribe Email </th>
+                                            <th width="50%">Subscribe Email</th>
                                             <th width="15%">Created On</th>
                                             <th width="15%">Updated On</th>
                                             <th width="10%">Action</th>

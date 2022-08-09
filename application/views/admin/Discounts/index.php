@@ -129,7 +129,7 @@
 
                                             </td>
                                         </tr>
-                                <?php   } else if ($type=="expired" && $cr_date_str >  $discount_valid_to_str_time) { ?>
+                                <?php   } else if ($type=="expired" && $cr_date_str > $discount_valid_to_str_time) { ?>
 
                                            <tr>
                                             <td><?= $list['code'] ?></td>

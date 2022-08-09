@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: <?= $severity ?></p>
-<p>Message:  <?= $message ?></p>
+<p>Message: <?= $message ?></p>
 <p>Filename: <?= $filepath ?></p>
 <p>Line Number: <?= $line ?></p>
 
