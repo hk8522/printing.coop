@@ -25,7 +25,7 @@
     $(document).ready(function () {
         $('#price-rate-form').on('submit', function (e) {
             e.preventDefault();
-            $("#loader-img").show();
+            $('#loader-img').show();
             $.post('/admin/Products/ProviderProductPriceRate/<?= $product->id?>', $(this).serialize())
             .done(function (response) {
                 if (!response)
@@ -33,12 +33,12 @@
                 else if (!response.success)
                     kendo.alert(response.message);
                 refreshGrid('products-grid');
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 $.magnificPopup.close();
             }).fail(function (error) {
                 kendo.alert(error);
                 refreshGrid('products-grid');
-                $("#loader-img").hide();
+                $('#loader-img').hide();
             });
         });
     });

@@ -220,7 +220,7 @@
 
 function searchProduct(searchtext) {
     if (searchtext != '') {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?= $BASE_URL ?>admin/Products/searchProduct';
         $("#searchDiv").show();
         $("#ProductListUl").html('');
@@ -231,7 +231,7 @@ function searchProduct(searchtext) {
                 'searchtext': searchtext
             }, // serializes the form's elements.
             success: function(data) {
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 $("#ProductListUl").html(data);
             },
             error: function(error) {}

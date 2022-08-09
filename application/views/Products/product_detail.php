@@ -335,8 +335,8 @@
 </div>
 <script>
     function showAttribute(cid, nid) {
-        $("#loader-img").show();
-        $(".new-price-img").hide();
+        $('#loader-img').show();
+        $('.new-price-img').hide();
         var item_val = $("#attribute_id_" + cid).val();
         var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
@@ -349,25 +349,25 @@
             contentType: false,
             processData: false,
             success: function(data) {
+                $('#loader-img').hide();
+                $('.new-price-img').show();
+
                 var json = JSON.parse(data);
-                $("#loader-img").hide();
-                $(".new-price-img").show();
                 if (json.success == 1) {
                     $("#attribute_id_" + nid).attr("disabled", false);
-
-                    $('[name="price"]').val(json.price);
+                    $('#total-price').html(json.price);
                 }
             },
             error: function(resp) {
-                $("#loader-img").hide();
-                $(".new-price-img").show();
+                $('#loader-img').hide();
+                $('.new-price-img').show();
             }
         });
     }
 
     function showQuantity() {
-        $("#loader-img").show();
-        $(".new-price-img").hide();
+        $('#loader-img').show();
+        $('.new-price-img').hide();
         $(".multipal_size").html('<option value="">Choose an option...</option>');
         var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
@@ -381,8 +381,8 @@
             processData: false,
             success: function(data) {
                 var json = JSON.parse(data);
-                $("#loader-img").hide();
-                $(".new-price-img").show();
+                $('#loader-img').hide();
+                $('.new-price-img').show();
                 if (json.success == 1) {
                     if (json.sizeoptions == '0') {
                         $("#attribute_id_2").attr("disabled", false);
@@ -390,15 +390,15 @@
                     } else {
                         $("#SizeOptions").html(json.sizeoptions);
                     }
-                    $("#total-price").html(json.price);
+                    $('#total-price').html(json.price);
                 }
             }
         });
     }
 
     function showSizeQuantity() {
-        $("#loader-img").show();
-        $(".new-price-img").hide();
+        $('#loader-img').show();
+        $('.new-price-img').hide();
         $(".multipal_size_item").html('<option value="">Choose an option...</option>');
         var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
@@ -412,18 +412,18 @@
             processData: false,
             success: function(data) {
                 var json = JSON.parse(data);
-                $("#loader-img").hide();
-                $(".new-price-img").show();
+                $('#loader-img').hide();
+                $('.new-price-img').show();
                 if (json.success == 1) {
                     $("#SizeOptions").html(json.sizeoptions);
-                    $("#total-price").html(json.price);
+                    $('#total-price').html(json.price);
                 }
             }
         });
     }
 
     function getSizeOptions(product_id, make_a_default_qty_id) {
-        $("#loader-img").show();
+        $('#loader-img').show();
         $.ajax({
             type: 'GET',
             dataType: 'html',
@@ -432,15 +432,15 @@
             contentType: false,
             processData: false,
             success: function(data) {
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 $("#SizeOptions").html(data);
             }
         });
     }
 
     function getLengthWidthPrice() {
-        $("#loader-img").show();
-        $(".new-price-img").hide();
+        $('#loader-img').show();
+        $('.new-price-img').hide();
         var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
@@ -452,11 +452,12 @@
             contentType: false,
             processData: false,
             success: function(data) {
+                $('#loader-img').hide();
+                $('.new-price-img').show();
+
                 var json = JSON.parse(data);
-                $("#loader-img").hide();
-                $(".new-price-img").show();
                 if (json.success == 1) {
-                    $('[name="price"]').val(json.price);
+                    $('#total-price').html(json.price);
 
                     $("#product_width").val(json.product_width);
                     $("#product_length").val(json.product_length);
@@ -473,8 +474,8 @@
     }
 
     function getDepthLengthWidthPrice() {
-        $("#loader-img").show();
-        $(".new-price-img").hide();
+        $('#loader-img').show();
+        $('.new-price-img').hide();
         var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
@@ -486,11 +487,12 @@
             contentType: false,
             processData: false,
             success: function(data) {
+                $('#loader-img').hide();
+                $('.new-price-img').show();
+
                 var json = JSON.parse(data);
-                $("#loader-img").hide();
-                $(".new-price-img").show();
                 if (json.success == 1) {
-                    $('[name="price"]').val(json.price);
+                    $('#total-price').html(json.price);
 
                     $("#product_depth_width").val(json.product_depth_width);
                     $("#product_depth_length").val(json.product_depth_length);
@@ -511,8 +513,8 @@
     }
 
     function getPageLengthWidthPrice() {
-        $("#loader-img").show();
-        $(".new-price-img").hide();
+        $('#loader-img').show();
+        $('.new-price-img').hide();
         var myForm = document.getElementById('cartForm');
         var formData = new FormData(myForm);
         $.ajax({
@@ -524,12 +526,12 @@
             contentType: false,
             processData: false,
             success: function(data) {
-                var json = JSON.parse(data);
-                $("#loader-img").hide();
-                $(".new-price-img").show();
+                $('#loader-img').hide();
+                $('.new-price-img').show();
 
+                var json = JSON.parse(data);
                 if (json.success == 1) {
-                    $('[name="price"]').val(json.price);
+                    $('#total-price').html(json.price);
 
                     $("#page_product_width").val(json.page_product_width);
                     $("#page_product_length").val(json.page_product_length);

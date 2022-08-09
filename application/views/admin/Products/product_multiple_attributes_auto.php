@@ -390,11 +390,11 @@ function deleteQuantity(quantity_id) {
     if (!confirm("Are you sure you want to remove Quantity from this product?"))
         return;
 
-    $("#loader-img").show();
+    $('#loader-img').show();
     $.get('<?= $BASE_URL?>admin/Products/deleteProductQuantity/<?= $product_id?>/' + quantity_id,
         function(data) {
             $('#quantity-container-' + quantity_id).remove();
-            $("#loader-img").hide();
+            $('#loader-img').hide();
         }
     );
 }
@@ -419,12 +419,12 @@ function deleteSize(size_id) {
     if (!confirm("Are you sure you want to remove Size from this product?"))
         return;
 
-    $("#loader-img").show();
+    $('#loader-img').show();
     $.post('<?= $BASE_URL?>admin/Products/autoSizeDelete/<?= $product_id?>/' + size_id,
         function(data) {
             if (data == 1)
                 $('#size-container-' + size_id).remove();
-            $("#loader-img").hide();
+            $('#loader-img').hide();
         }
     );
 }
@@ -449,12 +449,12 @@ function deleteAttribute(attribute_id) {
     if (!confirm("Are you sure you want to remove Attribute from this product?"))
         return;
 
-    $("#loader-img").show();
+    $('#loader-img').show();
     $.post('<?= $BASE_URL?>admin/Products/autoAttributeDelete/<?= $product_id?>/' + attribute_id,
         function(data) {
             if (data == 1)
                 $('#attribute-container-' + attribute_id).remove();
-            $("#loader-img").hide();
+            $('#loader-img').hide();
         }
     );
 }
@@ -478,13 +478,13 @@ function deleteAttributeItem(attribute_id, attribute_item_id) {
     if (!confirm("Are you sure you want to remove Attribute Item from this product?"))
         return;
 
-    $("#loader-img").show();
+    $('#loader-img').show();
     $.post('<?= $BASE_URL?>admin/Products/autoAttributeItemDelete/<?= $product_id?>/' + attribute_id + '/' +
         attribute_item_id,
         function(data) {
             if (data == 1)
                 $('#attribute-item-container-' + attribute_id + '-' + attribute_item_id).remove();
-            $("#loader-img").hide();
+            $('#loader-img').hide();
         }
     );
 }
@@ -493,7 +493,7 @@ function generateAttributes() {
     if (!confirm("Have you prepared all your settings?"))
         return;
 
-    $("#loader-img").show();
+    $('#loader-img').show();
     $.post('<?= $BASE_URL?>admin/Products/autoGenerateAttributes/<?= $product_id?>',
         function(data) {
             if (data == 1) {
@@ -503,7 +503,7 @@ function generateAttributes() {
                     );
                 $("#ItemModal").modal('show');
             }
-            $("#loader-img").hide();
+            $('#loader-img').hide();
         }
     );
 }
@@ -515,7 +515,7 @@ function uploadAttributes(file) {
     var formData = new FormData();
     formData.append('file', file);
 
-    $("#loader-img").show();
+    $('#loader-img').show();
     $.ajax({
         url: '<?= $BASE_URL?>admin/Products/uploadAttributes/<?= $product_id?>',
         type: 'POST',
@@ -523,7 +523,7 @@ function uploadAttributes(file) {
         processData: false, // tell jQuery not to process the data
         contentType: false, // tell jQuery not to set contentType
         success: function(data) {
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             var msg = '';
             var obj = JSON.parse(data);
             if (obj.result == 1) {
@@ -551,7 +551,7 @@ function uploadFullPriceList(file) {
     var formData = new FormData();
     formData.append('file', file);
 
-    $("#loader-img").show();
+    $('#loader-img').show();
     $.ajax({
         url: '<?= $BASE_URL?>admin/Products/uploadFullPriceList/<?= $product_id?>',
         type: 'POST',
@@ -559,7 +559,7 @@ function uploadFullPriceList(file) {
         processData: false, // tell jQuery not to process the data
         contentType: false, // tell jQuery not to set contentType
         success: function(data) {
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             var msg = '';
             var obj = JSON.parse(data);
             if (obj.result == 1) {

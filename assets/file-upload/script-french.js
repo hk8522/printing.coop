@@ -57,7 +57,7 @@ $(function() {
 
 // Sending AJAX request and upload file
 function uploadData(formdata){
-	$("#loader-img").show();
+	$('#loader-img').show();
 
     $.ajax({
         url: '/Products/uploadImage',
@@ -67,7 +67,7 @@ function uploadData(formdata){
         processData: false,
         dataType: 'json',
         success: function(response){
-			$("#loader-img").hide();
+			$('#loader-img').hide();
             addThumbnail(response);
         }
     });

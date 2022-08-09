@@ -611,7 +611,7 @@
 <script>
 getSingleProduct();
 $('#category_id').on('change', function(e) {
-    $("#loader-img").show();
+    $('#loader-img').show();
     $("#sub_category_id").html('<option value="">Select Sub Category</option>');
     $("#product_id").html('<option value="">Select Product</option>');
     var category_id = $(this).val();
@@ -625,7 +625,7 @@ $('#category_id').on('change', function(e) {
         url: '<?= $BASE_URL ?>admin/Ajax/getSubCategoryAndProductDropDownListByAjax/' + category_id,
         success: function(data) {
             var json = JSON.parse(data);
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             $("#sub_category_id").html(json.sub_category);
             $("#product_id").html(json.product_list);
         }
@@ -633,7 +633,7 @@ $('#category_id').on('change', function(e) {
 });
 
 $('#sub_category_id').on('change', function(e) {
-    $("#loader-img").show();
+    $('#loader-img').show();
 
     $("#product_id").html('<option value="">Select Product</option>');
     var category_id = $("#category_id").val();
@@ -653,14 +653,14 @@ $('#sub_category_id').on('change', function(e) {
         url: url,
         success: function(data) {
             var json = JSON.parse(data);
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             $("#product_id").html(json.product_list);
         }
     });
 });
 
 $('#coupon_code').on('change', function(e) {
-    $("#loader-img").show();
+    $('#loader-img').show();
     $('input[type="submit"]').prop('disabled', true);
     $('input[type="button"]').prop('disabled', true);
     $('#coupon_code_error').html('');
@@ -675,7 +675,7 @@ $('#coupon_code').on('change', function(e) {
         url: '<?= $BASE_URL ?>admin/Orders/applyCode/' + coupon_code,
         success: function(data) {
             var json = JSON.parse(data);
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             $('input[type="submit"]').prop('disabled', false);
             $('input[type="button"]').prop('disabled', false);
 
@@ -693,7 +693,7 @@ $('#coupon_code').on('change', function(e) {
 });
 
 $('#email').on('change', function(e) {
-    $("#loader-img").show();
+    $('#loader-img').show();
     $('input[type="submit"]').prop('disabled', true);
     var email = $("#email").val();
 
@@ -706,7 +706,7 @@ $('#email').on('change', function(e) {
         },
         success: function(data) {
             var json = JSON.parse(data);
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             $('input[type="submit"]').prop('disabled', false);
             $('input[type="button"]').prop('disabled', false);
 
@@ -723,7 +723,7 @@ $('#email').on('change', function(e) {
 });
 
 $('.shipping_method_formate').on('change', function(e) {
-    $("#loader-img").show();
+    $('#loader-img').show();
     $('input[type="submit"]').prop('disabled', true);
     var shipping_method_formate = $(this).val();
     //alert(shipping_method_formate);
@@ -737,7 +737,7 @@ $('.shipping_method_formate').on('change', function(e) {
         },
         success: function(data) {
             var json = JSON.parse(data);
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             $('input[type="submit"]').prop('disabled', false);
             $('input[type="button"]').prop('disabled', false);
 
@@ -766,7 +766,7 @@ function AddSingleProduct() {
         return false;
     }
 
-    $("#loader-img").show();
+    $('#loader-img').show();
     $('input[type="submit"]').prop('disabled', true);
     $('input[type="button"]').prop('disabled', true);
     $.ajax({
@@ -777,7 +777,7 @@ function AddSingleProduct() {
         contentType: false,
         processData: false,
         success: function(data) {
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             $('input[type="submit"]').prop('disabled', false);
             $('input[type="button"]').prop('disabled', false);
             $("#mainData").html(data);
@@ -786,7 +786,7 @@ function AddSingleProduct() {
 }
 
 function getSingleProduct() {
-    $("#loader-img").show();
+    $('#loader-img').show();
     $('input[type="submit"]').prop('disabled', true);
     $('input[type="button"]').prop('disabled', true);
     $.ajax({
@@ -797,7 +797,7 @@ function getSingleProduct() {
         contentType: false,
         processData: false,
         success: function(data) {
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             $('input[type="submit"]').prop('disabled', false);
             $('input[type="button"]').prop('disabled', false);
             $("#mainData").html(data);
@@ -809,7 +809,7 @@ function removeProduct(product_id_key) {
     if (product_id_key == '') {
         return false;
     }
-    $("#loader-img").show();
+    $('#loader-img').show();
     $('input[type="submit"]').prop('disabled', true);
     $('input[type="button"]').prop('disabled', true);
     $.ajax({
@@ -820,7 +820,7 @@ function removeProduct(product_id_key) {
         contentType: false,
         processData: false,
         success: function(data) {
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             $('input[type="submit"]').prop('disabled', false);
             $('input[type="button"]').prop('disabled', false);
             var json = JSON.parse(data);
@@ -861,7 +861,7 @@ function setQuantity(product_id_key) {
     }
     var myForm = document.getElementById('cartForm-' + product_id_key);
     var formData = new FormData(myForm);
-    $("#loader-img").show();
+    $('#loader-img').show();
     $.ajax({
         type: 'POST',
         dataType: 'html',
@@ -871,7 +871,7 @@ function setQuantity(product_id_key) {
         contentType: false,
         processData: false,
         success: function(data) {
-            $("#loader-img").hide();
+            $('#loader-img').hide();
 
             var json = JSON.parse(data);
             if (json.success == 1) {
@@ -882,7 +882,7 @@ function setQuantity(product_id_key) {
 }
 
 function showAttribute(cid, nid, product_id_key) {
-    $("#loader-img").show();
+    $('#loader-img').show();
     var item_val = $("#attribute_id_" + cid).val();
     //alert('cartForm-' + product_id_key);
     var myForm = document.getElementById('cartForm-' + product_id_key);
@@ -896,9 +896,9 @@ function showAttribute(cid, nid, product_id_key) {
         contentType: false,
         processData: false,
         success: function(data) {
-            var json = JSON.parse(data);
-            $("#loader-img").hide();
+            $('#loader-img').hide();
 
+            var json = JSON.parse(data);
             if (json.success == 1) {
                 $("#attribute_id_" + nid).attr("disabled", false);
                 $("#total-price-" + product_id_key).html(json.price);
@@ -920,8 +920,8 @@ function showQuantity(product_id_key) {
         processData: false,
         success: function(data) {
             var json = JSON.parse(data);
-            $("#loader-img").hide();
-            $(".new-price-img").show();
+            $('#loader-img').hide();
+            $('.new-price-img').show();
             if (json.success == 1) {
                 $("#SizeOptions" + product_id_key).html(json.sizeoptions);
                 $("#total-price-" + product_id_key).html(json.price);
@@ -931,7 +931,7 @@ function showQuantity(product_id_key) {
 }
 
 function getSizeOptions(product_id, make_a_default_qty_id, product_id_key) {
-    $("#loader-img").show();
+    $('#loader-img').show();
     $.ajax({
         type: 'GET',
         dataType: 'html',
@@ -941,14 +941,14 @@ function getSizeOptions(product_id, make_a_default_qty_id, product_id_key) {
         contentType: false,
         processData: false,
         success: function(data) {
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             $("#SizeOptions" + product_id_key).html(data);
         }
     });
 }
 
 function showLoder() {
-    $("#loader-img").show();
+    $('#loader-img').show();
 }
 
 // Sending AJAX request and upload file
@@ -990,7 +990,7 @@ function convertSize(size) {
 }
 
 function update_cumment(skey, product_id, product_key_id) {
-    $("#loader-img").show();
+    $('#loader-img').show();
     var cumment = $("#cumment-" + skey).val();
     if (cumment == '') {
         alert('Enter cumment');
@@ -1010,7 +1010,7 @@ function update_cumment(skey, product_id, product_key_id) {
             'product_key_id': product_key_id
         }),
         success: function(data) {
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             $("#smc-" + skey).prop('disabled', false);
             $("#smc-" + skey).html('Update Note');
         }
@@ -1025,7 +1025,7 @@ function delete_image(skey, product_id, product_key_id) {
 
     $("#smd-" + skey).prop('disabled', true);
     $("#smd-" + skey).html('<img src="<?= $BASE_URL?>/assets/images/loder.gif" width=20>');
-    $("#loader-img").show();
+    $('#loader-img').show();
 
     $.ajax({
         type: 'POST',
@@ -1038,15 +1038,15 @@ function delete_image(skey, product_id, product_key_id) {
             'skey': skey
         }),
         success: function(data) {
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             $("#upload-file-data" + product_key_id + " #teb-" + skey).remove();
         }
     });
 }
 
 function getLengthWidthPrice(product_id_key) {
-    $("#loader-img").show();
-    $(".new-price-img").hide();
+    $('#loader-img').show();
+    $('.new-price-img').hide();
     var myForm = document.getElementById('cartForm-' + product_id_key);
     var formData = new FormData(myForm);
     $.ajax({
@@ -1058,9 +1058,10 @@ function getLengthWidthPrice(product_id_key) {
         contentType: false,
         processData: false,
         success: function(data) {
+            $('#loader-img').hide();
+            $('.new-price-img').show();
+
             var json = JSON.parse(data);
-            $("#loader-img").hide();
-            $(".new-price-img").show();
             if (json.success == 1) {
                 $("#total-price-" + product_id_key).html(json.price);
 

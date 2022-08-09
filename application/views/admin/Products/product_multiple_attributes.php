@@ -456,7 +456,7 @@ function addQuantity(quantity_id) {
     }
     $("#QualityModal").modal('show');
 
-    //$("#loader-img").show();
+    //$('#loader-img').show();
     var url = '<?= $BASE_URL ?>admin/Products/AddEditProductQuantity/' + product_id + '/' + quantity_id;
     $.ajax({
         type: "GET",
@@ -471,7 +471,7 @@ function deleteQuantity(quantity_id) {
     var result = confirm("Are you sure you want to remove Quantity from this product ?");
 
     if (result == true && quantity_id != '') {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?= $BASE_URL ?>admin/Products/deleteProductQuantity/' + product_id + '/' + quantity_id;
         $.ajax({
             type: "GET",
@@ -489,7 +489,7 @@ function addSize(quantity_id, size_id) {
         $("#QualityModal .modal-title").html('Edit Size');
     }
     $("#QualityModal").modal('show');
-    //$("#loader-img").show();
+    //$('#loader-img').show();
     var url = '<?= $BASE_URL ?>admin/Products/AddEditProductSize/' + product_id + '/' + quantity_id + '/' +
         size_id;
     $.ajax({
@@ -522,7 +522,7 @@ function deleteQuantity(quantity_id) {
     var result = confirm("Are you sure you want to remove Quantity from this product ?");
 
     if (result == true && quantity_id != '') {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?= $BASE_URL ?>admin/Products/deleteProductQuantity/' + product_id + '/' + quantity_id;
         $.ajax({
             type: "GET",
@@ -538,7 +538,7 @@ function deleteQuantity(quantity_id) {
     var result = confirm("Are you sure you want to remove Quantity from this product ?");
 
     if (result == true && quantity_id != '') {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?= $BASE_URL ?>admin/Products/deleteProductQuantity/' + product_id + '/' + quantity_id;
         $.ajax({
             type: "GET",
@@ -554,7 +554,7 @@ function deleteProductSize(quantity_id, size_id) {
     var result = confirm("Are you sure you want to remove size from this product & quantity ?");
 
     if (result == true && quantity_id != '') {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?= $BASE_URL ?>admin/Products/deleteProductSize/' + product_id + '/' + quantity_id + '/' +
             size_id;
         $.ajax({
@@ -571,7 +571,7 @@ function deleteAttribute(attributes_item_id) {
     var result = confirm("Are you sure you want to remove item from this product ?");
 
     if (result == true && attributes_item_id != '') {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?= $BASE_URL ?>admin/Products/deleteProductMultipalAttribute/' + attributes_item_id;
         $.ajax({
             type: "GET",

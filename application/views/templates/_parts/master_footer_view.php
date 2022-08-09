@@ -543,7 +543,7 @@ if (language_name == 'French') {
             },
         },
         submitHandler: function(form) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url = '<?=$BASE_URL?>Logins/checkLoginByAjax';
             $("#login-msg").html('');
             $.ajax({
@@ -554,7 +554,7 @@ if (language_name == 'French') {
                     $('button[type=submit]').attr('disabled', true);
                 },
                 success: function(data) {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $('button[type=submit]').attr('disabled', false);
                     let response = JSON.parse(data);
                     let errors = response.errors;
@@ -605,7 +605,7 @@ if (language_name == 'French') {
             },
         },
         submitHandler: function(form) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url = '<?=$BASE_URL?>Logins/checkLoginByAjax';
             $("#login-msg").html('');
             $.ajax({
@@ -616,7 +616,7 @@ if (language_name == 'French') {
                     $('button[type=submit]').attr('disabled', true);
                 },
                 success: function(data) {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $('button[type=submit]').attr('disabled', false);
                     let response = JSON.parse(data);
                     let errors = response.errors;
@@ -699,7 +699,7 @@ if (language_name == 'French') {
         },
 
         submitHandler: function(form) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url = '<?=$BASE_URL?>Logins/signup';
             $("#signup-msg").html('');
             $.ajax({
@@ -710,7 +710,7 @@ if (language_name == 'French') {
                     $('button[type=submit]').attr('disabled', true);
                 },
                 success: function(data) {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $('button[type=submit]').attr('disabled', false);
                     let response = JSON.parse(data);
                     let errors = response.errors;
@@ -789,7 +789,7 @@ if (language_name == 'French') {
             },
         },
         submitHandler: function(form) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url = '<?=$BASE_URL?>Logins/signup';
             $("#signup-msg").html('');
             $.ajax({
@@ -800,7 +800,7 @@ if (language_name == 'French') {
                     $('button[type=submit]').attr('disabled', true);
                 },
                 success: function(data) {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $('button[type=submit]').attr('disabled', false);
                     let response = JSON.parse(data);
                     let errors = response.errors;
@@ -921,7 +921,7 @@ if (language_name == 'French') {
             },*/
         },
         submitHandler: function(form) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url = '<?=$BASE_URL?>Logins/preferred_customer_signup';
             $("#signup-msg").html('');
 
@@ -933,7 +933,7 @@ if (language_name == 'French') {
                     $('button[type=submit]').attr('disabled', true);
                 },
                 success: function(data) {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $('button[type=submit]').attr('disabled', false);
                     var response = JSON.parse(data);
                     var errors = response.errors;
@@ -1003,7 +1003,7 @@ if (language_name == 'French') {
             },*/
         },
         submitHandler: function(form) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url = '<?=$BASE_URL?>Logins/preferred_customer_signup';
             $("#signup-msg").html('');
 
@@ -1015,7 +1015,7 @@ if (language_name == 'French') {
                     $('button[type=submit]').attr('disabled', true);
                 },
                 success: function(data) {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $('button[type=submit]').attr('disabled', false);
                     var response = JSON.parse(data);
                     var errors = response.errors;
@@ -1303,14 +1303,14 @@ $("#checkoutForm").submit(function(e) {
         formsubmit = false;
     }
     if (formsubmit == true) {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?=$BASE_URL?>Logins/checkMobileByAjax';
         $.ajax({
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 $("#checkoutContinue").attr("disabled", true);
                 var json = JSON.parse(data);
                 var status = json.status;
@@ -1431,7 +1431,7 @@ $("#CkLoginForm").submit(function(e) {
     }
 
     if (formsubmit == true) {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?=$BASE_URL?>Logins/checkLoginByAjax';
         $.ajax({
             type: "POST",
@@ -1444,7 +1444,7 @@ $("#CkLoginForm").submit(function(e) {
                 var errors = response.errors;
                 $("#ck_login_password").val('');
                 if (errors && Object.keys(errors).length) {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $("#ck_login_mobile_error").html(errors.loginemail);
                     $("#ck_login_password_error").html(errors.loginpassword);
                     $("#ckloginSubmit").attr("disabled", false);
@@ -1452,7 +1452,7 @@ $("#CkLoginForm").submit(function(e) {
                 } else if (status === 'success') {
                     location.reload();
                 } else {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $("#ck_login_msg").html('<label style="color:red;padding:0px;">' + msg +
                         '</label>');
                     $("#ckloginSubmit").attr("disabled", false);
@@ -1514,14 +1514,14 @@ $("#CksignupForm").submit(function(e) {
     }
 
     if (formsubmit == true) {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?=$BASE_URL?>Logins/signup';
         $.ajax({
             type: "POST",
             url: url,
             data: form.serialize(), // serializes the form's elements.
             success: function(data) {
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 $("#cksignupSubmit").attr("disabled", false);
                 $("#signup_password").val('');
                 var response = JSON.parse(data);
@@ -1611,7 +1611,7 @@ function sendOptToEmail() {
     }
 
     if (formsubmit == true) {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?=$BASE_URL?>MyAccounts/sendOtp';
         $.ajax({
             type: "POST",
@@ -1621,7 +1621,7 @@ function sendOptToEmail() {
                 'type': 'Reset Password'
             }, // serializes the form's elements.
             success: function(data) {
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 $("#login_password").val('');
                 var response = JSON.parse(data);
                 var status = response.status;
@@ -1688,7 +1688,7 @@ if (language_name == 'French') {
         }
 
         if (formsubmit == true) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url = '<?=$BASE_URL?>MyAccounts/saveChangePassword';
             $.ajax({
                 type: "POST",
@@ -1707,7 +1707,7 @@ if (language_name == 'French') {
                     });
 
                     if (status == 1) {
-                        $("#loader-img").hide();
+                        $('#loader-img').hide();
                         $("#forgot_msg").html('<label style="color:green">' + msg + '</label>');
                         if (loginId != '') {
                             setTimeout(function() {
@@ -1768,7 +1768,7 @@ if (language_name == 'French') {
         }
 
         if (formsubmit == true) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url = '<?=$BASE_URL?>MyAccounts/saveChangePassword';
             $.ajax({
                 type: "POST",
@@ -1787,7 +1787,7 @@ if (language_name == 'French') {
                     });
 
                     if (status == 1) {
-                        $("#loader-img").hide();
+                        $('#loader-img').hide();
                         $("#forgot_msg").html('<label style="color:green">' + msg + '</label>');
                         if (loginId != '') {
                             setTimeout(function() {
@@ -1829,7 +1829,7 @@ function cksendOptSignupMobile() {
     }
 
     if (formsubmit == true) {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?=$BASE_URL?>Logins/sendOtpSingup/';
         $.ajax({
             type: "POST",
@@ -1839,7 +1839,7 @@ function cksendOptSignupMobile() {
                 'type': 'Signup'
             }, // serializes the form's elements.
             success: function(data) {
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 $("#ck-signup-continue").attr("disabled", false);
                 var json = JSON.parse(data);
                 var status = json.status;
@@ -1922,7 +1922,7 @@ $('#checkout-address').validate({
         },
     },
     submitHandler: function(form) {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?=$BASE_URL?>MyAccounts/addEditAddress';
         $.ajax({
             type: "POST",
@@ -1939,7 +1939,7 @@ $('#checkout-address').validate({
                 let msg = response.msg;
                 let status = response.status;
                 $("#login-password").val('');
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 if (errors && Object.keys(errors).length) {
                     var validator = $(form).validate();
                     $.each(response.errors, function(key, value) {
@@ -2026,7 +2026,7 @@ $('#add-new-address').validate({
         },
     },
     submitHandler: function(form) {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?=$BASE_URL?>MyAccounts/addEditAddress';
         $.ajax({
             type: "POST",
@@ -2043,7 +2043,7 @@ $('#add-new-address').validate({
                 let msg = response.msg;
                 let status = response.status;
                 $("#login-password").val('');
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 if (errors && Object.keys(errors).length) {
                     var validator = $(form).validate();
                     $.each(response.errors, function(key, value) {
@@ -2114,7 +2114,7 @@ if (language_name == 'French') {
             },
         },
         submitHandler: function(form) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url = '<?=$BASE_URL?>Pages/saveContactUs';
             $.ajax({
                 type: "POST",
@@ -2124,7 +2124,7 @@ if (language_name == 'French') {
                     $('button[type=submit]').attr('disabled', true);
                 },
                 success: function(data) {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $('button[type=submit]').attr('disabled', false);
                     let response = JSON.parse(data);
                     let errors = response.errors;
@@ -2199,7 +2199,7 @@ if (language_name == 'French') {
             },
         },
         submitHandler: function(form) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url = '<?=$BASE_URL?>Pages/saveContactUs';
 
             $.ajax({
@@ -2210,7 +2210,7 @@ if (language_name == 'French') {
                     $('button[type=submit]').attr('disabled', true);
                 },
                 success: function(data) {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $('button[type=submit]').attr('disabled', false);
                     let response = JSON.parse(data);
                     let errors = response.errors;
@@ -2332,7 +2332,7 @@ if (language_name == 'French') {
         },
 
         submitHandler: function(form) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url = '<?=$BASE_URL?>Products/saveEstimate';
             $.ajax({
                 type: "POST",
@@ -2342,7 +2342,7 @@ if (language_name == 'French') {
                     $('button[type=submit]').attr('disabled', true);
                 },
                 success: function(data) {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $('button[type=submit]').attr('disabled', false);
                     let response = JSON.parse(data);
                     let errors = response.errors;
@@ -2451,7 +2451,7 @@ if (language_name == 'French') {
             },
         },
         submitHandler: function(form) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url = '<?=$BASE_URL?>Products/saveEstimate';
             $.ajax({
                 type: "POST",
@@ -2461,7 +2461,7 @@ if (language_name == 'French') {
                     $('button[type=submit]').attr('disabled', true);
                 },
                 success: function(data) {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $('button[type=submit]').attr('disabled', false);
                     let response = JSON.parse(data);
                     let errors = response.errors;
@@ -2510,7 +2510,7 @@ function addProductWishList(product_id) {
         return false;
     }
     if (loginId != '' && product_id != '') {
-        $("#loader-img").show();
+        $('#loader-img').show();
         var url = '<?=$BASE_URL?>Wishlists/addByAjax';
         $.ajax({
             type: "POST",
@@ -2519,7 +2519,7 @@ function addProductWishList(product_id) {
                 'product_id': product_id
             }, // serializes the form's elements.
             success: function(data) {
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 var json = JSON.parse(data);
                 var status = json.status;
                 var msg = json.msg;
@@ -2705,13 +2705,13 @@ $("#WarningModal").modal('show');
 }?>
 
 function COVIDMSGClose() {
-    $("#loader-img").show();
+    $('#loader-img').show();
     var url = '<?=$BASE_URL?>Homes/COVIDMSGClose';
     $.ajax({
         type: "GET",
         url: url,
         success: function(data) {
-            $("#loader-img").hide();
+            $('#loader-img').hide();
             $("#WarningModal").modal('hide');
         },
         error: function(error) {}

@@ -84,8 +84,8 @@
         if (filled < $('.single-review:visible').length)
             return;
 
-        $("#loader-img").show();
-        $(".new-price-img").hide();
+        $('#loader-img').show();
+        $('.new-price-img').hide();
         $.ajax({
             url: '/Products/ProviderPrice',
             type: 'POST',
@@ -93,8 +93,8 @@
             headers: { accept: 'application/json' },
             success: function(data) {
                 if (filled == $('.single-review:visible').length) {
-                    $("#loader-img").hide();
-                    $(".new-price-img").show();
+                    $('#loader-img').hide();
+                    $('.new-price-img').show();
                 }
                 if (data.success) {
                     var price = data.price.price == NaN ? 0 : data.price.price * <?= $provider->price_rate?>;
@@ -105,8 +105,8 @@
             },
             error: function (resp) {
                 console.log(resp);
-                $("#loader-img").hide();
-                $(".new-price-img").show();
+                $('#loader-img').hide();
+                $('.new-price-img').show();
             }
         });
         return;

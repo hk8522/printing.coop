@@ -316,28 +316,56 @@
 <script>
 
     function setQuantity() {
-        quantity = $("#quantity").val();
-        if (quantity == '' || quantity == 0) {
-            $("#quantity").val('1');
-        }
-        $("#total-price").html($('[name="price"]').val() * $("#quantity").val());
-     }
+        var quantity = $("#quantity").val();
+        <?php if ($provider) { ?>
+            if (quantity == '' || quantity == 0) {
+                $("#quantity").val('1');
+            }
+            $('#total-price').html($('[name="price"]').val() * $("#quantity").val());
+        <?php } else{ ?>
+            if (quantity == '' || quantity == 0) {
+                $("#quantity").val('1');
+            }
+            var formData = new FormData($('#cartForm')[0]);
+            $('#loader-img').show();
+            $('.new-price-img').hide();
+                
+            $.ajax({
+                type: 'POST',
+                dataType: 'html',
+                url: '<?= $BASE_URL?>Products/calculatePrice',
+                data: formData,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function (data) {
+                    $('#loader-img').hide();
+                    $('.new-price-img').show();
 
-     function update_cumment(skey) {
+                    var json = JSON.parse(data);
+                    if (json.success == 1) {
+                        $('#total-price').html(json.price);	
+                    }
+                }
+            });        
+        <?php } ?>
+    }
+
+    function update_cumment(skey) {
         var cumment = $("#cumment-"+skey).val();
         var product_id = '<?= $product_id?>';
         if (cumment == '') { alert('Enter cumment'); return false}
 
         $("#smc-"+skey).prop('disabled', true);
         $("#smc-"+skey).html('<img src="<?= $BASE_URL?>/assets/images/loder.gif" width=20>');
-        $("#loader-img").show();
+        $('#loader-img').show();
         $.ajax({
             type: 'POST',
             dataType: 'html',
             url: '<?= $BASE_URL?>Products/updateCumment',
             data: ({'cumment':cumment,'product_id':product_id,'skey':skey}),
             success: function (data) {
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 $("#smc-" + skey).prop('disabled', false);
                 $("#smc-" + skey).html('Update Note');
             }
@@ -351,14 +379,14 @@
 
         $("#smd-" + skey).prop('disabled', true);
         $("#smd-" + skey).html('<img src="<?= $BASE_URL?>/assets/images/loder.gif" width=20>');
-        $("#loader-img").show();
+        $('#loader-img').show();
         $.ajax({
             type: 'POST',
             dataType: 'html',
             url: '<?= $BASE_URL?>Products/deleteImage',
             data: ({'location':location,'product_id':product_id,'skey':skey}),
             success: function (data) {
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 //$("#smd-" + skey).prop('disabled', false);
                 //$("#smd-" + skey).html('<i class="las la-trash"></i>');
                 $("#upload-file-data #teb-"+skey).remove();
@@ -374,7 +402,7 @@
     }
 
     $('form#cartForm').on('submit', function (e) {
-        $("#loader-img").show();
+        $('#loader-img').show();
         $("#btnSubmit").prop('disabled', true);
         e.preventDefault();
         var url ='<?= $BASE_URL ?>ShoppingCarts/addToCart';
@@ -385,7 +413,7 @@
             cache: false,
             headers: { accept: 'application/json' },
             success: function(data) {
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 var json = JSON.parse(data);
                 var status = json.status;
                 var msg = json.msg;

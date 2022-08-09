@@ -303,7 +303,7 @@ $pageSizes = [10, 15, 20, 50, 100];
 
         $('#sina_ship_methods form').submit(function(e) {
             e.preventDefault();
-            $("#loader-img").show();
+            $('#loader-img').show();
 
             $.post('/admin/Orders/sendToSina', $(this).serialize())
             .done(function (response) {
@@ -313,11 +313,11 @@ $pageSizes = [10, 15, 20, 50, 100];
                     kendo.alert(response.message);
                 $('#sina_ship_methods').data('kendoWindow').close();
                 refreshGrid('orders-grid');
-                $("#loader-img").hide();
+                $('#loader-img').hide();
             }).fail(function (error) {
                 kendo.alert(error);
                 refreshGrid('orders-grid');
-                $("#loader-img").hide();
+                $('#loader-img').hide();
             });
             return false;
         });
@@ -338,7 +338,7 @@ $pageSizes = [10, 15, 20, 50, 100];
         }
         window.data('kendoWindow').center().open();
 
-        $("#loader-img").show();
+        $('#loader-img').show();
 
         $('#sina_ship_methods [name="id"]').val(id);
 
@@ -361,7 +361,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                     display_kendoui_grid_error(e);
                     // Cancel the changes
                     this.cancelChanges();
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                 },
                 serverPaging: true,
                 serverFiltering: true,
@@ -369,7 +369,7 @@ $pageSizes = [10, 15, 20, 50, 100];
             },
             scrollable: false,
             dataBound: function() {
-                $("#loader-img").hide();
+                $('#loader-img').hide();
             },
             columns: [{
                 field: 'name',
@@ -392,14 +392,14 @@ $pageSizes = [10, 15, 20, 50, 100];
     }
 
     function showProviderInfo(order_id) {
-        $("#loader-img").show();
+        $('#loader-img').show();
 
         $.ajax({
             type: "GET",
             url: `/admin/Orders/provider/${order_id}`,
             success: function(resp)
             {
-                $("#loader-img").hide();
+                $('#loader-img').hide();
                 console.log(resp);
 
                 $('#sina_provider_orders ul').empty();
@@ -675,7 +675,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 url: url,
                 success: function(data)
                 {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $("#myModal #order_id").val(order_id);
                     $("#myModal #status").val(status);
                     $("#myModal #page_status").val(page_status);
@@ -698,7 +698,7 @@ $pageSizes = [10, 15, 20, 50, 100];
         var order_id_new = $("#myModal #order_id_new").val();
 
         if (formsubmit == true) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url ='<?= $BASE_URL?>admin/Orders/changeOrderStatus';
             $.ajax({
                 type: "POST",
@@ -706,7 +706,7 @@ $pageSizes = [10, 15, 20, 50, 100];
                 data: form.serialize(), // serializes the form's elements.
                 success: function(data)
                 {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     var json = JSON.parse(data);
                     var res = json.status;
                     var msg = json.msg;
@@ -768,7 +768,7 @@ $pageSizes = [10, 15, 20, 50, 100];
         var transition_id = $("#transition_id").val();
 
         if (formsubmit == true) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             var url ='<?= $BASE_URL?>admin/Orders/changeOrderPaymentStatus';
             $.ajax({
                 type: "POST",
@@ -777,7 +777,7 @@ $pageSizes = [10, 15, 20, 50, 100];
 
                 success: function(data)
                 {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     var json = JSON.parse(data);
                     var res=json.status;
                     var msg=json.msg;

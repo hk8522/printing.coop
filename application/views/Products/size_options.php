@@ -71,8 +71,8 @@ foreach ($AtirbuteProductSizes as $mkey => $mval) {
 ?>
 <script>
 function getQuantityPrice(nid) {
-    $("#loader-img").show();
-    $(".new-price-img").hide();
+    $('#loader-img').show();
+    $('.new-price-img').hide();
     var myForm = document.getElementById('cartForm');
     var formData = new FormData(myForm);
     $.ajax({
@@ -84,27 +84,27 @@ function getQuantityPrice(nid) {
         contentType: false,
         processData: false,
         success: function(data) {
+            $('#loader-img').hide();
+            $('.new-price-img').show();
+
             var json = JSON.parse(data);
-            $("#loader-img").hide();
-            $(".new-price-img").show();
             if (json.success == 1) {
                 $("#" + nid).attr("disabled", false);
 
-                // $('[name="price"]').val(json.price);
-                $("#total-price").html((json.price * $("#quantity").val()).toFixed(2));
+                $('#total-price').html(json.price);
             }
         },
         error: function(resp) {
             console.log(resp);
-            $("#loader-img").hide();
-            $(".new-price-img").show();
+            $('#loader-img').hide();
+            $('.new-price-img').show();
         }
     });
 }
 
 function getPaperPrice(nid) {
-    $("#loader-img").show();
-    $(".new-price-img").hide();
+    $('#loader-img').show();
+    $('.new-price-img').hide();
     var myForm = document.getElementById('cartForm');
     var formData = new FormData(myForm);
     $.ajax({
@@ -116,14 +116,13 @@ function getPaperPrice(nid) {
         contentType: false,
         processData: false,
         success: function(data) {
+            $('#loader-img').hide();
+            $('.new-price-img').show();
+
             var json = JSON.parse(data);
-            $("#loader-img").hide();
-            $(".new-price-img").show();
             if (json.success == 1) {
                 $("#attribute_id_" + nid).attr("disabled", false);
-
-                // $('[name="price"]').val(json.price);
-                $("#total-price").html((json.price * $("#quantity").val()).toFixed(2));
+                $('#total-price').html(json.price);
             }
         }
     });

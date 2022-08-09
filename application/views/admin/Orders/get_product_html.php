@@ -280,7 +280,7 @@ if (isset($_SESSION['product_list'])) {
         </form>
         <script>
         $('form#cartForm-' + '<?= $product_id_key ?>').on('submit', function(e) {
-            $("#loader-img").show();
+            $('#loader-img').show();
             $('input[type="submit"]').prop('disabled', true);
             $('input[type="button"]').prop('disabled', true);
             var formData = new FormData(this);
@@ -296,7 +296,7 @@ if (isset($_SESSION['product_list'])) {
                 contentType: false,
                 processData: false,
                 success: function(data) {
-                    $("#loader-img").hide();
+                    $('#loader-img').hide();
                     $('input[type="submit"]').prop('disabled', true);
                     $('input[type="button"]').prop('disabled', true);
                     var json = JSON.parse(data);
@@ -390,8 +390,8 @@ if (isset($_SESSION['product_list'])) {
         });
 
         function showAttribute(cid, nid) {
-            $("#loader-img").show();
-            $(".new-price-img").hide();
+            $('#loader-img').show();
+            $('.new-price-img').hide();
             var item_val = $("#attribute_id_" + cid).val();
             var myForm = document.getElementById('cartForm');
             var formData = new FormData(myForm);
@@ -404,25 +404,26 @@ if (isset($_SESSION['product_list'])) {
                 contentType: false,
                 processData: false,
                 success: function(data) {
+                    $('#loader-img').hide();
+                    $('.new-price-img').show();
+
                     var json = JSON.parse(data);
-                    $("#loader-img").hide();
-                    $(".new-price-img").show();
                     if (json.success == 1) {
                         $("#attribute_id_" + nid).attr("disabled", false);
-                        $("#total-price").html(json.price);
+                        $('#total-price').html(json.price);
                     }
                 },
                 error: function(resp) {
                     console.log(resp);
-                    $("#loader-img").hide();
-                    $(".new-price-img").show();
+                    $('#loader-img').hide();
+                    $('.new-price-img').show();
                 }
             });
         }
 
         function showQuantity() {
-            $("#loader-img").show();
-            $(".new-price-img").hide();
+            $('#loader-img').show();
+            $('.new-price-img').hide();
             $(".multipal_size").html('<option value="">Choose an option...</option>');
             var myForm = document.getElementById('cartForm');
             var formData = new FormData(myForm);
@@ -436,8 +437,8 @@ if (isset($_SESSION['product_list'])) {
                 processData: false,
                 success: function(data) {
                     var json = JSON.parse(data);
-                    $("#loader-img").hide();
-                    $(".new-price-img").show();
+                    $('#loader-img').hide();
+                    $('.new-price-img').show();
                     if (json.success == 1) {
                         if (json.sizeoptions == '0') {
                             $("#attribute_id_2").attr("disabled", false);
@@ -445,7 +446,7 @@ if (isset($_SESSION['product_list'])) {
                         } else {
                             $("#SizeOptions").html(json.sizeoptions);
                         }
-                        $("#total-price").html(json.price);
+                        $('#total-price').html(json.price);
                     }
                 }
             });

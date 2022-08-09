@@ -174,8 +174,8 @@ if (!empty($bundling)) {
 }?>
 <script>
     function getQuantityPrice(nid, product_id_key) {
-        $("#loader-img").show();
-        $(".new-price-img").hide();
+        $('#loader-img').show();
+        $('.new-price-img').hide();
         var myForm = document.getElementById('cartForm-' + product_id_key);
         var formData = new FormData(myForm);
         $.ajax({
@@ -187,9 +187,10 @@ if (!empty($bundling)) {
             contentType: false,
             processData: false,
             success: function (data) {
+                $('#loader-img').hide();
+                $('.new-price-img').show();
+
                 var json = JSON.parse(data);
-                    $("#loader-img").hide();
-                    $(".new-price-img").show();
                 if (json.success == 1) {
                     $("#" + nid).attr("disabled", false);
 
@@ -200,8 +201,8 @@ if (!empty($bundling)) {
     }
 
     function getPaperPrice(nid,product_id_key) {
-        $("#loader-img").show();
-        $(".new-price-img").hide();
+        $('#loader-img').show();
+        $('.new-price-img').hide();
 
         var myForm = document.getElementById('cartForm-' + product_id_key);
 
@@ -215,10 +216,11 @@ if (!empty($bundling)) {
             contentType: false,
             processData: false,
             success: function (data) {
+                $('#loader-img').hide();
+                $('.new-price-img').show();
+
                 var json = JSON.parse(data);
-                    $("#loader-img").hide();
-                    $(".new-price-img").show();
-                if (json.success==1) {
+                if (json.success == 1) {
                     $("#attribute_id_" + nid).attr("disabled", false);
 
                     $("#total-price-" + product_id_key).html(json.price);
