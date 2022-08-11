@@ -342,9 +342,9 @@ $pageSizes = [10, 15, 20, 50, 100];
         function sendToSina(id, shipping_method_formate) {
             var tokens = shipping_method_formate.split('-');
             var shipping_method = tokens.length == 3 ? tokens[2] : shipping_method_formate;
-            var window = $('#sina_ship_methods');
-            if (!window.data('kendoWindow')) {
-                window.kendoWindow({
+            var wnd = $('#sina_ship_methods');
+            if (!wnd.data('kendoWindow')) {
+                wnd.kendoWindow({
                     modal: true,
                     title: 'Select a Shipment Method',
                     actions: ['Close'],
@@ -352,7 +352,10 @@ $pageSizes = [10, 15, 20, 50, 100];
                     height: '80%',
                 });
             }
-            window.data('kendoWindow').center().open();
+            wnd.data('kendoWindow').center().open();
+            $('.k-overlay').click(function() {
+                $('#attribute-items').data('kendoWindow').close();
+            });
 
             $('#loader-img').show();
 
@@ -460,9 +463,9 @@ $pageSizes = [10, 15, 20, 50, 100];
                         $('#sina_provider_orders ul').append(`<li><ul>${content}</ul></li>`);
                     }
 
-                    var window = $('#sina_provider_orders');
-                    if (!window.data('kendoWindow')) {
-                        window.kendoWindow({
+                    var wnd = $('#sina_provider_orders');
+                    if (!wnd.data('kendoWindow')) {
+                        wnd.kendoWindow({
                             modal: true,
                             title: 'Provider Order Info',
                             actions: ['Close'],
@@ -470,7 +473,10 @@ $pageSizes = [10, 15, 20, 50, 100];
                             height: '80%',
                         });
                     }
-                    window.data('kendoWindow').center().open();
+                    wnd.data('kendoWindow').center().open();
+                    $('.k-overlay').click(function() {
+                        $('#attribute-items').data('kendoWindow').close();
+                    });
                 }
             });
         }

@@ -3119,4 +3119,72 @@ class Product_Model extends MY_Model
 
         $data = $this->db->get()->result();
     }
+
+    public function getAttributesMap($q, $take, $skip, &$data, &$total)
+    {
+        $this->db->select('COUNT(*)');
+        $this->db->from('attributes');
+        $this->db->like('name', $q);
+        $total = $this->db->get()->row();
+        $total = reset($total);
+
+        $this->db->select('attributes.*, COUNT(DISTINCT(attribute_items.id)) AS item_count');
+        $this->db->from('attributes');
+        $this->db->join('attribute_items', 'attribute_items.attribute_id=attributes.id', 'left');
+        $this->db->group_by('attributes.id');
+        $this->db->like('attributes.name', $q);
+        $take = $take > 0 ? $take : 0;
+        $skip = $skip > 0 ? $skip : 0;
+        if ($take > 0) {
+            $this->db->limit($take, $skip);
+        } else {
+            $this->db->offset($skip);
+        }
+
+        $data = $this->db->get()->result();
+    }
+
+    public function updateAttribute($id, $label, $label_fr, $type)
+    {
+        $this->db->set('label', $label);
+        $this->db->set('label_fr', $label_fr);
+        $this->db->set('type', $type);
+        $this->db->where('id', $id);
+        $this->db->update('attributes');
+    }
+
+    public function getAttributeItemsMap($attribute_id, $q, $take, $skip, &$data, &$total)
+    {
+        $this->db->select('COUNT(*)');
+        $this->db->from('attribute_items');
+        if ($attribute_id)
+            $this->db->where('attribute_id', $attribute_id);
+        $this->db->like('name', $q);
+        $total = $this->db->get()->row();
+        $total = reset($total);
+
+        $this->db->select('attribute_items.*, attributes.name AS attribute_name');
+        $this->db->from('attribute_items');
+        $this->db->join('attributes', 'attributes.id=attribute_items.attribute_id');
+        if ($attribute_id)
+            $this->db->where('attribute_id', $attribute_id);
+        $this->db->like('attribute_items.name', $q);
+        $take = $take > 0 ? $take : 0;
+        $skip = $skip > 0 ? $skip : 0;
+        if ($take > 0) {
+            $this->db->limit($take, $skip);
+        } else {
+            $this->db->offset($skip);
+        }
+
+        $data = $this->db->get()->result();
+    }
+
+    public function updateAttributeItem($id, $name, $name_fr)
+    {
+        $this->db->set('name', $name);
+        $this->db->set('name_fr', $name_fr);
+        $this->db->where('id', $id);
+        $this->db->update('attribute_items');
+    }
 }

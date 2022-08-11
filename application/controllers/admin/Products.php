@@ -2475,4 +2475,81 @@ Coating";
             ->set_content_type('application/json')
             ->set_output(json_encode(['success' => true]));
     }
+
+    public function AttributesMap()
+    {
+        if ($this->input->server('REQUEST_METHOD') === 'GET') {
+            $this->render($this->class_name . 'attributes');
+        } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
+            $q = $this->input->post('q');
+
+            $page = $this->input->post('page');
+            $pageSize = $this->input->post('pageSize');
+            $take = $pageSize;
+            $skip = $pageSize * ($page - 1);
+            $this->Product_Model->getAttributesMap($q, $take, $skip, $data, $total);
+
+            $gridModel = [
+                'extra_data' => null,
+                'data' => $data,
+                'errors' => null,
+                'total' => $total,
+            ];
+
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($gridModel));
+        }
+    }
+
+    public function AttributeUpdateMap()
+    {
+        $id = $this->input->post('id');
+        $label = $this->input->post('label');
+        $label_fr = $this->input->post('label_fr');
+        $type = $this->input->post('type');
+        $this->Product_Model->updateAttribute($id, $label, $label_fr, $type);
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode(['success' => true]));
+    }
+
+    public function AttributeItemsMap(int $attribute_id = null)
+    {
+        if ($this->input->server('REQUEST_METHOD') === 'GET') {
+            $this->render($this->class_name . 'attribute_items');
+        } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
+            $q = $this->input->post('q');
+
+            $page = $this->input->post('page');
+            $pageSize = $this->input->post('pageSize');
+            $take = $pageSize;
+            $skip = $pageSize * ($page - 1);
+            $this->Product_Model->getAttributeItemsMap($attribute_id, $q, $take, $skip, $data, $total);
+
+            $gridModel = [
+                'extra_data' => null,
+                'data' => $data,
+                'errors' => null,
+                'total' => $total,
+            ];
+
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($gridModel));
+        }
+    }
+
+    public function AttributeItemUpdateMap()
+    {
+        $id = $this->input->post('id');
+        $name = $this->input->post('name');
+        $name_fr = $this->input->post('name_fr');
+        $this->Product_Model->updateAttributeItem($id, $name, $name_fr);
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode(['success' => true]));
+    }
 }
