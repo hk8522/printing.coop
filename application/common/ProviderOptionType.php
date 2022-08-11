@@ -10,10 +10,10 @@ class ProviderOptionType {
     const Length = 4;
     const Depth = 5;
     const Diameter = 6;
-    const Pages = 6;
-    const Stock = 7;
-    const Color = 8;
-    const Finishing = 9;
+    const Pages = 7;
+    const Stock = 8;
+    const Color = 9;
+    const Finishing = 10;
     const Normal = 999;
     const Turnaround = 1000;
 
