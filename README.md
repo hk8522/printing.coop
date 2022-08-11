@@ -53,4 +53,9 @@
   GROUP BY `product_attribute_item_datas`.`product_id`, `attributes`.`id`, `attribute_items`.`id`;
 
 - Products/Attributes
+  ALTER TABLE `modules` CHANGE `class` `class` VARCHAR(250) CHARSET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'fa fab fa-product-hunt' NULL; 
   INSERT INTO `sub_modules` (`module_id`, `sub_module_name`, `order`, `url`, `class`, `action`) VALUES ('1', 'Attributes', '7', 'Products/AttributesMap', 'Products', 'AttributesMap');
+  UPDATE `modules` SET `class`=CONCAT('fa ', `class`);
+  UPDATE `modules` SET `class` = 'fa fas fa-users' WHERE `id` = '2';
+  UPDATE `modules` SET `class` = 'fa fa-refresh' WHERE `id` = '3'; 
+  UPDATE `sub_modules` SET `sub_module_class`=CONCAT('fa ', `sub_module_class`);

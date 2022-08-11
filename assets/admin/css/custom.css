@@ -3656,3 +3656,6 @@ ul.dropdown .open-dropdown {
     padding: 0px;
     margin: 0px;
 }
+.treeview-menu li a i {
+	margin-left: 15px;
+}

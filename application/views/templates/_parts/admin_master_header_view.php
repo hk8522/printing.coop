@@ -11,7 +11,7 @@
     <link rel="shortcut icon" type="image/png" href="<?=$BASE_URL?>assets/images/favicon.png" />
     <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/admin/css/bootstrap.css" />
     <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/admin/css/bootstrap-select.css" />
-    <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/admin/css/font-awesome.css" />
     <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/admin/css/ionicons.css" />
     <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/admin/css/morris.css" />
     <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/admin/css/blueAdminLTE.css" />
@@ -112,7 +112,7 @@
                 <ul class="sidebar-menu">
                     <li class="treeview <?php if (in_array($CLASS_NAME, array('dashboards'))) { echo 'active'; } ?>">
                         <a href="<?=$BASE_URL_ADMIN?>Dashboards">
-                            <i class="fa fas fa-tachometer-alt"></i>
+                            <i class="fa fa-tachometer"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
@@ -139,7 +139,7 @@
                                         $show_menu = $sval['show_menu'];
                                         $url = $sval['url'];
                                         $sub_module_name = $sval['sub_module_name'];
-                                        $sub_module_class = $module['sub_module_class'] ?? '';
+                                        $sub_module_class = $sval['sub_module_class'] ?? '';
                                         $url_prem = explode("/", $url);
                                         $url_prem = isset($url_prem['2']) ? $url_prem['2'] : '';
                                         if ($show_menu && in_array($skey, $AdminSubModule)) {
