@@ -49,9 +49,9 @@ class ProviderOptionType {
         self::Turnaround => ['turnaround'],
     ];
 
-    public function type(string $name)
+    public static function type(string $name)
     {
-        foreach ($matches as $type => $match) {
+		foreach (self::matches as $type => $match) {
             if (array_search(strtolower($name), $match, true) !== false)
                 return $type;
         }
