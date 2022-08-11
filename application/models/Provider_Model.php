@@ -120,6 +120,8 @@ Class Provider_Model extends MY_Model {
 
     function updateProductInfoNormal($product, $productInfo)
     {
+        echo json_encode($productInfo[0]);
+        die();
         /**
          * provider_options
          **/
@@ -163,7 +165,7 @@ Class Provider_Model extends MY_Model {
         $data = $this->db->get()->result();
         $options = [];
         foreach ($data as $item) {
-            $options[$item->name] = $item;
+            $options[strtolower($item->name)] = $item;
         }
 
         /**
@@ -182,7 +184,7 @@ Class Provider_Model extends MY_Model {
         $news = [];
 
         foreach ($productInfo[0] as $option) {
-            $option_id = $options[$option->group]->id;
+            $option_id = $options[strtolower($option->group)]->id;
             $key = $option_id . '-' . $option->id;
             if (!array_key_exists($key, $originals)) {
                 if (!array_key_exists($key, $news)) {
@@ -224,7 +226,7 @@ Class Provider_Model extends MY_Model {
 
         $news = [];
         foreach ($productInfo[0] as $option) {
-            $option_id = $options[$option->group]->id;
+            $option_id = $options[strtolower($option->group)]->id;
             if (array_key_exists($option_id, $originals) && array_key_exists($option->id, $originals[$option_id])) {
                 $originals[$option_id][$option->id]->deleted = 0;
             } else {
@@ -607,6 +609,7 @@ Class Provider_Model extends MY_Model {
         else
             $this->db->offset($skip);
         $data = $this->db->get()->result();
+        echo $this->db->last_query();
     }
 
     public function getProductOptionValues($provider_id, $provider_product_id)
