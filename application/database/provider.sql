@@ -43,7 +43,7 @@ CREATE TABLE `provider_options` (
   `provider_option_id` bigint(20) unsigned DEFAULT NULL,
   `name` varchar(255) NOT NULL,
   `label` varchar(255) NOT NULL,
-  `type` int(11) DEFAULT 2,
+  `type` int(11) DEFAULT 999,
   `attribute_id` bigint(20) unsigned DEFAULT NULL,
   `html_type` varchar(16) DEFAULT NULL,
   `sort_order` int(11) DEFAULT 0,

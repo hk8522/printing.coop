@@ -136,11 +136,7 @@ Class Provider_Model extends MY_Model {
         foreach ($productInfo[0] as $option) {
             if (!array_key_exists(strtolower($option->group), $originals)) {
                 if (!array_key_exists(strtolower($option->group), $news)) {
-                    $type = ProviderOptionType::Normal;
-                    if (strcasecmp($option->group, 'size') == 0)
-                        $type = ProviderOptionType::Size;
-                    if (strcasecmp($option->group, 'qty') == 0 || strcasecmp($option->group, 'quantity') == 0)
-                        $type = ProviderOptionType::Quantity;
+                    $type = ProviderOptionType::type($option->group);
                     $news[strtolower($option->group)] = (object) [
                         'provider_id' => $product->provider_id,
                         'name' => $option->group,
@@ -268,13 +264,7 @@ Class Provider_Model extends MY_Model {
         foreach ($productInfo[0] as $option) {
             if (!array_key_exists(strtolower($option->name), $originals)) {
                 if (!array_key_exists(strtolower($option->name), $news)) {
-                    $type = ProviderOptionType::Normal;
-                    if (strcasecmp($option->name, 'size') == 0)
-                        $type = ProviderOptionType::Size;
-                    if (strcasecmp($option->name, 'qty') == 0 || strcasecmp($option->name, 'quantity') == 0)
-                        $type = ProviderOptionType::Quantity;
-                    if (strcasecmp($option->name, 'turnaround') == 0)
-                        $type = ProviderOptionType::Turnaround;
+                    $type = ProviderOptionType::type($option->group);
                     $news[strtolower($option->name)] = (object) [
                         'provider_id' => $product->provider_id,
                         'provider_option_id' => $option->option_id,

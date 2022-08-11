@@ -51,3 +51,6 @@
     INNER JOIN `product_attribute_items` ON `product_attribute_items`.`id`=`product_attribute_item_datas`.`attribute_item_id`
     INNER JOIN `attribute_items` ON `attribute_items`.`attribute_id`=`attributes`.`id` AND `attribute_items`.`name`=TRIM(`product_attribute_items`.`item_name`)
   GROUP BY `product_attribute_item_datas`.`product_id`, `attributes`.`id`, `attribute_items`.`id`;
+
+- Products/Attributes
+  INSERT INTO `sub_modules` (`module_id`, `sub_module_name`, `order`, `url`, `class`, `action`) VALUES ('1', 'Attributes', '7', 'Products/AttributesMap', 'Products', 'AttributesMap');
