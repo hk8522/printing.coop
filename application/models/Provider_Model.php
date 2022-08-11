@@ -264,7 +264,7 @@ Class Provider_Model extends MY_Model {
         foreach ($productInfo[0] as $option) {
             if (!array_key_exists(strtolower($option->name), $originals)) {
                 if (!array_key_exists(strtolower($option->name), $news)) {
-                    $type = ProviderOptionType::type($option->group);
+                    $type = ProviderOptionType::type($option->name);
                     $news[strtolower($option->name)] = (object) [
                         'provider_id' => $product->provider_id,
                         'provider_option_id' => $option->option_id,
