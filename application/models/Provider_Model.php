@@ -120,8 +120,6 @@ Class Provider_Model extends MY_Model {
 
     function updateProductInfoNormal($product, $productInfo)
     {
-        echo json_encode($productInfo[0]);
-        die();
         /**
          * provider_options
          **/
@@ -609,7 +607,6 @@ Class Provider_Model extends MY_Model {
         else
             $this->db->offset($skip);
         $data = $this->db->get()->result();
-        echo $this->db->last_query();
     }
 
     public function getProductOptionValues($provider_id, $provider_product_id)
