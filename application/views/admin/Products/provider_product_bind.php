@@ -1,46 +1,40 @@
-<section class="content">
-    <div class="row">
-        <div class="col-xs-12 col-md-12">
-            <div class="box">
-                <div class="box-header">
-                    <h2><?= $product->name?></h2>
-                    <?php
-                    if ($product->product_id) { ?>
-                    <a class="provider-product-unlink" href="/admin/Products/ProviderProductUnbind/<?= $product->id?>" title="Unbind">
-                        <div class="action">
-                            <svg class="bi b-icon" width="2em" height="2em" fill="currentColor">
-                                <use xlink:href="/assets/images/bootstrap-icons.svg#link-45deg"/>
-                            </svg>
-                            <svg class="bi b-icon" width="2em" height="2em" fill="currentColor">
-                                <use xlink:href="/assets/images/bootstrap-icons.svg#x"/>
-                            </svg>
+<div class="k-card">
+    <div class="k-card-header">
+        <h2 class="k-card-title"><?= $product->name?></h2>
+        <?php
+        if ($product->product_id) { ?>
+        <a class="k-card-subtitle provider-product-unlink" href="/admin/Products/ProviderProductUnbind/<?= $product->id?>" title="Unbind">
+            <div class="action">
+                <svg class="bi b-icon" width="2em" height="2em" fill="currentColor">
+                    <use xlink:href="/assets/images/bootstrap-icons.svg#link-45deg"/>
+                </svg>
+                <svg class="bi b-icon" width="2em" height="2em" fill="currentColor">
+                    <use xlink:href="/assets/images/bootstrap-icons.svg#x"/>
+                </svg>
+            </div>
+        </a>
+        <?php } ?>
+    </div>
+    <div class="k-card-body">
+        <div class="inner-head-section">
+            <div class="row align-items-end">
+                <div class="col-md-12">
+                    <div class="search-box-area">
+                        <div class="search-sugg">
+                            <label class="span2">Search</label>
+                            <input class="form-control" type="text" placeholder="Search Product" value="<?= $product->product_name?>" onkeyup="searchProduct($(this).val())">
+                            <!--<button type="button"><i class="fa fas fa-search"></i></button>-->
                         </div>
-                    </a>
-                    <?php } ?>
-                </div>
-                <div class="box-body">
-                    <div class="inner-head-section">
-                        <div class="row align-items-end">
-                            <div class="col-md-12">
-<div class="search-box-area">
-    <div class="search-sugg">
-        <label class="span2">Search</label>
-        <input class="form-control" type="text" placeholder="Search Product" value="<?= $product->product_name?>" onkeyup="searchProduct($(this).val())">
-        <!--<button type="button"><i class="fa fas fa-search"></i></button>-->
-    </div>
-    <div class="search-result" style="display:none"><!-- Add "active" class to show -->
-        <a href="javascript:void(0)" onclick="hideSearchResult()"><i class="fa fas fa-times" ></i></a>
-        <ul></ul>
-    </div>
-</div>
-                            </div>
+                        <div class="search-result" style="display:none"><!-- Add "active" class to show -->
+                            <a href="javascript:void(0)" onclick="hideSearchResult()"><i class="fa fas fa-times" ></i></a>
+                            <ul></ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 <script>
     $(document).ready(function() {
         searchProduct('<?= $product->product_name?>');

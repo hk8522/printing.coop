@@ -1,23 +1,25 @@
 <form id="price-rate-form" method="post" action="/admin/Products/ProviderProductPriceRate/<?= $product->id?>">
-    <div class="card">
-        <div class="card-header">
-            <h3>Update Price Rate</h3>
+    <div class="k-card">
+        <div class="k-card-header">
+            <h3 class="k-card-title">Update Price Rate</h3>
         </div>
-        <div class="card-body">
+        <div class="k-card-body">
             <div class="form-horizontal">
                 <div class="form-body">
                     <div class="form-group">
-                        <label for="price_rate" class="control-label">Price Rate</label>
-                        <input class="form-control" type="text" placeholder="Price Rate" name="price_rate" value="<?= $product->price_rate?>">
+                        <label for="price_rate" class="control-label col-md-3 col-sm-3">Price Rate</label>
+                        <input class="form-control col-md-9 col-sm-9" type="text" placeholder="Price Rate" name="price_rate" value="<?= $product->price_rate?>">
                     </div>
                 </div>
             </div>
         </div>
-        <div class="card-footer section-divide1">
+        <div class="k-card-actions">
             <div class="stats"></div>
-            <button class="btn btn-success filter-submit" type="submit">
-                <i class="fa fa-check"></i> Update
-            </button>
+            <span class="k-card-action">
+                <button type="submit" class="k-button k-button-flat-primary k-button-flat k-button-md k-rounded-md filter-submit">
+                    <i class="fa fa-check"></i> Update
+                </button>
+            </span>
         </div>
     </div>
 </form>
@@ -28,16 +30,18 @@
             $('#loader-img').show();
             $.post('/admin/Products/ProviderProductPriceRate/<?= $product->id?>', $(this).serialize())
             .done(function (response) {
-                if (!response)
-                    kendo.alert('Error occurred.');
-                else if (!response.success)
-                    kendo.alert(response.message);
-                refreshGrid('products-grid');
                 $('#loader-img').hide();
+                if (!response) {
+                    kendo.alert('Error occurred.');
+                    return;
+                } else if (!response.success) {
+                    kendo.alert(response.message);
+                    return;
+                }
+                refreshGrid('products-grid');
                 $.magnificPopup.close();
             }).fail(function (error) {
                 kendo.alert(error);
-                refreshGrid('products-grid');
                 $('#loader-img').hide();
             });
         });

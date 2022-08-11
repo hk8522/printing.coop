@@ -2479,6 +2479,7 @@ Coating";
     public function AttributesMap()
     {
         if ($this->input->server('REQUEST_METHOD') === 'GET') {
+            $this->data['page_title'] = 'Attributes';
             $this->render($this->class_name . 'attributes');
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $q = $this->input->post('q');
@@ -2502,13 +2503,41 @@ Coating";
         }
     }
 
+    public function AttributeCreateMap()
+    {
+        $name = $this->input->post('name');
+        $label = $this->input->post('label');
+        $label_fr = $this->input->post('label_fr');
+        $type = $this->input->post('type');
+        $error = $this->Product_Model->attributeCreate($name, $label, $label_fr, $type);
+
+        if ($error)
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success' => false, 'message' => $error]));
+        else
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success' => true]));
+    }
+
     public function AttributeUpdateMap()
     {
         $id = $this->input->post('id');
         $label = $this->input->post('label');
         $label_fr = $this->input->post('label_fr');
         $type = $this->input->post('type');
-        $this->Product_Model->updateAttribute($id, $label, $label_fr, $type);
+        $this->Product_Model->attributeUpdate($id, $label, $label_fr, $type);
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode(['success' => true]));
+    }
+
+    public function AttributeDeleteMap()
+    {
+        $id = $this->input->post('id');
+        $this->Product_Model->attributeDelete($id);
 
         return $this->output
             ->set_content_type('application/json')
@@ -2541,12 +2570,39 @@ Coating";
         }
     }
 
+    public function AttributeItemCreateMap()
+    {
+        $attribute_id = $this->input->post('attribute_id');
+        $name = $this->input->post('name');
+        $name_fr = $this->input->post('name_fr');
+        $error = $this->Product_Model->attributeItemCreate($attribute_id, $name, $name_fr);
+
+        if ($error)
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success' => false, 'message' => $error]));
+        else
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success' => true]));
+    }
+
     public function AttributeItemUpdateMap()
     {
         $id = $this->input->post('id');
         $name = $this->input->post('name');
         $name_fr = $this->input->post('name_fr');
-        $this->Product_Model->updateAttributeItem($id, $name, $name_fr);
+        $this->Product_Model->attributeItemUpdate($id, $name, $name_fr);
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode(['success' => true]));
+    }
+
+    public function AttributeItemDeleteMap()
+    {
+        $id = $this->input->post('id');
+        $this->Product_Model->attributeItemDelete($id);
 
         return $this->output
             ->set_content_type('application/json')

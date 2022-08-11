@@ -3144,7 +3144,29 @@ class Product_Model extends MY_Model
         $data = $this->db->get()->result();
     }
 
-    public function updateAttribute($id, $label, $label_fr, $type)
+    public function attributeCreate($name, $label, $label_fr, $type)
+    {
+        if (empty($name))
+            return 'Name is required';
+
+        // Check duplication
+        $this->db->from('attributes');
+        $this->db->where('name', $name);
+        $org = $this->db->get()->row();
+        if ($org)
+            return 'Name is duplicated';
+        
+        $this->db->insert('attributes', [
+            'name' => $name,
+            'label' => $label ?? $name,
+            'label_fr' => $label_fr ?? $label ?? $name,
+            'type' => $type,
+        ]);
+
+        return null;
+    }
+
+    public function attributeUpdate($id, $label, $label_fr, $type)
     {
         $this->db->set('label', $label);
         $this->db->set('label_fr', $label_fr);
@@ -3153,13 +3175,23 @@ class Product_Model extends MY_Model
         $this->db->update('attributes');
     }
 
+    public function attributeDelete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('attributes');
+    }
+
     public function getAttributeItemsMap($attribute_id, $q, $take, $skip, &$data, &$total)
     {
         $this->db->select('COUNT(*)');
         $this->db->from('attribute_items');
+        $this->db->join('attributes', 'attributes.id=attribute_items.attribute_id');
         if ($attribute_id)
-            $this->db->where('attribute_id', $attribute_id);
-        $this->db->like('name', $q);
+            $this->db->where('attribute_items.attribute_id', $attribute_id);
+        if ($q) {
+            $this->db->like('attributes.name', $q);
+            $this->db->or_like('attribute_items.name', $q);
+        }
         $total = $this->db->get()->row();
         $total = reset($total);
 
@@ -3167,8 +3199,11 @@ class Product_Model extends MY_Model
         $this->db->from('attribute_items');
         $this->db->join('attributes', 'attributes.id=attribute_items.attribute_id');
         if ($attribute_id)
-            $this->db->where('attribute_id', $attribute_id);
-        $this->db->like('attribute_items.name', $q);
+            $this->db->where('attribute_items.attribute_id', $attribute_id);
+        if ($q) {
+            $this->db->like('attributes.name', $q);
+            $this->db->or_like('attribute_items.name', $q);
+        }
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
         if ($take > 0) {
@@ -3180,11 +3215,39 @@ class Product_Model extends MY_Model
         $data = $this->db->get()->result();
     }
 
-    public function updateAttributeItem($id, $name, $name_fr)
+    public function attributeItemCreate($attribute_id, $name, $name_fr)
+    {
+        if (empty($name))
+            return 'Name is required';
+
+        // Check duplication
+        $this->db->from('attribute_items');
+        $this->db->where('attribute_id', $attribute_id);
+        $this->db->where('name', $name);
+        $org = $this->db->get()->row();
+        if ($org)
+            return 'Name is duplicated';
+        
+        $this->db->insert('attribute_items', [
+            'attribute_id' => $attribute_id,
+            'name' => $name,
+            'name_fr' => $name_fr ?? $name,
+        ]);
+
+        return null;
+    }
+
+    public function attributeItemUpdate($id, $name, $name_fr)
     {
         $this->db->set('name', $name);
         $this->db->set('name_fr', $name_fr);
         $this->db->where('id', $id);
         $this->db->update('attribute_items');
+    }
+
+    public function attributeItemDelete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('attribute_items');
     }
 }

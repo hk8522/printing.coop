@@ -104,21 +104,16 @@ $pageSizes = [10, 15, 20, 50, 100];
                 </div>
             </div>
         </div>
-        <div id="sina_ship_methods" style="display:none;">
+        <div id="sina_ship_methods" class="k-card" style="display:none;">
             <form method="post" action="/admin/Orders/sendToSina">
                 <input type="hidden" name="id">
                 <!-- <input type="hidden" name="ship_method"> -->
-                <div class="card">
-                    <div class="card-body">
-                        <div id="ship-methods-grid"></div>
-                    </div>
-                    <div class="card-footer">
-                        <div class="form-actions pull-right">
-                            <input type="submit" class="k-button" value="Ok" />
-                            <span class="k-button"
-                                onclick="$('#sina_ship_methods').data('kendoWindow').close();">Cancel</span>
-                        </div>
-                    </div>
+                <div class="k-card-body">
+                    <div id="ship-methods-grid"></div>
+                </div>
+                <div class="k-card-actions">
+                    <span class="k-card-action"><input type="submit" class="k-button k-button-flat-primary k-button-flat k-button-md k-rounded-md" value="Ok"></span>
+                    <span class="k-card-action"><span class="k-button k-button-flat-primary k-button-flat k-button-md k-rounded-md" onclick="$('#sina_ship_methods').data('kendoWindow').close();">Cancel</span></span>
                 </div>
             </form>
         </div>
@@ -323,16 +318,18 @@ $pageSizes = [10, 15, 20, 50, 100];
 
                 $.post('/admin/Orders/sendToSina', $(this).serialize())
                     .done(function(response) {
-                        if (!response)
+                        $('#loader-img').hide();
+                        if (!response) {
                             kendo.alert('Error occurred.');
-                        else if (!response.success)
+                            return;
+                        } else if (!response.success) {
                             kendo.alert(response.message);
+                            return;
+                        }
                         $('#sina_ship_methods').data('kendoWindow').close();
                         refreshGrid('orders-grid');
-                        $('#loader-img').hide();
                     }).fail(function(error) {
                         kendo.alert(error);
-                        refreshGrid('orders-grid');
                         $('#loader-img').hide();
                     });
                 return false;
