@@ -11,11 +11,14 @@ class ProviderOptionType {
     const Depth = 5;
     const Diameter = 6;
     const Pages = 7;
-    const Stock = 8;
+    const Sheets = 8;
     const Color = 9;
-    const Finishing = 10;
+    const Stock = 10;
+    const RectoVerso = 11;
     const Normal = 999;
-    const Turnaround = 1000;
+    const Finishing = 9000;
+    const YourText = 9099;
+    const Turnaround = 9100;
 
     public const names = [
         self::Quantity => 'Quantity',
@@ -26,10 +29,13 @@ class ProviderOptionType {
         self::Depth => 'Depth',
         self::Diameter => 'Diameter',
         self::Pages => 'Pages',
-        self::Stock => 'Stock',
+        self::Sheets => 'Sheets',
         self::Color => 'Color',
-        self::Finishing => 'Finishing',
+        self::Stock => 'Stock',
+        self::RectoVerso => 'RectoVerso',
         self::Normal => 'Normal',
+        self::Finishing => 'Finishing',
+        self::YourText => 'YourText',
         self::Turnaround => 'Turnaround',
     ];
 
@@ -42,10 +48,13 @@ class ProviderOptionType {
         self::Depth => ['depth'],
         self::Diameter => ['diameter'],
         self::Pages => ['pages'],
-        self::Stock => ['stock'],
+        self::Sheets => ['sheets'],
         self::Color => ['color'],
-        self::Finishing => ['finishing'],
+        self::Stock => ['stock'],
+        self::RectoVerso => ['rectoverso'],
         self::Normal => ['normal'],
+        self::Finishing => ['finishing'],
+        self::YourText => ['yourtext'],
         self::Turnaround => ['turnaround'],
     ];
 

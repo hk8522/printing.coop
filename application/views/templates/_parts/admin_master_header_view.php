@@ -33,9 +33,10 @@
     <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/administration/elfinder/css/elfinder.full.min.css" />
     <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/administration/elfinder/css/theme.css" />
 
-    <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/administration/kendo/styles/<?=$kendoVersion?>/kendo.material.mobile.min.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/administration/kendo/styles/<?=$kendoVersion?>/kendo.material.mobile.min.css" />
     <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/administration/kendo/styles/<?=$kendoVersion?>/kendo.material.min.css" />
-    <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/administration/kendo/styles/<?=$kendoVersion?>/kendo.common-material.min.css" />
+    <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/administration/kendo/styles/<?=$kendoVersion?>/kendo.common-material.min.css" /> -->
+    <link rel="stylesheet" href="<?=$BASE_URL?>assets/administration/kendo/styles/2022.2.802/kendo.default-main.min.css">
 
     <link rel="stylesheet" type="text/css" href="<?=$BASE_URL?>assets/administration/build/css/custom.css" />
 
@@ -50,9 +51,10 @@
     <script src="<?=$BASE_URL?>assets/administration/jquery.validate.min.js"></script>
     <script src="<?=$BASE_URL?>assets/administration/jquery.validate.unobtrusive.min.js"></script>
     <script src="<?=$BASE_URL?>assets/administration/admin.common.js"></script>
-    <script src="<?=$BASE_URL?>assets/administration/kendo/scripts/<?=$kendoVersion?>/kendo.ui.core.min.js"></script>
+    <!-- <script src="<?=$BASE_URL?>assets/administration/kendo/scripts/<?=$kendoVersion?>/kendo.ui.core.min.js"></script>
     <script src="<?=$BASE_URL?>assets/administration/kendo/scripts/<?=$kendoVersion?>/kendo.grid.js"></script>
-    <script src="<?=$BASE_URL?>assets/administration/kendo/scripts/<?=$kendoVersion?>/cultures/kendo.culture.en-US.min.js"></script>
+    <script src="<?=$BASE_URL?>assets/administration/kendo/scripts/<?=$kendoVersion?>/cultures/kendo.culture.en-US.min.js"></script> -->
+    <script src="<?=$BASE_URL?>assets/administration/kendo/scripts/2022.2.802/kendo.all.min.js"></script>
 </head>
 
 <body class="skin-blue sidebar-mini">

@@ -164,7 +164,7 @@
                                                             <a href="<?= $BASE_URL . $class_name . $sub_page_url . '/' . $list['id'] ?>" style="color:green;padding: 5px;" title="edit">
                                                                 <i class="fa fa-edit fa-lg"></i>
                                                             </a>
-                                                            <a href="<?= "$BASE_URL$class_name/ProductAttributes/" . $list['id'] ?>" style="color:green;padding: 5px;" title="edit">
+                                                            <a href="<?= "$BASE_URL$class_name" . 'ProductAttributes/' . $list['id'] ?>" style="color:green;padding: 5px;" title="edit">
                                                                 <i class="fa fa-cog fa-lg"></i>
                                                             </a>
 

@@ -15,7 +15,7 @@ $tabname = 'provider-view';
                 ?>
                 <?php
                 foreach ($tabs as $i => $tab) { ?>
-                    <li <?= $_SESSION["$tabname-tab"] == $i ? 'class="k-state-active"' : ''?>><?= $tab?></li>
+                    <li <?= $_SESSION["$tabname-tab"] == $i ? 'class="k-active"' : ''?>><?= $tab?></li>
                 <?php } ?>
             </ul>
 

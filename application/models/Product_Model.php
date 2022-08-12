@@ -3133,6 +3133,7 @@ class Product_Model extends MY_Model
         $this->db->join('attribute_items', 'attribute_items.attribute_id=attributes.id', 'left');
         $this->db->group_by('attributes.id');
         $this->db->like('attributes.name', $q);
+        $this->db->order_by('attributes.type, attributes.name');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
         if ($take > 0) {
@@ -3144,35 +3145,43 @@ class Product_Model extends MY_Model
         $data = $this->db->get()->result();
     }
 
-    public function attributeCreate($name, $label, $label_fr, $type)
+    public function attributeCreate($data)
     {
-        if (empty($name))
+        if (empty($data['name']))
             return 'Name is required';
 
         // Check duplication
         $this->db->from('attributes');
-        $this->db->where('name', $name);
+        $this->db->where('name', $data['name']);
         $org = $this->db->get()->row();
         if ($org)
             return 'Name is duplicated';
-        
+
         $this->db->insert('attributes', [
-            'name' => $name,
-            'label' => $label ?? $name,
-            'label_fr' => $label_fr ?? $label ?? $name,
-            'type' => $type,
+            'name' => $data['name'],
+            'label' => $data['label'] ?? $data['name'],
+            'label_fr' => $data['label_fr'] ?? $data['label'] ?? $data['name'],
+            'type' => $data['type'],
         ]);
 
         return null;
     }
 
-    public function attributeUpdate($id, $label, $label_fr, $type)
+    public function attributeUpdate($id, $data)
     {
-        $this->db->set('label', $label);
-        $this->db->set('label_fr', $label_fr);
-        $this->db->set('type', $type);
+        if (empty($data['name']))
+            return 'Name is required';
+
+        // Check duplication
+        $this->db->from('attributes');
+        $this->db->where('id !=', $id);
+        $this->db->where('name', $data['name']);
+        $org = $this->db->get()->row();
+        if ($org)
+            return 'Name is duplicated';
+
         $this->db->where('id', $id);
-        $this->db->update('attributes');
+        $this->db->update('attributes', $data);
     }
 
     public function attributeDelete($id)
@@ -3204,6 +3213,7 @@ class Product_Model extends MY_Model
             $this->db->like('attributes.name', $q);
             $this->db->or_like('attribute_items.name', $q);
         }
+        $this->db->order_by('attributes.name, attribute_items.name');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
         if ($take > 0) {
@@ -3215,32 +3225,51 @@ class Product_Model extends MY_Model
         $data = $this->db->get()->result();
     }
 
-    public function attributeItemCreate($attribute_id, $name, $name_fr)
+    public function attributeItemCreate($data)
     {
         if (empty($name))
             return 'Name is required';
 
         // Check duplication
         $this->db->from('attribute_items');
-        $this->db->where('attribute_id', $attribute_id);
-        $this->db->where('name', $name);
+        $this->db->where('attribute_id', $data['attribute_id']);
+        $this->db->where('name', $data['name']);
         $org = $this->db->get()->row();
         if ($org)
             return 'Name is duplicated';
         
         $this->db->insert('attribute_items', [
-            'attribute_id' => $attribute_id,
-            'name' => $name,
-            'name_fr' => $name_fr ?? $name,
+            'attribute_id' => $data['attribute_id'],
+            'name' => $data['name'],
+            'name_fr' => $data['name_fr'] ?? $data['name'],
         ]);
 
         return null;
     }
 
-    public function attributeItemUpdate($id, $name, $name_fr)
+    public function attributeItemUpdate($id, $data)
     {
-        $this->db->set('name', $name);
-        $this->db->set('name_fr', $name_fr);
+        if (empty($data['name']))
+            return 'Name is required';
+
+        // Check duplication
+        $this->db->from('attribute_items');
+        $this->db->where('id', $id);
+        $org = $this->db->get()->row();
+        if (!$org)
+            return 'No data found with the specified id';
+        $attribute_id = $org['attribute_id']; // attribute_id is readonly
+
+        $this->db->from('attribute_items');
+        $this->db->where('id !=', $id);
+        $this->db->where('attribute_id', $attribute_id);
+        $this->db->where('name', $data['name']);
+        $org = $this->db->get()->row();
+        if ($org)
+            return 'Name is duplicated';
+
+        $this->db->set('name', $data['name']);
+        $this->db->set('name_fr', $data['name_fr']);
         $this->db->where('id', $id);
         $this->db->update('attribute_items');
     }
@@ -3249,5 +3278,152 @@ class Product_Model extends MY_Model
     {
         $this->db->where('id', $id);
         $this->db->delete('attribute_items');
+    }
+
+    public function getProductAttributes($product_id, $q, $take, $skip, &$data, &$total)
+    {
+        $this->db->select('COUNT(*)');
+        $this->db->from('product_attribute_map');
+        $this->db->join('attributes', 'attributes.id=product_attribute_map.attribute_id');
+        $this->db->where('product_attribute_map.product_id', $product_id);
+        if ($q)
+            $this->db->like('attributes.name', $q);
+        $total = $this->db->get()->row();
+        $total = reset($total);
+
+        $this->db->select('product_attribute_map.*, attributes.name, attributes.label, attributes.label_fr, attributes.type, COUNT(DISTINCT(product_attribute_item_map.attribute_item_id)) AS item_count');
+        $this->db->from('product_attribute_map');
+        $this->db->join('attributes', 'attributes.id=product_attribute_map.attribute_id');
+        $this->db->join('product_attribute_item_map', "product_attribute_item_map.product_id=$product_id AND product_attribute_item_map.attribute_id=product_attribute_map.attribute_id", 'left');
+        $this->db->group_by('product_attribute_map.attribute_id');
+        $this->db->where('product_attribute_map.product_id', $product_id);
+        // $this->db->order_by('attributes.type');
+        $this->db->order_by('product_attribute_map.show_order');
+        if ($q)
+            $this->db->like('attributes.name', $q);
+        $take = $take > 0 ? $take : 0;
+        $skip = $skip > 0 ? $skip : 0;
+        if ($take > 0) {
+            $this->db->limit($take, $skip);
+        } else {
+            $this->db->offset($skip);
+        }
+
+        $data = $this->db->get()->result();
+    }
+
+    public function productAttributeCreate($data)
+    {
+        if (!$data['product_id'] || !$data['attribute_id'])
+            return 'Invalid parameters';
+
+        // Check duplication
+        $this->db->from('product_attribute_map');
+        $this->db->where('product_id', $data['product_id']);
+        $this->db->where('attribute_id', $data['attribute_id']);
+        $org = $this->db->get()->row();
+        if ($org)
+            return 'Attribute is duplicated';
+        
+        $this->db->insert('product_attribute_map', $data);
+
+        return null;
+    }
+
+    public function productAttributeUpdate($id, $data)
+    {
+        // Check readonly values
+        unset($data['product_id']);
+        unset($data['attribute_id']);
+
+        $this->db->where('id', $id);
+        $this->db->update('product_attribute_map', $data);
+    }
+
+    public function productAttributeDelete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('product_attribute_map');
+    }
+
+    public function getProductAttributeItems($product_id, $attribute_id, $q, $take, $skip, &$data, &$total)
+    {
+        $this->db->select('COUNT(DISTINCT(product_attribute_item_map.id))');
+        $this->db->from('product_attribute_item_map');
+        $this->db->join('attributes', 'attributes.id=product_attribute_item_map.attribute_id');
+        $this->db->join('attribute_items', 'attribute_items.id=product_attribute_item_map.attribute_item_id');
+        $this->db->where('product_attribute_item_map.product_id', $product_id);
+        if ($attribute_id)
+            $this->db->where('product_attribute_item_map.attribute_id', $attribute_id);
+        if ($q)
+            $this->db->like('attributes.name', $q);
+        $total = $this->db->get()->row();
+        $total = reset($total);
+
+        $this->db->select('product_attribute_item_map.id, ' .
+            'attributes.name AS attribute_name, attributes.label AS attribute_label, attributes.label_fr AS attribute_label_fr, attributes.type, ' .
+            'attribute_items.name AS attribute_item_name, attribute_items.name_fr AS attribute_item_name_fr, ' .
+            'product_attribute_item_map.product_id, product_attribute_item_map.attribute_id, product_attribute_item_map.attribute_item_id, product_attribute_item_map.additional_fee, ' .
+            'product_attribute_item_map.show_order'
+        );
+        $this->db->from('product_attribute_item_map');
+        $this->db->join('attributes', 'attributes.id=product_attribute_item_map.attribute_id');
+        $this->db->join('attribute_items', 'attribute_items.id=product_attribute_item_map.attribute_item_id');
+        $this->db->join('product_attribute_map', 'product_attribute_map.product_id=product_attribute_item_map.product_id AND product_attribute_map.attribute_id=product_attribute_item_map.attribute_id');
+        $this->db->where('product_attribute_item_map.product_id', $product_id);
+        if ($attribute_id)
+            $this->db->where('product_attribute_item_map.attribute_id', $attribute_id);
+        if ($q) {
+            $this->db->like('attributes.name', $q);
+            $this->db->like('attribute_items.name', $q);
+        }
+        $this->db->group_by('product_attribute_item_map.id');
+        // $this->db->order_by('attributes.type');
+        $this->db->order_by('product_attribute_map.show_order, attributes.type, attributes.name, product_attribute_item_map.show_order, attribute_items.name');
+        $take = $take > 0 ? $take : 0;
+        $skip = $skip > 0 ? $skip : 0;
+        if ($take > 0) {
+            $this->db->limit($take, $skip);
+        } else {
+            $this->db->offset($skip);
+        }
+
+        $data = $this->db->get()->result();
+    }
+
+    public function productAttributeItemCreate($data)
+    {
+        if (!$data['product_id'] || !$data['attribute_id'] || !$data['attribute_item_id'])
+            return 'Invalid parameters';
+
+        // Check duplication
+        $this->db->from('product_attribute_item_map');
+        $this->db->where('product_id', $data['product_id']);
+        $this->db->where('attribute_id', $data['attribute_id']);
+        $this->db->where('attribute_item_id', $data['attribute_item_id']);
+        $org = $this->db->get()->row();
+        if ($org)
+            return 'Item is duplicated';
+        
+        $this->db->insert('product_attribute_item_map', $data);
+
+        return null;
+    }
+
+    public function productAttributeItemUpdate($id, $data)
+    {
+        // Check readonly values
+        unset($data['product_id']);
+        unset($data['attribute_id']);
+        unset($data['attribute_item_id']);
+
+        $this->db->where('id', $id);
+        $this->db->update('product_attribute_item_map', $data);
+    }
+
+    public function productAttributeItemDelete($id)
+    {
+        $this->db->where('id', $id);
+        $this->db->delete('product_attribute_item_map');
     }
 }

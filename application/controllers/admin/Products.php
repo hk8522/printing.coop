@@ -2505,11 +2505,13 @@ Coating";
 
     public function AttributeCreateMap()
     {
-        $name = $this->input->post('name');
-        $label = $this->input->post('label');
-        $label_fr = $this->input->post('label_fr');
-        $type = $this->input->post('type');
-        $error = $this->Product_Model->attributeCreate($name, $label, $label_fr, $type);
+        $data = [
+            'name' => $this->input->post('name'),
+            'label' => $this->input->post('label'),
+            'label_fr' => $this->input->post('label_fr'),
+            'type' => $this->input->post('type'),
+        ];
+        $error = $this->Product_Model->attributeCreate($data);
 
         if ($error)
             return $this->output
@@ -2524,10 +2526,13 @@ Coating";
     public function AttributeUpdateMap()
     {
         $id = $this->input->post('id');
-        $label = $this->input->post('label');
-        $label_fr = $this->input->post('label_fr');
-        $type = $this->input->post('type');
-        $this->Product_Model->attributeUpdate($id, $label, $label_fr, $type);
+        $data = [
+            'name' => $this->input->post('name'),
+            'label' => $this->input->post('label'),
+            'label_fr' => $this->input->post('label_fr'),
+            'type' => $this->input->post('type'),
+        ];
+        $this->Product_Model->attributeUpdate($id, $data);
 
         return $this->output
             ->set_content_type('application/json')
@@ -2572,10 +2577,12 @@ Coating";
 
     public function AttributeItemCreateMap()
     {
-        $attribute_id = $this->input->post('attribute_id');
-        $name = $this->input->post('name');
-        $name_fr = $this->input->post('name_fr');
-        $error = $this->Product_Model->attributeItemCreate($attribute_id, $name, $name_fr);
+        $data = [
+            'attribute_id' => $this->input->post('attribute_id'),
+            'name' => $this->input->post('name'),
+            'name_fr' => $this->input->post('name_fr'),
+        ];
+        $error = $this->Product_Model->attributeItemCreate($data);
 
         if ($error)
             return $this->output
@@ -2590,9 +2597,11 @@ Coating";
     public function AttributeItemUpdateMap()
     {
         $id = $this->input->post('id');
-        $name = $this->input->post('name');
-        $name_fr = $this->input->post('name_fr');
-        $this->Product_Model->attributeItemUpdate($id, $name, $name_fr);
+        $data = [
+            'name' => $this->input->post('name'),
+            'name_fr' => $this->input->post('name_fr'),
+        ];
+        $this->Product_Model->attributeItemUpdate($id, $data);
 
         return $this->output
             ->set_content_type('application/json')
@@ -2603,6 +2612,172 @@ Coating";
     {
         $id = $this->input->post('id');
         $this->Product_Model->attributeItemDelete($id);
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode(['success' => true]));
+    }
+
+    public function ProductAttributes(int $product_id = null)
+    {
+        if ($this->input->server('REQUEST_METHOD') === 'GET') {
+            $this->data['product_id'] = $product_id;
+            $this->render($this->class_name . 'product_attributes');
+        } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
+            $q = $this->input->post('q');
+
+            $page = $this->input->post('page');
+            $pageSize = $this->input->post('pageSize');
+            $take = $pageSize;
+            $skip = $pageSize * ($page - 1);
+            $this->Product_Model->getProductAttributes($product_id, $q, $take, $skip, $data, $total);
+
+            $gridModel = [
+                'extra_data' => null,
+                'data' => $data,
+                'errors' => null,
+                'total' => $total,
+            ];
+
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($gridModel));
+        }
+    }
+
+    public function ProductAttributeCreate($product_id)
+    {
+        $data = [
+            'product_id'        => $product_id,
+            'attribute_id'      => $this->input->post('attribute_id'),
+            'show_order'        => $this->input->post('show_order'),
+            'use_items'         => $this->input->post('use_items'),
+            'value_min'         => $this->input->post('value_min'),
+            'value_max'         => $this->input->post('value_max'),
+            'additional_fee'    => $this->input->post('additional_fee'),
+            'fee_apply_size'    => $this->input->post('fee_apply_size'),
+            'fee_apply_width'   => $this->input->post('fee_apply_width'),
+            'fee_apply_length'  => $this->input->post('fee_apply_length'),
+            'fee_apply_depth'   => $this->input->post('fee_apply_depth'),
+            'fee_apply_diameter'=> $this->input->post('fee_apply_diameter'),
+            'fee_apply_pages'   => $this->input->post('fee_apply_pages'),
+        ];
+        $error = $this->Product_Model->productAttributeCreate($data);
+
+        if ($error)
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success' => false, 'message' => $error]));
+        else
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success' => true]));
+    }
+
+    public function ProductAttributeUpdate()
+    {
+        $id = $this->input->post('id');
+        $data = [
+            'product_id'        => $this->input->post('product_id'),
+            'attribute_id'      => $this->input->post('attribute_id'),
+            'show_order'        => $this->input->post('show_order'),
+            'use_items'         => $this->input->post('use_items'),
+            'value_min'         => $this->input->post('value_min'),
+            'value_max'         => $this->input->post('value_max'),
+            'additional_fee'    => $this->input->post('additional_fee'),
+            'fee_apply_size'    => $this->input->post('fee_apply_size'),
+            'fee_apply_width'   => $this->input->post('fee_apply_width'),
+            'fee_apply_length'  => $this->input->post('fee_apply_length'),
+            'fee_apply_depth'   => $this->input->post('fee_apply_depth'),
+            'fee_apply_diameter'=> $this->input->post('fee_apply_diameter'),
+            'fee_apply_pages'   => $this->input->post('fee_apply_pages'),
+        ];
+        $this->Product_Model->productAttributeUpdate($id, $data);
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode(['success' => true]));
+    }
+
+    public function ProductAttributeDelete()
+    {
+        $id = $this->input->post('id');
+        $this->Product_Model->productAttributeDelete($id);
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode(['success' => true]));
+    }
+
+    public function ProductAttributeItems(int $product_id, int $attribute_id = null)
+    {
+        if ($this->input->server('REQUEST_METHOD') === 'GET') {
+            $this->data['product_id'] = $product_id;
+            $this->render($this->class_name . 'product_attribute_items');
+        } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
+            $q = $this->input->post('q');
+
+            $page = $this->input->post('page');
+            $pageSize = $this->input->post('pageSize');
+            $take = $pageSize;
+            $skip = $pageSize * ($page - 1);
+            $this->Product_Model->getProductAttributeItems($product_id, $attribute_id, $q, $take, $skip, $data, $total);
+
+            $gridModel = [
+                'extra_data' => null,
+                'data' => $data,
+                'errors' => null,
+                'total' => $total,
+            ];
+
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode($gridModel));
+        }
+    }
+
+    public function ProductAttributeItemCreate($product_id)
+    {
+        $data = [
+            'product_id'        => $product_id,
+            'attribute_id'      => $this->input->post('attribute_id'),
+            'attribute_item_id' => $this->input->post('attribute_item_id'),
+            'show_order'        => $this->input->post('show_order'),
+            'additional_fee'    => $this->input->post('additional_fee'),
+        ];
+        $error = $this->Product_Model->productAttributeItemCreate($data);
+
+        if ($error)
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success' => false, 'message' => $error]));
+        else
+            return $this->output
+                ->set_content_type('application/json')
+                ->set_output(json_encode(['success' => true]));
+    }
+
+    public function ProductAttributeItemUpdate()
+    {
+        $id = $this->input->post('id');
+        $data = [
+            // 'product_id'        => $product_id,
+            // 'attribute_id'      => $this->input->post('attribute_id'),
+            // 'attribute_item_id' => $this->input->post('attribute_item_id'),
+            'show_order'        => $this->input->post('show_order'),
+            'additional_fee'    => $this->input->post('additional_fee'),
+        ];
+        $this->Product_Model->productAttributeItemUpdate($id, $data);
+
+        return $this->output
+            ->set_content_type('application/json')
+            ->set_output(json_encode(['success' => true]));
+    }
+
+    public function ProductAttributeItemDelete()
+    {
+        $id = $this->input->post('id');
+        $this->Product_Model->productAttributeItemDelete($id);
 
         return $this->output
             ->set_content_type('application/json')

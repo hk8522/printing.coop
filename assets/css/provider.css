@@ -38,3 +38,7 @@
 .product-fields .single-review .radio-icon {
     display: inline-block;
 }
+
+.k-card-body {
+    overflow: auto;
+}

@@ -17,13 +17,72 @@
   ALTER TABLE `product_quantity` DROP INDEX `product_id`, ADD KEY `qty` (`product_id`, `qty`);
   ALTER TABLE `product_size_new` DROP INDEX `product_id`, ADD KEY `size` (`product_id`, `qty`, `size_id`);
 
+/* Update modules, sub_modules class */
+  ALTER TABLE `modules` CHANGE `class` `class` VARCHAR(250) CHARSET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'fa fab fa-product-hunt' NULL; 
+  UPDATE `modules` SET `class`=CONCAT('fa ', `class`);
+  UPDATE `modules` SET `class` = 'fa fas fa-users' WHERE `id` = '2';
+  UPDATE `modules` SET `class` = 'fa fa-refresh' WHERE `id` = '3';
+  ALTER TABLE `sub_modules` CHANGE `sub_module_class` `sub_module_class` VARCHAR(250) CHARSET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'fa fas fa-circle' NULL;
+  UPDATE `sub_modules` SET `sub_module_class`=CONCAT('fa ', `sub_module_class`);
+
+/* Products/Attributes */
+  INSERT INTO `sub_modules` (`module_id`, `sub_module_name`, `order`, `url`, `class`, `action`) VALUES ('1', 'Attributes', '7', 'Products/AttributesMap', 'Products', 'AttributesMap');
+
 /* Update Database Structure */
-  INSERT INTO attributes (`name`, `label`, `label_fr`) SELECT `name`, `name` AS `label`, `name_french` AS `label_fr` FROM 
-  (SELECT TRIM(`name`) AS `name`, TRIM(`name_french`) AS `name_french` FROM `product_attributes`
+  TRUNCATE TABLE `attributes`;
+  TRUNCATE TABLE `attribute_items`;
+  TRUNCATE TABLE `product_attribute_map`;
+  TRUNCATE TABLE `product_attribute_item_map`;
+
+  INSERT INTO `attributes`(`id`,`name`,`label`,`label_fr`,`type`) VALUES
+  (1,'qty','Quantity','Quantité',0),
+  (2,'quantity','Quantity','Quantité',0),
+  (3,'shape','Shape','Forme',1),
+  (4,'size','Size','Taille',2),
+  (5,'width','Width','Largeur',3),
+  (6,'length','Length','Longueur',4),
+  (7,'depth','Depth','Profondeur',5),
+  (8,'diameter','Diameter','Diamètre',6),
+  (9,'pages','Pages','Pages',7),
+  (10,'sheets','Sheets','Des draps',8),
+  (11,'color','Color','Couleur',9),
+  (12,'stock','Stock','Stocker',10),
+  (13,'rectoverso','RectoVerso','RectoVerso',11),
+  (14,'finishing','Finishing','Finition',9000),
+  (15,'yourtext','Your Text','Votre Texte',9099);
+  (16,'turnaround','Turnaround','Tourner autour',9100);
+  INSERT INTO `attribute_items` (`id`, `attribute_id`, `name`, `name_fr`) VALUES
+  ('1', '11', 'black', 'noir'),
+  ('2', '11', 'color', 'couleur'),
+  ('3', '13', 'yes', 'oui'),
+  ('4', '13', 'no', 'non');
+
+  INSERT INTO `attributes` (`name`, `label`, `label_fr`) SELECT `t`.* FROM 
+  (SELECT TRIM(`name`) AS `name`, TRIM(`name`) AS `label`, TRIM(`name_french`) AS `label_fr` FROM `product_attributes`
    UNION ALL
-   SELECT TRIM(`name`) AS `name`, TRIM(`name_french`) AS `name` FROM `product_multiple_attributes`) AS `t`
-  GROUP BY `name`
-  ORDER BY `name`;
+   SELECT TRIM(`name`) AS `name`, TRIM(`name`) AS `label`, TRIM(`name_french`) AS `label_fr` FROM `product_multiple_attributes`
+   UNION ALL
+   SELECT `name`, `label`, `label_fr` FROM `attributes`) AS `t`
+     LEFT JOIN `attributes` ON `attributes`.`name`=`t`.`name`
+   WHERE `attributes`.`id` IS NULL
+  GROUP BY `t`.`name`
+  ORDER BY `t`.`name`;
+
+  UPDATE `attributes` SET `type`=0 WHERE `name`='Qty';
+  UPDATE `attributes` SET `type`=0 WHERE `name`='Quantity';
+  UPDATE `attributes` SET `type`=1 WHERE `name`='Shape';
+  UPDATE `attributes` SET `type`=2 WHERE `name`='Size';
+  UPDATE `attributes` SET `type`=3 WHERE `name`='Width';
+  UPDATE `attributes` SET `type`=4 WHERE `name`='Length';
+  UPDATE `attributes` SET `type`=5 WHERE `name`='Depth';
+  UPDATE `attributes` SET `type`=6 WHERE `name`='Diameter';
+  UPDATE `attributes` SET `type`=7 WHERE `name`='Pages';
+  UPDATE `attributes` SET `type`=8 WHERE `name`='Sheets';
+  UPDATE `attributes` SET `type`=9 WHERE `name`='Color';
+  UPDATE `attributes` SET `type`=10 WHERE `name`='Stock';
+  UPDATE `attributes` SET `type`=11 WHERE `name`='RectoVerso';
+  UPDATE `attributes` SET `type`=9000 WHERE `name`='Finishing';
+  UPDATE `attributes` SET `type`=9100 WHERE `name`='Turnaround';
 
   INSERT INTO `attribute_items` (`attribute_id`, `name`, `name_fr`)
   SELECT * FROM (
@@ -48,13 +107,129 @@
     INNER JOIN `attribute_items` ON `attribute_items`.`attribute_id`=`attributes`.`id` AND `attribute_items`.`name`=TRIM(`product_attribute_items`.`item_name`)
   GROUP BY `product_attribute_item_datas`.`product_id`, `attributes`.`id`, `attribute_items`.`id`;
 
-/* Update modules, sub_modules class */
-  ALTER TABLE `modules` CHANGE `class` `class` VARCHAR(250) CHARSET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'fa fab fa-product-hunt' NULL; 
-  UPDATE `modules` SET `class`=CONCAT('fa ', `class`);
-  UPDATE `modules` SET `class` = 'fa fas fa-users' WHERE `id` = '2';
-  UPDATE `modules` SET `class` = 'fa fa-refresh' WHERE `id` = '3';
-  ALTER TABLE `sub_modules` CHANGE `sub_module_class` `sub_module_class` VARCHAR(250) CHARSET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'fa fas fa-circle' NULL;
-  UPDATE `sub_modules` SET `sub_module_class`=CONCAT('fa ', `sub_module_class`);
+  /* RectoVerso */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='rectoverso') AS `attribute_id`
+      FROM `products` WHERE `recto_verso`!=0;
+  INSERT INTO `product_attribute_item_map` (`product_id`, `attribute_id`, `attribute_item_id`, `additional_fee`)
+    SELECT `id` AS `product_id`,
+      (SELECT `id` FROM `attributes` WHERE `name`='rectoverso') AS `attribute_id`,
+      (SELECT `id` FROM `attribute_items` WHERE `attribute_id`=(SELECT `attributes`.`id` FROM `attributes` WHERE `attributes`.`name`='rectoverso') AND `name`='no') AS `attribute_item_id`,
+      0 AS `additional_fee`
+      FROM `products` WHERE `recto_verso`!=0;
+  INSERT INTO `product_attribute_item_map` (`product_id`, `attribute_id`, `attribute_item_id`, `additional_fee`)
+    SELECT `id` AS `product_id`,
+      (SELECT `id` FROM `attributes` WHERE `name`='rectoverso') AS `attribute_id`,
+      (SELECT `id` FROM `attribute_items` WHERE `attribute_id`=(SELECT `attributes`.`id` FROM `attributes` WHERE `attributes`.`name`='rectoverso') AND `name`='yes') AS `attribute_item_id`,
+      `recto_verso_price` AS `additional_fee`
+      FROM `products` WHERE `recto_verso`!=0;
 
-/* Products/Attributes */
-  INSERT INTO `sub_modules` (`module_id`, `sub_module_name`, `order`, `url`, `class`, `action`) VALUES ('1', 'Attributes', '7', 'Products/AttributesMap', 'Products', 'AttributesMap');
+  /* add_length_width */
+  /* Width */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`, `value_min`, `value_max`, `additional_fee`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='width') AS `attribute_id`,
+      IF(`length_width_pages_type`='input', 0, 1) AS `use_items`, `min_width` AS `value_min`, `max_width` AS `value_max`, `min_length_min_width_price` AS `additional_fee` FROM `products` WHERE `add_length_width`!=0;
+  /* Length */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`, `value_min`, `value_max`, `additional_fee`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='length') AS `attribute_id`,
+      IF(`length_width_pages_type`='input', 0, 1) AS `use_items`, `min_length` AS `value_min`, `max_length` AS `value_max`, 1 AS `additional_fee` FROM `products` WHERE `add_length_width`!=0;
+  /* Color */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='color') AS `attribute_id`
+      FROM `products` WHERE `add_length_width`!=0 AND `length_width_color_show`!=0;
+  INSERT INTO `product_attribute_item_map` (`product_id`, `attribute_id`, `attribute_item_id`, `additional_fee`)
+    SELECT `id` AS `product_id`,
+      (SELECT `id` FROM `attributes` WHERE `name`='color') AS `attribute_id`,
+      (SELECT `id` FROM `attribute_items` WHERE `attribute_id`=(SELECT `attributes`.`id` FROM `attributes` WHERE `attributes`.`name`='color') AND `name`='black') AS `attribute_item_id`,
+      `length_width_unit_price_black` AS `additional_fee`
+      FROM `products` WHERE `add_length_width`!=0 AND `length_width_color_show`!=0;
+  INSERT INTO `product_attribute_item_map` (`product_id`, `attribute_id`, `attribute_item_id`, `additional_fee`)
+    SELECT `id` AS `product_id`,
+      (SELECT `id` FROM `attributes` WHERE `name`='color') AS `attribute_id`,
+      (SELECT `id` FROM `attribute_items` WHERE `attribute_id`=(SELECT `attributes`.`id` FROM `attributes` WHERE `attributes`.`name`='color') AND `name`='color') AS `attribute_item_id`,
+      `length_width_price_color` AS `additional_fee`
+      FROM `products` WHERE `add_length_width`!=0 AND `length_width_color_show`!=0;
+  /* Quantity */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`, `value_min`, `value_max`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='quantity') AS `attribute_id`,
+      IF(`length_width_pages_type`='input', 0, 1) AS `use_items`, `length_width_min_quantity` AS `value_min`, `length_width_max_quantity` AS `value_max` FROM `products` WHERE `add_length_width`!=0 AND `length_width_quantity_show`!=0;
+
+  /* page_add_length_width */
+  /* Width */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`, `value_min`, `value_max`, `additional_fee`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='width') AS `attribute_id`,
+      0 AS `use_items`, `page_min_width` AS `value_min`, `page_max_width` AS `value_max`, `page_min_length_min_width_price` AS `additional_fee` FROM `products` WHERE `page_add_length_width`!=0;
+  /* Length */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`, `value_min`, `value_max`, `additional_fee`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='length') AS `attribute_id`,
+      0 AS `use_items`, `page_min_length` AS `value_min`, `page_max_length` AS `value_max`, 1 AS `additional_fee` FROM `products` WHERE `page_add_length_width`!=0;
+  /* Color */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='color') AS `attribute_id`
+      FROM `products` WHERE `page_add_length_width`!=0 AND `page_length_width_color_show`!=0;
+  INSERT INTO `product_attribute_item_map` (`product_id`, `attribute_id`, `attribute_item_id`, `additional_fee`)
+    SELECT `id` AS `product_id`,
+      (SELECT `id` FROM `attributes` WHERE `name`='color') AS `attribute_id`,
+      (SELECT `id` FROM `attribute_items` WHERE `attribute_id`=(SELECT `attributes`.`id` FROM `attributes` WHERE `attributes`.`name`='color') AND `name`='black') AS `attribute_item_id`,
+      `page_length_width_price_black` AS `additional_fee`
+      FROM `products` WHERE `page_add_length_width`!=0 AND `page_length_width_color_show`!=0;
+  INSERT INTO `product_attribute_item_map` (`product_id`, `attribute_id`, `attribute_item_id`, `additional_fee`)
+    SELECT `id` AS `product_id`,
+      (SELECT `id` FROM `attributes` WHERE `name`='color') AS `attribute_id`,
+      (SELECT `id` FROM `attribute_items` WHERE `attribute_id`=(SELECT `attributes`.`id` FROM `attributes` WHERE `attributes`.`name`='color') AND `name`='color') AS `attribute_item_id`,
+      `page_length_width_price_color` AS `additional_fee`
+      FROM `products` WHERE `page_add_length_width`!=0 AND `page_length_width_color_show`!=0;
+  /* Pages */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='pages') AS `attribute_id`,
+      IF(`page_length_width_pages_type`='input', 0, 1) AS `use_items`
+      FROM `products` WHERE `page_add_length_width`!=0 AND `page_length_width_pages_show`!=0;
+  /* Sheets */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='sheets') AS `attribute_id`,
+      IF(`page_length_width_sheets_type`='input', 0, 1) AS `use_items`
+      FROM `products` WHERE `page_add_length_width`!=0 AND `page_length_width_sheets_show`!=0;
+  /* Quantity */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`, `value_min`, `value_max`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='quantity') AS `attribute_id`,
+      IF(`page_length_width_quantity_type`='input', 0, 1) AS `use_items`, `page_length_width_min_quantity` AS `value_min`, `page_length_width_max_quantity` AS `value_max` FROM `products` WHERE `page_add_length_width`!=0 AND `page_length_width_quantity_show`!=0;
+
+  /* depth_add_length_width */
+  /* Width */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`, `value_min`, `value_max`, `additional_fee`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='width') AS `attribute_id`,
+      0 AS `use_items`, `depth_min_width` AS `value_min`, `depth_max_width` AS `value_max`, `depth_width_length_price` AS `additional_fee` FROM `products` WHERE `depth_add_length_width`!=0;
+  /* Length */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`, `value_min`, `value_max`, `additional_fee`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='length') AS `attribute_id`,
+      0 AS `use_items`, `depth_min_length` AS `value_min`, `depth_max_length` AS `value_max`, 1 AS `additional_fee` FROM `products` WHERE `depth_add_length_width`!=0;
+  /* Depth */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`, `value_min`, `value_max`, `additional_fee`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='depth') AS `attribute_id`,
+      0 AS `use_items`, `min_depth` AS `value_min`, `max_depth` AS `value_max`, 1 AS `additional_fee` FROM `products` WHERE `depth_add_length_width`!=0;
+  /* Color */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='color') AS `attribute_id`
+      FROM `products` WHERE `depth_add_length_width`!=0 AND `depth_color_show`!=0;
+  INSERT INTO `product_attribute_item_map` (`product_id`, `attribute_id`, `attribute_item_id`, `additional_fee`)
+    SELECT `id` AS `product_id`,
+      (SELECT `id` FROM `attributes` WHERE `name`='color') AS `attribute_id`,
+      (SELECT `id` FROM `attribute_items` WHERE `attribute_id`=(SELECT `attributes`.`id` FROM `attributes` WHERE `attributes`.`name`='color') AND `name`='black') AS `attribute_item_id`,
+      `depth_unit_price_black` AS `additional_fee`
+      FROM `products` WHERE `depth_add_length_width`!=0 AND `depth_color_show`!=0;
+  INSERT INTO `product_attribute_item_map` (`product_id`, `attribute_id`, `attribute_item_id`, `additional_fee`)
+    SELECT `id` AS `product_id`,
+      (SELECT `id` FROM `attributes` WHERE `name`='color') AS `attribute_id`,
+      (SELECT `id` FROM `attribute_items` WHERE `attribute_id`=(SELECT `attributes`.`id` FROM `attributes` WHERE `attributes`.`name`='color') AND `name`='color') AS `attribute_item_id`,
+      `depth_price_color` AS `additional_fee`
+      FROM `products` WHERE `depth_add_length_width`!=0 AND `depth_color_show`!=0;
+  /* Quantity */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`, `value_min`, `value_max`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='quantity') AS `attribute_id`,
+      IF(`depth_width_length_type`='input', 0, 1) AS `use_items`, `depth_min_quantity` AS `value_min`, `depth_max_quantity` AS `value_max` FROM `products` WHERE `depth_add_length_width`!=0 AND `depth_width_length_quantity_show`!=0;
+
+  /* YourText */
+  INSERT INTO `product_attribute_map` (`product_id`, `attribute_id`, `use_items`)
+    SELECT `id` AS `product_id`, (SELECT `id` FROM `attributes` WHERE `name`='yourtext') AS `attribute_id`, 0 AS `use_items`
+      FROM `products` WHERE `votre_text`!=0;
+
