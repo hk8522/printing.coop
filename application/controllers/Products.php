@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-require_once APPPATH . 'common/ProviderOptionType.php';
+require_once APPPATH . 'common/AttributeType.php';
 require_once APPPATH . 'common/ProviderProductInformationType.php';
 
 use App\Common\ProviderProductInformationType;
@@ -247,6 +247,12 @@ class Products extends Public_Controller
         }
         $this->data['productRowid'] = $productRowid;
         $this->data['productQty'] = $productQty;
+
+        ///// new structure
+        $this->Product_Model->getProductAttributes($id, null, 0, 0, $attributes, $attributes_count);
+        $this->Product_Model->getProductAttributeItems($id, null, null, 0, 0, $attribute_items, $attribute_items_count);
+        $this->data['attributes'] = $attributes;
+        $this->data['attribute_items'] = $attribute_items;
 
         // Check Provider binding
         $provider = $this->Provider_Model->getProvider('sina');
@@ -1096,8 +1102,8 @@ class Products extends Public_Controller
             redirect(base_url());
         }
         $this->load->model('Product_Model');
-        $ProductSizes = $this->Product_Model->ProductQuantySizeAttributeDropDwon($product_id);
-        $MultipleAttributes = $this->Product_Model->getMultipleAttributesDropDwon();
+        $ProductSizes = $this->Product_Model->ProductQuantitySizeAttributeDropDown($product_id);
+        $MultipleAttributes = $this->Product_Model->getMultipleAttributesDropDown();
         $response = array();
 
         $options = $this->language_name == 'French' ? '<option value="">Choisis une option...</option>' : '<option value="">Choose an option...</option>';

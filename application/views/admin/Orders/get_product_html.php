@@ -14,7 +14,7 @@ if (isset($_SESSION['product_list'])) {
 
         $ProductAttributes = $this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
 
-        $ProductSizes = $this->Product_Model->ProductSizeListDropDwon($product_id);
+        $ProductSizes = $this->Product_Model->ProductSizeListDropDown($product_id);
 
         #pr($Product);
 

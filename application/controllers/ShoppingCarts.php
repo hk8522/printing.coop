@@ -61,14 +61,13 @@ class ShoppingCarts extends Public_Controller
         $recto_verso_price = $params['recto_verso_price'];
         $votre_text = $params['votre_text'];
 
-        // Provider
-        $provider_id = $params['provider_id'];
-        $productOptions = $params['productOptions'];
-
         $productData = $this->Product_Model->getProductDataById($product_id);
         $ProductAttributes = $this->Product_Model->getProductAttributesByItemIdFrontEnd($product_id);
 
+        // Provider
+        $provider_id = $params['provider_id'];
         if ($provider_id) {
+            $productOptions = $params['productOptions'];
             $providerProduct = $this->Provider_Model->getProductByProductId($provider_id, $product_id);
             if ($providerProduct->information_type == ProviderProductInformationType::Normal) {
                 $options = array_values((array) $productOptions);
@@ -82,30 +81,45 @@ class ShoppingCarts extends Public_Controller
                 'provider_options' => $productOptions,
             ];
         } else {
-            $productOptions = array();
-            //pr($ProductAttributes, 1);
-            foreach ($ProductAttributes as $key => $val) {
-                $attribute_name = 'attribute_id_' . $key;
-                $attribute_item_id = isset($params[$attribute_name]) ? $params[$attribute_name] : '';
-                $items = $val['items'];
-                $attribute_data = $val['data'];
-                if (!empty($attribute_item_id) && array_key_exists($attribute_item_id, $items)) {
-                    $extra_price = $items[$attribute_item_id]['extra_price'];
-                    $price += $extra_price;
-                    $AttributeData = array();
-                    $AttributeData['attribute_name'] = $attribute_data['attribute_name'];
-                    $AttributeData['attribute_name_french'] = $attribute_data['attribute_name_french'];
-                    $AttributeData['item_name'] = $items[$attribute_item_id]['item_name'];
-                    $AttributeData['item_name_french'] = $items[$attribute_item_id]['item_name_french'];
-                    $productOptions[] = $AttributeData;
-                    //$productOptions[$key] = $attribute_item_id;
+            ///// new structure
+            $productOptions = (array)$this->Product_Model->attributeDataFromIds($product_id, $params['attributes']);
+
+            foreach ($productOptions as $item) {
+                if (($item['value_min'] > 0 && $item['item_name'] < $item['value_min']) ||
+                    ($item['value_max'] > 0 && $item['item_name'] > $item['value_max'])) {
+                    if ($this->language_name == 'French')
+                        $json['msg'] = $item['attribute_name'] . ' devrait être entre ' . $min_length . ' et ' . $max_length;
+                    else
+                        $json['msg'] = $item['attribute_name'] . ' should be between ' . $item['value_min'] . ' and ' . $item['value_max'];
+                    echo json_encode($json);
+                    return;
                 }
             }
+
+            // $productOptions = array();
+            // //pr($ProductAttributes, 1);
+            // foreach ($ProductAttributes as $key => $val) {
+            //     $attribute_name = 'attribute_id_' . $key;
+            //     $attribute_item_id = isset($params[$attribute_name]) ? $params[$attribute_name] : '';
+            //     $items = $val['items'];
+            //     $attribute_data = $val['data'];
+            //     if (!empty($attribute_item_id) && array_key_exists($attribute_item_id, $items)) {
+            //         $extra_price = $items[$attribute_item_id]['extra_price'];
+            //         $price += $extra_price;
+            //         $AttributeData = array();
+            //         $AttributeData['attribute_name'] = $attribute_data['attribute_name'];
+            //         $AttributeData['attribute_name_french'] = $attribute_data['attribute_name_french'];
+            //         $AttributeData['item_name'] = $items[$attribute_item_id]['item_name'];
+            //         $AttributeData['item_name_french'] = $items[$attribute_item_id]['item_name_french'];
+            //         $productOptions[] = $AttributeData;
+            //         //$productOptions[$key] = $attribute_item_id;
+            //     }
+            // }
         }
 
         $product_size = array();
 
-        $ProductSizes = $this->Product_Model->ProductQuantySizeAttributeDropDwon($product_id);
+        $ProductSizes = $this->Product_Model->ProductQuantitySizeAttributeDropDown($product_id);
 
         if (!empty($product_quantity_id)) {
             $quantityData = isset($ProductSizes[$product_quantity_id]) ? $ProductSizes[$product_quantity_id] : array();

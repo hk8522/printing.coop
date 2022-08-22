@@ -8,6 +8,7 @@ $tabname = 'attributes-view';
     $pageSizes = [10, 15, 20, 50, 100];
     ?>
     <section class="content">
+        <h3><?= $product['name'] ?></h3>
         <?php $this->load->view('admin/shared/tabscript', ['tabname' => $tabname, 'position' => 'top']); ?>
         <div id="<?= $tabname?>" style="display:none">
             <ul>
@@ -106,12 +107,12 @@ $tabname = 'attributes-view';
                                         <?php $this->load->view('admin/shared/select', ['name' => 'fee_apply_length', 'value' => 0, 'items' => [1=> 'Yes', 0 => 'No'], 'index' => true, 'class' => 'form-control col-md-9 col-sm-9']); ?>
                                     </div>
                                     <div class="form-group">
-                                        <label for="type" class="control-label col-md-3 col-sm-3">Depth</label>
-                                        <?php $this->load->view('admin/shared/select', ['name' => 'fee_apply_depth', 'value' => 0, 'items' => [1=> 'Yes', 0 => 'No'], 'index' => true, 'class' => 'form-control col-md-9 col-sm-9']); ?>
-                                    </div>
-                                    <div class="form-group">
                                         <label for="type" class="control-label col-md-3 col-sm-3">Diameter</label>
                                         <?php $this->load->view('admin/shared/select', ['name' => 'fee_apply_diameter', 'value' => 0, 'items' => [1=> 'Yes', 0 => 'No'], 'index' => true, 'class' => 'form-control col-md-9 col-sm-9']); ?>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="type" class="control-label col-md-3 col-sm-3">Depth</label>
+                                        <?php $this->load->view('admin/shared/select', ['name' => 'fee_apply_depth', 'value' => 0, 'items' => [1=> 'Yes', 0 => 'No'], 'index' => true, 'class' => 'form-control col-md-9 col-sm-9']); ?>
                                     </div>
                                     <div class="form-group">
                                         <label for="type" class="control-label col-md-3 col-sm-3">Pages</label>
@@ -219,7 +220,7 @@ $tabname = 'attributes-view';
             </div>
         </form>
         <script>
-        var typeNames = <?= json_encode(App\Common\ProviderOptionType::names)?>;
+        var typeNames = <?= json_encode(App\Common\AttributeType::names)?>;
         var typeNamesList = [];
         for (const [key, value] of Object.entries(typeNames)) {
             typeNamesList.push({
@@ -342,14 +343,14 @@ $tabname = 'attributes-view';
                         template: '#= fee_apply_length == 1 ? "Yes" : ""#',
                         editor: booleanEditor,
                     }, {
-                        field: 'fee_apply_depth',
-                        title: 'Depth',
-                        template: '#= fee_apply_depth == 1 ? "Yes" : ""#',
-                        editor: booleanEditor,
-                    }, {
                         field: 'fee_apply_diameter',
                         title: 'Diameter',
                         template: '#= fee_apply_diameter == 1 ? "Yes" : ""#',
+                        editor: booleanEditor,
+                    }, {
+                        field: 'fee_apply_depth',
+                        title: 'Depth',
+                        template: '#= fee_apply_depth == 1 ? "Yes" : ""#',
                         editor: booleanEditor,
                     }, {
                         field: 'fee_apply_pages',
@@ -643,6 +644,9 @@ $tabname = 'attributes-view';
                 }, {
                     field: 'additional_fee',
                     title: 'Additional Fee',
+                }, {
+                    field: 'show_order',
+                    title: 'Show Order',
                 }, {
                     command: [{
                         name: 'edit',

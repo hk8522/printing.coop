@@ -144,11 +144,11 @@ overflow: hidden;
                                 name="price">
                             <div class="product-fields">
                                 <div class="row">
-                                    <?php if ($provider) { ?>
-                                    <?php $this->view('Products/product_detail_provider'); ?>
-                                    <?php } else{ ?>
-                                    <?php $this->view('Products/product_detail'); ?>
-                                    <?php } ?>
+                                    <?php if ($provider) {
+                                        $this->view('Products/product_detail_provider');
+                                    } else {
+                                        $this->view('Products/product_detail_map');
+                                    } ?>
                                 </div>
                             </div>
 
@@ -157,10 +157,9 @@ overflow: hidden;
                                     <div class="col-6 col-md-6">
                                         <div class="shop-product-price">
                                             <span>
-                                                <img src="<?= $BASE_URL?>/assets/images/loder.gif" width="30"
-                                                    style="display:none" id="loader-img">
+                                                <img src="<?= $BASE_URL?>/assets/images/loder.gif" width="30" style="display:none" id="loader-img">
                                                 <font class="new-price">
-                                                    <?= $product_price_currency_symbol.'<span id="total-price">'.$Product[$product_price_currency].'</span>'?>
+                                                    <?= $product_price_currency_symbol ?><span id="total-price"><?= $Product[$product_price_currency] ?></span>
                                                 </font>
                                             </span>
                                         </div>
@@ -168,8 +167,7 @@ overflow: hidden;
                                     <div class="col-6 col-md-6">
                                         <div class="quant-cart">
                                             <label><?= $language_name == 'French' ? "Combien d'ensembles" : 'How many sets'?></label>
-                                            <input type="text" value="1" id="quantity" name="quantity"
-                                                onkeypress="javascript:return isNumber(event)" onchange="setQuantity()">
+                                            <input type="text" value="1" id="quantity" name="quantity" onkeypress="javascript:return isNumber(event)" onchange="setQuantity()">
                                         </div>
                                     </div>
                                 </div>
@@ -328,8 +326,7 @@ overflow: hidden;
                                         <td><?= $language_name == 'French' ? $val['template_description_french'] : $val['template_description']?>
                                         </td>
                                         <td>
-                                            <a
-                                                href="<?= $BASE_URL."Products/download/".urlencode(TEMPLATE_FILE_BASE_PATH.$val['template_file'])."/".urlencode($val['template_file'])?>">
+                                            <a href="<?= $BASE_URL."Products/download/".urlencode(TEMPLATE_FILE_BASE_PATH.$val['template_file'])."/".urlencode($val['template_file'])?>">
                                                 <i class="fa fa-download" aria-hidden="true"></i>
                                             </a>
                                         </td>
@@ -481,7 +478,7 @@ $('form#cartForm').on('submit', function(e) {
 
                 setTimeout(function() {
                     $('.addtocart-message').removeClass('active');
-                    location.assign('<?= $BASE_URL?>ShoppingCarts');
+                    /* location.assign('<?= $BASE_URL?>ShoppingCarts'); */
                 }, 1000);
             } else {
                 $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg +

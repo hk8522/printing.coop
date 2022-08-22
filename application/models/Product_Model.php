@@ -1101,7 +1101,7 @@ class Product_Model extends MY_Model
         return $data;
     }
 
-    public function getMultipleAttributesDropDwon()
+    public function getMultipleAttributesDropDown()
     {
         $this->db->select('*');
         $this->db->from('product_multiple_attributes');
@@ -1622,7 +1622,7 @@ class Product_Model extends MY_Model
         return $dataNew;
     }
 
-    public function ProductSizeListDropDwon($product_id)
+    public function ProductSizeListDropDown($product_id)
     {
         $this->db->select('*');
         $this->db->from('product_size');
@@ -1706,7 +1706,7 @@ class Product_Model extends MY_Model
         return $qdataNew;
     }
 
-    /*public function ProductQuantySizeAttributeDropDwon($product_id) {
+    /*public function ProductQuantitySizeAttributeDropDown($product_id) {
     $this->db->select(array('product_quantity.price', 'product_quantity.qty', 'quantity.name', 'quantity.name_french'));
     $this->db->from('product_quantity');
     $this->db->join('quantity', 'product_quantity.qty=quantity.id', 'inner');
@@ -1753,7 +1753,7 @@ class Product_Model extends MY_Model
     return $qdataNew;
     }*/
 
-    public function ProductQuantySizeAttributeDropDwon($product_id)
+    public function ProductQuantitySizeAttributeDropDown($product_id)
     {
         $this->db->select(array('product_quantity.price', 'product_quantity.qty', 'quantity.name', 'quantity.name_french'));
         $this->db->from('product_quantity');
@@ -3425,5 +3425,44 @@ class Product_Model extends MY_Model
     {
         $this->db->where('id', $id);
         $this->db->delete('product_attribute_item_map');
+    }
+
+    public function attributeDataFromIds($product_id, $attributes)
+    {
+        $this->db->from('product_attribute_map');
+        $this->db->join('attributes', 'attributes.id=product_attribute_map.attribute_id');
+        $this->db->join('product_attribute_item_map', 'product_attribute_item_map.product_id=product_attribute_map.product_id AND product_attribute_item_map.attribute_id=product_attribute_map.attribute_id AND product_attribute_map.use_items=1', 'left');
+        $this->db->join('attribute_items', 'attribute_items.id=product_attribute_item_map.attribute_item_id', 'left');
+        $this->db->where('product_attribute_map.product_id', $product_id);
+        $this->db->select('product_attribute_map.value_min, product_attribute_map.value_max, product_attribute_map.use_items, product_attribute_map.attribute_id, product_attribute_item_map.attribute_item_id, attributes.name AS attribute_name_real, attributes.label AS attribute_name, attributes.label_fr AS attribute_name_french, attribute_items.name AS item_name, attribute_items.name_fr AS item_name_french');
+        $this->db->group_start();
+        $first = true;
+        foreach ($attributes as $attribute_id => $attribute_item_id) {
+            if ($first) {
+                $this->db->where("(product_attribute_map.attribute_id='$attribute_id' AND (product_attribute_item_map.attribute_item_id IS NULL OR product_attribute_item_map.attribute_item_id='$attribute_item_id'))");
+                $first = false;
+            } else {
+                $this->db->or_where("(product_attribute_map.attribute_id='$attribute_id' AND (product_attribute_item_map.attribute_item_id IS NULL OR product_attribute_item_map.attribute_item_id='$attribute_item_id'))");
+            }
+        }
+        $this->db->group_end();
+        $this->db->group_by('product_attribute_map.attribute_id, product_attribute_item_map.attribute_item_id');
+        $data = $this->db->get()->result_array();
+
+        $attributes_value = [];
+        foreach ($attributes as $attribute_id => $attribute_item_id) {
+            foreach ($data as &$item) {
+                if ($item['attribute_id'] == $attribute_id) {
+                    if (!$item['use_items']) {
+                        $item['item_name'] = $attribute_item_id;
+                        $item['item_name_french'] = $attribute_item_id;
+                    }
+                    $found = true;
+                    break;
+                }
+            }
+        }
+
+        return $data;
     }
 }

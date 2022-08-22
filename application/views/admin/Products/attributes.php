@@ -77,7 +77,7 @@ $tabname = 'attributes-view';
                                 </div>
                                 <div class="form-group">
                                     <label for="type" class="control-label col-md-3 col-sm-3">Type</label>
-                                    <?php $this->load->view('admin/shared/select', ['name' => 'type', 'items' => App\Common\ProviderOptionType::names, 'index' => true, 'class' => 'form-control col-md-9 col-sm-9']); ?>
+                                    <?php $this->load->view('admin/shared/select', ['name' => 'type', 'items' => App\Common\AttributeType::names, 'index' => true, 'class' => 'form-control col-md-9 col-sm-9']); ?>
                                 </div>
                             </div>
                         </div>
@@ -169,7 +169,7 @@ $tabname = 'attributes-view';
             </div>
         </form>
         <script>
-        var typeNames = <?= json_encode(App\Common\ProviderOptionType::names)?>;
+        var typeNames = <?= json_encode(App\Common\AttributeType::names)?>;
         var typeNamesList = [];
         for (const [key, value] of Object.entries(typeNames)) {
             typeNamesList.push({

@@ -1,9 +1,9 @@
 <?php
 
-require_once(APPPATH . 'common/ProviderOptionType.php');
+require_once(APPPATH . 'common/AttributeType.php');
 require_once(APPPATH . 'common/ProviderProductInformationType.php');
 
-use App\Common\ProviderOptionType;
+use App\Common\AttributeType;
 use App\Common\ProviderProductInformationType;
 
 Class Provider_Model extends MY_Model {
@@ -136,7 +136,7 @@ Class Provider_Model extends MY_Model {
         foreach ($productInfo[0] as $option) {
             if (!array_key_exists(strtolower($option->group), $originals)) {
                 if (!array_key_exists(strtolower($option->group), $news)) {
-                    $type = ProviderOptionType::type($option->group);
+                    $type = AttributeType::type($option->group);
                     $news[strtolower($option->group)] = (object) [
                         'provider_id' => $product->provider_id,
                         'name' => $option->group,
@@ -264,7 +264,7 @@ Class Provider_Model extends MY_Model {
         foreach ($productInfo[0] as $option) {
             if (!array_key_exists(strtolower($option->name), $originals)) {
                 if (!array_key_exists(strtolower($option->name), $news)) {
-                    $type = ProviderOptionType::type($option->name);
+                    $type = AttributeType::type($option->name);
                     $news[strtolower($option->name)] = (object) [
                         'provider_id' => $product->provider_id,
                         'provider_option_id' => $option->option_id,
@@ -626,6 +626,8 @@ Class Provider_Model extends MY_Model {
 
     public function getOptionsByValueIds($provider_id, $provider_product_id, $value_ids)
     {
+        if (empty($value_ids))
+            return [];
         $this->db->select(
             'provider_options.*, provider_product_options.provider_option_value_id, provider_option_values.value,' .
             'product_attributes.name AS attribute_name, product_attributes.name_french AS attribute_name_french'

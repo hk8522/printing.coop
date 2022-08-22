@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-require_once APPPATH . 'common/ProviderOptionType.php';
+require_once APPPATH . 'common/AttributeType.php';
 
 class CronJob extends Admin_Controller
 {

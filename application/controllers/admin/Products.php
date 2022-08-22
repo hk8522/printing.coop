@@ -623,7 +623,7 @@ class Products extends Admin_Controller
     $postData = [];
     $postData = $this->Product_Model->getProductDataById($id);
     $ProductSizes = array();
-    $this->data['ProductSizes'] = $this->Product_Model->ProductQuantySizeAttributeDropDwon($id);
+    $this->data['ProductSizes'] = $this->Product_Model->ProductQuantitySizeAttributeDropDown($id);
 
     $this->data['postData'] = $postData;
     $this->render($this->class_name.'product_multiple_attribute');
@@ -923,9 +923,9 @@ class Products extends Admin_Controller
         $postData = [];
         $postData = $this->Product_Model->getProductDataById($id);
         $ProductSizes = array();
-        $this->data['ProductSizes'] = $this->Product_Model->ProductQuantySizeAttributeDropDwon($id);
+        $this->data['ProductSizes'] = $this->Product_Model->ProductQuantitySizeAttributeDropDown($id);
 
-        $this->data['MultipleAttributes'] = $this->Product_Model->getMultipleAttributesDropDwon();
+        $this->data['MultipleAttributes'] = $this->Product_Model->getMultipleAttributesDropDown();
 
         //pr($this->data['ProductSizes'], 1);
 
@@ -1071,7 +1071,7 @@ class Products extends Admin_Controller
     {
         $this->load->helper('form');
         $this->load->model('Product_Model');
-        $MultipleAttributes = $this->Product_Model->getMultipleAttributesDropDwon();
+        $MultipleAttributes = $this->Product_Model->getMultipleAttributesDropDown();
         $data['BASE_URL'] = base_url();
         $attributeData = array();
         $attribute_item_id = $extra_price = '';
@@ -2622,6 +2622,7 @@ Coating";
     {
         if ($this->input->server('REQUEST_METHOD') === 'GET') {
             $this->data['product_id'] = $product_id;
+            $this->data['product'] = $this->Product_Model->getProductList($product_id);
             $this->render($this->class_name . 'product_attributes');
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $q = $this->input->post('q');

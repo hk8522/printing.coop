@@ -2,7 +2,7 @@
 
 require_once APPPATH . 'common/OrderStatus.php';
 require_once APPPATH . 'common/PaymentStatus.php';
-require_once APPPATH . 'common/ProviderOptionType.php';
+require_once APPPATH . 'common/AttributeType.php';
 
 class ProductOrder_Model extends MY_Model
 {

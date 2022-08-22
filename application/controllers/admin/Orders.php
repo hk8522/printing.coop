@@ -924,7 +924,7 @@ class Orders extends Admin_Controller
 
         #Product Size Price Cal.
         if (!empty($product_size_id) && !empty($product_size_quantity)) {
-            $ProductSizes = $this->Product_Model->ProductSizeListDropDwon($product_id);
+            $ProductSizes = $this->Product_Model->ProductSizeListDropDown($product_id);
             $size_data = $ProductSizes[$product_size_id];
             foreach ($size_data as $key => $val) {
                 $product_size_qty_id = $val['id'];
@@ -937,7 +937,7 @@ class Orders extends Admin_Controller
         }
 
         if (!empty($product_size_id) && !empty($product_size_ncr_number_parts)) {
-            $ProductSizes = $this->Product_Model->ProductSizeListDropDwon($product_id);
+            $ProductSizes = $this->Product_Model->ProductSizeListDropDown($product_id);
             $size_data = $ProductSizes[$product_size_id];
             foreach ($size_data as $key => $val) {
                 $product_size_ncr_id = $val['id'];
@@ -950,7 +950,7 @@ class Orders extends Admin_Controller
         }
 
         if (!empty($product_size_id) && !empty($product_size_paper_size)) {
-            $ProductSizes = $this->Product_Model->ProductSizeListDropDwon($product_id);
+            $ProductSizes = $this->Product_Model->ProductSizeListDropDown($product_id);
             $size_data = $ProductSizes[$product_size_id];
             foreach ($size_data as $key => $val) {
                 $product_size_paper_id = $val['id'];
@@ -1017,7 +1017,7 @@ class Orders extends Admin_Controller
 
     public function getSizeOptions($product_id_key, $product_id, $product_quantity_id = null, $product_size_id = null, $fl = 0)
     {
-        $ProductSizes = $this->Product_Model->ProductSizeListDropDwon($product_id);
+        $ProductSizes = $this->Product_Model->ProductSizeListDropDown($product_id);
         $options_size_first = $options_ncr_number_parts_first = $stock_first = $paper_quality_first = $diameter_first = $shape_paper_first = $color_first = $grommets_first = '<option value="">Choose an option...</option>';
         $options_size = $options_ncr_number_parts = $stock = $paper_quality = $diameter = $shape_paper = $color = $grommets = '';
         $options_size_show = $ncr_number_parts_show = $stock_show = $paper_quality_show = $color_show = $diameter_show = $shape_paper_show = $grommets_show = false;
@@ -1289,7 +1289,7 @@ class Orders extends Admin_Controller
         $product_size_id = $this->input->post('product_size_id');
         $add_length_width = $this->input->post('add_length_width');
         $quantity = !empty($quantity) ? $quantity : 1;
-        $ProductSizes = $this->Product_Model->ProductSizeListDropDwon($product_id);
+        $ProductSizes = $this->Product_Model->ProductSizeListDropDown($product_id);
 
         $options_qty = '<option value="">Choose an option...</option>';
 
@@ -1415,7 +1415,7 @@ class Orders extends Admin_Controller
             $product_size = array();
 
             if (!empty($product_size_id) && !empty($product_size_quantity)) {
-                $ProductSizes = $this->Product_Model->ProductSizeListDropDwon($product_id);
+                $ProductSizes = $this->Product_Model->ProductSizeListDropDown($product_id);
                 $size_data = $ProductSizes[$product_size_id];
                 foreach ($size_data as $key => $val) {
                     $product_size_qty_id = $val['id'];
@@ -1429,7 +1429,7 @@ class Orders extends Admin_Controller
             }
 
             if (!empty($product_size_id) && !empty($product_size_ncr_number_parts)) {
-                $ProductSizes = $this->Product_Model->ProductSizeListDropDwon($product_id);
+                $ProductSizes = $this->Product_Model->ProductSizeListDropDown($product_id);
                 $size_data = $ProductSizes[$product_size_id];
                 foreach ($size_data as $key => $val) {
                     $product_size_ncr_id = $val['id'];
@@ -1444,7 +1444,7 @@ class Orders extends Admin_Controller
             }
 
             if (!empty($product_size_id) && !empty($product_size_paper_size)) {
-                $ProductSizes = $this->Product_Model->ProductSizeListDropDwon($product_id);
+                $ProductSizes = $this->Product_Model->ProductSizeListDropDown($product_id);
                 $size_data = $ProductSizes[$product_size_id];
                 foreach ($size_data as $key => $val) {
                     $product_size_paper_id = $val['id'];

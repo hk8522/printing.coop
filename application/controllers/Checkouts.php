@@ -3,7 +3,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 require_once APPPATH . 'common/OrderStatus.php';
 require_once APPPATH . 'common/PaymentStatus.php';
-require_once APPPATH . 'common/ProviderOptionType.php';
+require_once APPPATH . 'common/AttributeType.php';
 
 use App\Common\OrderStatus;
 

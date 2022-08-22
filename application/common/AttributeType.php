@@ -2,14 +2,14 @@
 
 namespace App\Common;
 
-class ProviderOptionType {
+class AttributeType {
     const Quantity = 0;
     const Shape = 1;
     const Size = 2;
     const Width = 3;
     const Length = 4;
-    const Depth = 5;
-    const Diameter = 6;
+    const Diameter = 5;
+    const Depth = 6;
     const Pages = 7;
     const Sheets = 8;
     const Color = 9;

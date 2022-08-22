@@ -35,7 +35,7 @@
                     </option>
                     <?php foreach ($option->values as $item) { ?>
                         <option value="<?= $providerProduct->information_type == App\Common\ProviderProductInformationType::RollLabel ? $item->value : $item->provider_option_value_id?>">
-                            <?= ucfirst($item->option_type == App\Common\ProviderOptionType::Turnaround ? option_turnaround_add_days($item->value, $shipping_extra_days) : $item->value)?>
+                            <?= ucfirst($item->option_type == App\Common\AttributeType::Turnaround ? option_turnaround_add_days($item->value, $shipping_extra_days) : $item->value)?>
                         </option>
                     <?php } ?>
                 </select>
