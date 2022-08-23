@@ -641,6 +641,7 @@ $tabname = 'attributes-view';
                 }, {
                     field: 'attribute_item_name_fr',
                     title: 'Nom',
+                    template: '#=unescape(attribute_item_name_fr)#',
                 }, {
                     field: 'additional_fee',
                     title: 'Additional Fee',

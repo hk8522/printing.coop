@@ -349,6 +349,7 @@ $tabname = 'attributes-view';
                 }, {
                     field: 'name_fr',
                     title: 'Nom',
+                    template: '#=unescape(name_fr)#',
                 }, {
                     command: [{
                         name: 'edit',
@@ -523,6 +524,7 @@ $tabname = 'attributes-view';
                 }, {
                     field: 'name_fr',
                     title: 'Nom',
+                    template: '#=unescape(name_fr)#',
                 }, {
                     command: [{
                         name: 'edit',

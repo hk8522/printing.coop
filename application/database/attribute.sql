@@ -27,7 +27,7 @@ CREATE TABLE `attribute_items` (
   `name_fr` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `item` (`attribute_id`,`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=4100 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `attributes` */
 
@@ -41,7 +41,7 @@ CREATE TABLE `attributes` (
   `type` int(10) unsigned DEFAULT 999,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=272 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `product_attribute_item_map` */
 
@@ -56,7 +56,7 @@ CREATE TABLE `product_attribute_item_map` (
   `additional_fee` decimal(10,2) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `attribute_item` (`product_id`,`attribute_id`,`attribute_item_id`,`show_order`)
-) ENGINE=InnoDB AUTO_INCREMENT=10407 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `product_attribute_map` */
 
@@ -79,7 +79,7 @@ CREATE TABLE `product_attribute_map` (
   `fee_apply_pages` tinyint(3) unsigned DEFAULT 1,
   PRIMARY KEY (`id`),
   KEY `attribute` (`product_id`,`attribute_id`,`show_order`)
-) ENGINE=InnoDB AUTO_INCREMENT=2920 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
