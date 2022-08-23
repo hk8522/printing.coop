@@ -82,39 +82,41 @@ class ShoppingCarts extends Public_Controller
             ];
         } else {
             ///// new structure
-            $productOptions = (array)$this->Product_Model->attributeDataFromIds($product_id, $params['attributes']);
+            if (false) {
+                $productOptions = (array)$this->Product_Model->attributeDataFromIds($product_id, $params['attributes']);
 
-            foreach ($productOptions as $item) {
-                if (($item['value_min'] > 0 && $item['item_name'] < $item['value_min']) ||
-                    ($item['value_max'] > 0 && $item['item_name'] > $item['value_max'])) {
-                    if ($this->language_name == 'French')
-                        $json['msg'] = $item['attribute_name'] . ' devrait être entre ' . $min_length . ' et ' . $max_length;
-                    else
-                        $json['msg'] = $item['attribute_name'] . ' should be between ' . $item['value_min'] . ' and ' . $item['value_max'];
-                    echo json_encode($json);
-                    return;
+                foreach ($productOptions as $item) {
+                    if (($item['value_min'] > 0 && $item['item_name'] < $item['value_min']) ||
+                        ($item['value_max'] > 0 && $item['item_name'] > $item['value_max'])) {
+                        if ($this->language_name == 'French')
+                            $json['msg'] = $item['attribute_name'] . ' devrait être entre ' . $min_length . ' et ' . $max_length;
+                        else
+                            $json['msg'] = $item['attribute_name'] . ' should be between ' . $item['value_min'] . ' and ' . $item['value_max'];
+                        echo json_encode($json);
+                        return;
+                    }
+                }
+            } else {
+                $productOptions = array();
+                //pr($ProductAttributes, 1);
+                foreach ($ProductAttributes as $key => $val) {
+                    $attribute_name = 'attribute_id_' . $key;
+                    $attribute_item_id = isset($params[$attribute_name]) ? $params[$attribute_name] : '';
+                    $items = $val['items'];
+                    $attribute_data = $val['data'];
+                    if (!empty($attribute_item_id) && array_key_exists($attribute_item_id, $items)) {
+                        $extra_price = $items[$attribute_item_id]['extra_price'];
+                        $price += $extra_price;
+                        $AttributeData = array();
+                        $AttributeData['attribute_name'] = $attribute_data['attribute_name'];
+                        $AttributeData['attribute_name_french'] = $attribute_data['attribute_name_french'];
+                        $AttributeData['item_name'] = $items[$attribute_item_id]['item_name'];
+                        $AttributeData['item_name_french'] = $items[$attribute_item_id]['item_name_french'];
+                        $productOptions[] = $AttributeData;
+                        //$productOptions[$key] = $attribute_item_id;
+                    }
                 }
             }
-
-            // $productOptions = array();
-            // //pr($ProductAttributes, 1);
-            // foreach ($ProductAttributes as $key => $val) {
-            //     $attribute_name = 'attribute_id_' . $key;
-            //     $attribute_item_id = isset($params[$attribute_name]) ? $params[$attribute_name] : '';
-            //     $items = $val['items'];
-            //     $attribute_data = $val['data'];
-            //     if (!empty($attribute_item_id) && array_key_exists($attribute_item_id, $items)) {
-            //         $extra_price = $items[$attribute_item_id]['extra_price'];
-            //         $price += $extra_price;
-            //         $AttributeData = array();
-            //         $AttributeData['attribute_name'] = $attribute_data['attribute_name'];
-            //         $AttributeData['attribute_name_french'] = $attribute_data['attribute_name_french'];
-            //         $AttributeData['item_name'] = $items[$attribute_item_id]['item_name'];
-            //         $AttributeData['item_name_french'] = $items[$attribute_item_id]['item_name_french'];
-            //         $productOptions[] = $AttributeData;
-            //         //$productOptions[$key] = $attribute_item_id;
-            //     }
-            // }
         }
 
         $product_size = array();
