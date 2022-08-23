@@ -384,8 +384,8 @@ $tabname = 'attributes-view';
                     record = this.dataSource.pageSize() * (this.dataSource.page() - 1);
                 },
             });
-            if ($('#attributes-grid').width() < 1400)
-                $('#attributes-grid').width(1400);
+            // if ($('#attributes-grid').width() < 1400)
+            //     $('#attributes-grid').width(1400);
 
             $('#search-attributes').click(function() {
                 //search
