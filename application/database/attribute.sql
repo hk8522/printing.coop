@@ -53,7 +53,7 @@ CREATE TABLE `product_attribute_item_map` (
   `attribute_id` bigint(20) unsigned DEFAULT NULL,
   `attribute_item_id` bigint(20) unsigned DEFAULT NULL,
   `show_order` int(10) unsigned DEFAULT 0,
-  `additional_fee` decimal(10,2) DEFAULT NULL,
+  `additional_fee` decimal(10,4) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `attribute_item` (`product_id`,`attribute_id`,`attribute_item_id`,`show_order`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -70,7 +70,7 @@ CREATE TABLE `product_attribute_map` (
   `use_items` tinyint(4) unsigned DEFAULT 1,
   `value_min` decimal(10,2) DEFAULT 0.00,
   `value_max` decimal(10,2) DEFAULT 0.00,
-  `additional_fee` decimal(10,2) DEFAULT NULL,
+  `additional_fee` decimal(10,4) DEFAULT NULL,
   `fee_apply_size` tinyint(3) unsigned DEFAULT 1,
   `fee_apply_width` tinyint(3) unsigned DEFAULT 1,
   `fee_apply_length` tinyint(3) unsigned DEFAULT 1,

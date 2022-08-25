@@ -11,7 +11,7 @@
                     <input type="number" class="attribute field" name="attributes[<?= $attribute->attribute_id?>]" required id="attribute-<?= $attribute->attribute_id?>" placeholder="<?= ($attribute->value_min > 0 ? $attribute->value_min : '') . ' ~ ' . ($attribute->value_max > 0 ? $attribute->value_max : '') ?>"
                         <?= $attribute->value_min > 0 ? 'min="' . $attribute->value_min . '"' : '' ?>  <?= $attribute->value_max > 0 ? 'max="' . $attribute->value_max . '"' : '' ?>>
                 <?php } else { ?>
-                    <input type="text" class="attribute field" name="attributes[<?= $attribute->attribute_id?>]" required id="attribute-<?= $attribute->attribute_id?>" placeholder="<?= ($attribute->value_min > 0 ? $attribute->value_min : '') . ' ~ ' . ($attribute->value_max > 0 ? $attribute->value_max : '') ?>">
+                    <input type="text" class="attribute field" name="attributes[<?= $attribute->attribute_id?>]" required id="attribute-<?= $attribute->attribute_id?>">
                 <?php } ?>
             <?php } else { ?>
                 <select class="attribute field" name="attributes[<?= $attribute->attribute_id?>]" required id="attribute-<?= $attribute->attribute_id?>">
@@ -43,56 +43,132 @@
         $('.single-review select').on('change', updatePrice);
         $('.single-review input').on('change', updatePrice);
     });
+    function parseValue(str)
+    {
+        var v = parseFloat(str);
+        if (isNaN(v))
+            return null;
+        else
+            return v;
+    }
     function parseSize(sizeStr)
     {
         var dims = sizeStr.match(/([\d\.]+)/g);
         if (dims)
-            return parseFloat(dims[0]) * parseFloat(dims[1]);
+            return (parseValue(dims[0]) ?? 1) * (parseValue(dims[1]) ?? 1);
         return 1;
     }
     function updatePrice()
     {
         var quantity = 1, size = 1, width = 1, length = 1, diameter = 1, depth = 1, pages = 1;
+        var sizePrice = 1, sizePriceUsed = false;
         for (var i = 0; i < attributes.length; i++) {
             var attribute = attributes[i];
-            var attribute_item_id = $('#attribute-' + attribute.attribute_id).val();
-            for (var j = 0; j < attribute_items.length; j++) {
-                var item = attribute_items[j];
-                if (item.attribute_id != attribute.attribute_id)
-                    continue;
-                if (item.attribute_item_id != attribute_item_id)
-                    continue;
+            if (attribute.use_items == 1) {
+                var attribute_item_id = $('#attribute-' + attribute.attribute_id).val();
+                for (var j = 0; j < attribute_items.length; j++) {
+                    var item = attribute_items[j];
+                    if (item.attribute_id != attribute.attribute_id)
+                        continue;
+                    if (item.attribute_item_id != attribute_item_id)
+                        continue;
+                    if (attribute.type == <?= App\Common\AttributeType::Quantity ?>)
+                        quantity = parseValue(item.attribute_item_name) ?? 1;
+                    else if (attribute.type == <?= App\Common\AttributeType::Size ?>) {
+                        size = parseSize(item.attribute_item_name);
+                        sizePrice = parseValue(attribute.additional_fee) ?? 0;
+                        sizePriceUsed = true;
+                    } else if (attribute.type == <?= App\Common\AttributeType::Width ?>) {
+                        width = parseValue(item.attribute_item_name) ?? 1;
+                        sizePrice *= parseValue(attribute.additional_fee) ?? 0;
+                        sizePriceUsed = true;
+                    } else if (attribute.type == <?= App\Common\AttributeType::Length ?>) {
+                        length = parseValue(item.attribute_item_name) ?? 1;
+                        sizePrice *= parseValue(attribute.additional_fee) ?? 0;
+                        sizePriceUsed = true;
+                    } else if (attribute.type == <?= App\Common\AttributeType::Diameter ?>) {
+                        diameter = parseValue(item.attribute_item_name) ?? 1;
+                        sizePice = parseValue(attribute.additional_fee) ?? 0;
+                        sizePriceUsed = true;
+                    } else if (attribute.type == <?= App\Common\AttributeType::Depth ?>) {
+                        depth = parseValue(item.attribute_item_name) ?? 1;
+                        sizePrice *= parseValue(attribute.additional_fee) ?? 0;
+                        sizePriceUsed = true;
+                    } else if (attribute.type == <?= App\Common\AttributeType::Pages ?>)
+                        pages = parseValue(item.attribute_item_name) ?? 1;
+                }
+            } else {
+                var value = $('#attribute-' + attribute.attribute_id).val();
                 if (attribute.type == <?= App\Common\AttributeType::Quantity ?>)
-                    quantity = parseInt(item.attribute_item_name);
-                else if (attribute.type == <?= App\Common\AttributeType::Size ?>)
-                    size = parseSize(item.attribute_item_name);
-                else if (attribute.type == <?= App\Common\AttributeType::Width ?>)
-                    width = parseInt(item.attribute_item_name);
-                else if (attribute.type == <?= App\Common\AttributeType::Length ?>)
-                    length = parseInt(item.attribute_item_name);
-                else if (attribute.type == <?= App\Common\AttributeType::Diameter ?>)
-                    diameter = parseInt(item.attribute_item_name);
-                else if (attribute.type == <?= App\Common\AttributeType::Depth ?>)
-                    depth = parseInt(item.attribute_item_name);
-                else if (attribute.type == <?= App\Common\AttributeType::Pages ?>)
-                    pages = parseInt(item.attribute_item_name);
+                    quantity = parseValue(value) ?? 1;
+                else if (attribute.type == <?= App\Common\AttributeType::Size ?>) {
+                    size = parseSize(value);
+                    sizePrice = parseValue(attribute.additional_fee) ?? 0;
+                    sizePriceUsed = true;
+                } else if (attribute.type == <?= App\Common\AttributeType::Width ?>) {
+                    width = parseValue(value) ?? 1;
+                    sizePrice *= parseValue(attribute.additional_fee) ?? 0;
+                    sizePriceUsed = true;
+                } else if (attribute.type == <?= App\Common\AttributeType::Length ?>) {
+                    length = parseValue(value) ?? 1;
+                    sizePrice *= parseValue(attribute.additional_fee) ?? 0;
+                    sizePriceUsed = true;
+                } else if (attribute.type == <?= App\Common\AttributeType::Diameter ?>) {
+                    diameter = parseValue(value) ?? 1;
+                    sizePrice = parseValue(attribute.additional_fee) ?? 0;
+                    sizePriceUsed = true;
+                } else if (attribute.type == <?= App\Common\AttributeType::Depth ?>) {
+                    depth = parseValue(value) ?? 1;
+                    sizePrice *= parseValue(attribute.additional_fee) ?? 0;
+                    sizePriceUsed = true;
+                } else if (attribute.type == <?= App\Common\AttributeType::Pages ?>)
+                    pages = parseValue(value) ?? 1;
             }
         }
         console.log(quantity, size, width, length, diameter, depth, pages);
 
         var price = <?= $Product['price'] ?>;
+        if (sizePriceUsed)
+            price += sizePrice * size * width * length * (diameter * diameter) * depth;
         for (var i = 0; i < attributes.length; i++) {
             var attribute = attributes[i];
-            var attribute_item_id = $('#attribute-' + attribute.attribute_id).val();
-            for (var j = 0; j < attribute_items.length; j++) {
-                var item = attribute_items[j];
-                if (item.attribute_id != attribute.attribute_id)
-                    continue;
-                if (item.attribute_item_id != attribute_item_id)
-                    continue;
+            if ((attribute.type == <?= App\Common\AttributeType::Quantity ?>) ||
+                (attribute.type == <?= App\Common\AttributeType::Size ?>) ||
+                (attribute.type == <?= App\Common\AttributeType::Width ?>) ||
+                (attribute.type == <?= App\Common\AttributeType::Length ?>) ||
+                (attribute.type == <?= App\Common\AttributeType::Diameter ?>) ||
+                (attribute.type == <?= App\Common\AttributeType::Depth ?>) ||
+                (attribute.type == <?= App\Common\AttributeType::Pages ?>))
+                continue;
+            if (attribute.use_items == 1) {
+                var attribute_item_id = $('#attribute-' + attribute.attribute_id).val();
+                for (var j = 0; j < attribute_items.length; j++) {
+                    var item = attribute_items[j];
+                    if (item.attribute_id != attribute.attribute_id)
+                        continue;
+                    if (item.attribute_item_id != attribute_item_id)
+                        continue;
 
-                console.log([attribute.attribute_id, attribute_item_id, attribute.additional_fee, item.additional_fee]);
-                var fee = parseFloat(item.additional_fee ?? 0);
+                    console.log([attribute.attribute_id, attribute_item_id, attribute.additional_fee, item.additional_fee]);
+                    var fee = parseFloat(item.additional_fee ?? 0);
+
+                    if (attribute.fee_apply_size)
+                        fee *= size;
+                    if (attribute.fee_apply_width)
+                        fee *= width;
+                    if (attribute.fee_apply_length)
+                        fee *= length;
+                    if (attribute.fee_apply_diameter)
+                        fee *= diameter * diameter;
+                    if (attribute.fee_apply_depth)
+                        fee *= depth;
+                    if (attribute.fee_apply_pages)
+                        fee *= pages;
+
+                    price += fee;
+                }
+            } else {
+                var fee = parseFloat(attribute.additional_fee ?? 0);
 
                 if (attribute.fee_apply_size)
                     fee *= size;
@@ -101,7 +177,7 @@
                 if (attribute.fee_apply_length)
                     fee *= length;
                 if (attribute.fee_apply_diameter)
-                    fee *= diameter;
+                    fee *= diameter * diameter;
                 if (attribute.fee_apply_depth)
                     fee *= depth;
                 if (attribute.fee_apply_pages)
@@ -109,8 +185,6 @@
 
                 price += fee;
             }
-            // if (attribute.type != <?= App\Common\AttributeType::Quantity ?>)
-            //     fee *= quantity;
         }
         console.log(price);
         $('[name="price"]').val(price * quantity);
