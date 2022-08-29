@@ -147,7 +147,7 @@ overflow: hidden;
                                     <?php if ($provider) {
                                         $this->view('Products/product_detail_provider');
                                     } else {
-                                        $this->view('Products/product_detail');
+                                        $this->view('Products/product_detail_map');
                                     } ?>
                                 </div>
                             </div>
