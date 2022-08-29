@@ -298,3 +298,8 @@
       INNER JOIN `attributes` ON `attributes`.`name`=TRIM(`product_multiple_attributes`.`name`)
       INNER JOIN `attribute_items` ON `attribute_items`.`attribute_id`=`attributes`.`id` AND `attribute_items`.`name`=TRIM(`product_multiple_attribute_items`.`item_name`)
       GROUP BY `size_multiple_attributes`.`product_id`, `size_multiple_attributes`.`attribute_id`, `size_multiple_attributes`.`attribute_item_id`;
+
+  /* Update order */
+  UPDATE `product_attribute_item_map`, `attribute_items`
+    SET `product_attribute_item_map`.`show_order` = `attribute_items`.`name`
+    WHERE `product_attribute_item_map`.`attribute_item_id` = `attribute_items`.`id`;

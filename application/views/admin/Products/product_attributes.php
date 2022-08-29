@@ -229,6 +229,7 @@ $tabname = 'attributes-view';
             });
         }
         var record = 0;
+        var qsTypes = [<?= App\Common\AttributeType::Quantity?>, <?= App\Common\AttributeType::Size?>, <?= App\Common\AttributeType::Width?>, <?= App\Common\AttributeType::Length?>, <?= App\Common\AttributeType::Diameter?>, <?= App\Common\AttributeType::Depth?>, <?= App\Common\AttributeType::Pages?>, <?= App\Common\AttributeType::Sheets?>];
         $(document).ready(function() {
             $('#attributes-grid').kendoGrid({
                 dataSource: {
@@ -330,33 +331,33 @@ $tabname = 'attributes-view';
                     columns: [{
                         field: 'fee_apply_size',
                         title: 'Size',
-                        template: '#= fee_apply_size == 1 ? "Yes" : ""#',
-                        editor: booleanEditor,
+                        template: '#if (qsTypes.indexOf(Number(type))<0) {##= fee_apply_size == 1 ? "Yes" : ""##}#',
+                        editor: booleanEditorQS,
                     }, {
                         field: 'fee_apply_width',
                         title: 'Width',
-                        template: '#= fee_apply_width == 1 ? "Yes" : ""#',
-                        editor: booleanEditor,
+                        template: '#if (qsTypes.indexOf(Number(type))<0) {##= fee_apply_width == 1 ? "Yes" : ""##}#',
+                        editor: booleanEditorQS,
                     }, {
                         field: 'fee_apply_length',
                         title: 'Length',
-                        template: '#= fee_apply_length == 1 ? "Yes" : ""#',
-                        editor: booleanEditor,
+                        template: '#if (qsTypes.indexOf(Number(type))<0) {##= fee_apply_length == 1 ? "Yes" : ""##}#',
+                        editor: booleanEditorQS,
                     }, {
                         field: 'fee_apply_diameter',
                         title: 'Diameter',
-                        template: '#= fee_apply_diameter == 1 ? "Yes" : ""#',
-                        editor: booleanEditor,
+                        template: '#if (qsTypes.indexOf(Number(type))<0) {##= fee_apply_diameter == 1 ? "Yes" : ""##}#',
+                        editor: booleanEditorQS,
                     }, {
                         field: 'fee_apply_depth',
                         title: 'Depth',
-                        template: '#= fee_apply_depth == 1 ? "Yes" : ""#',
-                        editor: booleanEditor,
+                        template: '#if (qsTypes.indexOf(Number(type))<0) {##= fee_apply_depth == 1 ? "Yes" : ""##}#',
+                        editor: booleanEditorQS,
                     }, {
                         field: 'fee_apply_pages',
                         title: 'Pages',
-                        template: '#= fee_apply_pages == 1 ? "Yes" : ""#',
-                        editor: booleanEditor,
+                        template: '#if (qsTypes.indexOf(Number(type))<0) {##= fee_apply_pages == 1 ? "Yes" : ""##}#',
+                        editor: booleanEditorQS,
                     }]
                 }, {
                     field: 'show_order',
@@ -513,11 +514,17 @@ $tabname = 'attributes-view';
             $('<input required name="' + options.field + '"/>')
                 .appendTo(container)
                 .kendoDropDownList({
-                    value: options.model.type,
+                    value: options.model[options.field],
                     dataSource: [{key: 1, value: 'Yes'}, {key: 0, value: 'No'}],
                     dataTextField: "value",
                     dataValueField: "key",
                 });
+        }
+
+        function booleanEditorQS(container, options) {
+            if (qsTypes.indexOf(Number(options.model.type))<0) {
+                booleanEditor(container, options);
+            }
         }
 
         var curAttribute = null;
