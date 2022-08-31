@@ -97,7 +97,10 @@
                     $('.new-price-img').show();
                 }
                 if (data.success) {
-                    var price = data.price.price == NaN ? 0 : data.price.price * <?= $provider->price_rate?>;
+                    var price = isNaN(Number(data.price.price)) ? 0 : Number(data.price.price) * <?= $provider->price_rate?>;
+                    if (price == 0) {
+                        kendo.alert('This options are not supported from the service provider. Please select another options.');
+                    }
                     $('[name="price"]').val(price);
                     $('#total-price').html((price * $('#quantity').val()).toFixed(2));
                 } else

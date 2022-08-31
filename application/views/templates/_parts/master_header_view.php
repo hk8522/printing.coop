@@ -54,6 +54,7 @@
         href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <!-- <link rel="stylesheet" type="text/css" href="<?= $BASE_URL ?>fancy-product-designer-jquery/source/css/FancyProductDesigner-all.min.css"/> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?=$BASE_URL?>assets/administration/kendo/styles/2022.2.802/kendo.default-main.min.css">
 
     <!-- Cloudflare Web Analytics -->
     <script defer src='https://static.cloudflareinsights.com/beacon.min.js'
@@ -123,6 +124,8 @@
             gtag('config', 'G-QHV7YWZEQ5');
         </script>
     <?php } ?>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="<?=$BASE_URL?>assets/administration/kendo/scripts/2022.2.802/kendo.all.min.js"></script>
 </head>
 
 <body>
