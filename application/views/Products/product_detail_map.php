@@ -152,17 +152,17 @@
                     console.log([attribute.attribute_id, attribute_item_id, attribute.additional_fee, item.additional_fee]);
                     var fee = parseFloat(item.additional_fee ?? 0);
 
-                    if (attribute.fee_apply_size)
+                    if (attribute.fee_apply_size == 1)
                         fee *= size;
-                    if (attribute.fee_apply_width)
+                    if (attribute.fee_apply_width == 1)
                         fee *= width;
-                    if (attribute.fee_apply_length)
+                    if (attribute.fee_apply_length == 1)
                         fee *= length;
-                    if (attribute.fee_apply_diameter)
+                    if (attribute.fee_apply_diameter == 1)
                         fee *= diameter * diameter;
-                    if (attribute.fee_apply_depth)
+                    if (attribute.fee_apply_depth == 1)
                         fee *= depth;
-                    if (attribute.fee_apply_pages)
+                    if (attribute.fee_apply_pages == 1)
                         fee *= pages;
 
                     price += fee;
@@ -170,17 +170,17 @@
             } else {
                 var fee = parseFloat(attribute.additional_fee ?? 0);
 
-                if (attribute.fee_apply_size)
+                if (attribute.fee_apply_size == 1)
                     fee *= size;
-                if (attribute.fee_apply_width)
+                if (attribute.fee_apply_width == 1)
                     fee *= width;
-                if (attribute.fee_apply_length)
+                if (attribute.fee_apply_length == 1)
                     fee *= length;
-                if (attribute.fee_apply_diameter)
+                if (attribute.fee_apply_diameter == 1)
                     fee *= diameter * diameter;
-                if (attribute.fee_apply_depth)
+                if (attribute.fee_apply_depth == 1)
                     fee *= depth;
-                if (attribute.fee_apply_pages)
+                if (attribute.fee_apply_pages == 1)
                     fee *= pages;
 
                 price += fee;
