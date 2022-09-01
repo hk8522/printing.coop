@@ -60,7 +60,7 @@
     }
     function updatePrice()
     {
-        var quantity = 1, size = 1, width = 1, length = 1, diameter = 1, depth = 1, pages = 1, rectoVerso = 100;
+        var quantity = 1, size = 1, width = 1, length = 1, diameter = 1, depth = 1, pages = 1, rectoVerso = 0;
         var sizePrice = 1, sizePriceUsed = false;
         for (var i = 0; i < attributes.length; i++) {
             var attribute = attributes[i];
