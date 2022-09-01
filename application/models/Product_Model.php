@@ -3355,8 +3355,12 @@ class Product_Model extends MY_Model
         $this->db->where('product_attribute_item_map.product_id', $product_id);
         if ($attribute_id)
             $this->db->where('product_attribute_item_map.attribute_id', $attribute_id);
-        if ($q)
+        if ($q) {
+            $this->db->group_start();
             $this->db->like('attributes.name', $q);
+            $this->db->or_like('attribute_items.name', $q);
+            $this->db->group_end();
+        }
         $total = $this->db->get()->row();
         $total = reset($total);
 
@@ -3374,8 +3378,10 @@ class Product_Model extends MY_Model
         if ($attribute_id)
             $this->db->where('product_attribute_item_map.attribute_id', $attribute_id);
         if ($q) {
+            $this->db->group_start();
             $this->db->like('attributes.name', $q);
-            $this->db->like('attribute_items.name', $q);
+            $this->db->or_like('attribute_items.name', $q);
+            $this->db->group_end();
         }
         $this->db->group_by('product_attribute_item_map.id');
         // $this->db->order_by('attributes.type');
