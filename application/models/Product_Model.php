@@ -3198,8 +3198,10 @@ class Product_Model extends MY_Model
         if ($attribute_id)
             $this->db->where('attribute_items.attribute_id', $attribute_id);
         if ($q) {
+            $this->db->group_start();
             $this->db->like('attributes.name', $q);
             $this->db->or_like('attribute_items.name', $q);
+            $this->db->group_end();
         }
         $total = $this->db->get()->row();
         $total = reset($total);
@@ -3210,8 +3212,10 @@ class Product_Model extends MY_Model
         if ($attribute_id)
             $this->db->where('attribute_items.attribute_id', $attribute_id);
         if ($q) {
+            $this->db->group_start();
             $this->db->like('attributes.name', $q);
             $this->db->or_like('attribute_items.name', $q);
+            $this->db->group_end();
         }
         $this->db->order_by('attributes.name, attribute_items.name');
         $take = $take > 0 ? $take : 0;
