@@ -144,7 +144,8 @@
                 (attribute.type == <?= App\Common\AttributeType::Length ?>) ||
                 (attribute.type == <?= App\Common\AttributeType::Diameter ?>) ||
                 (attribute.type == <?= App\Common\AttributeType::Depth ?>) ||
-                (attribute.type == <?= App\Common\AttributeType::Pages ?>))
+                (attribute.type == <?= App\Common\AttributeType::Pages ?>) ||
+                (attribute.type == <?= App\Common\AttributeType::RectoVerso ?>))
                 continue;
             if (attribute.use_items == 1) {
                 var attribute_item_id = $('#attribute-' + attribute.attribute_id).val();
