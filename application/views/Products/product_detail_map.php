@@ -60,7 +60,8 @@
     }
     function updatePrice()
     {
-        var quantity = 1, size = 1, width = 1, length = 1, diameter = 1, depth = 1, pages = 1, rectoVerso = 0;
+        var percentages = [];
+        var quantity = 1, size = 1, width = 1, length = 1, diameter = 1, depth = 1, pages = 1;
         var sizePrice = 1, sizePriceUsed = false;
         for (var i = 0; i < attributes.length; i++) {
             var attribute = attributes[i];
@@ -72,6 +73,12 @@
                         continue;
                     if (item.attribute_item_id != attribute_item_id)
                         continue;
+                    if (attribute.use_percentage == 1) {
+                        var percentage = parseValue(item.additional_fee) ?? 0;
+                        if (percentage > 0)
+                            percentages.push(percentage);
+                        continue;
+                    }
                     if (attribute.type == <?= App\Common\AttributeType::Quantity ?>)
                         quantity = parseValue(item.attribute_item_name) ?? 1;
                     else if (attribute.type == <?= App\Common\AttributeType::Size ?>) {
@@ -94,14 +101,17 @@
                         depth = parseValue(item.attribute_item_name) ?? 1;
                         sizePrice *= parseValue(attribute.additional_fee) ?? 0;
                         sizePriceUsed = true;
-                    } else if (attribute.type == <?= App\Common\AttributeType::Pages ?>) {
+                    } else if (attribute.type == <?= App\Common\AttributeType::Pages ?>)
                         pages = parseValue(item.attribute_item_name) ?? 1;
-                    } else if (attribute.type == <?= App\Common\AttributeType::RectoVerso ?>) {
-                        rectoVerso = parseValue(item.additional_fee) ?? 0;
-                    }
                 }
             } else {
                 var value = $('#attribute-' + attribute.attribute_id).val();
+                if (attribute.use_percentage == 1) {
+                    var percentage = parseValue(attribute.additional_fee) ?? 0;
+                    if (percentage > 0)
+                        percentages.push(percentage);
+                    continue;
+                }
                 if (attribute.type == <?= App\Common\AttributeType::Quantity ?>)
                     quantity = parseValue(value) ?? 1;
                 else if (attribute.type == <?= App\Common\AttributeType::Size ?>) {
@@ -124,11 +134,8 @@
                     depth = parseValue(value) ?? 1;
                     sizePrice *= parseValue(attribute.additional_fee) ?? 0;
                     sizePriceUsed = true;
-                } else if (attribute.type == <?= App\Common\AttributeType::Pages ?>) {
+                } else if (attribute.type == <?= App\Common\AttributeType::Pages ?>)
                     pages = parseValue(value) ?? 1;
-                } else if (attribute.type == <?= App\Common\AttributeType::RectoVerso ?>) {
-                    rectoVerso = parseValue(value) ?? 0;
-                }
             }
         }
         console.log(quantity, size, width, length, diameter, depth, pages);
@@ -138,14 +145,15 @@
             price += sizePrice * size * width * length * (diameter * diameter) * depth;
         for (var i = 0; i < attributes.length; i++) {
             var attribute = attributes[i];
+            if (attribute.use_percentage)
+                continue;
             if ((attribute.type == <?= App\Common\AttributeType::Quantity ?>) ||
                 (attribute.type == <?= App\Common\AttributeType::Size ?>) ||
                 (attribute.type == <?= App\Common\AttributeType::Width ?>) ||
                 (attribute.type == <?= App\Common\AttributeType::Length ?>) ||
                 (attribute.type == <?= App\Common\AttributeType::Diameter ?>) ||
                 (attribute.type == <?= App\Common\AttributeType::Depth ?>) ||
-                (attribute.type == <?= App\Common\AttributeType::Pages ?>) ||
-                (attribute.type == <?= App\Common\AttributeType::RectoVerso ?>))
+                (attribute.type == <?= App\Common\AttributeType::Pages ?>))
                 continue;
             if (attribute.use_items == 1) {
                 var attribute_item_id = $('#attribute-' + attribute.attribute_id).val();
@@ -193,8 +201,9 @@
                 price += fee;
             }
         }
-        if (rectoVerso > 0)
-            price += price * rectoVerso / 100.0;
+        for (var i = 0; i < percentages.length; i++) {
+            price += price * percentages[i] / 100.0;
+        }
         console.log(price);
         $('[name="price"]').val(price * quantity);
         $('#total-price').html((price * quantity * $('#quantity').val()).toFixed(2));

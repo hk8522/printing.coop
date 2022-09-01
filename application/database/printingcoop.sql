@@ -907,6 +907,7 @@ CREATE TABLE `product_attribute_map` (
   `attribute_id` bigint(20) unsigned DEFAULT NULL,
   `show_order` int(10) unsigned DEFAULT 0,
   `use_items` tinyint(4) unsigned DEFAULT 1,
+  `use_percentage` tinyint(4) unsigned DEFAULT 0,
   `value_min` decimal(10,2) DEFAULT 0.00,
   `value_max` decimal(10,2) DEFAULT 0.00,
   `additional_fee` decimal(10,4) DEFAULT NULL,

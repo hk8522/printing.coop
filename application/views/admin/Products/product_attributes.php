@@ -81,6 +81,10 @@ $tabname = 'attributes-view';
                                     <?php $this->load->view('admin/shared/select', ['name' => 'use_items', 'value' => 1, 'items' => [1=> 'Yes', 0 => 'No'], 'index' => true, 'class' => 'form-control col-md-9 col-sm-9']); ?>
                                 </div>
                                 <div class="form-group">
+                                    <label for="type" class="control-label col-md-3 col-sm-3">Use Percentage</label>
+                                    <?php $this->load->view('admin/shared/select', ['name' => 'use_percentage', 'value' => 0, 'items' => [0 => 'No', 1=> 'Yes'], 'index' => true, 'class' => 'form-control col-md-9 col-sm-9']); ?>
+                                </div>
+                                <div class="form-group">
                                     <label for="type" class="control-label col-md-3 col-sm-3">Min Value</label>
                                     <?php $this->load->view('admin/shared/double', ['name' => 'value_min', 'value' => 0]); ?>
                                 </div>
@@ -313,6 +317,11 @@ $tabname = 'attributes-view';
                     field: 'use_items',
                     title: 'Use Items',
                     template: '#= use_items == 1 == 1 ? "Yes" : ""#',
+                    editor: booleanEditor,
+                }, {
+                    field: 'use_percentage',
+                    title: '%',
+                    template: '#= use_percentage == 1 == 1 ? "Yes" : ""#',
                     editor: booleanEditor,
                 }, {
                     title: 'Value Range',
