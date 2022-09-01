@@ -194,7 +194,7 @@
             }
         }
         if (rectoVerso > 0)
-            price = price * rectoVerso / 100.0;
+            price += price * rectoVerso / 100.0;
         console.log(price);
         $('[name="price"]').val(price * quantity);
         $('#total-price').html((price * quantity * $('#quantity').val()).toFixed(2));
