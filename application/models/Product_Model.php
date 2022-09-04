@@ -3347,6 +3347,14 @@ class Product_Model extends MY_Model
     public function productAttributeDelete($id)
     {
         $this->db->where('id', $id);
+        $this->db->from('product_attribute_map');
+        $attribute = $this->db->get()->row();
+        if ($attribute) {
+            $this->db->where('product_id', $attribute->product_id);
+            $this->db->where('attribute_id', $attribute->attribute_id);
+            $this->db->delete('product_attribute_item_map');
+        }
+        $this->db->where('id', $id);
         $this->db->delete('product_attribute_map');
     }
 

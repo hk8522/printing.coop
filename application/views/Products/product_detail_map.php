@@ -145,7 +145,7 @@
             price += sizePrice * size * width * length * (diameter * diameter) * depth;
         for (var i = 0; i < attributes.length; i++) {
             var attribute = attributes[i];
-            if (attribute.use_percentage)
+            if (attribute.use_percentage == 1)
                 continue;
             if ((attribute.type == <?= App\Common\AttributeType::Quantity ?>) ||
                 (attribute.type == <?= App\Common\AttributeType::Size ?>) ||

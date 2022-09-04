@@ -70,7 +70,7 @@ $tabname = 'attributes-view';
                                         'id' => 'attribute-create-attribute_id',
                                         'name' => 'attribute_id',
                                         'url' => '/admin/Products/AttributesMap',
-                                        'label' => 'Select Attributes...',
+                                        'label' => 'Select an attribute...',
                                         'class' => 'form-control col-md-9 col-sm-9',
                                         'fieldText' => 'label',
                                         'template' => '#=label# (#=label_fr#) : #=name#',
@@ -122,6 +122,10 @@ $tabname = 'attributes-view';
                                         <label for="type" class="control-label col-md-3 col-sm-3">Pages</label>
                                         <?php $this->load->view('admin/shared/select', ['name' => 'fee_apply_pages', 'value' => 0, 'items' => [1=> 'Yes', 0 => 'No'], 'index' => true, 'class' => 'form-control col-md-9 col-sm-9']); ?>
                                     </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="show_order" class="control-label col-md-3 col-sm-3">Show Order</label>
+                                    <input type="number" class="form-control col-md-9 col-sm-9" name="show_order" autocomplete="off">
                                 </div>
                             </div>
                         </div>
@@ -198,7 +202,7 @@ $tabname = 'attributes-view';
                                 'id' => 'attribute-item-create-attribute_item_id',
                                 'name' => 'attribute_item_id',
                                 'urlFunction' => 'attributeItemUrl',
-                                'label' => 'Select Attributes...',
+                                'label' => 'Select an item...',
                                 'class' => 'form-control col-md-9 col-sm-9',
                                 'fieldText' => 'name',
                                 ]]); ?>
@@ -722,7 +726,7 @@ $tabname = 'attributes-view';
 
         function attributeItemCreate(e) {
             e.preventDefault();
-            $('#dlg-attribute-item-create [name="attribute_id"]').val(curAttribute.id);
+            $('#dlg-attribute-item-create [name="attribute_id"]').val(curAttribute.attribute_id);
             var wnd = $('#dlg-attribute-item-create');
             if (!wnd.data('kendoWindow')) {
                 wnd.kendoWindow({

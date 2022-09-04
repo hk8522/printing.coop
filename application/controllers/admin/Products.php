@@ -2322,6 +2322,10 @@ Coating";
         $provider = $this->Provider_Model->getProvider($provider);
 
         $q = $this->input->post('q');
+        $filter = $this->input->post('filter');
+        if (isset($filter) && isset($filter['filters']))
+            $q = $filter['filters'][0]['value'];
+
         $page = $this->input->post('page');
         $pageSize = $this->input->post('pageSize');
         $take = $pageSize;
@@ -2424,6 +2428,10 @@ Coating";
         $provider = $this->Provider_Model->getProvider($provider);
 
         $q = $this->input->post('q');
+        $filter = $this->input->post('filter');
+        if (isset($filter) && isset($filter['filters']))
+            $q = $filter['filters'][0]['value'];
+
         $page = $this->input->post('page');
         $pageSize = $this->input->post('pageSize');
         $take = $pageSize;
@@ -2445,6 +2453,9 @@ Coating";
     public function Attributes()
     {
         $q = $this->input->post('q');
+        $filter = $this->input->post('filter');
+        if (isset($filter) && isset($filter['filters']))
+            $q = $filter['filters'][0]['value'];
 
         $page = $this->input->post('page');
         $pageSize = $this->input->post('pageSize');
@@ -2483,6 +2494,9 @@ Coating";
             $this->render($this->class_name . 'attributes');
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $q = $this->input->post('q');
+            $filter = $this->input->post('filter');
+            if (isset($filter) && isset($filter['filters']))
+                $q = $filter['filters'][0]['value'];
 
             $page = $this->input->post('page');
             $pageSize = $this->input->post('pageSize');
@@ -2555,6 +2569,9 @@ Coating";
             $this->render($this->class_name . 'attribute_items');
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $q = $this->input->post('q');
+            $filter = $this->input->post('filter');
+            if (isset($filter) && isset($filter['filters']))
+                $q = $filter['filters'][0]['value'];
 
             $page = $this->input->post('page');
             $pageSize = $this->input->post('pageSize');
@@ -2626,6 +2643,9 @@ Coating";
             $this->render($this->class_name . 'product_attributes');
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $q = $this->input->post('q');
+            $filter = $this->input->post('filter');
+            if (isset($filter) && isset($filter['filters']))
+                $q = $filter['filters'][0]['value'];
 
             $page = $this->input->post('page');
             $pageSize = $this->input->post('pageSize');
@@ -2719,6 +2739,9 @@ Coating";
             $this->render($this->class_name . 'product_attribute_items');
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $q = $this->input->post('q');
+            $filter = $this->input->post('filter');
+            if (isset($filter) && isset($filter['filters']))
+                $q = $filter['filters'][0]['value'];
 
             $page = $this->input->post('page');
             $pageSize = $this->input->post('pageSize');
