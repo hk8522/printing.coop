@@ -344,32 +344,32 @@ $tabname = 'attributes-view';
                     columns: [{
                         field: 'fee_apply_size',
                         title: 'Size',
-                        template: '#if (qsTypes.indexOf(Number(type))<0) {##= fee_apply_size == 1 ? "Yes" : ""##}#',
+                        template: '#if (qsTypes.indexOf(Number(type))<0 && use_percentage != 1) {##= fee_apply_size == 1 ? "Yes" : ""##}#',
                         editor: booleanEditorQS,
                     }, {
                         field: 'fee_apply_width',
                         title: 'Width',
-                        template: '#if (qsTypes.indexOf(Number(type))<0) {##= fee_apply_width == 1 ? "Yes" : ""##}#',
+                        template: '#if (qsTypes.indexOf(Number(type))<0 && use_percentage != 1) {##= fee_apply_width == 1 ? "Yes" : ""##}#',
                         editor: booleanEditorQS,
                     }, {
                         field: 'fee_apply_length',
                         title: 'Length',
-                        template: '#if (qsTypes.indexOf(Number(type))<0) {##= fee_apply_length == 1 ? "Yes" : ""##}#',
+                        template: '#if (qsTypes.indexOf(Number(type))<0 && use_percentage != 1) {##= fee_apply_length == 1 ? "Yes" : ""##}#',
                         editor: booleanEditorQS,
                     }, {
                         field: 'fee_apply_diameter',
                         title: 'Diameter',
-                        template: '#if (qsTypes.indexOf(Number(type))<0) {##= fee_apply_diameter == 1 ? "Yes" : ""##}#',
+                        template: '#if (qsTypes.indexOf(Number(type))<0 && use_percentage != 1) {##= fee_apply_diameter == 1 ? "Yes" : ""##}#',
                         editor: booleanEditorQS,
                     }, {
                         field: 'fee_apply_depth',
                         title: 'Depth',
-                        template: '#if (qsTypes.indexOf(Number(type))<0) {##= fee_apply_depth == 1 ? "Yes" : ""##}#',
+                        template: '#if (qsTypes.indexOf(Number(type))<0 && use_percentage != 1) {##= fee_apply_depth == 1 ? "Yes" : ""##}#',
                         editor: booleanEditorQS,
                     }, {
                         field: 'fee_apply_pages',
                         title: 'Pages',
-                        template: '#if (qsTypes.indexOf(Number(type))<0) {##= fee_apply_pages == 1 ? "Yes" : ""##}#',
+                        template: '#if (qsTypes.indexOf(Number(type))<0 && use_percentage != 1) {##= fee_apply_pages == 1 ? "Yes" : ""##}#',
                         editor: booleanEditorQS,
                     }]
                 }, {
