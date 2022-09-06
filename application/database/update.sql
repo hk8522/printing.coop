@@ -308,3 +308,7 @@
   ALTER TABLE `db_printing_imprimeur`.`product_attribute_map` ADD COLUMN `use_percentage` TINYINT(4) UNSIGNED DEFAULT 0 NULL AFTER `use_items`;
   UPDATE `product_attribute_map`, `attributes` SET `product_attribute_map`.`use_percentage` = 1
     WHERE `product_attribute_map`.`attribute_id` = `attributes`.`id` AND (`attributes`.`name` = 'RectoVerso' OR `attributes`.`name` LIKE 'Binding%');
+
+/* additional_fee precesion */
+  ALTER TABLE `product_attribute_map` CHANGE `additional_fee` `additional_fee` DOUBLE NULL; 
+  ALTER TABLE `product_attribute_item_map` CHANGE `additional_fee` `additional_fee` DOUBLE NULL; 

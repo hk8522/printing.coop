@@ -62,7 +62,7 @@
     {
         var percentages = [];
         var quantity = 1, size = 1, width = 1, length = 1, diameter = 1, depth = 1, pages = 1;
-        var sizePrice = 1, sizePriceUsed = false;
+        var sizePrices = [];
         for (var i = 0; i < attributes.length; i++) {
             var attribute = attributes[i];
             if (attribute.use_items == 1) {
@@ -79,70 +79,79 @@
                             percentages.push(percentage);
                         continue;
                     }
-                    if (attribute.type == <?= App\Common\AttributeType::Quantity ?>)
+
+                    if (attribute.type == <?= App\Common\AttributeType::Quantity ?>) {
                         quantity = parseValue(item.attribute_item_name) ?? 1;
-                    else if (attribute.type == <?= App\Common\AttributeType::Size ?>) {
-                        size = parseSize(item.attribute_item_name);
-                        sizePrice = parseValue(attribute.additional_fee) ?? 0;
-                        sizePriceUsed = true;
-                    } else if (attribute.type == <?= App\Common\AttributeType::Width ?>) {
-                        width = parseValue(item.attribute_item_name) ?? 1;
-                        sizePrice *= parseValue(attribute.additional_fee) ?? 0;
-                        sizePriceUsed = true;
-                    } else if (attribute.type == <?= App\Common\AttributeType::Length ?>) {
-                        length = parseValue(item.attribute_item_name) ?? 1;
-                        sizePrice *= parseValue(attribute.additional_fee) ?? 0;
-                        sizePriceUsed = true;
-                    } else if (attribute.type == <?= App\Common\AttributeType::Diameter ?>) {
-                        diameter = parseValue(item.attribute_item_name) ?? 1;
-                        sizePice = parseValue(attribute.additional_fee) ?? 0;
-                        sizePriceUsed = true;
-                    } else if (attribute.type == <?= App\Common\AttributeType::Depth ?>) {
-                        depth = parseValue(item.attribute_item_name) ?? 1;
-                        sizePrice *= parseValue(attribute.additional_fee) ?? 0;
-                        sizePriceUsed = true;
-                    } else if (attribute.type == <?= App\Common\AttributeType::Pages ?>)
-                        pages = parseValue(item.attribute_item_name) ?? 1;
+                        continue;
+                    }
+                    else if (attribute.type == <?= App\Common\AttributeType::Size ?>)
+                        size = value = parseSize(item.attribute_item_name);
+                    else if (attribute.type == <?= App\Common\AttributeType::Width ?>)
+                        width = value = parseValue(item.attribute_item_name) ?? 1;
+                    else if (attribute.type == <?= App\Common\AttributeType::Length ?>)
+                        length = value = parseValue(item.attribute_item_name) ?? 1;
+                    else if (attribute.type == <?= App\Common\AttributeType::Diameter ?>)
+                        diameter = value = parseValue(item.attribute_item_name) ?? 1;
+                    else if (attribute.type == <?= App\Common\AttributeType::Depth ?>)
+                        depth = value = parseValue(item.attribute_item_name) ?? 1;
+                    else if (attribute.type == <?= App\Common\AttributeType::Pages ?>)
+                        pages = value = parseValue(item.attribute_item_name) ?? 1;
+                    else
+                        continue;
+
+                    sizePrices.push({
+                        value: attribute.type == <?= App\Common\AttributeType::Diameter ?> ? value * value : value,
+                        additional_fee: parseValue(item.additional_fee) ?? 0,
+                    });
                 }
             } else {
-                var value = $('#attribute-' + attribute.attribute_id).val();
+                var value = parseValue($('#attribute-' + attribute.attribute_id).val()) ?? 1;
                 if (attribute.use_percentage == 1) {
                     var percentage = parseValue(attribute.additional_fee) ?? 0;
                     if (percentage > 0)
                         percentages.push(percentage);
                     continue;
                 }
-                if (attribute.type == <?= App\Common\AttributeType::Quantity ?>)
-                    quantity = parseValue(value) ?? 1;
-                else if (attribute.type == <?= App\Common\AttributeType::Size ?>) {
-                    size = parseSize(value);
-                    sizePrice = parseValue(attribute.additional_fee) ?? 0;
-                    sizePriceUsed = true;
-                } else if (attribute.type == <?= App\Common\AttributeType::Width ?>) {
-                    width = parseValue(value) ?? 1;
-                    sizePrice *= parseValue(attribute.additional_fee) ?? 0;
-                    sizePriceUsed = true;
-                } else if (attribute.type == <?= App\Common\AttributeType::Length ?>) {
-                    length = parseValue(value) ?? 1;
-                    sizePrice *= parseValue(attribute.additional_fee) ?? 0;
-                    sizePriceUsed = true;
-                } else if (attribute.type == <?= App\Common\AttributeType::Diameter ?>) {
-                    diameter = parseValue(value) ?? 1;
-                    sizePrice = parseValue(attribute.additional_fee) ?? 0;
-                    sizePriceUsed = true;
-                } else if (attribute.type == <?= App\Common\AttributeType::Depth ?>) {
-                    depth = parseValue(value) ?? 1;
-                    sizePrice *= parseValue(attribute.additional_fee) ?? 0;
-                    sizePriceUsed = true;
-                } else if (attribute.type == <?= App\Common\AttributeType::Pages ?>)
-                    pages = parseValue(value) ?? 1;
+                if (attribute.type == <?= App\Common\AttributeType::Quantity ?>) {
+                    quantity = value;
+                    continue;
+                }
+                // else if (attribute.type == <?= App\Common\AttributeType::Size ?>)
+                //     size = parseSize(value);
+                else if (attribute.type == <?= App\Common\AttributeType::Width ?>)
+                    width = value;
+                else if (attribute.type == <?= App\Common\AttributeType::Length ?>)
+                    length = value;
+                else if (attribute.type == <?= App\Common\AttributeType::Diameter ?>)
+                    diameter = value;
+                else if (attribute.type == <?= App\Common\AttributeType::Depth ?>)
+                    depth = value;
+                else if (attribute.type == <?= App\Common\AttributeType::Pages ?>)
+                    pages = value;
+                else
+                    continue;
+
+                sizePrices.push({
+                    value: attribute.type == <?= App\Common\AttributeType::Diameter ?> ? value * value : value,
+                    additional_fee: (parseValue(attribute.additional_fee) ?? 0) * value,
+                });
             }
         }
-        console.log(quantity, size, width, length, diameter, depth, pages);
+        console.log(quantity, size, width, length, diameter, depth, pages, sizePrices);
 
         var price = <?= $Product['price'] ?>;
-        if (sizePriceUsed)
-            price += sizePrice * size * width * length * (diameter * diameter) * depth;
+        for (var i = 0; i < sizePrices.length; i++) {
+            if (sizePrices[i].additional_fee != 0) {
+                var copies = 1;
+                for (var j = 0; j < sizePrices.length; j++) {
+                    if (j == i)
+                        continue;
+                    copies *= sizePrices[j].value;
+                }
+                price += sizePrices[i].additional_fee * copies;
+                console.log(price, sizePrices[i].additional_fee * copies);
+            }
+        }
         for (var i = 0; i < attributes.length; i++) {
             var attribute = attributes[i];
             if (attribute.use_percentage == 1)

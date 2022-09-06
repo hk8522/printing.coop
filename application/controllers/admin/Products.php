@@ -1469,7 +1469,7 @@ class Products extends Admin_Controller
                         ->set_output(json_encode($products));
                 }
 
-                foreach ($products as $product) {
+                foreach ($products as &$product) {
                     //pr($product);
                     $name = $product['name'];
                     $imageurl = $product['product_image'];
