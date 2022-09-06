@@ -105,7 +105,18 @@
                     });
                 }
             } else {
-                var value = parseValue($('#attribute-' + attribute.attribute_id).val()) ?? 1;
+                var valueStr = $('#attribute-' + attribute.attribute_id).val();
+                var value = parseValue(valueStr) ?? 1;
+                if (attribute.value_min > 0 && valueStr != '' && value < attribute.value_min) {
+                    $('#attribute-' + attribute.attribute_id).focus();
+                    kendo.alert(attribute.label<?= $language_name == 'French' ? '_fr' : '' ?> + '<?= $language_name == 'French' ? ' doit être plus grand que ' : ' should be bigger than ' ?>' + attribute.value_min);
+                    return;
+                }
+                if (attribute.value_max > 0 && valueStr != '' && value > attribute.value_max) {
+                    $('#attribute-' + attribute.attribute_id).focus();
+                    kendo.alert(attribute.label<?= $language_name == 'French' ? '_fr' : '' ?> + '<?= $language_name == 'French' ? ' doit être inférieur à ' : ' should be less than ' ?>' + attribute.value_max);
+                    return;
+                }
                 if (attribute.use_percentage == 1) {
                     var percentage = parseValue(attribute.additional_fee) ?? 0;
                     if (percentage > 0)
