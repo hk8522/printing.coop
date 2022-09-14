@@ -3262,7 +3262,7 @@ class Product_Model extends MY_Model
         $org = $this->db->get()->row();
         if (!$org)
             return 'No data found with the specified id';
-        $attribute_id = $org['attribute_id']; // attribute_id is readonly
+        $attribute_id = $org->attribute_id; // attribute_id is readonly
 
         $this->db->from('attribute_items');
         $this->db->where('id !=', $id);
