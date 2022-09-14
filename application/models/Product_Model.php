@@ -3217,7 +3217,7 @@ class Product_Model extends MY_Model
             $this->db->or_like('attribute_items.name', $q);
             $this->db->group_end();
         }
-        $this->db->order_by('attributes.name, attribute_items.name');
+        $this->db->order_by('attributes.name, CAST(attribute_items.name AS FLOAT), attribute_items.name');
         $take = $take > 0 ? $take : 0;
         $skip = $skip > 0 ? $skip : 0;
         if ($take > 0) {
@@ -3231,7 +3231,7 @@ class Product_Model extends MY_Model
 
     public function attributeItemCreate($data)
     {
-        if (empty($name))
+        if (empty($data['name']))
             return 'Name is required';
 
         // Check duplication
