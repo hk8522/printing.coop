@@ -109,11 +109,11 @@
                         continue;
                     if (item.attribute_item_id != attribute_item_id)
                         continue;
-                    if (attribute.use_percentage == 1) {
+                    if (attribute.use_percentage == 1 || attribute.type == <?= App\Common\AttributeType::Quantity ?>) {
                         var percentage = parseValue(item.additional_fee) ?? 0;
                         if (percentage > 0)
                             percentages.push(percentage);
-                        continue;
+                        // continue;
                     }
 
                     if (attribute.type == <?= App\Common\AttributeType::Quantity ?>) {
@@ -138,6 +138,7 @@
                     sizePrices.push({
                         value: attribute.type == <?= App\Common\AttributeType::Diameter ?> ? value * value : value,
                         additional_fee: parseValue(item.additional_fee) ?? 0,
+                        use_percentage: attribute.use_percentage == 1,
                     });
                 }
             } else {
@@ -153,11 +154,11 @@
                     kendo.alert(attribute.label<?= $language_name == 'French' ? '_fr' : '' ?> + '<?= $language_name == 'French' ? ' doit être inférieur à ' : ' should be less than ' ?>' + attribute.value_max);
                     return;
                 }
-                if (attribute.use_percentage == 1) {
+                if (attribute.use_percentage == 1 || attribute.type == <?= App\Common\AttributeType::Quantity ?>) {
                     var percentage = parseValue(attribute.additional_fee) ?? 0;
                     if (percentage > 0)
                         percentages.push(percentage);
-                    continue;
+                    // continue;
                 }
                 if (attribute.type == <?= App\Common\AttributeType::Quantity ?>) {
                     quantity = value;
@@ -181,6 +182,7 @@
                 sizePrices.push({
                     value: attribute.type == <?= App\Common\AttributeType::Diameter ?> ? value * value : value,
                     additional_fee: (parseValue(attribute.additional_fee) ?? 0) * value,
+                    use_percentage: attribute.use_percentage == 1,
                 });
             }
         }
@@ -196,23 +198,13 @@
             sizePrices.push({
                 value: width * length,
                 additional_fee: 0,
+                use_percentage: false,
             });
         }
         console.log(quantity, size, width, length, diameter, depth, pages, sizePrices);
 
+        <?php /* Apply size multiplication */ ?>
         var price = <?= $Product['price'] ?>;
-        for (var i = 0; i < sizePrices.length; i++) {
-            if (sizePrices[i].additional_fee != 0) {
-                var copies = 1;
-                for (var j = 0; j < sizePrices.length; j++) {
-                    if (j == i)
-                        continue;
-                    copies *= sizePrices[j].value;
-                }
-                price += sizePrices[i].additional_fee * copies;
-                console.log(price, sizePrices[i].additional_fee * copies);
-            }
-        }
         for (var i = 0; i < attributes.length; i++) {
             var attribute = attributes[i];
             if (attribute.use_percentage == 1)
@@ -271,55 +263,33 @@
                 price += fee;
             }
         }
+        <?php /* Apply size prices */ ?>
+        for (var i = 0; i < sizePrices.length; i++) {
+            if (sizePrices[i].use_percentage) {
+                if (sizePrices[i].additional_fee != 0 && sizePrices[i].additional_fee > -100) {
+                    console.log(price, sizePrices[i].additional_fee);
+                    price *= (100 + sizePrices[i].additional_fee) / 100;
+                }
+            } else {
+                if (sizePrices[i].additional_fee != 0) {
+                    var copies = 1;
+                    for (var j = 0; j < sizePrices.length; j++) {
+                        if (j == i)
+                            continue;
+                        copies *= sizePrices[j].value;
+                    }
+                    price += sizePrices[i].additional_fee * copies;
+                    console.log(price, sizePrices[i].additional_fee * copies);
+                }
+            }
+        }
+        <?php /* Apply percentages */ ?>
         for (var i = 0; i < percentages.length; i++) {
-            price += price * percentages[i] / 100.0;
+            if (percentages[i] > -100)
+                price *= (100 + percentages[i]) / 100.0;
         }
         console.log(price);
         $('[name="price"]').val(price * quantity);
         $('#total-price').html((price * quantity * $('#quantity').val()).toFixed(2));
-        return;
-
-        var formData = $('#cartForm').serializeArray();
-        var filled = 0;
-        for (var i = 0; i < formData.length; i++) {
-            const regex = /productOptions\[(.*)\]/;
-            const found = formData[i].name.match(regex);
-            if (found) {
-                var fieldName = found[1];
-                if ($(`.single-review.option-${fieldName.replaceAll(' ', '-')}`).is(":visible")) {
-                    if (formData[i].value != null && formData[i].value != '')
-                        filled++;
-                }
-            }
-        }
-        if (filled < $('.single-review:visible').length)
-            return;
-
-        $('#loader-img').show();
-        $('.new-price-img').hide();
-        $.ajax({
-            url: '/Products/Price',
-            type: 'POST',
-            data: {params: $('#cartForm').serialize()},
-            headers: { accept: 'application/json' },
-            success: function(data) {
-                if (filled == $('.single-review:visible').length) {
-                    $('#loader-img').hide();
-                    $('.new-price-img').show();
-                }
-                if (data.success) {
-                    var price = isNaN(Number(data.price.price)) ? 0 : Number(data.price.price) * '<?= $provider->price_rate?>';
-                    $('[name="price"]').val(price);
-                    $('#total-price').html((price * $('#quantity').val()).toFixed(2));
-                } else
-                    alert(data.message);
-            },
-            error: function (resp) {
-                console.log(resp);
-                $('#loader-img').hide();
-                $('.new-price-img').show();
-            }
-        });
-        return;
     }
 </script>
