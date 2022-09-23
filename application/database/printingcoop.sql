@@ -1396,7 +1396,7 @@ CREATE TABLE `provider_option_values` (
   `extra_turnaround_days` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `option` (`provider_option_value_id`),
-  KEY `option_value` (`provider_option_value_id`)
+  KEY `option_value` (`option_id`,`provider_option_value_id`,`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `provider_options` */
@@ -1479,6 +1479,7 @@ CREATE TABLE `provider_product_options` (
   `provider_product_id` bigint(20) unsigned NOT NULL,
   `option_id` bigint(20) unsigned NOT NULL,
   `provider_option_value_id` bigint(20) unsigned NOT NULL,
+  `value` varchar(255) NOT NULL,
   `deleted` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `option` (`provider_id`,`provider_product_id`,`option_id`)

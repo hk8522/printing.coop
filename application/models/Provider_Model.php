@@ -172,14 +172,14 @@ Class Provider_Model extends MY_Model {
         $data = $this->db->get()->result();
         $originals = [];
         foreach ($data as $item) {
-            $originals[$item->option_id . '-' . $item->provider_option_value_id] = $item;
+            $originals[$item->option_id . '-' . $item->provider_option_value_id . '-' . $item->value] = $item;
         }
 
         $news = [];
 
         foreach ($productInfo[0] as $option) {
             $option_id = $options[strtolower($option->group)]->id;
-            $key = $option_id . '-' . $option->id;
+            $key = $option_id . '-' . $option->id . '-' . $option->name;
             if (!array_key_exists($key, $originals)) {
                 if (!array_key_exists($key, $news)) {
                     $news[$key] = (object) [
@@ -214,21 +214,24 @@ Class Provider_Model extends MY_Model {
         foreach ($data as $item) {
             if (!array_key_exists($item->option_id, $originals))
                 $originals[$item->option_id] = [];
-            $originals[$item->option_id][$item->provider_option_value_id] = $item;
+            $key = $item->provider_option_value_id . '-' . $item->value;
+            $originals[$item->option_id][$key] = $item;
             $original_items[] = $item;
         }
 
         $news = [];
         foreach ($productInfo[0] as $option) {
             $option_id = $options[strtolower($option->group)]->id;
-            if (array_key_exists($option_id, $originals) && array_key_exists($option->id, $originals[$option_id])) {
-                $originals[$option_id][$option->id]->deleted = 0;
+            $key = $option->id . '-' . $option->name;
+            if (array_key_exists($option_id, $originals) && array_key_exists($key, $originals[$option_id])) {
+                $originals[$option_id][$key]->deleted = 0;
             } else {
                 $news[] = (object) [
                     'provider_id' => $product->provider_id,
                     'provider_product_id' => $product->provider_product_id,
                     'option_id' => $option_id,
                     'provider_option_value_id' => $option->id,
+                    'value' => $option->name,
                 ];
             }
         }
@@ -310,7 +313,7 @@ Class Provider_Model extends MY_Model {
         $data = $this->db->get()->result();
         $originals = [];
         foreach ($data as $item) {
-            $originals[$item->option_id . '-' . $item->provider_option_value_id] = $item;
+            $originals[$item->option_id . '-' . $item->provider_option_value_id . '-' . $item->value] = $item;
         }
 
         $news = [];
@@ -320,7 +323,7 @@ Class Provider_Model extends MY_Model {
             if ($option->opt_val_id == null || $option->option_val == null)
                 continue;
             $option_id = $options[$option->option_id]->id;
-            $key = $option_id . '-' . $option->opt_val_id;
+            $key = $option_id . '-' . $option->opt_val_id . '-' . $option->option_val;
             if (!array_key_exists($key, $originals)) {
                 if (!array_key_exists($key, $news)) {
                     $news[$key] = (object) [
@@ -338,7 +341,7 @@ Class Provider_Model extends MY_Model {
                     'img_src' => $option->img_src,
                     'sort_order' => $option->opt_val_sort_order,
                     'extra_turnaround_days' => $option->extra_turnaround_days,
-            ];
+                ];
             }
         }
 
@@ -365,21 +368,24 @@ Class Provider_Model extends MY_Model {
         foreach ($data as $item) {
             if (!array_key_exists($item->option_id, $originals))
                 $originals[$item->option_id] = [];
-            $originals[$item->option_id][$item->provider_option_value_id] = $item;
+            $key = $item->provider_option_value_id . '-' . $item->value;
+            $originals[$item->option_id][$key] = $item;
             $original_items[] = $item;
         }
 
         $news = [];
         foreach ($productInfo[0] as $option) {
             $option_id = $options[$option->option_id]->id;
-            if (array_key_exists($option_id, $originals) && array_key_exists($option->opt_val_id, $originals[$option_id])) {
-                $originals[$option_id][$option->opt_val_id]->deleted = 0;
+            $key = $option->opt_val_id . '-' . $option->option_val;
+            if (array_key_exists($option_id, $originals) && array_key_exists($key, $originals[$option_id])) {
+                $originals[$option_id][$key]->deleted = 0;
             } else {
                 $news[] = (object) [
                     'provider_id' => $product->provider_id,
                     'provider_product_id' => $product->provider_product_id,
                     'option_id' => $option_id,
                     'provider_option_value_id' => $option->opt_val_id,
+                    'value' => $option->option_val,
                 ];
             }
         }
@@ -585,7 +591,7 @@ Class Provider_Model extends MY_Model {
         $this->db->select('provider_options.*, provider_option_values.provider_option_value_id, provider_option_values.value, provider_options.name, provider_options.type, product_attributes.name AS attribute_name');
         $this->db->from('provider_product_options');
         $this->db->join('provider_options', 'provider_options.id = provider_product_options.option_id', 'left');
-        $this->db->join('provider_option_values', 'provider_option_values.option_id = provider_product_options.option_id AND provider_option_values.provider_option_value_id = provider_product_options.provider_option_value_id', 'left');
+        $this->db->join('provider_option_values', 'provider_option_values.option_id = provider_product_options.option_id AND provider_option_values.provider_option_value_id = provider_product_options.provider_option_value_id AND provider_option_values.value = provider_product_options.value', 'left');
         $this->db->join('product_attributes', 'product_attributes.id = provider_options.attribute_id', 'left');
         $this->db->where('provider_product_options.provider_id', $provider_id);
         $this->db->where('provider_product_options.provider_product_id', $provider_product_id);
@@ -604,7 +610,7 @@ Class Provider_Model extends MY_Model {
         $this->db->select('provider_option_values.*, provider_options.type AS option_type');
         $this->db->from('provider_product_options');
         $this->db->join('provider_options', 'provider_options.id = provider_product_options.option_id');
-        $this->db->join('provider_option_values', 'provider_option_values.option_id = provider_product_options.option_id AND provider_option_values.provider_option_value_id = provider_product_options.provider_option_value_id', 'left');
+        $this->db->join('provider_option_values', 'provider_option_values.option_id = provider_product_options.option_id AND provider_option_values.provider_option_value_id = provider_product_options.provider_option_value_id AND provider_option_values.value = provider_product_options.value', 'left');
         $this->db->where('provider_product_options.provider_id', $provider_id);
         $this->db->where('provider_product_options.provider_product_id', $provider_product_id);
         $this->db->order_by('provider_options.sort_order, provider_options.type, provider_product_options.id, provider_product_options.provider_option_value_id');
@@ -634,7 +640,7 @@ Class Provider_Model extends MY_Model {
         );
         $this->db->from('provider_product_options');
         $this->db->join('provider_options', 'provider_options.id = provider_product_options.option_id');
-        $this->db->join('provider_option_values', 'provider_option_values.option_id = provider_product_options.option_id AND provider_option_values.provider_option_value_id = provider_product_options.provider_option_value_id');
+        $this->db->join('provider_option_values', 'provider_option_values.option_id = provider_product_options.option_id AND provider_option_values.provider_option_value_id = provider_product_options.provider_option_value_id AND provider_option_values.value = provider_product_options.value');
         $this->db->join('product_attributes', 'product_attributes.id=provider_options.attribute_id', 'left');
         $this->db->where('provider_product_options.provider_id', $provider_id);
         $this->db->where('provider_product_options.provider_product_id', $provider_product_id);

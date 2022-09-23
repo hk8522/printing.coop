@@ -18,7 +18,7 @@
   ALTER TABLE `product_size_new` DROP INDEX `product_id`, ADD KEY `size` (`product_id`, `qty`, `size_id`);
 
 /* Update modules, sub_modules class */
-  ALTER TABLE `modules` CHANGE `class` `class` VARCHAR(250) CHARSET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'fa fab fa-product-hunt' NULL; 
+  ALTER TABLE `modules` CHANGE `class` `class` VARCHAR(250) CHARSET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT 'fa fab fa-product-hunt' NULL;
   UPDATE `modules` SET `class`=CONCAT('fa ', `class`);
   UPDATE `modules` SET `class` = 'fa fas fa-users' WHERE `id` = '2';
   UPDATE `modules` SET `class` = 'fa fa-refresh' WHERE `id` = '3';
@@ -58,7 +58,7 @@
   ('3', '13', 'yes', 'oui'),
   ('4', '13', 'no', 'non');
 
-  INSERT INTO `attributes` (`name`, `label`, `label_fr`) SELECT `t`.* FROM 
+  INSERT INTO `attributes` (`name`, `label`, `label_fr`) SELECT `t`.* FROM
     (SELECT TRIM(`name`) AS `name`, TRIM(`name`) AS `label`, TRIM(`name_french`) AS `label_fr` FROM `product_attributes`
     UNION ALL
     SELECT TRIM(`name`) AS `name`, TRIM(`name`) AS `label`, TRIM(`name_french`) AS `label_fr` FROM `product_multiple_attributes`
@@ -310,5 +310,9 @@
     WHERE `product_attribute_map`.`attribute_id` = `attributes`.`id` AND (`attributes`.`name` = 'RectoVerso' OR `attributes`.`name` LIKE 'Binding%');
 
 /* additional_fee precesion */
-  ALTER TABLE `product_attribute_map` CHANGE `additional_fee` `additional_fee` DOUBLE NULL; 
-  ALTER TABLE `product_attribute_item_map` CHANGE `additional_fee` `additional_fee` DOUBLE NULL; 
+  ALTER TABLE `product_attribute_map` CHANGE `additional_fee` `additional_fee` DOUBLE NULL;
+  ALTER TABLE `product_attribute_item_map` CHANGE `additional_fee` `additional_fee` DOUBLE NULL;
+
+/* Provider database error */
+  ALTER TABLE `provider_product_options` ADD COLUMN `value` VARCHAR(255) NOT NULL AFTER `provider_option_value_id`;
+  ALTER TABLE `provider_option_values` DROP INDEX `option_value`, ADD KEY `option_value` (`option_id`, `provider_option_value_id`, `value`);

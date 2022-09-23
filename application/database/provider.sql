@@ -30,7 +30,7 @@ CREATE TABLE `provider_option_values` (
   `extra_turnaround_days` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `option` (`provider_option_value_id`),
-  KEY `option_value` (`provider_option_value_id`)
+  KEY `option_value` (`option_id`,`provider_option_value_id`,`value`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 /*Table structure for table `provider_options` */
@@ -67,6 +67,7 @@ CREATE TABLE `provider_orders` (
   `shipping_cost` double DEFAULT NULL,
   `subtotal` double DEFAULT NULL,
   `tax` double DEFAULT NULL,
+  `shipping_extra_days` int(10) unsigned DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
@@ -112,6 +113,7 @@ CREATE TABLE `provider_product_options` (
   `provider_product_id` bigint(20) unsigned NOT NULL,
   `option_id` bigint(20) unsigned NOT NULL,
   `provider_option_value_id` bigint(20) unsigned NOT NULL,
+  `value` varchar(255) NOT NULL,
   `deleted` tinyint(4) DEFAULT 0,
   PRIMARY KEY (`id`),
   KEY `option` (`provider_id`,`provider_product_id`,`option_id`)
@@ -131,6 +133,7 @@ CREATE TABLE `provider_products` (
   `enabled` tinyint(4) DEFAULT 0,
   `product_id` bigint(20) unsigned DEFAULT NULL,
   `information_type` int(10) unsigned DEFAULT 0,
+  `price_rate` double DEFAULT 1.75,
   `deleted` tinyint(4) DEFAULT 0,
   `updating` tinyint(4) DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
