@@ -184,9 +184,9 @@
                                                     <div id="exsiting-address">
                                                         <div id="address-list">
                                                             <?php
-                                                            $dispaly = 'none';
+                                                            $display = 'none';
                                                             if (!empty($address)) {
-                                                                $dispaly = '';
+                                                                $display = '';
                                                                 foreach ($address as $list) {
                                                                     $checked = '';
                                                                     if ($list['default_delivery_address'] == 1) {
@@ -214,7 +214,7 @@
                                                             <?php } ?>
                                                         </div>
 
-                                                        <div class="save-btn" style="display:<?= $dispaly?>" id="Save-and-Deliver-here">
+                                                        <div class="save-btn" style="display:<?= $display?>" id="Save-and-Deliver-here">
                                                             <button class="save" type="submit"><?= ($language_name == 'French') ? 'Enregistrer et livrer ici' : 'Save and Deliver here'?></button>
                                                         </div>
                                                     </div>
@@ -264,7 +264,7 @@
 
                                                                         <?php foreach ($countries as $country) {
                                                                             $selected = '';
-                                                                            $post_country = isset($postData['country']) ? $postData['country']:'';
+                                                                            $post_country = isset($postData['country']) ? $postData['country'] : '';
                                                                             if ($country['id'] == $post_country) {
                                                                                 $selected = 'selected="selected"';
                                                                             }
@@ -287,7 +287,7 @@
 
                                                                         <?php foreach ($states as $state) {
                                                                             $selected ='';
-                                                                            $post_state = isset($postData['state']) ? $postData['state']:'';
+                                                                            $post_state = isset($postData['state']) ? $postData['state'] : '';
                                                                             if ($state['id'] == $post_state) {
                                                                                 $selected = 'selected="selected"';
                                                                             }
@@ -786,20 +786,9 @@
                                                                     <?php }
                                                                 }
                                                             }
+                                                            ?>
 
-                                                            foreach ($attribute_ids as $key => $val) {
-                                                                if ($language_name == 'French') {
-                                                                    $attribute_name = $val['attribute_name_french'];
-                                                                    $item_name = $val['item_name_french'];
-                                                                } else {
-                                                                    $attribute_name = $val['attribute_name'];
-                                                                    $item_name = $val['item_name'];
-                                                                }
-                                                                ?>
-                                                                <div class="col-md-12 col-lg-6 col-xl-6">
-                                                                    <span><strong><?= $attribute_name?>: <?= $item_name?></strong></span>
-                                                                </div>
-                                                            <?php } ?>
+                                                            <?php $this->view('Products/expand_attribute_ids', ['attribute_ids' => $attribute_ids, 'language_name' => $language_name]); ?>
 
                                                             <?php if (!empty($recto_verso)) { ?>
                                                                 <div class="col-md-12 col-lg-12 col-xl-6">

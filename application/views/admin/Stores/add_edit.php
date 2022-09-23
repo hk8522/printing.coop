@@ -17,7 +17,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
-                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>" id="id">
+                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>" id="id">
                                     <div class="form-role-area">
                                         <div class="control-group info">
                                             <div class="row align-items-center">
@@ -26,7 +26,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-  <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="<?= isset($postData['name']) ? $postData['name']:'' ?>" >
+  <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="<?= isset($postData['name']) ? $postData['name'] : '' ?>" >
                                               <?= form_error('name') ?>
                                                     </div>
                                                 </div>
@@ -39,7 +39,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="phone" id="phone" type="text" placeholder="Phone" value="<?= isset($postData['phone']) ? $postData['phone']:'' ?>" >
+                                                        <input class="form-control" name="phone" id="phone" type="text" placeholder="Phone" value="<?= isset($postData['phone']) ? $postData['phone'] : '' ?>" >
                                                         <?= form_error('phone') ?>
                                                     </div>
                                                 </div>
@@ -52,7 +52,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="email" id="email" type="email" placeholder="Email" value="<?= isset($postData['email']) ? $postData['email']:'' ?>" >
+                                                        <input class="form-control" name="email" id="email" type="email" placeholder="Email" value="<?= isset($postData['email']) ? $postData['email'] : '' ?>" >
                                                         <?= form_error('email') ?>
                                                     </div>
                                                 </div>
@@ -65,7 +65,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="url" id="url" type="url" placeholder="Url" value="<?= isset($postData['url']) ? $postData['url']:'' ?>" >
+                                                        <input class="form-control" name="url" id="url" type="url" placeholder="Url" value="<?= isset($postData['url']) ? $postData['url'] : '' ?>" >
                                                         <?= form_error('url') ?>
                                                     </div>
                                                 </div>
@@ -143,7 +143,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-       <textarea name="address" id="address"><?= isset($postData['address']) ? $postData['address']:'' ?></textarea>
+       <textarea name="address" id="address"><?= isset($postData['address']) ? $postData['address'] : '' ?></textarea>
                                                         <?php
                                                           echo form_error('address');
                                                         ?>
@@ -158,7 +158,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="order_id_prefix" id="order_id_prefix" type="text" placeholder="Email" value="<?= isset($postData['order_id_prefix']) ? $postData['order_id_prefix']:'' ?>">
+                                                        <input class="form-control" name="order_id_prefix" id="order_id_prefix" type="text" placeholder="Email" value="<?= isset($postData['order_id_prefix']) ? $postData['order_id_prefix'] : '' ?>">
                                                         <?= form_error('order_id_prefix') ?>
                                                     </div>
                                                 </div>
@@ -204,7 +204,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="from_email" id="from_email" type="email" placeholder="Email" value="<?= isset($postData['from_email']) ? $postData['from_email']:'' ?>" >
+                                                        <input class="form-control" name="from_email" id="from_email" type="email" placeholder="Email" value="<?= isset($postData['from_email']) ? $postData['from_email'] : '' ?>" >
                                                         <?= form_error('from_email') ?>
                                                     </div>
                                                 </div>
@@ -217,7 +217,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="admin_email1" id="admin_email1" type="email" placeholder="Email" value="<?= isset($postData['admin_email1']) ? $postData['admin_email1']:'' ?>" >
+                                                        <input class="form-control" name="admin_email1" id="admin_email1" type="email" placeholder="Email" value="<?= isset($postData['admin_email1']) ? $postData['admin_email1'] : '' ?>" >
                                                         <?= form_error('admin_email1') ?>
                                                     </div>
                                                 </div>
@@ -230,7 +230,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="admin_email2" id="admin_email2" type="email" placeholder="Email" value="<?= isset($postData['admin_email2']) ? $postData['admin_email2']:'' ?>" >
+                                                        <input class="form-control" name="admin_email2" id="admin_email2" type="email" placeholder="Email" value="<?= isset($postData['admin_email2']) ? $postData['admin_email2'] : '' ?>" >
                                                         <?= form_error('admin_email2') ?>
                                                     </div>
                                                 </div>
@@ -244,7 +244,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="admin_email3" id="admin_email3" type="email" placeholder="Email" value="<?= isset($postData['admin_email3']) ? $postData['admin_email3']:'' ?>" >
+                                                        <input class="form-control" name="admin_email3" id="admin_email3" type="email" placeholder="Email" value="<?= isset($postData['admin_email3']) ? $postData['admin_email3'] : '' ?>" >
                                                         <?= form_error('admin_email3') ?>
                                                     </div>
                                                 </div>
@@ -273,7 +273,7 @@
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="controls">
-                                                            <input class="form-control" name="clover_sandbox_api_key" id="clover_sandbox_api_key" type="text" value="<?= isset($postData['clover_sandbox_api_key']) ? $postData['clover_sandbox_api_key']:'' ?>" >
+                                                            <input class="form-control" name="clover_sandbox_api_key" id="clover_sandbox_api_key" type="text" value="<?= isset($postData['clover_sandbox_api_key']) ? $postData['clover_sandbox_api_key'] : '' ?>" >
                                                             <?= form_error('clover_sandbox_api_key') ?>
                                                         </div>
                                                     </div>
@@ -286,7 +286,7 @@
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="controls">
-                                                            <input class="form-control" name="clover_sandbox_secret" id="clover_sandbox_secret" type="text" value="<?= isset($postData['clover_sandbox_secret']) ? $postData['clover_sandbox_secret']:'' ?>" >
+                                                            <input class="form-control" name="clover_sandbox_secret" id="clover_sandbox_secret" type="text" value="<?= isset($postData['clover_sandbox_secret']) ? $postData['clover_sandbox_secret'] : '' ?>" >
                                                             <?= form_error('clover_sandbox_secret') ?>
                                                         </div>
                                                     </div>
@@ -299,7 +299,7 @@
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="controls">
-                                                            <input class="form-control" name="clover_api_key" id="clover_api_key" type="text" value="<?= isset($postData['clover_api_key']) ? $postData['clover_api_key']:'' ?>" >
+                                                            <input class="form-control" name="clover_api_key" id="clover_api_key" type="text" value="<?= isset($postData['clover_api_key']) ? $postData['clover_api_key'] : '' ?>" >
                                                             <?= form_error('clover_api_key') ?>
                                                         </div>
                                                     </div>
@@ -312,7 +312,7 @@
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div class="controls">
-                                                            <input class="form-control" name="clover_secret" id="clover_secret" type="text" value="<?= isset($postData['clover_secret']) ? $postData['clover_secret']:'' ?>" >
+                                                            <input class="form-control" name="clover_secret" id="clover_secret" type="text" value="<?= isset($postData['clover_secret']) ? $postData['clover_secret'] : '' ?>" >
                                                             <?= form_error('clover_secret') ?>
                                                         </div>
                                                     </div>
@@ -342,7 +342,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="paypal_sandbox_business_email" id="paypal_sandbox_business_email" type="email" placeholder="Email" value="<?= isset($postData['paypal_sandbox_business_email']) ? $postData['paypal_sandbox_business_email']:'' ?>" >
+                                                        <input class="form-control" name="paypal_sandbox_business_email" id="paypal_sandbox_business_email" type="email" placeholder="Email" value="<?= isset($postData['paypal_sandbox_business_email']) ? $postData['paypal_sandbox_business_email'] : '' ?>" >
                                                         <?= form_error('paypal_sandbox_business_email') ?>
                                                     </div>
                                                 </div>
@@ -356,7 +356,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="paypal_business_email" id="paypal_business_email" type="email" placeholder="Email" value="<?= isset($postData['paypal_business_email']) ? $postData['paypal_business_email']:'' ?>" >
+                                                        <input class="form-control" name="paypal_business_email" id="paypal_business_email" type="email" placeholder="Email" value="<?= isset($postData['paypal_business_email']) ? $postData['paypal_business_email'] : '' ?>" >
                                                         <?= form_error('paypal_business_email') ?>
                                                     </div>
                                                 </div>
@@ -385,7 +385,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <textarea name="email_footer_line" id="content"><?= isset($postData['email_footer_line']) ? $postData['email_footer_line']:'' ?></textarea>
+                                                        <textarea name="email_footer_line" id="content"><?= isset($postData['email_footer_line']) ? $postData['email_footer_line'] : '' ?></textarea>
                                                         <?= form_error('email_footer_line') ?>
                                                     </div>
                                                 </div>
@@ -433,7 +433,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <textarea name="invoice_pdf_company" id="content1"><?= isset($postData['invoice_pdf_company']) ? $postData['invoice_pdf_company']:'' ?></textarea>
+                                                        <textarea name="invoice_pdf_company" id="content1"><?= isset($postData['invoice_pdf_company']) ? $postData['invoice_pdf_company'] : '' ?></textarea>
                                                         <?= form_error('invoice_pdf_company') ?>
                                                     </div>
                                                 </div>
@@ -446,7 +446,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <textarea name="order_pdf_company" id="content2"><?= isset($postData['order_pdf_company']) ? $postData['order_pdf_company']:'' ?></textarea>
+                                                        <textarea name="order_pdf_company" id="content2"><?= isset($postData['order_pdf_company']) ? $postData['order_pdf_company'] : '' ?></textarea>
                                                         <?= form_error('order_pdf_company') ?>
                                                     </div>
                                                 </div>

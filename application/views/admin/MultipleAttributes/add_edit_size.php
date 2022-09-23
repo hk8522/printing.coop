@@ -16,7 +16,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
-                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>" id="id">
+                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>" id="id">
                                      <div class="form-role-area">
                                         <div class="control-group info">
                                             <div class="row align-items-center">
@@ -25,7 +25,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="size_name" id="size_name" type="text" placeholder="Size Name" value='<?= isset($postData['size_name']) ? $postData['size_name']:'' ?>' maxlength="50">
+                                                        <input class="form-control" name="size_name" id="size_name" type="text" placeholder="Size Name" value='<?= isset($postData['size_name']) ? $postData['size_name'] : '' ?>' maxlength="50">
                                                         <?= form_error('size_name') ?>
                                                     </div>
                                                 </div>
@@ -38,7 +38,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="size_name_french" id="size_name_french" type="text" placeholder="French Size Name" value='<?= isset($postData['size_name_french']) ? $postData['size_name_french']:'' ?>' maxlength="50">
+                                                        <input class="form-control" name="size_name_french" id="size_name_french" type="text" placeholder="French Size Name" value='<?= isset($postData['size_name_french']) ? $postData['size_name_french'] : '' ?>' maxlength="50">
                                                         <?= form_error('size_name_french') ?>
                                                     </div>
                                                 </div>
@@ -51,7 +51,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="set_order" id="set_order" type="text" placeholder="Set Order" value="<?= isset($postData['set_order']) ? $postData['set_order']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="set_order" id="set_order" type="text" placeholder="Set Order" value="<?= isset($postData['set_order']) ? $postData['set_order'] : '' ?>" maxlength="50">
                                                         <?= form_error('set_order') ?>
                                                     </div>
                                                 </div>

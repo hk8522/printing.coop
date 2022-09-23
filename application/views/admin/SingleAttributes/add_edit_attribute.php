@@ -16,7 +16,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
-                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>" id="id">
+                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>" id="id">
                                      <div class="form-role-area">
                                         <div class="control-group info">
                                             <div class="row align-items-center">
@@ -25,7 +25,7 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Attribute Name" value='<?= isset($postData['name']) ? $postData['name']:'' ?>'  required>
+                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Attribute Name" value='<?= isset($postData['name']) ? $postData['name'] : '' ?>'  required>
                                                         <?= form_error('name') ?>
                                                     </div>
                                                 </div>
@@ -38,7 +38,7 @@
                                                 </div>
                                                 <div class="col-md-9">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name_french" id="name_french" type="text" placeholder="French Attribute Name" value='<?= isset($postData['name_french']) ? $postData['name_french']:'' ?>'  required>
+                                                        <input class="form-control" name="name_french" id="name_french" type="text" placeholder="French Attribute Name" value='<?= isset($postData['name_french']) ? $postData['name_french'] : '' ?>'  required>
                                                         <?= form_error('name_french') ?>
                                                     </div>
                                                 </div>

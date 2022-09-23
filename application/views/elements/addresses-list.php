@@ -11,13 +11,13 @@
            echo ' (Default Delivery Address)';
         }
         ?>
-        <span><?= ucfirst($address['name'])?> <?php  $address['mobile'] ?> <?= !empty($address['alternate_phone']) ? ','.$address['alternate_phone']:'' ?>
+        <span><?= ucfirst($address['name'])?> <?php  $address['mobile'] ?> <?= !empty($address['alternate_phone']) ? ','.$address['alternate_phone'] : '' ?>
         <?= !empty($address['company_name']) ? '('.$address['company_name'].")":'' ?>
         </span>
 
         <br>
         <span class="tt-t"><?= $address['address'] ?>,
-        <?= $address['cityName'] ?>,<?= $address['StateName'] ?>,<?= $address['CountryName'] ?> - <strong><?= $address['pin_code']  ?></strong></span>
+        <?= $address['cityName'] ?>, <?= $address['StateName'] ?>, <?= $address['CountryName'] ?> - <strong><?= $address['pin_code']  ?></strong></span>
 
     </div>
 </div>

@@ -17,7 +17,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open('',array('class' => 'form-horizontal')) ?>
-                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>">
+                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>">
                                     <div class="form-role-area">
                                         <div class="control-group info">
                                             <div class="row">
@@ -81,7 +81,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="sub_category_order" id="sub_category_order" type="number" placeholder="Sub Category Order" value="<?= isset($postData['sub_category_order']) ? $postData['sub_category_order']:'' ?>">
+                                                        <input class="form-control" name="sub_category_order" id="sub_category_order" type="number" placeholder="Sub Category Order" value="<?= isset($postData['sub_category_order']) ? $postData['sub_category_order'] : '' ?>">
                                                         <label class="mt-2 text-danger"><?= $errors['sub_category_order'] ?? '' ?></label>
                                                     </div>
                                                 </div>
@@ -94,7 +94,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <textarea class="form-control" name="sub_category_dispersion" id="content"><?= isset($postData['sub_category_dispersion']) ? $postData['sub_category_dispersion']:'' ?></textarea>
+                                                        <textarea class="form-control" name="sub_category_dispersion" id="content"><?= isset($postData['sub_category_dispersion']) ? $postData['sub_category_dispersion'] : '' ?></textarea>
                                                         <?= form_error('sub_category_dispersion') ?>
                                                     </div>
                                                 </div>
@@ -107,7 +107,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <textarea class="form-control" name="sub_category_dispersion_french" id="content1"><?= isset($postData['sub_category_dispersion_french']) ? $postData['sub_category_dispersion_french']:'' ?></textarea>
+                                                        <textarea class="form-control" name="sub_category_dispersion_french" id="content1"><?= isset($postData['sub_category_dispersion_french']) ? $postData['sub_category_dispersion_french'] : '' ?></textarea>
                                                         <?= form_error('sub_category_dispersion_french') ?>
                                                     </div>
                                                 </div>

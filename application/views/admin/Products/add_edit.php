@@ -419,7 +419,7 @@
                                                                         $link = $BASE_URL . "admin/Orders/download/" . urlencode(TEMPLATE_FILE_BASE_PATH . $val['template_file']) . "/" . urlencode($val['template_file']);
                                                                         ?>
                                                             <label class="file_name">File
-                                                                Name:<?= $val['template_file'] ?>
+                                                                Name: <?= $val['template_file'] ?>
                                                                 <a href="<?= $link ?>">
                                                                     <i class="fa fa-download" aria-hidden="true"></i>
                                                                 </a>

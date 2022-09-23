@@ -4206,8 +4206,10 @@ button[type="submit"]:disabled {
 	align-items:center;
 	margin-bottom:10px
 }
-.product-fields .single-review select,
-.product-fields .single-review input {
+.product-fields .single-review.disabled label {
+	color: #ccc;
+}
+.product-fields .single-review .field {
 	margin:0px;
 	width:70%
 }

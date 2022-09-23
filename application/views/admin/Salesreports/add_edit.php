@@ -21,7 +21,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
-                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>" id="product_id">
+                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>" id="product_id">
                                      <div class="form-role-area">
 
                                         <div class="row">

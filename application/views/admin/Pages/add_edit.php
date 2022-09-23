@@ -17,7 +17,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open('',array('class' => 'form-horizontal')) ?>
-                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>">
+                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>">
                                      <div class="form-role-area">
 
                                         <div class="control-group info">
@@ -51,7 +51,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="title" id="name" type="text" placeholder="Page Name" value="<?= isset($postData['title']) ? $postData['title']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="title" id="name" type="text" placeholder="Page Name" value="<?= isset($postData['title']) ? $postData['title'] : '' ?>" maxlength="50">
                                                         <?= form_error('title') ?>
                                                     </div>
                                                 </div>
@@ -65,7 +65,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="title_france" id="title_france" type="text" placeholder="Page Name" value="<?= isset($postData['title_france']) ? $postData['title_france']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="title_france" id="title_france" type="text" placeholder="Page Name" value="<?= isset($postData['title_france']) ? $postData['title_france'] : '' ?>" maxlength="50">
 <?= form_error('title_france') ?>
                                                     </div>
                                                 </div>
@@ -79,7 +79,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="shortOrder" id="shortOrder" type="number" placeholder="Page Order" value="<?= isset($postData['shortOrder']) ? $postData['shortOrder']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="shortOrder" id="shortOrder" type="number" placeholder="Page Order" value="<?= isset($postData['shortOrder']) ? $postData['shortOrder'] : '' ?>" maxlength="50">
                                                         <?= form_error('shortOrder') ?>
                                                     </div>
                                                 </div>
@@ -94,7 +94,7 @@
                         <div class="col-md-6">
 
                             <?php
-                                $display_on_top_menu = isset($postData['display_on_top_menu']) ? $postData['display_on_top_menu']:'';
+                                $display_on_top_menu = isset($postData['display_on_top_menu']) ? $postData['display_on_top_menu'] : '';
                                 $cehecked='';
                                 if ($display_on_top_menu == 1) {
                                     $cehecked='checked';
@@ -104,7 +104,7 @@
                             <?= form_error('display_on_top_menu') ?>
 
                             <?php
-                                $displayOnFooter = isset($postData['display_on_footer']) ? $postData['display_on_footer']:'';
+                                $displayOnFooter = isset($postData['display_on_footer']) ? $postData['display_on_footer'] : '';
                                 $cehecked='';
                                 if ($displayOnFooter == 1) {
                                     $cehecked='checked';
@@ -114,7 +114,7 @@
                             <?= form_error('display_on_footer') ?>
 
                             <?php
-                                $display_on_footer_last_menu = isset($postData['display_on_footer_last_menu']) ? $postData['display_on_footer_last_menu']:'';
+                                $display_on_footer_last_menu = isset($postData['display_on_footer_last_menu']) ? $postData['display_on_footer_last_menu'] : '';
                                 $cehecked='';
                                 if ($display_on_footer_last_menu == 1) {
                                     $cehecked='checked';
@@ -134,7 +134,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="page_title" id="page_title" type="text" placeholder="Page Title" value="<?= isset($postData['page_title']) ? $postData['page_title']:'' ?>" maxlength="250">
+                                                        <input class="form-control" name="page_title" id="page_title" type="text" placeholder="Page Title" value="<?= isset($postData['page_title']) ? $postData['page_title'] : '' ?>" maxlength="250">
                                                         <?= form_error('page_title') ?>
                                                     </div>
                                                 </div>
@@ -148,7 +148,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="page_title_france" id="page_title_france" type="text" placeholder="French Page Title" value="<?= isset($postData['page_title_france']) ? $postData['page_title_france']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="page_title_france" id="page_title_france" type="text" placeholder="French Page Title" value="<?= isset($postData['page_title_france']) ? $postData['page_title_france'] : '' ?>" maxlength="50">
 <?= form_error('page_title_france') ?>
                                                     </div>
                                                 </div>
@@ -161,7 +161,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-        <textarea name="meta_description_content" id="meta_description_content" rows="100"><?= isset($postData['meta_description_content']) ? $postData['meta_description_content']:'' ?></textarea>
+        <textarea name="meta_description_content" id="meta_description_content" rows="100"><?= isset($postData['meta_description_content']) ? $postData['meta_description_content'] : '' ?></textarea>
 
                                                         <?= form_error('meta_description_content') ?>
                                                     </div>
@@ -175,7 +175,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-        <textarea name="meta_description_content_france" id="meta_description_content_france" rows="100"><?= isset($postData['meta_description_content_france']) ? $postData['meta_description_content_france']:'' ?></textarea>
+        <textarea name="meta_description_content_france" id="meta_description_content_france" rows="100"><?= isset($postData['meta_description_content_france']) ? $postData['meta_description_content_france'] : '' ?></textarea>
 
                                                         <?= form_error('meta_description_content_france') ?>
                                                     </div>
@@ -189,7 +189,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-        <textarea name="meta_keywords_content" id="meta_keywords_content" rows="100"><?= isset($postData['meta_keywords_content']) ? $postData['meta_keywords_content']:'' ?></textarea>
+        <textarea name="meta_keywords_content" id="meta_keywords_content" rows="100"><?= isset($postData['meta_keywords_content']) ? $postData['meta_keywords_content'] : '' ?></textarea>
 
                                                         <?= form_error('meta_keywords_content') ?>
                                                     </div>
@@ -203,7 +203,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-        <textarea name="meta_keywords_content_france" id="meta_keywords_content_france" rows="100"><?= isset($postData['meta_keywords_content_france']) ? $postData['meta_keywords_content_france']:'' ?></textarea>
+        <textarea name="meta_keywords_content_france" id="meta_keywords_content_france" rows="100"><?= isset($postData['meta_keywords_content_france']) ? $postData['meta_keywords_content_france'] : '' ?></textarea>
 
                                                         <?= form_error('meta_keywords_content_france') ?>
                                                     </div>
@@ -217,7 +217,7 @@
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="controls">
-        <textarea name="description" id="content" rows="100"><?= isset($postData['description']) ? $postData['description']:'' ?></textarea>
+        <textarea name="description" id="content" rows="100"><?= isset($postData['description']) ? $postData['description'] : '' ?></textarea>
 
                                                         <?= form_error('description') ?>
                                                     </div>
@@ -232,7 +232,7 @@
                                                 </div>
                                                 <div class="col-md-12">
                                                     <div class="controls">
-        <textarea name="description_france" id="content1" rows="100"><?= isset($postData['description_france']) ? $postData['description_france']:'' ?></textarea>
+        <textarea name="description_france" id="content1" rows="100"><?= isset($postData['description_france']) ? $postData['description_france'] : '' ?></textarea>
        <?= form_error('description_france') ?>
                                                     </div>
                                                 </div>

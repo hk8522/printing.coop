@@ -12,29 +12,29 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <span><font color="red">*</font> Your Name</span>
-                                <input type="text" name="name" value="<?= isset($postData['name']) ? $postData['name']:'' ?>">
+                                <input type="text" name="name" value="<?= isset($postData['name']) ? $postData['name'] : '' ?>">
                                 <?= form_error('name') ?>
                             </div>
                             <div class="col-md-6">
                                 <span><font color="red">*</font> Your Email</span>
-                                <input type="email" name="email" value="<?= isset($postData['email']) ? $postData['email']:'' ?>">
+                                <input type="email" name="email" value="<?= isset($postData['email']) ? $postData['email'] : '' ?>">
                                 <?= form_error('email') ?>
                             </div>
                             <div class="col-md-12">
                                 <span><font color="red">*</font> Your Contact no.</span>
 
-                                <input type="number" name="contact_no" value="<?= isset($postData['contact_no']) ? $postData['contact_no']:'' ?>">
+                                <input type="number" name="contact_no" value="<?= isset($postData['contact_no']) ? $postData['contact_no'] : '' ?>">
                                 <?= form_error('contact_no') ?>
                             </div>
 
                             <div class="col-md-12">
                                 <span><font color="red">*</font>Subject</span>
-                                <input type="text" name="subject" value="<?= isset($postData['subject']) ? $postData['subject']:'' ?>">
+                                <input type="text" name="subject" value="<?= isset($postData['subject']) ? $postData['subject'] : '' ?>">
                                 <?= form_error('subject') ?>
                             </div>
                             <div class="col-md-12">
                                 <span><font color="red">*</font> Your Message</span>
-                                <textarea name="message" ><?= isset($postData['message']) ? $postData['message']:'' ?></textarea>
+                                <textarea name="message" ><?= isset($postData['message']) ? $postData['message'] : '' ?></textarea>
                                 <?= form_error('message') ?>
 
                             </div>

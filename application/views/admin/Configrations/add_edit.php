@@ -20,7 +20,7 @@
                                                     <?= $this->session->flashdata('message_success') ?>
                                     </div>
                                     <?= form_open_multipart($BASE_URL.$class_name.'saveConfigrations', array('class' => 'form-horizontal')) ?>
-                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($configrations['id']) ? $configrations['id']:'' ?>">
+                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($configrations['id']) ? $configrations['id'] : '' ?>">
                                     <div class="form-role-area">
                                         <div class="control-group info">
                                             <div class="row">
@@ -29,7 +29,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="contact_no" id="contact-no" type="text" placeholder="Contact Number" value="<?= isset($configrations['contact_no']) ? $configrations['contact_no']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="contact_no" id="contact-no" type="text" placeholder="Contact Number" value="<?= isset($configrations['contact_no']) ? $configrations['contact_no'] : '' ?>" maxlength="50">
                                                         <?= form_error('contact_no') ?>
                                                     </div>
                                                 </div>
@@ -42,7 +42,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="contact_no_french" id="contact_no_french" type="text" placeholder="Contact Number" value="<?= isset($configrations['contact_no_french']) ? $configrations['contact_no_french']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="contact_no_french" id="contact_no_french" type="text" placeholder="Contact Number" value="<?= isset($configrations['contact_no_french']) ? $configrations['contact_no_french'] : '' ?>" maxlength="50">
                                                         <?= form_error('contact_no_french') ?>
                                                     </div>
                                                 </div>
@@ -55,7 +55,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="office_timing" id="office-timing" type="text" placeholder="Office Timing" value="<?= isset($configrations['office_timing']) ? $configrations['office_timing']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="office_timing" id="office-timing" type="text" placeholder="Office Timing" value="<?= isset($configrations['office_timing']) ? $configrations['office_timing'] : '' ?>" maxlength="50">
                                                         <?= form_error('office_timing') ?>
                                                     </div>
                                                 </div>
@@ -68,7 +68,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="office_timing_french" id="office_timing_french" type="text" placeholder="Office Timing" value="<?= isset($configrations['office_timing_french']) ? $configrations['office_timing_french']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="office_timing_french" id="office_timing_french" type="text" placeholder="Office Timing" value="<?= isset($configrations['office_timing_french']) ? $configrations['office_timing_french'] : '' ?>" maxlength="50">
                                                         <?= form_error('office_timing_french') ?>
                                                     </div>
                                                 </div>
@@ -81,7 +81,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                      <textarea class="form-control" rows="4" name="announcement" placeholder="Announcement"><?= isset($configrations['announcement']) ? $configrations['announcement']:'' ?></textarea>
+                                                      <textarea class="form-control" rows="4" name="announcement" placeholder="Announcement"><?= isset($configrations['announcement']) ? $configrations['announcement'] : '' ?></textarea>
                                                       <?= form_error('announcement') ?>
                                                     </div>
                                                 </div>
@@ -94,7 +94,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                      <textarea class="form-control" rows="4" name="announcement_french" placeholder="Announcement"><?= isset($configrations['announcement_french']) ? $configrations['announcement_french']:'' ?></textarea>
+                                                      <textarea class="form-control" rows="4" name="announcement_french" placeholder="Announcement"><?= isset($configrations['announcement_french']) ? $configrations['announcement_french'] : '' ?></textarea>
                                                       <?= form_error('announcement_french') ?>
                                                     </div>
                                                 </div>
@@ -107,7 +107,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                      <textarea class="form-control" rows="4" name="copy_right" placeholder="Copy Right"><?= isset($configrations['copy_right']) ? $configrations['copy_right']:'' ?></textarea>
+                                                      <textarea class="form-control" rows="4" name="copy_right" placeholder="Copy Right"><?= isset($configrations['copy_right']) ? $configrations['copy_right'] : '' ?></textarea>
                                                       <?= form_error('copy_right') ?>
                                                     </div>
                                                 </div>
@@ -120,7 +120,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                      <textarea class="form-control" rows="4" name="copy_right_french" placeholder="Copy Right"><?= isset($configrations['copy_right_french']) ? $configrations['copy_right_french']:'' ?></textarea>
+                                                      <textarea class="form-control" rows="4" name="copy_right_french" placeholder="Copy Right"><?= isset($configrations['copy_right_french']) ? $configrations['copy_right_french'] : '' ?></textarea>
                                                       <?= form_error('copy_right_french') ?>
                                                     </div>
                                                 </div>
@@ -133,7 +133,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                      <textarea class="form-control" rows="4" name="address_one" placeholder="address" id="content"><?= isset($configrations['address_one']) ? $configrations['address_one']:'' ?></textarea>
+                                                      <textarea class="form-control" rows="4" name="address_one" placeholder="address" id="content"><?= isset($configrations['address_one']) ? $configrations['address_one'] : '' ?></textarea>
                                                       <?= form_error('address_one') ?>
                                                     </div>
                                                 </div>
@@ -146,7 +146,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                      <textarea class="form-control" rows="4" name="address_one_french" placeholder="address" id="content1"><?= isset($configrations['address_one_french']) ? $configrations['address_one_french']:'' ?></textarea>
+                                                      <textarea class="form-control" rows="4" name="address_one_french" placeholder="address" id="content1"><?= isset($configrations['address_one_french']) ? $configrations['address_one_french'] : '' ?></textarea>
                                                       <?= form_error('address_one_french') ?>
                                                     </div>
                                                 </div>
@@ -253,7 +253,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="log_alt_teg" id="log_alt_teg" type="text" placeholder="Logo Alt Teg" value="<?= isset($configrations['log_alt_teg']) ? $configrations['log_alt_teg']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="log_alt_teg" id="log_alt_teg" type="text" placeholder="Logo Alt Teg" value="<?= isset($configrations['log_alt_teg']) ? $configrations['log_alt_teg'] : '' ?>" maxlength="50">
                                                         <?= form_error('log_alt_teg') ?>
                                                     </div>
                                                 </div>
@@ -300,7 +300,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="log_alt_teg_french" id="log_alt_teg_french" type="text" placeholder="French Logo Alt Teg" value="<?= isset($configrations['log_alt_teg_french']) ? $configrations['log_alt_teg_french']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="log_alt_teg_french" id="log_alt_teg_french" type="text" placeholder="French Logo Alt Teg" value="<?= isset($configrations['log_alt_teg_french']) ? $configrations['log_alt_teg_french'] : '' ?>" maxlength="50">
                                                         <?= form_error('log_alt_teg_french') ?>
                                                     </div>
                                                 </div>

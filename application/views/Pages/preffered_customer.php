@@ -101,7 +101,7 @@ echo $pageData['description'];
                                       <option value="">-- Choisissez le pays --</option>
                                       <?php foreach ($countries as $country) {
                                           $selected = '';
-                                          $post_country = isset($postData['country']) ? $postData['country']:'';
+                                          $post_country = isset($postData['country']) ? $postData['country'] : '';
                                           if ($country['id'] == $post_country) {
                                               $selected='selected="selected"';
                                           }
@@ -119,7 +119,7 @@ echo $pageData['description'];
                                       <option value="">-- Sélectionnez l'état --</option>
                                       <?php foreach ($states as $state) {
                                       $selected='';
-                                      $post_state= isset($postData['state']) ? $postData['state']:'';
+                                      $post_state= isset($postData['state']) ? $postData['state'] : '';
 
                                       if ($state['StateID'] == $post_state) {
                                             $selected='selected="selected"';
@@ -234,7 +234,7 @@ echo $pageData['description'];
                                       <option value="">-- Select Country --</option>
                                       <?php foreach ($countries as $country) {
                                           $selected = '';
-                                          $post_country = isset($postData['country']) ? $postData['country']:'';
+                                          $post_country = isset($postData['country']) ? $postData['country'] : '';
                                           if ($country['id'] == $post_country) {
                                               $selected='selected="selected"';
                                           }
@@ -251,7 +251,7 @@ echo $pageData['description'];
                                       <option value="">-- Select State --</option>
                                       <?php foreach ($states as $state) {
                                       $selected='';
-                                      $post_state= isset($postData['state']) ? $postData['state']:'';
+                                      $post_state= isset($postData['state']) ? $postData['state'] : '';
 
                                       if ($state['StateID'] == $post_state) {
                                             $selected='selected="selected"';

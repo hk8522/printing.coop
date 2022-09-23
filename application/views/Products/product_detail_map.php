@@ -4,7 +4,7 @@
         $shipping_extra_days = $sina['shipping_extra_days'];
     ?>
     <?php foreach ($attributes as $attribute) {?>
-        <div class="single-review attribute-<?= str_replace(' ', '-', $attribute->attribute_id)?>">
+        <div class="single-review attribute-<?= str_replace(' ', '-', $attribute->attribute_id)?> <?= ($attribute->type == App\Common\AttributeType::Size) ? 'size' : '' ?>">
             <label><?= ucfirst($language_name == 'French' ? $attribute->label_fr : $attribute->label)?> <span class="required">*</span></label>
             <?php if ($attribute->use_items == 0) { ?>
                 <?php if ($attribute->value_min > 0 || $attribute->value_max > 0) { ?>
@@ -29,6 +29,23 @@
             <?php } ?>
             <span style="color:red" id="attribute-<?= $attribute->attribute_id?>_error"></span>
         </div>
+        <?php if ($attribute->use_items != 0 && $attribute->type == App\Common\AttributeType::Size) { ?>
+            <div class="single-review">
+                <label for="custom_size">Need a custom size?</label>
+                <label for="custom_size" class="attribute field">
+                    <input type="checkbox" id="custom_size" name="custom[size][use]" value="1">
+                    Yes
+                </label>
+            </div>
+            <div class="single-review custom-field custom-size d-none">
+                <label for="custom_size_width"><?= $language_name == 'French' ? 'Largeur' : 'Width' ?> <span class="required">*</span></label>
+                <input class="attribute field" type="number" id="custom_size_width" name="custom[size][width]" data-field="width">
+            </div>
+            <div class="single-review custom-field custom-size d-none">
+                <label for="custom_size_length"><?= $language_name == 'French' ? 'Longueur' : 'Length' ?> <span class="required">*</span></label>
+                <input class="attribute field" type="number" id="custom_size_length" name="custom[size][length]" data-field="length">
+            </div>
+        <?php } ?>
     <?php } ?>
 </div>
 <script>
@@ -39,6 +56,8 @@
         $('.option-width').hide();
         $('.option-length').hide();
         $('.option-diameter').hide();
+
+        $('.single-review #custom_size').on('change', toggleCustomSize);
 
         $('.single-review select').on('change', updatePrice);
         $('.single-review input').on('change', updatePrice);
@@ -58,6 +77,21 @@
             return (parseValue(dims[0]) ?? 1) * (parseValue(dims[1]) ?? 1);
         return 1;
     }
+    function toggleCustomSize(e)
+    {
+        if ($(this).prop('checked')) {
+            $('.single-review.size').addClass('disabled');
+            $('.single-review.size .field').prop('disabled', true);
+            $('.single-review.custom-size').removeClass('d-none');
+            $('.single-review.custom-size .field').prop('required', true);
+        } else {
+            $('.single-review.size').removeClass('disabled');
+            $('.single-review.size .field').prop('disabled', false);
+            $('.single-review.custom-size').addClass('d-none');
+            $('.single-review.custom-size .field').prop('required', false);
+        }
+        updatePrice();
+    }
     function updatePrice()
     {
         var percentages = [];
@@ -65,6 +99,8 @@
         var sizePrices = [];
         for (var i = 0; i < attributes.length; i++) {
             var attribute = attributes[i];
+            if ($('#attribute-' + attribute.attribute_id).prop('disabled'))
+                continue;
             if (attribute.use_items == 1) {
                 var attribute_item_id = $('#attribute-' + attribute.attribute_id).val();
                 for (var j = 0; j < attribute_items.length; j++) {
@@ -147,6 +183,20 @@
                     additional_fee: (parseValue(attribute.additional_fee) ?? 0) * value,
                 });
             }
+        }
+        if ($('#custom_size').prop('checked')) {
+            var customFields = $('.single-review.custom-field input');
+            for (var i = 0; i < customFields.length; i++) {
+                var fieldName = $(customFields[i]).attr('data-field');
+                if (fieldName === 'width')
+                    width = parseValue($(customFields[i]).val()) ?? 1;
+                else if (fieldName === 'length')
+                    length = parseValue($(customFields[i]).val()) ?? 1;
+            }
+            sizePrices.push({
+                value: width * length,
+                additional_fee: 0,
+            });
         }
         console.log(quantity, size, width, length, diameter, depth, pages, sizePrices);
 

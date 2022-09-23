@@ -15,7 +15,7 @@
                 <?= $language_name == 'French' ? 'Longueur (pouces)' : 'Length (Inch)'?>
                 <span class="required">*</span>
             </label>
-            <input type="text" name="product_length" id="product_length" required value="0" onkeypress="javascript:return isNumber(event)">
+            <input class="field" type="text" name="product_length" id="product_length" required value="0" onkeypress="javascript:return isNumber(event)">
             <span style="color:red" id="product_length_error"></span>
         </div>
 
@@ -24,7 +24,7 @@
                 <?= $language_name == 'French' ? 'Largeur (pouces)' : 'Width (Inch)'?>
                 <span class="required">*</span>
             </label>
-            <input type="text" name="product_width" id="product_width" required value="0" onkeypress="javascript:return isNumber(event)">
+            <input class="field" type="text" name="product_width" id="product_width" required value="0" onkeypress="javascript:return isNumber(event)">
             <span style="color:red" id="product_width_error"></span>
         </div>
         <?php if ($Product['length_width_color_show'] == 1) { ?>
@@ -33,7 +33,7 @@
                     <?= $language_name == 'French' ? 'Couleurs' : 'Colors'?>
                     <span class="required">*</span>
                 </label>
-                <select name="length_width_color" id="length_width_color" required>
+                <select class="field" name="length_width_color" id="length_width_color" required>
                     <option value=""><?= $language_name == 'French' ? 'Sélectionnez la couleur' : 'Select Color'?></option>
                     <option value="black"><?= $language_name == 'French'?'Noire':'Black'?></option>
                     <option value="color"><?= $language_name == 'French'?'Couleur':'Color'?></option>
@@ -48,10 +48,10 @@
                     <span class="required">*</span>
                 </label>
                 <?php if ($Product['length_width_pages_type'] == 'input') { ?>
-                    <input type="number" name="product_total_page" id="product_total_page" required value="<?= $Product['length_width_min_quantity']?>"
+                    <input class="field" type="number" name="product_total_page" id="product_total_page" required value="<?= $Product['length_width_min_quantity']?>"
                         onkeypress="javascript:return isNumber(event)">
                 <?php } else{ ?>
-                    <select name="product_total_page" required id="product_total_page">
+                    <select class="field" name="product_total_page" required id="product_total_page">
                         <option value="">
                             <?= $language_name == 'French' ? 'Sélectionnez la quantité' : 'Select Quantity'?>
                         </option>
@@ -73,7 +73,7 @@
                 <?= $language_name == 'French' ? 'Longueur (pouces)' : 'Length (Inch)'?>
                 <span class="required">*</span>
             </label>
-            <input type="text" name="page_product_length" id="page_product_length" required value=""
+            <input class="field" type="text" name="page_product_length" id="page_product_length" required value=""
                 onkeypress="javascript:return isNumber(event)">
             <span style="color:red" id="page_product_length_error"></span>
         </div>
@@ -83,7 +83,7 @@
                 <?= $language_name == 'French' ? 'Largeur (pouces)' : 'Width (Inch)'?>
                 <span class="required">*</span>
             </label>
-            <input type="text" name="page_product_width" id="page_product_width" required value=""
+            <input class="field" type="text" name="page_product_width" id="page_product_width" required value=""
                 onkeypress="javascript:return isNumber(event)">
             <span style="color:red" id="page_product_width_error"></span>
         </div>
@@ -93,7 +93,7 @@
                     <?= $language_name == 'French' ? 'Couleurs' : 'Colors'?>
                     <span class="required">*</span>
                 </label>
-                <select name="page_length_width_color" required id="page_length_width_color">
+                <select class="field" name="page_length_width_color" required id="page_length_width_color">
                     <option value=""><?= $language_name == 'French'?'Sélectionnez la couleur':'Select Color'?></option>
                     <option value="black"><?= $language_name == 'French'?'Noire':'Black'?></option>
                     <option value="color"><?= $language_name == 'French'?'Couleur':'Color'?></option>
@@ -109,10 +109,10 @@
                     <span class="required">*</span>
                 </label>
                 <?php if ($Product['length_width_pages_type']=='input') { ?>
-                    <input type="text" name="page_product_total_page" id="page_product_total_page" required value="1"
+                    <input class="field" type="text" name="page_product_total_page" id="page_product_total_page" required value="1"
                         onkeypress="javascript:return isNumber(event)">
                 <?php } else{ ?>
-                    <select name="page_product_total_page" required id="page_product_total_page">
+                    <select class="field" name="page_product_total_page" required id="page_product_total_page">
                         <option value=""><?= $language_name == 'French' ? 'Sélectionner des pages' : 'Select Pages'?></option>
                         <?php foreach ($ProductPages as $Pages) { ?>
                             <option value="<?= $Pages['total_page'].'-'.$Pages['name']?>-<?= $Pages['name_french']?>">
@@ -132,10 +132,10 @@
                     <span class="required">*</span>
                 </label>
                 <?php if ($Product['page_length_width_sheets_type'] == 'input') { ?>
-                    <input type="text" name="page_product_total_sheets" id="page_product_total_sheets" required value="1"
+                    <input class="field" type="text" name="page_product_total_sheets" id="page_product_total_sheets" required value="1"
                         onkeypress="javascript:return isNumber(event)">
                 <?php } else{ ?>
-                    <select name="page_product_total_sheets" required id="page_product_total_sheets">
+                    <select class="field" name="page_product_total_sheets" required id="page_product_total_sheets">
                         <option value="">
                             <?= $language_name == 'French' ? 'Sélectionner une feuille par bloc' : 'Select Sheet per pad'?>
                         </option>
@@ -156,10 +156,10 @@
                     <span class="required">*</span>
                 </label>
                 <?php if ($Product['page_length_width_quantity_type'] == 'input') { ?>
-                    <input type="text" name="page_product_total_quantity" id="page_product_total_quantity" required value=""
+                    <input class="field" type="text" name="page_product_total_quantity" id="page_product_total_quantity" required value=""
                         onkeypress="javascript:return isNumber(event)">
                 <?php } else { ?>
-                    <select name="page_product_total_quantity" required id="page_product_total_quantity">
+                    <select class="field" name="page_product_total_quantity" required id="page_product_total_quantity">
                         <option value=""><?= $language_name == 'French' ? 'Sélectionnez la quantité' : 'Select Quantity'?></option>
                         <?php foreach ($pageQuantity as $Quantity) { ?>
                             <option value="<?= $Quantity['name']?>">
@@ -179,7 +179,7 @@
                 <?= $language_name == 'French' ? 'Longueur (pouces)' : 'Length (Inch)'?>
                 <span class="required">*</span>
             </label>
-            <input type="text" name="product_depth_length" id="product_depth_length" required value="0"
+            <input class="field" type="text" name="product_depth_length" id="product_depth_length" required value="0"
                 onkeypress="javascript:return isNumber(event)">
             <span style="color:red" id="product_depth_length_error"></span>
         </div>
@@ -189,7 +189,7 @@
                 <?= $language_name == 'French' ? 'Largeur (pouces)' : 'Width (Inch)'?>
                 <span class="required">*</span>
             </label>
-            <input type="text" name="product_depth_width" id="product_depth_width" required value="0"
+            <input class="field" type="text" name="product_depth_width" id="product_depth_width" required value="0"
                 onkeypress="javascript:return isNumber(event)">
             <span style="color:red" id="product_depth_width_error"></span>
         </div>
@@ -198,7 +198,7 @@
                 <?= $language_name == 'French' ? 'Profondeur (pouces)' : 'Depth (Inch)'?>
                 <span class="required">*</span>
             </label>
-            <input type="text" name="product_depth" id="product_depth" required value="0"
+            <input class="field" type="text" name="product_depth" id="product_depth" required value="0"
                 onkeypress="javascript:return isNumber(event)">
             <span style="color:red" id="product_depth_error"></span>
         </div>
@@ -209,7 +209,7 @@
                     <span class="required">*</span>
                 </label>
 
-                <select name="depth_color" id="depth_color" required>
+                <select class="field" name="depth_color" id="depth_color" required>
                     <option value=""><?= $language_name == 'French'?'Sélectionnez la couleur':'Select Color'?></option>
 
                     <option value="black"><?= $language_name == 'French'?'Noire':'Black'?></option>
@@ -225,10 +225,10 @@
                     <span class="required">*</span>
                 </label>
                 <?php if ($Product['depth_width_length_type'] == 'input') { ?>
-                    <input type="text" name="product_depth_total_page" id="product_depth_total_page" required
+                    <input class="field" type="text" name="product_depth_total_page" id="product_depth_total_page" required
                         value="<?= $Product['depth_min_quantity']?>" onkeypress="javascript:return isNumber(event)">
                 <?php } else { ?>
-                    <select name="product_depth_total_page" required id="page_product_total_quantity">
+                    <select class="field" name="product_depth_total_page" required id="page_product_total_quantity">
                         <option value=""><?= $language_name == 'French' ? 'Sélectionnez la quantité' : 'Select Quantity'?></option>
                         <?php foreach ($pageQuantity as $Quantity) { ?>
                             <option value="<?= $Quantity['name']?>">
@@ -252,7 +252,7 @@
                 <?= $language_name == 'French' ? 'Quantité' : 'Quantity'?>
                 <span class="required">*</span>
             </label>
-            <select name="product_quantity_id" required id="product_quantity_id" onchange="showQuantity()">
+            <select class="field" name="product_quantity_id" required id="product_quantity_id" onchange="showQuantity()">
                 <option value=""><?= $language_name == 'French'?'Choisis une option...' : 'Choose an option...'?></option>
                 <?php foreach ($ProductSizes as $key => $val) {
                     $qty_name = '';
@@ -276,7 +276,7 @@
                 <span class="required">*</span></label>
             <?php $items = $val['items'];?>
             <?php if (!empty($items)) { ?>
-                <select name="attribute_id_<?= $key?>" required <?php if ($i > 1) {echo 'disabled';}?>
+                <select class="field" name="attribute_id_<?= $key?>" required <?php if ($i > 1) {echo 'disabled';}?>
                     onchange="showAttribute(<?= $i?>,'<?= $i +1 ?>')" id="attribute_id_<?= $i?>">
                     <option value=""><?= $language_name == 'French' ? 'Choisis une option...' : 'Choose an option...'?></option>
                     <?php foreach ($items as $subkey => $subval) {
@@ -300,7 +300,7 @@
                 <?= $language_name == 'French' ? 'Recto verso' : 'Recto/Verso'?>
                 <span class="required">*</span>
             </label>
-            <select name="recto_verso" required id="attribute_id_<?= $i?>" <?php if ($i > 1) {echo 'disabled';}?>
+            <select class="field" name="recto_verso" required id="attribute_id_<?= $i?>" <?php if ($i > 1) {echo 'disabled';}?>
                 onchange="showAttribute(<?= $i?>,'<?= $i +1 ?>')">
                 <option value=""><?= $language_name == 'French' ? 'Choisis une option...':'Choose an option...'?></option>
                 <option value="Yes"><?= $language_name == 'French' ? 'Oui':'Yes'?></option>
@@ -316,7 +316,7 @@
                 <?= $language_name == 'French' ? 'Votre TEXTE - Votre TEXTE' : 'Your TEXT - Votre TEXT'?>
                 <span class="required">*</span>
             </label>
-            <input type="text" name="votre_text" id="votre_text" required value="">
+            <input class="field" type="text" name="votre_text" id="votre_text" required value="">
         </div>
     <?php } ?>
 
@@ -326,7 +326,7 @@
                 <?= $language_name == 'French' ? 'Appel' : 'Call'?>
                 <span class="required"></span>
             </label>
-            <label>
+            <label class="field">
                 <?= $Product['phone_number']?>
                 <span class="required"></span>
             </label>

@@ -16,7 +16,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open('',array('class' => 'form-horizontal')) ?>
-                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>">
+                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>">
 
                                     <input class="form-control" name="type" type="hidden"  value="<?= $type ?>">
 
@@ -87,7 +87,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" type="text" name="name" value="<?= isset($postData['name']) ? $postData['name']:'' ?>" maxlength="50">
+                                                        <input class="form-control" type="text" name="name" value="<?= isset($postData['name']) ? $postData['name'] : '' ?>" maxlength="50">
                                                         <?= form_error('name') ?>
                                                     </div>
                                                 </div>
@@ -100,7 +100,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" type="text" name="name_french" value="<?= isset($postData['name_french']) ? $postData['name_french']:'' ?>" maxlength="50">
+                                                        <input class="form-control" type="text" name="name_french" value="<?= isset($postData['name_french']) ? $postData['name_french'] : '' ?>" maxlength="50">
                                                         <?= form_error('name_french') ?>
                                                     </div>
                                                 </div>

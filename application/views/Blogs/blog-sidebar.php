@@ -1,7 +1,7 @@
 <div class="blog-sidebar">
     <div class="blog-search-bar">
         <form action="<?= $BASE_URL ?>Blogs/search">
-            <input type="text" placeholder="<?= $this->language_name == 'French' ? 'Rechercher dans le blog ici ...':'Search blog here ...'?>" name="search" required value="<?= isset($_GET['search']) ? $_GET['search']:'' ?>">
+            <input type="text" placeholder="<?= $this->language_name == 'French' ? 'Rechercher dans le blog ici ...':'Search blog here ...'?>" name="search" required value="<?= isset($_GET['search']) ? $_GET['search'] : '' ?>">
             <button><i class="las la-search"></i></button>
         </form>
     </div>

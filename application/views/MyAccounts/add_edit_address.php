@@ -16,27 +16,27 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="single-review">
-                                       <input class="form-control" name="id"  type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>" maxlength="50">
+                                       <input class="form-control" name="id"  type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>" maxlength="50">
 
-                                       <input class="form-control" name="first_name" id="first_name" type="text" placeholder="First Name *" value="<?= isset($postData['first_name']) ? $postData['first_name']:'' ?>" maxlength="50">
+                                       <input class="form-control" name="first_name" id="first_name" type="text" placeholder="First Name *" value="<?= isset($postData['first_name']) ? $postData['first_name'] : '' ?>" maxlength="50">
                                        <?= form_error('first_name') ?>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="single-review">
-                                        <input class="form-control" name="last_name" id="last_name" type="text" placeholder="Last Name *" value="<?= isset($postData['last_name']) ? $postData['last_name']:'' ?>" maxlength="50">
+                                        <input class="form-control" name="last_name" id="last_name" type="text" placeholder="Last Name *" value="<?= isset($postData['last_name']) ? $postData['last_name'] : '' ?>" maxlength="50">
                                        <?= form_error('last_name') ?>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="single-review">
-                                       <input class="form-control" name="mobile" id="mobile" type="text" placeholder="Mobile Number*" value="<?= isset($postData['mobile']) ? $postData['mobile']:'' ?>" maxlength="10">
+                                       <input class="form-control" name="mobile" id="mobile" type="text" placeholder="Mobile Number*" value="<?= isset($postData['mobile']) ? $postData['mobile'] : '' ?>" maxlength="10">
                                         <?= form_error('mobile') ?>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="single-review">
-                                        <input type="text" class="form-control" name="company_name" id="company_name" type="text" placeholder="company Name *" value="<?= isset($postData['company_name']) ? $postData['company_name']:'' ?>" maxlength="50">
+                                        <input type="text" class="form-control" name="company_name" id="company_name" type="text" placeholder="company Name *" value="<?= isset($postData['company_name']) ? $postData['company_name'] : '' ?>" maxlength="50">
                                        <?= form_error('company_name') ?>
                                     </div>
                                 </div>
@@ -44,7 +44,7 @@
                                 <div class="col-md-12">
                                     <div class="single-review">
 
-                                        <textarea style="height:150px;" name="address" placeholder="Address (area &amp; street)*">"<?= isset($postData['address']) ? $postData['address']:'' ?></textarea>
+                                        <textarea style="height:150px;" name="address" placeholder="Address (area &amp; street)*">"<?= isset($postData['address']) ? $postData['address'] : '' ?></textarea>
                                        <?= form_error('address') ?>
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
 
                                       <?php foreach ($countries as $country) {
                                           $selected = '';
-                                          $post_country = isset($postData['country']) ? $postData['country']:'';
+                                          $post_country = isset($postData['country']) ? $postData['country'] : '';
                                           if ($country['id'] == $post_country) {
                                               $selected='selected="selected"';
                                           }
@@ -86,7 +86,7 @@
 
                                       <?php foreach ($states as $state) {
                                       $selected='';
-                                      $post_state= isset($postData['state']) ? $postData['state']:'';
+                                      $post_state= isset($postData['state']) ? $postData['state'] : '';
 
                                       if ($state['id'] == $post_state) {
                                             $selected='selected="selected"';
@@ -112,7 +112,7 @@
 
                                       <?php foreach ($citys as $city) {
                                           $selected ='';
-                                          $post_city = isset($postData['city']) ?     $postData['city']:'';
+                                          $post_city = isset($postData['city']) ?     $postData['city'] : '';
 
                                             if ($city['id'] == $post_city) {
                                               $selected='selected="selected"';
@@ -127,7 +127,7 @@
 
                                 <div class="col-md-6">
                                     <div class="single-review">
-                                         <input class="form-control" name="pin_code" id="pin_code" type="text" placeholder="Pin Code*" value="<?= isset($postData['pin_code']) ? $postData['pin_code']:'' ?>" maxlength="10">
+                                         <input class="form-control" name="pin_code" id="pin_code" type="text" placeholder="Pin Code*" value="<?= isset($postData['pin_code']) ? $postData['pin_code'] : '' ?>" maxlength="10">
                                         <?= form_error('pin_code') ?>
 
                                     </div>
@@ -149,7 +149,7 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <?php
-                                        $address_type=isset($postData['address_type']) ? $postData['address_type']:'';
+                                        $address_type=isset($postData['address_type']) ? $postData['address_type'] : '';
 
                                     ?>
                                     <label id="home"><input name="address_type" value="home" for="home" type="radio"
@@ -175,7 +175,7 @@
                                 </div>
                                 <div class="col-md-6">
                                     <?php
-                                                $default_delivery_address=isset($postData['default_delivery_address']) ? $postData['default_delivery_address']:'';
+                                                $default_delivery_address=isset($postData['default_delivery_address']) ? $postData['default_delivery_address'] : '';
                                                 $cehecked='';
                                                 if ($default_delivery_address==1) {
                                                     $cehecked='checked';

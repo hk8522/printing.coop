@@ -16,7 +16,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
-                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>" id="id">
+                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>" id="id">
                                     <div class="form-role-area">
                                        <div class="control-group info">
                                             <div class="row">
@@ -49,7 +49,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Banner Name" value="<?= isset($postData['name']) ? $postData['name']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Banner Name" value="<?= isset($postData['name']) ? $postData['name'] : '' ?>" maxlength="50">
                                                         <?= form_error('name') ?>
                                                     </div>
                                                 </div>
@@ -62,7 +62,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name_french" id="name_french" type="text" placeholder="Banner Name" value="<?= isset($postData['name_french']) ? $postData['name_french']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="name_french" id="name_french" type="text" placeholder="Banner Name" value="<?= isset($postData['name_french']) ? $postData['name_french'] : '' ?>" maxlength="50">
                                                         <?= form_error('name_french') ?>
                                                     </div>
                                                 </div>
@@ -75,7 +75,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="short_description" id="short_description" type="text" placeholder="short description" value="<?= isset($postData['short_description']) ? $postData['short_description']:'' ?>" maxlength="150">
+                                                        <input class="form-control" name="short_description" id="short_description" type="text" placeholder="short description" value="<?= isset($postData['short_description']) ? $postData['short_description'] : '' ?>" maxlength="150">
                                                         <?= form_error('short_description') ?>
                                                     </div>
                                                 </div>
@@ -89,7 +89,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="short_description_french" id="short_description_french" type="text" placeholder="short description" value="<?= isset($postData['short_description_french']) ? $postData['short_description_french']:'' ?>" maxlength="150">
+                                                        <input class="form-control" name="short_description_french" id="short_description_french" type="text" placeholder="short description" value="<?= isset($postData['short_description_french']) ? $postData['short_description_french'] : '' ?>" maxlength="150">
                                                         <?= form_error('short_description_french') ?>
                                                     </div>
                                                 </div>
@@ -99,7 +99,7 @@
                                         <div class="control-group info">
                                             <div class="controls">
                                                 <div class="col-xs-3" style="margin-bottom:15px;">
-                                                    <?php $old_image =isset($postData['banner_image']) ? $postData['banner_image']:'';
+                                                    <?php $old_image =isset($postData['banner_image']) ? $postData['banner_image'] : '';
                                                         ?>
                                                     <?php
                                                         if ($old_image !='') {
@@ -139,7 +139,7 @@
                                         <div class="control-group info">
                                             <div class="controls">
                                                 <div class="col-xs-3" style="margin-bottom:15px;">
-                                                    <?php $old_image_french =isset($postData['banner_image_french']) ? $postData['banner_image_french']:'';
+                                                    <?php $old_image_french =isset($postData['banner_image_french']) ? $postData['banner_image_french'] : '';
                                                         ?>
                                                     <?php
                                                         if ($old_image_french !='') {

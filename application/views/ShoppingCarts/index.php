@@ -176,23 +176,10 @@
                                                         </div>
                                                     <?php }
                                                 }
-                                           } ?>
+                                            } ?>
 
-                                            <?php
-                                            foreach ($attribute_ids as $key => $val) {
-                                                if ($language_name == 'French') {
-                                                    $attribute_name = $val['attribute_name_french'];
-                                                    $item_name = $val['item_name_french'];
-                                                } else {
-                                                    $attribute_name = $val['attribute_name'];
-                                                    $item_name = $val['item_name'];
-                                                }
-                                                ?>
-                                                <div class="col-md-12 col-lg-6 col-xl-6">
-                                                    <span><strong><?= $attribute_name?>: <?= $item_name?></strong></span>
-                                                </div>
+                                            <?php $this->view('Products/expand_attribute_ids', ['attribute_ids' => $attribute_ids, 'language_name' => $language_name]); ?>
 
-                                            <?php } ?>
                                             <?php
                                             if (!empty($recto_verso)) { ?>
                                                 <div class="col-md-12 col-lg-6 col-xl-6">

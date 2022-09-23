@@ -18,7 +18,7 @@
                                         <div class="table-filter-fields">
                                             <label>Name</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" placeholder="Name" value="<?= isset($PostData['name']) ? $PostData['name']:'' ?>" name="name">
+                                                <input type="text" class="form-control" placeholder="Name" value="<?= isset($PostData['name']) ? $PostData['name'] : '' ?>" name="name">
                                                 <?= form_error('name') ?>
                                             </div>
                                         </div>
@@ -27,7 +27,7 @@
                                         <div class="table-filter-fields">
                                             <label>Mobile</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" placeholder="Mobile"  value="<?= isset($PostData['mobile']) ? $PostData['mobile']:'' ?>" name="mobile">
+                                                <input type="text" class="form-control" placeholder="Mobile"  value="<?= isset($PostData['mobile']) ? $PostData['mobile'] : '' ?>" name="mobile">
                                                 <?= form_error('mobile') ?>
                                             </div>
                                         </div>
@@ -36,7 +36,7 @@
                                         <div class="table-filter-fields">
                                             <label>Email</label>
                                             <div class="controls">
-                                                <input type="email" class="form-control" placeholder="Email" value="<?= isset($PostData['email']) ? $PostData['email']:'' ?>" name="email" id="email">
+                                                <input type="email" class="form-control" placeholder="Email" value="<?= isset($PostData['email']) ? $PostData['email'] : '' ?>" name="email" id="email">
                                                 <?= form_error('email') ?>
                                             </div>
                                         </div>
@@ -58,7 +58,7 @@
                                         <div class="table-filter-fields">
                                             <label>Name</label>
                                             <div class="controls">
-                                                <input class="form-control" type="text" placeholder="Name*" value="<?= isset($PostData['billing_name']) ? $PostData['billing_name']:'' ?>" name="billing_name">
+                                                <input class="form-control" type="text" placeholder="Name*" value="<?= isset($PostData['billing_name']) ? $PostData['billing_name'] : '' ?>" name="billing_name">
                                                  <?= form_error('billing_name') ?>
                                             </div>
                                         </div>
@@ -67,7 +67,7 @@
                                         <div class="table-filter-fields">
                                             <label>Phone Number</label>
                                             <div class="controls">
-                                                <input class="form-control" type="text" placeholder="Phone Number*" value="<?= isset($PostData['billing_mobile']) ? $PostData['billing_mobile']:'' ?>" name="billing_mobile">
+                                                <input class="form-control" type="text" placeholder="Phone Number*" value="<?= isset($PostData['billing_mobile']) ? $PostData['billing_mobile'] : '' ?>" name="billing_mobile">
                                                  <?= form_error('billing_mobile') ?>
                                             </div>
                                         </div>
@@ -76,7 +76,7 @@
                                         <div class="table-filter-fields">
                                             <label>Company</label>
                                             <div class="controls">
-                                                <input class="form-control" type="text" placeholder="Company" value="<?= isset($PostData['billing_company']) ? $PostData['billing_company']:'' ?>" name="billing_company">
+                                                <input class="form-control" type="text" placeholder="Company" value="<?= isset($PostData['billing_company']) ? $PostData['billing_company'] : '' ?>" name="billing_company">
                                                  <?= form_error('billing_company') ?>
                                             </div>
                                         </div>
@@ -85,7 +85,7 @@
                                         <div class="table-filter-fields">
                                             <label>Address</label>
                                             <div class="controls">
-                                                <textarea class="form-control" style="height: 60px !important;" type="text" placeholder="Address (area &amp; street)*" name="billing_address"><?= isset($PostData['billing_address']) ? $PostData['billing_address']:'' ?></textarea>
+                                                <textarea class="form-control" style="height: 60px !important;" type="text" placeholder="Address (area &amp; street)*" name="billing_address"><?= isset($PostData['billing_address']) ? $PostData['billing_address'] : '' ?></textarea>
                                                  <?php
                                                  echo form_error('billing_address');
                                                  ?>
@@ -101,7 +101,7 @@
 
                                                   <?php foreach ($countries as $country) {
                                                       $selected = '';
-                                                      $post_country = isset($PostData['billing_country']) ? $PostData['billing_country']:'';
+                                                      $post_country = isset($PostData['billing_country']) ? $PostData['billing_country'] : '';
 
                                                       if ($country['id'] == $post_country) {
                                                           $selected='selected="selected"';
@@ -125,7 +125,7 @@
                                                   <option value="">-- Select State --</option>
                                                   <?php foreach ($states as $state) {
                                                       $selected ='';
-                                                      $post_state = isset($PostData['billing_state']) ? $PostData['billing_state']:'';
+                                                      $post_state = isset($PostData['billing_state']) ? $PostData['billing_state'] : '';
                                                       if ($state['id'] == $post_state) {
                                                           $selected='selected="selected"';
                                                       }
@@ -148,7 +148,7 @@
                                               <option value="">-- Select City --</option>
                                               <?php foreach ($citys as $city) {
                                                   $selected ='';
-                                                  $post_city = isset($PostData['billing_city']) ? $PostData['billing_city']:'';
+                                                  $post_city = isset($PostData['billing_city']) ? $PostData['billing_city'] : '';
 
                                                     if ($city['id'] == $post_city) {
                                                        $selected='selected="selected"';
@@ -168,7 +168,7 @@
                                         <div class="table-filter-fields">
                                             <label>Zip/Postal Code</label>
                                             <div class="controls">
-                                                <input class="form-control" type="text" placeholder="Zip/Postal Code*" name="billing_pin_code" value="<?= isset($PostData['billing_pin_code']) ? $PostData['billing_pin_code']:'' ?>" >
+                                                <input class="form-control" type="text" placeholder="Zip/Postal Code*" name="billing_pin_code" value="<?= isset($PostData['billing_pin_code']) ? $PostData['billing_pin_code'] : '' ?>" >
                                                 <?php
                                                  echo form_error('billing_pin_code');
                                                  ?>
@@ -207,7 +207,7 @@
                                                     <!--<?php
                                                         foreach ($PaymentMethod as $key => $val) {
                                                           $selected = '';
-                                                          $payment_type = isset($PostData['payment_type']) ? $PostData['payment_type']:'';
+                                                          $payment_type = isset($PostData['payment_type']) ? $PostData['payment_type'] : '';
 
                                                           if ($val == $payment_type) {
                                                               $selected='selected="selected"';
@@ -232,7 +232,7 @@
                                                     <option value="">Select Status</option>
                                                         <?php foreach ($PaymentStatus as $key => $val) {
                                                           $selected = '';
-                                                          $payment_status = isset($PostData['payment_status']) ? $PostData['payment_status']:'';
+                                                          $payment_status = isset($PostData['payment_status']) ? $PostData['payment_status'] : '';
 
                                                           if ($key == $payment_status) {
                                                               $selected='selected="selected"';
@@ -253,7 +253,7 @@
                                         <div class="table-filter-fields">
                                             <label>Payment Transaction ID</label>
                                             <div class="controls">
-                                                <input type="text" class="form-control" placeholder="Transaction ID" name="transition_id" value="<?= isset($PostData['transition_id']) ? $PostData['transition_id']:'' ?>">
+                                                <input type="text" class="form-control" placeholder="Transaction ID" name="transition_id" value="<?= isset($PostData['transition_id']) ? $PostData['transition_id'] : '' ?>">
                                             </div>
                                         </div>
                                     </div>

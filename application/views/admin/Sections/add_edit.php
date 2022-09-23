@@ -17,7 +17,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
-                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>">
+                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>">
                                     <div class="form-role-area">
                                         <!--<div class="control-group info">
                                             <div class="row">
@@ -51,7 +51,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="<?= isset($postData['name']) ? $postData['name']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Name" value="<?= isset($postData['name']) ? $postData['name'] : '' ?>" maxlength="50">
                                                         <label class="mt-2 text-danger"><?= $errors['name'] ?? '' ?></label>
                                                     </div>
                                                 </div>
@@ -64,7 +64,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name_france" id="name_france" type="text" placeholder="name france" value="<?= isset($postData['name_france']) ? $postData['name_france']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="name_france" id="name_france" type="text" placeholder="name france" value="<?= isset($postData['name_france']) ? $postData['name_france'] : '' ?>" maxlength="50">
                                                         <label class="mt-2 text-danger"><?= $errors['name_france'] ?? '' ?></label>
                                                     </div>
                                                 </div>
@@ -77,7 +77,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                      <textarea class="form-control" rows="4" name="description" placeholder="Description"><?= isset($postData['description'])? $postData['description']:'' ?></textarea>
+                                                      <textarea class="form-control" rows="4" name="description" placeholder="Description"><?= isset($postData['description'])? $postData['description'] : '' ?></textarea>
                                                       <label class="mt-2 text-danger"><?= $errors['description'] ?? '' ?></label>
                                                     </div>
                                                 </div>
@@ -90,7 +90,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                      <textarea class="form-control" rows="4" name="description_france" placeholder="description_france"><?= isset($postData['description_france'])? $postData['description_france']:'' ?></textarea>
+                                                      <textarea class="form-control" rows="4" name="description_france" placeholder="description_france"><?= isset($postData['description_france'])? $postData['description_france'] : '' ?></textarea>
                                                       <label class="mt-2 text-danger"><?= $errors['description_france'] ?? '' ?></label>
                                                     </div>
                                                 </div>
@@ -104,7 +104,7 @@
                                                 <div class="col-md-12">
                                                     <div class="controls">
                                                         <textarea name="content" id="content" rows="100">
-                                                          <?= isset($postData['content']) ? $postData['content']:'' ?>
+                                                          <?= isset($postData['content']) ? $postData['content'] : '' ?>
                                                         </textarea>
                                                         <?= form_error('content') ?>
                                                     </div>
@@ -119,7 +119,7 @@
                                                 <div class="col-md-12">
                                                     <div class="controls">
                                                         <textarea name="content_france" id="content1" rows="100">
-                                                          <?= isset($postData['content_france']) ? $postData['content_france']:'' ?>
+                                                          <?= isset($postData['content_france']) ? $postData['content_france'] : '' ?>
                                                         </textarea>
                                                         <?= form_error('content_france') ?>
                                                     </div>
@@ -134,7 +134,7 @@
                                               <div class="col-md-8">
                                                 <div class="controls">
                                                     <div class="col-xs-3" style="margin-bottom:15px;">
-                                                        <?php $old_background_image =isset($postData['background_image']) ? $postData['background_image']:'';
+                                                        <?php $old_background_image =isset($postData['background_image']) ? $postData['background_image'] : '';
                                                             ?>
                                                         <?php
                                                             if ($old_background_image !='') {
@@ -176,7 +176,7 @@
                                               <div class="col-md-8">
                                                 <div class="controls">
                                                     <div class="col-xs-3" style="margin-bottom:15px;">
-                                                        <?php $old_french_background_image =isset($postData['french_background_image']) ? $postData['french_background_image']:'';
+                                                        <?php $old_french_background_image =isset($postData['french_background_image']) ? $postData['french_background_image'] : '';
                                                             ?>
                                                         <?php
                                                             if ($old_french_background_image !='') {

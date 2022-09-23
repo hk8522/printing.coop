@@ -74,7 +74,7 @@ class Categories extends Admin_Controller
                 $FilenameInadex=$key.'files';
                 $oldImageInadex=$key.'old_image';
                 $ImageIdInadex=$key.'category_image_id';
-                $Filename = isset($_FILES[$FilenameInadex]['name']) ? $_FILES[$FilenameInadex]['name']:'';
+                $Filename = isset($_FILES[$FilenameInadex]['name']) ? $_FILES[$FilenameInadex]['name'] : '';
 
                 $saveCategoryImageData[$key]['image']= !empty($this->input->post($oldImageInadex)) ?
                 $this->input->post($oldImageInadex) : '';
@@ -114,7 +114,7 @@ class Categories extends Admin_Controller
                 $uploadDatafrench = array();
                 $FilenameFrenchInadex=$key.'files_french';
                 $oldImageFrenchInadex=$key.'old_image_french';
-                $FileNamefrench = isset($_FILES[$FilenameFrenchInadex]['name']) ? $_FILES[$FilenameFrenchInadex]['name']:'';
+                $FileNamefrench = isset($_FILES[$FilenameFrenchInadex]['name']) ? $_FILES[$FilenameFrenchInadex]['name'] : '';
                 $saveCategoryImageData[$key]['image_french'] = !empty($this->input->post($oldImageFrenchInadex)) ?
                 $this->input->post($oldImageFrenchInadex) : '';
 
@@ -415,7 +415,7 @@ class Categories extends Admin_Controller
                     }
                 }
 
-                $menu_id = isset($postData['menu_id']) ? $postData['menu_id']:'';
+                $menu_id = isset($postData['menu_id']) ? $postData['menu_id'] : '';
                 $categoryList = $this->Category_Model->getCategoryDropDownList();
                 $this->data['categoryList'] = $categoryList;
                 $this->data['postData'] = $postData;

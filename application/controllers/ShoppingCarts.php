@@ -82,10 +82,12 @@ class ShoppingCarts extends Public_Controller
             ];
         } else {
             ///// new structure
-            if (false) {
+            if (true) {
                 $productOptions = (array)$this->Product_Model->attributeDataFromIds($product_id, $params['attributes']);
 
                 foreach ($productOptions as $item) {
+                    if ($item['use_items'] == 1)
+                        continue;
                     if (($item['value_min'] > 0 && $item['item_name'] < $item['value_min']) ||
                         ($item['value_max'] > 0 && $item['item_name'] > $item['value_max'])) {
                         if ($this->language_name == 'French')
@@ -96,6 +98,27 @@ class ShoppingCarts extends Public_Controller
                         return;
                     }
                 }
+                $custom = [];
+                $custom_fields = [
+                    'width' => [ 'attribute_name_real' => 'Width', 'attribute_name' => 'Width', 'attribute_name_french' => 'Largeur'],
+                    'length' => [ 'attribute_name_real' => 'Length', 'attribute_name' => 'Length', 'attribute_name_french' => 'Longueur'],
+                ];
+                foreach ($params['custom'] as $custom_item) {
+                    if ($custom_item['use'] == 1) {
+                        foreach ($custom_item as $key => $value) {
+                            if (!array_key_exists($key, $custom_fields))
+                                continue;
+                            $custom[] = [
+                                'attribute_name_real' => $custom_fields[$key]['attribute_name_real'],
+                                'attribute_name' => $custom_fields[$key]['attribute_name'],
+                                'attribute_name_french' => $custom_fields[$key]['attribute_name_french'],
+                                'item_name' => $value,
+                                'item_name_french' => $value,
+                            ];
+                        }
+                    }
+                }
+                $productOptions['custom'] = $custom;
             } else {
                 $productOptions = array();
                 //pr($ProductAttributes, 1);

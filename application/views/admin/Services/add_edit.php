@@ -104,7 +104,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <div class="col-xs-3" style="margin-bottom:15px;">
-                                                            <?php $old_image =isset($postData['service_image']) ? $postData['service_image']:'';
+                                                            <?php $old_image =isset($postData['service_image']) ? $postData['service_image'] : '';
                                                                 ?>
                                                             <?php
                                                                 if ($old_image !='') {
@@ -145,7 +145,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <div class="col-xs-3" style="margin-bottom:15px;">
-                                                            <?php $old_image_french =isset($postData['service_image_french']) ? $postData['service_image_french']:'';
+                                                            <?php $old_image_french =isset($postData['service_image_french']) ? $postData['service_image_french'] : '';
                                                                 ?>
                                                             <?php
                                                                 if ($old_image_french !='') {

@@ -40,7 +40,7 @@
                                   Your Name *
                                 <?php
                                } ?></label>
-                                <input type="text" name="fname" value="<?= isset($postData['fname']) ? $postData['fname']:'' ?>">
+                                <input type="text" name="fname" value="<?= isset($postData['fname']) ? $postData['fname'] : '' ?>">
                                 <span class="text-danger"><?= form_error('fname') ?></span>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                                   Your Last Name *
                                 <?php
                                } ?></label>
-                                <input type="text" name="lname" value="<?= isset($postData['lname']) ? $postData['lname']:'' ?>">
+                                <input type="text" name="lname" value="<?= isset($postData['lname']) ? $postData['lname'] : '' ?>">
                                 <span class="text-danger"><?= form_error('lname') ?></span>
                             </div>
                         </div>
@@ -70,7 +70,7 @@
                                   Your Email Address *
                                 <?php
                                } ?></label>
-                                <input type="text" name="email" value="<?= isset($postData['email']) ? $postData['email']:'' ?>">
+                                <input type="text" name="email" value="<?= isset($postData['email']) ? $postData['email'] : '' ?>">
                                 <?= form_error('email') ?>
                             </div>
                         </div>
@@ -84,7 +84,7 @@
                                   Your Phone *
                                 <?php
                                } ?></label>
-                                <input type="text" name="mobile" value="<?= isset($postData['mobile']) ? $postData['mobile']:'' ?>">
+                                <input type="text" name="mobile" value="<?= isset($postData['mobile']) ? $postData['mobile'] : '' ?>">
                                 <?= form_error('mobile') ?>
                             </div>
                         </div>

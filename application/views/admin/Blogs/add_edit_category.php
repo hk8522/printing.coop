@@ -17,7 +17,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
-                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>" id="id">
+                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>" id="id">
                                     <div class="form-role-area">
                                          <div class="control-group info">
                                             <div class="row align-items-center">
@@ -54,7 +54,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="category_name" id="category_name" type="text" placeholder="category name" value="<?= isset($postData['category_name']) ? $postData['category_name']:'' ?>" >
+                                                        <input class="form-control" name="category_name" id="category_name" type="text" placeholder="category name" value="<?= isset($postData['category_name']) ? $postData['category_name'] : '' ?>" >
                                                         <?= form_error('category_name') ?>
                                                     </div>
                                                 </div>
@@ -67,7 +67,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="category_name_french" id="category_name_french" type="text" placeholder="category name french" value="<?= isset($postData['category_name_french']) ? $postData['category_name_french']:'' ?>" >
+                                                        <input class="form-control" name="category_name_french" id="category_name_french" type="text" placeholder="category name french" value="<?= isset($postData['category_name_french']) ? $postData['category_name_french'] : '' ?>" >
                                                         <?= form_error('category_name_french') ?>
                                                     </div>
                                                 </div>

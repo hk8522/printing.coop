@@ -403,14 +403,14 @@ $order_currency_currency_symbol = $OrderCurrencyData['symbols'];
                                                                                 Mobile: <?= ucfirst($orderData['billing_mobile'])?><?= !empty($orderData['billing_alternate_phone']) ? ',' . $orderData['billing_alternate_phone'] : ''?>
                                                                                 <br>
                                                                                 <?php if (!empty($orderData['billing_company'])) { ?>
-                                                                                    Company:<?= $orderData['billing_company']?>
+                                                                                    Company: <?= $orderData['billing_company']?>
                                                                                     <br>
                                                                                 <?php } ?>
 
                                                                                 <?= $orderData['billing_address']?>
 
                                                                                 <br>
-                                                                                <?= $cityData['name']?>,<?= $stateData['name']?>,<?= $countryData['iso2']?>,<?= $orderData['billing_pin_code']?>
+                                                                                <?= $cityData['name']?>, <?= $stateData['name']?>, <?= $countryData['iso2']?>, <?= $orderData['billing_pin_code']?>
                                                                             </strong>
                                                                         </div>
                                                                     </div>
@@ -439,13 +439,13 @@ $order_currency_currency_symbol = $OrderCurrencyData['symbols'];
 
                                                                                 <?php if (!empty($orderData['shipping_company'])) { ?>
                                                                                     <br>
-                                                                                    Company:<?= $orderData['shipping_company']?>
+                                                                                    Company: <?= $orderData['shipping_company']?>
                                                                                 <?php } ?>
                                                                                 <br>
                                                                                 <?= $orderData['shipping_address']?>
 
                                                                                 <br>
-                                                                                <?= $cityData['name']?>,<?= $stateData['name']?>, <?= $cityData['name']?> <?= $countryData['iso2']?>,<?= $orderData['shipping_pin_code']?>
+                                                                                <?= $cityData['name']?>, <?= $stateData['name']?>, <?= $cityData['name']?> <?= $countryData['iso2']?>, <?= $orderData['shipping_pin_code']?>
                                                                             </strong>
                                                                         </div>
                                                                     </div>
@@ -664,15 +664,9 @@ $order_currency_currency_symbol = $OrderCurrencyData['symbols'];
                                                                                 <?php }
                                                                            } ?>
                                                                         <?php } ?>
-                                                                        <?php
-                                                                        foreach ($attribute_ids as $key => $val) {
-                                                                            $attribute_name = $val['attribute_name'];
-                                                                            $item_name = $val['item_name'];
-                                                                        ?>
-                                                                            <div class="col-md-12 col-lg-6 col-xl-6">
-                                                                                <span><strong><?= $attribute_name?>: <?= $item_name?></strong></span>
-                                                                            </div>
-                                                                        <?php } ?>
+
+                                                                        <?php $this->view('Products/expand_attribute_ids', ['attribute_ids' => $attribute_ids]); ?>
+
                                                                         <?php if (!empty($recto_verso)) { ?>
                                                                             <div class="col-md-6">
                                                                                 <span><strong>Recto/Verso: <?= $recto_verso?></strong></span>

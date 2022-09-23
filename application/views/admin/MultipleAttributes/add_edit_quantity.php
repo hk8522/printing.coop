@@ -16,7 +16,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
-                                    <input class="form-control" name="id" type="hidden" value="<?= isset($postData['id']) ? $postData['id']:'' ?>" id="id">
+                                    <input class="form-control" name="id" type="hidden" value="<?= isset($postData['id']) ? $postData['id'] : '' ?>" id="id">
                                     <div class="form-role-area">
                                         <div class="control-group info">
                                             <div class="row align-items-center">
@@ -27,7 +27,7 @@
                                                     <div class="controls">
                                                         <input class="form-control" name="name" id="name" type="text"
                                                             placeholder="Quantity"
-                                                            value='<?= isset($postData['name']) ? $postData['name']:'' ?>'>
+                                                            value='<?= isset($postData['name']) ? $postData['name'] : '' ?>'>
                                                         <?= form_error('name') ?>
                                                     </div>
                                                 </div>
@@ -40,7 +40,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name_french" id="name_french" type="text" placeholder="French Quantity" value='<?= isset($postData['name_french']) ? $postData['name_french']:'' ?>'>
+                                                        <input class="form-control" name="name_french" id="name_french" type="text" placeholder="French Quantity" value='<?= isset($postData['name_french']) ? $postData['name_french'] : '' ?>'>
                                                         <?= form_error('name_french') ?>
                                                     </div>
                                                 </div>

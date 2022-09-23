@@ -64,7 +64,7 @@
 
                                       <?php foreach ($countries as $country) {
                                           $selected = '';
-                                          $post_country = isset($postData['country']) ? $postData['country']:'';
+                                          $post_country = isset($postData['country']) ? $postData['country'] : '';
                                           if ($country['id'] == $post_country) {
                                               $selected='selected="selected"';
                                           }
@@ -88,7 +88,7 @@
 
                                       <?php foreach ($states as $state) {
                                           $selected ='';
-                                          $post_state = isset($postData['state']) ? $postData['state']:'';
+                                          $post_state = isset($postData['state']) ? $postData['state'] : '';
                                           if ($state['id'] == $post_state) {
                                               $selected='selected="selected"';
                                           }
@@ -112,7 +112,7 @@
 
                                       <?php foreach ($citys as $city) {
                                           $selected ='';
-                                          $post_city = isset($postData['city']) ?     $postData['state']:'';
+                                          $post_city = isset($postData['city']) ?     $postData['state'] : '';
 
                                             if ($city['id'] == $post_city) {
                                               $selected='selected="selected"';
@@ -218,13 +218,13 @@
                                 ?>
                                 </span>
                                 <br>
-                                <span><?= ucfirst($list['name']) ?> <?= $list['mobile'] ?> <?= !empty($list['alternate_phone']) ? ','.$list['alternate_phone']:''  ?>
+                                <span><?= ucfirst($list['name']) ?> <?= $list['mobile'] ?> <?= !empty($list['alternate_phone']) ? ','.$list['alternate_phone'] : ''  ?>
                                  <?= !empty($list['company_name']) ? '('.$list['company_name'].")":'' ?>
                                 </span>
 
                                 <br>
                                 <span class="tt-t"><?= $list['address'] ?>,
-                                <?= $list['cityName'] ?>,<?= $list['StateName'] ?>,<?= $list['CountryName'] ?> - <strong><?= $list['pin_code']  ?></strong></span>
+                                <?= $list['cityName'] ?>, <?= $list['StateName'] ?>, <?= $list['CountryName'] ?> - <strong><?= $list['pin_code']  ?></strong></span>
 
                             </div>
                             <div class="dot-menu">

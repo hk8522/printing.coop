@@ -16,7 +16,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open('',array('class' => 'form-horizontal')) ?>
-                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>">
+                                     <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>">
                                      <div class="form-role-area">
 
                                         <div class="control-group info">
@@ -26,7 +26,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Category Name" value="<?= isset($postData['name']) ? $postData['name']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="name" id="name" type="text" placeholder="Category Name" value="<?= isset($postData['name']) ? $postData['name'] : '' ?>" maxlength="50">
                                                         <?= form_error('name') ?>
                                                     </div>
                                                 </div>
@@ -40,7 +40,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="category_order" id="category_order" type="number" placeholder="Category Order" value="<?= isset($postData['category_order']) ? $postData['category_order']:'' ?>" maxlength="50">
+                                                        <input class="form-control" name="category_order" id="category_order" type="number" placeholder="Category Order" value="<?= isset($postData['category_order']) ? $postData['category_order'] : '' ?>" maxlength="50">
                                                         <?= form_error('category_order') ?>
                                                     </div>
                                                 </div>

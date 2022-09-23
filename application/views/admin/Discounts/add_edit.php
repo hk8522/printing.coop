@@ -18,7 +18,7 @@
                                     </div>
                                     <?= form_open('',array('class' => 'form-horizontal')) ?>
                                     <input class="form-control" name="id" type="hidden"
-                                        value="<?= isset($postData['id']) ? $postData['id']:'' ?>">
+                                        value="<?= isset($postData['id']) ? $postData['id'] : '' ?>">
 
                                     <div class="form-role-area">
                                         <div class="control-group info">
@@ -29,7 +29,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <input class="form-control" type="text" name="code"
-                                                            value="<?= isset($postData['code']) ? $postData['code']:'' ?>"
+                                                            value="<?= isset($postData['code']) ? $postData['code'] : '' ?>"
                                                             maxlength="50">
                                                         <?= form_error('code') ?>
                                                     </div>
@@ -59,7 +59,7 @@
                                                         <div class="col-md-12">
                                                             <div>
                                                                 <input class="form-control" name="discount"
-                                                                    value="<?= isset($postData['discount']) ? $postData['discount']:'' ?>">
+                                                                    value="<?= isset($postData['discount']) ? $postData['discount'] : '' ?>">
 
                                                                 <label
                                                                     class="form-inner-label discount-percent">Discount
@@ -129,7 +129,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-    <input class="form-control" type="number" name="discount_code_limit" value="<?= isset($postData['discount_code_limit']) ? $postData['discount_code_limit']:'' ?>">
+    <input class="form-control" type="number" name="discount_code_limit" value="<?= isset($postData['discount_code_limit']) ? $postData['discount_code_limit'] : '' ?>">
     <?= form_error('discount_code_limit') ?>
                                                     </div>
                                                 </div>

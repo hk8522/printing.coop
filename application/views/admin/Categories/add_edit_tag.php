@@ -17,7 +17,7 @@
                                         <?= $this->session->flashdata('message_error') ?>
                                     </div>
                                     <?= form_open_multipart('',array('class' => 'form-horizontal')) ?>
-                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id']:'' ?>">
+                                    <input class="form-control" name="id" type="hidden"  value="<?= isset($postData['id']) ? $postData['id'] : '' ?>">
                                     <div class="form-role-area">
 
                                         <div class="control-group info">
@@ -53,7 +53,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="tag_order" id="sub_category_order" type="number" placeholder="Tag Order" value="<?= isset($postData['tag_order']) ? $postData['tag_order']:'' ?>">
+                                                        <input class="form-control" name="tag_order" id="sub_category_order" type="number" placeholder="Tag Order" value="<?= isset($postData['tag_order']) ? $postData['tag_order'] : '' ?>">
                                                         <label class="mt-2 text-danger"><?= $errors['tag_order'] ?? '' ?></label>
                                                     </div>
                                                 </div>
@@ -67,7 +67,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     <div class="controls">
-                                                        <input class="form-control" name="font_class" id="font_class" type="text" placeholder="Font Awesome Class" value="<?= isset($postData['font_class']) ? $postData['font_class']:'' ?>">
+                                                        <input class="form-control" name="font_class" id="font_class" type="text" placeholder="Font Awesome Class" value="<?= isset($postData['font_class']) ? $postData['font_class'] : '' ?>">
                                                         <label class="mt-2 text-danger"><?= $errors['font_class'] ?? '' ?></label>
                                                     </div>
                                                 </div>
@@ -102,7 +102,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <div tyle="margin-bottom:15px;">
-                                                            <?php $old_image =isset($postData['image']) ? $postData['image']:'';?>
+                                                            <?php $old_image =isset($postData['image']) ? $postData['image'] : '';?>
                                                             <?php
                                                                 if ($old_image !='') {
                                                                    $imageurl=geCategoryImage($old_image,'large');?>
@@ -147,7 +147,7 @@
                                                 <div class="col-md-8">
                                                     <div class="controls">
                                                         <div tyle="margin-bottom:15px;">
-                                                            <?php $old_image_french =isset($postData['image_french']) ? $postData['image_french']:'';?>
+                                                            <?php $old_image_french =isset($postData['image_french']) ? $postData['image_french'] : '';?>
                                                             <?php
                                                                 if ($old_image_french !='') {
                                                                    $imageurl=geCategoryImage($old_image_french,'large');?>
