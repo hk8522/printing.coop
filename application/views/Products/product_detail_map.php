@@ -111,7 +111,7 @@
                         continue;
                     if (attribute.use_percentage == 1 || attribute.type == <?= App\Common\AttributeType::Quantity ?>) {
                         var percentage = parseValue(item.additional_fee) ?? 0;
-                        if (percentage > 0)
+                        if (percentage != 0)
                             percentages.push(percentage);
                         // continue;
                     }
@@ -156,7 +156,7 @@
                 }
                 if (attribute.use_percentage == 1 || attribute.type == <?= App\Common\AttributeType::Quantity ?>) {
                     var percentage = parseValue(attribute.additional_fee) ?? 0;
-                    if (percentage > 0)
+                    if (percentage != 0)
                         percentages.push(percentage);
                     // continue;
                 }
