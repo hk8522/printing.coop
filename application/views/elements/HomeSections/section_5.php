@@ -17,14 +17,14 @@
             <div class="universal-light-title">
               <span><?php
                 if ($language_name == 'French') {
-                     echo $section_5['name_france'] ?? '';
+                     echo $section_5['name_french'] ?? '';
                     } else{
                       echo $section_5['name'] ?? '';
                     } ?></span>
             </div>
             <div class="universal-light-info">
               <span><?php if ($language_name == 'French') {
-                     echo $section_5['description_france'] ?? '';
+                     echo $section_5['description_french'] ?? '';
                     } else{
                       echo $section_5['description'] ?? '';
                    } ?></span>
@@ -32,7 +32,7 @@
             <div class="universal-light-info">
               <span><?php
                     if ($language_name == 'French') {
-                        echo $section_5['content_france'] ?? '';
+                        echo $section_5['content_french'] ?? '';
                     } else{
                         echo $section_5['content'] ?? '';
                     }

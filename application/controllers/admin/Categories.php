@@ -60,11 +60,11 @@ class Categories extends Admin_Controller
             $postData['category_dispersion_french'] = $this->input->post('category_dispersion_french');
 
             $postData['page_title']=$this->input->post('page_title');
-            $postData['page_title_france']=$this->input->post('page_title_france');
+            $postData['page_title_french']=$this->input->post('page_title_french');
             $postData['meta_description_content']=$this->input->post('meta_description_content');
-            $postData['meta_description_content_france']=$this->input->post('meta_description_content_france');
+            $postData['meta_description_content_french']=$this->input->post('meta_description_content_french');
             $postData['meta_keywords_content']=$this->input->post('meta_keywords_content');
-            $postData['meta_keywords_content_france']=$this->input->post('meta_keywords_content_france');
+            $postData['meta_keywords_content_french']=$this->input->post('meta_keywords_content_french');
 
             $postData['show_main_menu'] = !empty($this->input->post('show_main_menu')) ? $this->input->post('show_main_menu'):0;
             $postData['show_our_printed_product'] = !empty($this->input->post('show_our_printed_product')) ? $this->input->post('show_our_printed_product'):0;

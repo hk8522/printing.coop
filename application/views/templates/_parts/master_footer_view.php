@@ -64,7 +64,7 @@
                                 <a href="<?=$url?>">
                                     <?php
                                         if ($language_name == 'French') {
-                                            echo ucfirst($page['title_france']);
+                                            echo ucfirst($page['title_french']);
                                         } else {
                                             echo ucfirst($page['title']);
                                         }
@@ -305,7 +305,7 @@
                                 }
                                 ?>
                             <a
-                                href="<?=$url?>"><?= ($language_name == 'French') ? ucfirst($page['title_france']) : ucfirst($page['title']) ?></a>
+                                href="<?=$url?>"><?= ($language_name == 'French') ? ucfirst($page['title_french']) : ucfirst($page['title']) ?></a>
                             <?php }?>
                         </div>
                     </div>

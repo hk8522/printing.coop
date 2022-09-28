@@ -316,3 +316,10 @@
 /* Provider database error */
   ALTER TABLE `provider_product_options` ADD COLUMN `value` VARCHAR(255) NOT NULL AFTER `provider_option_value_id`;
   ALTER TABLE `provider_option_values` DROP INDEX `option_value`, ADD KEY `option_value` (`option_id`, `provider_option_value_id`, `value`);
+
+/* Product custom size */
+  ALTER TABLE `products` ADD COLUMN `use_custom_size` INT UNSIGNED NOT NULL AFTER `shipping_box_weight`;
+/* France to French */
+  ALTER TABLE `categories` CHANGE `page_title_france` `page_title_french` VARCHAR(250) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NULL, CHANGE `meta_description_content_france` `meta_description_content_french` VARCHAR(250) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NULL, CHANGE `meta_keywords_content_france` `meta_keywords_content_french` VARCHAR(250) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NULL;
+  ALTER TABLE `pages` CHANGE `title_france` `title_french` VARCHAR(100) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NULL, CHANGE `description_france` `description_french` LONGTEXT CHARSET utf8mb4 COLLATE utf8mb4_general_ci NULL, CHANGE `page_title_france` `page_title_french` VARCHAR(150) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NULL, CHANGE `meta_description_content_france` `meta_description_content_french` VARCHAR(250) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NULL, CHANGE `meta_keywords_content_france` `meta_keywords_content_french` VARCHAR(250) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NULL;
+  ALTER TABLE `sections` CHANGE `name_france` `name_french` VARCHAR(255) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NULL, CHANGE `description_france` `description_french` VARCHAR(255) CHARSET utf8mb4 COLLATE utf8mb4_general_ci NULL, CHANGE `content_france` `content_french` LONGTEXT CHARSET utf8mb4 COLLATE utf8mb4_general_ci NULL;

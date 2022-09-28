@@ -155,6 +155,8 @@ class Products extends Admin_Controller
             }
             $postData['product_tag'] = $product_tag;
 
+            $postData['use_custom_size'] = $this->input->post('use_custom_size');
+
             $postData['add_length_width'] = !empty($this->input->post('add_length_width')) ?
             $this->input->post('add_length_width') : 0;
 
@@ -319,13 +321,6 @@ class Products extends Admin_Controller
             $postData['shipping_box_weight'] = isset($_POST['shipping_box_weight']) ?
             $this->input->post('shipping_box_weight') : '0';
 
-            /*$postData['store_id'] = '';
-            $store_id = $this->input->post('store_id');
-
-            if (!empty($store_id)) {
-            $postData['store_id'] = implode(',', $store_id);
-            }*/
-            //pr($postData, 1);
             $uploadData = array();
 
             if ($this->form_validation->run() === true) {
@@ -369,10 +364,6 @@ class Products extends Admin_Controller
                         }
                     }
                 } else {
-                    /*if (empty($id)) {
-                $this->session->set_flashdata('message_error', 'Select at least one images of Product');
-                //$saveData = false;
-                }*/
                 }
 
                 if ($saveData) {
@@ -2323,8 +2314,9 @@ Coating";
 
         $q = $this->input->post('q');
         $filter = $this->input->post('filter');
-        if (isset($filter) && isset($filter['filters']))
+        if (isset($filter) && isset($filter['filters'])) {
             $q = $filter['filters'][0]['value'];
+        }
 
         $page = $this->input->post('page');
         $pageSize = $this->input->post('pageSize');
@@ -2429,8 +2421,9 @@ Coating";
 
         $q = $this->input->post('q');
         $filter = $this->input->post('filter');
-        if (isset($filter) && isset($filter['filters']))
+        if (isset($filter) && isset($filter['filters'])) {
             $q = $filter['filters'][0]['value'];
+        }
 
         $page = $this->input->post('page');
         $pageSize = $this->input->post('pageSize');
@@ -2454,8 +2447,9 @@ Coating";
     {
         $q = $this->input->post('q');
         $filter = $this->input->post('filter');
-        if (isset($filter) && isset($filter['filters']))
+        if (isset($filter) && isset($filter['filters'])) {
             $q = $filter['filters'][0]['value'];
+        }
 
         $page = $this->input->post('page');
         $pageSize = $this->input->post('pageSize');
@@ -2495,8 +2489,9 @@ Coating";
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $q = $this->input->post('q');
             $filter = $this->input->post('filter');
-            if (isset($filter) && isset($filter['filters']))
+            if (isset($filter) && isset($filter['filters'])) {
                 $q = $filter['filters'][0]['value'];
+            }
 
             $page = $this->input->post('page');
             $pageSize = $this->input->post('pageSize');
@@ -2527,14 +2522,16 @@ Coating";
         ];
         $error = $this->Product_Model->attributeCreate($data);
 
-        if ($error)
+        if ($error) {
             return $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode(['success' => false, 'message' => $error]));
-        else
+        } else {
             return $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode(['success' => true]));
+        }
+
     }
 
     public function AttributeUpdateMap()
@@ -2570,8 +2567,9 @@ Coating";
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $q = $this->input->post('q');
             $filter = $this->input->post('filter');
-            if (isset($filter) && isset($filter['filters']))
+            if (isset($filter) && isset($filter['filters'])) {
                 $q = $filter['filters'][0]['value'];
+            }
 
             $page = $this->input->post('page');
             $pageSize = $this->input->post('pageSize');
@@ -2601,14 +2599,16 @@ Coating";
         ];
         $error = $this->Product_Model->attributeItemCreate($data);
 
-        if ($error)
+        if ($error) {
             return $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode(['success' => false, 'message' => $error]));
-        else
+        } else {
             return $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode(['success' => true]));
+        }
+
     }
 
     public function AttributeItemUpdateMap()
@@ -2644,8 +2644,9 @@ Coating";
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $q = $this->input->post('q');
             $filter = $this->input->post('filter');
-            if (isset($filter) && isset($filter['filters']))
+            if (isset($filter) && isset($filter['filters'])) {
                 $q = $filter['filters'][0]['value'];
+            }
 
             $page = $this->input->post('page');
             $pageSize = $this->input->post('pageSize');
@@ -2669,51 +2670,53 @@ Coating";
     public function ProductAttributeCreate($product_id)
     {
         $data = [
-            'product_id'        => $product_id,
-            'attribute_id'      => $this->input->post('attribute_id'),
-            'show_order'        => $this->input->post('show_order'),
-            'use_items'         => $this->input->post('use_items'),
-            'use_percentage'    => $this->input->post('use_percentage'),
-            'value_min'         => $this->input->post('value_min'),
-            'value_max'         => $this->input->post('value_max'),
-            'additional_fee'    => $this->input->post('additional_fee'),
-            'fee_apply_size'    => $this->input->post('fee_apply_size'),
-            'fee_apply_width'   => $this->input->post('fee_apply_width'),
-            'fee_apply_length'  => $this->input->post('fee_apply_length'),
-            'fee_apply_depth'   => $this->input->post('fee_apply_depth'),
-            'fee_apply_diameter'=> $this->input->post('fee_apply_diameter'),
-            'fee_apply_pages'   => $this->input->post('fee_apply_pages'),
+            'product_id' => $product_id,
+            'attribute_id' => $this->input->post('attribute_id'),
+            'show_order' => $this->input->post('show_order'),
+            'use_items' => $this->input->post('use_items'),
+            'use_percentage' => $this->input->post('use_percentage'),
+            'value_min' => $this->input->post('value_min'),
+            'value_max' => $this->input->post('value_max'),
+            'additional_fee' => $this->input->post('additional_fee'),
+            'fee_apply_size' => $this->input->post('fee_apply_size'),
+            'fee_apply_width' => $this->input->post('fee_apply_width'),
+            'fee_apply_length' => $this->input->post('fee_apply_length'),
+            'fee_apply_depth' => $this->input->post('fee_apply_depth'),
+            'fee_apply_diameter' => $this->input->post('fee_apply_diameter'),
+            'fee_apply_pages' => $this->input->post('fee_apply_pages'),
         ];
         $error = $this->Product_Model->productAttributeCreate($data);
 
-        if ($error)
+        if ($error) {
             return $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode(['success' => false, 'message' => $error]));
-        else
+        } else {
             return $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode(['success' => true]));
+        }
+
     }
 
     public function ProductAttributeUpdate()
     {
         $id = $this->input->post('id');
         $data = [
-            'product_id'        => $this->input->post('product_id'),
-            'attribute_id'      => $this->input->post('attribute_id'),
-            'show_order'        => $this->input->post('show_order'),
-            'use_items'         => $this->input->post('use_items'),
-            'use_percentage'    => $this->input->post('use_percentage'),
-            'value_min'         => $this->input->post('value_min'),
-            'value_max'         => $this->input->post('value_max'),
-            'additional_fee'    => $this->input->post('additional_fee'),
-            'fee_apply_size'    => $this->input->post('fee_apply_size'),
-            'fee_apply_width'   => $this->input->post('fee_apply_width'),
-            'fee_apply_length'  => $this->input->post('fee_apply_length'),
-            'fee_apply_depth'   => $this->input->post('fee_apply_depth'),
-            'fee_apply_diameter'=> $this->input->post('fee_apply_diameter'),
-            'fee_apply_pages'   => $this->input->post('fee_apply_pages'),
+            'product_id' => $this->input->post('product_id'),
+            'attribute_id' => $this->input->post('attribute_id'),
+            'show_order' => $this->input->post('show_order'),
+            'use_items' => $this->input->post('use_items'),
+            'use_percentage' => $this->input->post('use_percentage'),
+            'value_min' => $this->input->post('value_min'),
+            'value_max' => $this->input->post('value_max'),
+            'additional_fee' => $this->input->post('additional_fee'),
+            'fee_apply_size' => $this->input->post('fee_apply_size'),
+            'fee_apply_width' => $this->input->post('fee_apply_width'),
+            'fee_apply_length' => $this->input->post('fee_apply_length'),
+            'fee_apply_depth' => $this->input->post('fee_apply_depth'),
+            'fee_apply_diameter' => $this->input->post('fee_apply_diameter'),
+            'fee_apply_pages' => $this->input->post('fee_apply_pages'),
         ];
         $this->Product_Model->productAttributeUpdate($id, $data);
 
@@ -2740,8 +2743,9 @@ Coating";
         } elseif ($this->input->server('REQUEST_METHOD') === 'POST') {
             $q = $this->input->post('q');
             $filter = $this->input->post('filter');
-            if (isset($filter) && isset($filter['filters']))
+            if (isset($filter) && isset($filter['filters'])) {
                 $q = $filter['filters'][0]['value'];
+            }
 
             $page = $this->input->post('page');
             $pageSize = $this->input->post('pageSize');
@@ -2765,22 +2769,24 @@ Coating";
     public function ProductAttributeItemCreate($product_id)
     {
         $data = [
-            'product_id'        => $product_id,
-            'attribute_id'      => $this->input->post('attribute_id'),
+            'product_id' => $product_id,
+            'attribute_id' => $this->input->post('attribute_id'),
             'attribute_item_id' => $this->input->post('attribute_item_id'),
-            'show_order'        => $this->input->post('show_order'),
-            'additional_fee'    => $this->input->post('additional_fee'),
+            'show_order' => $this->input->post('show_order'),
+            'additional_fee' => $this->input->post('additional_fee'),
         ];
         $error = $this->Product_Model->productAttributeItemCreate($data);
 
-        if ($error)
+        if ($error) {
             return $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode(['success' => false, 'message' => $error]));
-        else
+        } else {
             return $this->output
                 ->set_content_type('application/json')
                 ->set_output(json_encode(['success' => true]));
+        }
+
     }
 
     public function ProductAttributeItemUpdate()
@@ -2790,8 +2796,8 @@ Coating";
             // 'product_id'        => $product_id,
             // 'attribute_id'      => $this->input->post('attribute_id'),
             // 'attribute_item_id' => $this->input->post('attribute_item_id'),
-            'show_order'        => $this->input->post('show_order'),
-            'additional_fee'    => $this->input->post('additional_fee'),
+            'show_order' => $this->input->post('show_order'),
+            'additional_fee' => $this->input->post('additional_fee'),
         ];
         $this->Product_Model->productAttributeItemUpdate($id, $data);
 

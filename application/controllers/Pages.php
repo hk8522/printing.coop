@@ -19,10 +19,10 @@ class Pages extends Public_Controller
             $this->data['meta_description_content'] = $pageData['meta_description_content'];
             $this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
             if ($this->language_name == 'French') {
-                $this->data['page_title'] = $pageData['title_france'];
-                $this->data['meta_page_title'] = $pageData['page_title_france'];
-                $this->data['meta_description_content'] = $pageData['meta_description_content_france'];
-                $this->data['meta_keywords_content'] = $pageData['meta_keywords_content_france'];
+                $this->data['page_title'] = $pageData['title_french'];
+                $this->data['meta_page_title'] = $pageData['page_title_french'];
+                $this->data['meta_description_content'] = $pageData['meta_description_content_french'];
+                $this->data['meta_keywords_content'] = $pageData['meta_keywords_content_french'];
             }
 
             $this->data['slug'] = $pageData['slug'];
@@ -43,10 +43,10 @@ class Pages extends Public_Controller
         $this->data['meta_description_content'] = $pageData['meta_description_content'];
         $this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
         if ($this->language_name == 'French') {
-            $this->data['page_title'] = $pageData['title_france'];
-            $this->data['meta_page_title'] = $pageData['page_title_france'];
-            $this->data['meta_description_content'] = $pageData['meta_description_content_france'];
-            $this->data['meta_keywords_content'] = $pageData['meta_keywords_content_france'];
+            $this->data['page_title'] = $pageData['title_french'];
+            $this->data['meta_page_title'] = $pageData['page_title_french'];
+            $this->data['meta_description_content'] = $pageData['meta_description_content_french'];
+            $this->data['meta_keywords_content'] = $pageData['meta_keywords_content_french'];
         }
         $this->data['slug'] = $pageData['slug'];
         $this->data['pageData'] = $pageData;
@@ -70,10 +70,10 @@ class Pages extends Public_Controller
         $this->data['meta_description_content'] = $pageData['meta_description_content'];
         $this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
         if ($this->language_name == 'French') {
-            $this->data['page_title'] = $pageData['title_france'];
-            $this->data['meta_page_title'] = $pageData['page_title_france'];
-            $this->data['meta_description_content'] = $pageData['meta_description_content_france'];
-            $this->data['meta_keywords_content'] = $pageData['meta_keywords_content_france'];
+            $this->data['page_title'] = $pageData['title_french'];
+            $this->data['meta_page_title'] = $pageData['page_title_french'];
+            $this->data['meta_description_content'] = $pageData['meta_description_content_french'];
+            $this->data['meta_keywords_content'] = $pageData['meta_keywords_content_french'];
         }
 
         $this->data['slug'] = $pageData['slug'];
@@ -96,10 +96,10 @@ class Pages extends Public_Controller
         $this->data['meta_description_content'] = $pageData['meta_description_content'];
         $this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
         if ($this->language_name == 'French') {
-            $this->data['page_title'] = $pageData['title_france'];
-            $this->data['meta_page_title'] = $pageData['page_title_france'];
-            $this->data['meta_description_content'] = $pageData['meta_description_content_france'];
-            $this->data['meta_keywords_content'] = $pageData['meta_keywords_content_france'];
+            $this->data['page_title'] = $pageData['title_french'];
+            $this->data['meta_page_title'] = $pageData['page_title_french'];
+            $this->data['meta_description_content'] = $pageData['meta_description_content_french'];
+            $this->data['meta_keywords_content'] = $pageData['meta_keywords_content_french'];
         }
         $this->data['slug'] = $pageData['slug'];
         $this->data['pageData'] = $pageData;
@@ -116,10 +116,10 @@ class Pages extends Public_Controller
         $this->data['meta_description_content'] = $pageData['meta_description_content'];
         $this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
         if ($this->language_name == 'French') {
-            $this->data['page_title'] = $pageData['title_france'];
-            $this->data['meta_page_title'] = $pageData['page_title_france'];
-            $this->data['meta_description_content'] = $pageData['meta_description_content_france'];
-            $this->data['meta_keywords_content'] = $pageData['meta_keywords_content_france'];
+            $this->data['page_title'] = $pageData['title_french'];
+            $this->data['meta_page_title'] = $pageData['page_title_french'];
+            $this->data['meta_description_content'] = $pageData['meta_description_content_french'];
+            $this->data['meta_keywords_content'] = $pageData['meta_keywords_content_french'];
         }
         $this->data['slug'] = $pageData['slug'];
         $this->data['pageData'] = $pageData;

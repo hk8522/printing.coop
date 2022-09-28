@@ -110,9 +110,9 @@ class Products extends Public_Controller
             $this->data['meta_keywords_content'] = $pageData['meta_keywords_content'];
 
             if ($this->language_name == 'French') {
-                $this->data['meta_page_title'] = $pageData['page_title_france'];
-                $this->data['meta_description_content'] = $pageData['meta_description_content_france'];
-                $this->data['meta_keywords_content'] = $pageData['meta_keywords_content_france'];
+                $this->data['meta_page_title'] = $pageData['page_title_french'];
+                $this->data['meta_description_content'] = $pageData['meta_description_content_french'];
+                $this->data['meta_keywords_content'] = $pageData['meta_keywords_content_french'];
             }
         }
         if (isset($_GET['sort_by'])) {

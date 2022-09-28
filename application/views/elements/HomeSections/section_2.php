@@ -5,7 +5,7 @@
                 <span><?php
                    #Proudly Display Your Brand  Section
                    if ($language_name == 'French') {
-                     echo $section_2['name_france'] ?? '';
+                     echo $section_2['name_french'] ?? '';
                     } else {
                       echo $section_2['name'] ?? '';
                     }
@@ -16,7 +16,7 @@
             <div class="universal-dark-info">
                 <span><?php
                 if ($language_name == 'French') {
-                     echo $section_2['description_france'] ?? '';
+                     echo $section_2['description_french'] ?? '';
                     } else {
                       echo $section_2['description'] ?? '';
                 }
@@ -28,7 +28,7 @@
                 <span>
                     <?php
                   if ($language_name == 'French') {
-                     echo $section_2['content_france'] ?? '';
+                     echo $section_2['content_french'] ?? '';
                     } else {
                       echo $section_2['content'] ?? '';
                 }

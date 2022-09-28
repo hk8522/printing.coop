@@ -9,14 +9,14 @@
                     <div class="member-section-content">
                         <div class="universal-dark-title" style="text-align: left;">
                             <span><?php  if ($language_name == 'French') {
-                     echo $section_7['name_france'] ?? '';
+                     echo $section_7['name_french'] ?? '';
                     } else{
                       echo $section_7['name'] ?? '';
                    } ?></span>
                         </div>
                         <div class="universal-dark-info" style="text-align: left;">
                             <span><?php if ($language_name == 'French') {
-                     echo $section_7['description_france'] ?? '';
+                     echo $section_7['description_french'] ?? '';
                     } else{
                       echo $section_7['description'] ?? '';
                     } ?></span><br>
@@ -36,7 +36,7 @@
                         <div class="join_us_center_curve"></div>
                         <?php
             if ($language_name == 'French') {
-                        echo $section_7['content_france'] ?? '';
+                        echo $section_7['content_french'] ?? '';
         } else{
         echo $section_7['content'] ?? '';
    } ?>

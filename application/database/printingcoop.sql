@@ -261,11 +261,11 @@ CREATE TABLE `categories` (
   `image_french` varchar(250) DEFAULT NULL,
   `store_id` varchar(50) NOT NULL DEFAULT '1,2,3,4',
   `page_title` varchar(250) DEFAULT NULL,
-  `page_title_france` varchar(250) DEFAULT NULL,
+  `page_title_french` varchar(250) DEFAULT NULL,
   `meta_description_content` varchar(250) DEFAULT NULL,
-  `meta_description_content_france` varchar(250) DEFAULT NULL,
+  `meta_description_content_french` varchar(250) DEFAULT NULL,
   `meta_keywords_content` varchar(250) DEFAULT NULL,
-  `meta_keywords_content_france` varchar(250) DEFAULT NULL,
+  `meta_keywords_content_french` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -697,9 +697,9 @@ CREATE TABLE `pages` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `category_id` int(11) DEFAULT NULL,
   `title` varchar(100) DEFAULT NULL,
-  `title_france` varchar(100) DEFAULT NULL,
+  `title_french` varchar(100) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
-  `description_france` longtext DEFAULT NULL,
+  `description_french` longtext DEFAULT NULL,
   `html` longtext DEFAULT NULL,
   `created` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,
@@ -710,12 +710,12 @@ CREATE TABLE `pages` (
   `display_on_top_menu` tinyint(1) NOT NULL DEFAULT 1,
   `display_on_footer_last_menu` tinyint(1) NOT NULL DEFAULT 0,
   `main_store_id` tinyint(4) NOT NULL DEFAULT 1,
-  `page_title_france` varchar(150) DEFAULT NULL,
+  `page_title_french` varchar(150) DEFAULT NULL,
   `page_title` varchar(150) DEFAULT NULL,
   `meta_description_content` varchar(250) DEFAULT NULL,
-  `meta_description_content_france` varchar(250) DEFAULT NULL,
+  `meta_description_content_french` varchar(250) DEFAULT NULL,
   `meta_keywords_content` varchar(250) DEFAULT NULL,
-  `meta_keywords_content_france` varchar(250) DEFAULT NULL,
+  `meta_keywords_content_french` varchar(250) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1379,6 +1379,7 @@ CREATE TABLE `products` (
   `shipping_box_width` decimal(10,2) DEFAULT NULL,
   `shipping_box_height` decimal(10,2) DEFAULT NULL,
   `shipping_box_weight` decimal(10,2) DEFAULT NULL,
+  `use_custom_size` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -1583,11 +1584,11 @@ DROP TABLE IF EXISTS `sections`;
 CREATE TABLE `sections` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
-  `name_france` varchar(255) DEFAULT NULL,
+  `name_french` varchar(255) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `description_france` varchar(255) DEFAULT NULL,
+  `description_french` varchar(255) DEFAULT NULL,
   `content` longtext DEFAULT NULL,
-  `content_france` longtext DEFAULT NULL,
+  `content_french` longtext DEFAULT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1,
   `created` datetime DEFAULT NULL,
   `updated` datetime DEFAULT NULL,

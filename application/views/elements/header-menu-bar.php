@@ -96,7 +96,7 @@
                ?>
               <li>
                 <a href="<?= $url ?>" >
-                  <?= ($language_name == 'French') ? ucfirst($page['title_france']) : ucfirst($page['title'])?>
+                  <?= ($language_name == 'French') ? ucfirst($page['title_french']) : ucfirst($page['title'])?>
                 </a>
               </li>
               <?php
@@ -178,7 +178,7 @@
                ?>
               <li>
                 <a href="<?= $url ?>" >
-                  <?= ($language_name == 'French') ? ucfirst($page['title_france']) : ucfirst($page['title'])?>
+                  <?= ($language_name == 'French') ? ucfirst($page['title_french']) : ucfirst($page['title'])?>
                 </a>
               </li>
               <?php

@@ -53,18 +53,18 @@ class Pages extends Admin_Controller
             $this->form_validation->set_rules($set_rules);
             $this->form_validation->set_error_delimiters('<div class="form_vl_error">', '</div>');
             $postData['title']=$this->input->post('title');
-            $postData['title_france']=$this->input->post('title_france');
+            $postData['title_french']=$this->input->post('title_french');
             $postData['category_id']=$this->input->post('category_id');
             $postData['description']=$this->input->post('description');
-            $postData['description_france']=$this->input->post('description_france');
+            $postData['description_french']=$this->input->post('description_french');
             $postData['shortOrder']=$this->input->post('shortOrder');
             $postData['description']=$this->input->post('description');
             $postData['page_title']=$this->input->post('page_title');
-            $postData['page_title_france']=$this->input->post('page_title_france');
+            $postData['page_title_french']=$this->input->post('page_title_french');
             $postData['meta_description_content']=$this->input->post('meta_description_content');
-            $postData['meta_description_content_france']=$this->input->post('meta_description_content_france');
+            $postData['meta_description_content_french']=$this->input->post('meta_description_content_french');
             $postData['meta_keywords_content']=$this->input->post('meta_keywords_content');
-            $postData['meta_keywords_content_france']=$this->input->post('meta_keywords_content_france');
+            $postData['meta_keywords_content_french']=$this->input->post('meta_keywords_content_french');
 
             $postData['display_on_footer'] = !empty($this->input->post('display_on_footer')) ?
             $this->input->post('display_on_footer'):0;

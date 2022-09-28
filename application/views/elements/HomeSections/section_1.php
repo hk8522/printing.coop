@@ -4,7 +4,7 @@
 #ABOUT US Section
 
 if ($language_name == 'French') {
-    echo $section_1['content_france'];
+    echo $section_1['content_french'];
 } else {
     echo $section_1['content'];
 }

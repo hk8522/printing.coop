@@ -59,9 +59,9 @@ class Sections extends Admin_Controller
             $postData['description'] = $this->input->post('description');
             $postData['content'] = $this->input->post('content');
 
-            $postData['name_france'] = $this->input->post('name_france');
-            $postData['description_france'] = $this->input->post('description_france');
-            $postData['content_france'] = $this->input->post('content_france');
+            $postData['name_french'] = $this->input->post('name_french');
+            $postData['description_french'] = $this->input->post('description_french');
+            $postData['content_french'] = $this->input->post('content_french');
 
             #$postData['main_store_id']=$this->input->post('main_store_id');
 
