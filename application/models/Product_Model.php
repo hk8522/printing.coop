@@ -3453,17 +3453,19 @@ class Product_Model extends MY_Model
         $this->db->join('attribute_items', 'attribute_items.id=product_attribute_item_map.attribute_item_id', 'left');
         $this->db->where('product_attribute_map.product_id', $product_id);
         $this->db->select('product_attribute_map.value_min, product_attribute_map.value_max, product_attribute_map.use_items, product_attribute_map.attribute_id, product_attribute_item_map.attribute_item_id, attributes.name AS attribute_name_real, attributes.label AS attribute_name, attributes.label_fr AS attribute_name_french, attribute_items.name AS item_name, attribute_items.name_fr AS item_name_french');
-        $this->db->group_start();
-        $first = true;
-        foreach ($attributes as $attribute_id => $attribute_item_id) {
-            if ($first) {
-                $this->db->where("(product_attribute_map.attribute_id='$attribute_id' AND (product_attribute_item_map.attribute_item_id IS NULL OR product_attribute_item_map.attribute_item_id='$attribute_item_id'))");
-                $first = false;
-            } else {
-                $this->db->or_where("(product_attribute_map.attribute_id='$attribute_id' AND (product_attribute_item_map.attribute_item_id IS NULL OR product_attribute_item_map.attribute_item_id='$attribute_item_id'))");
+        if (!empty($attributes)) {
+            $this->db->group_start();
+            $first = true;
+            foreach ($attributes as $attribute_id => $attribute_item_id) {
+                if ($first) {
+                    $this->db->where("(product_attribute_map.attribute_id='$attribute_id' AND (product_attribute_item_map.attribute_item_id IS NULL OR product_attribute_item_map.attribute_item_id='$attribute_item_id'))");
+                    $first = false;
+                } else {
+                    $this->db->or_where("(product_attribute_map.attribute_id='$attribute_id' AND (product_attribute_item_map.attribute_item_id IS NULL OR product_attribute_item_map.attribute_item_id='$attribute_item_id'))");
+                }
             }
+            $this->db->group_end();
         }
-        $this->db->group_end();
         $this->db->group_by('product_attribute_map.attribute_id, product_attribute_item_map.attribute_item_id');
         $data = $this->db->get()->result_array();
 
