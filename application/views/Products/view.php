@@ -478,7 +478,7 @@ $('form#cartForm').on('submit', function(e) {
 
                 setTimeout(function() {
                     $('.addtocart-message').removeClass('active');
-                    /* location.assign('<?= $BASE_URL?>ShoppingCarts'); */
+                    location.assign('<?= $BASE_URL?>ShoppingCarts');
                 }, 1000);
             } else {
                 $('.addtocart-message').html('<span><i class="la la-cart-plus"></i>' + msg +
