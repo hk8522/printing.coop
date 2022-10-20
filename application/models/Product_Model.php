@@ -3241,7 +3241,7 @@ class Product_Model extends MY_Model
         $org = $this->db->get()->row();
         if ($org)
             return 'Name is duplicated';
-        
+
         $this->db->insert('attribute_items', [
             'attribute_id' => $data['attribute_id'],
             'name' => $data['name'],
@@ -3328,7 +3328,7 @@ class Product_Model extends MY_Model
         $org = $this->db->get()->row();
         if ($org)
             return 'Attribute is duplicated';
-        
+
         $this->db->insert('product_attribute_map', $data);
 
         return null;
@@ -3422,7 +3422,7 @@ class Product_Model extends MY_Model
         $org = $this->db->get()->row();
         if ($org)
             return 'Item is duplicated';
-        
+
         $this->db->insert('product_attribute_item_map', $data);
 
         return null;

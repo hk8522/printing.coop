@@ -1590,6 +1590,7 @@ class Products extends Public_Controller
         $providerProduct = $this->Provider_Model->getProductByProductId($provider_id, $product_id);
         if ($providerProduct) {
             if ($providerProduct->information_type == ProviderProductInformationType::Normal) {
+                unset($productOptions['turnaround']);
                 $options = array_values((array) $productOptions);
             } else if ($providerProduct->information_type == ProviderProductInformationType::RollLabel) {
                 // $options = [];
