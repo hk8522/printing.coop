@@ -554,7 +554,7 @@ class Checkouts extends Public_Controller
                                 'cvv' => $req['cvv'],
                             ],
                         ];
-                        $card = ['token' => '1234'];//$this->cardPaymentRequest($data, $this->data['MainStoreData']);
+                        $card = $this->cardPaymentRequest($data, $this->data['MainStoreData']);
                         if ($card['token']) {
                             $this->load->model('Store_Model');
                             $currency = $this->Store_Model->getCurrency($ProductOrder['currency_id']);
@@ -569,7 +569,7 @@ class Checkouts extends Public_Controller
                                 'source' => $card['token'],
                                 'ecomind' => 'ecom',
                             ];
-                            $response = ['status' => 1];//$this->paymentRequest($requestData, $this->data['MainStoreData']);
+                            $response = $this->paymentRequest($requestData, $this->data['MainStoreData']);
                             $orderData['id'] = $ProductOrder['id'];
                             if ($response['status']) {
                                 $this->session->set_flashdata('message_success', $response['msg']);
