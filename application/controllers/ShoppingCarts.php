@@ -82,7 +82,7 @@ class ShoppingCarts extends Public_Controller
             ];
         } else {
             ///// new structure
-            if (true) {
+            if (false) {
                 $productOptions = (array)$this->Product_Model->attributeDataFromIds($product_id, $params['attributes']);
 
                 foreach ($productOptions as $item) {

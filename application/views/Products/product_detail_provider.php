@@ -6,7 +6,7 @@
         $shipping_extra_days = $sina['shipping_extra_days'];
     ?>
     <?php foreach ($provider->options as $option) {//echo json_encode($option);?>
-        <div class="single-review option-<?= str_replace(' ', '-', $option->name)?>">
+        <div class="single-review option-<?= preg_replace('/[ \?]+/i', '-', $option->name)?>">
             <label><?= ucfirst($option->option_id ? ($language_name == 'French' ? $option->attribute_name_french : $option->attribute_name) : $option->label)?> <span class="required">*</span></label>
             <?php if ($option->html_type == 'input' /*&& empty($option->values)*/) { ?>
                 <input type="text" class="product-option field" name="productOptions[<?= $option->name?>]" required id="attribute-<?= $option->id?>">
@@ -75,7 +75,7 @@
             const found = formData[i].name.match(regex);
             if (found) {
                 var fieldName = found[1];
-                if ($(`.single-review.option-${fieldName.replaceAll(' ', '-')}`).is(":visible")) {
+                if ($(`.single-review.option-${fieldName.replace(/[ \?]+/gm, '-')}`).is(":visible")) {
                     if (formData[i].value != null && formData[i].value != '')
                         filled++;
                 }
