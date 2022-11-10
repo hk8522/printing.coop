@@ -561,7 +561,7 @@
                                 ?>
                                 <label class="span2"><input name="is_stock"
                                     id="is_stock" type="checkbox" value="1"
-                                    <?= $cehecked ?>> Show Out of Stock</label>
+                                    <?= $cehecked ?>>Show Out of Stock</label>
                                 <?= form_error('is_stock') ?>
                               </div>
                             </div>
@@ -605,6 +605,7 @@
                         </div>
                       </div>
                     </div>
+                    <?php /*
                     <div class="control-group info">
                       <div class="row">
                         <div class="col-md-3">
@@ -1750,6 +1751,7 @@
                         </div>
                       </div>
                     </div>
+                    */ ?>
                     <div class="control-group info">
                       <div class="row">
                         <div class="col-md-3">

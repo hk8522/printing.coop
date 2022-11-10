@@ -1,573 +1,297 @@
 <div class="col-md-12 col-md-12 col-md-8">
-    <input type="hidden" name="add_length_width" value="<?= $Product['add_length_width']?>">
-    <input type="hidden" name="length_width_quantity_show" value="<?= $Product['length_width_quantity_show']?>">
-    <input type="hidden" name="page_add_length_width" value="<?= $Product['page_add_length_width']?>">
-    <input type="hidden" name="page_length_width_pages_show" value="<?= $Product['page_length_width_pages_show']?>">
-    <input type="hidden" name="page_length_width_sheets_show" value="<?= $Product['page_length_width_sheets_show']?>">
-    <input type="hidden" name="page_length_width_quantity_show" value="<?= $Product['page_length_width_quantity_show']?>">
-
-    <input type="hidden" name="depth_add_length_width" value="<?= $Product['depth_add_length_width']?>">
-    <input type="hidden" name="depth_width_length_quantity_show" value="<?= $Product['depth_width_length_quantity_show']?>">
-
-    <?php if ($Product['add_length_width'] == 1) { ?>
-        <div class="single-review">
-            <label>
-                <?= $language_name == 'French' ? 'Longueur (pouces)' : 'Length (Inch)'?>
-                <span class="required">*</span>
-            </label>
-            <input class="field" type="text" name="product_length" id="product_length" required value="0" onkeypress="javascript:return isNumber(event)">
-            <span style="color:red" id="product_length_error"></span>
-        </div>
-
-        <div class="single-review">
-            <label>
-                <?= $language_name == 'French' ? 'Largeur (pouces)' : 'Width (Inch)'?>
-                <span class="required">*</span>
-            </label>
-            <input class="field" type="text" name="product_width" id="product_width" required value="0" onkeypress="javascript:return isNumber(event)">
-            <span style="color:red" id="product_width_error"></span>
-        </div>
-        <?php if ($Product['length_width_color_show'] == 1) { ?>
-            <div class="single-review">
-                <label>
-                    <?= $language_name == 'French' ? 'Couleurs' : 'Colors'?>
-                    <span class="required">*</span>
-                </label>
-                <select class="field" name="length_width_color" id="length_width_color" required>
-                    <option value=""><?= $language_name == 'French' ? 'Sélectionnez la couleur' : 'Select Color'?></option>
-                    <option value="black"><?= $language_name == 'French'?'Noire':'Black'?></option>
-                    <option value="color"><?= $language_name == 'French'?'Couleur':'Color'?></option>
-                </select>
-            </div>
+  <?php
+    $sina = config_item('sina');
+    $shipping_extra_days = $sina['shipping_extra_days'];
+  ?>
+  <?php foreach ($attributes as $attribute) {?>
+    <div class="single-review attribute-<?= str_replace(' ', '-', $attribute->attribute_id)?> <?= ($attribute->type == App\Common\AttributeType::Size) ? 'size' : '' ?>">
+      <label><?= ucfirst($language_name == 'French' ? $attribute->label_fr : $attribute->label)?> <span class="required">*</span></label>
+      <?php if ($attribute->use_items == 0) { ?>
+        <?php if ($attribute->value_min > 0 || $attribute->value_max > 0) { ?>
+          <input type="number" class="attribute field" name="attributes[<?= $attribute->attribute_id?>]" required id="attribute-<?= $attribute->attribute_id?>" placeholder="<?= ($attribute->value_min > 0 ? $attribute->value_min : '') . ' ~ ' . ($attribute->value_max > 0 ? $attribute->value_max : '') ?>"
+            <?= $attribute->value_min > 0 ? 'min="' . $attribute->value_min . '"' : '' ?>  <?= $attribute->value_max > 0 ? 'max="' . $attribute->value_max . '"' : '' ?>>
+        <?php } else { ?>
+          <input type="text" class="attribute field" name="attributes[<?= $attribute->attribute_id?>]" required id="attribute-<?= $attribute->attribute_id?>">
         <?php } ?>
-
-        <?php if ($Product['length_width_quantity_show'] == 1) { ?>
-            <div class="single-review">
-                <label>
-                    <?= $language_name == 'French' ? 'Quantité' : 'Quantity'?>
-                    <span class="required">*</span>
-                </label>
-                <?php if ($Product['length_width_pages_type'] == 'input') { ?>
-                    <input class="field" type="number" name="product_total_page" id="product_total_page" required value="<?= $Product['length_width_min_quantity']?>"
-                        onkeypress="javascript:return isNumber(event)">
-                <?php } else{ ?>
-                    <select class="field" name="product_total_page" required id="product_total_page">
-                        <option value="">
-                            <?= $language_name == 'French' ? 'Sélectionnez la quantité' : 'Select Quantity'?>
-                        </option>
-                        <?php foreach ($pageQuantity as $Quantity) { ?>
-                            <option value="<?= $Quantity['name']?>">
-                                <?= $language_name == 'French' ? $Quantity['name_french'] : $Quantity['name']?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                <?php } ?>
-                <span style="color:red" id="product_total_page_error"></span>
-            </div>
-        <?php } ?>
-    <?php } ?>
-
-    <?php if ($Product['page_add_length_width'] == 1) { ?>
+      <?php } else { ?>
+        <select class="attribute field" name="attributes[<?= $attribute->attribute_id?>]" required id="attribute-<?= $attribute->attribute_id?>">
+          <option value="">
+            <?= ucfirst($language_name == 'French' ? "Sélectionnez $attribute->label_fr" : "Select $attribute->label")?>
+          </option>
+          <?php foreach ($attribute_items as $item) {
+            if ($item->attribute_id != $attribute->attribute_id)
+              continue; ?>
+            <option value="<?= $item->attribute_item_id?>">
+              <?= ucfirst($language_name == 'French' ? $item->attribute_item_name_fr : $item->attribute_item_name)?>
+            </option>
+          <?php } ?>
+        </select>
+      <?php } ?>
+      <span style="color:red" id="attribute-<?= $attribute->attribute_id?>_error"></span>
+    </div>
+    <?php if ($Product['use_custom_size'] == 1) { ?>
+      <?php if ($attribute->use_items != 0 && $attribute->type == App\Common\AttributeType::Size) { ?>
         <div class="single-review">
-            <label>
-                <?= $language_name == 'French' ? 'Longueur (pouces)' : 'Length (Inch)'?>
-                <span class="required">*</span>
-            </label>
-            <input class="field" type="text" name="page_product_length" id="page_product_length" required value=""
-                onkeypress="javascript:return isNumber(event)">
-            <span style="color:red" id="page_product_length_error"></span>
+          <label for="custom_size">Need a custom size?</label>
+          <label for="custom_size" class="attribute field">
+            <input type="checkbox" id="custom_size" name="custom[size][use]" value="1">
+            Yes
+          </label>
         </div>
-
-        <div class="single-review">
-            <label>
-                <?= $language_name == 'French' ? 'Largeur (pouces)' : 'Width (Inch)'?>
-                <span class="required">*</span>
-            </label>
-            <input class="field" type="text" name="page_product_width" id="page_product_width" required value=""
-                onkeypress="javascript:return isNumber(event)">
-            <span style="color:red" id="page_product_width_error"></span>
+        <div class="single-review custom-field custom-size d-none">
+          <label for="custom_size_width"><?= $language_name == 'French' ? 'Largeur' : 'Width' ?> <span class="required">*</span></label>
+          <input class="attribute field" type="number" id="custom_size_width" name="custom[size][width]" data-field="width">
         </div>
-        <?php if ($Product['page_length_width_color_show'] == 1) { ?>
-            <div class="single-review">
-                <label>
-                    <?= $language_name == 'French' ? 'Couleurs' : 'Colors'?>
-                    <span class="required">*</span>
-                </label>
-                <select class="field" name="page_length_width_color" required id="page_length_width_color">
-                    <option value=""><?= $language_name == 'French'?'Sélectionnez la couleur':'Select Color'?></option>
-                    <option value="black"><?= $language_name == 'French'?'Noire':'Black'?></option>
-                    <option value="color"><?= $language_name == 'French'?'Couleur':'Color'?></option>
-                </select>
-                <span>
-            </div>
-        <?php } ?>
-
-        <?php if ($Product['page_length_width_pages_show'] == 1) { ?>
-            <div class="single-review">
-                <label>
-                    <?= $language_name == 'French' ? 'Des pages' : 'Pages'?>
-                    <span class="required">*</span>
-                </label>
-                <?php if ($Product['length_width_pages_type']=='input') { ?>
-                    <input class="field" type="text" name="page_product_total_page" id="page_product_total_page" required value="1"
-                        onkeypress="javascript:return isNumber(event)">
-                <?php } else{ ?>
-                    <select class="field" name="page_product_total_page" required id="page_product_total_page">
-                        <option value=""><?= $language_name == 'French' ? 'Sélectionner des pages' : 'Select Pages'?></option>
-                        <?php foreach ($ProductPages as $Pages) { ?>
-                            <option value="<?= $Pages['total_page'].'-'.$Pages['name']?>-<?= $Pages['name_french']?>">
-                                <?= $language_name == 'French' ? $Pages['name_french'] : $Pages['name']?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                <?php } ?>
-                <span style="color:red" id="page_product_total_page_error"></span>
-            </div>
-        <?php } ?>
-
-        <?php if ($Product['page_length_width_sheets_show'] == 1) { ?>
-            <div class="single-review">
-                <label>
-                    <?= $language_name == 'French' ? 'Feuille par bloc' : 'Sheet Per Pad'?>
-                    <span class="required">*</span>
-                </label>
-                <?php if ($Product['page_length_width_sheets_type'] == 'input') { ?>
-                    <input class="field" type="text" name="page_product_total_sheets" id="page_product_total_sheets" required value="1"
-                        onkeypress="javascript:return isNumber(event)">
-                <?php } else{ ?>
-                    <select class="field" name="page_product_total_sheets" required id="page_product_total_sheets">
-                        <option value="">
-                            <?= $language_name == 'French' ? 'Sélectionner une feuille par bloc' : 'Select Sheet per pad'?>
-                        </option>
-                        <?php foreach ($ProductSheets as $Sheets) { ?>
-                            <option value="<?= $Sheets['name']?>">
-                                <?= $language_name == 'French' ? $Sheets['name_french'] : $Sheets['name']?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                <?php } ?>
-                <span style="color:red" id="page_product_total_sheets_error"></span>
-            </div>
-        <?php } ?>
-        <?php if ($Product['page_length_width_quantity_show'] == 1) { ?>
-            <div class="single-review">
-                <label>
-                    <?= $language_name == 'French' ? 'Quantité' : 'Quantity'?>
-                    <span class="required">*</span>
-                </label>
-                <?php if ($Product['page_length_width_quantity_type'] == 'input') { ?>
-                    <input class="field" type="text" name="page_product_total_quantity" id="page_product_total_quantity" required value=""
-                        onkeypress="javascript:return isNumber(event)">
-                <?php } else { ?>
-                    <select class="field" name="page_product_total_quantity" required id="page_product_total_quantity">
-                        <option value=""><?= $language_name == 'French' ? 'Sélectionnez la quantité' : 'Select Quantity'?></option>
-                        <?php foreach ($pageQuantity as $Quantity) { ?>
-                            <option value="<?= $Quantity['name']?>">
-                                <?= $language_name == 'French' ? $Quantity['name_french'] : $Quantity['name']?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                <?php } ?>
-                <span style="color:red" id="page_product_total_quantity_error"></span>
-            </div>
-        <?php } ?>
-    <?php } ?>
-
-    <?php if ($Product['depth_add_length_width'] == 1) { ?>
-        <div class="single-review">
-            <label>
-                <?= $language_name == 'French' ? 'Longueur (pouces)' : 'Length (Inch)'?>
-                <span class="required">*</span>
-            </label>
-            <input class="field" type="text" name="product_depth_length" id="product_depth_length" required value="0"
-                onkeypress="javascript:return isNumber(event)">
-            <span style="color:red" id="product_depth_length_error"></span>
+        <div class="single-review custom-field custom-size d-none">
+          <label for="custom_size_length"><?= $language_name == 'French' ? 'Longueur' : 'Length' ?> <span class="required">*</span></label>
+          <input class="attribute field" type="number" id="custom_size_length" name="custom[size][length]" data-field="length">
         </div>
-
-        <div class="single-review">
-            <label>
-                <?= $language_name == 'French' ? 'Largeur (pouces)' : 'Width (Inch)'?>
-                <span class="required">*</span>
-            </label>
-            <input class="field" type="text" name="product_depth_width" id="product_depth_width" required value="0"
-                onkeypress="javascript:return isNumber(event)">
-            <span style="color:red" id="product_depth_width_error"></span>
-        </div>
-        <div class="single-review">
-            <label>
-                <?= $language_name == 'French' ? 'Profondeur (pouces)' : 'Depth (Inch)'?>
-                <span class="required">*</span>
-            </label>
-            <input class="field" type="text" name="product_depth" id="product_depth" required value="0"
-                onkeypress="javascript:return isNumber(event)">
-            <span style="color:red" id="product_depth_error"></span>
-        </div>
-        <?php if ($Product['depth_color_show'] == 1) { ?>
-            <div class="single-review">
-                <label>
-                    <?= $language_name == 'French' ? 'Couleurs' : 'Colors'?>
-                    <span class="required">*</span>
-                </label>
-
-                <select class="field" name="depth_color" id="depth_color" required>
-                    <option value=""><?= $language_name == 'French'?'Sélectionnez la couleur':'Select Color'?></option>
-
-                    <option value="black"><?= $language_name == 'French'?'Noire':'Black'?></option>
-                    <option value="color"><?= $language_name == 'French'?'Couleur':'Color'?></option>
-                </select>
-                <span>
-            </div>
-        <?php } ?>
-        <?php if ($Product['depth_width_length_quantity_show'] == 1) { ?>
-            <div class="single-review">
-                <label>
-                    <?= $language_name == 'French' ? 'Quantité' : 'Quantity'?>
-                    <span class="required">*</span>
-                </label>
-                <?php if ($Product['depth_width_length_type'] == 'input') { ?>
-                    <input class="field" type="text" name="product_depth_total_page" id="product_depth_total_page" required
-                        value="<?= $Product['depth_min_quantity']?>" onkeypress="javascript:return isNumber(event)">
-                <?php } else { ?>
-                    <select class="field" name="product_depth_total_page" required id="page_product_total_quantity">
-                        <option value=""><?= $language_name == 'French' ? 'Sélectionnez la quantité' : 'Select Quantity'?></option>
-                        <?php foreach ($pageQuantity as $Quantity) { ?>
-                            <option value="<?= $Quantity['name']?>">
-                                <?= $language_name == 'French' ? $Quantity['name_french'] : $Quantity['name']?>
-                            </option>
-                        <?php } ?>
-                    </select>
-                <?php } ?>
-                <span style="color:red" id="product_depth_total_page_error"></span>
-            </div>
-        <?php } ?>
-    <?php } ?>
-
-    <?php
-    $i = 1;
-    if (!empty($ProductSizes)) {
-        $i = 2;
-    ?>
-        <div class="single-review">
-            <label>
-                <?= $language_name == 'French' ? 'Quantité' : 'Quantity'?>
-                <span class="required">*</span>
-            </label>
-            <select class="field" name="product_quantity_id" required id="product_quantity_id" onchange="showQuantity()">
-                <option value=""><?= $language_name == 'French'?'Choisis une option...' : 'Choose an option...'?></option>
-                <?php foreach ($ProductSizes as $key => $val) {
-                    $qty_name = '';
-                    $qty_extra_price = '';
-                    $qty_name = $language_name == 'French' ? $val['qty_name_french'] : $val['qty_name'];
-                    ?>
-                    <option value='<?= $key?>'><?= $qty_name.$qty_extra_price?></option>
-                <?php } ?>
-            </select>
-        </div>
-
-        <div id="SizeOptions"></div>
-    <?php } ?>
-
-    <?php foreach ($ProductAttributes as $key => $val) {
-        $items = $val['items'];
-    ?>
-        <div class="single-review">
-            <label>
-                <?= $language_name == 'French' ? $val['data']['attribute_name_french'] : $val['data']['attribute_name']?>
-                <span class="required">*</span></label>
-            <?php $items = $val['items'];?>
-            <?php if (!empty($items)) { ?>
-                <select class="field" name="attribute_id_<?= $key?>" required <?php if ($i > 1) {echo 'disabled';}?>
-                    onchange="showAttribute(<?= $i?>,'<?= $i +1 ?>')" id="attribute_id_<?= $i?>">
-                    <option value=""><?= $language_name == 'French' ? 'Choisis une option...' : 'Choose an option...'?></option>
-                    <?php foreach ($items as $subkey => $subval) {
-                        $extra_price = '';
-                        if (!empty($subval['extra_price']) && $subval['extra_price'] != '0.00') {
-                            //$extra_price=" (+ ".$product_price_currency_symbol.$subval['extra_price'].")";
-                        }
-                        ?>
-                        <option value="<?= $subval['attribute_item_id']?>">
-                            <?= $language_name == 'French' ? $subval['item_name_french'].$extra_price : $subval['item_name'].$extra_price?>
-                        </option>
-                    <?php } ?>
-                </select>
-            <?php $i++;} ?>
-        </div>
-    <?php } ?>
-
-    <?php if ($Product['recto_verso'] == 1) { ?>
-        <div class="single-review">
-            <label>
-                <?= $language_name == 'French' ? 'Recto verso' : 'Recto/Verso'?>
-                <span class="required">*</span>
-            </label>
-            <select class="field" name="recto_verso" required id="attribute_id_<?= $i?>" <?php if ($i > 1) {echo 'disabled';}?>
-                onchange="showAttribute(<?= $i?>,'<?= $i +1 ?>')">
-                <option value=""><?= $language_name == 'French' ? 'Choisis une option...':'Choose an option...'?></option>
-                <option value="Yes"><?= $language_name == 'French' ? 'Oui':'Yes'?></option>
-                <option value="No"><?= $language_name == 'French' ? 'Non':'No'?></option>
-            </select>
-            <!--<span>Recto/verso will add <?= $Product['recto_verso_price']?>% more to the price</span>-->
-        </div>
-        <input type="hidden" name="recto_verso_price" value="<?= $Product['recto_verso_price']?>">
-    <?php } ?>
-    <?php if ($Product['votre_text'] == 1) { ?>
-        <div class="single-review">
-            <label>
-                <?= $language_name == 'French' ? 'Votre TEXTE - Votre TEXTE' : 'Your TEXT - Votre TEXT'?>
-                <span class="required">*</span>
-            </label>
-            <input class="field" type="text" name="votre_text" id="votre_text" required value="">
-        </div>
-    <?php } ?>
-
-    <?php if ($Product['call'] == 1) { ?>
-        <div class="single-review">
-            <label>
-                <?= $language_name == 'French' ? 'Appel' : 'Call'?>
-                <span class="required"></span>
-            </label>
-            <label class="field">
-                <?= $Product['phone_number']?>
-                <span class="required"></span>
-            </label>
-        </div>
-    <?php } ?>
+      <?php } ?>
+    <?php }?>
+  <?php } ?>
 </div>
 <script>
-    function showAttribute(cid, nid) {
-        $('#loader-img').show();
-        $('.new-price-img').hide();
-        var item_val = $('#attribute_id_' + cid).val();
-        var myForm = document.getElementById('cartForm');
-        var formData = new FormData(myForm);
-        $.ajax({
-            type: 'POST',
-            dataType: 'html',
-            url: '<?= $BASE_URL?>Products/calculatePrice',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(data) {
-                $('#loader-img').hide();
-                $('.new-price-img').show();
+  var attributes = <?= json_encode($attributes) ?>;
+  var attribute_items = <?= json_encode($attribute_items) ?>;
 
-                var json = JSON.parse(data);
-                if (json.success == 1) {
-                    $('#attribute_id_' + nid).attr("disabled", false);
-                    $('#total-price').html(json.price);
-                }
-            },
-            error: function(resp) {
-                $('#loader-img').hide();
-                $('.new-price-img').show();
-            }
-        });
+  $(document).ready(function() {
+    $('.option-width').hide();
+    $('.option-length').hide();
+    $('.option-diameter').hide();
+
+    $('.single-review #custom_size').on('change', toggleCustomSize);
+
+    $('.single-review select').on('change', updatePrice);
+    $('.single-review input').on('change', updatePrice);
+  });
+  function parseValue(str)
+  {
+    var v = parseFloat(str);
+    if (isNaN(v))
+      return null;
+    else
+      return v;
+  }
+  function parseSize(sizeStr)
+  {
+    var dims = sizeStr.match(/([\d\.]+)/g);
+    if (dims)
+      return (parseValue(dims[0]) ?? 1) * (parseValue(dims[1]) ?? 1);
+    return 1;
+  }
+  function toggleCustomSize(e)
+  {
+    if ($(this).prop('checked')) {
+      $('.single-review.size').addClass('disabled');
+      $('.single-review.size .field').prop('disabled', true);
+      $('.single-review.custom-size').removeClass('d-none');
+      $('.single-review.custom-size .field').prop('required', true);
+    } else {
+      $('.single-review.size').removeClass('disabled');
+      $('.single-review.size .field').prop('disabled', false);
+      $('.single-review.custom-size').addClass('d-none');
+      $('.single-review.custom-size .field').prop('required', false);
     }
+    updatePrice();
+  }
+  function updatePrice()
+  {
+    var percentages = [];
+    var quantity = 1, size = 1, width = 1, length = 1, diameter = 1, depth = 1, pages = 1;
+    var sizePrices = [];
+    for (var i = 0; i < attributes.length; i++) {
+      var attribute = attributes[i];
+      if ($('#attribute-' + attribute.attribute_id).prop('disabled'))
+        continue;
+      if (attribute.use_items == 1) {
+        var attribute_item_id = $('#attribute-' + attribute.attribute_id).val();
+        for (var j = 0; j < attribute_items.length; j++) {
+          var item = attribute_items[j];
+          if (item.attribute_id != attribute.attribute_id)
+            continue;
+          if (item.attribute_item_id != attribute_item_id)
+            continue;
+          if (attribute.use_percentage == 1 || attribute.type == <?= App\Common\AttributeType::Quantity ?>) {
+            var percentage = parseValue(item.additional_fee) ?? 0;
+            if (percentage != 0)
+              percentages.push(percentage);
+            // continue;
+          }
 
-    function showQuantity() {
-        $('#loader-img').show();
-        $('.new-price-img').hide();
-        $('.multipal_size').html('<option value="">Choose an option...</option>');
-        var myForm = document.getElementById('cartForm');
-        var formData = new FormData(myForm);
-        $.ajax({
-            type: 'POST',
-            dataType: 'html',
-            url: '<?= $BASE_URL?>Products/GetQuantity',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(data) {
-                var json = JSON.parse(data);
-                $('#loader-img').hide();
-                $('.new-price-img').show();
-                if (json.success == 1) {
-                    if (json.sizeoptions == '0') {
-                        $('#attribute_id_2').attr("disabled", false);
-                        $('#SizeOptions').html('');
-                    } else {
-                        $('#SizeOptions').html(json.sizeoptions);
-                    }
-                    $('#total-price').html(json.price);
-                }
-            }
+          if (attribute.type == <?= App\Common\AttributeType::Quantity ?>) {
+            quantity = parseValue(item.attribute_item_name) ?? 1;
+            continue;
+          }
+          else if (attribute.type == <?= App\Common\AttributeType::Size ?>)
+            size = value = parseSize(item.attribute_item_name);
+          else if (attribute.type == <?= App\Common\AttributeType::Width ?>)
+            width = value = parseValue(item.attribute_item_name) ?? 1;
+          else if (attribute.type == <?= App\Common\AttributeType::Length ?>)
+            length = value = parseValue(item.attribute_item_name) ?? 1;
+          else if (attribute.type == <?= App\Common\AttributeType::Diameter ?>)
+            diameter = value = parseValue(item.attribute_item_name) ?? 1;
+          else if (attribute.type == <?= App\Common\AttributeType::Depth ?>)
+            depth = value = parseValue(item.attribute_item_name) ?? 1;
+          else if (attribute.type == <?= App\Common\AttributeType::Pages ?>)
+            pages = value = parseValue(item.attribute_item_name) ?? 1;
+          else
+            continue;
+
+          sizePrices.push({
+            value: attribute.type == <?= App\Common\AttributeType::Diameter ?> ? value * value : value,
+            additional_fee: parseValue(item.additional_fee) ?? 0,
+            use_percentage: attribute.use_percentage == 1,
+          });
+        }
+      } else {
+        var valueStr = $('#attribute-' + attribute.attribute_id).val();
+        var value = parseValue(valueStr) ?? 1;
+        if (attribute.value_min > 0 && valueStr != '' && value < attribute.value_min) {
+          $('#attribute-' + attribute.attribute_id).focus();
+          kendo.alert(attribute.label<?= $language_name == 'French' ? '_fr' : '' ?> + '<?= $language_name == 'French' ? ' doit être plus grand que ' : ' should be bigger than ' ?>' + attribute.value_min);
+          return;
+        }
+        if (attribute.value_max > 0 && valueStr != '' && value > attribute.value_max) {
+          $('#attribute-' + attribute.attribute_id).focus();
+          kendo.alert(attribute.label<?= $language_name == 'French' ? '_fr' : '' ?> + '<?= $language_name == 'French' ? ' doit être inférieur à ' : ' should be less than ' ?>' + attribute.value_max);
+          return;
+        }
+        if (attribute.use_percentage == 1 || attribute.type == <?= App\Common\AttributeType::Quantity ?>) {
+          var percentage = parseValue(attribute.additional_fee) ?? 0;
+          if (percentage != 0)
+            percentages.push(percentage);
+          // continue;
+        }
+        if (attribute.type == <?= App\Common\AttributeType::Quantity ?>) {
+          quantity = value;
+          continue;
+        }
+        // else if (attribute.type == <?= App\Common\AttributeType::Size ?>)
+        //     size = parseSize(value);
+        else if (attribute.type == <?= App\Common\AttributeType::Width ?>)
+          width = value;
+        else if (attribute.type == <?= App\Common\AttributeType::Length ?>)
+          length = value;
+        else if (attribute.type == <?= App\Common\AttributeType::Diameter ?>)
+          diameter = value;
+        else if (attribute.type == <?= App\Common\AttributeType::Depth ?>)
+          depth = value;
+        else if (attribute.type == <?= App\Common\AttributeType::Pages ?>)
+          pages = value;
+        else
+          continue;
+
+        sizePrices.push({
+          value: attribute.type == <?= App\Common\AttributeType::Diameter ?> ? value * value : value,
+          additional_fee: (parseValue(attribute.additional_fee) ?? 0) * value,
+          use_percentage: attribute.use_percentage == 1,
         });
+      }
     }
-
-    function showSizeQuantity() {
-        $('#loader-img').show();
-        $('.new-price-img').hide();
-        $('.multipal_size_item').html('<option value="">Choose an option...</option>');
-        var myForm = document.getElementById('cartForm');
-        var formData = new FormData(myForm);
-        $.ajax({
-            type: 'POST',
-            dataType: 'html',
-            url: '<?= $BASE_URL?>Products/GetQuantity',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(data) {
-                var json = JSON.parse(data);
-                $('#loader-img').hide();
-                $('.new-price-img').show();
-                if (json.success == 1) {
-                    $('#SizeOptions').html(json.sizeoptions);
-                    $('#total-price').html(json.price);
-                }
-            }
-        });
+    if ($('#custom_size').prop('checked')) {
+      var customFields = $('.single-review.custom-field input');
+      for (var i = 0; i < customFields.length; i++) {
+        var fieldName = $(customFields[i]).attr('data-field');
+        if (fieldName === 'width')
+          width = parseValue($(customFields[i]).val()) ?? 1;
+        else if (fieldName === 'length')
+          length = parseValue($(customFields[i]).val()) ?? 1;
+      }
+      sizePrices.push({
+        value: width * length,
+        additional_fee: 0,
+        use_percentage: false,
+      });
     }
+    console.log(quantity, size, width, length, diameter, depth, pages, sizePrices);
 
-    function getSizeOptions(product_id, make_a_default_qty_id) {
-        $('#loader-img').show();
-        $.ajax({
-            type: 'GET',
-            dataType: 'html',
-            url: '<?= $BASE_URL?>Products/getSizeOptions/' + product_id + '/' + make_a_default_qty_id,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(data) {
-                $('#loader-img').hide();
-                $('#SizeOptions').html(data);
-            }
-        });
+    <?php /* Apply size multiplication */ ?>
+    var price = <?= $Product['price'] ?>;
+    for (var i = 0; i < attributes.length; i++) {
+      var attribute = attributes[i];
+      if (attribute.use_percentage == 1)
+        continue;
+      if ((attribute.type == <?= App\Common\AttributeType::Quantity ?>) ||
+        (attribute.type == <?= App\Common\AttributeType::Size ?>) ||
+        (attribute.type == <?= App\Common\AttributeType::Width ?>) ||
+        (attribute.type == <?= App\Common\AttributeType::Length ?>) ||
+        (attribute.type == <?= App\Common\AttributeType::Diameter ?>) ||
+        (attribute.type == <?= App\Common\AttributeType::Depth ?>) ||
+        (attribute.type == <?= App\Common\AttributeType::Pages ?>))
+        continue;
+      if (attribute.use_items == 1) {
+        var attribute_item_id = $('#attribute-' + attribute.attribute_id).val();
+        for (var j = 0; j < attribute_items.length; j++) {
+          var item = attribute_items[j];
+          if (item.attribute_id != attribute.attribute_id)
+            continue;
+          if (item.attribute_item_id != attribute_item_id)
+            continue;
+
+          console.log([attribute.attribute_id, attribute_item_id, attribute.additional_fee, item.additional_fee]);
+          var fee = parseFloat(item.additional_fee ?? 0);
+
+          if (attribute.fee_apply_size == 1)
+            fee *= size;
+          if (attribute.fee_apply_width == 1)
+            fee *= width;
+          if (attribute.fee_apply_length == 1)
+            fee *= length;
+          if (attribute.fee_apply_diameter == 1)
+            fee *= diameter * diameter;
+          if (attribute.fee_apply_depth == 1)
+            fee *= depth;
+          if (attribute.fee_apply_pages == 1)
+            fee *= pages;
+
+          price += fee;
+        }
+      } else {
+        var fee = parseFloat(attribute.additional_fee ?? 0);
+
+        if (attribute.fee_apply_size == 1)
+          fee *= size;
+        if (attribute.fee_apply_width == 1)
+          fee *= width;
+        if (attribute.fee_apply_length == 1)
+          fee *= length;
+        if (attribute.fee_apply_diameter == 1)
+          fee *= diameter * diameter;
+        if (attribute.fee_apply_depth == 1)
+          fee *= depth;
+        if (attribute.fee_apply_pages == 1)
+          fee *= pages;
+
+        price += fee;
+      }
     }
-
-    function getLengthWidthPrice() {
-        $('#loader-img').show();
-        $('.new-price-img').hide();
-        var myForm = document.getElementById('cartForm');
-        var formData = new FormData(myForm);
-        $.ajax({
-            type: 'POST',
-            dataType: 'html',
-            url: '<?= $BASE_URL?>Products/calculatePrice',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(data) {
-                $('#loader-img').hide();
-                $('.new-price-img').show();
-
-                var json = JSON.parse(data);
-                if (json.success == 1) {
-                    $('#total-price').html(json.price);
-
-                    $('#product_width').val(json.product_width);
-                    $('#product_length').val(json.product_length);
-
-                    $('#product_total_page').val(json.product_total_page);
-
-                    $('#product_width_error').html(json.product_width_error);
-                    $('#product_length_error').html(json.product_length_error);
-
-                    $('#product_total_page_error').html(json.product_total_page_error);
-                }
-            }
-        });
+    <?php /* Apply size prices */ ?>
+    for (var i = 0; i < sizePrices.length; i++) {
+      if (sizePrices[i].use_percentage) {
+        if (sizePrices[i].additional_fee != 0 && sizePrices[i].additional_fee > -100) {
+          console.log(price, sizePrices[i].additional_fee);
+          price *= (100 + sizePrices[i].additional_fee) / 100;
+        }
+      } else {
+        if (sizePrices[i].additional_fee != 0) {
+          var copies = 1;
+          for (var j = 0; j < sizePrices.length; j++) {
+            if (j == i)
+              continue;
+            copies *= sizePrices[j].value;
+          }
+          price += sizePrices[i].additional_fee * copies;
+          console.log(price, sizePrices[i].additional_fee * copies);
+        }
+      }
     }
-
-    function getDepthLengthWidthPrice() {
-        $('#loader-img').show();
-        $('.new-price-img').hide();
-        var myForm = document.getElementById('cartForm');
-        var formData = new FormData(myForm);
-        $.ajax({
-            type: 'POST',
-            dataType: 'html',
-            url: '<?= $BASE_URL?>Products/calculatePrice',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(data) {
-                $('#loader-img').hide();
-                $('.new-price-img').show();
-
-                var json = JSON.parse(data);
-                if (json.success == 1) {
-                    $('#total-price').html(json.price);
-
-                    $('#product_depth_width').val(json.product_depth_width);
-                    $('#product_depth_length').val(json.product_depth_length);
-
-                    $('#product_depth_total_page').val(json.product_depth_total_page);
-
-                    $('#product_depth').val(json.product_depth);
-
-                    $('#product_depth_width_error').html(json.product_depth_width_error);
-                    $('#product_depth_length_error').html(json.product_depth_length_error);
-
-                    $('#product_depth_total_page_error').html(json.product_depth_total_page_error);
-
-                    $('#product_depth_error').html(json.product_depth_error);
-                }
-            }
-        });
+    <?php /* Apply percentages */ ?>
+    for (var i = 0; i < percentages.length; i++) {
+      if (percentages[i] > -100)
+        price *= (100 + percentages[i]) / 100.0;
     }
-
-    function getPageLengthWidthPrice() {
-        $('#loader-img').show();
-        $('.new-price-img').hide();
-        var myForm = document.getElementById('cartForm');
-        var formData = new FormData(myForm);
-        $.ajax({
-            type: 'POST',
-            dataType: 'html',
-            url: '<?= $BASE_URL?>Products/calculatePrice',
-            data: formData,
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function(data) {
-                $('#loader-img').hide();
-                $('.new-price-img').show();
-
-                var json = JSON.parse(data);
-                if (json.success == 1) {
-                    $('#total-price').html(json.price);
-
-                    $('#page_product_width').val(json.page_product_width);
-                    $('#page_product_length').val(json.page_product_length);
-
-                    $('#page_product_total_page').val(json.page_product_total_page);
-                    $('#page_product_total_sheets').val(json.page_product_total_sheets);
-
-                    $('#page_product_total_quantity').val(json.page_product_total_quantity);
-
-                    $('#page_product_width_error').html(json.page_product_width_error);
-                    $('#page_product_length_error').html(json.page_product_length_error);
-                    $('#page_product_total_page_error').html(json.page_product_total_page_error);
-                    $('#page_product_total_quantity_error').html(json.page_product_total_quantity_error);
-                    $('#page_product_total_sheets_error').html(json.page_product_total_sheets_error);
-                }
-            }
-        });
-    }
-
-    $('#product_width, #product_total_page').change(function() {
-        product_width = $(this).val();
-        getLengthWidthPrice();
-    });
-
-    $('#product_length, #length_width_color').change(function() {
-        product_length = $(this).val();
-        getLengthWidthPrice();
-    });
-
-    $('#page_product_width, #page_product_length, #page_product_total_page, #page_product_total_sheets, #page_length_width_color, #page_product_total_quantity')
-        .change(function() {
-            getPageLengthWidthPrice();
-        });
-
-    $('#product_depth_width, #product_depth_total_page, #product_depth_length, #product_depth, #depth_color').change(
-        function() {
-            getDepthLengthWidthPrice();
-        });
+    console.log(price);
+    $('[name="price"]').val(price * quantity);
+    $('#total-price').html((price * quantity * $('#quantity').val()).toFixed(2));
+  }
 </script>

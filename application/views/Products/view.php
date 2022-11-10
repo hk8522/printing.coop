@@ -147,6 +147,7 @@ overflow: hidden;
                                     <?php if ($provider) {
                                         $this->view('Products/product_detail_provider');
                                     } else {
+                                        ///// new structure
                                         $this->view('Products/product_detail');
                                     } ?>
                                 </div>
