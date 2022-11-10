@@ -171,16 +171,6 @@
                                                             <a href="<?= $BASE_URL . $class_name . $sub_page_delete_url . '/' . $list['id'] ?>" style="color:#d71b23;padding: 5px;" title="delete" onclick="return confirm('Are you sure you want to delete this product?');">
                                                                 <i class="fa fa-trash fa-lg"></i>
                                                             </a>
-
-                                                            <a href="<?= $BASE_URL . $class_name ?>SetMultipleAttributes/<?= $list['id'] ?>" style="color:geen;padding: 5px;" title="Set Single Attribute">
-                                                                <button type="button" class="custon-active">Multiple Attribute</button>
-                                                            </a>
-                                                            <!-- <a href="<?= $BASE_URL . $class_name ?>SetMultipleAttributesAuto/<?= $list['id'] ?>" style="color:geen;padding: 5px;" title="Set Single Attribute">
-                                                                <button type="button" class="custon-active">Multiple Attribute (Automatic)</button>
-                                                            </a> -->
-                                                            <a href="<?= $BASE_URL . $class_name ?>SetSingleAttributes/<?= $list['id'] ?>" style="color:#geen;padding: 5px;" title="Set Single Attribute">
-                                                                <button type="button" class="custon-active">Single Attribute</button>
-                                                            </a>
                                                         </div>
                                                     </td>
                                                 </tr>
