@@ -2094,7 +2094,7 @@
             </li>
             <li>
                 <a href="#">
-                    Contact Us
+                    Contact 
                 </a>
             </li>
         </ul>
